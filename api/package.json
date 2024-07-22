@@ -1,0 +1,32 @@
+{
+  "name": "model-template-api",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": "git@github.com:publicodes/model-template.git",
+  "homepage": "https://github.com/publicodes/model-template#readme",
+  "bugs": {
+    "url": "https://github.com/publicodes/model-template/issues"
+  },
+  "authors": [],
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "@koa/router": "^12.0.0",
+    "@publicodes/rest-api": "^1.1.0",
+    "koa": "^2.14.2",
+    "publicodes": "^1.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

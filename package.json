@@ -1,0 +1,39 @@
+{
+  "name": "model-template",
+  "version": "1.0.0",
+  "repository": "git@github.com:publicodes/model-template.git",
+  "homepage": "https://github.com/publicodes/model-template#readme",
+  "description": "",
+  "authors": [
+    "Emile Rolley <emile.rolley@tuta.io>"
+  ],
+  "bugs": {
+    "url": "https://github.com/publicodes/model-template/issues"
+  },
+  "files": [
+    "model-template.model.json",
+    "index.js",
+    "index.d.ts"
+  ],
+  "main": "index.js",
+  "module": "index.js",
+  "type": "module",
+  "types": "index.d.ts",
+  "scripts": {
+    "clean": "rm -r model-template.model.json index.d.ts index.js",
+    "build": "node build.js",
+    "api": "cd api && yarn start",
+    "doc": "yarn run build && cd doc && yarn run dev",
+    "doc:build": "yarn run build && cd doc && yarn run build"
+  },
+  "devDependencies": {
+    "@publicodes/tools": "^1.0.5"
+  },
+  "peerDependencies": {
+    "publicodes": "^1.1.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
