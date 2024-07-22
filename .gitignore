@@ -3,3 +3,6 @@ node_modules
 france-chaleur-urbaine-publicodes.model.json
 index.d.ts
 index.js
+
+# direnv
+.envrc
