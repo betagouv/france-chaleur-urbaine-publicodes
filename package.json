@@ -1,6 +1,6 @@
 {
-  "name": "france-chaleur-urbaine-publicodes",
-  "version": "1.0.0",
+  "name": "@totak/france-chaleur-urbaine-publicodes",
+  "version": "0.1.0",
   "repository": "git@github.com:betagouv/france-chaleur-urbaine-publicodes.git",
   "homepage": "https://github.com/betagouv/france-chaleur-urbaine-publicodes#readme",
   "description": "",
