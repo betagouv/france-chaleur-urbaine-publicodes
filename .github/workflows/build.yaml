@@ -43,9 +43,6 @@ jobs:
       - name: Build the documentation
         run: yarn doc:build
 
-      - name: Patch ignore to include doc/dist folder
-        run: sed -i '/\/dist/d' doc/.gitignore
-
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v3
         with:
