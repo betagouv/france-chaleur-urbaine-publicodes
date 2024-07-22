@@ -1,9 +1,9 @@
 {
-  "name": "model-template-doc",
+  "name": "france-chaleur-urbaine-publicodes-doc",
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://publicodes.github.io/model-template",
+  "homepage": "https://betagouv.github.io/france-chaleur-urbaine-publicodes",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

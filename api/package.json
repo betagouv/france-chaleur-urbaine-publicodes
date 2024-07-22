@@ -1,5 +1,5 @@
 {
-  "name": "model-template-api",
+  "name": "france-chaleur-urbaine-publicodes-api",
   "version": "0.1.0",
   "description": "",
   "type": "module",
@@ -11,10 +11,10 @@
   "scripts": {
     "start": "node server.js"
   },
-  "repository": "git@github.com:publicodes/model-template.git",
-  "homepage": "https://github.com/publicodes/model-template#readme",
+  "repository": "git@github.com:betagouv/france-chaleur-urbaine-publicodes.git",
+  "homepage": "https://github.com/betagouv/france-chaleur-urbaine-publicodes#readme",
   "bugs": {
-    "url": "https://github.com/publicodes/model-template/issues"
+    "url": "https://github.com/betagouv/france-chaleur-urbaine-publicodes/issues"
   },
   "authors": [],
   "license": "MIT",

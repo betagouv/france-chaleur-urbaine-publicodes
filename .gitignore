@@ -1,5 +1,5 @@
 node_modules
 .yarn
-model-template.model.json
+france-chaleur-urbaine-publicodes.model.json
 index.d.ts
 index.js

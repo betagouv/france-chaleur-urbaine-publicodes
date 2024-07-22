@@ -6,7 +6,7 @@ import Engine from "publicodes"
 const srcFiles = "rules/"
 
 // The path where the model will be generated (should match <your-package-name>.model.json)
-const destPath = "model-template.model.json"
+const destPath = "france-chaleur-urbaine-publicodes.model.json"
 
 // Resolves all rules and their dependencies into a single JSON object
 const model = getModelFromSource(srcFiles, { verbose: true })

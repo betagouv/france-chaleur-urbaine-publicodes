@@ -3,7 +3,7 @@ import Koa from "koa"
 import Engine from "publicodes"
 import { koaMiddleware as publicodesAPI } from "@publicodes/rest-api"
 
-import rules from "../model-template.model.json" assert { type: "json" }
+import rules from "../france-chaleur-urbaine-publicodes.model.json" assert { type: "json" }
 
 const app = new Koa()
 const router = new Router()

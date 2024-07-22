@@ -6,14 +6,14 @@ import { ComponentProps, useRef } from "react"
 import ReactMardown from "react-markdown"
 
 // Import the model from the compiled JSON file
-import model from "../../model-template.model.json"
+import model from "../../france-chaleur-urbaine-publicodes.model.json"
 
 // Instantiate the publicodes engine with the model
 const engine = new Engine(model)
 
 // The base URL of the application (in production, the app is served from a subdirectory of
 // the github pages repository, so we need to prefix all the URLs with the subdirectory)
-const baseUrl = process.env.NODE_ENV === "development" ? "" : "/model-template"
+const baseUrl = process.env.NODE_ENV === "development" ? "" : "/france-chaleur-urbaine-publicodes"
 
 // The default rule to display when the user lands on the documentation
 const defaultRule = "dépenses primeur"
@@ -34,7 +34,7 @@ function Documentation() {
         engine={engine}
         renderers={renderers}
         language={"fr"}
-        npmPackage="model-template"
+        npmPackage="france-chaleur-urbaine-publicodes"
       />
     </div>
   )

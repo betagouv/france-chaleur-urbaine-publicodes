@@ -3,11 +3,11 @@
 	<big>Publicodes Package Template</big>
   </h3>
   <p align="center">
-   <a href="https://github.com/publicodes/model-template/issues">Report Bug</a>
+   <a href="https://github.com/betagouv/france-chaleur-urbaine-publicodes/issues">Report Bug</a>
    •
-   <a href="https://publicodes.github.io/model-template/">API docs</a>
+   <a href="https://betagouv.github.io/france-chaleur-urbaine-publicodes/">API docs</a>
    •
-   <a href="https://github.com/publicodes/model-template/blob/master/CONTRIBUTING.md">Contribute</a>
+   <a href="https://github.com/betagouv/france-chaleur-urbaine-publicodes/blob/master/CONTRIBUTING.md">Contribute</a>
    •
    <a href="https://publi.codes">Publicodes</a>
   </p>
@@ -31,17 +31,17 @@ Pour utiliser ce template, il suffit de cliquer sur le bouton `Use this
 template`. Puis de remplacer les variables suivantes dans tous les fichiers du
 projet :
 
-- `model-template` : nom du paquet npm / nom du repository GitHub
+- `france-chaleur-urbaine-publicodes` : nom du paquet npm / nom du repository GitHub
 - `publicodes` : nom d'utilisateur GitHub / organisation GitHub
 
 Pour utiliser les fonctionnalités de la CI :
 
 1. Il faut décommenter les fichiers `./github/workflows/*.yaml`
 2. Ajouter les variables suivantes dans les secrets du repository GitHub : - `NPM_TOKEN` : token NPM pour publier le paquet sur [npmjs.com](https://npmjs.com) - `PAT` : Personal Access Token pour publier la documentation sur GitHub Pages
-   ![Screenshot from 2023-09-12 12-02-40](https://github.com/incubateur-ademe/publicodes-model-template/assets/44124798/a6fe53cc-5766-4541-8936-41d474ed0069)
+   ![Screenshot from 2023-09-12 12-02-40](https://github.com/incubateur-ademe/publicodes-france-chaleur-urbaine-publicodes/assets/44124798/a6fe53cc-5766-4541-8936-41d474ed0069)
 3. Aller dans les paramètres du repository GitHub et : - modifier les droits des worflows
-   ![image](https://github.com/incubateur-ademe/publicodes-model-template/assets/44124798/cd7e37f9-0641-44f2-b968-79faa778b832) - sélectionner la branche `gh-pages` dans les paramètres du repository
-   ![image](https://github.com/incubateur-ademe/publicodes-model-template/assets/44124798/77191750-12f1-4ab4-94a4-7447f1b77624)
+   ![image](https://github.com/incubateur-ademe/publicodes-france-chaleur-urbaine-publicodes/assets/44124798/cd7e37f9-0641-44f2-b968-79faa778b832) - sélectionner la branche `gh-pages` dans les paramètres du repository
+   ![image](https://github.com/incubateur-ademe/publicodes-france-chaleur-urbaine-publicodes/assets/44124798/77191750-12f1-4ab4-94a4-7447f1b77624)
 
 ## Exemples de dépôts utilisant ce template
 
@@ -59,14 +59,14 @@ Pour utiliser les fonctionnalités de la CI :
 Ajouter le paquet à vos dépendances :
 
 ```
-yarn add model-template
+yarn add france-chaleur-urbaine-publicodes
 ```
 
 Instancier un nouveau moteur Publicode :
 
 ```typescript
 import Engine from "publicodes"
-import rules from "model-template"
+import rules from "france-chaleur-urbaine-publicodes"
 
 const engine = new Engine(rules)
 
@@ -78,8 +78,8 @@ Utiliser certaines règles dans un autre modèle publicodes :
 ```yaml
 importer!:
   depuis:
-    nom: model-template
-    url: https://github.com/publicodes/model-template
+    nom: france-chaleur-urbaine-publicodes
+    url: https://github.com/betagouv/france-chaleur-urbaine-publicodes
   les règles:
     - prix . carottes
     - prix . carottes
@@ -91,7 +91,7 @@ importer!:
 #### Compiler le modèle
 
 > Les règles publicodes du modèle sont disponible dans le workspace
-> [`rules/`](https://github.com/publicodes/model-template/tree/main/rules).
+> [`rules/`](https://github.com/betagouv/france-chaleur-urbaine-publicodes/tree/main/rules).
 
 Pour installer les dépendances et compiler tous les fichiers `.publicodes` en
 un seul fichier JSON, il suffit d'exécuter la commande suivante :
@@ -105,7 +105,7 @@ yarn build
 #### Lancer la documentation
 
 > Le code de la documentation est disponible dans le workspace
-> [`doc/`](https://github.com/publicodes/model-template/tree/main/doc).
+> [`doc/`](https://github.com/betagouv/france-chaleur-urbaine-publicodes/tree/main/doc).
 
 Pour lancer l'app React en local permettant de parcourir la documentation du
 modèle, il suffit d'exécuter la commande suivante :
@@ -119,7 +119,7 @@ yarn doc
 #### Lancer l'API
 
 > Le code de l'API est disponible dans le workspace
-> [`api/`](https://github.com/publicodes/model-template/tree/main/api).
+> [`api/`](https://github.com/betagouv/france-chaleur-urbaine-publicodes/tree/main/api).
 
 Pour lancer le serveur Node permettant d'utiliser l'API REST, il faut utiliser les commandes
 suivantes :
