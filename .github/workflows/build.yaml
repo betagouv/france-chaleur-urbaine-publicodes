@@ -1,4 +1,5 @@
 name: Build rules
+
 on:
   push:
     branches:
@@ -17,12 +18,10 @@ jobs:
           node-version: 18
           cache: "yarn"
 
-      - id: install
-        name: Install dependencies
+      - name: Install dependencies
         run: yarn install --immutable
 
-      - id: build
-        name: Compile the rules
+      - name: Compile the rules
         run: yarn build
 
   deploy_gh_page:
@@ -38,12 +37,10 @@ jobs:
           node-version: 18
           cache: "yarn"
 
-      - id: install
-        name: Install dependencies
+      - name: Install dependencies
         run: yarn install --immutable && yarn install --immutable --cwd doc
 
-      - id: doc:build
-        name: Build the documentation
+      - name: Build the documentation
         run: yarn doc:build
 
       - name: Patch ignore to include doc/dist folder
