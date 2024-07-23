@@ -20,7 +20,7 @@ Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenari
 
 Ajouter le paquet à vos dépendances :
 
-```
+```sh
 yarn add @betagouv/france-chaleur-urbaine-publicodes
 ```
 
@@ -58,7 +58,7 @@ importer!:
 Pour installer les dépendances et compiler tous les fichiers `.publicodes` en
 un seul fichier JSON, il suffit d'exécuter la commande suivante :
 
-```
+```sh
 yarn
 
 yarn build
@@ -72,7 +72,7 @@ yarn build
 Pour lancer l'app React en local permettant de parcourir la documentation du
 modèle, il suffit d'exécuter la commande suivante :
 
-```
+```sh
 yarn install --cwd doc
 
 yarn doc
@@ -86,7 +86,7 @@ yarn doc
 Pour lancer le serveur Node permettant d'utiliser l'API REST, il faut utiliser les commandes
 suivantes :
 
-```
+```sh
 yarn install --cwd api
 
 yarn api
