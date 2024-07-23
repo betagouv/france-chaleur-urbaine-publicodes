@@ -12,7 +12,7 @@
    <a href="https://publi.codes">Publicodes</a>
   </p>
 
-Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenariat avec l'association [AMORCE](https://amorce.asso.fr/) dans le cadre de l'[action C3 programme européen Heat & Cool](https://www.cerema.fr/fr/actualites/quels-leviers-collectivites-locales-developper-reseaux)
+Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenariat avec l'association [AMORCE](https://amorce.asso.fr/) dans le cadre de l'[action C3 du programme européen Heat & Cool](https://www.cerema.fr/fr/actualites/quels-leviers-collectivites-locales-developper-reseaux)
 
 </div>
 
