@@ -92,7 +92,6 @@ yarn install --cwd api
 yarn api
 ```
 
-## Publier une nouvelle version
+## Publier une nouvelle version (manuellement pour le moment)
 
-Afin de publier une nouvelle version il suffit d'exécuter la commande `npm
-version`.
+Afin de publier une nouvelle version il suffit d'exécuter la commande `yarn publish`.
