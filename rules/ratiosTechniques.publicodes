@@ -1,0 +1,15 @@
+# Général
+SurfaceDeRéférenceAppartement: 70m2
+SurfaceDeRéférenceTertiaire: 2500m2
+Hauteur: 2.2m
+DJUREFChaud: 2200
+DJUREFFroid: 31
+NombreHabitantParLogement: 2.17personnes
+ZoneClimatiqueDeRéférence: "'H1'"
+DeltaTempératureRéférenceChaudFroid: 35°C
+ProductionECS: non
+TypeDeRésidentiel: "'individuel'"
+AppartementOuMaison: "'appartement'"
+NombreDeLogementImmeuble: 25personnes
+PartSurfaceÀClimatiserRésidentiel: 70%
+PartSurfaceÀClimatiserTertiaire: 100%

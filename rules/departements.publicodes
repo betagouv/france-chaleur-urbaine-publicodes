@@ -1,0 +1,578 @@
+départements:
+  avec:
+    AIN:
+      avec:
+        codeDepartement: '1'
+        djuChaudMoyen: 2042
+        djuFroidMoyen: 37
+        zoneClimatique: "'H1'"
+    AISNE:
+      avec:
+        codeDepartement: '2'
+        djuChaudMoyen: 2156
+        djuFroidMoyen: 9
+        zoneClimatique: "'H1'"
+    ALLIER:
+      avec:
+        codeDepartement: '3'
+        djuChaudMoyen: 2018
+        djuFroidMoyen: 25
+        zoneClimatique: "'H1'"
+    ALPES-DE-HAUTE:
+      avec:
+        codeDepartement: '4'
+        djuChaudMoyen: 1726
+        djuFroidMoyen: 54
+        zoneClimatique: "'H2'"
+    HAUTES-ALPES:
+      avec:
+        codeDepartement: '5'
+        djuChaudMoyen: 2236
+        djuFroidMoyen: 19
+        zoneClimatique: "'H1'"
+    ALPES-MARITIMES:
+      avec:
+        codeDepartement: '6'
+        djuChaudMoyen: 939
+        djuFroidMoyen: 60
+        zoneClimatique: "'H3'"
+    ARDECHE:
+      avec:
+        codeDepartement: '7'
+        djuChaudMoyen: 1639
+        djuFroidMoyen: 60
+        zoneClimatique: "'H2'"
+    ARDENNES:
+      avec:
+        codeDepartement: '8'
+        djuChaudMoyen: 2344
+        djuFroidMoyen: 4
+        zoneClimatique: "'H1'"
+    ARIEGE:
+      avec:
+        codeDepartement: '9'
+        djuChaudMoyen: 1750
+        djuFroidMoyen: 14
+        zoneClimatique: "'H2'"
+    AUBE:
+      avec:
+        codeDepartement: '10'
+        djuChaudMoyen: 2090
+        djuFroidMoyen: 16
+        zoneClimatique: "'H1'"
+    AUDE:
+      avec:
+        codeDepartement: '11'
+        djuChaudMoyen: 1410
+        djuFroidMoyen: 61
+        zoneClimatique: "'H3'"
+    AVEYRON:
+      avec:
+        codeDepartement: '12'
+        djuChaudMoyen: 2146
+        djuFroidMoyen: 21
+        zoneClimatique: "'H2'"
+    BOUCHES-DU-RHONE:
+      avec:
+        codeDepartement: '13'
+        djuChaudMoyen: 1188
+        djuFroidMoyen: 105
+        zoneClimatique: "'H3'"
+    CALVADOS:
+      avec:
+        codeDepartement: '14'
+        djuChaudMoyen: 1928
+        djuFroidMoyen: 4
+        zoneClimatique: "'H1'"
+    CANTAL:
+      avec:
+        codeDepartement: '15'
+        djuChaudMoyen: 2269
+        djuFroidMoyen: 9
+        zoneClimatique: "'H1'"
+    CHARENTE:
+      avec:
+        codeDepartement: '16'
+        djuChaudMoyen: 1525
+        djuFroidMoyen: 39
+        zoneClimatique: "'H2'"
+    CHARENTE-MARITIME:
+      avec:
+        codeDepartement: '17'
+        djuChaudMoyen: 1465
+        djuFroidMoyen: 21
+        zoneClimatique: "'H2'"
+    CHER:
+      avec:
+        codeDepartement: '18'
+        djuChaudMoyen: 1897
+        djuFroidMoyen: 28
+        zoneClimatique: "'H2'"
+    CORREZE:
+      avec:
+        codeDepartement: '19'
+        djuChaudMoyen: 1676
+        djuFroidMoyen: 36
+        zoneClimatique: "'H1'"
+    CORSE-DU-SUD:
+     avec:
+        codeDepartement: '2A'
+        djuChaudMoyen: 979
+        djuFroidMoyen: 60
+        zoneClimatique: "'H3'"
+    HAUTE-CORSE:
+     avec:
+        codeDepartement: '2B'
+        djuChaudMoyen: 972
+        djuFroidMoyen: 60
+        zoneClimatique: "'H3'"
+    COTE-D'OR:
+     avec:
+        codeDepartement: '21'
+        djuChaudMoyen: 2148
+        djuFroidMoyen: 28
+        zoneClimatique: "'H1'"
+    COTES-D'ARMOR:
+     avec:
+        codeDepartement: '22'
+        djuChaudMoyen: 1819
+        djuFroidMoyen: 2
+        zoneClimatique: "'H2'"
+    CREUSE:
+      avec:
+        codeDepartement: '23'
+        djuChaudMoyen: 2170
+        djuFroidMoyen: 8
+        zoneClimatique: "'H1'"
+    DORDOGNE:
+      avec:
+        codeDepartement: '24'
+        djuChaudMoyen: 1650
+        djuFroidMoyen: 24
+        zoneClimatique: "'H2'"
+    DOUBS:
+      avec:
+        codeDepartement: '25'
+        djuChaudMoyen: 2112
+        djuFroidMoyen: 24
+        zoneClimatique: "'H1'"
+    DROME:
+      avec:
+        codeDepartement: '26'
+        djuChaudMoyen: 1542
+        djuFroidMoyen: 91
+        zoneClimatique: "'H2'"
+    EURE:
+      avec:
+        codeDepartement: '27'
+        djuChaudMoyen: 2057
+        djuFroidMoyen: 10
+        zoneClimatique: "'H1'"
+    EURE-ET-LOIR:
+     avec:
+        codeDepartement: '28'
+        djuChaudMoyen: 2013
+        djuFroidMoyen: 13
+        zoneClimatique: "'H1'"
+    FINISTERE:
+      avec:
+        codeDepartement: '29'
+        djuChaudMoyen: 1729
+        djuFroidMoyen: 1
+        zoneClimatique: "'H2'"
+    GARD:
+      avec:
+        codeDepartement: '30'
+        djuChaudMoyen: 1236
+        djuFroidMoyen: 163
+        zoneClimatique: "'H3'"
+    HAUTE-GARONNE:
+      avec:
+        codeDepartement: '31'
+        djuChaudMoyen: 1459
+        djuFroidMoyen: 73
+        zoneClimatique: "'H2'"
+    GERS:
+      avec:
+        codeDepartement: '32'
+        djuChaudMoyen: 1578
+        djuFroidMoyen: 40
+        zoneClimatique: "'H2'"
+    GIRONDE:
+      avec:
+        codeDepartement: '33'
+        djuChaudMoyen: 1388
+        djuFroidMoyen: 50
+        zoneClimatique: "'H2'"
+    HERAULT:
+      avec:
+        codeDepartement: '34'
+        djuChaudMoyen: 1206
+        djuFroidMoyen: 92
+        zoneClimatique: "'H3'"
+    ILLE-ET-VILAINE:
+      avec:
+        codeDepartement: '35'
+        djuChaudMoyen: 1753
+        djuFroidMoyen: 8
+        zoneClimatique: "'H2'"
+    INDRE:
+      avec:
+        codeDepartement: '36'
+        djuChaudMoyen: 1932
+        djuFroidMoyen: 19
+        zoneClimatique: "'H2'"
+    INDRE-ET-LOIRE:
+     avec:
+        codeDepartement: '37'
+        djuChaudMoyen: 1812
+        djuFroidMoyen: 23
+        zoneClimatique: "'H2'"
+    ISERE:
+      avec:
+        codeDepartement: '38'
+        djuChaudMoyen: 2189
+        djuFroidMoyen: 16
+        zoneClimatique: "'H1'"
+    JURA:
+      avec:
+        codeDepartement: '39'
+        djuChaudMoyen: 2021
+        djuFroidMoyen: 42
+        zoneClimatique: "'H1'"
+    LANDES:
+      avec:
+        codeDepartement: '40'
+        djuChaudMoyen: 1480
+        djuFroidMoyen: 37
+        zoneClimatique: "'H2'"
+    LOIR-ET-CHER:
+      avec:
+        codeDepartement: '41'
+        djuChaudMoyen: 1985
+        djuFroidMoyen: 18
+        zoneClimatique: "'H2'"
+    LOIRE:
+      avec:
+        codeDepartement: '42'
+        djuChaudMoyen: 2062
+        djuFroidMoyen: 30
+        zoneClimatique: "'H1'"
+    HAUTE-LOIRE:
+      avec:
+        codeDepartement: '43'
+        djuChaudMoyen: 2600
+        djuFroidMoyen: 3
+        zoneClimatique: "'H1'"
+    LOIRE-ATLANTIQUE:
+      avec:
+        codeDepartement: '44'
+        djuChaudMoyen: 1650
+        djuFroidMoyen: 20
+        zoneClimatique: "'H2'"
+    LOIRET:
+      avec:
+        codeDepartement: '45'
+        djuChaudMoyen: 1990
+        djuFroidMoyen: 15
+        zoneClimatique: "'H1'"
+    LOT:
+      avec:
+        codeDepartement: '46'
+        djuChaudMoyen: 1713
+        djuFroidMoyen: 41
+        zoneClimatique: "'H2'"
+    LOT-ET-GARONNE:
+      avec:
+        codeDepartement: '47'
+        djuChaudMoyen: 1536
+        djuFroidMoyen: 45
+        zoneClimatique: "'H2'"
+    LOZERE:
+      avec:
+        codeDepartement: '48'
+        djuChaudMoyen: 2496
+        djuFroidMoyen: 6
+        zoneClimatique: "'H2'"
+    MAINE-ET-LOIRE:
+      avec:
+        codeDepartement: '49'
+        djuChaudMoyen: 1711
+        djuFroidMoyen: 18
+        zoneClimatique: "'H2'"
+    MANCHE:
+      avec:
+        codeDepartement: '50'
+        djuChaudMoyen: 1824
+        djuFroidMoyen: 0
+        zoneClimatique: "'H2'"
+    MARNE:
+      avec:
+        codeDepartement: '51'
+        djuChaudMoyen: 2144
+        djuFroidMoyen: 8
+        zoneClimatique: "'H1'"
+    HAUTE-MARNE:
+      avec:
+        codeDepartement: '52'
+        djuChaudMoyen: 2387
+        djuFroidMoyen: 24
+        zoneClimatique: "'H1'"
+    MAYENNE:
+      avec:
+        codeDepartement: '53'
+        djuChaudMoyen: 1900
+        djuFroidMoyen: 12
+        zoneClimatique: "'H2'"
+    MEURTHE-ET-MOSELLE:
+      avec:
+        codeDepartement: '54'
+        djuChaudMoyen: 2214
+        djuFroidMoyen: 18
+        zoneClimatique: "'H1'"
+    MEUSE:
+      avec:
+        codeDepartement: '55'
+        djuChaudMoyen: 2272
+        djuFroidMoyen: 21
+        zoneClimatique: "'H1'"
+    MORBIHAN:
+      avec:
+        codeDepartement: '56'
+        djuChaudMoyen: 1690
+        djuFroidMoyen: 9
+        zoneClimatique: "'H2'"
+    MOSELLE:
+      avec:
+        codeDepartement: '57'
+        djuChaudMoyen: 2219
+        djuFroidMoyen: 16
+        zoneClimatique: "'H1'"
+    NIEVRE:
+      avec:
+        codeDepartement: '58'
+        djuChaudMoyen: 2050
+        djuFroidMoyen: 15
+        zoneClimatique: "'H1'"
+    NORD:
+      avec:
+        codeDepartement: '59'
+        djuChaudMoyen: 2042
+        djuFroidMoyen: 13
+        zoneClimatique: "'H1'"
+    OISE:
+      avec:
+        codeDepartement: '60'
+        djuChaudMoyen: 2146
+        djuFroidMoyen: 6
+        zoneClimatique: "'H1'"
+    ORNE:
+      avec:
+        codeDepartement: '61'
+        djuChaudMoyen: 2015
+        djuFroidMoyen: 8
+        zoneClimatique: "'H1'"
+    PAS-DE-CALAIS:
+      avec:
+        codeDepartement: '62'
+        djuChaudMoyen: 1965
+        djuFroidMoyen: 6
+        zoneClimatique: "'H1'"
+    PUY-DE-DOME:
+      avec:
+        codeDepartement: '63'
+        djuChaudMoyen: 1897
+        djuFroidMoyen: 35
+        zoneClimatique: "'H1'"
+    PYRENEES-ATLANTIQUES:
+      avec:
+        codeDepartement: '64'
+        djuChaudMoyen: 1458
+        djuFroidMoyen: 22
+        zoneClimatique: "'H2'"
+    HAUTES-PYRENEES:
+      avec:
+        codeDepartement: '65'
+        djuChaudMoyen: 1693
+        djuFroidMoyen: 18
+        zoneClimatique: "'H2'"
+    PYRENEES-ORIENTALES:
+      avec:
+        codeDepartement: '66'
+        djuChaudMoyen: 1047
+        djuFroidMoyen: 133
+        zoneClimatique: "'H3'"
+    BAS-RHIN:
+      avec:
+        codeDepartement: '67'
+        djuChaudMoyen: 2117
+        djuFroidMoyen: 25
+        zoneClimatique: "'H1'"
+    HAUT-RHIN:
+      avec:
+        codeDepartement: '68'
+        djuChaudMoyen: 2203
+        djuFroidMoyen: 20
+        zoneClimatique: "'H1'"
+    RHONE:
+      avec:
+        codeDepartement: '69'
+        djuChaudMoyen: 1796
+        djuFroidMoyen: 72
+        zoneClimatique: "'H1'"
+    HAUTE-SAONE:
+      avec:
+        codeDepartement: '70'
+        djuChaudMoyen: 2277
+        djuFroidMoyen: 14
+        zoneClimatique: "'H1'"
+    SAONE-ET-LOIRE:
+      avec:
+        codeDepartement: '71'
+        djuChaudMoyen: 1935
+        djuFroidMoyen: 40
+        zoneClimatique: "'H1'"
+    SARTHE:
+      avec:
+        codeDepartement: '72'
+        djuChaudMoyen: 1772
+        djuFroidMoyen: 26
+        zoneClimatique: "'H2'"
+    SAVOIE:
+      avec:
+        codeDepartement: '73'
+        djuChaudMoyen: 2357
+        djuFroidMoyen: 26
+        zoneClimatique: "'H1'"
+    HAUTE-SAVOIE:
+      avec:
+        codeDepartement: '74'
+        djuChaudMoyen: 2245
+        djuFroidMoyen: 7
+        zoneClimatique: "'H1'"
+    PARIS:
+      avec:
+        codeDepartement: '75'
+        djuChaudMoyen: 1718
+        djuFroidMoyen: 35
+        zoneClimatique: "'H1'"
+    SEINE-MARITIME:
+      avec:
+        codeDepartement: '76'
+        djuChaudMoyen: 2079
+        djuFroidMoyen: 5
+        zoneClimatique: "'H1'"
+    SEINE-ET-MARNE:
+      avec:
+        codeDepartement: '77'
+        djuChaudMoyen: 1982
+        djuFroidMoyen: 15
+        zoneClimatique: "'H1'"
+    YVELINES:
+      avec:
+        codeDepartement: '78'
+        djuChaudMoyen: 2017
+        djuFroidMoyen: 22
+        zoneClimatique: "'H1'"
+    DEUX-SEVRES:
+      avec:
+        codeDepartement: '79'
+        djuChaudMoyen: 1688
+        djuFroidMoyen: 29
+        zoneClimatique: "'H2'"
+    SOMME:
+      avec:
+        codeDepartement: '80'
+        djuChaudMoyen: 2019
+        djuFroidMoyen: 8
+        zoneClimatique: "'H1'"
+    TARN:
+      avec:
+        codeDepartement: '81'
+        djuChaudMoyen: 1622
+        djuFroidMoyen: 69
+        zoneClimatique: "'H2'"
+    TARN-ET-GARONNE:
+      avec:
+        codeDepartement: '82'
+        djuChaudMoyen: 1559
+        djuFroidMoyen: 58
+        zoneClimatique: "'H3'"
+    VAR:
+      avec:
+        codeDepartement: '83'
+        djuChaudMoyen: 1224
+        djuFroidMoyen: 58
+        zoneClimatique: "'H3'"
+    VAUCLUSE:
+      avec:
+        codeDepartement: '84'
+        djuChaudMoyen: 1464
+        djuFroidMoyen: 115
+        zoneClimatique: "'H2'"
+    VENDEE:
+      avec:
+        codeDepartement: '85'
+        djuChaudMoyen: 1730
+        djuFroidMoyen: 9
+        zoneClimatique: "'H2'"
+    VIENNE:
+      avec:
+        codeDepartement: '86'
+        djuChaudMoyen: 1823
+        djuFroidMoyen: 21
+        zoneClimatique: "'H2'"
+    HAUTE-VIENNE:
+      avec:
+        codeDepartement: '87'
+        djuChaudMoyen: 1943
+        djuFroidMoyen: 25
+        zoneClimatique: "'H1'"
+    VOSGES:
+      avec:
+        codeDepartement: '88'
+        djuChaudMoyen: 2346
+        djuFroidMoyen: 11
+        zoneClimatique: "'H1'"
+    YONNE:
+      avec:
+        codeDepartement: '89'
+        djuChaudMoyen: 2085
+        djuFroidMoyen: 20
+        zoneClimatique: "'H1'"
+    TERRITOIRE DE BELFORT:
+      avec:
+        codeDepartement: '90'
+        djuChaudMoyen: 2255
+        djuFroidMoyen: 24
+        zoneClimatique: "'H1'"
+    ESSONNE:
+      avec:
+        codeDepartement: '91'
+        djuChaudMoyen: 1893
+        djuFroidMoyen: 24
+        zoneClimatique: "'H1'"
+    HAUTS-DE-SEINE:
+      avec:
+        codeDepartement: '92'
+        djuChaudMoyen: 1764
+        djuFroidMoyen: 35
+        zoneClimatique: "'H1'"
+    SEINE-SAINT-DENIS:
+      avec:
+        codeDepartement: '93'
+        djuChaudMoyen: 1873
+        djuFroidMoyen: 35
+        zoneClimatique: "'H1'"
+    VAL-DE-MARNE:
+      avec:
+        codeDepartement: '94'
+        djuChaudMoyen: 1764
+        djuFroidMoyen: 35
+        zoneClimatique: "'H1'"
+    VAL-D'OISE:
+      avec:
+        codeDepartement: '95'
+        djuChaudMoyen: 1899
+        djuFroidMoyen: 24
+        zoneClimatique: "'H1'"
