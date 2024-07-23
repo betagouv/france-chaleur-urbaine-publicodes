@@ -1,43 +1,445 @@
-taille:
-  question: Quelle est votre taille (en cm) ?
-  unité: cm
-  valeur: 180
+département:
+  question: département de l'utilisateur
+commune:
+  question: commune de l'utilisateur
 
-poids:
-  question: Quel est votre poids (en kg) ?
-  unité: kg
-  valeur: 70
-
-# Convertit la taille en mètres
-taille mètres:
-  valeur: taille
-  unité: m
-
-# Calcul l'IMC à partir de la taille en mètres
-imc:
-  valeur: poids / ((taille mètres) * (taille mètres))
-  unité: kg/m2
-
-# Affiche le résultat
-résultat:
-  applicable si: imc
-  texte: |
-    Votre IMC est de {{ imc }}
-    Interprétation: {{ résultat . interpretation }}
-
-# Interprétations de l'IMC
-résultat . interpretation:
+DegréJoursUnifiéSpécifiqueChaud:
+  # formule: (getValue) => departements.find((d) => d.codeDepartement === getValue('Departement'))?.djuMoyenne ?? ratiosTechniques.DJUREFChaud,
   variations:
-    - si: imc >= 40
-      alors: "'obésité morbide ou massive'"
-    - si: imc >= 35
-      alors: "'obésité sévère'"
-    - si: imc >= 30
-      alors: "'obésité modérée'"
-    - si: imc >= 25
-      alors: "'surpoids'"
-    - si: imc >= 18.5
-      alors: "'poids normal'"
-    - si: imc >= 16.5
-      alors: "'maigreur'"
-    - sinon: "'dénutrition'"
+    - si: département = "AIN"
+      alors: départements . AIN . djuChaudMoyen
+    - si: département = "AISNE"
+      alors: départements . AISNE . djuChaudMoyen
+    - si: département = "ALLIER"
+      alors: départements . ALLIER . djuChaudMoyen
+    - si: département = "ALPES-DE-HAUTE"
+      alors: départements . ALPES-DE-HAUTE . djuChaudMoyen
+    - si: département = "HAUTES-ALPES"
+      alors: départements . HAUTES-ALPES . djuChaudMoyen
+    - si: département = "ALPES-MARITIMES"
+      alors: départements . ALPES-MARITIMES . djuChaudMoyen
+    - si: département = "ARDECHE"
+      alors: départements . ARDECHE . djuChaudMoyen
+    - si: département = "ARDENNES"
+      alors: départements . ARDENNES . djuChaudMoyen
+    - si: département = "ARIEGE"
+      alors: départements . ARIEGE . djuChaudMoyen
+    - si: département = "AUBE"
+      alors: départements . AUBE . djuChaudMoyen
+    - si: département = "AUDE"
+      alors: départements . AUDE . djuChaudMoyen
+    - si: département = "AVEYRON"
+      alors: départements . AVEYRON . djuChaudMoyen
+    - si: département = "BOUCHES-DU-RHONE"
+      alors: départements . BOUCHES-DU-RHONE . djuChaudMoyen
+    - si: département = "CALVADOS"
+      alors: départements . CALVADOS . djuChaudMoyen
+    - si: département = "CANTAL"
+      alors: départements . CANTAL . djuChaudMoyen
+    - si: département = "CHARENTE"
+      alors: départements . CHARENTE . djuChaudMoyen
+    - si: département = "CHARENTE-MARITIME"
+      alors: départements . CHARENTE-MARITIME . djuChaudMoyen
+    - si: département = "CHER"
+      alors: départements . CHER . djuChaudMoyen
+    - si: département = "CORREZE"
+      alors: départements . CORREZE . djuChaudMoyen
+    - si: département = "CORSE-DU-SUD"
+      alors: départements . CORSE-DU-SUD . djuChaudMoyen
+    - si: département = "HAUTE-CORSE"
+      alors: départements . HAUTE-CORSE . djuChaudMoyen
+    - si: département = "COTE-D'OR"
+      alors: départements . COTE-D'OR . djuChaudMoyen
+    - si: département = "COTES-D'ARMOR"
+      alors: départements . COTES-D'ARMOR . djuChaudMoyen
+    - si: département = "CREUSE"
+      alors: départements . CREUSE . djuChaudMoyen
+    - si: département = "DORDOGNE"
+      alors: départements . DORDOGNE . djuChaudMoyen
+    - si: département = "DOUBS"
+      alors: départements . DOUBS . djuChaudMoyen
+    - si: département = "DROME"
+      alors: départements . DROME . djuChaudMoyen
+    - si: département = "EURE"
+      alors: départements . EURE . djuChaudMoyen
+    - si: département = "EURE-ET-LOIR"
+      alors: départements . EURE-ET-LOIR . djuChaudMoyen
+    - si: département = "FINISTERE"
+      alors: départements . FINISTERE . djuChaudMoyen
+    - si: département = "GARD"
+      alors: départements . GARD . djuChaudMoyen
+    - si: département = "HAUTE-GARONNE"
+      alors: départements . HAUTE-GARONNE . djuChaudMoyen
+    - si: département = "GERS"
+      alors: départements . GERS . djuChaudMoyen
+    - si: département = "GIRONDE"
+      alors: départements . GIRONDE . djuChaudMoyen
+    - si: département = "HERAULT"
+      alors: départements . HERAULT . djuChaudMoyen
+    - si: département = "ILLE-ET-VILAINE"
+      alors: départements . ILLE-ET-VILAINE . djuChaudMoyen
+    - si: département = "INDRE"
+      alors: départements . INDRE . djuChaudMoyen
+    - si: département = "INDRE-ET-LOIRE"
+      alors: départements . INDRE-ET-LOIRE . djuChaudMoyen
+    - si: département = "ISERE"
+      alors: départements . ISERE . djuChaudMoyen
+    - si: département = "JURA"
+      alors: départements . JURA . djuChaudMoyen
+    - si: département = "LANDES"
+      alors: départements . LANDES . djuChaudMoyen
+    - si: département = "LOIR-ET-CHER"
+      alors: départements . LOIR-ET-CHER . djuChaudMoyen
+    - si: département = "LOIRE"
+      alors: départements . LOIRE . djuChaudMoyen
+    - si: département = "HAUTE-LOIRE"
+      alors: départements . HAUTE-LOIRE . djuChaudMoyen
+    - si: département = "LOIRE-ATLANTIQUE"
+      alors: départements . LOIRE-ATLANTIQUE . djuChaudMoyen
+    - si: département = "LOIRET"
+      alors: départements . LOIRET . djuChaudMoyen
+    - si: département = "LOT"
+      alors: départements . LOT . djuChaudMoyen
+    - si: département = "LOT-ET-GARONNE"
+      alors: départements . LOT-ET-GARONNE . djuChaudMoyen
+    - si: département = "LOZERE"
+      alors: départements . LOZERE . djuChaudMoyen
+    - si: département = "MAINE-ET-LOIRE"
+      alors: départements . MAINE-ET-LOIRE . djuChaudMoyen
+    - si: département = "MANCHE"
+      alors: départements . MANCHE . djuChaudMoyen
+    - si: département = "MARNE"
+      alors: départements . MARNE . djuChaudMoyen
+    - si: département = "HAUTE-MARNE"
+      alors: départements . HAUTE-MARNE . djuChaudMoyen
+    - si: département = "MAYENNE"
+      alors: départements . MAYENNE . djuChaudMoyen
+    - si: département = "MEURTHE-ET-MOSELLE"
+      alors: départements . MEURTHE-ET-MOSELLE . djuChaudMoyen
+    - si: département = "MEUSE"
+      alors: départements . MEUSE . djuChaudMoyen
+    - si: département = "MORBIHAN"
+      alors: départements . MORBIHAN . djuChaudMoyen
+    - si: département = "MOSELLE"
+      alors: départements . MOSELLE . djuChaudMoyen
+    - si: département = "NIEVRE"
+      alors: départements . NIEVRE . djuChaudMoyen
+    - si: département = "NORD"
+      alors: départements . NORD . djuChaudMoyen
+    - si: département = "OISE"
+      alors: départements . OISE . djuChaudMoyen
+    - si: département = "ORNE"
+      alors: départements . ORNE . djuChaudMoyen
+    - si: département = "PAS-DE-CALAIS"
+      alors: départements . PAS-DE-CALAIS . djuChaudMoyen
+    - si: département = "PUY-DE-DOME"
+      alors: départements . PUY-DE-DOME . djuChaudMoyen
+    - si: département = "PYRENEES-ATLANTIQUES"
+      alors: départements . PYRENEES-ATLANTIQUES . djuChaudMoyen
+    - si: département = "HAUTES-PYRENEES"
+      alors: départements . HAUTES-PYRENEES . djuChaudMoyen
+    - si: département = "PYRENEES-ORIENTALES"
+      alors: départements . PYRENEES-ORIENTALES . djuChaudMoyen
+    - si: département = "BAS-RHIN"
+      alors: départements . BAS-RHIN . djuChaudMoyen
+    - si: département = "HAUT-RHIN"
+      alors: départements . HAUT-RHIN . djuChaudMoyen
+    - si: département = "RHONE"
+      alors: départements . RHONE . djuChaudMoyen
+    - si: département = "HAUTE-SAONE"
+      alors: départements . HAUTE-SAONE . djuChaudMoyen
+    - si: département = "SAONE-ET-LOIRE"
+      alors: départements . SAONE-ET-LOIRE . djuChaudMoyen
+    - si: département = "SARTHE"
+      alors: départements . SARTHE . djuChaudMoyen
+    - si: département = "SAVOIE"
+      alors: départements . SAVOIE . djuChaudMoyen
+    - si: département = "HAUTE-SAVOIE"
+      alors: départements . HAUTE-SAVOIE . djuChaudMoyen
+    - si: département = "PARIS"
+      alors: départements . PARIS . djuChaudMoyen
+    - si: département = "SEINE-MARITIME"
+      alors: départements . SEINE-MARITIME . djuChaudMoyen
+    - si: département = "SEINE-ET-MARNE"
+      alors: départements . SEINE-ET-MARNE . djuChaudMoyen
+    - si: département = "YVELINES"
+      alors: départements . YVELINES . djuChaudMoyen
+    - si: département = "DEUX-SEVRES"
+      alors: départements . DEUX-SEVRES . djuChaudMoyen
+    - si: département = "SOMME"
+      alors: départements . SOMME . djuChaudMoyen
+    - si: département = "TARN"
+      alors: départements . TARN . djuChaudMoyen
+    - si: département = "TARN-ET-GARONNE"
+      alors: départements . TARN-ET-GARONNE . djuChaudMoyen
+    - si: département = "VAR"
+      alors: départements . VAR . djuChaudMoyen
+    - si: département = "VAUCLUSE"
+      alors: départements . VAUCLUSE . djuChaudMoyen
+    - si: département = "VENDEE"
+      alors: départements . VENDEE . djuChaudMoyen
+    - si: département = "VIENNE"
+      alors: départements . VIENNE . djuChaudMoyen
+    - si: département = "HAUTE-VIENNE"
+      alors: départements . HAUTE-VIENNE . djuChaudMoyen
+    - si: département = "VOSGES"
+      alors: départements . VOSGES . djuChaudMoyen
+    - si: département = "YONNE"
+      alors: départements . YONNE . djuChaudMoyen
+    - si: département = "TERRITOIRE DE BELFORT"
+      alors: départements . TERRITOIRE DE BELFORT . djuChaudMoyen
+    - si: département = "ESSONNE"
+      alors: départements . ESSONNE . djuChaudMoyen
+    - si: département = "HAUTS-DE-SEINE"
+      alors: départements . HAUTS-DE-SEINE . djuChaudMoyen
+    - si: département = "SEINE-SAINT-DENIS"
+      alors: départements . SEINE-SAINT-DENIS . djuChaudMoyen
+    - si: département = "VAL-DE-MARNE"
+      alors: départements . VAL-DE-MARNE . djuChaudMoyen
+    - si: département = "VAL-D'OISE"
+      alors: départements . VAL-D'OISE . djuChaudMoyen
+    - sinon: DJUREFChaud
+
+
+DegréJoursUnifiéSpécifiqueFroid:
+  # formule: (getValue) => departements.find((d) => d.codeDepartement === getValue('Departement'))?.djuFroidMoyen ?? ratiosTechniques.DJUREFFroid,
+  variations:
+    - si: département = "AIN"
+      alors: départements . AIN . djuFroidMoyen
+    - si: département = "AISNE"
+      alors: départements . AISNE . djuFroidMoyen
+    - si: département = "ALLIER"
+      alors: départements . ALLIER . djuFroidMoyen
+    - si: département = "ALPES-DE-HAUTE"
+      alors: départements . ALPES-DE-HAUTE . djuFroidMoyen
+    - si: département = "HAUTES-ALPES"
+      alors: départements . HAUTES-ALPES . djuFroidMoyen
+    - si: département = "ALPES-MARITIMES"
+      alors: départements . ALPES-MARITIMES . djuFroidMoyen
+    - si: département = "ARDECHE"
+      alors: départements . ARDECHE . djuFroidMoyen
+    - si: département = "ARDENNES"
+      alors: départements . ARDENNES . djuFroidMoyen
+    - si: département = "ARIEGE"
+      alors: départements . ARIEGE . djuFroidMoyen
+    - si: département = "AUBE"
+      alors: départements . AUBE . djuFroidMoyen
+    - si: département = "AUDE"
+      alors: départements . AUDE . djuFroidMoyen
+    - si: département = "AVEYRON"
+      alors: départements . AVEYRON . djuFroidMoyen
+    - si: département = "BOUCHES-DU-RHONE"
+      alors: départements . BOUCHES-DU-RHONE . djuFroidMoyen
+    - si: département = "CALVADOS"
+      alors: départements . CALVADOS . djuFroidMoyen
+    - si: département = "CANTAL"
+      alors: départements . CANTAL . djuFroidMoyen
+    - si: département = "CHARENTE"
+      alors: départements . CHARENTE . djuFroidMoyen
+    - si: département = "CHARENTE-MARITIME"
+      alors: départements . CHARENTE-MARITIME . djuFroidMoyen
+    - si: département = "CHER"
+      alors: départements . CHER . djuFroidMoyen
+    - si: département = "CORREZE"
+      alors: départements . CORREZE . djuFroidMoyen
+    - si: département = "CORSE-DU-SUD"
+      alors: départements . CORSE-DU-SUD . djuFroidMoyen
+    - si: département = "HAUTE-CORSE"
+      alors: départements . HAUTE-CORSE . djuFroidMoyen
+    - si: département = "COTE-D'OR"
+      alors: départements . COTE-D'OR . djuFroidMoyen
+    - si: département = "COTES-D'ARMOR"
+      alors: départements . COTES-D'ARMOR . djuFroidMoyen
+    - si: département = "CREUSE"
+      alors: départements . CREUSE . djuFroidMoyen
+    - si: département = "DORDOGNE"
+      alors: départements . DORDOGNE . djuFroidMoyen
+    - si: département = "DOUBS"
+      alors: départements . DOUBS . djuFroidMoyen
+    - si: département = "DROME"
+      alors: départements . DROME . djuFroidMoyen
+    - si: département = "EURE"
+      alors: départements . EURE . djuFroidMoyen
+    - si: département = "EURE-ET-LOIR"
+      alors: départements . EURE-ET-LOIR . djuFroidMoyen
+    - si: département = "FINISTERE"
+      alors: départements . FINISTERE . djuFroidMoyen
+    - si: département = "GARD"
+      alors: départements . GARD . djuFroidMoyen
+    - si: département = "HAUTE-GARONNE"
+      alors: départements . HAUTE-GARONNE . djuFroidMoyen
+    - si: département = "GERS"
+      alors: départements . GERS . djuFroidMoyen
+    - si: département = "GIRONDE"
+      alors: départements . GIRONDE . djuFroidMoyen
+    - si: département = "HERAULT"
+      alors: départements . HERAULT . djuFroidMoyen
+    - si: département = "ILLE-ET-VILAINE"
+      alors: départements . ILLE-ET-VILAINE . djuFroidMoyen
+    - si: département = "INDRE"
+      alors: départements . INDRE . djuFroidMoyen
+    - si: département = "INDRE-ET-LOIRE"
+      alors: départements . INDRE-ET-LOIRE . djuFroidMoyen
+    - si: département = "ISERE"
+      alors: départements . ISERE . djuFroidMoyen
+    - si: département = "JURA"
+      alors: départements . JURA . djuFroidMoyen
+    - si: département = "LANDES"
+      alors: départements . LANDES . djuFroidMoyen
+    - si: département = "LOIR-ET-CHER"
+      alors: départements . LOIR-ET-CHER . djuFroidMoyen
+    - si: département = "LOIRE"
+      alors: départements . LOIRE . djuFroidMoyen
+    - si: département = "HAUTE-LOIRE"
+      alors: départements . HAUTE-LOIRE . djuFroidMoyen
+    - si: département = "LOIRE-ATLANTIQUE"
+      alors: départements . LOIRE-ATLANTIQUE . djuFroidMoyen
+    - si: département = "LOIRET"
+      alors: départements . LOIRET . djuFroidMoyen
+    - si: département = "LOT"
+      alors: départements . LOT . djuFroidMoyen
+    - si: département = "LOT-ET-GARONNE"
+      alors: départements . LOT-ET-GARONNE . djuFroidMoyen
+    - si: département = "LOZERE"
+      alors: départements . LOZERE . djuFroidMoyen
+    - si: département = "MAINE-ET-LOIRE"
+      alors: départements . MAINE-ET-LOIRE . djuFroidMoyen
+    - si: département = "MANCHE"
+      alors: départements . MANCHE . djuFroidMoyen
+    - si: département = "MARNE"
+      alors: départements . MARNE . djuFroidMoyen
+    - si: département = "HAUTE-MARNE"
+      alors: départements . HAUTE-MARNE . djuFroidMoyen
+    - si: département = "MAYENNE"
+      alors: départements . MAYENNE . djuFroidMoyen
+    - si: département = "MEURTHE-ET-MOSELLE"
+      alors: départements . MEURTHE-ET-MOSELLE . djuFroidMoyen
+    - si: département = "MEUSE"
+      alors: départements . MEUSE . djuFroidMoyen
+    - si: département = "MORBIHAN"
+      alors: départements . MORBIHAN . djuFroidMoyen
+    - si: département = "MOSELLE"
+      alors: départements . MOSELLE . djuFroidMoyen
+    - si: département = "NIEVRE"
+      alors: départements . NIEVRE . djuFroidMoyen
+    - si: département = "NORD"
+      alors: départements . NORD . djuFroidMoyen
+    - si: département = "OISE"
+      alors: départements . OISE . djuFroidMoyen
+    - si: département = "ORNE"
+      alors: départements . ORNE . djuFroidMoyen
+    - si: département = "PAS-DE-CALAIS"
+      alors: départements . PAS-DE-CALAIS . djuFroidMoyen
+    - si: département = "PUY-DE-DOME"
+      alors: départements . PUY-DE-DOME . djuFroidMoyen
+    - si: département = "PYRENEES-ATLANTIQUES"
+      alors: départements . PYRENEES-ATLANTIQUES . djuFroidMoyen
+    - si: département = "HAUTES-PYRENEES"
+      alors: départements . HAUTES-PYRENEES . djuFroidMoyen
+    - si: département = "PYRENEES-ORIENTALES"
+      alors: départements . PYRENEES-ORIENTALES . djuFroidMoyen
+    - si: département = "BAS-RHIN"
+      alors: départements . BAS-RHIN . djuFroidMoyen
+    - si: département = "HAUT-RHIN"
+      alors: départements . HAUT-RHIN . djuFroidMoyen
+    - si: département = "RHONE"
+      alors: départements . RHONE . djuFroidMoyen
+    - si: département = "HAUTE-SAONE"
+      alors: départements . HAUTE-SAONE . djuFroidMoyen
+    - si: département = "SAONE-ET-LOIRE"
+      alors: départements . SAONE-ET-LOIRE . djuFroidMoyen
+    - si: département = "SARTHE"
+      alors: départements . SARTHE . djuFroidMoyen
+    - si: département = "SAVOIE"
+      alors: départements . SAVOIE . djuFroidMoyen
+    - si: département = "HAUTE-SAVOIE"
+      alors: départements . HAUTE-SAVOIE . djuFroidMoyen
+    - si: département = "PARIS"
+      alors: départements . PARIS . djuFroidMoyen
+    - si: département = "SEINE-MARITIME"
+      alors: départements . SEINE-MARITIME . djuFroidMoyen
+    - si: département = "SEINE-ET-MARNE"
+      alors: départements . SEINE-ET-MARNE . djuFroidMoyen
+    - si: département = "YVELINES"
+      alors: départements . YVELINES . djuFroidMoyen
+    - si: département = "DEUX-SEVRES"
+      alors: départements . DEUX-SEVRES . djuFroidMoyen
+    - si: département = "SOMME"
+      alors: départements . SOMME . djuFroidMoyen
+    - si: département = "TARN"
+      alors: départements . TARN . djuFroidMoyen
+    - si: département = "TARN-ET-GARONNE"
+      alors: départements . TARN-ET-GARONNE . djuFroidMoyen
+    - si: département = "VAR"
+      alors: départements . VAR . djuFroidMoyen
+    - si: département = "VAUCLUSE"
+      alors: départements . VAUCLUSE . djuFroidMoyen
+    - si: département = "VENDEE"
+      alors: départements . VENDEE . djuFroidMoyen
+    - si: département = "VIENNE"
+      alors: départements . VIENNE . djuFroidMoyen
+    - si: département = "HAUTE-VIENNE"
+      alors: départements . HAUTE-VIENNE . djuFroidMoyen
+    - si: département = "VOSGES"
+      alors: départements . VOSGES . djuFroidMoyen
+    - si: département = "YONNE"
+      alors: départements . YONNE . djuFroidMoyen
+    - si: département = "TERRITOIRE DE BELFORT"
+      alors: départements . TERRITOIRE DE BELFORT . djuFroidMoyen
+    - si: département = "ESSONNE"
+      alors: départements . ESSONNE . djuFroidMoyen
+    - si: département = "HAUTS-DE-SEINE"
+      alors: départements . HAUTS-DE-SEINE . djuFroidMoyen
+    - si: département = "SEINE-SAINT-DENIS"
+      alors: départements . SEINE-SAINT-DENIS . djuFroidMoyen
+    - si: département = "VAL-DE-MARNE"
+      alors: départements . VAL-DE-MARNE . djuFroidMoyen
+    - si: département = "VAL-D'OISE"
+      alors: départements . VAL-D'OISE . djuFroidMoyen
+    - sinon: DJUREFChaud
+
+
+# Calcul puissance
+Puissance TempératureDeNonChauffage:
+  formule: 18
+  unité: °C
+Puissance FacteurDeSurpuissance:
+  formule: 20
+  unité: '%'
+Puissance NombreHeureFonctionnementNonClimatiqueECS:
+  formule: 3000
+  unité: h
+Puissance CoefficientDeFoisonnementECS:
+  formule: 50
+  unité: '%'
+Puissance CoefficientDeFoisonnementChauffageCollectif:
+  formule: 80
+  unité: '%'
+
+# RCU
+RCU RendementSousStationChauffage:
+  formule: 98
+  unité: '%'
+RCU RendementSousStationECS:
+  formule: 98
+  unité: '%'
+RCU ConsoAuxilliaireChauffage:
+  formule: 91
+  unité: '%'
+RCU ConsoAuxilliaireECS:
+  formule: 96
+  unité: '%'
+RCU DuréeDeVie:
+  formule: 30
+  unité: années
+
+# RFU
+RFU RendementSousStation:
+  formule: 98
+  unité: '%'
+RFU ConsoAuxilliaire:
+  formule: 95
+  unité: '%'
+RFU DuréeDeVie:
+  formule: 30
+  unité: années
