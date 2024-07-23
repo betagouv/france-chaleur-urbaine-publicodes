@@ -21,14 +21,14 @@ Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenari
 Ajouter le paquet à vos dépendances :
 
 ```
-yarn add @totak/france-chaleur-urbaine-publicodes
+yarn add @betagouv/france-chaleur-urbaine-publicodes
 ```
 
 Instancier un nouveau moteur Publicode :
 
 ```typescript
 import Engine from "publicodes"
-import rules from "@totak/france-chaleur-urbaine-publicodes"
+import rules from "@betagouv/france-chaleur-urbaine-publicodes"
 
 const engine = new Engine(rules)
 
@@ -40,7 +40,7 @@ Utiliser certaines règles dans un autre modèle publicodes :
 ```yaml
 importer!:
   depuis:
-    nom: @totak/france-chaleur-urbaine-publicodes
+    nom: @betagouv/france-chaleur-urbaine-publicodes
     url: https://github.com/betagouv/france-chaleur-urbaine-publicodes
   les règles:
     - prix . carottes
