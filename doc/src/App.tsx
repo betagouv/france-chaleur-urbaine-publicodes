@@ -16,7 +16,7 @@ const engine = new Engine(model)
 const baseUrl = process.env.NODE_ENV === "development" ? "" : "/france-chaleur-urbaine-publicodes"
 
 // The default rule to display when the user lands on the documentation
-const defaultRule = "dépenses primeur"
+const defaultRule = "résultat . interpretation"
 
 function Documentation() {
   const url = useParams()["*"]
