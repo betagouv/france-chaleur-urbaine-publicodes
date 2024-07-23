@@ -34,7 +34,7 @@ function Documentation() {
         engine={engine}
         renderers={renderers}
         language={"fr"}
-        npmPackage="france-chaleur-urbaine-publicodes"
+        npmPackage="@betagouv/france-chaleur-urbaine-publicodes"
       />
     </div>
   )
