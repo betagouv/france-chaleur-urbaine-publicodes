@@ -10,10 +10,11 @@ const destPath = "france-chaleur-urbaine-publicodes.model.json"
 
 // Resolves all rules and their dependencies into a single JSON object
 const model = getModelFromSource(srcFiles, { verbose: true })
+let engine
 
 // Try to create a new engine with the model to check for parsing errors
 try {
-  const _ = new Engine(model)
+  engine = new Engine(model)
 } catch (e) {
   console.error(`❌ There is an error in the model:`)
   console.error(e)
@@ -36,11 +37,11 @@ console.log(`✅ index.js generated`)
 
 // Generate an index.d.ts file to export the model types
 // where each rule name is a case in the DottedName type
-let indexDTypes = Object.keys(model).reduce(
+let indexDTypes = Object.keys(engine.getParsedRules()).reduce(
   (acc, dottedName) => acc + `| "${dottedName}"\n`,
   `import { Rule } from "publicodes";
 
-export type DottedName = 
+export type DottedName =
 `
 )
 
