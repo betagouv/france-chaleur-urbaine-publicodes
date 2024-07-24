@@ -17,7 +17,7 @@ const engine = new Engine(model)
 const baseUrl = process.env.NODE_ENV === "development" ? "" : "/france-chaleur-urbaine-publicodes"
 
 // The default rule to display when the user lands on the documentation
-const defaultRule: DottedName  = "DegréJoursUnifiéSpécifiqueChaud"
+const defaultRule: DottedName  = "besoins chauffage par appartement"
 
 function Documentation() {
   const url = useParams()["*"]
