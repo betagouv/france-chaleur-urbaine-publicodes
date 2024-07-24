@@ -23,16 +23,18 @@
   "type": "module",
   "types": "index.d.ts",
   "scripts": {
+    "dev": "concurrently npm:watch:*",
     "clean": "rm -r france-chaleur-urbaine-publicodes.model.json index.d.ts index.js",
+    "api": "yarn --cwd api start",
+    "watch:build": "chokidar --initial 'rules/**/*.publicodes' --command 'yarn build'",
+    "watch:doc": "yarn --cwd doc run dev",
     "build": "node build.js",
-    "dev": "chokidar --initial 'rules/**/*.publicodes' --command 'yarn build'",
-    "api": "cd api && yarn start",
-    "doc": "yarn run build && cd doc && yarn run dev",
-    "doc:build": "yarn run build && cd doc && yarn run build"
+    "doc:build": "yarn run build && yarn --cwd doc run build"
   },
   "devDependencies": {
     "@publicodes/tools": "^1.2.4",
-    "chokidar-cli": "^3.0.0"
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^8.2.2"
   },
   "peerDependencies": {
     "publicodes": "^1.4.0"
