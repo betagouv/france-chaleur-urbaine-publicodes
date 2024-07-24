@@ -1,717 +1,1045 @@
-GNRL Surface de référence appartement:
-  valeur: 70
-  unité: m2
-GNRL Surface de référence tertiaire:
-  valeur: 2500
-  unité: m2
-GNRL Hauteur:
-  valeur: 2.2
-  unité: m
-GNRL DJU REF chaud:
-  valeur: 2200
-  unité: DJU chaud
-GNRL DJU REF froid:
-  valeur: 31
-  unité: DJU froid
-GNRL Nombre habitant par logement:
-  valeur: 2.17
-  unité: personnes
-GNRL Zone climatique de référence:
-  valeur: "'H1'"
-GNRL Delta température référence chaud froid:
-  valeur: 35
-  unité: °C
-GNRL Production ECS:
-  valeur: non
-GNRL Type de résidentiel:
-  valeur: "'Individuel'"
-GNRL Appartement ou maison:
-  valeur: "'Appartement'"
-GNRL Nombre de logement dans l'immeuble concerné:
-  valeur: 25
-  unité: logements
-GNRL Part surface à climatiser résidentiel:
-  valeur: 70%
-  unité: '%'
-GNRL Part surface à climatiser tertiaire:
-  valeur: 100%
-  unité: '%'
-CHAF A:
-  valeur: 45
-  unité: kWh/m2/an
-CHAF B:
-  valeur: 70
-  unité: kWh/m2/an
-CHAF C:
-  valeur: 115
-  unité: kWh/m2/an
-CHAF D:
-  valeur: 165
-  unité: kWh/m2/an
-CHAF E:
-  valeur: 215
-  unité: kWh/m2/an
-CHAF F:
-  valeur: 275
-  unité: kWh/m2/an
-CHAF G:
-  valeur: 300
-  unité: kWh/m2/an
-CHAF RE2020 Après 2020:
-  valeur: 0.18
-  unité: W/m3.°C
-CHAF RT2012 Entre 2012 et 2020:
-  valeur: 0.22
-  unité: W/m3.°C
-CHAF RT2005 Entre 2005 et 2012:
-  valeur: 0.65
-  unité: W/m3.°C
-CHAF RT2000 Entre 2000 et 2005:
-  valeur: 0.75
-  unité: W/m3.°C
-CHAF de 1990 à 2000:
-  valeur: 1
-  unité: W/m3.°C
-CHAF de 1974 à 1990:
-  valeur: 1.4
-  unité: W/m3.°C
-CHAF avant 1974:
-  valeur: 2
-  unité: W/m3.°C
-CHAF Bureaux RE2020:
-  valeur: 50
-  unité: kWhef/m2.an
-CHAF Bureaux RT2012:
-  valeur: 65
-  unité: kWhef/m2.an
-CHAF Bureaux Moyenne française 2021:
-  valeur: 95
-  unité: kWhef/m2.an
-CHAF Enseignement secondaire RE2020:
-  valeur: 40
-  unité: kWhef/m2.an
-CHAF Enseignement secondaire RT2012:
-  valeur: 55
-  unité: kWhef/m2.an
-CHAF Enseignement secondaire Moyenne française 2021:
-  valeur: 81
-  unité: kWhef/m2.an
-CHAF Commerces RE2020:
-  valeur: 40
-  unité: kWhef/m2.an
-CHAF Commerces RT2012:
-  valeur: 55
-  unité: kWhef/m2.an
-CHAF Commerces Moyenne française 2021:
-  valeur: 74
-  unité: kWhef/m2.an
-CHAF Café, restaurant RE2020:
-  valeur: 100
-  unité: kWhef/m2.an
-CHAF Café, restaurant RT2012:
-  valeur: 100
-  unité: kWhef/m2.an
-CHAF Café, restaurant Moyenne française 2021:
-  valeur: 106
-  unité: kWhef/m2.an
-CHAF Hôtel RE2020:
-  valeur: 45
-  unité: kWhef/m2.an
-CHAF Hôtel RT2012:
-  valeur: 55
-  unité: kWhef/m2.an
-CHAF Hôtel Moyenne française 2021:
-  valeur: 83
-  unité: kWhef/m2.an
-CHAF Enseignement primaire RE2020:
-  valeur: 50
-  unité: kWhef/m2.an
-CHAF Enseignement primaire RT2012:
-  valeur: 65
-  unité: kWhef/m2.an
-CHAF Enseignement primaire Moyenne française 2021:
-  valeur: 81
-  unité: kWhef/m2.an
-CHAF Sport RE2020:
-  valeur: 30
-  unité: kWhef/m2.an
-CHAF Sport RT2012:
-  valeur: 45
-  unité: kWhef/m2.an
-CHAF Sport Moyenne française 2021:
-  valeur: 97
-  unité: kWhef/m2.an
-CHAF Santé RE2020:
-  valeur: 35
-  unité: kWhef/m2.an
-CHAF Santé RT2012:
-  valeur: 55
-  unité: kWhef/m2.an
-CHAF Santé Moyenne française 2021:
-  valeur: 100
-  unité: kWhef/m2.an
-CHAF EHPAD RE2020:
-  valeur: 55
-  unité: kWhef/m2.an
-CHAF EHPAD RT2012:
-  valeur: 75
-  unité: kWhef/m2.an
-CHAF EHPAD Moyenne française 2021:
-  valeur: 110
-  unité: kWhef/m2.an
-ECS Capacité calorifique de l'eau:
-  valeur: 4.185
-  unité: kJ/L/°C
-ECS Température de l'eau dans les canalisations:
-  valeur: 15
-  unité: °C
-ECS Température souhaité d'ECS:
-  valeur: 60
-  unité: °C
-ECS Quantité d'ECS produite par kWh:
-  valeur: 19.1
-  unité: L/kWh
-ECS Quanté d'ECS par an:
-  valeur: 50.0
-  unité: L/hab
-ECS Résidentiel:
-  valeur: 955
-  unité: kWh/hab
-ECS Bureaux RE2020:
-  valeur: 7
-  unité: kWhef/m2.an
-ECS Bureaux RT2012:
-  valeur: 7
-  unité: kWhef/m2.an
-ECS Bureaux Moyenne française 2021:
-  valeur: 7
-  unité: kWhef/m2.an
-ECS Enseignement secondaire RE2020:
-  valeur: 5
-  unité: kWhef/m2.an
-ECS Enseignement secondaire RT2012:
-  valeur: 5
-  unité: kWhef/m2.an
-ECS Enseignement secondaire Moyenne française 2021:
-  valeur: 5
-  unité: kWhef/m2.an
-ECS Commerces RE2020:
-  valeur: 0
-  unité: kWhef/m2.an
-ECS Commerces RT2012:
-  valeur: 0
-  unité: kWhef/m2.an
-ECS Commerces Moyenne française 2021:
-  valeur: 0
-  unité: kWhef/m2.an
-ECS Café, restaurant RE2020:
-  valeur: 15
-  unité: kWhef/m2.an
-ECS Café, restaurant RT2012:
-  valeur: 15
-  unité: kWhef/m2.an
-ECS Café, restaurant Moyenne française 2021:
-  valeur: 15
-  unité: kWhef/m2.an
-ECS Hôtel RE2020:
-  valeur: 40
-  unité: kWhef/m2.an
-ECS Hôtel RT2012:
-  valeur: 40
-  unité: kWhef/m2.an
-ECS Hôtel Moyenne française 2021:
-  valeur: 40
-  unité: kWhef/m2.an
-ECS Enseignement primaire RE2020:
-  valeur: 12.5
-  unité: kWhef/m2.an
-ECS Enseignement primaire RT2012:
-  valeur: 12.5
-  unité: kWhef/m2.an
-ECS Enseignement primaire Moyenne française 2021:
-  valeur: 12.5
-  unité: kWhef/m2.an
-ECS Sport RE2020:
-  valeur: 10
-  unité: kWhef/m2.an
-ECS Sport RT2012:
-  valeur: 10
-  unité: kWhef/m2.an
-ECS Sport Moyenne française 2021:
-  valeur: 10
-  unité: kWhef/m2.an
-ECS Santé RE2020:
-  valeur: 20
-  unité: kWhef/m2.an
-ECS Santé RT2012:
-  valeur: 20
-  unité: kWhef/m2.an
-ECS Santé Moyenne française 2021:
-  valeur: 20
-  unité: kWhef/m2.an
-ECS EHPAD RE2020:
-  valeur: 30
-  unité: kWhef/m2.an
-ECS EHPAD RT2012:
-  valeur: 30
-  unité: kWhef/m2.an
-ECS EHPAD Moyenne française 2021:
-  valeur: 30
-  unité: kWhef/m2.an
-RAF Température de déclenchement de la climatisation:
-  valeur: 24
-  unité: °C
-RAF Résidentiel:
-  valeur: 20
-  unité: kWhef/m2.an
-RAF Bureaux RE2020:
-  valeur: 5
-  unité: kWhef/m2.an
-RAF Bureaux RT2012:
-  valeur: 10
-  unité: kWhef/m2.an
-RAF Bureaux Moyenne française 2021:
-  valeur: 30
-  unité: kWhef/m2.an
-RAF Enseignement secondaire RE2020:
-  valeur: 5
-  unité: kWhef/m2.an
-RAF Enseignement secondaire RT2012:
-  valeur: 10
-  unité: kWhef/m2.an
-RAF Enseignement secondaire Moyenne française 2021:
-  valeur: 15
-  unité: kWhef/m2.an
-RAF Commerces RE2020:
-  valeur: 150
-  unité: kWhef/m2.an
-RAF Commerces RT2012:
-  valeur: 170
-  unité: kWhef/m2.an
-RAF Commerces Moyenne française 2021:
-  valeur: 200
-  unité: kWhef/m2.an
-RAF Café, restaurant RE2020:
-  valeur: 50
-  unité: kWhef/m2.an
-RAF Café, restaurant RT2012:
-  valeur: 65
-  unité: kWhef/m2.an
-RAF Café, restaurant Moyenne française 2021:
-  valeur: 100
-  unité: kWhef/m2.an
-RAF Hôtel RE2020:
-  valeur: 10
-  unité: kWhef/m2.an
-RAF Hôtel RT2012:
-  valeur: 20
-  unité: kWhef/m2.an
-RAF Hôtel Moyenne française 2021:
-  valeur: 30
-  unité: kWhef/m2.an
-RAF Enseignement primaire RE2020:
-  valeur: 12.5
-  unité: kWhef/m2.an
-RAF Enseignement primaire RT2012:
-  valeur: 17.5
-  unité: kWhef/m2.an
-RAF Enseignement primaire Moyenne française 2021:
-  valeur: 25
-  unité: kWhef/m2.an
-RAF Sport RE2020:
-  valeur: 0
-  unité: kWhef/m2.an
-RAF Sport RT2012:
-  valeur: 0
-  unité: kWhef/m2.an
-RAF Sport Moyenne française 2021:
-  valeur: 0
-  unité: kWhef/m2.an
-# aucune valeur définie
-# RAF Santé RE2020:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF Santé RT2012:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF Santé Moyenne française 2021:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF EHPAD RE2020:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF EHPAD RT2012:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF EHPAD Moyenne française 2021:
-#   valeur:
-#   unité: kWhef/m2.an
-PUIS Température de non chauffage:
-  valeur: 18
-  unité: °C
-PUIS Facteur de surpuissance:
-  valeur: 20%
-  unité: '%'
-PUIS Nombre heure de fonctionnement non climatique ECS:
-  valeur: 3000
-  unité: heures
-PUIS Coefficient de foisonnement ECS:
-  valeur: 50%
-  unité: '%'
-PUIS Coefficient de foisonnemennt chauffage collectif:
-  valeur: 80%
-  unité: '%'
-CI A:
-  valeur: 70%
-  unité: '%'
-CI B:
-  valeur: 70%
-  unité: '%'
-CI C:
-  valeur: 90%
-  unité: '%'
-CI D:
-  valeur: 90%
-  unité: '%'
-CI E:
-  valeur: 100%
-  unité: '%'
-CI F:
-  valeur: 100%
-  unité: '%'
-CI G:
-  valeur: 100%
-  unité: '%'
-CI RE2020 Après 2020:
-  valeur: 70%
-  unité: '%'
-CI RT2012 Entre 2012 et 2020:
-  valeur: 70%
-  unité: '%'
-CI RT2005 Entre 2005 et 2012:
-  valeur: 90%
-  unité: '%'
-CI RT2000 Entre 2000 et 2005:
-  valeur: 90%
-  unité: '%'
-CI de 1990 à 2000:
-  valeur: 100%
-  unité: '%'
-CI de 1974 à 1990:
-  valeur: 100%
-  unité: '%'
-CI avant 1974:
-  valeur: 100%
-  unité: '%'
-CI Bureaux:
-  valeur: 80%
-  unité: '%'
-CI Enseignement secondaire:
-  valeur: 80%
-  unité: '%'
-CI Santé:
-  valeur: 90%
-  unité: '%'
-CI Café, restaurant:
-  valeur: 80%
-  unité: '%'
-CI Hôtel:
-  valeur: 80%
-  unité: '%'
-CI Commerces:
-  valeur: 80%
-  unité: '%'
-CI Enseignement primaire:
-  valeur: 80%
-  unité: '%'
-CI Sport:
-  valeur: 60%
-  unité: '%'
-CI Centre aqualudique:
-  valeur: 90%
-  unité: '%'
-CI EHPAD:
-  valeur: 90%
-  unité: '%'
-RCU Rendement sous station chauffage:
-  valeur: 98%
-  unité: '%'
-RCU Rendement sous station ECS:
-  valeur: 98%
-  unité: '%'
-RCU Conso auxilliaire chauffage:
-  valeur: 96%
-  unité: '%'
-RCU Conso auxilliaire ECS:
-  valeur: 91%
-  unité: '%'
-RCU Durée avant renouvellement:
-  valeur: 30
-  unité: Années
-RFU Rendement sous station:
-  valeur: 98%
-  unité: '%'
-RFU Conso auxiliaire:
-  valeur: 95%
-  unité: '%'
-RFU Durée de vie:
-  valeur: 30
-  unité: Années
-GRA POELE Rendement poêle chauffage:
-  valeur: 80%
-  unité: '%'
-GRA POELE Conso combustible:
-  valeur: 0.217391304
-  unité: kg/kWh
-GRA POELE Durée de vie:
-  valeur: 16
-  unité: Années
-GRA CHAUD Rendement chaudière chauffage:
-  valeur: 90%
-  unité: '%'
-GRA CHAUD Conso combustible:
-  valeur: 0.217391304
-  unité: kg/kWh
-GRA CHAUD Conso auxilliaire:
-  valeur: 98%
-  unité: '%'
-GRA CHAUD Durée de vie:
-  valeur: 17
-  unité: Années
-GAZ IND COND Rendement chaudière chauffage:
-  valeur: 103%
-  unité: '%'
-GAZ IND COND Rendement chaudière ECS:
-  valeur: 87%
-  unité: '%'
-GAZ IND COND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-GAZ IND COND Conso auxilliaire chauffage:
-  valeur: 96%
-  unité: '%'
-GAZ IND COND Conso auxilliaire ECS:
-  valeur: 99%
-  unité: '%'
-GAZ IND COND Durée de vie:
-  valeur: 17
-  unité: Années
-GAZ IND SCOND Rendement chaudière:
-  valeur: 90%
-  unité: '%'
-GAZ IND SCOND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-GAZ IND SCOND Conso auxilliaire chauffage:
-  valeur: 96%
-  unité: '%'
-GAZ IND SCOND Conso auxilliaire ECS:
-  valeur: 99%
-  unité: '%'
-GAZ IND SCOND Durée de vie:
-  valeur: 17
-  unité: Années
-GAZ COLL COND Rendement chaudière chauffage:
-  valeur: 105%
-  unité: '%'
-GAZ COLL COND Rendement chaudière ECS:
-  valeur: 86%
-  unité: '%'
-GAZ COLL COND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-GAZ COLL COND Conso auxilliaire chauffage:
-  valeur: 93%
-  unité: '%'
-GAZ COLL COND Conso auxilliaire ECS:
-  valeur: 97%
-  unité: '%'
-GAZ COLL COND Durée de vie:
-  valeur: 22
-  unité: Années
-GAZ COLL SCOND Rendement chaudière:
-  valeur: 90%
-  unité: '%'
-GAZ COLL SCOND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-GAZ COLL SCOND Conso auxilliaire chauffage:
-  valeur: 93%
-  unité: '%'
-GAZ COLL SCOND Conso auxilliaire ECS:
-  valeur: 97%
-  unité: '%'
-GAZ COLL SCOND Durée de vie:
-  valeur: 22
-  unité: Années
-FIOUL IND Rendement chaudière:
-  valeur: 85%
-  unité: '%'
-FIOUL IND Conso combustible:
-  valeur: 0.0947
-  unité: l/kWh PCI
-FIOUL IND Conso auxilliaire chauffage:
-  valeur: 93%
-  unité: '%'
-FIOUL IND Conso auxilliaire ECS:
-  valeur: 97%
-  unité: '%'
-FIOUL IND Durée de vie:
-  valeur: 21
-  unité: Années
-FIOUL COLL Rendement chaudière chauffage:
-  valeur: 80%
-  unité: '%'
-FIOUL COLL Rendement chaudière ECS:
-  valeur: 70%
-  unité: '%'
-FIOUL COLL Conso combustible:
-  valeur: 0.0947
-  unité: l/kWh PCI
-FIOUL COLL Conso auxilliaire chauffage:
-  valeur: 93%
-  unité: '%'
-FIOUL COLL Conso auxilliaire ECS:
-  valeur: 97%
-  unité: '%'
-FIOUL COLL Durée de vie:
-  valeur: 21
-  unité: Années
-PAC GNRL A:
-  valeur:  3.60
-PAC GNRL Aplus:
-  valeur:  4.30
-PAC GNRL Aplusplus:
-  valeur:  4.85
-PAC GNRL Aplusplusplus:
-  valeur:  5.10
-PAC GNRL Conso auxiliaire chauffage climatisation:
-  valeur: 96%
-PAC GNRL Conso auxiliaire ECS:
-  valeur: 99%
-PAC AIR AIR SCOP indiv:
-  valeur: 4.2
-PAC AIR AIR SCOP coll:
-  valeur: 3.65
-PAC AIR AIR SEER indiv:
-  valeur: 6.1
-PAC AIR AIR SEER coll:
-  valeur: 6.55
-PAC AIR AIR Puissance unitaire réversible indiv:
-  valeur: 5
-  unité: kW
-PAC AIR AIR Puissance unitaire réversible coll:
-  valeur: 22
-  unité: kW
-PAC AIR AIR Classe énergétique:
-  valeur: "'A+'"
-PAC AIR AIR Durée de vie indiv:
-  valeur: 17
-  unité: Années
-PAC AIR AIR Durée de vie coll:
-  valeur: 22
-  unité: Années
-PAC EAU EAU SCOP indiv capteurs horizontaux:
-  valeur: 5.33
-PAC EAU EAU SCOP coll champ de sondes:
-  valeur: 4.86
-PAC EAU EAU Puissance unitaire indiv:
-  valeur: 8
-PAC EAU EAU Puissance unitaire coll:
-  valeur: 46.52
-PAC EAU EAU Classe énergétique:
-  valeur: "'A+'"
-PAC EAU EAU Durée de vie:
-  valeur: 17
-  unité: Années
-PAC EAU EAU Durée de vie puits géothermiques:
-  valeur:  50
-  unité: Années
-PAC AIR EAU SCOP indiv:
-  valeur: 3.36
-PAC AIR EAU SCOP coll:
-  valeur: 5
-PAC AIR EAU SEER indiv:
-  valeur: 3.9
-PAC AIR EAU SEER coll:
-  valeur: 5.29
-PAC AIR EAU Puissance unitaire réversible indiv:
-  valeur: 6.4
-PAC AIR EAU Puissance unitaire réversible coll:
-  valeur: 20
-PAC AIR EAU Classe énergétique:
-  valeur: "'A+'"
-PAC AIR EAU Durée de vie indiv:
-  valeur: 17
-  unité: Années
-PAC AIR EAU Durée de vie coll:
-  valeur: 22
-  unité: Années
-PAC AB SCOP coll:
-  valeur: 1.23
-PAC AB Classe énergétique:
-  valeur: "'A+'"
-PAC AB Puissance unitaire coll:
-  valeur:  35
-  unité: kW
-PAC AB Conso combustible gaz coll:
-  valeur: 72%
-  unité: '%'
-PAC AB Durée de vie:
-  valeur: 17
-  unité: Années
-PAC DEROG3 35:
-  valeur: 0
-PAC DEROG3 45:
-  valeur: -0.6
-PAC DEROG3 55:
-  valeur: -1.2
-PAC DEROG3 65:
-  valeur: -1.6
-PAC DEROG3 Plancher:
-  valeur: 0
-PAC DEROG3 Basse température:
-  valeur: -0.6
-PAC DEROG3 Moyenne température:
-  valeur: -1.2
-PAC DEROG3 Haute température:
-  valeur: -1.6
-RAD ELEC INDIV Rendement:
-  valeur: 100%
-  unité: '%'
-RAD ELEC INDIV Conso combustible:
-  valeur: 100%
-  unité: '%'
-RAD ELEC INDIV Durée de vie:
-  valeur: 25
-  unité: Années
-CHAUF EAU ELEC Rendement stockage ballon:
-  valeur: 87%
-  unité: '%'
-CHAUF EAU ELEC Durée de vie:
-  valeur: 20
-  unité: Années
-CHAUF EAU SOLAIRE Rendement stockage ballon:
-  valeur: 87%
-  unité: '%'
-CHAUF EAU SOLAIRE Durée de vie:
-  valeur: 20
-  unité: Années
-CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS:
-  valeur: 60%
-  unité: '%'
-# aucune valeur définie
-# CHAUF EAU SOLAIRE Surface capteur solaire pour un ballon inférieur à:
-#   valeur:
-CHAUF EAU SOLAIRE 250:
-  valeur: 2.5
-  unité: m2
-CHAUF EAU SOLAIRE 400:
-  valeur: 4
-  unité: m2
-CHAUF EAU SOLAIRE 550:
-  valeur: 5.5
-  unité: m2
-CHAUF EAU SOLAIRE 650:
-  valeur: 6
-  unité: m2
+ratios:
+  avec:
+    GNRL Surface de référence appartement:
+      valeur: 70
+      unité: m2
+    GNRL Surface de référence tertiaire:
+      valeur: 2500
+      unité: m2
+    GNRL Hauteur:
+      valeur: 2.2
+      unité: m
+    GNRL DJU REF chaud:
+      valeur: 2200
+      unité: DJU chaud
+    GNRL DJU REF froid:
+      valeur: 31
+      unité: DJU froid
+    GNRL Nombre habitant par logement:
+      valeur: 2.17
+      unité: personnes
+    GNRL Zone climatique de référence:
+      valeur: "'H1'"
+    GNRL Delta température référence chaud froid:
+      valeur: 35
+      unité: °C
+    GNRL Production ECS:
+      valeur: non
+    GNRL Type de résidentiel:
+      valeur: "'Individuel'"
+    GNRL Appartement ou maison:
+      valeur: "'Appartement'"
+    GNRL Nombre de logement dans l'immeuble concerné:
+      valeur: 25
+      unité: logements
+    GNRL Part surface à climatiser résidentiel:
+      valeur: 70%
+      unité: '%'
+    GNRL Part surface à climatiser tertiaire:
+      valeur: 100%
+      unité: '%'
+    CHAF A:
+      applicable si: DPE = "A"
+      remplace: consommation spécifique chauffage
+      valeur: 45
+      unité: kWh/m2/an
+    CHAF B:
+      applicable si: DPE = "B"
+      remplace: consommation spécifique chauffage
+      valeur: 70
+      unité: kWh/m2/an
+    CHAF C:
+      applicable si: DPE = "C"
+      remplace: consommation spécifique chauffage
+      valeur: 115
+      unité: kWh/m2/an
+    CHAF D:
+      applicable si: DPE = "D"
+      remplace: consommation spécifique chauffage
+      valeur: 165
+      unité: kWh/m2/an
+    CHAF E:
+      applicable si: DPE = "E"
+      remplace: consommation spécifique chauffage
+      valeur: 215
+      unité: kWh/m2/an
+    CHAF F:
+      applicable si: DPE = "F"
+      remplace: consommation spécifique chauffage
+      valeur: 275
+      unité: kWh/m2/an
+    CHAF G:
+      applicable si: DPE = "G"
+      remplace: consommation spécifique chauffage
+      valeur: 300
+      unité: kWh/m2/an
+    CHAF RE2020 Après 2020:
+      applicable si: normes thermiques et âge du bâtiment = "RE2020 Après 2020"
+      remplace: consommation spécifique chauffage
+      valeur: 0.18
+      unité: W/m3.°C
+    CHAF RT2012 Entre 2012 et 2020:
+      applicable si: normes thermiques et âge du bâtiment = "RT2012 Entre 2012 et 2020"
+      remplace: consommation spécifique chauffage
+      valeur: 0.22
+      unité: W/m3.°C
+    CHAF RT2005 Entre 2005 et 2012:
+      applicable si: normes thermiques et âge du bâtiment = "RT2005 Entre 2005 et 2012"
+      remplace: consommation spécifique chauffage
+      valeur: 0.65
+      unité: W/m3.°C
+    CHAF RT2000 Entre 2000 et 2005:
+      applicable si: normes thermiques et âge du bâtiment = "RT2000 Entre 2000 et 2005"
+      remplace: consommation spécifique chauffage
+      valeur: 0.75
+      unité: W/m3.°C
+    CHAF de 1990 à 2000:
+      applicable si: normes thermiques et âge du bâtiment = "de 1990 à 2000"
+      remplace: consommation spécifique chauffage
+      valeur: 1
+      unité: W/m3.°C
+    CHAF de 1974 à 1990:
+      applicable si: normes thermiques et âge du bâtiment = "de 1974 à 1990"
+      remplace: consommation spécifique chauffage
+      valeur: 1.4
+      unité: W/m3.°C
+    CHAF avant 1974:
+      applicable si: normes thermiques et âge du bâtiment = "avant 1974"
+      remplace: consommation spécifique chauffage
+      valeur: 2
+      unité: W/m3.°C
+    CHAF Bureaux RE2020:
+      applicable si: normes thermiques = "Bureaux RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 50
+      unité: kWhef/m2.an
+    CHAF Bureaux RT2012:
+      applicable si: normes thermiques = "Bureaux RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 65
+      unité: kWhef/m2.an
+    CHAF Bureaux Moyenne française 2021:
+      applicable si: normes thermiques = "Bureaux Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 95
+      unité: kWhef/m2.an
+    CHAF Enseignement secondaire RE2020:
+      applicable si: normes thermiques = "Enseignement secondaire RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 40
+      unité: kWhef/m2.an
+    CHAF Enseignement secondaire RT2012:
+      applicable si: normes thermiques = "Enseignement secondaire RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 55
+      unité: kWhef/m2.an
+    CHAF Enseignement secondaire Moyenne française 2021:
+      applicable si: normes thermiques = "Enseignement secondaire Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 81
+      unité: kWhef/m2.an
+    CHAF Commerces RE2020:
+      applicable si: normes thermiques = "Commerces RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 40
+      unité: kWhef/m2.an
+    CHAF Commerces RT2012:
+      applicable si: normes thermiques = "Commerces RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 55
+      unité: kWhef/m2.an
+    CHAF Commerces Moyenne française 2021:
+      applicable si: normes thermiques = "Commerces Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 74
+      unité: kWhef/m2.an
+    CHAF Café, restaurant RE2020:
+      applicable si: normes thermiques = "Café, restaurant RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 100
+      unité: kWhef/m2.an
+    CHAF Café, restaurant RT2012:
+      applicable si: normes thermiques = "Café, restaurant RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 100
+      unité: kWhef/m2.an
+    CHAF Café, restaurant Moyenne française 2021:
+      applicable si: normes thermiques = "Café, restaurant Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 106
+      unité: kWhef/m2.an
+    CHAF Hôtel RE2020:
+      applicable si: normes thermiques = "Hôtel RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 45
+      unité: kWhef/m2.an
+    CHAF Hôtel RT2012:
+      applicable si: normes thermiques = "Hôtel RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 55
+      unité: kWhef/m2.an
+    CHAF Hôtel Moyenne française 2021:
+      applicable si: normes thermiques = "Hôtel Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 83
+      unité: kWhef/m2.an
+    CHAF Enseignement primaire RE2020:
+      applicable si: normes thermiques = "Enseignement primaire RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 50
+      unité: kWhef/m2.an
+    CHAF Enseignement primaire RT2012:
+      applicable si: normes thermiques = "Enseignement primaire RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 65
+      unité: kWhef/m2.an
+    CHAF Enseignement primaire Moyenne française 2021:
+      applicable si: normes thermiques = "Enseignement primaire Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 81
+      unité: kWhef/m2.an
+    CHAF Sport RE2020:
+      applicable si: normes thermiques = "Sport RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 30
+      unité: kWhef/m2.an
+    CHAF Sport RT2012:
+      applicable si: normes thermiques = "Sport RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 45
+      unité: kWhef/m2.an
+    CHAF Sport Moyenne française 2021:
+      applicable si: normes thermiques = "Sport Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 97
+      unité: kWhef/m2.an
+    CHAF Santé RE2020:
+      applicable si: normes thermiques = "Santé RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 35
+      unité: kWhef/m2.an
+    CHAF Santé RT2012:
+      applicable si: normes thermiques = "Santé RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 55
+      unité: kWhef/m2.an
+    CHAF Santé Moyenne française 2021:
+      applicable si: normes thermiques = "Santé Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 100
+      unité: kWhef/m2.an
+    CHAF EHPAD RE2020:
+      applicable si: normes thermiques = "EHPAD RE2020"
+      remplace: consommation spécifique chauffage
+      valeur: 55
+      unité: kWhef/m2.an
+    CHAF EHPAD RT2012:
+      applicable si: normes thermiques = "EHPAD RT2012"
+      remplace: consommation spécifique chauffage
+      valeur: 75
+      unité: kWhef/m2.an
+    CHAF EHPAD Moyenne française 2021:
+      applicable si: normes thermiques = "EHPAD Moyenne française 2021"
+      remplace: consommation spécifique chauffage
+      valeur: 110
+      unité: kWhef/m2.an
+    ECS Capacité calorifique de l'eau:
+      valeur: 4.185
+      unité: kJ/L/°C
+    ECS Température de l'eau dans les canalisations:
+      valeur: 15
+      unité: °C
+    ECS Température souhaité d'ECS:
+      valeur: 60
+      unité: °C
+    ECS Quantité d'ECS produite par kWh:
+      valeur: 19.1
+      unité: L/kWh
+    ECS Quanté d'ECS par an:
+      valeur: 50.0
+      unité: L/hab
+    ECS Résidentiel:
+      applicable si: type de bâtiment = "résidentiel"
+      remplace: consommation spécifique ECS
+      valeur: 955
+      unité: kWh/hab
+    ECS Bureaux RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Bureaux RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 7
+      unité: kWhef/m2.an
+    ECS Bureaux RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Bureaux RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 7
+      unité: kWhef/m2.an
+    ECS Bureaux Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Bureaux Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 7
+      unité: kWhef/m2.an
+    ECS Enseignement secondaire RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 5
+      unité: kWhef/m2.an
+    ECS Enseignement secondaire RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 5
+      unité: kWhef/m2.an
+    ECS Enseignement secondaire Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 5
+      unité: kWhef/m2.an
+    ECS Commerces RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 0
+      unité: kWhef/m2.an
+    ECS Commerces RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 0
+      unité: kWhef/m2.an
+    ECS Commerces Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 0
+      unité: kWhef/m2.an
+    ECS Café, restaurant RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 15
+      unité: kWhef/m2.an
+    ECS Café, restaurant RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 15
+      unité: kWhef/m2.an
+    ECS Café, restaurant Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 15
+      unité: kWhef/m2.an
+    ECS Hôtel RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 40
+      unité: kWhef/m2.an
+    ECS Hôtel RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 40
+      unité: kWhef/m2.an
+    ECS Hôtel Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 40
+      unité: kWhef/m2.an
+    ECS Enseignement primaire RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 12.5
+      unité: kWhef/m2.an
+    ECS Enseignement primaire RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 12.5
+      unité: kWhef/m2.an
+    ECS Enseignement primaire Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 12.5
+      unité: kWhef/m2.an
+    ECS Sport RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 10
+      unité: kWhef/m2.an
+    ECS Sport RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 10
+      unité: kWhef/m2.an
+    ECS Sport Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 10
+      unité: kWhef/m2.an
+    ECS Santé RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 20
+      unité: kWhef/m2.an
+    ECS Santé RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 20
+      unité: kWhef/m2.an
+    ECS Santé Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 20
+      unité: kWhef/m2.an
+    ECS EHPAD RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD RE2020"
+      remplace: consommation spécifique ECS
+      valeur: 30
+      unité: kWhef/m2.an
+    ECS EHPAD RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD RT2012"
+      remplace: consommation spécifique ECS
+      valeur: 30
+      unité: kWhef/m2.an
+    ECS EHPAD Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD Moyenne française 2021"
+      remplace: consommation spécifique ECS
+      valeur: 30
+      unité: kWhef/m2.an
+    RAF Température de déclenchement de la climatisation:
+      valeur: 24
+      unité: °C
+    RAF Résidentiel:
+      applicable si: type de bâtiment = "résidentiel"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 20
+      unité: kWhef/m2.an
+    RAF Bureaux RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Bureaux RE2020"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 5
+      unité: kWhef/m2.an
+    RAF Bureaux RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Bureaux RT2012"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 10
+      unité: kWhef/m2.an
+    RAF Bureaux Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Bureaux Moyenne française 2021"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 30
+      unité: kWhef/m2.an
+    RAF Enseignement secondaire RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire RE2020"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 5
+      unité: kWhef/m2.an
+    RAF Enseignement secondaire RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire RT2012"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 10
+      unité: kWhef/m2.an
+    RAF Enseignement secondaire Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire Moyenne fr"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 15
+      unité: kWhef/m2.an
+    RAF Commerces RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces RE2020"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 150
+      unité: kWhef/m2.an
+    RAF Commerces RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces RT2012"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 170
+      unité: kWhef/m2.an
+    RAF Commerces Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces Moyenne française 2021"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 200
+      unité: kWhef/m2.an
+    RAF Café, restaurant RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant RE2020"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 50
+      unité: kWhef/m2.an
+    RAF Café, restaurant RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant RT2012"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 65
+      unité: kWhef/m2.an
+    RAF Café, restaurant Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant Moyenne française"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 100
+      unité: kWhef/m2.an
+    RAF Hôtel RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel RE2020"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 10
+      unité: kWhef/m2.an
+    RAF Hôtel RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel RT2012"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 20
+      unité: kWhef/m2.an
+    RAF Hôtel Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel Moyenne française 2021"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 30
+      unité: kWhef/m2.an
+    RAF Enseignement primaire RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire RE2020"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 12.5
+      unité: kWhef/m2.an
+    RAF Enseignement primaire RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire RT2012"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 17.5
+      unité: kWhef/m2.an
+    RAF Enseignement primaire Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire Moyenne fran"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 25
+      unité: kWhef/m2.an
+    RAF Sport RE2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport RE2020"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 0
+      unité: kWhef/m2.an
+    RAF Sport RT2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport RT2012"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 0
+      unité: kWhef/m2.an
+    RAF Sport Moyenne française 2021:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport Moyenne française 2021"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 0
+      unité: kWhef/m2.an
+    # aucune valeur définie
+    # RAF Santé RE2020:
+    #   valeur:
+    #   unité: kWhef/m2.an
+    # RAF Santé RT2012:
+    #   valeur:
+    #   unité: kWhef/m2.an
+    # RAF Santé Moyenne française 2021:
+    #   valeur:
+    #   unité: kWhef/m2.an
+    # RAF EHPAD RE2020:
+    #   valeur:
+    #   unité: kWhef/m2.an
+    # RAF EHPAD RT2012:
+    #   valeur:
+    #   unité: kWhef/m2.an
+    # RAF EHPAD Moyenne française 2021:
+    #   valeur:
+    #   unité: kWhef/m2.an
+    PUIS Température de non chauffage:
+      valeur: 18
+      unité: °C
+    PUIS Facteur de surpuissance:
+      valeur: 20%
+      unité: '%'
+    PUIS Nombre heure de fonctionnement non climatique ECS:
+      valeur: 3000
+      unité: heures
+    PUIS Coefficient de foisonnement ECS:
+      valeur: 50%
+      unité: '%'
+    PUIS Coefficient de foisonnemennt chauffage collectif:
+      valeur: 80%
+      unité: '%'
+    CI A:
+      valeur: 70%
+      unité: '%'
+    CI B:
+      valeur: 70%
+      unité: '%'
+    CI C:
+      valeur: 90%
+      unité: '%'
+    CI D:
+      valeur: 90%
+      unité: '%'
+    CI E:
+      valeur: 100%
+      unité: '%'
+    CI F:
+      valeur: 100%
+      unité: '%'
+    CI G:
+      valeur: 100%
+      unité: '%'
+    CI RE2020 Après 2020:
+      valeur: 70%
+      unité: '%'
+    CI RT2012 Entre 2012 et 2020:
+      valeur: 70%
+      unité: '%'
+    CI RT2005 Entre 2005 et 2012:
+      valeur: 90%
+      unité: '%'
+    CI RT2000 Entre 2000 et 2005:
+      valeur: 90%
+      unité: '%'
+    CI de 1990 à 2000:
+      valeur: 100%
+      unité: '%'
+    CI de 1974 à 1990:
+      valeur: 100%
+      unité: '%'
+    CI avant 1974:
+      valeur: 100%
+      unité: '%'
+    CI Bureaux:
+      valeur: 80%
+      unité: '%'
+    CI Enseignement secondaire:
+      valeur: 80%
+      unité: '%'
+    CI Santé:
+      valeur: 90%
+      unité: '%'
+    CI Café, restaurant:
+      valeur: 80%
+      unité: '%'
+    CI Hôtel:
+      valeur: 80%
+      unité: '%'
+    CI Commerces:
+      valeur: 80%
+      unité: '%'
+    CI Enseignement primaire:
+      valeur: 80%
+      unité: '%'
+    CI Sport:
+      valeur: 60%
+      unité: '%'
+    CI Centre aqualudique:
+      valeur: 90%
+      unité: '%'
+    CI EHPAD:
+      valeur: 90%
+      unité: '%'
+    RCU Rendement sous station chauffage:
+      valeur: 98%
+      unité: '%'
+    RCU Rendement sous station ECS:
+      valeur: 98%
+      unité: '%'
+    RCU Conso auxilliaire chauffage:
+      valeur: 96%
+      unité: '%'
+    RCU Conso auxilliaire ECS:
+      valeur: 91%
+      unité: '%'
+    RCU Durée avant renouvellement:
+      valeur: 30
+      unité: Années
+    RFU Rendement sous station:
+      valeur: 98%
+      unité: '%'
+    RFU Conso auxiliaire:
+      valeur: 95%
+      unité: '%'
+    RFU Durée de vie:
+      valeur: 30
+      unité: Années
+    GRA POELE Rendement poêle chauffage:
+      valeur: 80%
+      unité: '%'
+    GRA POELE Conso combustible:
+      valeur: 0.217391304
+      unité: kg/kWh
+    GRA POELE Durée de vie:
+      valeur: 16
+      unité: Années
+    GRA CHAUD Rendement chaudière chauffage:
+      valeur: 90%
+      unité: '%'
+    GRA CHAUD Conso combustible:
+      valeur: 0.217391304
+      unité: kg/kWh
+    GRA CHAUD Conso auxilliaire:
+      valeur: 98%
+      unité: '%'
+    GRA CHAUD Durée de vie:
+      valeur: 17
+      unité: Années
+    GAZ IND COND Rendement chaudière chauffage:
+      valeur: 103%
+      unité: '%'
+    GAZ IND COND Rendement chaudière ECS:
+      valeur: 87%
+      unité: '%'
+    GAZ IND COND Conso combustible:
+      valeur: 0.0970
+      unité: Nm3/kWh PCI
+    GAZ IND COND Conso auxilliaire chauffage:
+      valeur: 96%
+      unité: '%'
+    GAZ IND COND Conso auxilliaire ECS:
+      valeur: 99%
+      unité: '%'
+    GAZ IND COND Durée de vie:
+      valeur: 17
+      unité: Années
+    GAZ IND SCOND Rendement chaudière:
+      valeur: 90%
+      unité: '%'
+    GAZ IND SCOND Conso combustible:
+      valeur: 0.0970
+      unité: Nm3/kWh PCI
+    GAZ IND SCOND Conso auxilliaire chauffage:
+      valeur: 96%
+      unité: '%'
+    GAZ IND SCOND Conso auxilliaire ECS:
+      valeur: 99%
+      unité: '%'
+    GAZ IND SCOND Durée de vie:
+      valeur: 17
+      unité: Années
+    GAZ COLL COND Rendement chaudière chauffage:
+      valeur: 105%
+      unité: '%'
+    GAZ COLL COND Rendement chaudière ECS:
+      valeur: 86%
+      unité: '%'
+    GAZ COLL COND Conso combustible:
+      valeur: 0.0970
+      unité: Nm3/kWh PCI
+    GAZ COLL COND Conso auxilliaire chauffage:
+      valeur: 93%
+      unité: '%'
+    GAZ COLL COND Conso auxilliaire ECS:
+      valeur: 97%
+      unité: '%'
+    GAZ COLL COND Durée de vie:
+      valeur: 22
+      unité: Années
+    GAZ COLL SCOND Rendement chaudière:
+      valeur: 90%
+      unité: '%'
+    GAZ COLL SCOND Conso combustible:
+      valeur: 0.0970
+      unité: Nm3/kWh PCI
+    GAZ COLL SCOND Conso auxilliaire chauffage:
+      valeur: 93%
+      unité: '%'
+    GAZ COLL SCOND Conso auxilliaire ECS:
+      valeur: 97%
+      unité: '%'
+    GAZ COLL SCOND Durée de vie:
+      valeur: 22
+      unité: Années
+    FIOUL IND Rendement chaudière:
+      valeur: 85%
+      unité: '%'
+    FIOUL IND Conso combustible:
+      valeur: 0.0947
+      unité: l/kWh PCI
+    FIOUL IND Conso auxilliaire chauffage:
+      valeur: 93%
+      unité: '%'
+    FIOUL IND Conso auxilliaire ECS:
+      valeur: 97%
+      unité: '%'
+    FIOUL IND Durée de vie:
+      valeur: 21
+      unité: Années
+    FIOUL COLL Rendement chaudière chauffage:
+      valeur: 80%
+      unité: '%'
+    FIOUL COLL Rendement chaudière ECS:
+      valeur: 70%
+      unité: '%'
+    FIOUL COLL Conso combustible:
+      valeur: 0.0947
+      unité: l/kWh PCI
+    FIOUL COLL Conso auxilliaire chauffage:
+      valeur: 93%
+      unité: '%'
+    FIOUL COLL Conso auxilliaire ECS:
+      valeur: 97%
+      unité: '%'
+    FIOUL COLL Durée de vie:
+      valeur: 21
+      unité: Années
+    PAC GNRL A:
+      valeur:  3.60
+    PAC GNRL Aplus:
+      valeur:  4.30
+    PAC GNRL Aplusplus:
+      valeur:  4.85
+    PAC GNRL Aplusplusplus:
+      valeur:  5.10
+    PAC GNRL Conso auxiliaire chauffage climatisation:
+      valeur: 96%
+    PAC GNRL Conso auxiliaire ECS:
+      valeur: 99%
+    PAC AIR AIR SCOP indiv:
+      valeur: 4.2
+    PAC AIR AIR SCOP coll:
+      valeur: 3.65
+    PAC AIR AIR SEER indiv:
+      valeur: 6.1
+    PAC AIR AIR SEER coll:
+      valeur: 6.55
+    PAC AIR AIR Puissance unitaire réversible indiv:
+      valeur: 5
+      unité: kW
+    PAC AIR AIR Puissance unitaire réversible coll:
+      valeur: 22
+      unité: kW
+    PAC AIR AIR Classe énergétique:
+      valeur: "'A+'"
+    PAC AIR AIR Durée de vie indiv:
+      valeur: 17
+      unité: Années
+    PAC AIR AIR Durée de vie coll:
+      valeur: 22
+      unité: Années
+    PAC EAU EAU SCOP indiv capteurs horizontaux:
+      valeur: 5.33
+    PAC EAU EAU SCOP coll champ de sondes:
+      valeur: 4.86
+    PAC EAU EAU Puissance unitaire indiv:
+      valeur: 8
+    PAC EAU EAU Puissance unitaire coll:
+      valeur: 46.52
+    PAC EAU EAU Classe énergétique:
+      valeur: "'A+'"
+    PAC EAU EAU Durée de vie:
+      valeur: 17
+      unité: Années
+    PAC EAU EAU Durée de vie puits géothermiques:
+      valeur:  50
+      unité: Années
+    PAC AIR EAU SCOP indiv:
+      valeur: 3.36
+    PAC AIR EAU SCOP coll:
+      valeur: 5
+    PAC AIR EAU SEER indiv:
+      valeur: 3.9
+    PAC AIR EAU SEER coll:
+      valeur: 5.29
+    PAC AIR EAU Puissance unitaire réversible indiv:
+      valeur: 6.4
+    PAC AIR EAU Puissance unitaire réversible coll:
+      valeur: 20
+    PAC AIR EAU Classe énergétique:
+      valeur: "'A+'"
+    PAC AIR EAU Durée de vie indiv:
+      valeur: 17
+      unité: Années
+    PAC AIR EAU Durée de vie coll:
+      valeur: 22
+      unité: Années
+    PAC AB SCOP coll:
+      valeur: 1.23
+    PAC AB Classe énergétique:
+      valeur: "'A+'"
+    PAC AB Puissance unitaire coll:
+      valeur:  35
+      unité: kW
+    PAC AB Conso combustible gaz coll:
+      valeur: 72%
+      unité: '%'
+    PAC AB Durée de vie:
+      valeur: 17
+      unité: Années
+    PAC DEROG3 35:
+      valeur: 0
+    PAC DEROG3 45:
+      valeur: -0.6
+    PAC DEROG3 55:
+      valeur: -1.2
+    PAC DEROG3 65:
+      valeur: -1.6
+    PAC DEROG3 Plancher:
+      valeur: 0
+    PAC DEROG3 Basse température:
+      valeur: -0.6
+    PAC DEROG3 Moyenne température:
+      valeur: -1.2
+    PAC DEROG3 Haute température:
+      valeur: -1.6
+    RAD ELEC INDIV Rendement:
+      valeur: 100%
+      unité: '%'
+    RAD ELEC INDIV Conso combustible:
+      valeur: 100%
+      unité: '%'
+    RAD ELEC INDIV Durée de vie:
+      valeur: 25
+      unité: Années
+    CHAUF EAU ELEC Rendement stockage ballon:
+      valeur: 87%
+      unité: '%'
+    CHAUF EAU ELEC Durée de vie:
+      valeur: 20
+      unité: Années
+    CHAUF EAU SOLAIRE Rendement stockage ballon:
+      valeur: 87%
+      unité: '%'
+    CHAUF EAU SOLAIRE Durée de vie:
+      valeur: 20
+      unité: Années
+    CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS:
+      valeur: 60%
+      unité: '%'
+    # aucune valeur définie
+    # CHAUF EAU SOLAIRE Surface capteur solaire pour un ballon inférieur à:
+    #   valeur:
+    CHAUF EAU SOLAIRE 250:
+      valeur: 2.5
+      unité: m2
+    CHAUF EAU SOLAIRE 400:
+      valeur: 4
+      unité: m2
+    CHAUF EAU SOLAIRE 550:
+      valeur: 5.5
+      unité: m2
+    CHAUF EAU SOLAIRE 650:
+      valeur: 6
+      unité: m2
