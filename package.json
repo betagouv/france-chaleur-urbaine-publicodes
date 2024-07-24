@@ -31,11 +31,11 @@
     "doc:build": "yarn run build && cd doc && yarn run build"
   },
   "devDependencies": {
-    "@publicodes/tools": "^1.0.5",
+    "@publicodes/tools": "^1.2.4",
     "chokidar-cli": "^3.0.0"
   },
   "peerDependencies": {
-    "publicodes": "^1.1.0"
+    "publicodes": "^1.4.0"
   },
   "license": "MIT",
   "publishConfig": {
