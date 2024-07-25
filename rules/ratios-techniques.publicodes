@@ -690,75 +690,195 @@ ratios:
       valeur: 80%
       unité: '%'
     CI A:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - DPE = "A"
+      remplace: puissance coefficient d'intermittence
       valeur: 70%
       unité: '%'
     CI B:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - DPE = "B"
+      remplace: puissance coefficient d'intermittence
       valeur: 70%
       unité: '%'
     CI C:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - DPE = "C"
+      remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
     CI D:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - DPE = "D"
+      remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
     CI E:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - DPE = "E"
+      remplace: puissance coefficient d'intermittence
       valeur: 100%
       unité: '%'
     CI F:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - DPE = "F"
+      remplace: puissance coefficient d'intermittence
       valeur: 100%
       unité: '%'
     CI G:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - DPE = "G"
+      remplace: puissance coefficient d'intermittence
       valeur: 100%
       unité: '%'
     CI RE2020 Après 2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - normes thermiques et âge du bâtiment = "RE2020 Après 2020"
+      remplace: puissance coefficient d'intermittence
       valeur: 70%
       unité: '%'
     CI RT2012 Entre 2012 et 2020:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - normes thermiques et âge du bâtiment = "RT2012 Entre 2012 et 2020"
+      remplace: puissance coefficient d'intermittence
       valeur: 70%
       unité: '%'
     CI RT2005 Entre 2005 et 2012:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - normes thermiques et âge du bâtiment = "RT2005 Entre 2005 et 2012"
+      remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
     CI RT2000 Entre 2000 et 2005:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - normes thermiques et âge du bâtiment = "RT2000 Entre 2000 et 2005"
+      remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
     CI de 1990 à 2000:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - normes thermiques et âge du bâtiment = "de 1990 à 2000"
+      remplace: puissance coefficient d'intermittence
       valeur: 100%
       unité: '%'
     CI de 1974 à 1990:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - normes thermiques et âge du bâtiment = "de 1974 à 1990"
+      remplace: puissance coefficient d'intermittence
       valeur: 100%
       unité: '%'
     CI avant 1974:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - normes thermiques et âge du bâtiment = "avant 1974"
+      remplace: puissance coefficient d'intermittence
       valeur: 100%
       unité: '%'
     CI Bureaux:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Bureaux"
+      remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
     CI Enseignement secondaire:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+      remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
     CI Santé:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé"
+      remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
     CI Café, restaurant:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+      remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
     CI Hôtel:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel"
+      remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
     CI Commerces:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces"
+      remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
     CI Enseignement primaire:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+      remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
     CI Sport:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport"
+      remplace: puissance coefficient d'intermittence
       valeur: 60%
       unité: '%'
     CI Centre aqualudique:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Centre aqualudique"
+      remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
     CI EHPAD:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+      remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
     RCU Rendement sous station chauffage:

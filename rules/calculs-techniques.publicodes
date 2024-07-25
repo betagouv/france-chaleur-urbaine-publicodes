@@ -1,0 +1,49 @@
+Calcul: # useless
+
+puissance coefficient d'intermittence: puissance coefficient d'intermittence
+
+###### Calcul puissances
+
+Calcul . Chauffage Nb heure fonctionnement pleine puissance chauffage continu:
+  # =(_DJU_spe*24)/(TNC-T°C_ref_chaud)
+  formule: degré jours unifié spécifique chaud * 24 / (ratios . PUIS Température de non chauffage - température de référence chaud)
+  unité: heures
+
+Calcul . Chauffage Nb heure fonctionnement pleine puissance:
+  # =NHFPPcc*(IF(Type_bat="Résidentiel",XLOOKUP('Paramètres techniques'!C38,'Ratios techniques'!$B$147:$B$160,'Ratios techniques'!$C$147:$C$160),XLOOKUP(Choix_methode,'Ratios techniques'!$B$147:$B$170,'Ratios techniques'!$C$147:$C$170)))
+  produit:
+    - Calcul . Chauffage Nb heure fonctionnement pleine puissance chauffage continu
+    - puissance coefficient d'intermittence
+  unité: heures
+
+Calcul . Chauffage Puissance chauffage appelée:
+  # =(Besoin_cha/NHFPP)*(1+F_sur_p)
+  formule: (besoins chauffage par appartement / Calcul . Chauffage Nb heure fonctionnement pleine puissance) * (1 + ratios . PUIS Facteur de surpuissance)
+  unité: kW
+
+Calcul . ECS Nb heure fonctionnement non climatique:
+  # =NHFNC
+  formule: ratios . PUIS Nombre heure de fonctionnement non climatique ECS
+  unité: heures
+
+Calcul . ECS Puissance ECS appelée:
+  # =(Besoin_ECS/NHFNC)*(1+F_sur_p)
+  formule: (besoins eau chaude sanitaire par appartement / ratios . PUIS Nombre heure de fonctionnement non climatique ECS) * (1 + ratios . PUIS Facteur de surpuissance)
+  unité: kW
+
+Calcul . Climatisation Nb heure fonctionnement pleine puissance:
+  # =(DJU_spe_froid*24)*(IF(Type_bat="Résidentiel",XLOOKUP('Paramètres techniques'!C38,'Ratios techniques'!$B$147:$B$160,'Ratios techniques'!$C$147:$C$160),XLOOKUP(Choix_methode,'Ratios techniques'!$B$147:$B$170,'Ratios techniques'!$C$147:$C$170)))
+  produit:
+    - degré jours unifié spécifique froid
+    - 24
+    - puissance coefficient d'intermittence
+  unité: heures
+
+Calcul . Climatisation Puissance refroidissement appelée:
+  applicable si: Calcul . Climatisation Nb heure fonctionnement pleine puissance > 0
+  # =Besoin_raf/$B$40*(1+F_sur_p)
+  formule: besoins en climatisation par appartement / Calcul . Climatisation Nb heure fonctionnement pleine puissance * (1 + ratios . PUIS Facteur de surpuissance)
+  unité: kW
+
+
+###### Puissance totale des installations
