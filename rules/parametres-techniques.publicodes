@@ -3,39 +3,50 @@
 département:
   # fourni via l'adresse
   question: département de l'utilisateur
-  valeur: "'HAUTE-GARONNE'"
-commune: # sera récupéré en externe pour intérroger une BDD avec les communes
-  # fourni via l'adresse
-  question: commune de l'utilisateur
+  par défaut: "'HAUTE-GARONNE'"
+
 degré jours unifié spécifique chaud: degré jours unifié spécifique chaud # se fait remplacer par les données département
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$C$6:$C$101,'Ratios techniques'!$C$10,0)
 degré jours unifié spécifique froid: degré jours unifié spécifique froid # se fait remplacer par les données département
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$D$6:$D$101,"",0)
 température de référence chaud:
   # =XLOOKUP(commune,Communes!$C$6:$C$36618,Communes!$G$6:$G$36618,,0)
-  valeur: -5 # Toulouse # potentiellement à définir en externe via la commune
+  # à définir en externe
+  par défaut: -5 # Toulouse
 augmenter la température de chauffe: 0
 
 code département: # inutilisé
-zone climatique: # inutilisé
+# zone climatique:
 
 
 
 
 ###### Réseaux de chaleur et de froid
-choix du réseau de chaleur:
+# choix du réseau de chaleur:
 contenu CO2 réseau de chaleur:
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
-choix du réseaux de froid:
+  # à définir en externe
+# choix du réseaux de froid:
 contenu CO2 réseau de froid:
   # =XLOOKUP(C18,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
+  # à définir en externe
 
 ###### Choix du bâtiment
 type de bâtiment:
-  valeur: "'résidentiel'" # ou tertiaire
-  # valeur: "'tertiaire'"
+  par défaut: "'résidentiel'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'résidentiel'"
+      - "'tertiaire'"
+
 type de résidentiel:
-  par défaut: "'individuel'" # ou collectif
+  par défaut: "'individuel'"
+  une possibilité:
+    choix obligatoire: type de bâtiment = "résidentiel"
+    possibilités:
+      - "'individuel'"
+      - "'collectif'"
 
 nombre de logement dans l'immeuble concerné:
   # =IF(Type_bat="Tertiaire",1,'Ratios techniques'!$C$18)
@@ -52,10 +63,10 @@ surface logement type tertiaire:
     - sinon: ratios . GNRL Surface de référence tertiaire
 Nombre d'habitants moyen par appartement:
   # ='Ratios techniques'!$C$12
-  valeur: ratios . GNRL Nombre habitant par logement
+  par défaut: ratios . GNRL Nombre habitant par logement
 Production eau chaude sanitaire:
   # ='Ratios techniques'!$C$15
-  valeur: ratios . GNRL Production ECS
+  par défaut: ratios . GNRL Production ECS
 # pas de valeur définir
 # Production individuelle ou collective:
 #   valeur:
@@ -70,54 +81,73 @@ Température émetteurs: 35
 
 ###### Besoins calculés
 
-# Si type de bâtiment = tertiaire, choix méthode =
-# Bureaux
-# Enseignement secondaire
-# Enseignement primaire
-# Commerces
-# Café, restaurant
-# Hôtel
-# Sport
-# EHPAD
-# Santé
+méthode résidentiel:
+  par défaut: "'Normes thermiques et âge du bâtiment'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'Normes thermiques et âge du bâtiment'"
+      - "'DPE'"
 
-# Si méthode = Enseignement secondaire, choix supplémentaires =
-# Enseignement secondaire RE2020
-# Enseignement secondaire RE2012
-# Enseignement secondaire Moyenne française 2021
-# idem pour les autres choix avec 3 choix
+méthode tertiaire:
+  par défaut: "'Normes thermiques'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'Bureaux'"
+      - "'Enseignement secondaire'"
+      - "'Enseignement primaire'"
+      - "'Commerces'"
+      - "'Café, restaurant'"
+      - "'Hôtel'"
+      - "'Sport'"
+      - "'EHPAD'"
+      - "'Santé'"
 
+méthode de calcul pour les besoins en chauffage et refroidissement:
+  par défaut: "'Normes thermiques et âge du bâtiment'"
+  variations:
+    - si: type de bâtiment = "résidentiel"
+      alors: méthode résidentiel
+    - si: type de bâtiment = "tertiaire"
+      alors: méthode tertiaire
 
-# Si type de bâtiment = résidentiel, choix méthode =
-# Normes thermiques et âge du bâtiment
-# DPE
-
-# Si méthode = DPE, choix DPE =
-# A
-# B
-# C
-# D
-# E
-# F
-# G
-
-# Si méthode = normes, choix normes =
-# RE2020 - Après 2020
-# RE2012 - Entre 2012 et 2020
-# RE2005 - Entre 2005 et 2012
-# RE2000 - Entre 2000 et 2005
-# de 1990 à 2000
-# de 1974 à 2005
-# avant 1974
-
-
-méthode de calcul pour les besoins en chauffage et refroidissement: "'Normes thermiques et âge du bâtiment'"
 
 # quand bâtiment résidentiel
-DPE: "'D'"
-normes thermiques et âge du bâtiment: "'de 1990 à 2000'"
+DPE:
+  par défaut: "'D'"
+  une possibilité:
+    choix obligatoire: méthode de calcul pour les besoins en chauffage et refroidissement = "DPE"
+    possibilités:
+      - "'A'"
+      - "'B'"
+      - "'C'"
+      - "'D'"
+      - "'E'"
+      - "'F'"
+      - "'G'"
+
+normes thermiques et âge du bâtiment:
+  par défaut: "'de 1990 à 2000'"
+  une possibilité:
+    choix obligatoire: méthode de calcul pour les besoins en chauffage et refroidissement = "Normes thermiques et âge du bâtiment"
+    possibilités:
+      - "'RE2020 - Après 2020'"
+      - "'RE2012 - Entre 2012 et 2020'"
+      - "'RE2005 - Entre 2005 et 2012'"
+      - "'RE2000 - Entre 2000 et 2005'"
+      - "'de 1990 à 2000'"
+      - "'de 1974 à 2005'"
+      - "'avant 1974'"
+
 # quand bâtiment tertiaire
-normes thermiques: "'Bureaux RT2012'"
+normes thermiques:
+  par défaut: "'Bureaux RT2012'"
+  # Si méthode = Enseignement secondaire, choix supplémentaires =
+  # Enseignement secondaire RE2020
+  # Enseignement secondaire RE2012
+  # Enseignement secondaire Moyenne française 2021
+  # idem pour les autres choix avec 3 choix
 
 
 consommation spécifique chauffage: consommation spécifique chauffage # maj depuis les ratios techniques
@@ -145,5 +175,6 @@ besoins eau chaude sanitaire par appartement:
 consommation spécifique climatisation par habitant: consommation spécifique climatisation par habitant # maj depuis les ratios techniques
   # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=$C$38),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=Type_bat),'Ratios techniques'!C:C,"Non trouvé"))
 besoins en climatisation par appartement:
+
   # =Conso_spé_raf*Surface*DJU_spe_froid/DJU_ref_froid*Surf_clim
   formule: consommation spécifique climatisation par habitant * surface logement type tertiaire * degré jours unifié spécifique froid / ratios . GNRL DJU REF froid * Part de la surface à climatiser
