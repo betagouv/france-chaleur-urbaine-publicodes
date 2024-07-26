@@ -59,14 +59,10 @@ Installation x Réseaux de chaleur x Collectif:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . RCU Rendement sous station ECS)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -76,7 +72,7 @@ Installation x Réseaux de froid x Collectif:
   avec:
     production eau chaude sanitaire: non
     puissance nécessaire pour refroidissement équipement:
-      formule: 2
+      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . RFU Rendement sous station * nombre de logement dans l'immeuble concerné
       unité: kW
     puissance équipement:
       somme:
@@ -92,13 +88,9 @@ Installation x Poêle à granulés indiv x Individuel:
     puissance nécessaire équipement chauffage:
       formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . GRA POELE Rendement poêle chauffage)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -114,14 +106,10 @@ Installation x Chaudière à granulés coll x Collectif:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GRA CHAUD Rendement chaudière chauffage)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -137,14 +125,10 @@ Installation x Gaz indiv avec cond x Individuel:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ IND COND Rendement chaudière ECS)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -160,14 +144,10 @@ Installation x Gaz indiv sans cond x Individuel:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ IND SCOND Rendement chaudière)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -183,14 +163,10 @@ Installation x Gaz coll avec cond x Collectif:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ COLL COND Rendement chaudière ECS)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -206,14 +182,10 @@ Installation x Gaz coll sans cond x Collectif:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ COLL SCOND Rendement chaudière)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -229,14 +201,10 @@ Installation x Fioul indiv x Individuel:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . FIOUL IND Rendement chaudière)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -252,14 +220,10 @@ Installation x Fioul coll x Collectif:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . FIOUL COLL Rendement chaudière ECS)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -272,7 +236,7 @@ Installation x PAC air-air x Individuel:
       formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC AIR AIR SCOP indiv)
       unité: kW
     puissance nécessaire pour refroidissement équipement:
-      formule: 2
+      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
       unité: kW
     puissance équipement:
       somme:
@@ -293,14 +257,10 @@ Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC EAU EAU SCOP indiv capteurs horizontaux)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -317,7 +277,7 @@ Installation x PAC air-eau x Individuel:
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC AIR EAU SCOP indiv)
       unité: kW
     puissance nécessaire pour refroidissement équipement:
-      formule: 2
+      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER indiv
       unité: kW
     puissance équipement:
       somme:
@@ -336,7 +296,7 @@ Installation x PAC air-air x Collectif:
       formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC AIR AIR SCOP coll) * nombre de logement dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnemennt chauffage collectif
       unité: kW
     puissance nécessaire pour refroidissement équipement:
-      formule: 2
+      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER coll * nombre de logement dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnemennt chauffage collectif
       unité: kW
     puissance équipement:
       somme:
@@ -357,14 +317,10 @@ Installation x PAC eau-eau champs de sondes x Collectif:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC EAU EAU SCOP coll champ de sondes)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -381,7 +337,7 @@ Installation x PAC air-eau x Collectif:
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC AIR EAU SCOP coll)
       unité: kW
     puissance nécessaire pour refroidissement équipement:
-      formule: 2
+      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER coll * nombre de logement dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnemennt chauffage collectif
       unité: kW
     puissance équipement:
       somme:
@@ -403,14 +359,10 @@ Installation x PAC absorption gaz x Collectif:
       applicable si: production eau chaude sanitaire
       formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC AB SCOP coll)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
@@ -422,13 +374,9 @@ Installation x Radiateur électrique x Individuel:
     puissance nécessaire équipement chauffage:
       formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . RAD ELEC INDIV Rendement)
       unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: 2
-      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       formule: 3
