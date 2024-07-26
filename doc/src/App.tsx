@@ -10,7 +10,11 @@ import model from "../../france-chaleur-urbaine-publicodes.model.json"
 import type { DottedName}  from "../../index.d.ts"
 
 // Instantiate the publicodes engine with the model
-const engine = new Engine(model)
+const engine = new Engine(model, {
+  strict: {
+    noOrphanRule: false,
+  },
+})
 
 // The base URL of the application (in production, the app is served from a subdirectory of
 // the github pages repository, so we need to prefix all the URLs with the subdirectory)

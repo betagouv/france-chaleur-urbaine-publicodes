@@ -14,7 +14,11 @@ let engine
 
 // Try to create a new engine with the model to check for parsing errors
 try {
-  engine = new Engine(model)
+  engine = new Engine(model, {
+    strict: {
+      noOrphanRule: false,
+    },
+  })
 } catch (e) {
   console.error(`❌ There is an error in the model:`)
   console.error(e)
