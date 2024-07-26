@@ -77,7 +77,20 @@ Part de la surface à climatiser:
     - si: type de bâtiment = 'résidentiel'
       alors: ratios . GNRL Part surface à climatiser résidentiel
     - sinon: ratios . GNRL Part surface à climatiser tertiaire
-Température émetteurs: 35
+Température émetteurs:
+  par défaut: "'35'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'35'"
+      - "'45'"
+      - "'55'"
+      - "'65'"
+      - "'Plancher'"
+      - "'Basse température'"
+      - "'Moyenne température'"
+      - "'Haute température'"
+Température émetteurs delta: Température émetteurs delta
 
 ###### Besoins calculés
 
