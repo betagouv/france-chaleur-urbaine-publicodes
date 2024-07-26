@@ -65,8 +65,9 @@ Installation x Réseaux de chaleur x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      formule: puissance équipement
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Réseaux de froid x Collectif:
   avec:
@@ -79,8 +80,9 @@ Installation x Réseaux de froid x Collectif:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      formule: puissance équipement
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
 
 Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -93,8 +95,10 @@ Installation x Poêle à granulés indiv x Individuel:
         - puissance nécessaire équipement chauffage
       unité: kW
     gamme de puissance existante:
+      # =IF($G$49<'Ratios économiques - Coûts'!$B$65,'Ratios économiques - Coûts'!$B$65,$F$538)
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
 
 Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -114,6 +118,7 @@ Installation x Chaudière à granulés coll x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Gaz indiv avec cond x Individuel:
   avec:
@@ -133,6 +138,7 @@ Installation x Gaz indiv avec cond x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Gaz indiv sans cond x Individuel:
   avec:
@@ -152,6 +158,7 @@ Installation x Gaz indiv sans cond x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Gaz coll avec cond x Collectif:
   avec:
@@ -171,6 +178,7 @@ Installation x Gaz coll avec cond x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Gaz coll sans cond x Collectif:
   avec:
@@ -190,6 +198,7 @@ Installation x Gaz coll sans cond x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Fioul indiv x Individuel:
   avec:
@@ -209,6 +218,7 @@ Installation x Fioul indiv x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Fioul coll x Collectif:
   avec:
@@ -228,6 +238,7 @@ Installation x Fioul coll x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x PAC air-air x Individuel:
   avec:
@@ -246,6 +257,7 @@ Installation x PAC air-air x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
 
 Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
   avec:
@@ -265,6 +277,7 @@ Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x PAC air-eau x Individuel:
   avec:
@@ -289,6 +302,7 @@ Installation x PAC air-eau x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x PAC air-air x Collectif:
   avec:
@@ -307,6 +321,7 @@ Installation x PAC air-air x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
 
 Installation x PAC eau-eau champs de sondes x Collectif:
   avec:
@@ -326,6 +341,7 @@ Installation x PAC eau-eau champs de sondes x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x PAC air-eau x Collectif:
   avec:
@@ -350,6 +366,7 @@ Installation x PAC air-eau x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x PAC absorption gaz x Collectif:
   avec:
@@ -369,6 +386,7 @@ Installation x PAC absorption gaz x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: non
 
 Installation x Radiateur électrique x Individuel:
   avec:
@@ -383,3 +401,48 @@ Installation x Radiateur électrique x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+
+
+###### Production différenciée d'ECS par lgt / tertiaire
+
+# valeurs communes parmi tous les types d'installation
+
+volume du ballon ECS:
+  formule: (besoins eau chaude sanitaire par appartement * ratios . ECS Quantité d'ECS produite par kWh) / 365
+  unité: L
+
+consommation d'électricité:
+  formule: besoins eau chaude sanitaire par appartement * ratios . CHAUF EAU ELEC Rendement stockage ballon
+  unité: kWh/an
+
+durée avant renouvellement elec:
+  formule: ratios . CHAUF EAU ELEC Durée de vie
+  unité: années
+
+surface de panneau nécessaire:
+  #   IF(
+  #     $D$71<'Ratios techniques'!$B$353,
+  #     XLOOKUP($D$71,'Ratios techniques'!$B$350:$B$353, 'Ratios techniques'!$C$350:$C$353,,1),
+  #     'Ratios techniques'!$C$353
+  #   )
+  variations:
+    - si: volume du ballon ECS < 250
+      alors: 2.5m2
+    - si: volume du ballon ECS < 400
+      alors: 4m2
+    - si: volume du ballon ECS < 550
+      alors: 5.5m2
+    - si: volume du ballon ECS < 650
+      alors: 6m2
+    - sinon: 6m2
+  unité: m2
+
+appoint d'électricité:
+  # =IF(C71="Oui",Besoin_ECS*(1-'Paramètres techniques'!$D$199)/'Paramètres techniques'!$D$197,"")
+  formule: besoins eau chaude sanitaire par appartement * (1 - ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS) / ratios . CHAUF EAU SOLAIRE Rendement stockage ballon
+  unité: kWh/an
+
+durée avant renouvellement solaire:
+  formule: ratios . CHAUF EAU SOLAIRE Durée de vie
+  unité: années
