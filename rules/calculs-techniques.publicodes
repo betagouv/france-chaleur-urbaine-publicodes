@@ -68,6 +68,21 @@ Installation x Réseaux de chaleur x Collectif:
       formule: puissance équipement
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      # =Besoin_cha/Rend_RCU_chauf+Besoin_ECS/Rend_RCU_ECS
+      formule: besoins chauffage par appartement / ratios . RCU Rendement sous station chauffage + besoins eau chaude sanitaire par appartement / ratios . RCU Rendement sous station ECS
+      unité: kWh
+    consommation combustible froid:
+      formule: 0
+      unité: kWh
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Réseaux de froid x Collectif:
   avec:
@@ -83,6 +98,21 @@ Installation x Réseaux de froid x Collectif:
       formule: puissance équipement
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    consommation combustible chaleur:
+      formule: 0
+      unité: kWh
+    consommation combustible froid:
+      # =Besoin_raf/Rend_RFU
+      formule: besoins en climatisation par appartement / ratios . RFU Rendement sous station
+      unité: kWh
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -99,6 +129,18 @@ Installation x Poêle à granulés indiv x Individuel:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    consommation combustible chaleur:
+      formule: ratios . GRA POELE Conso combustible * (besoins chauffage par appartement / ratios . GRA POELE Rendement poêle chauffage)
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -119,6 +161,19 @@ Installation x Chaudière à granulés coll x Collectif:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      # =Conso_comb_GRA_Chaud*(Besoin_cha/Rend_GRA_Chaud+Besoin_ECS/Rend_GRA_Chaud)
+      formule: ratios . GRA CHAUD Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GRA CHAUD Rendement chaudière chauffage
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Gaz indiv avec cond x Individuel:
   avec:
@@ -139,6 +194,19 @@ Installation x Gaz indiv avec cond x Individuel:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      # =Conso_comb_GAZ_indiv_cond*(Besoin_cha/Rend_GAZ_indiv_cond_chauf+Besoin_ECS/Rend_GAZ_indiv_cond_ECS)
+      formule: ratios . GAZ IND COND Conso combustible * (besoins chauffage par appartement / ratios . GAZ IND COND Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . GAZ IND COND Rendement chaudière ECS)
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Gaz indiv sans cond x Individuel:
   avec:
@@ -159,6 +227,19 @@ Installation x Gaz indiv sans cond x Individuel:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      # =Conso_comb_GAZ_indiv_scond*(Besoin_cha/Rend_GAZ_indiv_scond +Besoin_ECS/Rend_GAZ_indiv_scond)
+      formule: ratios . GAZ IND SCOND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GAZ IND SCOND Rendement chaudière
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Gaz coll avec cond x Collectif:
   avec:
@@ -179,6 +260,18 @@ Installation x Gaz coll avec cond x Collectif:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Gaz coll sans cond x Collectif:
   avec:
@@ -199,6 +292,18 @@ Installation x Gaz coll sans cond x Collectif:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Fioul indiv x Individuel:
   avec:
@@ -219,6 +324,18 @@ Installation x Fioul indiv x Individuel:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x Fioul coll x Collectif:
   avec:
@@ -239,6 +356,18 @@ Installation x Fioul coll x Collectif:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x PAC air-air x Individuel:
   avec:
@@ -258,6 +387,18 @@ Installation x PAC air-air x Individuel:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
   avec:
@@ -277,7 +418,21 @@ Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
     gamme de puissance existante:
       formule: 3
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+
+    # absent en production différenciée
+    # besoin d'installation supplémentaire pour produire l'ECS: non
+    # consommation combustible chaleur:
+    #   formule: 10
+    # consommation combustible froid:
+    #   formule: 11
+    # consommation auxilliaire:
+    #   formule: 12
+    # durée avant renouvellement:
+    #   formule: 13
+    # consommation d'électricité:
+    #   formule: 14
+    # appoint d'électricité:
+    #   formule: 15
 
 Installation x PAC air-eau x Individuel:
   avec:
@@ -303,6 +458,18 @@ Installation x PAC air-eau x Individuel:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER indiv
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x PAC air-air x Collectif:
   avec:
@@ -322,6 +489,18 @@ Installation x PAC air-air x Collectif:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER coll
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x PAC eau-eau champs de sondes x Collectif:
   avec:
@@ -341,7 +520,21 @@ Installation x PAC eau-eau champs de sondes x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+
+    # absent en production différenciée
+    # besoin d'installation supplémentaire pour produire l'ECS: non
+    # consommation combustible chaleur:
+    #   formule: 10
+    # consommation combustible froid:
+    #   formule: 11
+    # consommation auxilliaire:
+    #   formule: 12
+    # durée avant renouvellement:
+    #   formule: 13
+    # consommation d'électricité:
+    #   formule: 14
+    # appoint d'électricité:
+    #   formule: 15
 
 Installation x PAC air-eau x Collectif:
   avec:
@@ -367,6 +560,18 @@ Installation x PAC air-eau x Collectif:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 Installation x PAC absorption gaz x Collectif:
   avec:
@@ -386,7 +591,21 @@ Installation x PAC absorption gaz x Collectif:
     gamme de puissance existante:
       formule: 3
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+
+    # absent en production différenciée
+    # besoin d'installation supplémentaire pour produire l'ECS: non
+    # consommation combustible chaleur:
+    #   formule: 10
+    # consommation combustible froid:
+    #   formule: 11
+    # consommation auxilliaire:
+    #   formule: 12
+    # durée avant renouvellement:
+    #   formule: 13
+    # consommation d'électricité:
+    #   formule: 14
+    # appoint d'électricité:
+    #   formule: 15
 
 Installation x Radiateur électrique x Individuel:
   avec:
@@ -402,6 +621,18 @@ Installation x Radiateur électrique x Individuel:
       formule: 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    consommation combustible chaleur:
+      formule: 10
+    consommation combustible froid:
+      formule: 0
+    consommation auxilliaire:
+      formule: 12
+    durée avant renouvellement:
+      formule: 13
+    consommation d'électricité:
+      formule: 14
+    appoint d'électricité:
+      formule: 15
 
 
 ###### Production différenciée d'ECS par lgt / tertiaire
