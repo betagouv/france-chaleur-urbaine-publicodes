@@ -1060,9 +1060,13 @@ ratios:
       valeur: 22
       unité: Années
     PAC EAU EAU SCOP indiv capteurs horizontaux:
-      valeur: 5.33
+      somme:
+        - 5.33
+        - Température émetteurs delta
     PAC EAU EAU SCOP coll champ de sondes:
-      valeur: 4.86
+      somme:
+        - 4.86
+        - Température émetteurs delta
     PAC EAU EAU Puissance unitaire indiv:
       valeur: 8
     PAC EAU EAU Puissance unitaire coll:
@@ -1076,9 +1080,13 @@ ratios:
       valeur:  50
       unité: Années
     PAC AIR EAU SCOP indiv:
-      valeur: 3.36
+      somme:
+        - 3.36
+        - Température émetteurs delta
     PAC AIR EAU SCOP coll:
-      valeur: 5
+      somme:
+        - 5
+        - Température émetteurs delta
     PAC AIR EAU SEER indiv:
       valeur: 3.9
     PAC AIR EAU SEER coll:
@@ -1109,20 +1117,36 @@ ratios:
       valeur: 17
       unité: Années
     PAC DEROG3 35:
+      applicable si: Température émetteurs = "35"
+      remplace: Température émetteurs delta
       valeur: 0
     PAC DEROG3 45:
+      applicable si: Température émetteurs = "45"
+      remplace: Température émetteurs delta
       valeur: -0.6
     PAC DEROG3 55:
+      applicable si: Température émetteurs = "55"
+      remplace: Température émetteurs delta
       valeur: -1.2
     PAC DEROG3 65:
+      applicable si: Température émetteurs = "65"
+      remplace: Température émetteurs delta
       valeur: -1.6
     PAC DEROG3 Plancher:
+      applicable si: Température émetteurs = "Plancher"
+      remplace: Température émetteurs delta
       valeur: 0
     PAC DEROG3 Basse température:
+      applicable si: Température émetteurs = "Basse température"
+      remplace: Température émetteurs delta
       valeur: -0.6
     PAC DEROG3 Moyenne température:
+      applicable si: Température émetteurs = "Moyenne température"
+      remplace: Température émetteurs delta
       valeur: -1.2
     PAC DEROG3 Haute température:
+      applicable si: Température émetteurs = "Haute température"
+      remplace: Température émetteurs delta
       valeur: -1.6
     RAD ELEC INDIV Rendement:
       valeur: 100%
