@@ -239,7 +239,7 @@ Installation x PAC air-air x Individuel:
       formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
       unité: kW
     puissance équipement:
-      somme:
+      le maximum de:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour refroidissement équipement
       unité: kW
@@ -280,9 +280,10 @@ Installation x PAC air-eau x Individuel:
       formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER indiv
       unité: kW
     puissance équipement:
-      somme:
-        - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour ECS avec équipement
+      le maximum de:
+        - somme:
+          - puissance nécessaire équipement chauffage
+          - puissance nécessaire pour ECS avec équipement
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
@@ -299,7 +300,7 @@ Installation x PAC air-air x Collectif:
       formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER coll * nombre de logement dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnemennt chauffage collectif
       unité: kW
     puissance équipement:
-      somme:
+      le maximum de:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour refroidissement équipement
       unité: kW
@@ -340,9 +341,10 @@ Installation x PAC air-eau x Collectif:
       formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER coll * nombre de logement dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnemennt chauffage collectif
       unité: kW
     puissance équipement:
-      somme:
-        - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour ECS avec équipement
+      le maximum de:
+        - somme:
+          - puissance nécessaire équipement chauffage
+          - puissance nécessaire pour ECS avec équipement
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
