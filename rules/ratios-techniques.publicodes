@@ -895,7 +895,7 @@ ratios:
       unité: '%'
     RCU Durée avant renouvellement:
       valeur: 30
-      unité: Années
+      unité: années
     RFU Rendement sous station:
       valeur: 98%
       unité: '%'
@@ -904,7 +904,7 @@ ratios:
       unité: '%'
     RFU Durée de vie:
       valeur: 30
-      unité: Années
+      unité: années
     GRA POELE Rendement poêle chauffage:
       valeur: 80%
       unité: '%'
@@ -913,7 +913,7 @@ ratios:
       unité: kg/kWh
     GRA POELE Durée de vie:
       valeur: 16
-      unité: Années
+      unité: années
     GRA CHAUD Rendement chaudière chauffage:
       valeur: 90%
       unité: '%'
@@ -925,7 +925,7 @@ ratios:
       unité: '%'
     GRA CHAUD Durée de vie:
       valeur: 17
-      unité: Années
+      unité: années
     GAZ IND COND Rendement chaudière chauffage:
       valeur: 103%
       unité: '%'
@@ -943,7 +943,7 @@ ratios:
       unité: '%'
     GAZ IND COND Durée de vie:
       valeur: 17
-      unité: Années
+      unité: années
     GAZ IND SCOND Rendement chaudière:
       valeur: 90%
       unité: '%'
@@ -958,7 +958,7 @@ ratios:
       unité: '%'
     GAZ IND SCOND Durée de vie:
       valeur: 17
-      unité: Années
+      unité: années
     GAZ COLL COND Rendement chaudière chauffage:
       valeur: 105%
       unité: '%'
@@ -976,7 +976,7 @@ ratios:
       unité: '%'
     GAZ COLL COND Durée de vie:
       valeur: 22
-      unité: Années
+      unité: années
     GAZ COLL SCOND Rendement chaudière:
       valeur: 90%
       unité: '%'
@@ -991,7 +991,7 @@ ratios:
       unité: '%'
     GAZ COLL SCOND Durée de vie:
       valeur: 22
-      unité: Années
+      unité: années
     FIOUL IND Rendement chaudière:
       valeur: 85%
       unité: '%'
@@ -1006,7 +1006,7 @@ ratios:
       unité: '%'
     FIOUL IND Durée de vie:
       valeur: 21
-      unité: Années
+      unité: années
     FIOUL COLL Rendement chaudière chauffage:
       valeur: 80%
       unité: '%'
@@ -1024,7 +1024,7 @@ ratios:
       unité: '%'
     FIOUL COLL Durée de vie:
       valeur: 21
-      unité: Années
+      unité: années
     PAC GNRL A:
       valeur:  3.60
     PAC GNRL Aplus:
@@ -1055,10 +1055,10 @@ ratios:
       valeur: "'A+'"
     PAC AIR AIR Durée de vie indiv:
       valeur: 17
-      unité: Années
+      unité: années
     PAC AIR AIR Durée de vie coll:
       valeur: 22
-      unité: Années
+      unité: années
     PAC EAU EAU SCOP indiv capteurs horizontaux:
       somme:
         - 5.33
@@ -1075,10 +1075,10 @@ ratios:
       valeur: "'A+'"
     PAC EAU EAU Durée de vie:
       valeur: 17
-      unité: Années
+      unité: années
     PAC EAU EAU Durée de vie puits géothermiques:
       valeur:  50
-      unité: Années
+      unité: années
     PAC AIR EAU SCOP indiv:
       somme:
         - 3.36
@@ -1099,10 +1099,10 @@ ratios:
       valeur: "'A+'"
     PAC AIR EAU Durée de vie indiv:
       valeur: 17
-      unité: Années
+      unité: années
     PAC AIR EAU Durée de vie coll:
       valeur: 22
-      unité: Années
+      unité: années
     PAC AB SCOP coll:
       valeur: 1.23
     PAC AB Classe énergétique:
@@ -1115,7 +1115,7 @@ ratios:
       unité: '%'
     PAC AB Durée de vie:
       valeur: 17
-      unité: Années
+      unité: années
     PAC DEROG3 35:
       applicable si: Température émetteurs = "35"
       remplace: Température émetteurs delta
@@ -1156,19 +1156,19 @@ ratios:
       unité: '%'
     RAD ELEC INDIV Durée de vie:
       valeur: 25
-      unité: Années
+      unité: années
     CHAUF EAU ELEC Rendement stockage ballon:
       valeur: 87%
       unité: '%'
     CHAUF EAU ELEC Durée de vie:
       valeur: 20
-      unité: Années
+      unité: années
     CHAUF EAU SOLAIRE Rendement stockage ballon:
       valeur: 87%
       unité: '%'
     CHAUF EAU SOLAIRE Durée de vie:
       valeur: 20
-      unité: Années
+      unité: années
     CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS:
       valeur: 60%
       unité: '%'
