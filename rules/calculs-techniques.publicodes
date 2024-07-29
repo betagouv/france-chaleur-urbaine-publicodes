@@ -836,7 +836,7 @@ Installation x Radiateur électrique x Individuel:
       unité: kW
     gamme de puissance existante:
       # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
-      formule: puissance équipement / ( ratios économiques . radiateur électrique + 1 ) * ratios économiques . radiateur électrique # FIXME arrondi?
+      formule: puissance équipement / ( ratios économiques . radiateur électrique x puissance de l'installation + 1 ) * ratios économiques . radiateur électrique x puissance de l'installation # FIXME arrondi?
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
