@@ -1,0 +1,102 @@
+ratios environnementaux:
+  avec:
+    Production par solaire thermique:
+      formule: 70%
+    Production par électricité:
+      formule: 30%
+
+    Emission spé Granulé poêle à bois:
+      formule: 0.032
+      unité: kg éq.CO2/kWh PCI
+    Emission spé Granulé chaudière:
+      formule: 0.027
+      unité: kg éq.CO2/kWh PCI
+    Emission spé Buches poêle à bois:
+      formule: 0.046
+      unité: kg éq.CO2/kWh PCI
+    Emission spé Buches chaudière:
+      formule: 0.032
+      unité: kg éq.CO2/kWh PCI
+    Emission spé Gaz chaudière:
+      formule: 0.243
+      unité: kg éq.CO2/kWh
+    Emission spé Fioul chaudière:
+      formule: 0.314
+      unité: kg éq.CO2/kWh
+    Emission spé Biogaz chaudière:
+      formule: 0.0445
+      unité: kgCO2e/kWh
+
+    Emission moy Photovoltaique:
+      formule: 0.0439
+      unité: kgCO2e/kWh
+    Emission moy Parc électrique francais moyenne:
+      formule: 0.052
+      unité: kgCO2eq/kWh
+    Emission moy Ratio moyen RC:
+      formule: 0.0972
+      unité: kgCO2e/kWh
+    Emission moy Ratio moyen RF:
+      formule: 0.0983
+      unité: kgCO2e/kWh
+
+    CO2 INS RCU:
+      formule: 0.004
+      unité: kg CO2 éq./kWh
+    CO2 INS RFU:
+      formule: 0.004
+      unité: kg CO2 éq./kWh
+    CO2 INS Poêle à granulés indiv:
+      formule: 122
+      unité: kg CO2 éq./kW
+    CO2 INS Chaudière à granulés coll:
+      formule: 102
+      unité: kg CO2 éq./kW
+    CO2 INS Gaz indiv avec cond:
+      formule: 3000
+      unité: kg CO2 éq./kW
+    CO2 INS Gaz indiv sans cond:
+      formule: 13
+      unité: kg CO2 éq./kW
+    CO2 INS Gaz coll avec cond:
+      formule: 25
+      unité: kg CO2 éq./kW
+    CO2 INS Gaz coll sans cond:
+      formule: 25
+      unité: kg CO2 éq./kW
+    CO2 INS Fioul indiv:
+      formule: 112
+      unité: kg CO2 éq./kW
+    CO2 INS Fioul coll:
+      formule: 43
+      unité: kg CO2 éq./kW
+    CO2 INS Solaire thermique:
+      formule: 9
+      unité: kg CO2 éq./L
+    CO2 INS Ballon électrique:
+      formule: 6
+      unité: kg CO2 éq./L
+    CO2 INS PAC air-air indiv:
+      formule: 2229
+      unité: kg CO2 éq./kW
+    CO2 INS PAC eau-eau indiv:
+      formule: 622
+      unité: kg CO2 éq./kW
+    CO2 INS PAC air-eau indiv:
+      formule: 7420
+      unité: kg CO2 éq./kW
+    CO2 INS PAC air-air collectif-tertiaire:
+      formule: 7227
+      unité: kg CO2 éq./kW
+    CO2 INS PAC eau-eau collectif-tertiaire:
+      formule: 3559
+      unité: kg CO2 éq./kW
+    CO2 INS PAC air-eau collectif-tertiaire:
+      formule: 249
+      unité: kg CO2 éq./kW
+    CO2 INS PAC absorption gaz:
+      formule: 249
+      unité: kg CO2 éq./kW
+    CO2 INS Radiateur électrique:
+      formule: 1
+      unité: kg CO2 éq./L
