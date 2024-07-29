@@ -126,7 +126,7 @@ Installation x Poêle à granulés indiv x Individuel:
     gamme de puissance existante:
       # =IF($G$49<'Ratios économiques - Coûts'!$B$65;'Ratios économiques - Coûts'!$B$65;$F$538)
       variations:
-        - si: puissance équipement < 12 
+        - si: puissance équipement < 12
           alors: 12
         - sinon: 0 # Apparement non applicable . Calculs techniques H49 référence une cellule non existante $F$548
       unité: kW
@@ -360,33 +360,33 @@ Installation x Gaz coll avec cond x Collectif:
       # =IF($G$53<'Ratios économiques - Coûts'!$B$113;XLOOKUP($G$53;'Ratios économiques - Coûts'!$B$99:$B$113;'Ratios économiques - Coûts'!$B$99:$B$113;;1);"Infobulle : La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.")
       variations:
         - si: puissance équipement <= 35
-          alors: 35 
+          alors: 35
         - si: puissance équipement < 120
           alors: 120
         - si: puissance équipement < 200
-          alors: 200 
+          alors: 200
         - si: puissance équipement < 300
-          alors: 300 
+          alors: 300
         - si: puissance équipement < 400
-          alors: 400 
+          alors: 400
         - si: puissance équipement < 500
-          alors: 500 
+          alors: 500
         - si: puissance équipement < 600
-          alors: 600 
+          alors: 600
         - si: puissance équipement < 700
-          alors: 700 
+          alors: 700
         - si: puissance équipement < 800
-          alors: 800 
+          alors: 800
         - si: puissance équipement < 900
-          alors: 900 
+          alors: 900
         - si: puissance équipement < 1000
-          alors: 1000 
+          alors: 1000
         - si: puissance équipement < 1250
-          alors: 1250 
+          alors: 1250
         - si: puissance équipement < 1500
-          alors: 1500 
+          alors: 1500
         - si: puissance équipement < 1750
-          alors: 1750 
+          alors: 1750
         - sinon: 2000
       unité: kW
       note: La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.
@@ -423,33 +423,33 @@ Installation x Gaz coll sans cond x Collectif:
       # =IF($G$54<'Ratios économiques - Coûts'!$B$132;XLOOKUP($G$54;'Ratios économiques - Coûts'!$B$118:$B$132;'Ratios économiques - Coûts'!$B$118:$B$132;;1);"Infobulle : La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.")
       variations:
         - si: puissance équipement <= 35
-          alors: 35 
+          alors: 35
         - si: puissance équipement < 120
           alors: 120
         - si: puissance équipement < 200
-          alors: 200 
+          alors: 200
         - si: puissance équipement < 300
-          alors: 300 
+          alors: 300
         - si: puissance équipement < 400
-          alors: 400 
+          alors: 400
         - si: puissance équipement < 500
-          alors: 500 
+          alors: 500
         - si: puissance équipement < 600
-          alors: 600 
+          alors: 600
         - si: puissance équipement < 700
-          alors: 700 
+          alors: 700
         - si: puissance équipement < 800
-          alors: 800 
+          alors: 800
         - si: puissance équipement < 900
-          alors: 900 
+          alors: 900
         - si: puissance équipement < 1000
-          alors: 1000 
+          alors: 1000
         - si: puissance équipement < 1250
-          alors: 1250 
+          alors: 1250
         - si: puissance équipement < 1500
-          alors: 1500 
+          alors: 1500
         - si: puissance équipement < 1750
-          alors: 1750 
+          alors: 1750
         - sinon: 2000
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
@@ -528,33 +528,33 @@ Installation x Fioul coll x Collectif:
       # =XLOOKUP($G$56;'Ratios économiques - Coûts'!$B$147:$B$161;'Ratios économiques - Coûts'!$B$147:$B$161;;1)
       variations:
         - si: puissance équipement <= 35
-          alors: 35 
+          alors: 35
         - si: puissance équipement < 120
           alors: 120
         - si: puissance équipement < 200
-          alors: 200 
+          alors: 200
         - si: puissance équipement < 300
-          alors: 300 
+          alors: 300
         - si: puissance équipement < 400
-          alors: 400 
+          alors: 400
         - si: puissance équipement < 500
-          alors: 500 
+          alors: 500
         - si: puissance équipement < 600
-          alors: 600 
+          alors: 600
         - si: puissance équipement < 700
-          alors: 700 
+          alors: 700
         - si: puissance équipement < 800
-          alors: 800 
+          alors: 800
         - si: puissance équipement < 900
-          alors: 900 
+          alors: 900
         - si: puissance équipement < 1000
-          alors: 1000 
+          alors: 1000
         - si: puissance équipement < 1250
-          alors: 1250 
+          alors: 1250
         - si: puissance équipement < 1500
-          alors: 1500 
+          alors: 1500
         - si: puissance équipement < 1750
-          alors: 1750 
+          alors: 1750
         - sinon: 2000
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
@@ -588,7 +588,7 @@ Installation x PAC air-air x Individuel:
       unité: kW
     gamme de puissance existante:
       # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
-      formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible indiv # FIXME arrondi? 
+      formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible indiv # FIXME arrondi?
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
