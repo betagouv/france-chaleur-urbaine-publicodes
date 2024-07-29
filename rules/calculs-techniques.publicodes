@@ -424,31 +424,31 @@ Installation x Gaz coll sans cond x Collectif:
       variations:
         - si: puissance équipement <= 35
           alors: 35
-        - si: puissance équipement < 120
+        - si: puissance équipement <= 120
           alors: 120
-        - si: puissance équipement < 200
+        - si: puissance équipement <= 200
           alors: 200
-        - si: puissance équipement < 300
+        - si: puissance équipement <= 300
           alors: 300
-        - si: puissance équipement < 400
+        - si: puissance équipement <= 400
           alors: 400
-        - si: puissance équipement < 500
+        - si: puissance équipement <= 500
           alors: 500
-        - si: puissance équipement < 600
+        - si: puissance équipement <= 600
           alors: 600
-        - si: puissance équipement < 700
+        - si: puissance équipement <= 700
           alors: 700
-        - si: puissance équipement < 800
+        - si: puissance équipement <= 800
           alors: 800
-        - si: puissance équipement < 900
+        - si: puissance équipement <= 900
           alors: 900
-        - si: puissance équipement < 1000
+        - si: puissance équipement <= 1000
           alors: 1000
-        - si: puissance équipement < 1250
+        - si: puissance équipement <= 1250
           alors: 1250
-        - si: puissance équipement < 1500
+        - si: puissance équipement <= 1500
           alors: 1500
-        - si: puissance équipement < 1750
+        - si: puissance équipement <= 1750
           alors: 1750
         - sinon: 2000
       unité: kW
@@ -529,31 +529,31 @@ Installation x Fioul coll x Collectif:
       variations:
         - si: puissance équipement <= 35
           alors: 35
-        - si: puissance équipement < 120
+        - si: puissance équipement <= 120
           alors: 120
-        - si: puissance équipement < 200
+        - si: puissance équipement <= 200
           alors: 200
-        - si: puissance équipement < 300
+        - si: puissance équipement <= 300
           alors: 300
-        - si: puissance équipement < 400
+        - si: puissance équipement <= 400
           alors: 400
-        - si: puissance équipement < 500
+        - si: puissance équipement <= 500
           alors: 500
-        - si: puissance équipement < 600
+        - si: puissance équipement <= 600
           alors: 600
-        - si: puissance équipement < 700
+        - si: puissance équipement <= 700
           alors: 700
-        - si: puissance équipement < 800
+        - si: puissance équipement <= 800
           alors: 800
-        - si: puissance équipement < 900
+        - si: puissance équipement <= 900
           alors: 900
-        - si: puissance équipement < 1000
+        - si: puissance équipement <= 1000
           alors: 1000
-        - si: puissance équipement < 1250
+        - si: puissance équipement <= 1250
           alors: 1250
-        - si: puissance équipement < 1500
+        - si: puissance équipement <= 1500
           alors: 1500
-        - si: puissance équipement < 1750
+        - si: puissance équipement <= 1750
           alors: 1750
         - sinon: 2000
       unité: kW
@@ -872,13 +872,13 @@ surface de panneau nécessaire:
   #     'Ratios techniques'!$C$353
   #   )
   variations:
-    - si: volume du ballon ECS < 250
+    - si: volume du ballon ECS <= 250
       alors: 2.5m2
-    - si: volume du ballon ECS < 400
+    - si: volume du ballon ECS <= 400
       alors: 4m2
-    - si: volume du ballon ECS < 550
+    - si: volume du ballon ECS <= 550
       alors: 5.5m2
-    - si: volume du ballon ECS < 650
+    - si: volume du ballon ECS <= 650
       alors: 6m2
     - sinon: 6m2
   unité: m2
