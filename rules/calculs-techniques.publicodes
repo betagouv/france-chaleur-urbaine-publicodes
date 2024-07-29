@@ -72,17 +72,17 @@ Installation x Réseaux de chaleur x Collectif:
       # =Besoin_cha/Rend_RCU_chauf+Besoin_ECS/Rend_RCU_ECS
       formule: besoins chauffage par appartement / ratios . RCU Rendement sous station chauffage + besoins eau chaude sanitaire par appartement / ratios . RCU Rendement sous station ECS
       unité: kWh
-    consommation combustible froid:
-      formule: 0
-      unité: kWh
     consommation auxilliaire:
-      formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+      # =(1-Conso_aux_RCU_chauf)*Besoin_cha+(1-Conso_aux_RCU_ECS)*Besoin_ECS
+      formule: (1 - ratios . RCU Conso auxilliaire chauffage) * besoins chauffage par appartement + (1 - ratios . RCU Conso auxilliaire ECS) * besoins eau chaude sanitaire par appartement
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      # =IF(C70="Non",F93,F93+H93+I93)
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Réseaux de froid x Collectif:
   avec:
@@ -98,21 +98,20 @@ Installation x Réseaux de froid x Collectif:
       formule: puissance équipement
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
-    consommation combustible chaleur:
-      formule: 0
-      unité: kWh
     consommation combustible froid:
       # =Besoin_raf/Rend_RFU
       formule: besoins en climatisation par appartement / ratios . RFU Rendement sous station
       unité: kWh
     consommation auxilliaire:
-      formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+      # =(1-Conso_aux_RFU)*Besoin_raf
+      formule: (1 - ratios . RFU Conso auxiliaire) * besoins en climatisation par appartement
+    consommation combustible hors électricité:
+      formule: consommation combustible froid
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -131,16 +130,16 @@ Installation x Poêle à granulés indiv x Individuel:
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
       formule: ratios . GRA POELE Conso combustible * (besoins chauffage par appartement / ratios . GRA POELE Rendement poêle chauffage)
-    consommation combustible froid:
-      formule: 0
+      unité: kg granulés/an
     consommation auxilliaire:
-      formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+      formule: 0
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -164,16 +163,17 @@ Installation x Chaudière à granulés coll x Collectif:
     consommation combustible chaleur:
       # =Conso_comb_GRA_Chaud*(Besoin_cha/Rend_GRA_Chaud+Besoin_ECS/Rend_GRA_Chaud)
       formule: ratios . GRA CHAUD Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GRA CHAUD Rendement chaudière chauffage
-    consommation combustible froid:
-      formule: 0
+      unité: kg granulés/an
     consommation auxilliaire:
-      formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+      # =(1-Conso_aux_GRA_Chaud)*Besoin_cha+(1-Conso_aux_GRA_Chaud)*Besoin_ECS
+      formule: (1 - ratios . GRA CHAUD Conso auxilliaire) * besoins chauffage par appartement  + (1 - ratios . GRA CHAUD Conso auxilliaire) * besoins eau chaude sanitaire par appartement
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Gaz indiv avec cond x Individuel:
   avec:
@@ -197,16 +197,15 @@ Installation x Gaz indiv avec cond x Individuel:
     consommation combustible chaleur:
       # =Conso_comb_GAZ_indiv_cond*(Besoin_cha/Rend_GAZ_indiv_cond_chauf+Besoin_ECS/Rend_GAZ_indiv_cond_ECS)
       formule: ratios . GAZ IND COND Conso combustible * (besoins chauffage par appartement / ratios . GAZ IND COND Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . GAZ IND COND Rendement chaudière ECS)
-    consommation combustible froid:
-      formule: 0
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Gaz indiv sans cond x Individuel:
   avec:
@@ -230,16 +229,15 @@ Installation x Gaz indiv sans cond x Individuel:
     consommation combustible chaleur:
       # =Conso_comb_GAZ_indiv_scond*(Besoin_cha/Rend_GAZ_indiv_scond +Besoin_ECS/Rend_GAZ_indiv_scond)
       formule: ratios . GAZ IND SCOND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GAZ IND SCOND Rendement chaudière
-    consommation combustible froid:
-      formule: 0
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Gaz coll avec cond x Collectif:
   avec:
@@ -261,17 +259,17 @@ Installation x Gaz coll avec cond x Collectif:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
-      formule: 10
-    consommation combustible froid:
-      formule: 0
+      # =Conso_comb_GAZ_coll_cond*(Besoin_cha/Rend_GAZ_coll_cond_chauf+Besoin_ECS/Rend_GAZ_coll_cond_ECS)
+      formule: ratios . GAZ COLL COND Conso combustible * (besoins chauffage par appartement / ratios . GAZ COLL COND Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . GAZ COLL COND Rendement chaudière ECS)
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Gaz coll sans cond x Collectif:
   avec:
@@ -293,17 +291,17 @@ Installation x Gaz coll sans cond x Collectif:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
-      formule: 10
-    consommation combustible froid:
-      formule: 0
+      # =Conso_comb_GAZ_coll_scond*(Besoin_cha/Rend_GAZ_coll_scond+Besoin_ECS/Rend_GAZ_coll_scond)
+      formule: ratios . GAZ COLL SCOND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GAZ COLL SCOND Rendement chaudière
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Fioul indiv x Individuel:
   avec:
@@ -325,17 +323,18 @@ Installation x Fioul indiv x Individuel:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
-      formule: 10
-    consommation combustible froid:
-      formule: 0
+      # =Conso_comb_FIOUL_indiv*(Besoin_cha/Rend_FIOUL_indiv+Besoin_ECS/Rend_FIOUL_indiv)
+      formule: ratios . FIOUL IND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . FIOUL IND Rendement chaudière
+      unité: l fioul/an
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x Fioul coll x Collectif:
   avec:
@@ -357,17 +356,18 @@ Installation x Fioul coll x Collectif:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
-      formule: 10
-    consommation combustible froid:
-      formule: 0
+      # =Conso_comb_FIOUL_coll*(Besoin_cha/Rend_FIOUL_coll_chauf+Besoin_ECS/Rend_FIOUL_coll_ECS)
+      formule: ratios . FIOUL COLL Conso combustible * (besoins chauffage par appartement / ratios . FIOUL COLL Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS)
+      unité: l fioul/an
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire
 
 Installation x PAC air-air x Individuel:
   avec:
@@ -388,17 +388,19 @@ Installation x PAC air-air x Individuel:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
-      formule: 10
+      formule: besoins chauffage par appartement / ratios . PAC AIR AIR SCOP indiv
+      unité: kWh elec
     consommation combustible froid:
       formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+      unité: kWh elec
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      # =IF(C80="Non",F103+C103+D103,F103+H103+I103)
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
   avec:
@@ -419,20 +421,17 @@ Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
       formule: 3
       unité: kW
 
-    # absent en production différenciée
-    # besoin d'installation supplémentaire pour produire l'ECS: non
-    # consommation combustible chaleur:
-    #   formule: 10
-    # consommation combustible froid:
-    #   formule: 11
-    # consommation auxilliaire:
-    #   formule: 12
-    # durée avant renouvellement:
-    #   formule: 13
-    # consommation d'électricité:
-    #   formule: 14
-    # appoint d'électricité:
-    #   formule: 15
+    besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC EAU EAU SCOP indiv capteurs horizontaux
+      unité: kWh elec
+    consommation auxilliaire:
+      formule: 12
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire + consommation combustible chaleur
 
 Installation x PAC air-eau x Individuel:
   avec:
@@ -459,17 +458,18 @@ Installation x PAC air-eau x Individuel:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
-      formule: 10
+      formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC AIR EAU SCOP indiv
+      unité: kWh elec
     consommation combustible froid:
       formule: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER indiv
+      unité: kWh elec
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC air-air x Collectif:
   avec:
@@ -490,17 +490,18 @@ Installation x PAC air-air x Collectif:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
-      formule: 10
+      formule: besoins chauffage par appartement / ratios . PAC AIR AIR SCOP coll
+      unité: kWh elec
     consommation combustible froid:
       formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER coll
+      unité: kWh elec
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC eau-eau champs de sondes x Collectif:
   avec:
@@ -521,20 +522,20 @@ Installation x PAC eau-eau champs de sondes x Collectif:
       formule: 3
       unité: kW
 
-    # absent en production différenciée
-    # besoin d'installation supplémentaire pour produire l'ECS: non
-    # consommation combustible chaleur:
-    #   formule: 10
-    # consommation combustible froid:
-    #   formule: 11
-    # consommation auxilliaire:
-    #   formule: 12
-    # durée avant renouvellement:
-    #   formule: 13
-    # consommation d'électricité:
-    #   formule: 14
-    # appoint d'électricité:
-    #   formule: 15
+    besoin d'installation supplémentaire pour produire l'ECS: non
+    consommation combustible chaleur:
+      formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC EAU EAU SCOP coll champ de sondes
+      unité: kWh elec
+    consommation combustible froid:
+      formule: 11
+      unité: kWh elec
+    consommation auxilliaire:
+      formule: 12
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC air-eau x Collectif:
   avec:
@@ -561,17 +562,18 @@ Installation x PAC air-eau x Collectif:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
-      formule: 10
+      formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC AIR EAU SCOP coll
+      unité: kWh elec
     consommation combustible froid:
       formule: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
+      unité: kWh elec
     consommation auxilliaire:
       formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
+        - sinon: consommation auxilliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC absorption gaz x Collectif:
   avec:
@@ -605,7 +607,12 @@ Installation x PAC absorption gaz x Collectif:
     # consommation d'électricité:
     #   formule: 14
     # appoint d'électricité:
-    #   formule: 15
+    #   formule: consommation combustible chaleur
+
+    # calculs économiques:
+    investissement équipement total:
+      unité: €
+
 
 Installation x Radiateur électrique x Individuel:
   avec:
@@ -622,17 +629,13 @@ Installation x Radiateur électrique x Individuel:
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
-      formule: 10
-    consommation combustible froid:
-      formule: 0
-    consommation auxilliaire:
-      formule: 12
-    durée avant renouvellement:
-      formule: 13
-    consommation d'électricité:
-      formule: 14
-    appoint d'électricité:
-      formule: 15
+      formule: ratios . RAD ELEC INDIV Conso combustible * besoins chauffage par appartement
+      unité: kWh elec
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation combustible chaleur + consommation d'électricité + appoint d'électricité
+        - sinon: consommation combustible chaleur
 
 
 ###### Production différenciée d'ECS par lgt / tertiaire
