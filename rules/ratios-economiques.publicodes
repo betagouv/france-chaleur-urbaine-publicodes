@@ -1,0 +1,7 @@
+ratios économiques:
+  avec:
+    radiateur électrique:
+      puissance de l'installation:
+        valeur: 2
+        unité: kW
+      

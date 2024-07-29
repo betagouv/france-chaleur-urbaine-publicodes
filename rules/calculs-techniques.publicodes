@@ -124,22 +124,23 @@ Installation x Poêle à granulés indiv x Individuel:
         - puissance nécessaire équipement chauffage
       unité: kW
     gamme de puissance existante:
-      # =IF($G$49<'Ratios économiques - Coûts'!$B$65,'Ratios économiques - Coûts'!$B$65,$F$538)
-      formule: 3
+      # =IF($G$49<'Ratios économiques - Coûts'!$B$65;'Ratios économiques - Coûts'!$B$65;$F$538)
+      variations:
+        - si: puissance équipement < 12 
+          alors: 12
+        - sinon: 0 # Apparement non applicable . Calculs techniques H49 référence une cellule non existante $F$548
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
       formule: ratios . GRA POELE Conso combustible * (besoins chauffage par appartement / ratios . GRA POELE Rendement poêle chauffage)
       unité: kg granulés/an
-    consommation auxilliaire:
-      formule: 0
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
-        - sinon: consommation auxilliaire
+          alors:  consommation d'électricité + appoint d'électricité
+        - sinon: 0
 
 Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -157,7 +158,87 @@ Installation x Chaudière à granulés coll x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      #=MROUND(G50;50)
+      variations:
+        - si: puissance équipement <= 50
+          alors: 50
+        - si: puissance équipement <= 100
+          alors: 100
+        - si: puissance équipement <= 150
+          alors: 150
+        - si: puissance équipement <= 200
+          alors: 200
+        - si: puissance équipement <= 250
+          alors: 250
+        - si: puissance équipement <= 300
+          alors: 300
+        - si: puissance équipement <= 350
+          alors: 350
+        - si: puissance équipement <= 400
+          alors: 400
+        - si: puissance équipement <= 450
+          alors: 450
+        - si: puissance équipement <= 500
+          alors: 500
+        - si: puissance équipement <= 550
+          alors: 550
+        - si: puissance équipement <= 600
+          alors: 600
+        - si: puissance équipement <= 650
+          alors: 650
+        - si: puissance équipement <= 700
+          alors: 700
+        - si: puissance équipement <= 750
+          alors: 750
+        - si: puissance équipement <= 800
+          alors: 800
+        - si: puissance équipement <= 850
+          alors: 850
+        - si: puissance équipement <= 900
+          alors: 900
+        - si: puissance équipement <= 950
+          alors: 950
+        - si: puissance équipement <= 1000
+          alors: 1000
+        - si: puissance équipement <= 1050
+          alors: 1050
+        - si: puissance équipement <= 1100
+          alors: 1100
+        - si: puissance équipement <= 1150
+          alors: 1150
+        - si: puissance équipement <= 1200
+          alors: 1200
+        - si: puissance équipement <= 1250
+          alors: 1250
+        - si: puissance équipement <= 1300
+          alors: 1300
+        - si: puissance équipement <= 1350
+          alors: 1350
+        - si: puissance équipement <= 1400
+          alors: 1400
+        - si: puissance équipement <= 1450
+          alors: 1450
+        - si: puissance équipement <= 1500
+          alors: 1500
+        - si: puissance équipement <= 1550
+          alors: 1550
+        - si: puissance équipement <= 1600
+          alors: 1600
+        - si: puissance équipement <= 1650
+          alors: 1650
+        - si: puissance équipement <= 1700
+          alors: 1700
+        - si: puissance équipement <= 1750
+          alors: 1750
+        - si: puissance équipement <= 1800
+          alors: 1800
+        - si: puissance équipement <= 1850
+          alors: 1850
+        - si: puissance équipement <= 1900
+          alors: 1900
+        - si: puissance équipement <= 1950
+          alors: 1950
+        - sinon: 2000
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
@@ -191,14 +272,25 @@ Installation x Gaz indiv avec cond x Individuel:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =IF($G$51>'Ratios économiques - Coûts'!$B$85;'Ratios économiques - Coûts'!$B$85;XLOOKUP($G$51;'Ratios économiques - Coûts'!$B$81:$B$85;'Ratios économiques - Coûts'!$B$81:$B$85;;1))
+      variations:
+        - si: puissance équipement <= 12
+          alors: 12
+        - si: puissance équipement <= 20
+          alors: 20
+        - si: puissance équipement <= 25
+          alors: 25
+        - si: puissance équipement <= 30
+          alors: 30
+        - sinon: 35
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
       # =Conso_comb_GAZ_indiv_cond*(Besoin_cha/Rend_GAZ_indiv_cond_chauf+Besoin_ECS/Rend_GAZ_indiv_cond_ECS)
       formule: ratios . GAZ IND COND Conso combustible * (besoins chauffage par appartement / ratios . GAZ IND COND Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . GAZ IND COND Rendement chaudière ECS)
     consommation auxilliaire:
-      formule: 12
+      # =(1-Conso_aux_GAZ_indiv_cond_chauf)*Besoin_cha+(1-Conso_aux_GAZ_indiv_cond_ECS)*Besoin_ECS
+      formule: ratios . GAZ IND COND Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ IND COND Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -223,14 +315,24 @@ Installation x Gaz indiv sans cond x Individuel:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =IF($G$52>'Ratios économiques - Coûts'!$B$94;'Ratios économiques - Coûts'!$B$94;XLOOKUP($G$52;'Ratios économiques - Coûts'!$B$90:$B$94;'Ratios économiques - Coûts'!$B$90:$B$94;;1))
+      variations:
+        - si: puissance équipement <= 12
+          alors: 12
+        - si: puissance équipement <= 20
+          alors: 20
+        - si: puissance équipement <= 25
+          alors: 25
+        - si: puissance équipement <= 30
+          alors: 30
+        - sinon: 35
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
       # =Conso_comb_GAZ_indiv_scond*(Besoin_cha/Rend_GAZ_indiv_scond +Besoin_ECS/Rend_GAZ_indiv_scond)
       formule: ratios . GAZ IND SCOND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GAZ IND SCOND Rendement chaudière
     consommation auxilliaire:
-      formule: 12
+      formule: ratios . GAZ IND SCOND Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ IND SCOND Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -255,14 +357,45 @@ Installation x Gaz coll avec cond x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =IF($G$53<'Ratios économiques - Coûts'!$B$113;XLOOKUP($G$53;'Ratios économiques - Coûts'!$B$99:$B$113;'Ratios économiques - Coûts'!$B$99:$B$113;;1);"Infobulle : La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.")
+      variations:
+        - si: puissance équipement <= 35
+          alors: 35 
+        - si: puissance équipement < 120
+          alors: 120
+        - si: puissance équipement < 200
+          alors: 200 
+        - si: puissance équipement < 300
+          alors: 300 
+        - si: puissance équipement < 400
+          alors: 400 
+        - si: puissance équipement < 500
+          alors: 500 
+        - si: puissance équipement < 600
+          alors: 600 
+        - si: puissance équipement < 700
+          alors: 700 
+        - si: puissance équipement < 800
+          alors: 800 
+        - si: puissance équipement < 900
+          alors: 900 
+        - si: puissance équipement < 1000
+          alors: 1000 
+        - si: puissance équipement < 1250
+          alors: 1250 
+        - si: puissance équipement < 1500
+          alors: 1500 
+        - si: puissance équipement < 1750
+          alors: 1750 
+        - sinon: 2000
       unité: kW
+      note: La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
       # =Conso_comb_GAZ_coll_cond*(Besoin_cha/Rend_GAZ_coll_cond_chauf+Besoin_ECS/Rend_GAZ_coll_cond_ECS)
       formule: ratios . GAZ COLL COND Conso combustible * (besoins chauffage par appartement / ratios . GAZ COLL COND Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . GAZ COLL COND Rendement chaudière ECS)
     consommation auxilliaire:
-      formule: 12
+      formule: ratios . GAZ COLL COND Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ COLL COND Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -287,14 +420,44 @@ Installation x Gaz coll sans cond x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =IF($G$54<'Ratios économiques - Coûts'!$B$132;XLOOKUP($G$54;'Ratios économiques - Coûts'!$B$118:$B$132;'Ratios économiques - Coûts'!$B$118:$B$132;;1);"Infobulle : La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.")
+      variations:
+        - si: puissance équipement <= 35
+          alors: 35 
+        - si: puissance équipement < 120
+          alors: 120
+        - si: puissance équipement < 200
+          alors: 200 
+        - si: puissance équipement < 300
+          alors: 300 
+        - si: puissance équipement < 400
+          alors: 400 
+        - si: puissance équipement < 500
+          alors: 500 
+        - si: puissance équipement < 600
+          alors: 600 
+        - si: puissance équipement < 700
+          alors: 700 
+        - si: puissance équipement < 800
+          alors: 800 
+        - si: puissance équipement < 900
+          alors: 900 
+        - si: puissance équipement < 1000
+          alors: 1000 
+        - si: puissance équipement < 1250
+          alors: 1250 
+        - si: puissance équipement < 1500
+          alors: 1500 
+        - si: puissance équipement < 1750
+          alors: 1750 
+        - sinon: 2000
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
       # =Conso_comb_GAZ_coll_scond*(Besoin_cha/Rend_GAZ_coll_scond+Besoin_ECS/Rend_GAZ_coll_scond)
       formule: ratios . GAZ COLL SCOND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GAZ COLL SCOND Rendement chaudière
     consommation auxilliaire:
-      formule: 12
+      formule: ratios . GAZ COLL SCOND Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ COLL SCOND Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -319,7 +482,17 @@ Installation x Fioul indiv x Individuel:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =IF($G$55<'Ratios économiques - Coûts'!$B$142;XLOOKUP($G$55;'Ratios économiques - Coûts'!$B$138:$B$142;'Ratios économiques - Coûts'!$B$138:$B$142;;1);35)
+      variations:
+        - si: puissance équipement <= 12
+          alors: 12
+        - si: puissance équipement <= 20
+          alors: 20
+        - si: puissance équipement <= 25
+          alors: 25
+        - si: puissance équipement <= 30
+          alors: 30
+        - sinon: 35
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
@@ -327,7 +500,7 @@ Installation x Fioul indiv x Individuel:
       formule: ratios . FIOUL IND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . FIOUL IND Rendement chaudière
       unité: l fioul/an
     consommation auxilliaire:
-      formule: 12
+      formule: ratios . FIOUL IND Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . FIOUL IND Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -352,7 +525,37 @@ Installation x Fioul coll x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =XLOOKUP($G$56;'Ratios économiques - Coûts'!$B$147:$B$161;'Ratios économiques - Coûts'!$B$147:$B$161;;1)
+      variations:
+        - si: puissance équipement <= 35
+          alors: 35 
+        - si: puissance équipement < 120
+          alors: 120
+        - si: puissance équipement < 200
+          alors: 200 
+        - si: puissance équipement < 300
+          alors: 300 
+        - si: puissance équipement < 400
+          alors: 400 
+        - si: puissance équipement < 500
+          alors: 500 
+        - si: puissance équipement < 600
+          alors: 600 
+        - si: puissance équipement < 700
+          alors: 700 
+        - si: puissance équipement < 800
+          alors: 800 
+        - si: puissance équipement < 900
+          alors: 900 
+        - si: puissance équipement < 1000
+          alors: 1000 
+        - si: puissance équipement < 1250
+          alors: 1250 
+        - si: puissance équipement < 1500
+          alors: 1500 
+        - si: puissance équipement < 1750
+          alors: 1750 
+        - sinon: 2000
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
@@ -360,7 +563,7 @@ Installation x Fioul coll x Collectif:
       formule: ratios . FIOUL COLL Conso combustible * (besoins chauffage par appartement / ratios . FIOUL COLL Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS)
       unité: l fioul/an
     consommation auxilliaire:
-      formule: 12
+      formule: ratios . FIOUL COLL Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . FIOUL COLL Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -384,7 +587,8 @@ Installation x PAC air-air x Individuel:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
+      formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible indiv # FIXME arrondi? 
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
@@ -394,7 +598,8 @@ Installation x PAC air-air x Individuel:
       formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
       unité: kWh elec
     consommation auxilliaire:
-      formule: 12
+      #=(1-'Ratios techniques'!$C$275)*(Besoin_cha+Besoin_raf)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
+      formule: (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation) * ( besoins chauffage par appartement + besoins en climatisation par appartement ) + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       # =IF(C80="Non",F103+C103+D103,F103+H103+I103)
       variations:
@@ -418,7 +623,7 @@ Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      formule: puissance équipement / (ratios . PAC EAU EAU Puissance unitaire indiv + 1 ) * ratios . PAC EAU EAU Puissance unitaire indiv
       unité: kW
 
     besoin d'installation supplémentaire pour produire l'ECS: non
@@ -454,7 +659,7 @@ Installation x PAC air-eau x Individuel:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      formule: puissance équipement / (ratios . PAC AIR EAU Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR EAU Puissance unitaire réversible indiv
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
@@ -464,7 +669,8 @@ Installation x PAC air-eau x Individuel:
       formule: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER indiv
       unité: kWh elec
     consommation auxilliaire:
-      formule: 12
+      #=(1-'Ratios techniques'!$C$275)*(Besoin_cha+Besoin_raf)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
+      formule: (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation) * ( besoins chauffage par appartement + besoins en climatisation par appartement ) + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
@@ -486,7 +692,8 @@ Installation x PAC air-air x Collectif:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
+      formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible coll # FIXME arrondi?
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
@@ -496,7 +703,8 @@ Installation x PAC air-air x Collectif:
       formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER coll
       unité: kWh elec
     consommation auxilliaire:
-      formule: 12
+      #=(1-'Ratios techniques'!$C$275)*(Besoin_cha+Besoin_raf)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
+      formule: (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation) * ( besoins chauffage par appartement + besoins en climatisation par appartement ) + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
@@ -519,7 +727,7 @@ Installation x PAC eau-eau champs de sondes x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      formule: puissance équipement / (ratios . PAC EAU EAU Puissance unitaire coll + 1 ) * ratios . PAC EAU EAU Puissance unitaire coll
       unité: kW
 
     besoin d'installation supplémentaire pour produire l'ECS: non
@@ -530,7 +738,8 @@ Installation x PAC eau-eau champs de sondes x Collectif:
       formule: 11
       unité: kWh elec
     consommation auxilliaire:
-      formule: 12
+      # =(1-'Ratios techniques'!$C$275)*(Besoin_cha)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
+      formule: ( 1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation ) * besoins chauffage par appartement + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
@@ -558,7 +767,7 @@ Installation x PAC air-eau x Collectif:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      formule: puissance équipement / (ratios . PAC AIR EAU Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR EAU Puissance unitaire réversible coll
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
     consommation combustible chaleur:
@@ -568,7 +777,8 @@ Installation x PAC air-eau x Collectif:
       formule: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
       unité: kWh elec
     consommation auxilliaire:
-      formule: 12
+      # =(1-'Ratios techniques'!$C$275)*(Besoin_cha)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
+      formule: ( 1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation ) * besoins chauffage par appartement + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
@@ -591,7 +801,7 @@ Installation x PAC absorption gaz x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      formule: puissance équipement / (ratios . PAC AB Puissance unitaire coll + 1 ) * ratios . PAC AB Puissance unitaire coll
       unité: kW
 
     # absent en production différenciée
@@ -625,7 +835,8 @@ Installation x Radiateur électrique x Individuel:
         - puissance nécessaire équipement chauffage
       unité: kW
     gamme de puissance existante:
-      formule: 3
+      # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
+      formule: puissance équipement / ( ratios économiques . radiateur électrique + 1 ) * ratios économiques . radiateur électrique # FIXME arrondi?
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
