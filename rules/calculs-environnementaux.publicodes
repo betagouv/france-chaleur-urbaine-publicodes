@@ -1,0 +1,159 @@
+env: # useless
+
+
+###### Calculs environnementaux
+
+env . Installation x Réseaux de chaleur x Collectif:
+  avec:
+    auxiliaires et combustible électrique:
+      formule:
+        variations:
+          - si: Production eau chaude sanitaire
+            alors: contenu CO2 réseau de chaleur * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+          - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
+      unité: kgCO2 équ.
+
+env . Installation x Réseaux de froid x Collectif:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x Poêle à granulés indiv x Individuel:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé poêle à bois
+      unité: kgCO2 équ.
+
+env . Installation x Chaudière à granulés coll x Collectif:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé chaudière
+      unité: kgCO2 équ.
+    besoins d'ECS:
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Granulé chaudière
+      unité: kgCO2 équ.
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x Gaz indiv avec cond x Individuel:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    besoins d'ECS:
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x Gaz indiv sans cond x Individuel:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    besoins d'ECS:
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x Gaz coll avec cond x Collectif:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    besoins d'ECS:
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x Gaz coll sans cond x Collectif:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    besoins d'ECS:
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      unité: kgCO2 équ.
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x Fioul indiv x Individuel:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      unité: kgCO2 équ.
+    besoins d'ECS:
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      unité: kgCO2 équ.
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x Fioul coll x Collectif:
+  avec:
+    besoins de chauffage:
+      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      unité: kgCO2 équ.
+    besoins d'ECS:
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      unité: kgCO2 équ.
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x PAC air-air x Individuel:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x PAC air-eau x Individuel:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x PAC air-air x Collectif:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x PAC eau-eau champs de sondes x Collectif:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x PAC air-eau x Collectif:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+env . Installation x PAC absorption gaz x Collectif:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
+
+
+env . Installation x Radiateur électrique x Individuel:
+  avec:
+    auxiliaires et combustible électrique:
+      formule: 1
+      unité: kgCO2 équ.
