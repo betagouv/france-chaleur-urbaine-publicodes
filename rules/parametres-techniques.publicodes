@@ -18,6 +18,13 @@ augmenter la température de chauffe: 0
 code département: # inutilisé
 # zone climatique:
 
+mode affichage:
+  par défaut: "'technicien'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'grand public'"
+      - "'technicien'"
 
 
 
@@ -166,6 +173,7 @@ normes thermiques:
 consommation spécifique chauffage: consommation spécifique chauffage # maj depuis les ratios techniques
   # =XLOOKUP(1,('Ratios techniques'!A:A="CHAF")*('Ratios techniques'!B:B=$C$38),'Ratios techniques'!C:C,"Non trouvé")
 besoins chauffage par appartement:
+  note: Besoin_cha
   # =IFERROR(IF(Choix_methode<>"Normes thermiques et âge du bâtiment",Conso_spé*Surface*_DJU_spe/DJU_ref,Conso_spé*24*_DJU_spe*Surface*Hauteur/1000),"Veuillez choisir le/la "&$A$38)*(1+0.09*D12)
   produit:
     - variations:
@@ -173,9 +181,12 @@ besoins chauffage par appartement:
         alors: consommation spécifique chauffage * surface logement type tertiaire * degré jours unifié spécifique chaud / ratios . GNRL DJU REF chaud
       - sinon: consommation spécifique chauffage * surface logement type tertiaire * degré jours unifié spécifique chaud * 24 * ratios . GNRL Hauteur / 1000
     - 1 + 0.09 * augmenter la température de chauffe
-consommation spécifique ECS: consommation spécifique ECS # maj depuis les ratios techniques
+consommation spécifique ECS:
+  note: Besoin_ECS
+  formule: consommation spécifique ECS # maj depuis les ratios techniques
   # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="ECS")*('Ratios techniques'!B:B=$C$38),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="ECS")*('Ratios techniques'!B:B=Type_bat),'Ratios techniques'!C:C,"Non trouvé"))
 besoins eau chaude sanitaire par appartement:
+  note: Besoin_raf
   # =IF(Prod_ECS="Oui",IF(Type_bat="Résidentiel",Conso_ECS_spé*NB_pers_foyer,Conso_ECS_spé*Surface),0)
   variations:
     - si: Production eau chaude sanitaire
