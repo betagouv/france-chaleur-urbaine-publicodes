@@ -164,3 +164,7 @@ ratios environnementaux:
       unité: kgCO2 équ./L
       note: "'Source: INIES 2022'"
 
+    ECS solaire thermique:
+      # =$B$15*'Ratios environnementaux'!$C$8*'Ratios environnementaux'!$C$25+'Ratios environnementaux'!$C$9*$B$15*'Ratios environnementaux'!$C$26
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Production par solaire thermique
+
