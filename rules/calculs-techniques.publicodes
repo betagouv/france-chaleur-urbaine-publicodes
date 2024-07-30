@@ -804,10 +804,11 @@ Installation x PAC absorption gaz x Collectif:
       formule: puissance équipement / (ratios . PAC AB Puissance unitaire coll + 1 ) * ratios . PAC AB Puissance unitaire coll
       unité: kW
 
+
     # absent en production différenciée
     # besoin d'installation supplémentaire pour produire l'ECS: non
-    # consommation combustible chaleur:
-    #   formule: 10
+    consommation combustible chaleur:
+      formule: ( besoins chauffage par appartement + besoins eau chaude sanitaire par appartement ) / ratios . PAC AIR EAU SCOP coll # FIXME, pkoi n'était-il pas fait ?
     # consommation combustible froid:
     #   formule: 11
     # consommation auxilliaire:

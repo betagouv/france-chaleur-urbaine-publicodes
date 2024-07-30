@@ -112,48 +112,63 @@ env . Installation x Fioul coll x Collectif:
 env . Installation x PAC air-air x Individuel:
   avec:
     auxiliaires et combustible électrique:
-      formule: 1
-      unité: kgCO2 équ.
-
-env . Installation x PAC eau glycolée-eau capteurs verticaux x Individuel:
-  avec:
-    auxiliaires et combustible électrique:
-      formule: 1
-      unité: kgCO2 équ.
-
-env . Installation x PAC air-eau x Individuel:
-  avec:
-    auxiliaires et combustible électrique:
-      formule: 1
+      # =XLOOKUP(LEFT(A53;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      formule: Installation x PAC air-air x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
 
 env . Installation x PAC air-air x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      formule: 1
+      # =XLOOKUP(LEFT(A54;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      formule: Installation x PAC air-air x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
 
-env . Installation x PAC eau-eau champs de sondes x Collectif:
+env . Installation x PAC eau-eau x Individuel:
   avec:
     auxiliaires et combustible électrique:
-      formule: 1
+      # =XLOOKUP(LEFT(A55;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # FIXME il n'y a pas de "eau-eau Indiv" donc j'ai mis "Installation x PAC eau glycolée-eau capteurs verticaux x Individuel"
+      formule: Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
+      unité: kgCO2 équ.
+
+env . Installation x PAC eau-eau x Collectif:
+  avec:
+    auxiliaires et combustible électrique:
+      # =XLOOKUP(LEFT(A56;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # FIXME il n'y a pas de "eau-eau Collectif" donc j'ai mis "Installation x PAC eau-eau champs de sondes x Collectif"
+      formule: Installation x PAC eau-eau champs de sondes x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
+      unité: kgCO2 équ.
+
+env . Installation x PAC air-eau x Individuel:
+  avec:
+    auxiliaires et combustible électrique:
+      # =XLOOKUP(LEFT(A57;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      formule: Installation x PAC air-eau x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
 
 env . Installation x PAC air-eau x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      formule: 1
+      # =XLOOKUP(LEFT(A58;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      formule: Installation x PAC air-eau x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
 
 env . Installation x PAC absorption gaz x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      formule: 1
+      # =XLOOKUP(A59;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      formule: Installation x PAC absorption gaz x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
-
 
 env . Installation x Radiateur électrique x Individuel:
   avec:
     auxiliaires et combustible électrique:
-      formule: 1
+      # =XLOOKUP(A60;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      formule: Installation x Radiateur électrique x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
