@@ -19,6 +19,15 @@ env . Installation x Réseaux de chaleur x Collectif:
         - si: Production eau chaude sanitaire
           alors: ratios environnementaux . CO2 INS RCU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
         - sinon: ratios environnementaux . CO2 INS RCU * besoins chauffage par appartement
+    Total émissions avec ECS produite par solaire thermique:
+      # =IF($B$17="Oui";$F$43+$G$2)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: $G$2 n'existe pas du coup je ne mets rien
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x Réseaux de froid x Collectif:
   avec:
@@ -37,6 +46,14 @@ env . Installation x Réseaux de froid x Collectif:
         - si: Production eau chaude sanitaire
           alors: ratios environnementaux . CO2 INS RFU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
         - sinon: ratios environnementaux . CO2 INS RFU * besoins chauffage par appartement
+    Total émissions avec ECS produite par solaire thermique:
+      # =IF($B$17="Oui";F44+G44)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique +  ECS solaire thermique
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -52,6 +69,15 @@ env . Installation x Poêle à granulés indiv x Individuel:
     Scope 3:
       # =(XLOOKUP(A45;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(A45;$A$20:$A$37;$B$20:$B$37))
       formule: ratios environnementaux . CO2 INS Poêle à granulés indiv * Installation x Poêle à granulés indiv x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par solaire thermique:
+      # =IF($B$17="Oui";$D$45+$G$45+$J$45)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: c'est aussi bizarre que la formule ne soit pas cohérente avec les 2 du dessus et celle à droite
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: besoins de chauffage + ECS solaire thermique + ECS avec ballon électrique
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -168,6 +194,15 @@ env . Installation x PAC air-air x Individuel:
       # =(XLOOKUP(A53;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A53;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC air-air indiv * Installation x PAC air-air x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par solaire thermique:
+      # =IF($B$17="Oui";D53+F53+G53+J53)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: D53 n'existe pas car grisé
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x PAC air-air x Collectif:
   avec:
@@ -186,6 +221,15 @@ env . Installation x PAC air-air x Collectif:
       # =(XLOOKUP(A53;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A53;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par solaire thermique:
+      # =IF($B$17="Oui";D53+F53+G53+J53)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: D53 n'existe pas car grisé
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
@@ -256,3 +300,11 @@ env . Installation x Radiateur électrique x Individuel:
       formule: ECS avec ballon électrique - ECS solaire thermique
     Scope 3:
       formule: ratios environnementaux . CO2 INS Radiateur électrique * Installation x Radiateur électrique x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par solaire thermique:
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: D60 n'existe pas car grisé
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
