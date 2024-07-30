@@ -22,6 +22,8 @@ env . Installation x Réseaux de froid x Collectif:
       formule: ratios environnementaux . ECS solaire thermique
     ECS avec ballon électrique:
       formule: ratios environnementaux . ECS avec ballon électrique
+    Variation entre eau chaude sanitaire et solaire thermique:
+      formule: ECS avec ballon électrique - ECS solaire thermique
 
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -32,6 +34,8 @@ env . Installation x Poêle à granulés indiv x Individuel:
       formule: ratios environnementaux . ECS solaire thermique
     ECS avec ballon électrique:
       formule: ratios environnementaux . ECS avec ballon électrique
+    Variation entre eau chaude sanitaire et solaire thermique:
+      formule: ECS avec ballon électrique - ECS solaire thermique
 
 env . Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -128,6 +132,8 @@ env . Installation x PAC air-air x Individuel:
       formule: ratios environnementaux . ECS solaire thermique
     ECS avec ballon électrique:
       formule: ratios environnementaux . ECS avec ballon électrique
+    Variation entre eau chaude sanitaire et solaire thermique:
+      formule: ECS avec ballon électrique - ECS solaire thermique
 
 env . Installation x PAC air-air x Collectif:
   avec:
@@ -140,6 +146,8 @@ env . Installation x PAC air-air x Collectif:
       formule: ratios environnementaux . ECS solaire thermique
     ECS avec ballon électrique:
       formule: ratios environnementaux . ECS avec ballon électrique
+    Variation entre eau chaude sanitaire et solaire thermique:
+      formule: ECS avec ballon électrique - ECS solaire thermique
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
@@ -192,3 +200,5 @@ env . Installation x Radiateur électrique x Individuel:
       formule: ratios environnementaux . ECS solaire thermique
     ECS avec ballon électrique:
       formule: ratios environnementaux . ECS avec ballon électrique
+    Variation entre eau chaude sanitaire et solaire thermique:
+      formule: ECS avec ballon électrique - ECS solaire thermique
