@@ -46,7 +46,9 @@ env . Installation x Réseaux de chaleur x Collectif:
 env . Installation x Réseaux de froid x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      formule: 1
+      # =(Contenu_CO2_RFU*'Calculs environnementaux'!$B$16)
+      # QUESTION: Calculs environnementaux'!$B$16 est vide. besoins en climatisation par appartement
+      formule: contenu CO2 réseau de froid * besoins en climatisation par appartement
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
@@ -132,7 +134,8 @@ env . Installation x Chaudière à granulés coll x Collectif:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Granulé chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: 1
+      # =XLOOKUP(A46;'Calculs techniques'!$A$95:$A$110;'Calculs techniques'!$F$95:$F$110)*'Ratios environnementaux'!$C$26
+      formule: Installation x Chaudière à granulés coll x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
@@ -166,7 +169,7 @@ env . Installation x Gaz indiv avec cond x Individuel:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: 1
+      formule: Installation x Gaz indiv avec cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante
@@ -200,7 +203,7 @@ env . Installation x Gaz indiv sans cond x Individuel:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: 1
+      formule: Installation x Gaz indiv sans cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante
@@ -234,7 +237,7 @@ env . Installation x Gaz coll avec cond x Collectif:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: 1
+      formule: Installation x Gaz indiv avec cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
@@ -268,7 +271,7 @@ env . Installation x Gaz coll sans cond x Collectif:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: 1
+      formule: Installation x Gaz coll sans cond x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante
@@ -302,7 +305,7 @@ env . Installation x Fioul indiv x Individuel:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: 1
+      formule: Installation x Fioul indiv x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Fioul indiv * Installation x Fioul indiv x Individuel . gamme de puissance existante
@@ -336,7 +339,7 @@ env . Installation x Fioul coll x Collectif:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: 1
+      formule: Installation x Fioul coll x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante
