@@ -20,6 +20,8 @@ env . Installation x Réseaux de froid x Collectif:
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
+    ECS avec ballon électrique:
+      formule: ratios environnementaux . ECS avec ballon électrique
 
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -28,6 +30,8 @@ env . Installation x Poêle à granulés indiv x Individuel:
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
+    ECS avec ballon électrique:
+      formule: ratios environnementaux . ECS avec ballon électrique
 
 env . Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -122,6 +126,8 @@ env . Installation x PAC air-air x Individuel:
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
+    ECS avec ballon électrique:
+      formule: ratios environnementaux . ECS avec ballon électrique
 
 env . Installation x PAC air-air x Collectif:
   avec:
@@ -132,6 +138,8 @@ env . Installation x PAC air-air x Collectif:
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
+    ECS avec ballon électrique:
+      formule: ratios environnementaux . ECS avec ballon électrique
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
@@ -182,3 +190,5 @@ env . Installation x Radiateur électrique x Individuel:
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
+    ECS avec ballon électrique:
+      formule: ratios environnementaux . ECS avec ballon électrique
