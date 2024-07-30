@@ -37,6 +37,11 @@ env . Installation x Réseaux de chaleur x Collectif:
           alors: auxiliaires et combustible électrique
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique
+        - sinon: "'Pas concerné'"
 
 env . Installation x Réseaux de froid x Collectif:
   avec:
@@ -71,6 +76,11 @@ env . Installation x Réseaux de froid x Collectif:
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique
+        - sinon: "'Pas concerné'"
 
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -104,6 +114,14 @@ env . Installation x Poêle à granulés indiv x Individuel:
           alors: besoins de chauffage + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -129,6 +147,15 @@ env . Installation x Chaudière à granulés coll x Collectif:
             alors: besoins d'ECS
           - sinon: 0
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Gaz indiv avec cond x Individuel:
   avec:
@@ -154,6 +181,15 @@ env . Installation x Gaz indiv avec cond x Individuel:
             alors: besoins d'ECS
           - sinon: 0
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Gaz indiv sans cond x Individuel:
   avec:
@@ -179,6 +215,15 @@ env . Installation x Gaz indiv sans cond x Individuel:
             alors: besoins d'ECS
           - sinon: 0
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Gaz coll avec cond x Collectif:
   avec:
@@ -204,6 +249,15 @@ env . Installation x Gaz coll avec cond x Collectif:
             alors: besoins d'ECS
           - sinon: 0
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Gaz coll sans cond x Collectif:
   avec:
@@ -229,6 +283,15 @@ env . Installation x Gaz coll sans cond x Collectif:
             alors: besoins d'ECS
           - sinon: 0
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Fioul indiv x Individuel:
   avec:
@@ -254,6 +317,15 @@ env . Installation x Fioul indiv x Individuel:
             alors: besoins d'ECS
           - sinon: 0
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Fioul coll x Collectif:
   avec:
@@ -279,6 +351,15 @@ env . Installation x Fioul coll x Collectif:
             alors: besoins d'ECS
           - sinon: 0
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - besoins de chauffage
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x PAC air-air x Individuel:
   avec:
@@ -315,6 +396,16 @@ env . Installation x PAC air-air x Individuel:
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D53+F53+J53;"Pas concerné")
+      # QUESTION: D53 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x PAC air-air x Collectif:
   avec:
@@ -351,6 +442,16 @@ env . Installation x PAC air-air x Collectif:
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D54+F54+J54;"Pas concerné")
+      # QUESTION: D54 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
@@ -371,6 +472,16 @@ env . Installation x PAC eau-eau x Individuel:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D55+F55+J55;"Pas concerné")
+      # QUESTION: D55 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x PAC eau-eau x Collectif:
   avec:
@@ -391,6 +502,16 @@ env . Installation x PAC eau-eau x Collectif:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D56+F56+J56;"Pas concerné")
+      # QUESTION: D56 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x PAC air-eau x Individuel:
   avec:
@@ -408,6 +529,16 @@ env . Installation x PAC air-eau x Individuel:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D57+F57+J57;"Pas concerné")
+      # QUESTION: D57 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x PAC air-eau x Collectif:
   avec:
@@ -425,6 +556,16 @@ env . Installation x PAC air-eau x Collectif:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D58+F58+J58;"Pas concerné")
+      # QUESTION: D58 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x PAC absorption gaz x Collectif:
   avec:
@@ -441,6 +582,16 @@ env . Installation x PAC absorption gaz x Collectif:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D59+F59+J59;"Pas concerné")
+      # QUESTION: D59 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
 env . Installation x Radiateur électrique x Individuel:
   avec:
@@ -473,4 +624,14 @@ env . Installation x Radiateur électrique x Individuel:
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions sans ECS:
+      # =IF(@Prod_ECS?="Non";D60+F60+J60;"Pas concerné")
+      # QUESTION: D60 n'existe pas car grisé, à enlever dans l'excel original
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: 
+            somme:
+              - auxiliaires et combustible électrique
+              - Scope 3
+        - sinon: "'Pas concerné'"
 
