@@ -18,12 +18,16 @@ env . Installation x Réseaux de froid x Collectif:
     auxiliaires et combustible électrique:
       formule: 1
       unité: kgCO2 équ.
+    ECS solaire thermique:
+      formule: ratios environnementaux . ECS solaire thermique
 
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
     besoins de chauffage:
       formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé poêle à bois
       unité: kgCO2 équ.
+    ECS solaire thermique:
+      formule: ratios environnementaux . ECS solaire thermique
 
 env . Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -116,6 +120,8 @@ env . Installation x PAC air-air x Individuel:
       # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-air x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique:
+      formule: ratios environnementaux . ECS solaire thermique
 
 env . Installation x PAC air-air x Collectif:
   avec:
@@ -124,6 +130,8 @@ env . Installation x PAC air-air x Collectif:
       # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-air x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique:
+      formule: ratios environnementaux . ECS solaire thermique
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
@@ -172,3 +180,5 @@ env . Installation x Radiateur électrique x Individuel:
       # =XLOOKUP(A60;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       formule: Installation x Radiateur électrique x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique:
+      formule: ratios environnementaux . ECS solaire thermique
