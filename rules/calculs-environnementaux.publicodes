@@ -28,6 +28,15 @@ env . Installation x Réseaux de chaleur x Collectif:
           alors: auxiliaires et combustible électrique
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions avec ECS produite par ballon électrique:
+      # =IF($B$17="Oui";F43+H43)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: H43 est toujours vide car grisé, doit-on l'enlever ?
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x Réseaux de froid x Collectif:
   avec:
@@ -54,6 +63,14 @@ env . Installation x Réseaux de froid x Collectif:
           alors: auxiliaires et combustible électrique +  ECS solaire thermique
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions avec ECS produite par ballon électrique:
+      # =IF($B$17="Oui";F44+H44)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique + ECS avec ballon électrique
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -76,6 +93,15 @@ env . Installation x Poêle à granulés indiv x Individuel:
       variations:
         - si: Production eau chaude sanitaire
           alors: besoins de chauffage + ECS solaire thermique + ECS avec ballon électrique
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
+    Total émissions avec ECS produite par ballon électrique:
+      # =IF($B$17="Oui";D45+F45+H45+J45)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: F45 qui n'existe pas car grisé
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: besoins de chauffage + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
 
@@ -203,6 +229,15 @@ env . Installation x PAC air-air x Individuel:
           alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions avec ECS produite par ballon électrique:
+      # =IF($B$17="Oui";D53+F53+H53+J53)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: D53 n'existe pas car grisé
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
 
 env . Installation x PAC air-air x Collectif:
   avec:
@@ -228,6 +263,15 @@ env . Installation x PAC air-air x Collectif:
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
+    Total émissions avec ECS produite par ballon électrique:
+      # =IF($B$17="Oui";D54+F54+H54+J54)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: D54 n'existe pas car grisé
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
 
@@ -308,3 +352,13 @@ env . Installation x Radiateur électrique x Individuel:
           alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
+    Total émissions avec ECS produite par ballon électrique:
+      # =IF($B$17="Oui";D60+F60+H60+J60)
+      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION: D60 n'existe pas car grisé
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
+        - sinon: 0 # FIXME
+      unité: kgCO2 équ.
+
