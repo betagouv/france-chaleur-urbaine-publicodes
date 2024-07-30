@@ -118,6 +118,17 @@ env . Installation x Chaudière à granulés coll x Collectif:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+      somme:
+        - besoins de chauffage
+        - auxiliaires et combustible électrique
+        - Scope 3
+        - variations:
+          - si: Production eau chaude sanitaire
+            alors: besoins d'ECS
+          - sinon: 0
+      unité: kgCO2 équ.
 
 env . Installation x Gaz indiv avec cond x Individuel:
   avec:
@@ -132,6 +143,17 @@ env . Installation x Gaz indiv avec cond x Individuel:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+      somme:
+        - besoins de chauffage
+        - auxiliaires et combustible électrique
+        - Scope 3
+        - variations:
+          - si: Production eau chaude sanitaire
+            alors: besoins d'ECS
+          - sinon: 0
+      unité: kgCO2 équ.
 
 env . Installation x Gaz indiv sans cond x Individuel:
   avec:
@@ -146,6 +168,17 @@ env . Installation x Gaz indiv sans cond x Individuel:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+      somme:
+        - besoins de chauffage
+        - auxiliaires et combustible électrique
+        - Scope 3
+        - variations:
+          - si: Production eau chaude sanitaire
+            alors: besoins d'ECS
+          - sinon: 0
+      unité: kgCO2 équ.
 
 env . Installation x Gaz coll avec cond x Collectif:
   avec:
@@ -160,6 +193,17 @@ env . Installation x Gaz coll avec cond x Collectif:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+      somme:
+        - besoins de chauffage
+        - auxiliaires et combustible électrique
+        - Scope 3
+        - variations:
+          - si: Production eau chaude sanitaire
+            alors: besoins d'ECS
+          - sinon: 0
+      unité: kgCO2 équ.
 
 env . Installation x Gaz coll sans cond x Collectif:
   avec:
@@ -174,6 +218,17 @@ env . Installation x Gaz coll sans cond x Collectif:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+      somme:
+        - besoins de chauffage
+        - auxiliaires et combustible électrique
+        - Scope 3
+        - variations:
+          - si: Production eau chaude sanitaire
+            alors: besoins d'ECS
+          - sinon: 0
+      unité: kgCO2 équ.
 
 env . Installation x Fioul indiv x Individuel:
   avec:
@@ -188,6 +243,17 @@ env . Installation x Fioul indiv x Individuel:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Fioul indiv * Installation x Fioul indiv x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+      somme:
+        - besoins de chauffage
+        - auxiliaires et combustible électrique
+        - Scope 3
+        - variations:
+          - si: Production eau chaude sanitaire
+            alors: besoins d'ECS
+          - sinon: 0
+      unité: kgCO2 équ.
 
 env . Installation x Fioul coll x Collectif:
   avec:
@@ -202,6 +268,17 @@ env . Installation x Fioul coll x Collectif:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+      somme:
+        - besoins de chauffage
+        - auxiliaires et combustible électrique
+        - Scope 3
+        - variations:
+          - si: Production eau chaude sanitaire
+            alors: besoins d'ECS
+          - sinon: 0
+      unité: kgCO2 équ.
 
 env . Installation x PAC air-air x Individuel:
   avec:
@@ -287,6 +364,13 @@ env . Installation x PAC eau-eau x Individuel:
       # =(XLOOKUP(A55;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A55;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D55+E55+F55+J55;D55+F55+J55)
+      # QUESTION: D55 et E55 n'existent pas car grisés, à supprimer dans l'excel original
+      somme:
+        - auxiliaires et combustible électrique
+        - Scope 3
+      unité: kgCO2 équ.
 
 env . Installation x PAC eau-eau x Collectif:
   avec:
@@ -300,6 +384,13 @@ env . Installation x PAC eau-eau x Collectif:
       # =(XLOOKUP(A56;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A56;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D56+E56+F56+J56;D56+F56+J56)
+      # QUESTION: D56 et E56 n'existent pas car grisés, à supprimer dans l'excel original
+      somme:
+        - auxiliaires et combustible électrique
+        - Scope 3
+      unité: kgCO2 équ.
 
 env . Installation x PAC air-eau x Individuel:
   avec:
@@ -310,6 +401,13 @@ env . Installation x PAC air-eau x Individuel:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS PAC air-eau indiv * Installation x PAC air-eau x Individuel . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D57+E57+F57+J57;D57+F57+J57)
+      # QUESTION: D57 et E57 n'existent pas car grisés, à supprimer dans l'excel original
+      somme:
+        - auxiliaires et combustible électrique
+        - Scope 3
+      unité: kgCO2 équ.
 
 env . Installation x PAC air-eau x Collectif:
   avec:
@@ -320,6 +418,13 @@ env . Installation x PAC air-eau x Collectif:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D58+E58+F58+J58;D58+F58+J58)
+      # QUESTION: D58 et E58 n'existent pas car grisés, à supprimer dans l'excel original
+      somme:
+        - auxiliaires et combustible électrique
+        - Scope 3
+      unité: kgCO2 équ.
 
 env . Installation x PAC absorption gaz x Collectif:
   avec:
@@ -329,6 +434,13 @@ env . Installation x PAC absorption gaz x Collectif:
       unité: kgCO2 équ.
     Scope 3:
       formule: ratios environnementaux . CO2 INS PAC absorption gaz * Installation x PAC absorption gaz x Collectif . gamme de puissance existante
+    Total émissions avec ECS produite par l'installation:
+      # =IF($B$17="Oui";D59+E59+F59+J59;D59+F59+J59)
+      # QUESTION: D59 et E59 n'existent pas car grisés, à supprimer dans l'excel original
+      somme:
+        - auxiliaires et combustible électrique
+        - Scope 3
+      unité: kgCO2 équ.
 
 env . Installation x Radiateur électrique x Individuel:
   avec:
