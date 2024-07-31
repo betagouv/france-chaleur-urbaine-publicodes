@@ -4,3 +4,442 @@ ratios économiques:
       valeur: 2
       unité: kW
 
+    Investissement x Pose et mise en place de l'installation:
+      formule: 30
+      unité: '%'
+      note: "'Source: ELCIMAI 2024'"
+    Investissement x TVA:
+      valeur: 20
+      unité: '%'
+      note:"'source: ELCIMAI 2024'"
+    Investissement x Taux actualisation par défaut:
+      valeur: 0
+      unité: '%'
+      note:"'source: AMORCE'"
+    Investissement x Inflation:
+      valeur: 1
+      unité: '%'
+      note:"'source: AMORCE'"
+    Investissement x Indexation du prix de la chaleur:
+      valeur: 2
+      unité: '%'
+      note:"'source: AMORCE'"
+    Investissement x Indexation du prix des granulés:
+      valeur: 2
+      unité: '%'
+      note:"'source: ELCIMAI'"
+    Investissement x Indexation du prix de l'électricité:
+      valeur: 3
+      unité: '%'
+      note:"'source: AMORCE'"
+    Investissement x Indexation du prix du gaz:
+      valeur: 4
+      unité: '%'
+      note:"'source: AMORCE'"
+    Investissement x Indexation du prix du fioul:
+      valeur: 4
+      unité: '%'
+      note:"'source: AMORCE'"
+
+    Réseaux x Coût raccordement RCU SST x Résidentiel:
+      # QUESTION: est-ce bien du <= ?
+      variations:
+        - si: nombre de logement dans l'immeuble concerné <= 25
+          alors: 3709
+        - si: nombre de logement dans l'immeuble concerné <= 42
+          alors: 2364
+        - si: nombre de logement dans l'immeuble concerné <= 58
+          alors: 1847
+        - si: nombre de logement dans l'immeuble concerné <= 83
+          alors: 1393
+        - si: nombre de logement dans l'immeuble concerné <= 125
+          alors: 1027
+        - si: nombre de logement dans l'immeuble concerné <= 167
+          alors: 857
+        - si: nombre de logement dans l'immeuble concerné <= 250
+          alors: 701
+        - si: nombre de logement dans l'immeuble concerné <= 333
+          alors: 608
+      unité: €HT/logement
+      note:"'source: FEDENE 2024'"
+
+    Réseaux x Coût raccordement RCU SST x Tertiaire:
+      # QUESTION: est-ce bien du <= ?
+      variations:
+        - si: surface logement type tertiaire <= 1500
+          alors: 92725 
+        - si: surface logement type tertiaire <= 2500
+          alors: 99305 
+        - si: surface logement type tertiaire <= 3500
+          alors: 107146 
+        - si: surface logement type tertiaire <= 5000
+          alors: 115621 
+        - si: surface logement type tertiaire <= 7500
+          alors: 128398 
+        - si: surface logement type tertiaire <= 10000
+          alors: 143072 
+        - si: surface logement type tertiaire <= 15000
+          alors: 175203 
+      unité: €HT
+      note:"'source: FEDENE 2024'"
+
+    Réseaux x Coût raccordement RFU x Résidentiel:
+      # QUESTION: est-ce bien du <= ?
+      variations:
+        - si: nombre de logement dans l'immeuble concerné <= 25
+          alors: 4822
+        - si: nombre de logement dans l'immeuble concerné <= 42
+          alors: 3074
+        - si: nombre de logement dans l'immeuble concerné <= 58
+          alors: 2402
+        - si: nombre de logement dans l'immeuble concerné <= 83
+          alors: 1811
+        - si: nombre de logement dans l'immeuble concerné <= 125
+          alors: 1335
+        - si: nombre de logement dans l'immeuble concerné <= 167
+          alors: 1114
+        - si: nombre de logement dans l'immeuble concerné <= 250
+          alors: 911
+        - si: nombre de logement dans l'immeuble concerné <= 333
+          alors: 790
+      unité: €HT/logement
+      note:"'source: ELCIMAI'"
+
+    Réseaux x Coût raccordement RFU x Tertiaire:
+      # QUESTION: est-ce bien du <= ?
+      variations:
+        - si: surface logement type tertiaire <= 1500
+          alors: 120543 
+        - si: surface logement type tertiaire <= 2500
+          alors: 129097 
+        - si: surface logement type tertiaire <= 3500
+          alors: 139290 
+        - si: surface logement type tertiaire <= 5000
+          alors: 150307 
+        - si: surface logement type tertiaire <= 7500
+          alors: 166917 
+        - si: surface logement type tertiaire <= 10000
+          alors: 185994 
+        - si: surface logement type tertiaire <= 15000
+          alors: 227764 
+      unité: €HT
+      note:"'Source: ELCIMAI'"
+
+    Granulés x Poêle à granulés indiv x Résidentiel individuel:
+      avec:
+        Coût investissement Puissance 12 kW:
+          valeur: 5600
+          unité: €HT
+      note: "'Source: Invicta 2024'"
+
+    Granulés x Chaudière à granulés collective:
+      variations:
+        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante < 25
+          alors: 750 * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
+        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante = 25
+          alors: 20000
+        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 30
+          alors: 26250
+        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 40
+          alors: 29750
+        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 50
+          alors: 37500
+        - sinon: 750 * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
+      note: "'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'"
+
+    Gaz x indiv avec cond:
+      variations:
+        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 12
+          alors: 2660
+        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 20
+          alors: 2810
+        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 25
+          alors: 2920
+        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 30
+          alors: 3220
+        - sinon: 3620
+      unité: €HT
+      note: "'Source: Atlantic 2023'"
+
+    Gaz x indiv sans cond:
+      variations:
+        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 12
+          alors: 2660
+        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 20
+          alors: 2810
+        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 25
+          alors: 2920
+        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 30
+          alors: 3220
+        - sinon: 3620
+      unité: €HT
+      note: "'Source: ELCIMAI 2024'"
+      
+    Gaz x coll avec cond:
+      variations:
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 35
+          alors: 4800
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 120
+          alors: 15000
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 200
+          alors: 25000
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 300
+          alors: 37500
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
+          alors: 40000
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 500
+          alors: 45000
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 600
+          alors: 52335
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 700
+          alors: 61058
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 800
+          alors: 69780
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 900
+          alors: 78503
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1000
+          alors: 87225
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1250
+          alors: 109031
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1500
+          alors: 130838
+        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1750
+          alors: 152644
+        - sinon: 174450
+      unité: €HT
+      note: "'Source: ELCIMAI 2024 et Atlantic 2024'"
+    
+    Gaz x coll sans cond:
+      variations:
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 35
+          alors: 4800
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 120
+          alors: 15000
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 200
+          alors: 25000
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 300
+          alors: 37500
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 400
+          alors: 40000
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 500
+          alors: 45000
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 600
+          alors: 52335
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 700
+          alors: 61058
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 800
+          alors: 69780
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 900
+          alors: 78503
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1000
+          alors: 87225
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1250
+          alors: 109031
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1500
+          alors: 130838
+        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1750
+          alors: 152644
+        - sinon: 174450
+      unité: €HT
+      note: "'Source: ELCIMAI 2024'"
+
+    Fioul x indiv:
+      variations:
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 12
+          alors: 2926
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 20
+          alors: 3091
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 25
+          alors: 3212
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 30
+          alors: 3542
+        - sinon: 3982
+      unité: €HT
+    
+    Fioul x collectif:
+      variations:
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 35
+          alors: 5280
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 120
+          alors: 16500
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 200
+          alors: 27500
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 300
+          alors: 41250
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 400
+          alors: 44000
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 500
+          alors: 49500
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 600
+          alors: 57569
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 700
+          alors: 67163
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 800
+          alors: 76758
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 900
+          alors: 86353
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1000
+          alors: 95948
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1250
+          alors: 119934
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1500
+          alors: 143921
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1750
+          alors: 167908
+        - sinon: 191895
+      unité: €HT
+
+    PAC x air-air réversible:
+      avec:
+        Coût investissement Individuel:
+          valeur: 734
+          unité: €HT/kW
+          note: "'Source: ADEME Coûts EnR 2022 2020'"
+        Coût investissement Collectif:
+          valeur: 661
+          unité: €HT/kW
+          note: "'Source: ELCIMAI 2024'"
+
+    PAC x air-air réversible x Individuel:
+      produit:
+        - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
+        - Installation x PAC air-air x Individuel . gamme de puissance existante
+
+    PAC x air-air réversible x Collectif:
+      produit:
+        - ratios économiques . PAC x air-air réversible . Coût investissement Collectif
+        - Installation x PAC air-air x Collectif . gamme de puissance existante
+
+    PAC x eau-eau non réversible:
+      avec:
+        Coût investissement dont terrassement ind:
+          # 'Ratios économiques - Coûts'!C171
+          valeur: 1818
+          unité: €HT/kW
+          note: "'ADEME Coûts EnR 2022 2020'"
+        Gamme 40 130kW Coût investissement hors captage sous-sol coll:
+          # 'Ratios économiques - Coûts'!C172
+          valeur: 1323
+          unité: €HT/kW
+          note: "'ADEME Coûts EnR 2022 2020'"
+        Gamme 40 130kW coût captage sous-sol coll:
+          # 'Ratios économiques - Coûts'!C173
+          valeur: 1377
+          unité: €HT/kW
+          note: "'ADEME Coûts EnR 2022 2020'"
+        Gamme 250kW Coût investissement hors captage sous-sol coll:
+          # 'Ratios économiques - Coûts'!C174
+          valeur: 504
+          unité: €HT/kW
+          note: "'ADEME Coûts EnR 2022 2020'"
+        Gamme 250kW coût captage sous-sol coll:
+          # 'Ratios économiques - Coûts'!C175
+          valeur: 1121
+          unité: €HT/kW
+          note: "'ADEME Coûts EnR 2022 2020'"
+        Coûts hors captage sous-sol:
+          # 'Paramètres économiques'!B74
+          # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250;'Ratios économiques - Coûts'!C172;'Ratios économiques - Coûts'!C174)*IF(affichage="Technicien";1;(1+TVA_inv))
+          produit:
+            - Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
+            - variations:
+              - si: Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante < 250
+                alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW Coût investissement hors captage sous-sol coll
+              - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
+        Coûts captage sous-sol champs sur sonde:
+          # 'Paramètres économiques'!B75
+          # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250;'Ratios économiques - Coûts'!C173;'Ratios économiques - Coûts'!C175)*IF(affichage="Technicien";1;(1+TVA_inv))
+          produit:
+            - Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
+            - variations:
+              - si: Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante < 250
+                alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW coût captage sous-sol coll
+              - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW coût captage sous-sol coll
+
+    PAC x eau-eau non réversible x Individuel:
+      produit:
+        - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
+        - Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . gamme de puissance existante
+    
+    PAC x eau-eau non réversible x Collectif :
+      # 'Paramètres économiques'!B73
+      somme:
+        - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
+        - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
+
+    PAC x air-eau réversible:
+      avec:
+        Coût investissement Individuel:
+          valeur: 1117
+          unité: €HT/kW
+          note: "'Source: ADEME Coûts EnR 2022 2020'"
+        Coût investissement Collectif:
+          valeur: 1005
+          unité: €HT/kW
+          note: "'Source: ELCIMAI 2024'"
+
+    PAC x air-eau réversible x Individuel:
+      produit:
+        - ratios économiques . PAC x air-eau réversible . Coût investissement Individuel
+        - Installation x PAC air-eau x Individuel . gamme de puissance existante
+
+    PAC x air-eau réversible x Collectif:
+      produit:
+        - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
+        - Installation x PAC air-eau x Collectif . gamme de puissance existante
+
+    PAC x absorption gaz:
+      avec:
+        Coût investissement:
+          valeur: 514 
+          unité: €HT/kW
+          note: "'France air, moèle Xinoé reversible 2024'"
+
+    PAC x absorption gaz x Collectif:
+      produit:
+        - ratios économiques . PAC x absorption gaz . Coût investissement
+        - Installation x PAC absorption gaz x Collectif . gamme de puissance existante
+
+    Radiateur électrique:
+      avec:
+        Coût investissement Puissance 2kW:
+          valeur: 550 
+          unité: €HT
+          note: "'Atlantic 2023'"
+
+    Radiateur électrique x Individuel:
+      produit:
+        - ratios économiques . Radiateur électrique . Coût investissement Puissance 2kW
+        - Installation x Radiateur électrique x Individuel . gamme de puissance existante / 2
+
+    Chauffe-eau x électrique à accumulation:
+      # TODO
+
+    Chauffe-eau x solaire:
+      # TODO
+    
+    Coût des combustibles x Gaz:
+      # TODO
+    
+    Coût des combustibles x Electricité X Général:
+      # TODO
+    
+    Coût des combustibles x Electricité X Grille tarifaire:
+      # TODO
+      # TODO Option base
+      # TODO HP/HC
+    
+    Coût des combustibles x Taxes:
+      # TODO
+
+    Granulés:
+      # TODO
+    
+    Fioul:
+      # TODO
+      
+    P2:
+      # TODO
+    
+    P3:
+      # TODO
