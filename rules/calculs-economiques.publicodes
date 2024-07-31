@@ -66,8 +66,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -88,8 +88,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -111,8 +111,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -136,8 +136,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -159,8 +159,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -182,8 +182,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -205,8 +205,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -228,8 +228,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -251,8 +251,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -274,8 +274,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -297,8 +297,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -320,8 +320,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -343,8 +343,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -366,8 +366,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -389,8 +389,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -412,8 +412,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -435,8 +435,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
@@ -459,8 +459,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          # TODO
-          unité: €
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # TODO
           unité: €
