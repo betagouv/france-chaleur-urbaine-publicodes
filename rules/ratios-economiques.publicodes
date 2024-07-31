@@ -361,7 +361,7 @@ ratios économiques:
         - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
         - Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . gamme de puissance existante
     
-    PAC x eau-eau non réversible x Collectif :
+    PAC x eau-eau non réversible x Collectif:
       # 'Paramètres économiques'!B73
       somme:
         - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
@@ -393,7 +393,7 @@ ratios économiques:
         Coût investissement:
           valeur: 514 
           unité: €HT/kW
-          note: "'France air, moèle Xinoé reversible 2024'"
+          note: "'Source: France air, moèle Xinoé reversible 2024'"
 
     PAC x absorption gaz x Collectif:
       produit:
@@ -405,7 +405,7 @@ ratios économiques:
         Coût investissement Puissance 2kW:
           valeur: 550 
           unité: €HT
-          note: "'Atlantic 2023'"
+          note: "'Source: Atlantic 2023'"
 
     Radiateur électrique x Individuel:
       produit:
@@ -413,11 +413,26 @@ ratios économiques:
         - Installation x Radiateur électrique x Individuel . gamme de puissance existante / 2
 
     Chauffe-eau x électrique à accumulation:
-      # TODO
+      variations:
+        - si: volume du ballon ECS = 50
+          alors: 733
+        - si: volume du ballon ECS = 100
+          alors: 847
+        - si: volume du ballon ECS = 150
+          alors: 963
+        - si: volume du ballon ECS = 200
+          alors: 1102
+      unité: €TTC
+      note: "'Source: Thermor 2024'"
 
-    Chauffe-eau x solaire:
-      # TODO
-    
+    Chauffe-eau x solaire: 
+      valeur: ratios économiques . Chauffe-eau x électrique à accumulation
+
+    Chauffe-eau x solaire prix panneaux:
+      valeur: 1300
+      unité: €HT/m2
+      note: "'Source: ADEME 2023'"
+
     Coût des combustibles x Gaz:
       # TODO
     
