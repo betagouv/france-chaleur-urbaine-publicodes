@@ -29,12 +29,41 @@ mode affichage:
 
 
 ###### Réseaux de chaleur et de froid
-# choix du réseau de chaleur:
+choix du réseau de chaleur:
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'MOYENNE RESEAUX CHAUD'"
+      - "'Réseau de chaleur d'Hauteville Lompnes'"
+      - "'Oyonnax BioChaleur'"
+      - "'Réseau de saint-denis-les-bourg'"
+      - "'Belena'"
+      - "'Secteur Verger du Moulin'"
+      - "'Bourg-en-Bresse - La Vinaigrerie'"
+      - "'Réseau chauffage DORTAN'"
+      - "'Réseau de chaleur ASSURC à Bourg-en-Bresse'"
+      - "'CORMARANCHE'"
+      - "'TODO à définir en externe'" # FIXME
 contenu CO2 réseau de chaleur:
   note: Contenu_CO2_RCU
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   # à définir en externe
-# choix du réseaux de froid:
+choix du réseaux de froid:
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'MSE Réseau froid'"
+      - "'BET CAP AZUR froid'"
+      - "'Réseau de froid Thassalia Marseille'"
+      - "'Réseau du pôle Yvon Morandat'"
+      - "'BET MASSILEO froid'"
+      - "'CANCEROPOLE'"
+      - "'Toulouse energie durable (TED) froid'"
+      - "'LASERIS'"
+      - "'BASSINS A FLOT - Froid'"
+      - "'Polygone Antigone'"
+      - "'Ernest Granier'"
+      - "'TODO à définir en externe'" # FIXME
 contenu CO2 réseau de froid:
   note: Contenu_CO2_RFU
   # =XLOOKUP(C18,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
