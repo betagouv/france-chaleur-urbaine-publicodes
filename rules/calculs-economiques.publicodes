@@ -56,3 +56,429 @@ Calcul Eco . Coût d'achat du combustible:
       valeur: 1.232
       unité: €TTC/litre
 
+Calcul Eco . P4 Investissement total sans aide:
+  avec:
+    Réseaux de chaleur:
+      avec: 
+        Investissement équipement Total:
+          produit:
+            - Investissement x frais de raccordement au réseaux x RCU
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Réseaux de froid:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - Investissement x frais de raccordement au réseaux x RFU
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Poêle à granulés indiv:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Chaudière à granulés coll:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            # QUESTION: la valeur dans le excel parait faux car ell en eprends pas en compte si la chaudière est 25, 30, 40 ou 50kW pour lesquels on a des valeurs précises
+            # Je l'ai corrigé ici
+            - ratios économiques . Granulés x Chaudière à granulés collective
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Gaz indiv avec cond:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x indiv avec cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Gaz indiv sans cond:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x indiv sans cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Gaz coll avec cond:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x coll avec cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Gaz coll sans cond:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x coll sans cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Fioul indiv:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Fioul x indiv
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Fioul coll:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Fioul x collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    PAC air-air indiv:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-air réversible x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    PAC eau-eau indiv:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x eau-eau non réversible x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    PAC air-eau indiv:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-eau réversible x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    PAC air-air coll:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-air réversible x Collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    PAC eau-eau coll:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x eau-eau non réversible x Collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    PAC air-eau coll:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-eau réversible x Collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    PAC à absorption gaz:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x absorption gaz x Collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+    Radiateur électrique:
+      avec:
+        Investissement équipement Total:
+          produit:
+            # QUESTION: a-t-on vraiment besoin du surcout d'installation surcout_inv ?
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Radiateur électrique x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          # TODO
+          unité: €
+        Investissement ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Investissement ballon ECS solaire panneau inclus:
+          # TODO
+          unité: €
+        Total investissement avec ballon ECS à accumulation:
+          # TODO
+          unité: €
+        Total investissement ballon ECS solaire panneaux:
+          # TODO
+          unité: €
+
+Calcul Eco . P1 Coût du combustible par logement type tertiaire:
+  # TODO
+
+Calcul Eco . P2 P3 Coût de l'entretien:
+  # TODO
+
+Calcul Eco . Montant des aides par logement tertiaire:
+  # TODO
