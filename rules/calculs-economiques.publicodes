@@ -96,8 +96,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -124,8 +124,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -153,8 +153,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -184,8 +184,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -213,8 +213,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -242,8 +242,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -271,8 +271,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -300,8 +300,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -329,8 +329,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -358,8 +358,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -387,8 +387,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -416,8 +416,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -445,8 +445,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -474,8 +474,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -503,8 +503,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -532,8 +532,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -563,8 +563,8 @@ Calcul Eco . P4 Investissement total sans aide:
         #     - sinon: 0
         #   unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
@@ -593,8 +593,8 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          # TODO
-          unité: €
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
         Total investissement ballon ECS solaire panneaux:
           # TODO
           unité: €
