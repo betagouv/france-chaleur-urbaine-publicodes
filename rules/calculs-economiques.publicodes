@@ -1,0 +1,58 @@
+Calcul Eco: # useless
+
+###### Calculs économiques
+
+Calcul Eco . Coût d'achat du combustible:
+  avec:
+    Chaleur RCU x Part abonnement:
+      valeur: 0.043
+      unité: €TTC/kWh
+    Chaleur RCU x Part consommation:
+      valeur: 0.065
+      unité: €TTC/kWh
+    
+    Froid RFU x Part abonnement:
+      valeur: 0.06
+      # QUESTION: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
+      unité: €TTC/kWh
+    Froid RFU x Part consommation:
+      valeur: 0.04
+      unité: €TTC/kWh
+    
+    Electricité indiv x Part abonnement:
+      valeur: 152.5
+      unité: €TTC/an
+    Electricité indiv x Part consommation:
+      valeur: 0.247
+      unité: €TTC/kWh
+    
+    Electricité coll x Part abonnement:
+      # QUESTION: est-ce vraiment 1807? et pas 187?
+      valeur: 1807.7
+      unité: €TTC/an
+    Electricité coll x Part consommation:
+      valeur: 0.247
+      unité: €TTC/kWh
+
+    Gaz indiv x Part abonnement:
+      valeur: 266.84
+      unité: €TTC/an
+    Gaz indiv x Part consommation:
+      valeur: 0.089
+      unité: €TTC/kWh
+    
+    Gaz coll x Part abonnement:
+      valeur: 485.2
+      unité: €TTC/an
+    Gaz coll x Part consommation:
+      valeur: 0.089
+      unité: €TTC/kWh
+
+    Granulés x Part consommation:
+      valeur: 0.345
+      unité: €TTC/kg
+
+    Fioul x Part consommation:
+      valeur: 1.232
+      unité: €TTC/litre
+
