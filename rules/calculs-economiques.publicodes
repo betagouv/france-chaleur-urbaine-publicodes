@@ -57,9 +57,19 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/litre
 
 Calcul Eco . Investissement ballon ECS à accumulation:
+  # QUESTION: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
+  # 'Calculs économiques'!E23
   produit:
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
     - ratios économiques . Chauffe-eau x électrique à accumulation
+
+Calcul Eco . Investissement ballon ECS solaire panneau inclus:
+  # QUESTION: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
+  # 'Calculs économiques'!F23
+  produit:
+    - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+    - ratios économiques . Chauffe-eau x solaire prix panneaux
+    - surface de panneau nécessaire
 
 Calcul Eco . P4 Investissement total sans aide:
   avec:
@@ -80,8 +90,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -105,8 +118,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Réseaux de froid x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -131,8 +147,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Poêle à granulés indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -159,8 +178,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Chaudière à granulés coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -185,8 +207,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Gaz indiv avec cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -211,8 +236,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Gaz indiv sans cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -237,8 +265,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Gaz coll avec cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -263,8 +294,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Gaz coll sans cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -289,8 +323,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Fioul indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -315,8 +352,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Fioul coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -341,8 +381,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x PAC air-air x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -367,8 +410,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -393,8 +439,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x PAC air-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -419,8 +468,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x PAC air-air x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -445,8 +497,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x PAC eau-eau champs de sondes x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -471,8 +526,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x PAC air-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -498,9 +556,12 @@ Calcul Eco . P4 Investissement total sans aide:
         #       alors: Calcul Eco . Investissement ballon ECS à accumulation
         #     - sinon: 0
         #   unité: €TTC
-        Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+        # Investissement ballon ECS solaire panneau inclus:
+        #   variations:
+        #     - si: Installation x PAC absorption gaz x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+        #       alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+        #     - sinon: 0
+        #   unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
@@ -526,8 +587,11 @@ Calcul Eco . P4 Investissement total sans aide:
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
-          # TODO
-          unité: €
+          variations:
+            - si: Installation x Radiateur électrique x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+          unité: €TTC
         Total investissement avec ballon ECS à accumulation:
           # TODO
           unité: €
