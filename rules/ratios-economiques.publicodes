@@ -1,5 +1,7 @@
 ratios économiques:
   avec:
+    # 
+
     radiateur électrique x puissance de l'installation:
       valeur: 2
       unité: kW
@@ -436,14 +438,521 @@ ratios économiques:
     Coût des combustibles x Gaz:
       # TODO
     
-    Coût des combustibles x Electricité X Général:
-      # TODO
-    
-    Coût des combustibles x Electricité X Grille tarifaire:
-      # TODO
-      # TODO Option base
-      # TODO HP/HC
-    
+    Coût des combustibles x Electricité:
+      avec:
+        Option Base:
+          avec:
+            Coût fournisseur en plus du TURPE souscrit au-delà de 36kVA:
+              # A244
+              valeur: 15
+              unité: '%'
+            Prix de l'énergie:
+              # D247:D267
+              valeur: 0.1887
+              unité: €HT/kWh
+              note:"'Source: AMORCE 2024'"
+        Heure pleine x Heure creuse:
+          avec:
+            Part de la consommation en HP:
+              # C238
+              valeur:	20
+              unité: '%'
+              note:"'Source: AMORCE 2024'"
+            Part de la consommation en HC:
+              # C239
+              valeur:	80
+              unité: '%'
+              note:"'Source: AMORCE 2024'"
+            Prix de l'énergie HC:
+              # D273:D292
+              valeur: 0.2040
+              unité: €HT/kWh
+              note: "'Source: ELCIMAI + TRV 2024'"
+            Prix de l'énergie HP:
+              # E273:E292
+              valeur: 0.1513
+              unité: €HT/kWh
+              note: "'Source: ELCIMAI + TRV 2024'"
+            Prix de l'énergie:
+              valeur: Part de la consommation en HP * Prix de l'énergie HP + Part de la consommation en HC * Prix de l'énergie HC
+              unité: €HT/kWh
+        Prix de l'énergie:
+          variations: 
+            - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+              alors: Option Base . Prix de l'énergie
+            - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+              alors: Heure pleine x Heure creuse . Prix de l'énergie
+        Abonnement annuel individuel:
+          # B247:B267 et C247:C267
+          # B273:B292 et C273:C292
+          variations:
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 3
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 95.88
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 128.40
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 6
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 123.72
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 128.40
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 9
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 154.08
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 161.40
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 12
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 185.16
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 193.44
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 15
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 213.72
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 223.68
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 18
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 242.04
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 253.68
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 24
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 306.12
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 317.04
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 30
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 358.92
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 373.56
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 36
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 423.36
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 430.68
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 40
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1078.64
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 478.53
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 50
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1214.28
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 598.17
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 60
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1349.93
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 717.80
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 70
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1485.58
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 837.43
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 80
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1621.22
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 957.07
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 90
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1756.87
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1076.70
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 100
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1892.52
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1196.33
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 125
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 2231.64
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1495.42
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 150
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 2570.75
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1794.50
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 175
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 2909.87
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 2093.58
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 200
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 3248.99
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 2392.67
+            - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 250
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 3927.22
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 2990.83
+          unité: €/an
+          note: "'Source: ELCIMAI + TRV 2024'"
+        Abonnement annuel collectif:
+          # B247:B267 et C247:C267
+          # B273:B292 et C273:C292
+          variations:
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 3
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 95.88
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 128.40
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 6
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 123.72
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 128.40
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 9
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 154.08
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 161.40
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 12
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 185.16
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 193.44
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 15
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 213.72
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 223.68
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 18
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 242.04
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 253.68
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 24
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 306.12
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 317.04
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 30
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 358.92
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 373.56
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 36
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 423.36
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 430.68
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 40
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1078.64
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 478.53
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 50
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1214.28
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 598.17
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 60
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1349.93
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 717.80
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 70
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1485.58
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 837.43
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 80
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1621.22
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 957.07
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 90
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1756.87
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1076.70
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 100
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 1892.52
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1196.33
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 125
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 2231.64
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1495.42
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 150
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 2570.75
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 1794.50
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 175
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 2909.87
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 2093.58
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 200
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 3248.99
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 2392.67
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 250
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 3927.22
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 2990.83
+          unité: €/an
+          note: "'Source: ELCIMAI + TRV 2024'"
+        Contribution tarifaire d'acheminement CTA:
+          # B247:B267 et J247:J267 et K247:K267
+          # B273:B292 et J273:J292
+          variations:
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 3
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 14.32
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 19.61
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 6
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 20.87
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 19.61
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 9
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 27.42
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 25.53
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 12
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 33.97
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 31.45
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 15
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 40.53
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 37.37
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 18
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 47.08
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 43.29
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 24
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 60.18
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 55.13
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 30
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 73.29
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 66.97
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 36
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors: 86.40
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 78.82
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 40
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 201.06
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 50
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 226.35
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 60
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 251.63
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 70
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 276.92
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 80
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 302.20
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 90
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 327.49
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 100
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 352.77
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 125
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 415.99
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 150
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 479.20
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 175
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 542.41
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 200
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 605.63
+            - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 250
+              alors: 
+                variations: 
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Option base'"
+                    alors:
+                      est non applicable: oui
+                  - si: Paramètres économiques . Electricité x Option tarifaire = "'Heure pleine/Heure creuse'"
+                    alors: 732.05
+          unité: €/an
+          note: "'Source: ELCIMAI + TRV 2024'" 
     Coût des combustibles x Taxes:
       # TODO
 
