@@ -1,5 +1,3 @@
-Calcul Eco: # useless
-
 ###### Calculs économiques
 
 Calcul Eco . Coût d'achat du combustible:
@@ -71,10 +69,11 @@ Calcul Eco . Investissement ballon ECS solaire panneau inclus:
     - ratios économiques . Chauffe-eau x solaire prix panneaux
     - surface de panneau nécessaire
 
-Calcul Eco . P4 Investissement total sans aide:
+Calcul Eco:
   avec:
     Réseaux de chaleur:
-      avec: 
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - Investissement x frais de raccordement au réseaux x RCU
@@ -101,8 +100,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Réseaux de froid:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - Investissement x frais de raccordement au réseaux x RFU
@@ -129,8 +151,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Poêle à granulés indiv:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -158,8 +203,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Chaudière à granulés coll:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -189,8 +257,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz indiv avec cond:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -218,8 +309,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz indiv sans cond:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -247,8 +361,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz coll avec cond:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -276,8 +413,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz coll sans cond:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -305,8 +465,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Fioul indiv:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -334,8 +517,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Fioul coll:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -363,8 +569,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-air indiv:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -392,8 +621,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC eau-eau indiv:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -421,8 +673,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-eau indiv:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -450,8 +725,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-air coll:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -479,8 +777,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC eau-eau coll:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -508,8 +829,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-eau coll:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -537,8 +881,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC à absorption gaz:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -568,8 +935,31 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Radiateur électrique:
       avec:
+        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             # QUESTION: a-t-on vraiment besoin du surcout d'installation surcout_inv ?
@@ -598,9 +988,28 @@ Calcul Eco . P4 Investissement total sans aide:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-
-Calcul Eco . P1 Coût du combustible par logement type tertiaire:
-  # TODO
+        
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
 
 Calcul Eco . P2 P3 Coût de l'entretien:
   # TODO
