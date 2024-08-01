@@ -133,7 +133,7 @@ Installation x Poêle à granulés indiv x Individuel:
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
     consommation combustible chaleur:
       formule: ratios . GRA POELE Conso combustible * (besoins chauffage par appartement / ratios . GRA POELE Rendement poêle chauffage)
-      unité: kg granulés/an
+      unité: kg/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -244,7 +244,7 @@ Installation x Chaudière à granulés coll x Collectif:
     consommation combustible chaleur:
       # =Conso_comb_GRA_Chaud*(Besoin_cha/Rend_GRA_Chaud+Besoin_ECS/Rend_GRA_Chaud)
       formule: ratios . GRA CHAUD Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GRA CHAUD Rendement chaudière chauffage
-      unité: kg granulés/an
+      unité: kg/an
     consommation auxilliaire:
       # =(1-Conso_aux_GRA_Chaud)*Besoin_cha+(1-Conso_aux_GRA_Chaud)*Besoin_ECS
       formule: (1 - ratios . GRA CHAUD Conso auxilliaire) * besoins chauffage par appartement  + (1 - ratios . GRA CHAUD Conso auxilliaire) * besoins eau chaude sanitaire par appartement
@@ -498,7 +498,7 @@ Installation x Fioul indiv x Individuel:
     consommation combustible chaleur:
       # =Conso_comb_FIOUL_indiv*(Besoin_cha/Rend_FIOUL_indiv+Besoin_ECS/Rend_FIOUL_indiv)
       formule: ratios . FIOUL IND Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . FIOUL IND Rendement chaudière
-      unité: l fioul/an
+      unité: litre/an
     consommation auxilliaire:
       formule: ratios . FIOUL IND Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . FIOUL IND Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
@@ -561,7 +561,7 @@ Installation x Fioul coll x Collectif:
     consommation combustible chaleur:
       # =Conso_comb_FIOUL_coll*(Besoin_cha/Rend_FIOUL_coll_chauf+Besoin_ECS/Rend_FIOUL_coll_ECS)
       formule: ratios . FIOUL COLL Conso combustible * (besoins chauffage par appartement / ratios . FIOUL COLL Rendement chaudière chauffage + besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS)
-      unité: l fioul/an
+      unité: litre/an
     consommation auxilliaire:
       formule: ratios . FIOUL COLL Conso auxilliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . FIOUL COLL Conso auxilliaire ECS ) * besoins eau chaude sanitaire par appartement
     consommation combustible hors électricité:
