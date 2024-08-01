@@ -3,55 +3,70 @@
 Calcul Eco . Coût d'achat du combustible:
   avec:
     Chaleur RCU x Part abonnement:
-      valeur: 0.043
+      # D8 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$143
+      valeur: 0.043 # A remplacer par la formule mais dépend de la ville
       unité: €TTC/kWh
     Chaleur RCU x Part consommation:
+      # D9 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$144
       valeur: 0.065
       unité: €TTC/kWh
     
     Froid RFU x Part abonnement:
-      valeur: 0.06
+      valeur: 0.06 # A remplacer par la formule mais dépend de la ville
       # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
       unité: €TTC/kWh
     Froid RFU x Part consommation:
+      # D10 ='Paramètres économiques'!$D$148*'Paramètres économiques'!D150
       valeur: 0.04
       unité: €TTC/kWh
     
     Electricité indiv x Part abonnement:
-      valeur: 152.5
+      # B11 =('Paramètres économiques'!$D$112+'Paramètres économiques'!$D$120)*(1+'Paramètres économiques'!$D$121)
+      produit:
+        - Paramètres économiques . Electricité x Abonnement Part Fixe indiv + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
+        - (1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA)
       unité: €TTC/an
     Electricité indiv x Part consommation:
-      valeur: 0.247
+      # D11 ='Paramètres économiques'!$D$114
+      formule: Paramètres économiques . Electricité x Consommation Part variable
       unité: €TTC/kWh
     
     Electricité coll x Part abonnement:
-      # QUESTION déjà posée: B12:est-ce vraiment 1807? et pas 187?
-      valeur: 1807.7
+      # B12 =('Paramètres économiques'!D113+'Paramètres économiques'!D120)*(1+'Paramètres économiques'!D124)
+      produit:
+        - Paramètres économiques . Electricité x Abonnement Part Fixe coll + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
+        - (1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA)
       unité: €TTC/an
     Electricité coll x Part consommation:
-      valeur: 0.247
+      # D12 ='Paramètres économiques'!$D$114
+      formule: Paramètres économiques . Electricité x Consommation Part variable
       unité: €TTC/kWh
 
     Gaz indiv x Part abonnement:
-      valeur: 266.84
+      # B13 ='Paramètres économiques'!$D$91
+      valeur: 266.84 # A remplacer par la formule
       unité: €TTC/an
     Gaz indiv x Part consommation:
-      valeur: 0.089
+      valeur: 0.089 # A remplacer par la formule
       unité: €TTC/kWh
     
     Gaz coll x Part abonnement:
-      valeur: 485.2
+      # B14 ='Paramètres économiques'!$D$90
+      valeur: 485.2 # A remplacer par la formule
       unité: €TTC/an
     Gaz coll x Part consommation:
-      valeur: 0.089
+      # D14 ='Paramètres économiques'!$D$94
+      valeur: 0.089 # A remplacer par la formule
       unité: €TTC/kWh
 
     Granulés x Part consommation:
-      valeur: 0.345
+      # D15 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$129/1000;('Paramètres économiques'!$D$129*(1+'Paramètres économiques'!$D$131))/1000)
+      valeur: 0.345 # A remplacer par la formule
       unité: €TTC/kg
 
     Fioul x Part consommation:
-      valeur: 1.232
+      # D16 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$135;('Paramètres économiques'!$D$135*(1+'Paramètres économiques'!$D$137+'Paramètres économiques'!$D$138)))
+      valeur: 1.232 # A remplacer par la formule
       unité: €TTC/litre
 
 Calcul Eco . Investissement ballon ECS à accumulation:
