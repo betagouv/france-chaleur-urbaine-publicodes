@@ -124,7 +124,9 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part consommation
+            - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -177,7 +179,9 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
+            - Installation x Réseaux de froid x Collectif . consommation combustible froid
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -229,7 +233,9 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation
+            - Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -284,7 +290,9 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation
+            - Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -336,7 +344,11 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          # D50 =($D$13*'Calculs techniques'!$C$97/Conso_comb_GAZ_indiv_cond)
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
+            - Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur
+            - 1 / ratios . GAZ IND COND Conso auxilliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -388,7 +400,12 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          # D51 =($D$13*'Calculs techniques'!$C$98/Conso_comb_GAZ_indiv_cond)
+          # QUESTION déjà posée: Conso_comb_GAZ_indiv_cond ne devrait il pas etre sans cond ? j'ai corrigé ci-dessous
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
+            - Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur
+            - 1 / ratios . GAZ IND SCOND Conso auxilliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -440,7 +457,12 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          # D52 =($D$14*'Calculs techniques'!$C$99/Conso_comb_GAZ_indiv_cond)
+          # QUESTION déjà posée: Conso_comb_GAZ_indiv_cond ne devrait il pas etre GAZ_Coll ? j'ai corrigé ci-dessous
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
+            - Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur
+            - 1 / ratios . GAZ COLL COND Conso auxilliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -492,7 +514,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          Coût du combustible consommation:
+          # D53 =($D$14*'Calculs techniques'!$C$100/Conso_comb_GAZ_indiv_cond)
+          # QUESTION déjà posée: Conso_comb_GAZ_indiv_cond ne devrait il pas etre GAZ_Coll sans cond ? j'ai corrigé ci-dessous
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
+            - Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur
+            - 1 / ratios . GAZ COLL SCOND Conso auxilliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -544,7 +572,10 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          # D54 =$D$16*'Calculs techniques'!$C$101
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation
+            - Installation x Fioul indiv x Individuel . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -596,7 +627,10 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # TODO
+          # D55 =$D$16*'Calculs techniques'!$C$102
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation
+            - Installation x Fioul coll x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
@@ -649,6 +683,18 @@ Calcul Eco:
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
           # TODO
+          # D56 =IF('Paramètres économiques'!$D$109="Option base";$D$11*'Calculs techniques'!C103;$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
+          # IF('Paramètres économiques'!$D$109="Option base"
+          #   $D$11*'Calculs techniques'!C103
+          # ELSE
+          #   $D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103
+          #   +$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
+
+          # D11: Electricité indiv x Part consommation
+          # C103: Installation x PAC air-air x Individuel . consommation combustible chaleur
+          # F11 est grisé mais ya une formule dedans 
+
+
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
