@@ -943,8 +943,8 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # QUESTION déjà posée: ceci devrait etre du collectif mais la formule ajoute de l'individuel
-          # cellule C62
+          # C62
+          # QUESTION: ceci devrait etre du collectif mais la formule ajoute de l'individuel
           somme:
             - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
             - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
