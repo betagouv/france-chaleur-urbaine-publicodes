@@ -42,7 +42,7 @@ ratios économiques:
       note:"'source: AMORCE'"
 
     Réseaux x Coût raccordement RCU SST x Résidentiel:
-      # QUESTION: est-ce bien du <= ?
+      # FIXME: est-ce bien du <= ?
       variations:
         - si: nombre de logement dans l'immeuble concerné <= 25
           alors: 3709
@@ -64,7 +64,7 @@ ratios économiques:
       note:"'source: FEDENE 2024'"
 
     Réseaux x Coût raccordement RCU SST x Tertiaire:
-      # QUESTION: est-ce bien du <= ?
+      # QUESTION déjà posée: est-ce bien du <= ?
       variations:
         - si: surface logement type tertiaire <= 1500
           alors: 92725 
@@ -84,7 +84,7 @@ ratios économiques:
       note:"'source: FEDENE 2024'"
 
     Réseaux x Coût raccordement RFU x Résidentiel:
-      # QUESTION: est-ce bien du <= ?
+      # QUESTION déjà posée: est-ce bien du <= ?
       variations:
         - si: nombre de logement dans l'immeuble concerné <= 25
           alors: 4822
@@ -106,7 +106,7 @@ ratios économiques:
       note:"'source: ELCIMAI'"
 
     Réseaux x Coût raccordement RFU x Tertiaire:
-      # QUESTION: est-ce bien du <= ?
+      # QUESTION déjà posée: est-ce bien du <= ?
       variations:
         - si: surface logement type tertiaire <= 1500
           alors: 120543 

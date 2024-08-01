@@ -13,25 +13,25 @@ env . Installation x Réseaux de chaleur x Collectif:
           - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
       unité: kgCO2 équ.
     Scope 3:
-      # =(IF($B$17="Oui";'Ratios environnementaux'!C33*($B$14+$B$15);'Ratios environnementaux'!C33*'Calculs environnementaux'!$B$14))
-      # QUESTION: ça s'appelle vraiment Scope 3 ?
+      # J43 =(IF($B$17="Oui";'Ratios environnementaux'!C33*($B$14+$B$15);'Ratios environnementaux'!C33*'Calculs environnementaux'!$B$14))
+      # QUESTION déjà posée: ça s'appelle vraiment Scope 3 ?
       variations:
         - si: Production eau chaude sanitaire
           alors: ratios environnementaux . CO2 INS RCU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
         - sinon: ratios environnementaux . CO2 INS RCU * besoins chauffage par appartement
     Total émissions avec ECS produite par solaire thermique:
-      # =IF($B$17="Oui";$F$43+$G$2)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: $G$2 n'existe pas du coup je ne mets rien
+      # K43 =IF($B$17="Oui";$F$43+$G$2)
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: $G$2 n'existe pas du coup je ne mets rien
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
     Total émissions avec ECS produite par ballon électrique:
-      # =IF($B$17="Oui";F43+H43)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: H43 est toujours vide car grisé, doit-on l'enlever ?
+      # L43 =IF($B$17="Oui";F43+H43)
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: H43 est toujours vide car grisé, doit-on l'enlever ?
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique
@@ -46,8 +46,8 @@ env . Installation x Réseaux de chaleur x Collectif:
 env . Installation x Réseaux de froid x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      # =(Contenu_CO2_RFU*'Calculs environnementaux'!$B$16)
-      # QUESTION: Calculs environnementaux'!$B$16 est vide. besoins en climatisation par appartement
+      # F44 =(Contenu_CO2_RFU*'Calculs environnementaux'!$B$16)
+      # QUESTION déjà posée: Calculs environnementaux'!$B$16 est vide.
       formule: contenu CO2 réseau de froid * besoins en climatisation par appartement
       unité: kgCO2 équ.
     ECS solaire thermique:
@@ -64,7 +64,7 @@ env . Installation x Réseaux de froid x Collectif:
         - sinon: ratios environnementaux . CO2 INS RFU * besoins chauffage par appartement
     Total émissions avec ECS produite par solaire thermique:
       # =IF($B$17="Oui";F44+G44)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique +  ECS solaire thermique
@@ -72,7 +72,7 @@ env . Installation x Réseaux de froid x Collectif:
       unité: kgCO2 équ.
     Total émissions avec ECS produite par ballon électrique:
       # =IF($B$17="Oui";F44+H44)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique
@@ -99,18 +99,18 @@ env . Installation x Poêle à granulés indiv x Individuel:
       # =(XLOOKUP(A45;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(A45;$A$20:$A$37;$B$20:$B$37))
       formule: ratios environnementaux . CO2 INS Poêle à granulés indiv * Installation x Poêle à granulés indiv x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par solaire thermique:
-      # =IF($B$17="Oui";$D$45+$G$45+$J$45)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: c'est aussi bizarre que la formule ne soit pas cohérente avec les 2 du dessus et celle à droite
+      # K45 =IF($B$17="Oui";$D$45+$G$45+$J$45)
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: c'est aussi bizarre que la formule ne soit pas cohérente avec les 2 du dessus et celle à droite
       variations:
         - si: Production eau chaude sanitaire
           alors: besoins de chauffage + ECS solaire thermique + ECS avec ballon électrique
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
     Total émissions avec ECS produite par ballon électrique:
-      # =IF($B$17="Oui";D45+F45+H45+J45)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: F45 qui n'existe pas car grisé
+      # L45 =IF($B$17="Oui";D45+F45+H45+J45)
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: F45 qui n'existe pas car grisé
       variations:
         - si: Production eau chaude sanitaire
           alors: besoins de chauffage + ECS avec ballon électrique + Scope 3
@@ -368,7 +368,7 @@ env . Installation x PAC air-air x Individuel:
   avec:
     auxiliaires et combustible électrique:
       # =XLOOKUP(LEFT(A53;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-air x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     ECS solaire thermique:
@@ -378,13 +378,13 @@ env . Installation x PAC air-air x Individuel:
     Variation entre eau chaude sanitaire et solaire thermique:
       formule: ECS avec ballon électrique - ECS solaire thermique
     Scope 3:
-      # =(XLOOKUP(A53;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A53;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # F53 =(XLOOKUP(A53;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A53;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC air-air indiv * Installation x PAC air-air x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par solaire thermique:
-      # =IF($B$17="Oui";D53+F53+G53+J53)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: D53 n'existe pas car grisé
+      # G53 =IF($B$17="Oui";D53+F53+G53+J53)
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: D53 n'existe pas car grisé
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
@@ -392,16 +392,16 @@ env . Installation x PAC air-air x Individuel:
       unité: kgCO2 équ.
     Total émissions avec ECS produite par ballon électrique:
       # =IF($B$17="Oui";D53+F53+H53+J53)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: D53 n'existe pas car grisé
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: D53 n'existe pas car grisé
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
     Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D53+F53+J53;"Pas concerné")
-      # QUESTION: D53 n'existe pas car grisé, à enlever dans l'excel original
+      # L53 =IF(@Prod_ECS?="Non";D53+F53+J53;"Pas concerné")
+      # QUESTION déjà posée: D53 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 
@@ -413,8 +413,8 @@ env . Installation x PAC air-air x Individuel:
 env . Installation x PAC air-air x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      # =XLOOKUP(LEFT(A54;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # F54 =XLOOKUP(LEFT(A54;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-air x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     ECS solaire thermique:
@@ -424,30 +424,30 @@ env . Installation x PAC air-air x Collectif:
     Variation entre eau chaude sanitaire et solaire thermique:
       formule: ECS avec ballon électrique - ECS solaire thermique
     Scope 3:
-      # =(XLOOKUP(A53;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A53;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # J54 =(XLOOKUP(A54;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A54;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par solaire thermique:
-      # =IF($B$17="Oui";D53+F53+G53+J53)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: D53 n'existe pas car grisé
+      # K54 =IF($B$17="Oui";D54+F54+G54+J54)
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: D54 n'existe pas car grisé
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
     Total émissions avec ECS produite par ballon électrique:
-      # =IF($B$17="Oui";D54+F54+H54+J54)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: D54 n'existe pas car grisé
+      # L54 =IF($B$17="Oui";D54+F54+H54+J54)
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: D54 n'existe pas car grisé
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
         - sinon: 0 # FIXME
       unité: kgCO2 équ.
     Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D54+F54+J54;"Pas concerné")
-      # QUESTION: D54 n'existe pas car grisé, à enlever dans l'excel original
+      # N54 =IF(@Prod_ECS?="Non";D54+F54+J54;"Pas concerné")
+      # QUESTION déjà posée: D54 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 
@@ -459,25 +459,25 @@ env . Installation x PAC air-air x Collectif:
 env . Installation x PAC eau-eau x Individuel:
   avec:
     auxiliaires et combustible électrique:
-      # =XLOOKUP(LEFT(A55;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # F55 =XLOOKUP(LEFT(A55;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       # FIXME il n'y a pas de "eau-eau Indiv" donc j'ai mis "Installation x PAC eau glycolée-eau capteurs verticaux x Individuel"
       formule: Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
-      # =(XLOOKUP(A55;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A55;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # J55 =(XLOOKUP(A55;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A55;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D55+E55+F55+J55;D55+F55+J55)
-      # QUESTION: D55 et E55 n'existent pas car grisés, à supprimer dans l'excel original
+      # M55 =IF($B$17="Oui";D55+E55+F55+J55;D55+F55+J55)
+      # QUESTION déjà posée: D55 et E55 n'existent pas car grisés, à supprimer dans l'excel original
       somme:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
     Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D55+F55+J55;"Pas concerné")
-      # QUESTION: D55 n'existe pas car grisé, à enlever dans l'excel original
+      # N55 =IF(@Prod_ECS?="Non";D55+F55+J55;"Pas concerné")
+      # QUESTION déjà posée: D55 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 
@@ -490,24 +490,24 @@ env . Installation x PAC eau-eau x Collectif:
   avec:
     auxiliaires et combustible électrique:
       # =XLOOKUP(LEFT(A56;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       # FIXME il n'y a pas de "eau-eau Collectif" donc j'ai mis "Installation x PAC eau-eau champs de sondes x Collectif"
       formule: Installation x PAC eau-eau champs de sondes x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
       # =(XLOOKUP(A56;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A56;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D56+E56+F56+J56;D56+F56+J56)
-      # QUESTION: D56 et E56 n'existent pas car grisés, à supprimer dans l'excel original
+      # QUESTION déjà posée: D56 et E56 n'existent pas car grisés, à supprimer dans l'excel original
       somme:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
     Total émissions sans ECS:
       # =IF(@Prod_ECS?="Non";D56+F56+J56;"Pas concerné")
-      # QUESTION: D56 n'existe pas car grisé, à enlever dans l'excel original
+      # QUESTION déjà posée: D56 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 
@@ -519,22 +519,23 @@ env . Installation x PAC eau-eau x Collectif:
 env . Installation x PAC air-eau x Individuel:
   avec:
     auxiliaires et combustible électrique:
-      # =XLOOKUP(LEFT(A57;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # F57 =XLOOKUP(LEFT(A57;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-eau x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
+      # J57
       formule: ratios environnementaux . CO2 INS PAC air-eau indiv * Installation x PAC air-eau x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D57+E57+F57+J57;D57+F57+J57)
-      # QUESTION: D57 et E57 n'existent pas car grisés, à supprimer dans l'excel original
+      # M57 =IF($B$17="Oui";D57+E57+F57+J57;D57+F57+J57)
+      # QUESTION déjà posée: D57 et E57 n'existent pas car grisés, à supprimer dans l'excel original
       somme:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
     Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D57+F57+J57;"Pas concerné")
-      # QUESTION: D57 n'existe pas car grisé, à enlever dans l'excel original
+      # N57 =IF(@Prod_ECS?="Non";D57+F57+J57;"Pas concerné")
+      # QUESTION déjà posée: D57 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 
@@ -546,22 +547,23 @@ env . Installation x PAC air-eau x Individuel:
 env . Installation x PAC air-eau x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      # =XLOOKUP(LEFT(A58;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # F58 =XLOOKUP(LEFT(A58;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-eau x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
+      # J58
       formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D58+E58+F58+J58;D58+F58+J58)
-      # QUESTION: D58 et E58 n'existent pas car grisés, à supprimer dans l'excel original
+      # M58 =IF($B$17="Oui";D58+E58+F58+J58;D58+F58+J58)
+      # QUESTION déjà posée: D58 et E58 n'existent pas car grisés, à supprimer dans l'excel original
       somme:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
     Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D58+F58+J58;"Pas concerné")
-      # QUESTION: D58 n'existe pas car grisé, à enlever dans l'excel original
+      # N58 =IF(@Prod_ECS?="Non";D58+F58+J58;"Pas concerné")
+      # QUESTION déjà posée: D58 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 
@@ -573,21 +575,22 @@ env . Installation x PAC air-eau x Collectif:
 env . Installation x PAC absorption gaz x Collectif:
   avec:
     auxiliaires et combustible électrique:
-      # =XLOOKUP(A59;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      # F59 =XLOOKUP(A59;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       formule: Installation x PAC absorption gaz x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     Scope 3:
+      # J59
       formule: ratios environnementaux . CO2 INS PAC absorption gaz * Installation x PAC absorption gaz x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D59+E59+F59+J59;D59+F59+J59)
-      # QUESTION: D59 et E59 n'existent pas car grisés, à supprimer dans l'excel original
+      # M59 =IF($B$17="Oui";D59+E59+F59+J59;D59+F59+J59)
+      # QUESTION déjà posée: D59 et E59 n'existent pas car grisés, à supprimer dans l'excel original
       somme:
         - auxiliaires et combustible électrique
         - Scope 3
       unité: kgCO2 équ.
     Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D59+F59+J59;"Pas concerné")
-      # QUESTION: D59 n'existe pas car grisé, à enlever dans l'excel original
+      # N59 =IF(@Prod_ECS?="Non";D59+F59+J59;"Pas concerné")
+      # QUESTION déjà posée: D59 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 
@@ -611,8 +614,8 @@ env . Installation x Radiateur électrique x Individuel:
     Scope 3:
       formule: ratios environnementaux . CO2 INS Radiateur électrique * Installation x Radiateur électrique x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par solaire thermique:
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: D60 n'existe pas car grisé
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: D60 n'existe pas car grisé
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
@@ -620,8 +623,8 @@ env . Installation x Radiateur électrique x Individuel:
       unité: kgCO2 équ.
     Total émissions avec ECS produite par ballon électrique:
       # =IF($B$17="Oui";D60+F60+H60+J60)
-      # QUESTION: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION: D60 n'existe pas car grisé
+      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
+      # QUESTION déjà posée: D60 n'existe pas car grisé
       variations:
         - si: Production eau chaude sanitaire
           alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
@@ -629,7 +632,7 @@ env . Installation x Radiateur électrique x Individuel:
       unité: kgCO2 équ.
     Total émissions sans ECS:
       # =IF(@Prod_ECS?="Non";D60+F60+J60;"Pas concerné")
-      # QUESTION: D60 n'existe pas car grisé, à enlever dans l'excel original
+      # QUESTION déjà posée: D60 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
           alors: 

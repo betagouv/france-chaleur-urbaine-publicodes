@@ -11,7 +11,7 @@ Calcul Eco . Coût d'achat du combustible:
     
     Froid RFU x Part abonnement:
       valeur: 0.06
-      # QUESTION: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
+      # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
       unité: €TTC/kWh
     Froid RFU x Part consommation:
       valeur: 0.04
@@ -25,7 +25,7 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
     
     Electricité coll x Part abonnement:
-      # QUESTION: est-ce vraiment 1807? et pas 187?
+      # QUESTION déjà posée: B12:est-ce vraiment 1807? et pas 187?
       valeur: 1807.7
       unité: €TTC/an
     Electricité coll x Part consommation:
@@ -55,14 +55,14 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/litre
 
 Calcul Eco . Investissement ballon ECS à accumulation:
-  # QUESTION: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
+  # QUESTION déjà posée: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
   # 'Calculs économiques'!E23
   produit:
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
     - ratios économiques . Chauffe-eau x électrique à accumulation
 
 Calcul Eco . Investissement ballon ECS solaire panneau inclus:
-  # QUESTION: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
+  # QUESTION déjà posée: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
   # 'Calculs économiques'!F23
   produit:
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -233,9 +233,10 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
+          # C26 
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-            # QUESTION: la valeur dans le excel parait faux car ell en eprends pas en compte si la chaudière est 25, 30, 40 ou 50kW pour lesquels on a des valeurs précises
+            # QUESTION déjà posée: la valeur dans le excel parait fausse car elle ne prend pas en compte si la chaudière est 25, 30, 40 ou 50kW pour lesquels on a des valeurs précises
             # Je l'ai corrigé ici
             - ratios économiques . Granulés x Chaudière à granulés collective
             - ratios économiques . Investissement x TVA
@@ -942,7 +943,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # QUESTION: ceci devrait etre du collectif mais la formule ajoute de l'individuel
+          # QUESTION déjà posée: ceci devrait etre du collectif mais la formule ajoute de l'individuel
           # cellule C62
           somme:
             - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
@@ -969,8 +970,9 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
+          # C63
           produit:
-            # QUESTION: a-t-on vraiment besoin du surcout d'installation surcout_inv ?
+            # QUESTION déjà posée: a-t-on vraiment besoin du surcout d'installation surcout_inv ?
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Radiateur électrique x Individuel
             - ratios économiques . Investissement x TVA
