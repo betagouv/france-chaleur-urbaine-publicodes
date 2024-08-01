@@ -51,3 +51,60 @@ Investissement x frais de raccordement au réseaux x Granulés:
       - sinon: ratios économiques . Granulés x Chaudière à granulés collective
   unité: €HT
 
+###### Combustibles P1
+
+Paramètres économiques:
+  avec:
+    Electricité x Option tarifaire:
+      # B109
+      une possibilité:
+        choix obligatoire: oui
+        possibilités:
+          - "'Option base'"
+          - "'Heure pleine/Heure creuse'"
+      par défaut: "'Option base'"
+    Electricité x Puissance souscrite indiv:
+      # B110
+      par défaut:	6
+      unité: kVA
+      note:"'Source: ELCIMAI 2024'"
+    Electricité x Puissance souscrite coll:
+      # B111 =XLOOKUP(MAX('Calculs techniques'!$H$60:$H$62);'Ratios économiques - Coûts'!$B$247:$B$267;'Ratios économiques - Coûts'!$B$247:$B$267;36;1)
+      unité: kVA
+      par défaut:
+        le maximum de:
+          - Installation x PAC air-eau x Collectif . gamme de puissance existante
+          - Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
+          - Installation x PAC air-air x Collectif . gamme de puissance existante
+    Electricité x Abonnement Part Fixe indiv:
+      # B112
+      # QUESTION: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
+      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel individuel
+      unité: €/an
+    Electricité x Abonnement Part Fixe coll:
+      # B113
+      # QUESTION: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
+      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif
+      unité: €/an
+    Electricité x Consommation Part variable:
+      # B114 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!D:D;"Non trouvé")
+      # D114 =IF(C114="";B114*(1+D124)+D123;C114)
+      # QUESTION: il est marqué HT dans le libellé de gauche alors alors que c'est du TTC dans la colonne de droite
+      # QUESTION: ici in ne prend en compte que les heures pleines, il serait plus judicieux de calculer le prix moyen HP HC
+      par défaut:
+        somme:
+          - ratios économiques . Coût des combustibles x Electricité . Prix de l'énergie * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA ) 
+          - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+      unité: €/kWh
+
+    Electricité x Taxe:
+      avec:
+        Part Fixe x CTA:
+          # B120 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!J:J;"Non trouvé")
+          # QUESTION: ceci ne prend pas en compte la TURPE car elle ne prend que J:J et la TURPE est dans la colonne K
+          # QUESTION: cela ne change pas pour du collectif?
+          valeur: ratios économiques . Coût des combustibles x Electricité . Contribution tarifaire d'acheminement CTA
+          unité: €/an
+        Part Fixe x TVA: 5.5%
+        Part Variable x Accise sur l'électricité ex TIPCSE CSPE: 0.021€/kWh
+        Part Variable x TVA: 20%

@@ -692,7 +692,7 @@ Installation x PAC air-air x Collectif:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
-      # =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
+      # H60 =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
       formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible coll # FIXME arrondi?
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
@@ -727,6 +727,7 @@ Installation x PAC eau-eau champs de sondes x Collectif:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
+      # H61
       formule: puissance équipement / (ratios . PAC EAU EAU Puissance unitaire coll + 1 ) * ratios . PAC EAU EAU Puissance unitaire coll
       unité: kW
 
@@ -767,6 +768,7 @@ Installation x PAC air-eau x Collectif:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
+      # H62
       formule: puissance équipement / (ratios . PAC AIR EAU Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR EAU Puissance unitaire réversible coll
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS: non
