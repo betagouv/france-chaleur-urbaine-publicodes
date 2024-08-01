@@ -103,7 +103,9 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement
+            - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -154,7 +156,9 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
+            - Installation x Réseaux de froid x Collectif . consommation combustible froid
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -206,7 +210,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -260,7 +264,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -312,7 +316,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -364,7 +368,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -416,7 +420,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -468,7 +472,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -520,7 +524,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -572,7 +576,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -624,7 +628,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -676,7 +680,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -728,7 +732,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -780,7 +784,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -832,7 +836,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -884,7 +888,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -938,7 +942,11 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          # QUESTION: ceci devrait etre du collectif mais la formule ajoute de l'individuel
+          # cellule C62
+          somme:
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -991,7 +999,7 @@ Calcul Eco:
         
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          # TODO
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
