@@ -4,22 +4,23 @@ Calcul Eco . Coût d'achat du combustible:
   avec:
     Chaleur RCU x Part abonnement:
       # D8 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$143
-      valeur: 0.043 # A remplacer par la formule mais dépend de la ville
+      valeur: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part fixe
       unité: €TTC/kWh
     Chaleur RCU x Part consommation:
       # D9 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$144
-      valeur: 0.065
+      valeur: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part variable
       unité: €TTC/kWh
-    
+
     Froid RFU x Part abonnement:
-      valeur: 0.06 # A remplacer par la formule mais dépend de la ville
+      # D10 ='Paramètres économiques'!$D$148*'Paramètres économiques'!$D$149
+      formule: Paramètres économiques . Réseaux froid . Coût * Paramètres économiques . Réseaux froid . Part fixe
       # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
       unité: €TTC/kWh
     Froid RFU x Part consommation:
       # D10 ='Paramètres économiques'!$D$148*'Paramètres économiques'!D150
-      valeur: 0.04
+      valeur: Paramètres économiques . Réseaux froid . Coût * Paramètres économiques . Réseaux froid . Part variable
       unité: €TTC/kWh
-    
+
     Electricité indiv x Part abonnement:
       # B11 =('Paramètres économiques'!$D$112+'Paramètres économiques'!$D$120)*(1+'Paramètres économiques'!$D$121)
       produit:
@@ -30,7 +31,7 @@ Calcul Eco . Coût d'achat du combustible:
       # D11 ='Paramètres économiques'!$D$114
       formule: Paramètres économiques . Electricité x Consommation Part variable
       unité: €TTC/kWh
-    
+
     Electricité coll x Part abonnement:
       # B12 =('Paramètres économiques'!D113+'Paramètres économiques'!D120)*(1+'Paramètres économiques'!D124)
       produit:
@@ -49,7 +50,7 @@ Calcul Eco . Coût d'achat du combustible:
     Gaz indiv x Part consommation:
       valeur: 0.089 # A remplacer par la formule
       unité: €TTC/kWh
-    
+
     Gaz coll x Part abonnement:
       # B14 ='Paramètres économiques'!$D$90
       valeur: 485.2 # A remplacer par la formule
@@ -115,7 +116,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           produit:
@@ -170,7 +171,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           produit:
@@ -226,7 +227,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: 0
@@ -254,7 +255,7 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
-          # C26 
+          # C26
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             # QUESTION déjà posée: la valeur dans le excel parait fausse car elle ne prend pas en compte si la chaudière est 25, 30, 40 ou 50kW pour lesquels on a des valeurs précises
@@ -283,7 +284,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: 0
@@ -337,7 +338,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
@@ -393,7 +394,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
@@ -450,7 +451,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
@@ -507,7 +508,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
@@ -565,7 +566,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: 0
@@ -620,7 +621,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: 0
@@ -675,7 +676,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
@@ -692,7 +693,7 @@ Calcul Eco:
 
           # D11: Electricité indiv x Part consommation
           # C103: Installation x PAC air-air x Individuel . consommation combustible chaleur
-          # F11 est grisé mais ya une formule dedans 
+          # F11 est grisé mais ya une formule dedans
 
 
           unité: €TTC/an
@@ -739,7 +740,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
@@ -791,7 +792,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
@@ -843,7 +844,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
@@ -895,7 +896,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
@@ -947,7 +948,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
@@ -1001,7 +1002,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           # C62
@@ -1059,7 +1060,7 @@ Calcul Eco:
         Total investissement ballon ECS solaire panneaux:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
-        
+
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
