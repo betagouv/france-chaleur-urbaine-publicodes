@@ -93,7 +93,7 @@ Paramètres économiques:
       # QUESTION: ici in ne prend en compte que les heures pleines, il serait plus judicieux de calculer le prix moyen HP HC
       par défaut:
         somme:
-          - ratios économiques . Coût des combustibles x Electricité . Prix de l'énergie * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA ) 
+          - ratios économiques . Coût des combustibles x Electricité . Prix de l'énergie * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
           - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
       unité: €/kWh
 
@@ -108,3 +108,39 @@ Paramètres économiques:
         Part Fixe x TVA: 5.5%
         Part Variable x Accise sur l'électricité ex TIPCSE CSPE: 0.021€/kWh
         Part Variable x TVA: 20%
+
+    Réseaux chaleur:
+      avec:
+        Coût:
+          # B142 =IF($C$7="Résidentiel",XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
+          variations:
+            - si: type de bâtiment = 'résidentiel'
+              alors: caractéristique réseau de chaleur . coût résidentiel / 1000
+            - sinon: caractéristique réseau de chaleur . coût tertiaire / 1000
+          unité: €/kWh
+        Part fixe:
+          # B143 =XLOOKUP($C$14,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
+          par défaut: caractéristique réseau de chaleur . part fixe
+          unité: '%'
+        Part variable:
+          # B144 =XLOOKUP($C$14,Tableau36[Nom],Tableau36[Part Variable (%)],"Non trouvé",0)
+          par défaut: caractéristique réseau de chaleur . part variable
+          unité: '%'
+
+    Réseaux froid:
+      avec:
+        Coût:
+          # B148 =IF($C$7="Résidentiel",XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
+          variations:
+            - si: type de bâtiment = 'résidentiel'
+              alors: caractéristique réseau de froid . coût résidentiel / 1000
+            - sinon: caractéristique réseau de froid . coût tertiaire / 1000
+          unité: €/kWh
+        Part fixe:
+          # B149 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
+          par défaut: caractéristique réseau de froid . part fixe
+          unité: '%'
+        Part variable:
+          # B150 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Variable (%)],"Non trouvé",0)
+          par défaut: caractéristique réseau de froid . part variable
+          unité: '%'
