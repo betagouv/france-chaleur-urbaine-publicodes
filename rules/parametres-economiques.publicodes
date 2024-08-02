@@ -67,7 +67,7 @@ Paramètres économiques:
       # B110
       par défaut:	6
       unité: kVA
-      note:"'Source: ELCIMAI 2024'"
+      note: 'Source: ELCIMAI 2024'
     Electricité x Puissance souscrite coll:
       # B111 =XLOOKUP(MAX('Calculs techniques'!$H$60:$H$62);'Ratios économiques - Coûts'!$B$247:$B$267;'Ratios économiques - Coûts'!$B$247:$B$267;36;1)
       unité: kVA
