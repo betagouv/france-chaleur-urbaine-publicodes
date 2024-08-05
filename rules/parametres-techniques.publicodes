@@ -78,14 +78,6 @@ type de bâtiment:
       - "'résidentiel'"
       - "'tertiaire'"
 
-type de résidentiel:
-  par défaut: "'individuel'"
-  une possibilité:
-    choix obligatoire: type de bâtiment = "résidentiel"
-    possibilités:
-      - "'individuel'"
-      - "'collectif'"
-
 nombre de logement dans l'immeuble concerné:
   # =IF(Type_bat="Tertiaire",1,'Ratios techniques'!$C$18)
   par défaut:
