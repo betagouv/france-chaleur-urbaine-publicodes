@@ -120,9 +120,7 @@ Température émetteurs:
       - "'55'"
       - "'65'"
       - "'Plancher'"
-      - "'Basse température'"
-      - "'Moyenne température'"
-      - "'Haute température'"
+      - "'Radiateur'"
 Température émetteurs delta: Température émetteurs delta
 
 ###### Besoins calculés
