@@ -417,14 +417,14 @@ ratios économiques:
     Chauffe-eau x électrique à accumulation:
       variations:
         - si: volume du ballon ECS = 50
-          alors: 733
+          alors: 610.8
         - si: volume du ballon ECS = 100
-          alors: 847
+          alors: 705.8
         - si: volume du ballon ECS = 150
-          alors: 963
+          alors: 802.5
         - si: volume du ballon ECS = 200
-          alors: 1102
-      unité: €TTC
+          alors: 918.3
+      unité: €HT
       note: 'Source: Thermor 2024'
 
     Chauffe-eau x solaire:
