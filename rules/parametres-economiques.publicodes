@@ -71,14 +71,60 @@ Paramètres économiques:
       unité: kVA
       note: 'Source: ELCIMAI 2024'
     Electricité x Puissance souscrite coll:
-      # FIXME manque toute la partie lookup !
       # B111 =XLOOKUP(P_CHAUF*Nb_lgt*CF_ch/'Ratios techniques'!$C$329,'Ratios économiques - Coûts'!$B$247:$B$267,'Ratios économiques - Coûts'!$B$247:$B$267,36,1)
       unité: kVA
       par défaut:
-        produit:
-          - Calcul . Chauffage Puissance chauffage appelée
-          - nombre de logement dans l'immeuble concerné
-          - ratios . PUIS Coefficient de foisonnemennt chauffage collectif / ratios . PAC GNRL SCOP mini
+        variations:
+          - si: puissance totale <= 3
+            alors: 3
+          - si: puissance totale <= 6
+            alors: 6
+          - si: puissance totale <= 9
+            alors: 9
+          - si: puissance totale <= 12
+            alors: 12
+          - si: puissance totale <= 15
+            alors: 15
+          - si: puissance totale <= 18
+            alors: 18
+          - si: puissance totale <= 24
+            alors: 24
+          - si: puissance totale <= 30
+            alors: 30
+          - si: puissance totale <= 36
+            alors: 36
+          - si: puissance totale <= 40
+            alors: 40
+          - si: puissance totale <= 50
+            alors: 50
+          - si: puissance totale <= 60
+            alors: 60
+          - si: puissance totale <= 70
+            alors: 70
+          - si: puissance totale <= 80
+            alors: 80
+          - si: puissance totale <= 90
+            alors: 90
+          - si: puissance totale <= 100
+            alors: 100
+          - si: puissance totale <= 125
+            alors: 125
+          - si: puissance totale <= 150
+            alors: 150
+          - si: puissance totale <= 175
+            alors: 175
+          - si: puissance totale <= 200
+            alors: 200
+          - si: puissance totale <= 250
+            alors: 250
+          - sinon: 36
+      avec:
+        puissance totale:
+          par défaut:
+            produit:
+              - Calcul . Chauffage Puissance chauffage appelée
+              - nombre de logement dans l'immeuble concerné
+              - ratios . PUIS Coefficient de foisonnemennt chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
       # B112
       # QUESTION: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
