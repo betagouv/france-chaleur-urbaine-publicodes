@@ -1136,18 +1136,10 @@ ratios:
       applicable si: Température émetteurs = "Plancher"
       remplace: Température émetteurs delta
       valeur: 0
-    PAC DEROG3 Basse température:
-      applicable si: Température émetteurs = "Basse température"
-      remplace: Température émetteurs delta
-      valeur: -0.6
-    PAC DEROG3 Moyenne température:
-      applicable si: Température émetteurs = "Moyenne température"
+    PAC DEROG3 Radiateur:
+      applicable si: Température émetteurs = "Radiateur"
       remplace: Température émetteurs delta
       valeur: -1.2
-    PAC DEROG3 Haute température:
-      applicable si: Température émetteurs = "Haute température"
-      remplace: Température émetteurs delta
-      valeur: -1.6
     RAD ELEC INDIV Rendement:
       valeur: 100%
       unité: '%'
