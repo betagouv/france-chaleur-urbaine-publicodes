@@ -88,17 +88,19 @@ type de résidentiel:
 
 nombre de logement dans l'immeuble concerné:
   # =IF(Type_bat="Tertiaire",1,'Ratios techniques'!$C$18)
-  variations:
-    - si: type de bâtiment = 'tertiaire'
-      alors: 1
-    - sinon: ratios . GNRL Nombre de logement dans l'immeuble concerné
+  par défaut:
+    variations:
+      - si: type de bâtiment = 'tertiaire'
+        alors: 1
+      - sinon: ratios . GNRL Nombre de logement dans l'immeuble concerné
 
 surface logement type tertiaire:
   # =IF(Type_bat="Résidentiel",'Ratios techniques'!$C$7,'Ratios tech niques'!$C$8)
-  variations:
-    - si: type de bâtiment = 'résidentiel'
-      alors: ratios . GNRL Surface de référence appartement
-    - sinon: ratios . GNRL Surface de référence tertiaire
+  par défaut:
+    variations:
+      - si: type de bâtiment = 'résidentiel'
+        alors: ratios . GNRL Surface de référence appartement
+      - sinon: ratios . GNRL Surface de référence tertiaire
 Nombre d'habitants moyen par appartement:
   # ='Ratios techniques'!$C$12
   par défaut: ratios . GNRL Nombre habitant par logement
@@ -111,10 +113,11 @@ Production eau chaude sanitaire:
 Part de la surface à climatiser:
   # A2 semble bizarre plutôt que C20...
   # =IF(Type_bat="Résidentiel",'Ratios techniques'!$C$19,'Ratios techniques'!$A$2)
-  variations:
-    - si: type de bâtiment = 'résidentiel'
-      alors: ratios . GNRL Part surface à climatiser résidentiel
-    - sinon: ratios . GNRL Part surface à climatiser tertiaire
+  par défaut:
+    variations:
+      - si: type de bâtiment = 'résidentiel'
+        alors: ratios . GNRL Part surface à climatiser résidentiel
+      - sinon: ratios . GNRL Part surface à climatiser tertiaire
 Température émetteurs:
   par défaut: "'35'"
   une possibilité:
@@ -206,30 +209,31 @@ consommation spécifique chauffage: consommation spécifique chauffage # maj dep
 besoins chauffage par appartement:
   note: Besoin_cha
   # =IFERROR(IF(Choix_methode<>"Normes thermiques et âge du bâtiment",Conso_spé*Surface*_DJU_spe/DJU_ref,Conso_spé*24*_DJU_spe*Surface*Hauteur/1000),"Veuillez choisir le/la "&$A$38)*(1+0.09*D12)
-  produit:
-    - variations:
-      - si: méthode de calcul pour les besoins en chauffage et refroidissement != 'Normes thermiques et âge du bâtiment'
-        alors: consommation spécifique chauffage * surface logement type tertiaire * degré jours unifié spécifique chaud / ratios . GNRL DJU REF chaud
-      - sinon: consommation spécifique chauffage * surface logement type tertiaire * degré jours unifié spécifique chaud * 24 * ratios . GNRL Hauteur / 1000
-    - 1 + 0.09 * augmenter la température de chauffe
+  par défaut:
+    produit:
+      - variations:
+        - si: méthode de calcul pour les besoins en chauffage et refroidissement != 'Normes thermiques et âge du bâtiment'
+          alors: consommation spécifique chauffage * surface logement type tertiaire * degré jours unifié spécifique chaud / ratios . GNRL DJU REF chaud
+        - sinon: consommation spécifique chauffage * surface logement type tertiaire * degré jours unifié spécifique chaud * 24 * ratios . GNRL Hauteur / 1000
+      - 1 + 0.09 * augmenter la température de chauffe
 consommation spécifique ECS:
   note: Besoin_ECS
-  formule: consommation spécifique ECS # maj depuis les ratios techniques
+  par défaut: consommation spécifique ECS # maj depuis les ratios techniques
   # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="ECS")*('Ratios techniques'!B:B=$C$38),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="ECS")*('Ratios techniques'!B:B=Type_bat),'Ratios techniques'!C:C,"Non trouvé"))
 besoins eau chaude sanitaire par appartement:
   note: Besoin_raf
   # =IF(Prod_ECS="Oui",IF(Type_bat="Résidentiel",Conso_ECS_spé*NB_pers_foyer,Conso_ECS_spé*Surface),0)
-  variations:
-    - si: Production eau chaude sanitaire
-      alors:
-        variations:
-          - si: type de bâtiment = 'résidentiel'
-            alors: consommation spécifique ECS * Nombre d'habitants moyen par appartement
-          - sinon: consommation spécifique ECS * surface logement type tertiaire
-    - sinon: 0
+  par défaut:
+    variations:
+      - si: Production eau chaude sanitaire
+        alors:
+          variations:
+            - si: type de bâtiment = 'résidentiel'
+              alors: consommation spécifique ECS * Nombre d'habitants moyen par appartement
+            - sinon: consommation spécifique ECS * surface logement type tertiaire
+      - sinon: 0
 consommation spécifique climatisation par habitant: consommation spécifique climatisation par habitant # maj depuis les ratios techniques
   # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=$C$38),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=Type_bat),'Ratios techniques'!C:C,"Non trouvé"))
 besoins en climatisation par appartement:
-
   # =Conso_spé_raf*Surface*DJU_spe_froid/DJU_ref_froid*Surf_clim
-  formule: consommation spécifique climatisation par habitant * surface logement type tertiaire * degré jours unifié spécifique froid / ratios . GNRL DJU REF froid * Part de la surface à climatiser
+  par défaut: consommation spécifique climatisation par habitant * surface logement type tertiaire * degré jours unifié spécifique froid / ratios . GNRL DJU REF froid * Part de la surface à climatiser

@@ -27,28 +27,31 @@ Investissement x frais de raccordement au réseaux x RCU:
   #   'Ratios économiques - Coûts'!$C$31:$C$38;
   #   ;-1))
   # RCU_inv B52
-  produit:
-    - variations:
-      - si: type de bâtiment = 'résidentiel'
-        alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel
-      - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
+  par défaut:
+    produit:
+      - variations:
+        - si: type de bâtiment = 'résidentiel'
+          alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel
+        - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
   unité: €HT
 
 Investissement x frais de raccordement au réseaux x RFU:
    # RFU_inv B53
-  produit:
-    - variations:
-      - si: type de bâtiment = 'résidentiel'
-        alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel
-      - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
+  par défaut:
+    produit:
+      - variations:
+        - si: type de bâtiment = 'résidentiel'
+          alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel
+        - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
   unité: €HT
 
 Investissement x frais de raccordement au réseaux x Granulés:
-  produit:
-    - variations:
-      - si: type de bâtiment = 'résidentiel'
-        alors: 0 # FIXME: ce cas ne doit pas arriver
-      - sinon: ratios économiques . Granulés x Chaudière à granulés collective
+  par défaut:
+    produit:
+      - variations:
+        - si: type de bâtiment = 'résidentiel'
+          alors: 0 # FIXME: ce cas ne doit pas arriver
+        - sinon: ratios économiques . Granulés x Chaudière à granulés collective
   unité: €HT
 
 ###### Combustibles P1
@@ -103,94 +106,101 @@ Paramètres économiques:
           # B120 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!J:J;"Non trouvé")
           # QUESTION: ceci ne prend pas en compte la TURPE car elle ne prend que J:J et la TURPE est dans la colonne K
           # QUESTION: cela ne change pas pour du collectif?
-          valeur: ratios économiques . Coût des combustibles x Electricité . Contribution tarifaire d'acheminement CTA
+          par défaut: ratios économiques . Coût des combustibles x Electricité . Contribution tarifaire d'acheminement CTA
           unité: €/an
-        Part Fixe x TVA: 5.5%
-        Part Variable x Accise sur l'électricité ex TIPCSE CSPE: 0.021€/kWh
-        Part Variable x TVA: 20%
+        Part Fixe x TVA:
+          par défaut: 5.5%
+        Part Variable x Accise sur l'électricité ex TIPCSE CSPE:
+          par défaut: 0.021€/kWh
+        Part Variable x TVA:
+          par défaut: 20%
 
     Gas x Puissance souscrite pour calcul installation collective ou tertiaire:
       # B89 ='Calculs techniques'!$H$53
-      formule: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
+      par défaut: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
       unité: kW
     Gas x Abonnement x Part Fixe TTC collectif ou tertiaire:
       # B90 =(XLOOKUP($D$89,'Calcul tarif gaz tertitaire'!$A$24:$A$43,'Calcul tarif gaz tertitaire'!$B$24:$B$43)+'Ratios économiques - Coûts'!$C$226)*(1+'Ratios économiques - Coûts'!$C$227)
       QUESTION: est-ce qu'il faudrait pas utiliser la TVA part fixe des paramètres plutôt que des ratios ? Paramètres utilisé pour le moment
-      produit:
-        - somme:
-          - tarif gaz tertiaire x estimation part fixe
-          - Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
-        - 1 + Gas x Taxe x Part fixe x TVA
+      par défaut:
+        produit:
+          - somme:
+            - tarif gaz tertiaire x estimation part fixe
+            - Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
+          - 1 + Gas x Taxe x Part fixe x TVA
       unité: €/an
     Gas x Abonnement x Part Fixe TTC individuel:
       # B91 =SUM($D$92:$D$93,$D$101)*(1+$D$102)
-      produit:
-        - somme:
-          - Gas x Abonnement x Part Fixe TTC individuel x Coût distribution HT
-          - Gas x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT
-          - Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
-        - 1 + Gas x Taxe x Part fixe x TVA
+      par défaut:
+        produit:
+          - somme:
+            - Gas x Abonnement x Part Fixe TTC individuel x Coût distribution HT
+            - Gas x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT
+            - Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
+          - 1 + Gas x Taxe x Part fixe x TVA
       unité: €/an
     Gas x Abonnement x Part Fixe TTC individuel x Coût distribution HT:
       # B92 ='Ratios économiques - Coûts'!$C$216
-      formule: 139.44
+      par défaut: 139.44
       unité: €/an
     Gas x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT:
       # B93 ='Ratios économiques - Coûts'!$C$217
-      formule: 79
+      par défaut: 79
       unité: €/an
     Gas x Consommation x Part Variable TTC:
       # B94 =SUM($D$95:$D$98,$D$104)*(1+$D$105)
-      produit:
-        - somme:
-          - Gas x Coût de la molécule HT
-          - Gas x Coût de transport HT
-          - Gas x Coût distribution HT
-          - Gas x Coût des CEE HT
-          - Gas x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN
-        - 1 + Gas x Taxe x Part variable x TVA
+      par défaut:
+        produit:
+          - somme:
+            - Gas x Coût de la molécule HT
+            - Gas x Coût de transport HT
+            - Gas x Coût distribution HT
+            - Gas x Coût des CEE HT
+            - Gas x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN
+          - 1 + Gas x Taxe x Part variable x TVA
       unité: €/kWh
     Gas x Coût de la molécule HT:
       # B95 ='Ratios économiques - Coûts'!$C$220
-      formule: 0.02638
+      par défaut: 0.02638
       unité: €/kWh
     Gas x Coût de transport HT:
       # B96 ='Ratios économiques - Coûts'!$C$221
-      formule: 0.02118
+      par défaut: 0.02118
       unité: €/kWh
     Gas x Coût distribution HT:
       # B97 ='Ratios économiques - Coûts'!$C$222
-      formule: 0.00404
+      par défaut: 0.00404
       unité: €/kWh
     Gas x Coût des CEE HT:
       # B98 ='Ratios économiques - Coûts'!$C$223
-      formule: 0.00585
+      par défaut: 0.00585
       unité: €/kWh
     Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA:
       # B101 ='Ratios économiques - Coûts'!$C$226
-      formule: 34.49
+      par défaut: 34.49
       unité: €/an
     Gas x Taxe x Part fixe x TVA:
       # B102 ='Ratios économiques - Coûts'!$C$227
-      formule: 5.5
+      par défaut: 5.5
       unité: '%'
     Gas x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN:
       # B104 ='Ratios économiques - Coûts'!$C$229
-      formule: 0.01637
+      par défaut: 0.01637
       unité: €/kWh
     Gas x Taxe x Part variable x TVA:
       # B105 ='Ratios économiques - Coûts'!$C$230
-      formule: 20
+      par défaut: 20
       unité: '%'
 
     Réseaux chaleur:
       avec:
         Coût:
           # B142 =IF($C$7="Résidentiel",XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
-          variations:
-            - si: type de bâtiment = 'résidentiel'
-              alors: caractéristique réseau de chaleur . coût résidentiel / 1000
-            - sinon: caractéristique réseau de chaleur . coût tertiaire / 1000
+          par défaut:
+            variations:
+              - si: type de bâtiment = 'résidentiel'
+                alors: caractéristique réseau de chaleur . coût résidentiel / 1000
+              - sinon: caractéristique réseau de chaleur . coût tertiaire / 1000
           unité: €/kWh
         Part fixe:
           # B143 =XLOOKUP($C$14,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
@@ -205,10 +215,11 @@ Paramètres économiques:
       avec:
         Coût:
           # B148 =IF($C$7="Résidentiel",XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
-          variations:
-            - si: type de bâtiment = 'résidentiel'
-              alors: caractéristique réseau de froid . coût résidentiel / 1000
-            - sinon: caractéristique réseau de froid . coût tertiaire / 1000
+          par défaut:
+            variations:
+              - si: type de bâtiment = 'résidentiel'
+                alors: caractéristique réseau de froid . coût résidentiel / 1000
+              - sinon: caractéristique réseau de froid . coût tertiaire / 1000
           unité: €/kWh
         Part fixe:
           # B149 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
