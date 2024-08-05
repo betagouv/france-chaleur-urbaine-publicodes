@@ -71,13 +71,14 @@ Paramètres économiques:
       unité: kVA
       note: 'Source: ELCIMAI 2024'
     Electricité x Puissance souscrite coll:
-      # B111 =XLOOKUP(MAX('Calculs techniques'!$H$60:$H$62);'Ratios économiques - Coûts'!$B$247:$B$267;'Ratios économiques - Coûts'!$B$247:$B$267;36;1)
+      # FIXME manque toute la partie lookup !
+      # B111 =XLOOKUP(P_CHAUF*Nb_lgt*CF_ch/'Ratios techniques'!$C$329,'Ratios économiques - Coûts'!$B$247:$B$267,'Ratios économiques - Coûts'!$B$247:$B$267,36,1)
       unité: kVA
       par défaut:
-        le maximum de:
-          - Installation x PAC air-eau x Collectif . gamme de puissance existante
-          - Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
-          - Installation x PAC air-air x Collectif . gamme de puissance existante
+        produit:
+          - Calcul . Chauffage Puissance chauffage appelée
+          - nombre de logement dans l'immeuble concerné
+          - ratios . PUIS Coefficient de foisonnemennt chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
       # B112
       # QUESTION: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
