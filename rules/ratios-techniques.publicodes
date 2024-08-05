@@ -482,179 +482,972 @@ ratios:
     RAF Température de déclenchement de la climatisation:
       valeur: 24
       unité: °C
-    RAF Résidentiel:
-      applicable si: type de bâtiment = "résidentiel"
-      remplace: consommation spécifique climatisation par habitant
-      valeur: 20
-      unité: kWhef/m2.an
-    RAF Bureaux RE2020:
+    # old RAF Résidentiel:
+    #   applicable si: type de bâtiment = "résidentiel"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 20
+    #   unité: kWhef/m2.an
+    # old RAF Bureaux RE2020:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Bureaux RE2020"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 5
+    #   unité: kWhef/m2.an
+    # old RAF Bureaux RT2012:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Bureaux RT2012"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 10
+    #   unité: kWhef/m2.an
+    # old RAF Bureaux Moyenne française 2021:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Bureaux Moyenne française 2021"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 30
+    #   unité: kWhef/m2.an
+    # old RAF Enseignement secondaire RE2020:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Enseignement secondaire RE2020"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 5
+    #   unité: kWhef/m2.an
+    # old RAF Enseignement secondaire RT2012:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Enseignement secondaire RT2012"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 10
+    #   unité: kWhef/m2.an
+    # old RAF Enseignement secondaire Moyenne française 2021:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Enseignement secondaire Moyenne fr"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 15
+    #   unité: kWhef/m2.an
+    # old RAF Commerces RE2020:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Commerces RE2020"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 150
+    #   unité: kWhef/m2.an
+    # old RAF Commerces RT2012:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Commerces RT2012"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 170
+    #   unité: kWhef/m2.an
+    # old RAF Commerces Moyenne française 2021:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Commerces Moyenne française 2021"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 200
+    #   unité: kWhef/m2.an
+    # old RAF Café, restaurant RE2020:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Café, restaurant RE2020"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 50
+    #   unité: kWhef/m2.an
+    # old RAF Café, restaurant RT2012:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Café, restaurant RT2012"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 65
+    #   unité: kWhef/m2.an
+    # old RAF Café, restaurant Moyenne française 2021:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Café, restaurant Moyenne française"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 100
+    #   unité: kWhef/m2.an
+    # old RAF Hôtel RE2020:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Hôtel RE2020"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 10
+    #   unité: kWhef/m2.an
+    # old RAF Hôtel RT2012:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Hôtel RT2012"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 20
+    #   unité: kWhef/m2.an
+    # old RAF Hôtel Moyenne française 2021:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Hôtel Moyenne française 2021"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 30
+    #   unité: kWhef/m2.an
+    # old RAF Enseignement primaire RE2020:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Enseignement primaire RE2020"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 12.5
+    #   unité: kWhef/m2.an
+    # old RAF Enseignement primaire RT2012:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Enseignement primaire RT2012"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 17.5
+    #   unité: kWhef/m2.an
+    # old RAF Enseignement primaire Moyenne française 2021:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Enseignement primaire Moyenne fran"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 25
+    #   unité: kWhef/m2.an
+    # old RAF Sport RE2020:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Sport RE2020"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 0
+    #   unité: kWhef/m2.an
+    # old RAF Sport RT2012:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Sport RT2012"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 0
+    #   unité: kWhef/m2.an
+    # old RAF Sport Moyenne française 2021:
+    #   applicable si:
+    #     toutes ces conditions:
+    #       - type de bâtiment = "tertiaire"
+    #       - normes thermiques = "Sport Moyenne française 2021"
+    #   remplace: consommation spécifique climatisation par habitant
+    #   valeur: 0
+    #   unité: kWhef/m2.an
+
+    RAF BureauxH1a:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux RE2020"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 5
+      valeur: 29
       unité: kWhef/m2.an
-    RAF Bureaux RT2012:
+      note: 'Source: ADEME 2024'
+    RAF BureauxH1b:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux RT2012"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 10
+      valeur: 29
       unité: kWhef/m2.an
-    RAF Bureaux Moyenne française 2021:
+      note: 'Source: ADEME 2024'
+    RAF BureauxH1c:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux Moyenne française 2021"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 30
+      valeur: 29
       unité: kWhef/m2.an
-    RAF Enseignement secondaire RE2020:
+      note: 'Source: ADEME 2024'
+    RAF BureauxH2a:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire RE2020"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 5
+      valeur: 7
       unité: kWhef/m2.an
-    RAF Enseignement secondaire RT2012:
+      note: 'Source: ADEME 2024'
+    RAF BureauxH2b:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire RT2012"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 10
+      valeur: 29
       unité: kWhef/m2.an
-    RAF Enseignement secondaire Moyenne française 2021:
+      note: 'Source: ADEME 2024'
+    RAF BureauxH2c:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire Moyenne fr"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 15
+      valeur: 40
       unité: kWhef/m2.an
-    RAF Commerces RE2020:
+      note: 'Source: ADEME 2024'
+    RAF BureauxH2d:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces RE2020"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 150
+      valeur: 40
       unité: kWhef/m2.an
-    RAF Commerces RT2012:
+      note: 'Source: ADEME 2024'
+    RAF BureauxH3:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces RT2012"
+          - normes thermiques = "Bureaux"
+          - zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 170
+      valeur: 68
       unité: kWhef/m2.an
-    RAF Commerces Moyenne française 2021:
+      note: 'Source: ADEME 2024'
+    RAF CommercesH1a:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces Moyenne française 2021"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 200
+      valeur: 32
       unité: kWhef/m2.an
-    RAF Café, restaurant RE2020:
+      note: 'Source: ADEME 2024'
+    RAF CommercesH1b:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant RE2020"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 50
+      valeur: 32
       unité: kWhef/m2.an
-    RAF Café, restaurant RT2012:
+      note: 'Source: ADEME 2024'
+    RAF CommercesH1c:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant RT2012"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 65
+      valeur: 32
       unité: kWhef/m2.an
-    RAF Café, restaurant Moyenne française 2021:
+      note: 'Source: ADEME 2024'
+    RAF CommercesH2a:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant Moyenne française"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 8
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF CommercesH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 32
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF CommercesH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H2c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 44
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF CommercesH2d:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H2d"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 44
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF CommercesH3:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Commerces"
+          - zone climatique = "H3"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 74
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SantéH1a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé"
+          - zone climatique = "H1a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SantéH1b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé"
+          - zone climatique = "H1b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SantéH1c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé"
+          - zone climatique = "H1c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SantéH2a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 24
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SantéH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SantéH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Santé"
+          - zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 100
       unité: kWhef/m2.an
-    RAF Hôtel RE2020:
+      note: 'Source: ADEME 2024'
+    RAF SantéH2d:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel RE2020"
+          - normes thermiques = "Santé"
+          - zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 10
+      valeur: 100
       unité: kWhef/m2.an
-    RAF Hôtel RT2012:
+      note: 'Source: ADEME 2024'
+    RAF SantéH3:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel RT2012"
+          - normes thermiques = "Santé"
+          - zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 20
+      valeur: 152
       unité: kWhef/m2.an
-    RAF Hôtel Moyenne française 2021:
+      note: 'Source: ADEME 2024'
+    RAF HôtelH1a:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel Moyenne française 2021"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 30
+      valeur: 35
       unité: kWhef/m2.an
-    RAF Enseignement primaire RE2020:
+      note: 'Source: ADEME 2024'
+    RAF HôtelH1b:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire RE2020"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 12.5
+      valeur: 35
       unité: kWhef/m2.an
-    RAF Enseignement primaire RT2012:
+      note: 'Source: ADEME 2024'
+    RAF HôtelH1c:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire RT2012"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 17.5
+      valeur: 35
       unité: kWhef/m2.an
-    RAF Enseignement primaire Moyenne française 2021:
+      note: 'Source: ADEME 2024'
+    RAF HôtelH2a:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire Moyenne fran"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 9
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF HôtelH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 35
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF HôtelH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H2c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 48
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF HôtelH2d:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H2d"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 48
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF HôtelH3:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Hôtel"
+          - zone climatique = "H3"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 82
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SportH1a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport"
+          - zone climatique = "H1a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 18
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SportH1b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport"
+          - zone climatique = "H1b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 18
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SportH1c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport"
+          - zone climatique = "H1c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 18
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SportH2a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 5
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SportH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 18
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF SportH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Sport"
+          - zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 25
       unité: kWhef/m2.an
-    RAF Sport RE2020:
+      note: 'Source: ADEME 2024'
+    RAF SportH2d:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport RE2020"
+          - normes thermiques = "Sport"
+          - zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 0
+      valeur: 25
       unité: kWhef/m2.an
-    RAF Sport RT2012:
+      note: 'Source: ADEME 2024'
+    RAF SportH3:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport RT2012"
+          - normes thermiques = "Sport"
+          - zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 0
+      valeur: 42
       unité: kWhef/m2.an
-    RAF Sport Moyenne française 2021:
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH1a:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport Moyenne française 2021"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
-      valeur: 0
+      valeur: 29
       unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH1b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H1b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 29
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH1c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H1c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 29
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH2a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 7
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 29
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H2c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 40
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH2d:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H2d"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 40
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement secondaireH3:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement secondaire"
+          - zone climatique = "H3"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 68
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH1a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H1a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 29
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH1b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H1b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 29
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH1c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H1c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 29
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH2a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 7
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 29
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H2c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 40
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH2d:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H2d"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 40
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Enseignement primaireH3:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Enseignement primaire"
+          - zone climatique = "H3"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 68
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH1a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H1a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 5
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH1b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H1b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 5
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH1c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H1c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 17
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH2a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 2
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 5
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H2c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 17
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH2d:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H2d"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 43
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF RésidentielH3:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "résidentiel"
+          - zone climatique = "H3"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 56
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH1a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H1a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH1b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H1b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH1c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H1c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH2a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 24
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 77
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H2c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 100
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH2d:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H2d"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 100
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF EHPADH3:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "EHPAD"
+          - zone climatique = "H3"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 152
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH1a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H1a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 32
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH1b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H1b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 32
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH1c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H1c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 32
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH2a:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H2a"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 8
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH2b:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H2b"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 32
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH2c:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H2c"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 44
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH2d:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H2d"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 44
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
+    RAF Café, restaurantH3:
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - normes thermiques = "Café, restaurant"
+          - zone climatique = "H3"
+      remplace: consommation spécifique climatisation par habitant
+      valeur: 74
+      unité: kWhef/m2.an
+      note: 'Source: ADEME 2024'
     # aucune valeur définie
     # RAF Santé RE2020:
     #   valeur:
