@@ -120,7 +120,7 @@ Paramètres économiques:
       par défaut: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
       unité: kW
     Gas x Abonnement x Part Fixe TTC collectif ou tertiaire:
-      # B90 =(XLOOKUP($D$89,'Calcul tarif gaz tertitaire'!$A$24:$A$43,'Calcul tarif gaz tertitaire'!$B$24:$B$43)+'Ratios économiques - Coûts'!$C$226)*(1+'Ratios économiques - Coûts'!$C$227)
+      # B90 =(XLOOKUP($D$89,'Calcul tarif gaz tertitaire'!$A$24:$A$69,'Calcul tarif gaz tertitaire'!$B$24:$B$69,,1)+'Ratios économiques - Coûts'!$C$226)*(1+'Ratios économiques - Coûts'!$C$227)
       QUESTION: est-ce qu'il faudrait pas utiliser la TVA part fixe des paramètres plutôt que des ratios ? Paramètres utilisé pour le moment
       par défaut:
         produit:
