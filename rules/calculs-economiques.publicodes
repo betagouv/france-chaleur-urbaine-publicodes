@@ -345,7 +345,7 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # D50 =($D$13*'Calculs techniques'!$C$97/Conso_comb_GAZ_indiv_cond)
+          # D49 =($D$13*'Calculs techniques'!$C$97/Conso_comb_GAZ_indiv_cond)
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
             - Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur
@@ -401,8 +401,7 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # D51 =($D$13*'Calculs techniques'!$C$98/Conso_comb_GAZ_indiv_cond)
-          # QUESTION déjà posée: Conso_comb_GAZ_indiv_cond ne devrait il pas etre sans cond ? j'ai corrigé ci-dessous
+          # D50 =($D$13*'Calculs techniques'!$C$98/Conso_comb_GAZ_indiv_scond)
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
             - Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur
@@ -458,8 +457,7 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          # D52 =($D$14*'Calculs techniques'!$C$99/Conso_comb_GAZ_indiv_cond)
-          # QUESTION déjà posée: Conso_comb_GAZ_indiv_cond ne devrait il pas etre GAZ_Coll ? j'ai corrigé ci-dessous
+          # D51 =($D$14*'Calculs techniques'!$C$99/Conso_comb_GAZ_coll_cond)
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
             - Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur
@@ -516,8 +514,7 @@ Calcul Eco:
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
           Coût du combustible consommation:
-          # D53 =($D$14*'Calculs techniques'!$C$100/Conso_comb_GAZ_indiv_cond)
-          # QUESTION déjà posée: Conso_comb_GAZ_indiv_cond ne devrait il pas etre GAZ_Coll sans cond ? j'ai corrigé ci-dessous
+          # D52 =($D$14*'Calculs techniques'!$C$100/Conso_comb_GAZ_coll_scond)
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
             - Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur
