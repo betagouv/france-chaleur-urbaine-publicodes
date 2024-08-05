@@ -1830,6 +1830,8 @@ ratios:
       valeur: 96%
     PAC GNRL Conso auxiliaire ECS:
       valeur: 99%
+    PAC GNRL SCOP mini:
+      valeur: 1.8
     PAC AIR AIR SCOP indiv:
       valeur: 4.2
     PAC AIR AIR SCOP coll:
