@@ -970,64 +970,6 @@ Calcul Eco:
           # TODO
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
-    PAC à absorption gaz:
-      avec:
-        # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
-          produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-            - ratios économiques . PAC x absorption gaz x Collectif
-            - ratios économiques . Investissement x TVA
-          unité: €TTC
-        Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
-          unité: €TTC
-        # absent en production différenciée voir commentaire dans calculs techniques
-        # FIXME: veut-on vraiment ça ?
-        # Investissement ballon ECS à accumulation:
-        #   variations:
-        #     - si: Installation x PAC absorption gaz x Collectif . besoin d'installation supplémentaire pour produire l'ECS
-        #       alors: Calcul Eco . Investissement ballon ECS à accumulation
-        #     - sinon: 0
-        #   unité: €TTC
-        # Investissement ballon ECS solaire panneau inclus:
-        #   variations:
-        #     - si: Installation x PAC absorption gaz x Collectif . besoin d'installation supplémentaire pour produire l'ECS
-        #       alors: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement ballon ECS solaire panneau inclus
-        #     - sinon: 0
-        #   unité: €TTC
-        Total investissement avec ballon ECS à accumulation:
-          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
-          unité: €TTC
-        Total investissement ballon ECS solaire panneaux:
-          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
-          unité: €TTC
-
-        # P1 - Coût du combustible par lgt type / tertiaire
-        Coût du combustible abonnement:
-          # C62
-          # QUESTION: ceci devrait etre du collectif mais la formule ajoute de l'individuel
-          somme:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
-            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
-          unité: €TTC/an
-          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
-        Coût du combustible consommation:
-          # TODO
-          unité: €TTC/an
-          note: "Coût du combustible consommation (P1 conso) €TTC/an"
-        Coût électricité auxiliaire:
-          # TODO
-          unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
-        Coût combustible pour ballon ECS à accumulation:
-          # TODO
-          unité: €TTC/an
-          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
-        Coût combustible pour ballon ECS solaire:
-          # TODO
-          unité: €TTC/an
-          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Radiateur électrique:
       avec:
         # P4 - Investissement total (sans aide) €TTC
