@@ -16,8 +16,9 @@ température de référence chaud:
 augmenter la température de chauffe: 0
 
 code département: # inutilisé
-zone climatique:
-  # FIXME: à définir en externe
+zone climatique: zone climatique
+sous zone climatique:
+  # FIXME: à définir en externe via la commune
   par défaut: "'H1a'"
 
 mode affichage:
