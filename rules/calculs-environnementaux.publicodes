@@ -5,6 +5,8 @@ env: # useless
 
 env . Installation x Réseaux de chaleur x Collectif:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       formule:
         variations:
@@ -12,6 +14,8 @@ env . Installation x Réseaux de chaleur x Collectif:
             alors: contenu CO2 réseau de chaleur * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
           - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       # J43 =(IF($B$17="Oui";'Ratios environnementaux'!C33*($B$14+$B$15);'Ratios environnementaux'!C33*'Calculs environnementaux'!$B$14))
       # QUESTION déjà posée: ça s'appelle vraiment Scope 3 ?
@@ -45,6 +49,8 @@ env . Installation x Réseaux de chaleur x Collectif:
 
 env . Installation x Réseaux de froid x Collectif:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # F44 =(Contenu_CO2_RFU*'Calculs environnementaux'!$B$16)
       # QUESTION déjà posée: Calculs environnementaux'!$B$16 est vide.
@@ -89,6 +95,8 @@ env . Installation x Poêle à granulés indiv x Individuel:
     besoins de chauffage:
       formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé poêle à bois
       unité: kgCO2 équ.
+    besoins d'ECS: 0
+    auxiliaires et combustible électrique: 0
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
     ECS avec ballon électrique:
@@ -119,7 +127,7 @@ env . Installation x Poêle à granulés indiv x Individuel:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - Scope 3
@@ -137,6 +145,8 @@ env . Installation x Chaudière à granulés coll x Collectif:
       # =XLOOKUP(A46;'Calculs techniques'!$A$95:$A$110;'Calculs techniques'!$F$95:$F$110)*'Ratios environnementaux'!$C$26
       formule: Installation x Chaudière à granulés coll x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
@@ -153,7 +163,7 @@ env . Installation x Chaudière à granulés coll x Collectif:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - auxiliaires et combustible électrique
@@ -171,6 +181,8 @@ env . Installation x Gaz indiv avec cond x Individuel:
     auxiliaires et combustible électrique:
       formule: Installation x Gaz indiv avec cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
@@ -187,7 +199,7 @@ env . Installation x Gaz indiv avec cond x Individuel:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - auxiliaires et combustible électrique
@@ -205,6 +217,8 @@ env . Installation x Gaz indiv sans cond x Individuel:
     auxiliaires et combustible électrique:
       formule: Installation x Gaz indiv sans cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
@@ -221,7 +235,7 @@ env . Installation x Gaz indiv sans cond x Individuel:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - auxiliaires et combustible électrique
@@ -239,6 +253,8 @@ env . Installation x Gaz coll avec cond x Collectif:
     auxiliaires et combustible électrique:
       formule: Installation x Gaz indiv avec cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
@@ -255,7 +271,7 @@ env . Installation x Gaz coll avec cond x Collectif:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - auxiliaires et combustible électrique
@@ -273,6 +289,8 @@ env . Installation x Gaz coll sans cond x Collectif:
     auxiliaires et combustible électrique:
       formule: Installation x Gaz coll sans cond x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
@@ -289,7 +307,7 @@ env . Installation x Gaz coll sans cond x Collectif:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - auxiliaires et combustible électrique
@@ -307,6 +325,8 @@ env . Installation x Fioul indiv x Individuel:
     auxiliaires et combustible électrique:
       formule: Installation x Fioul indiv x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       formule: ratios environnementaux . CO2 INS Fioul indiv * Installation x Fioul indiv x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
@@ -323,7 +343,7 @@ env . Installation x Fioul indiv x Individuel:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - auxiliaires et combustible électrique
@@ -341,6 +361,8 @@ env . Installation x Fioul coll x Collectif:
     auxiliaires et combustible électrique:
       formule: Installation x Fioul coll x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par l'installation:
@@ -357,7 +379,7 @@ env . Installation x Fioul coll x Collectif:
     Total émissions sans ECS:
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - besoins de chauffage
               - auxiliaires et combustible électrique
@@ -366,6 +388,8 @@ env . Installation x Fioul coll x Collectif:
 
 env . Installation x PAC air-air x Individuel:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # =XLOOKUP(LEFT(A53;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -404,7 +428,7 @@ env . Installation x PAC air-air x Individuel:
       # QUESTION déjà posée: D53 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
@@ -412,6 +436,8 @@ env . Installation x PAC air-air x Individuel:
 
 env . Installation x PAC air-air x Collectif:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # F54 =XLOOKUP(LEFT(A54;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -450,7 +476,7 @@ env . Installation x PAC air-air x Collectif:
       # QUESTION déjà posée: D54 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
@@ -458,12 +484,16 @@ env . Installation x PAC air-air x Collectif:
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # F55 =XLOOKUP(LEFT(A55;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       # FIXME il n'y a pas de "eau-eau Indiv" donc j'ai mis "Installation x PAC eau glycolée-eau capteurs verticaux x Individuel"
       formule: Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       # J55 =(XLOOKUP(A55;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A55;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -480,7 +510,7 @@ env . Installation x PAC eau-eau x Individuel:
       # QUESTION déjà posée: D55 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
@@ -488,12 +518,16 @@ env . Installation x PAC eau-eau x Individuel:
 
 env . Installation x PAC eau-eau x Collectif:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # =XLOOKUP(LEFT(A56;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       # FIXME il n'y a pas de "eau-eau Collectif" donc j'ai mis "Installation x PAC eau-eau champs de sondes x Collectif"
       formule: Installation x PAC eau-eau champs de sondes x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       # =(XLOOKUP(A56;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A56;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -510,7 +544,7 @@ env . Installation x PAC eau-eau x Collectif:
       # QUESTION déjà posée: D56 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
@@ -518,11 +552,15 @@ env . Installation x PAC eau-eau x Collectif:
 
 env . Installation x PAC air-eau x Individuel:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # F57 =XLOOKUP(LEFT(A57;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-eau x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       # J57
       formule: ratios environnementaux . CO2 INS PAC air-eau indiv * Installation x PAC air-eau x Individuel . gamme de puissance existante
@@ -538,7 +576,7 @@ env . Installation x PAC air-eau x Individuel:
       # QUESTION déjà posée: D57 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
@@ -546,11 +584,15 @@ env . Installation x PAC air-eau x Individuel:
 
 env . Installation x PAC air-eau x Collectif:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # F58 =XLOOKUP(LEFT(A58;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: Installation x PAC air-eau x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       # J58
       formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante
@@ -566,7 +608,7 @@ env . Installation x PAC air-eau x Collectif:
       # QUESTION déjà posée: D58 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
@@ -574,10 +616,14 @@ env . Installation x PAC air-eau x Collectif:
 
 env . Installation x PAC absorption gaz x Collectif:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # F59 =XLOOKUP(A59;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       formule: Installation x PAC absorption gaz x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
+    ECS solaire thermique: 0
+    ECS avec ballon électrique: 0
     Scope 3:
       # J59
       formule: ratios environnementaux . CO2 INS PAC absorption gaz * Installation x PAC absorption gaz x Collectif . gamme de puissance existante
@@ -593,7 +639,7 @@ env . Installation x PAC absorption gaz x Collectif:
       # QUESTION déjà posée: D59 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
@@ -601,6 +647,8 @@ env . Installation x PAC absorption gaz x Collectif:
 
 env . Installation x Radiateur électrique x Individuel:
   avec:
+    besoins de chauffage: 0
+    besoins d'ECS: 0
     auxiliaires et combustible électrique:
       # =XLOOKUP(A60;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       formule: Installation x Radiateur électrique x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
@@ -635,7 +683,7 @@ env . Installation x Radiateur électrique x Individuel:
       # QUESTION déjà posée: D60 n'existe pas car grisé, à enlever dans l'excel original
       variations:
         - si: Production eau chaude sanitaire
-          alors: 
+          alors:
             somme:
               - auxiliaires et combustible électrique
               - Scope 3
