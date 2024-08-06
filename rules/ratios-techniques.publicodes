@@ -487,7 +487,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -497,7 +497,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -507,7 +507,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -517,7 +517,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 7
       unité: kWhef/m2.an
@@ -527,7 +527,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -537,7 +537,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 40
       unité: kWhef/m2.an
@@ -547,7 +547,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 40
       unité: kWhef/m2.an
@@ -557,7 +557,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 68
       unité: kWhef/m2.an
@@ -567,7 +567,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -577,7 +577,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -587,7 +587,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -597,7 +597,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 8
       unité: kWhef/m2.an
@@ -607,7 +607,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -617,7 +617,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 44
       unité: kWhef/m2.an
@@ -627,7 +627,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 44
       unité: kWhef/m2.an
@@ -637,7 +637,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 74
       unité: kWhef/m2.an
@@ -647,7 +647,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -657,7 +657,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -667,7 +667,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -677,7 +677,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 24
       unité: kWhef/m2.an
@@ -687,7 +687,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -697,7 +697,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 100
       unité: kWhef/m2.an
@@ -707,7 +707,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 100
       unité: kWhef/m2.an
@@ -717,7 +717,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 152
       unité: kWhef/m2.an
@@ -727,7 +727,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 35
       unité: kWhef/m2.an
@@ -737,7 +737,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 35
       unité: kWhef/m2.an
@@ -747,7 +747,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 35
       unité: kWhef/m2.an
@@ -757,7 +757,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 9
       unité: kWhef/m2.an
@@ -767,7 +767,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 35
       unité: kWhef/m2.an
@@ -777,7 +777,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 48
       unité: kWhef/m2.an
@@ -787,7 +787,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 48
       unité: kWhef/m2.an
@@ -797,7 +797,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 82
       unité: kWhef/m2.an
@@ -807,7 +807,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 18
       unité: kWhef/m2.an
@@ -817,7 +817,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 18
       unité: kWhef/m2.an
@@ -827,7 +827,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 18
       unité: kWhef/m2.an
@@ -837,7 +837,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 5
       unité: kWhef/m2.an
@@ -847,7 +847,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 18
       unité: kWhef/m2.an
@@ -857,7 +857,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 25
       unité: kWhef/m2.an
@@ -867,7 +867,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 25
       unité: kWhef/m2.an
@@ -877,7 +877,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 42
       unité: kWhef/m2.an
@@ -887,7 +887,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -897,7 +897,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -907,7 +907,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -917,7 +917,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 7
       unité: kWhef/m2.an
@@ -927,7 +927,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -937,7 +937,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 40
       unité: kWhef/m2.an
@@ -947,7 +947,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 40
       unité: kWhef/m2.an
@@ -957,7 +957,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 68
       unité: kWhef/m2.an
@@ -967,7 +967,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -977,7 +977,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -987,7 +987,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -997,7 +997,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 7
       unité: kWhef/m2.an
@@ -1007,7 +1007,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 29
       unité: kWhef/m2.an
@@ -1017,7 +1017,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 40
       unité: kWhef/m2.an
@@ -1027,7 +1027,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 40
       unité: kWhef/m2.an
@@ -1037,7 +1037,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 68
       unité: kWhef/m2.an
@@ -1046,7 +1046,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H1a"
+          - sous zone climatique = 'H1a'
       remplace: consommation spécifique climatisation par habitant
       valeur: 5
       unité: kWhef/m2.an
@@ -1055,7 +1055,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 5
       unité: kWhef/m2.an
@@ -1064,7 +1064,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 17
       unité: kWhef/m2.an
@@ -1073,7 +1073,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 2
       unité: kWhef/m2.an
@@ -1082,7 +1082,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 5
       unité: kWhef/m2.an
@@ -1091,7 +1091,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 17
       unité: kWhef/m2.an
@@ -1100,7 +1100,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 43
       unité: kWhef/m2.an
@@ -1109,7 +1109,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 56
       unité: kWhef/m2.an
@@ -1119,7 +1119,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -1129,7 +1129,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -1139,7 +1139,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -1149,7 +1149,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 24
       unité: kWhef/m2.an
@@ -1159,7 +1159,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 77
       unité: kWhef/m2.an
@@ -1169,7 +1169,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 100
       unité: kWhef/m2.an
@@ -1179,7 +1179,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 100
       unité: kWhef/m2.an
@@ -1189,7 +1189,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 152
       unité: kWhef/m2.an
@@ -1199,7 +1199,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H1a"
+          - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -1209,7 +1209,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H1b"
+          - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -1219,7 +1219,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H1c"
+          - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -1229,7 +1229,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H2a"
+          - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation par habitant
       valeur: 8
       unité: kWhef/m2.an
@@ -1239,7 +1239,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H2b"
+          - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation par habitant
       valeur: 32
       unité: kWhef/m2.an
@@ -1249,7 +1249,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H2c"
+          - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation par habitant
       valeur: 44
       unité: kWhef/m2.an
@@ -1259,7 +1259,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H2d"
+          - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation par habitant
       valeur: 44
       unité: kWhef/m2.an
@@ -1269,7 +1269,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
-          - zone climatique = "H3"
+          - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation par habitant
       valeur: 74
       unité: kWhef/m2.an
