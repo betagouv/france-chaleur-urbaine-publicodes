@@ -1238,4 +1238,316 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         gros entretien P3 par logement tertiaire: gros entretien P3
 
 Calcul Eco . Montant des aides par logement tertiaire:
-  # TODO
+  avec:
+    Réseaux de chaleur:
+      avec:
+        Ma prime renov':
+          # =IF($B$91="Eligible",XLOOKUP(1,('Ratios économiques - Aides'!$A$9:$A$26='Paramètres économiques'!$D$213)*('Ratios économiques - Aides'!$B$9:$B$26='Calculs économiques'!A97),'Ratios économiques - Aides'!$C$9:$C$26,0),0)
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          # =IF($B$92="Eligible",
+          # IF('Paramètres économiques'!$D$213="Modeste",XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$267:$B$272,'Ratios économiques - Aides'!$C$267:$C$272,0),XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$273:$B$278,'Ratios économiques - Aides'!$C$273:$C$278,0)),0)
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =(IF('Calculs techniques'!$B$13="Résidentiel Collectif",
+          #   IF('Calculs techniques'!$B$17<'Ratios économiques - Aides'!$B$37,'Ratios économiques - Aides'!$C$36,'Ratios économiques - Aides'!$C$37*'Calculs techniques'!$B$17+'Ratios économiques - Aides'!$C$38),
+          #   IF('Calculs techniques'!$B$14<'Ratios économiques - Aides'!$B$41,'Ratios économiques - Aides'!$C$40,'Ratios économiques - Aides'!$C$41*'Calculs techniques'!$B$14+'Ratios économiques - Aides'!$C$42))
+          # *'Calculs économiques'!$B$94*'Ratios économiques - Aides'!$C$39)/'Calculs techniques'!$B$17
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Réseaux de froid:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",IF('Paramètres économiques'!$C$7="Résidentiel",0,XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$334:$B$342,'Ratios économiques - Aides'!$C$334:$C$342)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$331:$B$333,'Ratios économiques - Aides'!$C$331:$C$333)*'Paramètres économiques'!$C$21*$B$94),0)
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Poêle à granulés indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Chaudière à granulés coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz indiv avec cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz indiv sans cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz coll avec cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",
+          # IF('Paramètres économiques'!$C$7="Résidentiel",0,
+          # IFS(AND(Prod_ECS?="Non",'Paramètres économiques'!$C$30<400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$458:$B$466,'Ratios économiques - Aides'!$C$458:$C$466)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$451:$B$453,'Ratios économiques - Aides'!$C$451:$C$453)*'Paramètres économiques'!$C$12*$B$94,
+          # AND(Prod_ECS?="Oui",'Paramètres économiques'!$C$30<400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$458:$B$466,'Ratios économiques - Aides'!$C$458:$C$466)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$454:$B$456,'Ratios économiques - Aides'!$C$454:$C$456)*'Paramètres économiques'!$C$12*$B$94,
+          # AND(Prod_ECS?="Non",'Paramètres économiques'!$C$30>400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$476:$B$484,'Ratios économiques - Aides'!$C$476:$C$484)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$470:$B$472,'Ratios économiques - Aides'!$C$470:$C$472)*'Paramètres économiques'!$C$12*$B$94,
+          # AND(Prod_ECS?="Oui",'Paramètres économiques'!$C$30>400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$476:$B$484,'Ratios économiques - Aides'!$C$476:$C$484)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$473:$B$475,'Ratios économiques - Aides'!$C$473:$C$475)*'Paramètres économiques'!$C$12*$B$94
+          # )),0)
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz coll sans cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Fioul indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Fioul coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-air indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC eau-eau indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-eau indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-air coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",
+          # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Individuel",'Paramètres économiques'!$C$9="Appartement"),XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$51:$B$53,'Ratios économiques - Aides'!$C$51:$C$53)*XLOOKUP('Paramètres économiques'!$C$12,'Ratios économiques - Aides'!$B$55:$B$61,'Ratios économiques - Aides'!$C$55:$C$61,,-1)*$B$94,
+          # AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Individuel",'Paramètres économiques'!$C$9="Maison"),XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$65:$B$67,'Ratios économiques - Aides'!$C$65:$C$67)*XLOOKUP('Paramètres économiques'!$C$12,'Ratios économiques - Aides'!$B$69:$B$75,'Ratios économiques - Aides'!$C$69:$C$75,,-1)*$B$94,
+          # AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Collectif"),0,
+          # AND('Paramètres économiques'!$C$7="Tertiaire",'Paramètres économiques'!$C$36*'Paramètres économiques'!#REF!<12),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$355:$B$363,'Ratios économiques - Aides'!$C$355:$C$363)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$351:$B$353,'Ratios économiques - Aides'!$C$351:$C$353)*'Paramètres économiques'!$C$12*$B$94,
+          # AND('Paramètres économiques'!$C$7="Tertiaire",'Paramètres économiques'!$C$36*'Paramètres économiques'!#REF!>12),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$371:$B$379,'Ratios économiques - Aides'!$C$371:$C$379)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$367:$B$369,'Ratios économiques - Aides'!$C$367:$C$369)*'Paramètres économiques'!$C$12*$B$94
+          # ),0)
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC eau-eau coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IFERROR(IF($B$93="Eligible",
+          # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Individuel",'Paramètres économiques'!$C$9="Maison",Prod_ECS?="Non"),2),0),0)
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-eau coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Radiateur électrique:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # TODO
+          formule: CEE
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Panneau solaire thermique pour production ECS:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",
+          # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Solaire Thermique"),Besoin_ECS*'Paramètres techniques'!$D$197*'Ratios économiques - Aides'!$C$261*$B$94*Nb_lgt,
+          # 'Paramètres économiques'!$C$7="Tertiaire",Besoin_ECS*'Paramètres techniques'!$D$197*'Ratios économiques - Aides'!$C$447*$B$94
+          # ),0)
+          # TODO
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible CEE
+              alors:
+                variations:
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'résidentiel'
+                        - type de production ECS = 'Solaire thermique'
+                    alors: besoins eau chaude sanitaire par appartement * ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS * ratios économiques x aides . CEE x Chauffe-eau solaire collectif x Ratio * Paramètres économiques . Aides . Valeur CEE * nombre de logement dans l'immeuble concerné
+                  - si: type de bâtiment = 'tertiaire'
+                    alors: besoins eau chaude sanitaire par appartement * ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS * ratios économiques x aides . CEE x Chauffe-eau solaire x Ratio
+            - sinon: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    # Chauffe-eau électrique à accumulation:
+
+

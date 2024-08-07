@@ -108,6 +108,7 @@ Production eau chaude sanitaire:
   # ='Ratios techniques'!$C$15
   par défaut: ratios . GNRL Production ECS
 type de production ECS:
+  # C29 alias Paramètres économiques C8 (Type de résidentiel)
   par défaut: "'Solaire thermique'"
   une possibilité:
     choix obligatoire: oui
