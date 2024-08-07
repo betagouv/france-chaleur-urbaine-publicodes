@@ -1,9 +1,9 @@
 ###### Généraux
 
-département:
+code département:
   # fourni via l'adresse
-  question: département de l'utilisateur
-  par défaut: "'HAUTE-GARONNE'"
+  question: code département de l'utilisateur
+  par défaut: "'31'"
 
 degré jours unifié spécifique chaud:
   formule: degré jours unifié spécifique chaud # se fait remplacer par les données département
@@ -18,11 +18,11 @@ température de référence chaud:
   # FIXME: à définir en externe
   unité: °C
   par défaut: -5 # Toulouse
-augmenter la température de chauffe: 
+augmenter la température de chauffe:
   par défaut: 0
   unité: °C
 
-code département: # inutilisé
+nom département: nom département # se fait remplacer par les données département
 zone climatique: zone climatique
 sous zone climatique:
   # FIXME: à définir en externe via la commune
