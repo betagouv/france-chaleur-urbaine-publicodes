@@ -14,7 +14,9 @@ const engine = new Engine(model, {
   strict: {
     noOrphanRule: false,
   },
-})
+});
+
+(window as any).engine = engine
 
 // The base URL of the application (in production, the app is served from a subdirectory of
 // the github pages repository, so we need to prefix all the URLs with the subdirectory)
