@@ -24,7 +24,12 @@ ratios:
       valeur: 35
       unité: °C
     GNRL Production ECS:
-      valeur: non
+      par défaut: "'non'"
+      une possibilité:
+        choix obligatoire: oui
+        possibilités:
+          - "'oui'"
+          - "'non'"
     GNRL Type de résidentiel:
       valeur: "'Individuel'"
     GNRL Appartement ou maison:
