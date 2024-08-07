@@ -388,6 +388,7 @@ Paramètres économiques:
     Aides:
       avec:
         Éligibilité x Prise en compte des aides:
+          # alias Calculs économiques B90
           par défaut: "'oui'"
           une possibilité:
             choix obligatoire: oui
@@ -404,14 +405,14 @@ Paramètres économiques:
               - non
         Éligibilité x Ressources du ménage:
           # ='Ratios économiques - Aides'!$C$8
-          par défaut: "'modeste'"
+          par défaut: "'Modeste'"
           une possibilité:
             choix obligatoire: oui
             possibilités:
-              - "'très modeste'"
-              - "'modeste'"
-              - "'intermédiaire'"
-              - "'supérieur'"
+              - "'Très modeste'"
+              - "'Modeste'"
+              - "'Intermédiaire'"
+              - "'Supérieur'"
         Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul:
           # ='Ratios économiques - Aides'!$C$265
           par défaut: "'oui'"
@@ -422,10 +423,11 @@ Paramètres économiques:
               - non
         Aides x Éligible Ma prime renov':
           # =IF(AND($D$212="Oui",$D$213<>"Supérieur"),"Eligible","Non éligible")
+          # alias Calculs économiques B91
           par défaut:
             toutes ces conditions:
               - Éligibilité x Je suis un particulier
-              - Éligibilité x Ressources du ménage != 'supérieur'
+              - Éligibilité x Ressources du ménage != 'Supérieur'
           une possibilité:
             choix obligatoire: oui
             possibilités:
@@ -433,6 +435,7 @@ Paramètres économiques:
               - non
         Aides x Éligible Coup de pouce chauffage:
           # =IF(AND($D$212="Oui",$D$214="Oui",$C$7="Résidentiel"),"Eligible","Non éligible")
+          # alias Calculs économiques B92
           par défaut:
             toutes ces conditions:
               - Éligibilité x Je suis un particulier
@@ -444,6 +447,7 @@ Paramètres économiques:
               - oui
               - non
         Aides x Éligible CEE:
+          # alias Calculs économiques B93
           par défaut: "'oui'"
           une possibilité:
             choix obligatoire: oui
@@ -452,9 +456,10 @@ Paramètres économiques:
               - non
         Valeur CEE:
           # =IF(D213="Très modeste", 'Ratios économiques - Aides'!$C$31,'Ratios économiques - Aides'!$C$32)
+          # alias Calculs économiques B94
           par défaut:
             variations:
-              - si: Éligibilité x Ressources du ménage = "très modeste"
+              - si: Éligibilité x Ressources du ménage = "Très modeste"
                 alors: 0.00816
               - sinon: 0.00804
           unité: €/kWh cumac
