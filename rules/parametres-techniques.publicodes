@@ -5,15 +5,22 @@ département:
   question: département de l'utilisateur
   par défaut: "'HAUTE-GARONNE'"
 
-degré jours unifié spécifique chaud: degré jours unifié spécifique chaud # se fait remplacer par les données département
+degré jours unifié spécifique chaud:
+  formule: degré jours unifié spécifique chaud # se fait remplacer par les données département
+  unité: °C
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$C$6:$C$101,'Ratios techniques'!$C$10,0)
-degré jours unifié spécifique froid: degré jours unifié spécifique froid # se fait remplacer par les données département
+degré jours unifié spécifique froid:
+  formule: degré jours unifié spécifique froid # se fait remplacer par les données département
+  unité: °C
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$D$6:$D$101,"",0)
 température de référence chaud:
   # =XLOOKUP(commune,Communes!$C$6:$C$36618,Communes!$G$6:$G$36618,,0)
   # FIXME: à définir en externe
+  unité: °C
   par défaut: -5 # Toulouse
-augmenter la température de chauffe: 0
+augmenter la température de chauffe: 
+  par défaut: 0
+  unité: °C
 
 code département: # inutilisé
 zone climatique: zone climatique
@@ -28,8 +35,6 @@ mode affichage:
     possibilités:
       - "'grand public'"
       - "'technicien'"
-
-
 
 ###### Réseaux de chaleur et de froid
 choix du réseau de chaleur:
