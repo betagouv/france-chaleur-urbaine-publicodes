@@ -384,3 +384,78 @@ Paramètres économiques:
         Chauffe-eau solaire:
           par défaut: 0.00%
           unité: €HT/€d'investissment
+
+    Aides:
+      avec:
+        Éligibilité x Prise en compte des aides:
+          par défaut: "'oui'"
+          une possibilité:
+            choix obligatoire: oui
+            possibilités:
+              - oui
+              - non
+        Éligibilité x Je suis un particulier:
+          # ='Ratios économiques - Aides'!$C$7
+          par défaut: "'oui'"
+          une possibilité:
+            choix obligatoire: oui
+            possibilités:
+              - oui
+              - non
+        Éligibilité x Ressources du ménage:
+          # ='Ratios économiques - Aides'!$C$8
+          par défaut: "'modeste'"
+          une possibilité:
+            choix obligatoire: oui
+            possibilités:
+              - "'très modeste'"
+              - "'modeste'"
+              - "'intermédiaire'"
+              - "'supérieur'"
+        Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul:
+          # ='Ratios économiques - Aides'!$C$265
+          par défaut: "'oui'"
+          une possibilité:
+            choix obligatoire: oui
+            possibilités:
+              - oui
+              - non
+        Aides x Éligible Ma prime renov':
+          # =IF(AND($D$212="Oui",$D$213<>"Supérieur"),"Eligible","Non éligible")
+          par défaut:
+            toutes ces conditions:
+              - Éligibilité x Je suis un particulier
+              - Éligibilité x Ressources du ménage != 'supérieur'
+          une possibilité:
+            choix obligatoire: oui
+            possibilités:
+              - oui
+              - non
+        Aides x Éligible Coup de pouce chauffage:
+          # =IF(AND($D$212="Oui",$D$214="Oui",$C$7="Résidentiel"),"Eligible","Non éligible")
+          par défaut:
+            toutes ces conditions:
+              - Éligibilité x Je suis un particulier
+              - Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
+              - type de bâtiment = 'résidentiel'
+          une possibilité:
+            choix obligatoire: oui
+            possibilités:
+              - oui
+              - non
+        Aides x Éligible CEE:
+          par défaut: "'oui'"
+          une possibilité:
+            choix obligatoire: oui
+            possibilités:
+              - oui
+              - non
+        Valeur CEE:
+          # =IF(D213="Très modeste", 'Ratios économiques - Aides'!$C$31,'Ratios économiques - Aides'!$C$32)
+          par défaut:
+            variations:
+              - si: Éligibilité x Ressources du ménage = "très modeste"
+                alors: 0.00816
+              - sinon: 0.00804
+          unité: €/kWh cumac
+          note: "source : Registre National des Certificats d'Economie d'Energie"
