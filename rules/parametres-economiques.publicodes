@@ -290,7 +290,7 @@ Paramètres économiques:
         Poêle à granulés indiv:
           par défaut: 41.0
           unité: €TTC/MWh
-        Chaudière à granulés collective:
+        Chaudière à granulés coll:
           par défaut: 22.000
           unité: €HT/MWh
         Gaz indiv avec cond:
@@ -341,11 +341,11 @@ Paramètres économiques:
         RFU:
           par défaut: 0.00%
           unité: €HT/€d'investissment
-        # non présent
-        # Poêle à granulés indiv:
-        #   par défaut: xxx
-        #   unité: €TTC/MWh
-        Chaudière à granulés collective:
+        # non présent dans excel
+        Poêle à granulés indiv:
+          par défaut: 0
+          unité: €TTC/MWh
+        Chaudière à granulés coll:
           par défaut: 0.00%
           unité: €HT/€d'investissment
         Gaz indiv avec cond:
