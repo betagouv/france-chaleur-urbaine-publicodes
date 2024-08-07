@@ -275,3 +275,112 @@ Paramètres économiques:
           # B150 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Variable (%)],"Non trouvé",0)
           par défaut: caractéristique réseau de froid . part variable
           unité: '%'
+
+    Petit entretien P2:
+      avec:
+        TVA:
+          par défaut: 20%
+          unité: '%'
+        RCU:
+          par défaut: 1.26%
+          unité: €HT/€d'investissment
+        RFU:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        Poêle à granulés indiv:
+          par défaut: 41.0
+          unité: €TTC/MWh
+        Chaudière à granulés collective:
+          par défaut: 22.000
+          unité: €HT/MWh
+        Gaz indiv avec cond:
+          par défaut: 2.18%
+          unité: €HT/€d'investissment
+        Gaz indiv sans cond:
+          par défaut: 2.18%
+          unité: €HT/€d'investissment
+        Gaz coll avec cond:
+          par défaut: 7.00
+          unité: €HT/MWh
+        Gaz coll sans cond:
+          par défaut: 7.00
+          unité: €HT/MWh
+        Fioul indiv:
+          par défaut: 1.91%
+          unité: €HT/€d'investissment
+        Fioul coll:
+          par défaut: 1.91%
+          unité: €HT/€d'investissment
+        PAC air-air:
+          par défaut: 40.00
+          unité: €TTC/MWh
+        PAC eau-eau:
+          par défaut: 10.00
+          unité: €TTC/MWh
+        PAC air-eau:
+          par défaut: 9.00
+          unité: €TTC/MWh
+        Radiateur électrique:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        Chauffe-eau électrique à accumulation:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        Chauffe-eau solaire:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+
+    Gros entretien P3:
+      avec:
+        TVA:
+          par défaut: 20%
+          unité: '%'
+        RCU:
+          par défaut: 0.83%
+          unité: €HT/€d'investissment
+        RFU:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        # non présent
+        # Poêle à granulés indiv:
+        #   par défaut: xxx
+        #   unité: €TTC/MWh
+        Chaudière à granulés collective:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        Gaz indiv avec cond:
+          par défaut: 0.83%
+          unité: €HT/€d'investissment
+        Gaz indiv sans cond:
+          par défaut: 0.83%
+          unité: €HT/€d'investissment
+        Gaz coll avec cond:
+          par défaut: 1.72%
+          unité: €HT/€d'investissment
+        Gaz coll sans cond:
+          par défaut: 1.72%
+          unité: €HT/€d'investissment
+        Fioul indiv:
+          par défaut: 1.10%
+          unité: €HT/€d'investissment
+        Fioul coll:
+          par défaut: 1.10%
+          unité: €HT/€d'investissment
+        PAC air-air:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        PAC eau-eau:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        PAC air-eau:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        Radiateur électrique:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        Chauffe-eau électrique à accumulation:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
+        Chauffe-eau solaire:
+          par défaut: 0.00%
+          unité: €HT/€d'investissment
