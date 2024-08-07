@@ -56,7 +56,7 @@ contenu CO2 réseau de chaleur:
   note: Contenu_CO2_RCU
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   # à définir en externe
-choix du réseaux de froid:
+choix du réseau de froid:
   une possibilité:
     choix obligatoire: oui
     possibilités:
