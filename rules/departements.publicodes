@@ -1,1442 +1,1633 @@
 départements:
+départements . dep 01:
+  applicable si: code département = "01"
   avec:
-    AIN:
-      applicable si: département = "AIN"
-      avec:
-        codeDepartement:
-          valeur: '1'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2042
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 37
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    AISNE:
-      applicable si: département = "AISNE"
-      avec:
-        codeDepartement:
-          valeur: '2'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2156
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 9
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    ALLIER:
-      applicable si: département = "ALLIER"
-      avec:
-        codeDepartement:
-          valeur: '3'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2018
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 25
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    ALPES-DE-HAUTE:
-      applicable si: département = "ALPES-DE-HAUTE"
-      avec:
-        codeDepartement:
-          valeur: '4'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1726
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 54
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    HAUTES-ALPES:
-      applicable si: département = "HAUTES-ALPES"
-      avec:
-        codeDepartement:
-          valeur: '5'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2236
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 19
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    ALPES-MARITIMES:
-      applicable si: département = "ALPES-MARITIMES"
-      avec:
-        codeDepartement:
-          valeur: '6'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 939
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 60
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    ARDECHE:
-      applicable si: département = "ARDECHE"
-      avec:
-        codeDepartement:
-          valeur: '7'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1639
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 60
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    ARDENNES:
-      applicable si: département = "ARDENNES"
-      avec:
-        codeDepartement:
-          valeur: '8'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2344
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 4
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    ARIEGE:
-      applicable si: département = "ARIEGE"
-      avec:
-        codeDepartement:
-          valeur: '9'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1750
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 14
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    AUBE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '10'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2090
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 16
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    AUDE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '11'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1410
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 61
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    AVEYRON:
-      applicable si: département = "AVEYRON"
-      avec:
-        codeDepartement:
-          valeur: '12'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2146
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 21
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    BOUCHES-DU-RHONE:
-      applicable si: département = "BOUCHES-DU-RHONE"
-      avec:
-        codeDepartement:
-          valeur: '13'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1188
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 105
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    CALVADOS:
-      applicable si: département = "CALVADOS"
-      avec:
-        codeDepartement:
-          valeur: '14'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1928
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 4
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    CANTAL:
-      applicable si: département = "CANTAL"
-      avec:
-        codeDepartement:
-          valeur: '15'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2269
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 9
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    CHARENTE:
-      applicable si: département = "CHARENTE"
-      avec:
-        codeDepartement:
-          valeur: '16'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1525
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 39
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    CHARENTE-MARITIME:
-      applicable si: département = "CHARENTE-MARITIME"
-      avec:
-        codeDepartement:
-          valeur: '17'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1465
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 21
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    CHER:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '18'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1897
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 28
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    CORREZE:
-      applicable si: département = "CORREZE"
-      avec:
-        codeDepartement:
-          valeur: '19'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1676
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 36
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    CORSE-DU-SUD:
-      applicable si: département = "CORSE-DU-SUD"
-      avec:
-        codeDepartement:
-          valeur: "'2a'"
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 979
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 60
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    HAUTE-CORSE:
-      applicable si: département = "HAUTE-CORSE"
-      avec:
-        codeDepartement:
-          valeur: "'2B'"
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 972
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 60
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    COTE-D'OR:
-      applicable si: département = "COTE-D'OR"
-      avec:
-        codeDepartement:
-          valeur: '21'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2148
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 28
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    COTES-D'ARMOR:
-      applicable si: département = "COTES-D'ARMOR"
-      avec:
-        codeDepartement:
-          valeur: '22'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1819
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 2
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    CREUSE:
-      applicable si: département = "CREUSE"
-      avec:
-        codeDepartement:
-          valeur: '23'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2170
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 8
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    DORDOGNE:
-      applicable si: département = "DORDOGNE"
-      avec:
-        codeDepartement:
-          valeur: '24'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1650
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 24
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    DOUBS:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '25'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2112
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 24
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    DROME:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '26'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1542
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 91
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    EURE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '27'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2057
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 10
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    EURE-ET-LOIR:
-      applicable si: département = "EURE-ET-LOIR"
-      avec:
-        codeDepartement:
-          valeur: '28'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2013
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 13
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    FINISTERE:
-      applicable si: département = "FINISTERE"
-      avec:
-        codeDepartement:
-          valeur: '29'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1729
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 1
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    GARD:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '30'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1236
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 163
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    HAUTE-GARONNE:
-      applicable si: département = "HAUTE-GARONNE"
-      avec:
-        codeDepartement:
-          valeur: '31'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1459
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 73
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    GERS:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '32'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1578
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 40
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    GIRONDE:
-      applicable si: département = "GIRONDE"
-      avec:
-        codeDepartement:
-          valeur: '33'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1388
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 50
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    HERAULT:
-      applicable si: département = "HERAULT"
-      avec:
-        codeDepartement:
-          valeur: '34'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1206
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 92
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    ILLE-ET-VILAINE:
-      applicable si: département = "ILLE-ET-VILAINE"
-      avec:
-        codeDepartement:
-          valeur: '35'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1753
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 8
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    INDRE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '36'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1932
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 19
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    INDRE-ET-LOIRE:
-      applicable si: département = "INDRE-ET-LOIRE"
-      avec:
-        codeDepartement:
-          valeur: '37'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1812
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 23
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    ISERE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '38'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2189
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 16
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    JURA:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '39'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2021
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 42
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    LANDES:
-      applicable si: département = "LANDES"
-      avec:
-        codeDepartement:
-          valeur: '40'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1480
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 37
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    LOIR-ET-CHER:
-      applicable si: département = "LOIR-ET-CHER"
-      avec:
-        codeDepartement:
-          valeur: '41'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1985
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 18
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    LOIRE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '42'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2062
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 30
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    HAUTE-LOIRE:
-      applicable si: département = "HAUTE-LOIRE"
-      avec:
-        codeDepartement:
-          valeur: '43'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2600
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 3
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    LOIRE-ATLANTIQUE:
-      applicable si: département = "LOIRE-ATLANTIQUE"
-      avec:
-        codeDepartement:
-          valeur: '44'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1650
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 20
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    LOIRET:
-      applicable si: département = "LOIRET"
-      avec:
-        codeDepartement:
-          valeur: '45'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1990
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 15
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    LOT:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '46'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1713
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 41
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    LOT-ET-GARONNE:
-      applicable si: département = "LOT-ET-GARONNE"
-      avec:
-        codeDepartement:
-          valeur: '47'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1536
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 45
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    LOZERE:
-      applicable si: département = "LOZERE"
-      avec:
-        codeDepartement:
-          valeur: '48'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2496
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 6
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    MAINE-ET-LOIRE:
-      applicable si: département = "MAINE-ET-LOIRE"
-      avec:
-        codeDepartement:
-          valeur: '49'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1711
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 18
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    MANCHE:
-      applicable si: département = "MANCHE"
-      avec:
-        codeDepartement:
-          valeur: '50'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1824
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 0
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    MARNE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '51'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2144
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 8
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    HAUTE-MARNE:
-      applicable si: département = "HAUTE-MARNE"
-      avec:
-        codeDepartement:
-          valeur: '52'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2387
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 24
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    MAYENNE:
-      applicable si: département = "MAYENNE"
-      avec:
-        codeDepartement:
-          valeur: '53'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1900
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 12
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    MEURTHE-ET-MOSELLE:
-      applicable si: département = "MEURTHE-ET-MOSELLE"
-      avec:
-        codeDepartement:
-          valeur: '54'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2214
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 18
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    MEUSE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '55'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2272
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 21
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    MORBIHAN:
-      applicable si: département = "MORBIHAN"
-      avec:
-        codeDepartement:
-          valeur: '56'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1690
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 9
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    MOSELLE:
-      applicable si: département = "MOSELLE"
-      avec:
-        codeDepartement:
-          valeur: '57'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2219
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 16
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    NIEVRE:
-      applicable si: département = "NIEVRE"
-      avec:
-        codeDepartement:
-          valeur: '58'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2050
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 15
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    NORD:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '59'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2042
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 13
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    OISE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '60'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2146
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 6
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    ORNE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '61'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2015
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 8
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    PAS-DE-CALAIS:
-      applicable si: département = "PAS-DE-CALAIS"
-      avec:
-        codeDepartement:
-          valeur: '62'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1965
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 6
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    PUY-DE-DOME:
-      applicable si: département = "PUY-DE-DOME"
-      avec:
-        codeDepartement:
-          valeur: '63'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1897
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 35
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    PYRENEES-ATLANTIQUES:
-      applicable si: département = "PYRENEES-ATLANTIQUES"
-      avec:
-        codeDepartement:
-          valeur: '64'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1458
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 22
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    HAUTES-PYRENEES:
-      applicable si: département = "HAUTES-PYRENEES"
-      avec:
-        codeDepartement:
-          valeur: '65'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1693
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 18
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    PYRENEES-ORIENTALES:
-      applicable si: département = "PYRENEES-ORIENTALES"
-      avec:
-        codeDepartement:
-          valeur: '66'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1047
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 133
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    BAS-RHIN:
-      applicable si: département = "BAS-RHIN"
-      avec:
-        codeDepartement:
-          valeur: '67'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2117
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 25
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    HAUT-RHIN:
-      applicable si: département = "HAUT-RHIN"
-      avec:
-        codeDepartement:
-          valeur: '68'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2203
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 20
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    RHONE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '69'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1796
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 72
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    HAUTE-SAONE:
-      applicable si: département = "HAUTE-SAONE"
-      avec:
-        codeDepartement:
-          valeur: '70'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2277
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 14
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    SAONE-ET-LOIRE:
-      applicable si: département = "SAONE-ET-LOIRE"
-      avec:
-        codeDepartement:
-          valeur: '71'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1935
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 40
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    SARTHE:
-      applicable si: département = "SARTHE"
-      avec:
-        codeDepartement:
-          valeur: '72'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1772
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 26
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    SAVOIE:
-      applicable si: département = "SAVOIE"
-      avec:
-        codeDepartement:
-          valeur: '73'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2357
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 26
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    HAUTE-SAVOIE:
-      applicable si: département = "HAUTE-SAVOIE"
-      avec:
-        codeDepartement:
-          valeur: '74'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2245
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 7
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    PARIS:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '75'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1718
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 35
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    SEINE-MARITIME:
-      applicable si: département = "SEINE-MARITIME"
-      avec:
-        codeDepartement:
-          valeur: '76'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2079
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 5
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    SEINE-ET-MARNE:
-      applicable si: département = "SEINE-ET-MARNE"
-      avec:
-        codeDepartement:
-          valeur: '77'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1982
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 15
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    YVELINES:
-      applicable si: département = "YVELINES"
-      avec:
-        codeDepartement:
-          valeur: '78'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2017
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 22
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    DEUX-SEVRES:
-      applicable si: département = "DEUX-SEVRES"
-      avec:
-        codeDepartement:
-          valeur: '79'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1688
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 29
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    SOMME:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '80'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2019
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 8
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    TARN:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '81'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1622
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 69
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    TARN-ET-GARONNE:
-      applicable si: département = "TARN-ET-GARONNE"
-      avec:
-        codeDepartement:
-          valeur: '82'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1559
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 58
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    VAR:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '83'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1224
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 58
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H3'"
-          remplace: zone climatique
-    VAUCLUSE:
-      applicable si: département = "VAUCLUSE"
-      avec:
-        codeDepartement:
-          valeur: '84'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1464
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 115
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    VENDEE:
-      applicable si: département = "VENDEE"
-      avec:
-        codeDepartement:
-          valeur: '85'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1730
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 9
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    VIENNE:
-      applicable si: département = "VIENNE"
-      avec:
-        codeDepartement:
-          valeur: '86'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1823
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 21
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H2'"
-          remplace: zone climatique
-    HAUTE-VIENNE:
-      applicable si: département = "HAUTE-VIENNE"
-      avec:
-        codeDepartement:
-          valeur: '87'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1943
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 25
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    VOSGES:
-      applicable si: département = "VOSGES"
-      avec:
-        codeDepartement:
-          valeur: '88'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2346
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 11
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    YONNE:
-      avec:
-        applicable si: département = "avec"
-        codeDepartement:
-          valeur: '89'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2085
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 20
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    TERRITOIRE DE BELFORT:
-      applicable si: département = "TERRITOIRE DE BELFORT"
-      avec:
-        codeDepartement:
-          valeur: '90'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 2255
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 24
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    ESSONNE:
-      applicable si: département = "ESSONNE"
-      avec:
-        codeDepartement:
-          valeur: '91'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1893
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 24
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    HAUTS-DE-SEINE:
-      applicable si: département = "HAUTS-DE-SEINE"
-      avec:
-        codeDepartement:
-          valeur: '92'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1764
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 35
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    SEINE-SAINT-DENIS:
-      applicable si: département = "SEINE-SAINT-DENIS"
-      avec:
-        codeDepartement:
-          valeur: '93'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1873
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 35
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    VAL-DE-MARNE:
-      applicable si: département = "VAL-DE-MARNE"
-      avec:
-        codeDepartement:
-          valeur: '94'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1764
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 35
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
-    VAL-D'OISE:
-      applicable si: département = "VAL-D'OISE"
-      avec:
-        codeDepartement:
-          valeur: '95'
-          remplace: code département
-        djuChaudMoyen:
-          valeur: 1899
-          remplace: degré jours unifié spécifique chaud
-        djuFroidMoyen:
-          valeur: 24
-          remplace: degré jours unifié spécifique froid
-        zoneClimatique:
-          valeur: "'H1'"
-          remplace: zone climatique
+    nom:
+      valeur: "'AIN'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2042
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 37
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 02:
+  applicable si: code département = "02"
+  avec:
+    nom:
+      valeur: "'AISNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2156
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 9
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 03:
+  applicable si: code département = "03"
+  avec:
+    nom:
+      valeur: "'ALLIER'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2018
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 25
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 04:
+  applicable si: code département = "04"
+  avec:
+    nom:
+      valeur: "'ALPES-DE-HAUTE-PROVENCE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1726
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 54
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 05:
+  applicable si: code département = "05"
+  avec:
+    nom:
+      valeur: "'HAUTES-ALPES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2236
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 19
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 06:
+  applicable si: code département = "06"
+  avec:
+    nom:
+      valeur: "'ALPES-MARITIMES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 939
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 60
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 07:
+  applicable si: code département = "07"
+  avec:
+    nom:
+      valeur: "'ARDECHE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1639
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 60
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 08:
+  applicable si: code département = "08"
+  avec:
+    nom:
+      valeur: "'ARDENNES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2344
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 4
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 09:
+  applicable si: code département = "09"
+  avec:
+    nom:
+      valeur: "'ARIEGE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1750
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 14
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 10:
+  applicable si: code département = "10"
+  avec:
+    nom:
+      valeur: "'AUBE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2090
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 16
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 11:
+  applicable si: code département = "11"
+  avec:
+    nom:
+      valeur: "'AUDE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1410
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 61
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 12:
+  applicable si: code département = "12"
+  avec:
+    nom:
+      valeur: "'AVEYRON'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2146
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 21
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 13:
+  applicable si: code département = "13"
+  avec:
+    nom:
+      valeur: "'BOUCHES-DU-RHONE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1188
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 105
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 14:
+  applicable si: code département = "14"
+  avec:
+    nom:
+      valeur: "'CALVADOS'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1928
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 4
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 15:
+  applicable si: code département = "15"
+  avec:
+    nom:
+      valeur: "'CANTAL'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2269
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 9
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 16:
+  applicable si: code département = "16"
+  avec:
+    nom:
+      valeur: "'CHARENTE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1525
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 39
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 17:
+  applicable si: code département = "17"
+  avec:
+    nom:
+      valeur: "'CHARENTE-MARITIME'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1465
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 21
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 18:
+  applicable si: code département = "18"
+  avec:
+    nom:
+      valeur: "'CHER'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1897
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 28
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 19:
+  applicable si: code département = "19"
+  avec:
+    nom:
+      valeur: "'CORREZE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1676
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 36
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 2A:
+  applicable si: code département = "2A"
+  avec:
+    nom:
+      valeur: "'CORSE-DU-SUD'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 979
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 60
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 2B:
+  applicable si: code département = "2B"
+  avec:
+    nom:
+      valeur: "'HAUTE-CORSE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 972
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 60
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 21:
+  applicable si: code département = "21"
+  avec:
+    nom:
+      valeur: "'COTE-D'OR'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2148
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 28
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 22:
+  applicable si: code département = "22"
+  avec:
+    nom:
+      valeur: "'COTES-D'ARMOR'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1819
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 2
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 23:
+  applicable si: code département = "23"
+  avec:
+    nom:
+      valeur: "'CREUSE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2170
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 8
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 24:
+  applicable si: code département = "24"
+  avec:
+    nom:
+      valeur: "'DORDOGNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1650
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 24
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 25:
+  applicable si: code département = "25"
+  avec:
+    nom:
+      valeur: "'DOUBS'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2112
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 24
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 26:
+  applicable si: code département = "26"
+  avec:
+    nom:
+      valeur: "'DROME'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1542
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 91
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 27:
+  applicable si: code département = "27"
+  avec:
+    nom:
+      valeur: "'EURE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2057
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 10
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 28:
+  applicable si: code département = "28"
+  avec:
+    nom:
+      valeur: "'EURE-ET-LOIR'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2013
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 13
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 29:
+  applicable si: code département = "29"
+  avec:
+    nom:
+      valeur: "'FINISTERE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1729
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 1
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 30:
+  applicable si: code département = "30"
+  avec:
+    nom:
+      valeur: "'GARD'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1236
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 163
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 31:
+  applicable si: code département = "31"
+  avec:
+    nom:
+      valeur: "'HAUTE-GARONNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1459
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 73
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 32:
+  applicable si: code département = "32"
+  avec:
+    nom:
+      valeur: "'GERS'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1578
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 40
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 33:
+  applicable si: code département = "33"
+  avec:
+    nom:
+      valeur: "'GIRONDE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1388
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 50
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 34:
+  applicable si: code département = "34"
+  avec:
+    nom:
+      valeur: "'HERAULT'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1206
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 92
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 35:
+  applicable si: code département = "35"
+  avec:
+    nom:
+      valeur: "'ILLE-ET-VILAINE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1753
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 8
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 36:
+  applicable si: code département = "36"
+  avec:
+    nom:
+      valeur: "'INDRE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1932
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 19
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 37:
+  applicable si: code département = "37"
+  avec:
+    nom:
+      valeur: "'INDRE-ET-LOIRE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1812
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 23
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 38:
+  applicable si: code département = "38"
+  avec:
+    nom:
+      valeur: "'ISERE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2189
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 16
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 39:
+  applicable si: code département = "39"
+  avec:
+    nom:
+      valeur: "'JURA'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2021
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 42
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 40:
+  applicable si: code département = "40"
+  avec:
+    nom:
+      valeur: "'LANDES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1480
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 37
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 41:
+  applicable si: code département = "41"
+  avec:
+    nom:
+      valeur: "'LOIR-ET-CHER'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1985
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 18
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 42:
+  applicable si: code département = "42"
+  avec:
+    nom:
+      valeur: "'LOIRE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2062
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 30
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 43:
+  applicable si: code département = "43"
+  avec:
+    nom:
+      valeur: "'HAUTE-LOIRE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2600
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 3
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 44:
+  applicable si: code département = "44"
+  avec:
+    nom:
+      valeur: "'LOIRE-ATLANTIQUE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1650
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 20
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 45:
+  applicable si: code département = "45"
+  avec:
+    nom:
+      valeur: "'LOIRET'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1990
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 15
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 46:
+  applicable si: code département = "46"
+  avec:
+    nom:
+      valeur: "'LOT'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1713
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 41
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 47:
+  applicable si: code département = "47"
+  avec:
+    nom:
+      valeur: "'LOT-ET-GARONNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1536
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 45
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 48:
+  applicable si: code département = "48"
+  avec:
+    nom:
+      valeur: "'LOZERE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2496
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 6
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 49:
+  applicable si: code département = "49"
+  avec:
+    nom:
+      valeur: "'MAINE-ET-LOIRE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1711
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 18
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 50:
+  applicable si: code département = "50"
+  avec:
+    nom:
+      valeur: "'MANCHE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1824
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 0
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 51:
+  applicable si: code département = "51"
+  avec:
+    nom:
+      valeur: "'MARNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2144
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 8
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 52:
+  applicable si: code département = "52"
+  avec:
+    nom:
+      valeur: "'HAUTE-MARNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2387
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 24
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 53:
+  applicable si: code département = "53"
+  avec:
+    nom:
+      valeur: "'MAYENNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1900
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 12
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 54:
+  applicable si: code département = "54"
+  avec:
+    nom:
+      valeur: "'MEURTHE-ET-MOSELLE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2214
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 18
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 55:
+  applicable si: code département = "55"
+  avec:
+    nom:
+      valeur: "'MEUSE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2272
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 21
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 56:
+  applicable si: code département = "56"
+  avec:
+    nom:
+      valeur: "'MORBIHAN'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1690
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 9
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 57:
+  applicable si: code département = "57"
+  avec:
+    nom:
+      valeur: "'MOSELLE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2219
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 16
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 58:
+  applicable si: code département = "58"
+  avec:
+    nom:
+      valeur: "'NIEVRE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2050
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 15
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 59:
+  applicable si: code département = "59"
+  avec:
+    nom:
+      valeur: "'NORD'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2042
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 13
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 60:
+  applicable si: code département = "60"
+  avec:
+    nom:
+      valeur: "'OISE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2146
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 6
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 61:
+  applicable si: code département = "61"
+  avec:
+    nom:
+      valeur: "'ORNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2015
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 8
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 62:
+  applicable si: code département = "62"
+  avec:
+    nom:
+      valeur: "'PAS-DE-CALAIS'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1965
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 6
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 63:
+  applicable si: code département = "63"
+  avec:
+    nom:
+      valeur: "'PUY-DE-DOME'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1897
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 35
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 64:
+  applicable si: code département = "64"
+  avec:
+    nom:
+      valeur: "'PYRENEES-ATLANTIQUES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1458
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 22
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 65:
+  applicable si: code département = "65"
+  avec:
+    nom:
+      valeur: "'HAUTES-PYRENEES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1693
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 18
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 66:
+  applicable si: code département = "66"
+  avec:
+    nom:
+      valeur: "'PYRENEES-ORIENTALES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1047
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 133
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 67:
+  applicable si: code département = "67"
+  avec:
+    nom:
+      valeur: "'BAS-RHIN'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2117
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 25
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 68:
+  applicable si: code département = "68"
+  avec:
+    nom:
+      valeur: "'HAUT-RHIN'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2203
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 20
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 69:
+  applicable si: code département = "69"
+  avec:
+    nom:
+      valeur: "'RHONE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1796
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 72
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 70:
+  applicable si: code département = "70"
+  avec:
+    nom:
+      valeur: "'HAUTE-SAONE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2277
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 14
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 71:
+  applicable si: code département = "71"
+  avec:
+    nom:
+      valeur: "'SAONE-ET-LOIRE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1935
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 40
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 72:
+  applicable si: code département = "72"
+  avec:
+    nom:
+      valeur: "'SARTHE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1772
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 26
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 73:
+  applicable si: code département = "73"
+  avec:
+    nom:
+      valeur: "'SAVOIE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2357
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 26
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 74:
+  applicable si: code département = "74"
+  avec:
+    nom:
+      valeur: "'HAUTE-SAVOIE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2245
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 7
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 75:
+  applicable si: code département = "75"
+  avec:
+    nom:
+      valeur: "'PARIS'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1718
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 35
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 76:
+  applicable si: code département = "76"
+  avec:
+    nom:
+      valeur: "'SEINE-MARITIME'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2079
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 5
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 77:
+  applicable si: code département = "77"
+  avec:
+    nom:
+      valeur: "'SEINE-ET-MARNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1982
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 15
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 78:
+  applicable si: code département = "78"
+  avec:
+    nom:
+      valeur: "'YVELINES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2017
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 22
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 79:
+  applicable si: code département = "79"
+  avec:
+    nom:
+      valeur: "'DEUX-SEVRES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1688
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 29
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 80:
+  applicable si: code département = "80"
+  avec:
+    nom:
+      valeur: "'SOMME'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2019
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 8
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 81:
+  applicable si: code département = "81"
+  avec:
+    nom:
+      valeur: "'TARN'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1622
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 69
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 82:
+  applicable si: code département = "82"
+  avec:
+    nom:
+      valeur: "'TARN-ET-GARONNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1559
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 58
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 83:
+  applicable si: code département = "83"
+  avec:
+    nom:
+      valeur: "'VAR'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1224
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 58
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H3'"
+      remplace: zone climatique
+départements . dep 84:
+  applicable si: code département = "84"
+  avec:
+    nom:
+      valeur: "'VAUCLUSE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1464
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 115
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 85:
+  applicable si: code département = "85"
+  avec:
+    nom:
+      valeur: "'VENDEE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1730
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 9
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 86:
+  applicable si: code département = "86"
+  avec:
+    nom:
+      valeur: "'VIENNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1823
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 21
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H2'"
+      remplace: zone climatique
+départements . dep 87:
+  applicable si: code département = "87"
+  avec:
+    nom:
+      valeur: "'HAUTE-VIENNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1943
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 25
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 88:
+  applicable si: code département = "88"
+  avec:
+    nom:
+      valeur: "'VOSGES'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2346
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 11
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 89:
+  applicable si: code département = "89"
+  avec:
+    nom:
+      valeur: "'YONNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2085
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 20
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 90:
+  applicable si: code département = "90"
+  avec:
+    nom:
+      valeur: "'TERRITOIRE DE BELFORT'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 2255
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 24
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 91:
+  applicable si: code département = "91"
+  avec:
+    nom:
+      valeur: "'ESSONNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1893
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 24
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 92:
+  applicable si: code département = "92"
+  avec:
+    nom:
+      valeur: "'HAUTS-DE-SEINE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1764
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 35
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 93:
+  applicable si: code département = "93"
+  avec:
+    nom:
+      valeur: "'SEINE-SAINT-DENIS'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1873
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 35
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 94:
+  applicable si: code département = "94"
+  avec:
+    nom:
+      valeur: "'VAL-DE-MARNE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1764
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 35
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
+départements . dep 95:
+  applicable si: code département = "95"
+  avec:
+    nom:
+      valeur: "'VAL-D'OISE'"
+      remplace: nom département
+    dju chaud moyen:
+      valeur: 1899
+      remplace: degré jours unifié spécifique chaud
+      note: "Source : Costic"
+    dju froid moyen:
+      valeur: 24
+      remplace: degré jours unifié spécifique froid
+      note: "Source : Cégibat"
+    zone climatique:
+      valeur: "'H1'"
+      remplace: zone climatique
