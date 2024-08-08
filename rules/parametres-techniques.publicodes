@@ -162,7 +162,12 @@ méthode tertiaire:
       - "'Santé'"
 
 méthode de calcul pour les besoins en chauffage et refroidissement:
-  par défaut: "'Normes thermiques et âge du bâtiment'"
+  par défaut:
+    variations:
+      - si: type de bâtiment = "résidentiel"
+        alors: "'Normes thermiques et âge du bâtiment'"
+      - si: type de bâtiment = "tertiaire"
+        alors: "'Bureaux'"
   variations:
     - si: type de bâtiment = "résidentiel"
       alors: méthode résidentiel
