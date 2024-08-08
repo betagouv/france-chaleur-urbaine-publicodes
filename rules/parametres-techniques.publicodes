@@ -6,11 +6,11 @@ code département:
   par défaut: "'31'"
 
 degré jours unifié spécifique chaud:
-  formule: degré jours unifié spécifique chaud # se fait remplacer par les données département
+  par défaut: degré jours unifié spécifique chaud # se fait remplacer par les données département
   unité: °C
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$C$6:$C$101,'Ratios techniques'!$C$10,0)
 degré jours unifié spécifique froid:
-  formule: degré jours unifié spécifique froid # se fait remplacer par les données département
+  par défaut: degré jours unifié spécifique froid # se fait remplacer par les données département
   unité: °C
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$D$6:$D$101,"",0)
 température de référence chaud:
@@ -54,9 +54,10 @@ choix du réseau de chaleur:
       - "'CORMARANCHE'"
       - "'TODO à définir en externe'" # FIXME
 contenu CO2 réseau de chaleur:
-  note: Contenu_CO2_RCU
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
-  # à définir en externe
+  # à définir en externe via le réseau le plus proche
+  par défaut: caractéristique réseau de chaleur . contenu CO2
+  note: Contenu_CO2_RCU
 choix du réseau de froid:
   par défaut: "'MOYENNE RESEAUX FROID'"
   une possibilité:
@@ -76,9 +77,10 @@ choix du réseau de froid:
       - "'Ernest Granier'"
       - "'TODO à définir en externe'" # FIXME
 contenu CO2 réseau de froid:
-  note: Contenu_CO2_RFU
   # =XLOOKUP(C18,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
-  # à définir en externe
+  # à définir en externe via le réseau le plus proche
+  par défaut: caractéristique réseau de froid . contenu CO2
+  note: Contenu_CO2_RFU
 
 ###### Choix du bâtiment
 type de bâtiment:
