@@ -124,7 +124,7 @@ Paramètres économiques:
             produit:
               - Calcul . Chauffage Puissance chauffage appelée
               - nombre de logement dans l'immeuble concerné
-              - ratios . PUIS Coefficient de foisonnemennt chauffage collectif / ratios . PAC GNRL SCOP mini
+              - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
       # B112
       # QUESTION: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
