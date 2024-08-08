@@ -1,5 +1,6 @@
 ratios économiques x aides:
   avec:
+    # Résidentiel
     Ma prime rénov' x Très modeste x Poêle à granulés indiv:
       applicable si:
         toutes ces conditions:
@@ -178,6 +179,87 @@ ratios économiques x aides:
       valeur: 0.00804
       unité: €/kWh cumac
 
+    CEE x FCU x Résidentiel inf 125 appt:
+      valeur: 12000000
+      unité: kWh cumac
+      note: 'Source : Gouvernement 2024'
+    CEE x FCU x Résidentiel sup 125 variable:
+      valeur: 77000
+      unité: kWh cumac/appartement
+      note: 'Source : Gouvernement 2024'
+    CEE x FCU x Résidentiel sup 125 fixe:
+      valeur: 2300000
+      unité: kWh cumac
+      note: 'Source : Gouvernement 2024'
+    CEE x RCU x facteur correctif:
+      valeur: 75
+      unité: '%'
+      note: 'Source : FCU'
+    CEE x FCU x Tertiaire inf 7500 appt:
+      valeur: 11000000
+      unité: kWh cumac/m2
+    CEE x FCU x Tertiaire sup 7500 variable:
+      valeur: 1070
+      unité: kWh cumac/m2
+    CEE x FCU x Tertiaire sup 7500 fixe:
+      valeur: 2300000
+      unité: kWh cumac
+
+    CEE x PAC air-air inf 12kW appartement indiv x montant:
+      variations:
+        - si: zone climatique = 'H1'
+          alors: 21300
+        - si: zone climatique = 'H2'
+          alors: 17400
+        - si: zone climatique = 'H3'
+          alors: 11600
+      unité: kWh cumac
+      note: "Source : ADEME 2024"
+    CEE x PAC air-air inf 12kW appartement indiv x facteur correctif:
+      # TODO vérifier si c'est bien ce type de condition
+      variations:
+        - si: surface logement type tertiaire <= 35
+          alors: 0.5
+        - si: surface logement type tertiaire <= 60
+          alors: 0.7
+        - si: surface logement type tertiaire <= 70
+          alors: 1
+        - si: surface logement type tertiaire <= 90
+          alors: 1.2
+        - si: surface logement type tertiaire <= 110
+          alors: 1.5
+        - si: surface logement type tertiaire <= 130
+          alors: 1.9
+        - sinon: 2.5
+      note: "Source : ADEME 2024"
+
+    CEE x PAC air-air inf 12kW maison indiv x montant:
+      variations:
+        - si: zone climatique = 'H1'
+          alors:  77900
+        - si: zone climatique = 'H2'
+          alors:  63700
+        - si: zone climatique = 'H3'
+          alors:  42500
+      unité: kWh cumac
+      note: "Source : ADEME 2024"
+    CEE x PAC air-air inf 12kW maison indiv x facteur correctif:
+      # TODO vérifier si c'est bien ce type de condition
+      variations:
+        - si: surface logement type tertiaire <= 35
+          alors: 0.3
+        - si: surface logement type tertiaire <= 60
+          alors: 0.5
+        - si: surface logement type tertiaire <= 70
+          alors: 0.6
+        - si: surface logement type tertiaire <= 90
+          alors: 0.7
+        - si: surface logement type tertiaire <= 110
+          alors: 1
+        - si: surface logement type tertiaire <= 130
+          alors: 1.1
+        - sinon: 1.6
+      note: "Source : ADEME 2024"
 
     # N'existe pas dans les types d'installations retenus
     # Coup de pouce x Modeste x Chaudière biomasse:
@@ -275,6 +357,187 @@ ratios économiques x aides:
 
     CEE x Chauffe-eau solaire collectif x Ratio:
       valeur: 0.196
-    CEE x Chauffe-eau solaire x Ratio:
-      # QUESTION: quelle différence entre ratios éco - aides > C261 et C447 ?
-      valeur: 0.196
+
+    Tertiaire:
+      avec:
+        CEE x RFU x montant:
+          variations:
+            - si: zone climatique = 'H1'
+              alors: 1
+            - si: zone climatique = 'H2'
+              alors: 1.3
+            - si: zone climatique = 'H3'
+              alors: 1.8
+          unité: kWh cumac/m2
+          note: "Source : ADEME 2024"
+        CEE x RFU x facteur correctif:
+          variations:
+            - si: méthode tertiaire = 'Bureaux'
+              alors: 7800
+            - si: méthode tertiaire = 'Enseignement primaire'
+              alors: 4900
+            - si: méthode tertiaire = 'Enseignement secondaire'
+              alors: 4900
+            - si: méthode tertiaire = 'EHPAD'
+              alors: 26000
+            - si: méthode tertiaire = 'Santé'
+              alors: 26000
+            - si: méthode tertiaire = 'Commerces'
+              alors: 11300
+            - si: méthode tertiaire = 'Café, restaurant'
+              alors: 10400
+            - si: méthode tertiaire = 'Hôtel'
+              alors: 10400
+            - si: méthode tertiaire = 'Sport'
+              alors: 19800
+          unité: kWh cumac/kW
+          note: "Source : ADEME 2024"
+        CEE x PAC air-air inf 12kW x montant:
+          variations:
+            - si: zone climatique = 'H1'
+              alors: 860
+            - si: zone climatique = 'H2'
+              alors: 760
+            - si: zone climatique = 'H3'
+              alors: 620
+          unité: kWh cumac/m2
+          note: "Source : ADEME 2024"
+        CEE x PAC air-air inf 12kW x facteur correctif:
+          variations:
+            - si: méthode tertiaire = 'Bureaux'
+              alors: 1.2
+            - si: méthode tertiaire = 'Enseignement primaire'
+              alors: 0.8
+            - si: méthode tertiaire = 'Enseignement secondaire'
+              alors: 0.8
+            - si: méthode tertiaire = 'EHPAD'
+              alors: 1.1
+            - si: méthode tertiaire = 'Santé'
+              alors: 1.1
+            - si: méthode tertiaire = 'Commerces'
+              alors: 0.9
+            - si: méthode tertiaire = 'Café, restaurant'
+              alors: 0.7
+            - si: méthode tertiaire = 'Hôtel'
+              alors: 0.7
+            - si: méthode tertiaire = 'Sport'
+              alors: 0.7
+          note: "Source : ADEME 2024"
+        CEE x PAC air-air sup 12kW x montant:
+          variations:
+            - si: zone climatique = 'H1'
+              alors: 870
+            - si: zone climatique = 'H2'
+              alors: 770
+            - si: zone climatique = 'H3'
+              alors: 630
+          unité: kWh cumac/m2
+          note: "Source : ADEME 2024"
+        CEE x PAC air-air sup 12kW x facteur correctif:
+          variations:
+            - si: méthode tertiaire = 'Bureaux'
+              alors: 1.2
+            - si: méthode tertiaire = 'Enseignement primaire'
+              alors: 0.8
+            - si: méthode tertiaire = 'Enseignement secondaire'
+              alors: 0.8
+            - si: méthode tertiaire = 'EHPAD'
+              alors: 1.1
+            - si: méthode tertiaire = 'Santé'
+              alors: 1.1
+            - si: méthode tertiaire = 'Commerces'
+              alors: 0.9
+            - si: méthode tertiaire = 'Café, restaurant'
+              alors: 0.7
+            - si: méthode tertiaire = 'Hôtel'
+              alors: 0.7
+            - si: méthode tertiaire = 'Sport'
+              alors: 0.7
+          note: "Source : ADEME 2024"
+
+        CEE x GAZ COLL COND inf 400kW x montant chauffage seul:
+          variations:
+            - si: zone climatique = 'H1'
+              alors: 370
+            - si: zone climatique = 'H2'
+              alors: 300
+            - si: zone climatique = 'H3'
+              alors: 200
+          unité: kWh cumac/m2
+          note: "Source : ADEME 2024"
+        CEE x GAZ COLL COND inf 400kW x montant chauffage avec ECS:
+          variations:
+            - si: zone climatique = 'H1'
+              alors: 430
+            - si: zone climatique = 'H2'
+              alors: 360
+            - si: zone climatique = 'H3'
+              alors: 240
+          unité: kWh cumac/m2
+          note: "Source : ADEME 2024"
+        CEE x GAZ COLL COND inf 400kW x facteur correctif:
+          variations:
+            - si: méthode tertiaire = 'Bureaux'
+              alors: 1
+            - si: méthode tertiaire = 'Enseignement primaire'
+              alors: 0.7
+            - si: méthode tertiaire = 'Enseignement secondaire'
+              alors: 0.7
+            - si: méthode tertiaire = 'EHPAD'
+              alors: 1.1
+            - si: méthode tertiaire = 'Santé'
+              alors: 1.1
+            - si: méthode tertiaire = 'Commerces'
+              alors: 0.9
+            - si: méthode tertiaire = 'Café, restaurant'
+              alors: 1.4
+            - si: méthode tertiaire = 'Hôtel'
+              alors: 1.4
+            - si: méthode tertiaire = 'Sport'
+              alors: 0.7
+          note: "Source : ADEME 2024"
+        CEE x GAZ COLL COND sup 400kW x montant chauffage seul:
+          variations:
+            - si: zone climatique = 'H1'
+              alors: 400
+            - si: zone climatique = 'H2'
+              alors: 320
+            - si: zone climatique = 'H3'
+              alors: 220
+          unité: kWh cumac/m2
+          note: "Source : ADEME 2024"
+        CEE x GAZ COLL COND sup 400kW x montant chauffage avec ECS:
+          variations:
+            - si: zone climatique = 'H1'
+              alors: 470
+            - si: zone climatique = 'H2'
+              alors: 380
+            - si: zone climatique = 'H3'
+              alors: 260
+          unité: kWh cumac/m2
+          note: "Source : ADEME 2024"
+        CEE x GAZ COLL COND sup 400kW x facteur correctif:
+          variations:
+            - si: méthode tertiaire = 'Bureaux'
+              alors: 1
+            - si: méthode tertiaire = 'Enseignement primaire'
+              alors: 0.7
+            - si: méthode tertiaire = 'Enseignement secondaire'
+              alors: 0.7
+            - si: méthode tertiaire = 'EHPAD'
+              alors: 1.1
+            - si: méthode tertiaire = 'Santé'
+              alors: 1.1
+            - si: méthode tertiaire = 'Commerces'
+              alors: 0.9
+            - si: méthode tertiaire = 'Café, restaurant'
+              alors: 1.4
+            - si: méthode tertiaire = 'Hôtel'
+              alors: 1.4
+            - si: méthode tertiaire = 'Sport'
+              alors: 0.7
+          note: "Source : ADEME 2024"
+
+        CEE x Chauffe-eau solaire x Ratio:
+          # QUESTION: quelle différence entre ratios éco - aides > C261 et C447 ?
+          valeur: 0.196
