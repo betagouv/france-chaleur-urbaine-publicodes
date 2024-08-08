@@ -1385,10 +1385,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
                       variations:
                         - si:
                             toutes ces conditions:
-                              - variations:
-                                - si: Production eau chaude sanitaire
-                                  alors: non
-                                - sinon: oui
+                              - Production eau chaude sanitaire = non
                               - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
                           alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x montant chauffage seul * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
                         - si:
@@ -1398,10 +1395,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
                           alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x montant chauffage avec ECS * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
                         - si:
                             toutes ces conditions:
-                              - variations:
-                                - si: Production eau chaude sanitaire
-                                  alors: non
-                                - sinon: oui
+                              - Production eau chaude sanitaire = non
                               - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante > 400
                           alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x montant chauffage seul * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
                         - si:
@@ -1574,10 +1568,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
                   - type de bâtiment = 'résidentiel'
                   - type de production ECS = 'Individuel'
                   - ratios . GNRL Appartement ou maison = 'Maison'
-                  - variations:
-                    - si: Production eau chaude sanitaire
-                      alors: non
-                    - sinon: oui
+                  - Production eau chaude sanitaire = non
               alors: 2
             - sinon: 0
           unité: €
