@@ -1310,7 +1310,7 @@ ratios:
     PUIS Coefficient de foisonnement ECS:
       valeur: 50%
       unité: '%'
-    PUIS Coefficient de foisonnemennt chauffage collectif:
+    PUIS Coefficient de foisonnement chauffage collectif:
       valeur: 80%
       unité: '%'
     CI A:
