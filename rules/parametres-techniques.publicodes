@@ -38,6 +38,7 @@ mode affichage:
 
 ###### Réseaux de chaleur et de froid
 choix du réseau de chaleur:
+  par défaut: "'MOYENNE RESEAUX CHAUD'"
   une possibilité:
     choix obligatoire: oui
     possibilités:
@@ -57,9 +58,11 @@ contenu CO2 réseau de chaleur:
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   # à définir en externe
 choix du réseau de froid:
+  par défaut: "'MOYENNE RESEAUX FROID'"
   une possibilité:
     choix obligatoire: oui
     possibilités:
+      - "'MOYENNE RESEAUX FROID'"
       - "'MSE Réseau froid'"
       - "'BET CAP AZUR froid'"
       - "'Réseau de froid Thassalia Marseille'"
