@@ -112,6 +112,11 @@ Nombre d'habitants moyen par appartement:
 Production eau chaude sanitaire:
   # ='Ratios techniques'!$C$15
   par défaut: ratios . GNRL Production ECS
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - oui
+      - non
 type de production ECS:
   # C29 alias Paramètres économiques C8 (Type de résidentiel)
   par défaut: "'Solaire thermique'"
