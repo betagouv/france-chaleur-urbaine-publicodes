@@ -147,7 +147,7 @@ méthode résidentiel:
       - "'DPE'"
 
 méthode tertiaire:
-  par défaut: "'Normes thermiques'"
+  par défaut: "'Bureaux'"
   une possibilité:
     choix obligatoire: oui
     possibilités:
@@ -165,14 +165,9 @@ méthode de calcul pour les besoins en chauffage et refroidissement:
   par défaut:
     variations:
       - si: type de bâtiment = "résidentiel"
-        alors: "'Normes thermiques et âge du bâtiment'"
+        alors: méthode résidentiel
       - si: type de bâtiment = "tertiaire"
-        alors: "'Bureaux'"
-  variations:
-    - si: type de bâtiment = "résidentiel"
-      alors: méthode résidentiel
-    - si: type de bâtiment = "tertiaire"
-      alors: méthode tertiaire
+        alors: méthode tertiaire
 
 
 # quand bâtiment résidentiel
