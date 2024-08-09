@@ -1,0 +1,1637 @@
+###### Calculs économiques
+
+Calcul Eco . Coût d'achat du combustible:
+  avec:
+    Chaleur RCU x Part abonnement:
+      # D8 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$143
+      valeur: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part fixe
+      unité: €TTC/kWh
+    Chaleur RCU x Part consommation:
+      # D9 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$144
+      valeur: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part variable
+      unité: €TTC/kWh
+
+    Froid RFU x Part abonnement:
+      # D10 ='Paramètres économiques'!$D$148*'Paramètres économiques'!$D$149
+      formule: Paramètres économiques . Réseaux froid . Coût * Paramètres économiques . Réseaux froid . Part fixe
+      # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
+      unité: €TTC/kWh
+    Froid RFU x Part consommation:
+      # D10 ='Paramètres économiques'!$D$148*'Paramètres économiques'!D150
+      valeur: Paramètres économiques . Réseaux froid . Coût * Paramètres économiques . Réseaux froid . Part variable
+      unité: €TTC/kWh
+
+    Electricité indiv x Part abonnement:
+      # B11 =('Paramètres économiques'!$D$112+'Paramètres économiques'!$D$120)*(1+'Paramètres économiques'!$D$121)
+      produit:
+        - Paramètres économiques . Electricité x Abonnement Part Fixe indiv + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
+        - (1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA)
+      unité: €TTC/an
+    Electricité indiv x Part consommation:
+      # D11 ='Paramètres économiques'!$D$114
+      formule: Paramètres économiques . Electricité x Consommation Part variable
+      unité: €TTC/kWh
+
+    Electricité coll x Part abonnement:
+      # B12 =('Paramètres économiques'!D113+'Paramètres économiques'!D120)*(1+'Paramètres économiques'!D124)
+      produit:
+        - Paramètres économiques . Electricité x Abonnement Part Fixe coll + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
+        - (1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA)
+      unité: €TTC/an
+    Electricité coll x Part consommation:
+      # D12 ='Paramètres économiques'!$D$114
+      formule: Paramètres économiques . Electricité x Consommation Part variable
+      unité: €TTC/kWh
+
+    Gaz indiv x Part abonnement:
+      # B13 ='Paramètres économiques'!$D$91
+      valeur: Paramètres économiques . Gas x Abonnement x Part Fixe TTC individuel
+      unité: €TTC/an
+    Gaz indiv x Part consommation:
+      valeur: Paramètres économiques . Gas x Consommation x Part Variable TTC
+      unité: €TTC/kWh
+
+    Gaz coll x Part abonnement:
+      # B14 ='Paramètres économiques'!$D$90
+      valeur: Paramètres économiques . Gas x Abonnement x Part Fixe TTC collectif ou tertiaire
+      unité: €TTC/an
+    Gaz coll x Part consommation:
+      # D14 ='Paramètres économiques'!$D$94
+      valeur: Paramètres économiques . Gas x Consommation x Part Variable TTC
+      unité: €TTC/kWh
+
+    Granulés x Part consommation:
+      # D15 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$129/1000;('Paramètres économiques'!$D$129*(1+'Paramètres économiques'!$D$131))/1000)
+      valeur: 0.345 # A remplacer par la formule
+      unité: €TTC/kg
+
+    Fioul x Part consommation:
+      # D16 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$135;('Paramètres économiques'!$D$135*(1+'Paramètres économiques'!$D$137+'Paramètres économiques'!$D$138)))
+      valeur: 1.232 # A remplacer par la formule
+      unité: €TTC/litre
+
+Calcul Eco . Investissement ballon ECS à accumulation:
+  # QUESTION déjà posée: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
+  # 'Calculs économiques'!E23
+  produit:
+    - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+    - ratios économiques . Chauffe-eau x électrique à accumulation
+
+Calcul Eco . Investissement panneaux solaires pour ballon ECS:
+  # QUESTION déjà posée: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
+  # 'Calculs économiques'!F23
+  produit:
+    - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+    - ratios économiques . Chauffe-eau x solaire prix panneaux
+    - surface de panneau nécessaire
+
+Calcul Eco:
+  avec:
+    Réseaux de chaleur:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - Investissement x frais de raccordement au réseaux x RCU
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement
+            - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part consommation
+            - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Réseaux de froid:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - Investissement x frais de raccordement au réseaux x RFU
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Réseaux de froid x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Réseaux de froid x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
+            - Installation x Réseaux de froid x Collectif . consommation combustible froid
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
+            - Installation x Réseaux de froid x Collectif . consommation combustible froid
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Poêle à granulés indiv:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Poêle à granulés indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Poêle à granulés indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: 0
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation
+            - Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Chaudière à granulés coll:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          # C26
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            # QUESTION déjà posée: la valeur dans le excel parait fausse car elle ne prend pas en compte si la chaudière est 25, 30, 40 ou 50kW pour lesquels on a des valeurs précises
+            # Je l'ai corrigé ici
+            - ratios économiques . Granulés x Chaudière à granulés collective
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Chaudière à granulés coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Chaudière à granulés coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: 0
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation
+            - Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Gaz indiv avec cond:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x indiv avec cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Gaz indiv avec cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Gaz indiv avec cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # D49 =($D$13*'Calculs techniques'!$C$97/Conso_comb_GAZ_indiv_cond)
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
+            - Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur
+            - 1 / ratios . GAZ IND COND Conso auxilliaire chauffage
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Gaz indiv sans cond:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x indiv sans cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Gaz indiv sans cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Gaz indiv sans cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # D50 =($D$13*'Calculs techniques'!$C$98/Conso_comb_GAZ_indiv_scond)
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
+            - Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur
+            - 1 / ratios . GAZ IND SCOND Conso auxilliaire chauffage
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Gaz coll avec cond:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x coll avec cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Gaz coll avec cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Gaz coll avec cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # D51 =($D$14*'Calculs techniques'!$C$99/Conso_comb_GAZ_coll_cond)
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
+            - Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur
+            - 1 / ratios . GAZ COLL COND Conso auxilliaire chauffage
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Gaz coll sans cond:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Gaz x coll sans cond
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Gaz coll sans cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Gaz coll sans cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          Coût du combustible consommation:
+          # D52 =($D$14*'Calculs techniques'!$C$100/Conso_comb_GAZ_coll_scond)
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
+            - Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur
+            - 1 / ratios . GAZ COLL SCOND Conso auxilliaire chauffage
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Fioul indiv:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Fioul x indiv
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Fioul indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Fioul indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: 0
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # D54 =$D$16*'Calculs techniques'!$C$101
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation
+            - Installation x Fioul indiv x Individuel . consommation combustible chaleur
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Fioul coll:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Fioul x collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Fioul coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Fioul coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: 0
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # D55 =$D$16*'Calculs techniques'!$C$102
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation
+            - Installation x Fioul coll x Collectif . consommation combustible chaleur
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    PAC air-air indiv:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-air réversible x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x PAC air-air x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x PAC air-air x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          # D56 =IF('Paramètres économiques'!$D$109="Option base";$D$11*'Calculs techniques'!C103;$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
+          # IF('Paramètres économiques'!$D$109="Option base"
+          #   $D$11*'Calculs techniques'!C103
+          # ELSE
+          #   $D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103
+          #   +$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
+
+          # D11: Electricité indiv x Part consommation
+          # C103: Installation x PAC air-air x Individuel . consommation combustible chaleur
+          # F11 est grisé mais ya une formule dedans
+
+
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    PAC eau-eau indiv:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x eau-eau non réversible x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    PAC air-eau indiv:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-eau réversible x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x PAC air-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x PAC air-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    PAC air-air coll:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-air réversible x Collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x PAC air-air x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x PAC air-air x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    PAC eau-eau coll:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x eau-eau non réversible x Collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x PAC eau-eau champs de sondes x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x PAC eau-eau champs de sondes x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    PAC air-eau coll:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          produit:
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . PAC x air-eau réversible x Collectif
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x PAC air-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x PAC air-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    Radiateur électrique:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          # C63
+          produit:
+            # QUESTION déjà posée: a-t-on vraiment besoin du surcout d'installation surcout_inv ?
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ratios économiques . Radiateur électrique x Individuel
+            - ratios économiques . Investissement x TVA
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: Installation x Radiateur électrique x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - Installation x Radiateur électrique x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          unité: €TTC/an
+          note: "Coût du combustible abonnement (P1 abo) €TTC/an"
+        Coût du combustible consommation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût du combustible consommation (P1 conso) €TTC/an"
+        Coût électricité auxiliaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût électricité auxilliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour balllon ECS à accumulation (P1 ECS) €TTC/an"
+        Coût combustible pour ballon ECS solaire:
+          # TODO
+          unité: €TTC/an
+          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+
+Calcul Eco . P2 P3 Coût de l'entretien:
+  avec:
+    Réseaux de chaleur:
+      avec:
+        petit entretien P2:
+          # C67 ='Paramètres économiques'!D156*(1+TVA_P2)*C23
+          formule: Paramètres économiques . Petit entretien P2 . RCU * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Réseaux de chaleur . Investissement équipement Total
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . RCU * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Réseaux de chaleur . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    Réseaux de froid:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . RFU * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Réseaux de froid . Investissement équipement Total
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . RFU * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Réseaux de froid . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    Poêle à granulés indiv:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv * besoins chauffage par appartement / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Poêle à granulés indiv . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    Chaudière à granulés coll:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll * (1 + Paramètres économiques . Petit entretien P2 . TVA) * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) * nombre de logement dans l'immeuble concerné / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Chaudière à granulés coll . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    Gaz indiv avec cond:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Gaz indiv avec cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Gaz indiv avec cond . Investissement équipement Total
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Gaz indiv avec cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz indiv avec cond . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    Gaz indiv sans cond:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Gaz indiv sans cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Gaz indiv sans cond . Investissement équipement Total
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Gaz indiv sans cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz indiv sans cond . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    Gaz coll avec cond:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Gaz coll avec cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) * nombre de logement dans l'immeuble concerné / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Gaz coll avec cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz coll avec cond . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    Gaz coll sans cond:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Gaz coll sans cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) * nombre de logement dans l'immeuble concerné / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Gaz coll sans cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz coll sans cond . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    Fioul indiv:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Fioul indiv * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Fioul indiv . Investissement équipement Total
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Fioul indiv * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Fioul indiv . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    Fioul coll:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Fioul coll * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Fioul coll . Investissement équipement Total
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Fioul coll * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Fioul coll . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    PAC air-air indiv:
+      avec:
+        petit entretien P2:
+          # ='Paramètres économiques'!D166*(SUM('Calculs techniques'!$B$20:$B$22)/1000)
+          formule: Paramètres économiques . Petit entretien P2 . PAC air-air * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . PAC air-air * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-air indiv . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    PAC eau-eau indiv:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . PAC eau-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . PAC eau-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC eau-eau indiv . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    PAC air-eau indiv:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . PAC air-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . PAC air-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-eau indiv . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    PAC air-air coll:
+      avec:
+        petit entretien P2:
+          # ='Paramètres économiques'!D166*(SUM('Calculs techniques'!$B$20:$B$22)*'Calculs techniques'!$B$17/1000)
+          formule: Paramètres économiques . Petit entretien P2 . PAC air-air * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) * nombre de logement dans l'immeuble concerné / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . PAC air-air * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-air coll . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    PAC eau-eau coll:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . PAC eau-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) * nombre de logement dans l'immeuble concerné / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . PAC eau-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC eau-eau coll . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    PAC air-eau coll:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . PAC air-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) * nombre de logement dans l'immeuble concerné / 1000
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . PAC air-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-eau coll . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logement dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logement dans l'immeuble concerné
+    Radiateur électrique:
+      avec:
+        petit entretien P2:
+          formule: Paramètres économiques . Petit entretien P2 . Radiateur électrique * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Radiateur électrique . Investissement équipement Total
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Radiateur électrique * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Radiateur électrique . Investissement équipement Total
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    Chauffe-eau électrique à accumulation:
+      avec:
+        petit entretien P2:
+          # ='Paramètres économiques'!D171*(1+TVA_P2)*$E$24
+          formule: Paramètres économiques . Petit entretien P2 . Chauffe-eau électrique à accumulation * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Investissement ballon ECS à accumulation
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Chauffe-eau électrique à accumulation * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Investissement ballon ECS à accumulation
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    Panneau solaire thermique pour production ECS:
+      avec:
+        petit entretien P2:
+          # =IFERROR('Paramètres économiques'!D172*(1+TVA_P2)*$F$24,)
+          formule: Paramètres économiques . Petit entretien P2 . Chauffe-eau solaire * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC/an
+        gros entretien P3:
+          formule: Paramètres économiques . Gros entretien P3 . Chauffe-eau solaire * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Investissement panneaux solaires pour ballon ECS
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+
+Calcul Eco . Montant des aides par logement tertiaire:
+  avec:
+    Réseaux de chaleur:
+      avec:
+        Ma prime renov':
+          # =IF($B$91="Eligible",XLOOKUP(1,('Ratios économiques - Aides'!$A$9:$A$26='Paramètres économiques'!$D$213)*('Ratios économiques - Aides'!$B$9:$B$26='Calculs économiques'!A97),'Ratios économiques - Aides'!$C$9:$C$26,0),0)
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          # =IF($B$92="Eligible",
+          # IF('Paramètres économiques'!$D$213="Modeste",XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$267:$B$272,'Ratios économiques - Aides'!$C$267:$C$272,0),XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$273:$B$278,'Ratios économiques - Aides'!$C$273:$C$278,0)),0)
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =(IF('Calculs techniques'!$B$13="Résidentiel Collectif",
+          #   IF('Calculs techniques'!$B$17<'Ratios économiques - Aides'!$B$37,'Ratios économiques - Aides'!$C$36,'Ratios économiques - Aides'!$C$37*'Calculs techniques'!$B$17+'Ratios économiques - Aides'!$C$38),
+          #   IF('Calculs techniques'!$B$14<'Ratios économiques - Aides'!$B$41,'Ratios économiques - Aides'!$C$40,'Ratios économiques - Aides'!$C$41*'Calculs techniques'!$B$14+'Ratios économiques - Aides'!$C$42))
+          # *'Calculs économiques'!$B$94*'Ratios économiques - Aides'!$C$39)/'Calculs techniques'!$B$17
+          # QUESTION : pas besoin d'être éligible CEE ici ?
+          # QUESTION : 'Calculs techniques'!$B$13="Résidentiel Collectif" => ne vaut jamais cette valeur car contient toujours ECS
+          produit:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - type de bâtiment = 'résidentiel'
+                    - ratios . GNRL Type de résidentiel = 'Collectif'
+                alors:
+                  variations:
+                    - si: nombre de logement dans l'immeuble concerné <= 125
+                      alors: ratios économiques x aides . CEE x FCU x Résidentiel inf 125 appt
+                    - sinon: ratios économiques x aides . CEE x FCU x Résidentiel sup 125 variable * nombre de logement dans l'immeuble concerné + ratios économiques x aides . CEE x FCU x Résidentiel sup 125 fixe
+              - sinon:
+                  variations:
+                    - si: surface logement type tertiaire <= 7500
+                      alors: ratios économiques x aides . CEE x FCU x Tertiaire inf 7500 appt
+                    - sinon: ratios économiques x aides . CEE x FCU x Tertiaire sup 7500 variable * surface logement type tertiaire + ratios économiques x aides . CEE x FCU x Tertiaire sup 7500 fixe
+            - Paramètres économiques . Aides . Valeur CEE
+            - ratios économiques x aides . CEE x RCU x facteur correctif
+            - 1 / nombre de logement dans l'immeuble concerné
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Réseaux de froid:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",IF('Paramètres économiques'!$C$7="Résidentiel",0,XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$334:$B$342,'Ratios économiques - Aides'!$C$334:$C$342)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$331:$B$333,'Ratios économiques - Aides'!$C$331:$C$333)*'Paramètres économiques'!$C$21*$B$94),0)
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible CEE
+              alors:
+                variations:
+                  - si: type de bâtiment = 'résidentiel'
+                    alors: 0
+                  - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * Installation x Réseaux de froid x Collectif . gamme de puissance existante * Paramètres économiques . Aides . Valeur CEE
+            - sinon: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Poêle à granulés indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Chaudière à granulés coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz indiv avec cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz indiv sans cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz coll avec cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",
+          # IF('Paramètres économiques'!$C$7="Résidentiel",0,
+          # IFS(AND(Prod_ECS?="Non",'Paramètres économiques'!$C$30<400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$458:$B$466,'Ratios économiques - Aides'!$C$458:$C$466)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$451:$B$453,'Ratios économiques - Aides'!$C$451:$C$453)*'Paramètres économiques'!$C$12*$B$94,
+          # AND(Prod_ECS?="Oui",'Paramètres économiques'!$C$30<400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$458:$B$466,'Ratios économiques - Aides'!$C$458:$C$466)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$454:$B$456,'Ratios économiques - Aides'!$C$454:$C$456)*'Paramètres économiques'!$C$12*$B$94,
+          # AND(Prod_ECS?="Non",'Paramètres économiques'!$C$30>400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$476:$B$484,'Ratios économiques - Aides'!$C$476:$C$484)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$470:$B$472,'Ratios économiques - Aides'!$C$470:$C$472)*'Paramètres économiques'!$C$12*$B$94,
+          # AND(Prod_ECS?="Oui",'Paramètres économiques'!$C$30>400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$476:$B$484,'Ratios économiques - Aides'!$C$476:$C$484)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$473:$B$475,'Ratios économiques - Aides'!$C$473:$C$475)*'Paramètres économiques'!$C$12*$B$94
+          # )),0)
+          # QUESTION : je transforme < 400 en <= 400 ?
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible CEE
+              alors:
+                variations:
+                  - si: type de bâtiment = 'résidentiel'
+                    alors: 0
+                  - sinon:
+                      variations:
+                        - si:
+                            toutes ces conditions:
+                              - Production eau chaude sanitaire = non
+                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
+                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x montant chauffage seul * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
+                        - si:
+                            toutes ces conditions:
+                              - Production eau chaude sanitaire
+                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
+                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x montant chauffage avec ECS * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
+                        - si:
+                            toutes ces conditions:
+                              - Production eau chaude sanitaire = non
+                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante > 400
+                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x montant chauffage seul * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
+                        - si:
+                            toutes ces conditions:
+                              - Production eau chaude sanitaire
+                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante > 400
+                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x montant chauffage avec ECS * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
+                        - sinon: 0
+            - sinon: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Gaz coll sans cond:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Fioul indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Fioul coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-air indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC eau-eau indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-eau indiv:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-air coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",
+          # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Individuel",'Paramètres économiques'!$C$9="Appartement"),XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$51:$B$53,'Ratios économiques - Aides'!$C$51:$C$53)*XLOOKUP('Paramètres économiques'!$C$12,'Ratios économiques - Aides'!$B$55:$B$61,'Ratios économiques - Aides'!$C$55:$C$61,,-1)*$B$94,
+          # AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Individuel",'Paramètres économiques'!$C$9="Maison"),XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$65:$B$67,'Ratios économiques - Aides'!$C$65:$C$67)*XLOOKUP('Paramètres économiques'!$C$12,'Ratios économiques - Aides'!$B$69:$B$75,'Ratios économiques - Aides'!$C$69:$C$75,,-1)*$B$94,
+          # AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Collectif"),0,
+          # AND('Paramètres économiques'!$C$7="Tertiaire",'Paramètres économiques'!$C$36*'Paramètres économiques'!#REF!<12),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$355:$B$363,'Ratios économiques - Aides'!$C$355:$C$363)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$351:$B$353,'Ratios économiques - Aides'!$C$351:$C$353)*'Paramètres économiques'!$C$12*$B$94,
+          # AND('Paramètres économiques'!$C$7="Tertiaire",'Paramètres économiques'!$C$36*'Paramètres économiques'!#REF!>12),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$371:$B$379,'Ratios économiques - Aides'!$C$371:$C$379)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$367:$B$369,'Ratios économiques - Aides'!$C$367:$C$369)*'Paramètres économiques'!$C$12*$B$94
+          # ),0)
+          # QUESTION: C36 corrigé en D36 a priori, la valeur finale retenue (colonne de droite) n'est pas toujours utilisée
+          # QUESTION: pb de ref pour les parties tertiaire
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible CEE
+              alors:
+                variations:
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'résidentiel'
+                        - type de production ECS = 'Individuel'
+                        - ratios . GNRL Appartement ou maison = 'Appartement'
+                    alors: ratios économiques x aides . CEE x PAC air-air inf 12kW appartement indiv x montant * ratios économiques x aides . CEE x PAC air-air inf 12kW appartement indiv x facteur correctif
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'résidentiel'
+                        - type de production ECS = 'Individuel'
+                        - ratios . GNRL Appartement ou maison = 'Maison'
+                    alors: ratios économiques x aides . CEE x PAC air-air inf 12kW maison indiv x montant * ratios économiques x aides . CEE x PAC air-air inf 12kW maison indiv x facteur correctif
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'résidentiel'
+                        - type de production ECS = 'Collectif'
+                    alors: 0
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'tertiaire'
+                        - Installation x PAC air-air x Individuel . gamme de puissance existante * 1.00000 <= 12 # FIXME manque une variable ici
+                    alors: ratios économiques x aides . Tertiaire . CEE x PAC air-air inf 12kW x montant * ratios économiques x aides . Tertiaire . CEE x PAC air-air inf 12kW x facteur correctif
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'tertiaire'
+                        - Installation x PAC air-air x Individuel . gamme de puissance existante * 1.00000 > 12 # FIXME manque une variable ici
+                    alors: ratios économiques x aides . Tertiaire . CEE x PAC air-air inf 12kW x montant * ratios économiques x aides . Tertiaire . CEE x PAC air-air sup 12kW x facteur correctif
+                  - sinon: 0
+            - sinon: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC eau-eau coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IFERROR(IF($B$93="Eligible",
+          # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Individuel",'Paramètres économiques'!$C$9="Maison",Prod_ECS?="Non"),2),0),0)
+          # QUESTION: quelles sont les valeurs permises pour la case 'Paramètres économiques'!$C$8 ? J'avais l'impression que c'était équivalent à type de production ECS ('Paramètres techniques'!$C$29), mais il semble y avoir Individuel aussi.
+          # FIXME vérifier selon réponse elcimai
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Paramètres économiques . Aides . Aides x Éligible CEE
+                  - type de bâtiment = 'résidentiel'
+                  - type de production ECS = 'Individuel'
+                  - ratios . GNRL Appartement ou maison = 'Maison'
+                  - Production eau chaude sanitaire = non
+              alors: 2
+            - sinon: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    PAC air-eau coll:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Radiateur électrique:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    Panneau solaire thermique pour production ECS:
+      avec:
+        Ma prime renov':
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",
+          # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Solaire Thermique"),Besoin_ECS*'Paramètres techniques'!$D$197*'Ratios économiques - Aides'!$C$261*$B$94*Nb_lgt,
+          # 'Paramètres économiques'!$C$7="Tertiaire",Besoin_ECS*'Paramètres techniques'!$D$197*'Ratios économiques - Aides'!$C$447*$B$94
+          # ),0)
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible CEE
+              alors:
+                variations:
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'résidentiel'
+                        - type de production ECS = 'Solaire thermique'
+                    alors: besoins eau chaude sanitaire par appartement * ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS * ratios économiques x aides . CEE x Chauffe-eau solaire collectif x Ratio * Paramètres économiques . Aides . Valeur CEE * nombre de logement dans l'immeuble concerné
+                  - si: type de bâtiment = 'tertiaire'
+                    alors: besoins eau chaude sanitaire par appartement * ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS * ratios économiques x aides . Tertiaire . CEE x Chauffe-eau solaire x Ratio
+            - sinon: 0
+          unité: €
+        Total:
+          formule: Ma prime renov' + Coup de pouce + CEE
+          unité: €
+    # Chauffe-eau électrique à accumulation:
+
+

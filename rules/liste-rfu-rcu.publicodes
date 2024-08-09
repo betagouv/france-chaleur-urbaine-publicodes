@@ -1,0 +1,77 @@
+# Contient les caractéristiques des réseaux de chaleur et de froid sélectionnés dans l'UI.
+# Elles seront mises à jour directement en dehors du simulateur.
+# Par défaut, les valeurs sont les moyennes chaud et froid.
+
+caractéristique réseau de chaleur:
+  avec:
+    contenu CO2:
+      par défaut: 0.0883
+      unité: kg CO2/kWh
+      source: 2021
+    contenu CO2 ACV:
+      par défaut: 0.117
+      unité: kg CO2/kWh
+      source: 2021
+    taux EnRR:
+      par défaut: 69
+      unité: '%'
+      source: 2021
+    livraisons totales:
+      unité: MWh
+    production totale:
+      unité: MWh
+    prix moyen:
+      par défaut: 115.46
+      unité: €TTC/MWh
+    coût résidentiel:
+      par défaut: 107.89
+      QUESTION: colonne indiquée à retravailler
+      unité: €TTC/MWh
+    coût tertiaire:
+      QUESTION: colonne indiquée à retravailler
+      par défaut: 126.17
+      unité: €TTC/MWh
+    part fixe:
+      QUESTION: colonne indiquée à retravailler
+      par défaut: 0.395
+      unité: '%'
+    part variable:
+      QUESTION: colonne indiquée à retravailler
+      par défaut: 0.605
+      unité: '%'
+
+caractéristique réseau de froid:
+  avec:
+    contenu CO2:
+      par défaut: 0.011
+      unité: kg CO2/kWh
+      source: 2021
+    contenu CO2 ACV:
+      par défaut: 0.021
+      unité: kg CO2/kWh
+      source: 2021
+    taux EnRR:
+      unité: '%'
+      source: 2021
+    livraisons totales:
+      unité: MWh
+    production totale:
+      unité: MWh
+    prix moyen:
+      unité: €TTC/MWh
+    coût résidentiel:
+      par défaut: 100
+      QUESTION: colonne indiquée à retravailler
+      unité: €TTC/MWh
+    coût tertiaire:
+      QUESTION: colonne indiquée à retravailler
+      par défaut: 130
+      unité: €TTC/MWh
+    part fixe:
+      QUESTION: colonne indiquée à retravailler
+      par défaut: 0.6
+      unité: '%'
+    part variable:
+      QUESTION: colonne indiquée à retravailler
+      par défaut: 0.4
+      unité: '%'

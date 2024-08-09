@@ -7,16 +7,23 @@ import ReactMardown from "react-markdown"
 
 // Import the model from the compiled JSON file
 import model from "../../france-chaleur-urbaine-publicodes.model.json"
+import type { DottedName}  from "../../index.d.ts"
 
 // Instantiate the publicodes engine with the model
-const engine = new Engine(model)
+const engine = new Engine(model, {
+  strict: {
+    noOrphanRule: false,
+  },
+});
+
+(window as any).engine = engine
 
 // The base URL of the application (in production, the app is served from a subdirectory of
 // the github pages repository, so we need to prefix all the URLs with the subdirectory)
 const baseUrl = process.env.NODE_ENV === "development" ? "" : "/france-chaleur-urbaine-publicodes"
 
 // The default rule to display when the user lands on the documentation
-const defaultRule = "résultat . interpretation"
+const defaultRule: DottedName  = "besoins chauffage par appartement"
 
 function Documentation() {
   const url = useParams()["*"]
