@@ -787,45 +787,6 @@ Installation x PAC air-eau x Collectif:
           alors: consommation auxilliaire + consommation d'électricité + appoint d'électricité
         - sinon: consommation auxilliaire + consommation combustible chaleur + consommation combustible froid
 
-Installation x PAC absorption gaz x Collectif:
-  avec:
-    production eau chaude sanitaire: Production eau chaude sanitaire
-    puissance nécessaire équipement chauffage:
-      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC AB SCOP coll) * nombre de logement dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
-      unité: kW
-    puissance nécessaire pour ECS avec équipement:
-      applicable si: production eau chaude sanitaire
-      formule: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC AB SCOP coll)
-      unité: kW
-    puissance équipement:
-      somme:
-        - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour ECS avec équipement
-      unité: kW
-    gamme de puissance existante:
-      formule: puissance équipement / (ratios . PAC AB Puissance unitaire coll + 1 ) * ratios . PAC AB Puissance unitaire coll
-      unité: kW
-
-
-    # absent en production différenciée
-    # besoin d'installation supplémentaire pour produire l'ECS: non
-    consommation combustible chaleur:
-      formule: ( besoins chauffage par appartement + besoins eau chaude sanitaire par appartement ) / ratios . PAC AIR EAU SCOP coll # FIXME, pkoi n'était-il pas fait ?
-    # consommation combustible froid:
-    #   formule: 11
-    # consommation auxilliaire:
-    #   formule: 12
-    # durée avant renouvellement:
-    #   formule: 13
-    # consommation d'électricité:
-    #   formule: 14
-    # appoint d'électricité:
-    #   formule: consommation combustible chaleur
-
-    # calculs économiques:
-    investissement équipement total:
-      unité: €
-
 Installation x Radiateur électrique x Individuel:
   avec:
     production eau chaude sanitaire: non
