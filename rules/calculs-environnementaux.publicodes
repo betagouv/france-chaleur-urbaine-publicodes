@@ -614,37 +614,6 @@ env . Installation x PAC air-eau x Collectif:
               - Scope 3
         - sinon: "'Pas concerné'"
 
-env . Installation x PAC absorption gaz x Collectif:
-  avec:
-    besoins de chauffage: 0
-    besoins d'ECS: 0
-    auxiliaires et combustible électrique:
-      # F59 =XLOOKUP(A59;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      formule: Installation x PAC absorption gaz x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne
-      unité: kgCO2 équ.
-    ECS solaire thermique: 0
-    ECS avec ballon électrique: 0
-    Scope 3:
-      # J59
-      formule: ratios environnementaux . CO2 INS PAC absorption gaz * Installation x PAC absorption gaz x Collectif . gamme de puissance existante
-    Total émissions avec ECS produite par l'installation:
-      # M59 =IF($B$17="Oui";D59+E59+F59+J59;D59+F59+J59)
-      # QUESTION déjà posée: D59 et E59 n'existent pas car grisés, à supprimer dans l'excel original
-      somme:
-        - auxiliaires et combustible électrique
-        - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # N59 =IF(@Prod_ECS?="Non";D59+F59+J59;"Pas concerné")
-      # QUESTION déjà posée: D59 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
-
 env . Installation x Radiateur électrique x Individuel:
   avec:
     besoins de chauffage: 0

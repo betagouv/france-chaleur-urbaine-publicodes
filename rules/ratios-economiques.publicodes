@@ -390,18 +390,6 @@ ratios économiques:
         - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
         - Installation x PAC air-eau x Collectif . gamme de puissance existante
 
-    PAC x absorption gaz:
-      avec:
-        Coût investissement:
-          valeur: 514
-          unité: €HT/kW
-          note: 'Source: France air, moèle Xinoé reversible 2024'
-
-    PAC x absorption gaz x Collectif:
-      produit:
-        - ratios économiques . PAC x absorption gaz . Coût investissement
-        - Installation x PAC absorption gaz x Collectif . gamme de puissance existante
-
     Radiateur électrique:
       avec:
         Coût investissement Puissance 2kW:
