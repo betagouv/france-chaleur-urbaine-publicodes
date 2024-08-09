@@ -5,14 +5,17 @@ code département:
   question: code département de l'utilisateur
   par défaut: "'31'"
 
+département:
+département . degré jours unifié spécifique chaud: département . degré jours unifié spécifique chaud # se fait remplacer par les données département
 degré jours unifié spécifique chaud:
-  par défaut: degré jours unifié spécifique chaud # se fait remplacer par les données département
-  unité: °C
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$C$6:$C$101,'Ratios techniques'!$C$10,0)
-degré jours unifié spécifique froid:
-  par défaut: degré jours unifié spécifique froid # se fait remplacer par les données département
+  par défaut: département . degré jours unifié spécifique chaud
   unité: °C
+département . degré jours unifié spécifique froid: département . degré jours unifié spécifique froid # se fait remplacer par les données département
+degré jours unifié spécifique froid:
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$D$6:$D$101,"",0)
+  par défaut: département . degré jours unifié spécifique froid
+  unité: °C
 température de référence chaud:
   # =XLOOKUP(commune,Communes!$C$6:$C$36618,Communes!$G$6:$G$36618,,0)
   # FIXME: à définir en externe
