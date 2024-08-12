@@ -1509,8 +1509,8 @@ Calcul Eco . Montant des aides par logement tertiaire:
           # AND('Paramètres économiques'!$C$7="Tertiaire",'Paramètres économiques'!$C$36*'Paramètres économiques'!#REF!<12),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$355:$B$363,'Ratios économiques - Aides'!$C$355:$C$363)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$351:$B$353,'Ratios économiques - Aides'!$C$351:$C$353)*'Paramètres économiques'!$C$12*$B$94,
           # AND('Paramètres économiques'!$C$7="Tertiaire",'Paramètres économiques'!$C$36*'Paramètres économiques'!#REF!>12),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$371:$B$379,'Ratios économiques - Aides'!$C$371:$C$379)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$367:$B$369,'Ratios économiques - Aides'!$C$367:$C$369)*'Paramètres économiques'!$C$12*$B$94
           # ),0)
-          # QUESTION: C36 corrigé en D36 a priori, la valeur finale retenue (colonne de droite) n'est pas toujours utilisée
-          # QUESTION: pb de ref pour les parties tertiaire
+          # QUESTION déjà posée: C36 corrigé en D36 a priori, la valeur finale retenue (colonne de droite) n'est pas toujours utilisée
+          # QUESTION déjà posée: pb de ref pour les parties tertiaire
           variations:
             - si: Paramètres économiques . Aides . Aides x Éligible CEE
               alors:
@@ -1559,7 +1559,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
         CEE:
           # =IFERROR(IF($B$93="Eligible",
           # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Individuel",'Paramètres économiques'!$C$9="Maison",Prod_ECS?="Non"),2),0),0)
-          # QUESTION: quelles sont les valeurs permises pour la case 'Paramètres économiques'!$C$8 ? J'avais l'impression que c'était équivalent à type de production ECS ('Paramètres techniques'!$C$29), mais il semble y avoir Individuel aussi.
+          # QUESTION déjà posée: quelles sont les valeurs permises pour la case 'Paramètres économiques'!$C$8 ? J'avais l'impression que c'était équivalent à type de production ECS ('Paramètres techniques'!$C$29), mais il semble y avoir Individuel aussi.
           # FIXME vérifier selon réponse elcimai
           variations:
             - si:

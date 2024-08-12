@@ -25,18 +25,18 @@ caractéristique réseau de chaleur:
       unité: €TTC/MWh
     coût résidentiel:
       par défaut: 107.89
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       unité: €TTC/MWh
     coût tertiaire:
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       par défaut: 126.17
       unité: €TTC/MWh
     part fixe:
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       par défaut: 0.395
       unité: '%'
     part variable:
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       par défaut: 0.605
       unité: '%'
 
@@ -61,17 +61,17 @@ caractéristique réseau de froid:
       unité: €TTC/MWh
     coût résidentiel:
       par défaut: 100
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       unité: €TTC/MWh
     coût tertiaire:
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       par défaut: 130
       unité: €TTC/MWh
     part fixe:
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       par défaut: 0.6
       unité: '%'
     part variable:
-      QUESTION: colonne indiquée à retravailler
+      # QUESTION déjà posée: colonne indiquée à retravailler
       par défaut: 0.4
       unité: '%'

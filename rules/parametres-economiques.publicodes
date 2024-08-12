@@ -127,19 +127,19 @@ Paramètres économiques:
               - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
       # B112
-      # QUESTION: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
+      # QUESTION déjà posée: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
       par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel individuel
       unité: €/an
     Electricité x Abonnement Part Fixe coll:
       # B113
-      # QUESTION: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
+      # QUESTION déjà posée: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
       par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif
       unité: €/an
     Electricité x Consommation Part variable:
       # B114 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!D:D;"Non trouvé")
       # D114 =IF(C114="";B114*(1+D124)+D123;C114)
-      # QUESTION: il est marqué HT dans le libellé de gauche alors alors que c'est du TTC dans la colonne de droite
-      # QUESTION: ici in ne prend en compte que les heures pleines, il serait plus judicieux de calculer le prix moyen HP HC
+      # QUESTION déjà posée: il est marqué HT dans le libellé de gauche alors alors que c'est du TTC dans la colonne de droite
+      # QUESTION déjà posée: ici in ne prend en compte que les heures pleines, il serait plus judicieux de calculer le prix moyen HP HC
       par défaut:
         somme:
           - ratios économiques . Coût des combustibles x Electricité . Prix de l'énergie * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
@@ -150,8 +150,8 @@ Paramètres économiques:
       avec:
         Part Fixe x CTA:
           # B120 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!J:J;"Non trouvé")
-          # QUESTION: ceci ne prend pas en compte la TURPE car elle ne prend que J:J et la TURPE est dans la colonne K
-          # QUESTION: cela ne change pas pour du collectif?
+          # QUESTION déjà posée: ceci ne prend pas en compte la TURPE car elle ne prend que J:J et la TURPE est dans la colonne K
+          # QUESTION déjà posée: cela ne change pas pour du collectif?
           par défaut: ratios économiques . Coût des combustibles x Electricité . Contribution tarifaire d'acheminement CTA
           unité: €/an
         Part Fixe x TVA:
@@ -167,7 +167,7 @@ Paramètres économiques:
       unité: kW
     Gas x Abonnement x Part Fixe TTC collectif ou tertiaire:
       # B90 =(XLOOKUP($D$89,'Calcul tarif gaz tertitaire'!$A$24:$A$69,'Calcul tarif gaz tertitaire'!$B$24:$B$69,,1)+'Ratios économiques - Coûts'!$C$226)*(1+'Ratios économiques - Coûts'!$C$227)
-      QUESTION: est-ce qu'il faudrait pas utiliser la TVA part fixe des paramètres plutôt que des ratios ? Paramètres utilisé pour le moment
+      # QUESTION déjà posée: est-ce qu'il faudrait pas utiliser la TVA part fixe des paramètres plutôt que des ratios ? Paramètres utilisé pour le moment
       par défaut:
         produit:
           - somme:
