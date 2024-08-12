@@ -451,7 +451,7 @@ env . Installation x PAC air-air x Collectif:
       formule: ECS avec ballon électrique - ECS solaire thermique
     Scope 3:
       # J54 =(XLOOKUP(A54;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A54;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
+      # QUESTION déjà posée: le LEFT semble etre faux car il ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
       formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante
     Total émissions avec ECS produite par solaire thermique:
       # K54 =IF($B$17="Oui";D54+F54+G54+J54)
