@@ -209,7 +209,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
@@ -322,7 +322,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
@@ -379,7 +379,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
@@ -551,7 +551,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
@@ -663,7 +663,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
@@ -728,7 +728,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
@@ -781,7 +781,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
@@ -995,7 +995,7 @@ Calcul Eco:
             - ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
+          valeur: Investissement équipement Total
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
