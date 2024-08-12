@@ -1,5 +1,5 @@
 tarif gaz tertiaire x estimation part fixe:
-  QUESTION: on fait bien <= plutôt que = ? Car les seuils du excel n'ont pas les mêmes points (par exemple 120 kW vs 150 kW)
+  # QUESTION déjà posée: on fait bien <= plutôt que = ? Car les seuils du excel n'ont pas les mêmes points (par exemple 120 kW vs 150 kW)
   variations:
     - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 4
       alors: 187.05
