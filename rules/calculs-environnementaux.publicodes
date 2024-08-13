@@ -139,7 +139,7 @@ env . Installation x Chaudière à granulés coll x Collectif:
       formule: Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur / ratios . GRA CHAUD Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      # =XLOOKUP(A46;'Calculs techniques'!$A$95:$A$110;'Calculs techniques'!$F$95:$F$110)*'Ratios environnementaux'!$C$26
+      # ='Calculs techniques'!F96*'Ratios environnementaux'!$C$25
       formule: Installation x Chaudière à granulés coll x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
@@ -354,9 +354,10 @@ env . Installation x PAC air-air x Individuel:
   avec:
     besoins de chauffage: 0
     auxiliaires et combustible électrique:
-      # =XLOOKUP(LEFT(A53;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: Installation x PAC air-air x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      # =('Calculs techniques'!C103+'Calculs techniques'!F102)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D103*'Ratios environnementaux'!$C$27
+      somme:
+        - (Installation x PAC air-air x Individuel . consommation combustible chaleur + Installation x PAC air-air x Individuel . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - Installation x PAC air-air x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
@@ -401,9 +402,10 @@ env . Installation x PAC air-air x Collectif:
   avec:
     besoins de chauffage: 0
     auxiliaires et combustible électrique:
-      # F54 =XLOOKUP(LEFT(A54;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: Installation x PAC air-air x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      # =('Calculs techniques'!C106+'Calculs techniques'!F105)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D106*'Ratios environnementaux'!$C$27
+      somme:
+        - (Installation x PAC air-air x Collectif . consommation combustible chaleur + Installation x PAC air-air x Collectif . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - Installation x PAC air-air x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique:
       formule: ratios environnementaux . ECS solaire thermique
@@ -448,10 +450,10 @@ env . Installation x PAC eau-eau x Individuel:
   avec:
     besoins de chauffage: 0
     auxiliaires et combustible électrique:
-      # F55 =XLOOKUP(LEFT(A55;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      # FIXME il n'y a pas de "eau-eau Indiv" donc j'ai mis "Installation x PAC eau-eau x Individuel"
-      formule: Installation x PAC eau-eau x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      # =('Calculs techniques'!C104+'Calculs techniques'!F103)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D104*'Ratios environnementaux'!$C$27
+      somme:
+        - (Installation x PAC eau-eau x Individuel . consommation combustible chaleur + Installation x PAC eau-eau x Individuel . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - Installation x PAC eau-eau x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -482,10 +484,10 @@ env . Installation x PAC eau-eau x Collectif:
   avec:
     besoins de chauffage: 0
     auxiliaires et combustible électrique:
-      # =XLOOKUP(LEFT(A56;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      # FIXME il n'y a pas de "eau-eau Collectif" donc j'ai mis "Installation x PAC eau-eau x Collectif"
-      formule: Installation x PAC eau-eau x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      # =('Calculs techniques'!C107+'Calculs techniques'!F106)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D107*'Ratios environnementaux'!$C$27
+      somme:
+        - (Installation x PAC eau-eau x Collectif . consommation combustible chaleur + Installation x PAC eau-eau x Collectif . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - Installation x PAC eau-eau x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -516,9 +518,10 @@ env . Installation x PAC air-eau x Individuel:
   avec:
     besoins de chauffage: 0
     auxiliaires et combustible électrique:
-      # F57 =XLOOKUP(LEFT(A57;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: Installation x PAC air-eau x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      # =('Calculs techniques'!C105+'Calculs techniques'!F104)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D105*'Ratios environnementaux'!$C$27
+      somme:
+        - (Installation x PAC air-eau x Individuel . consommation combustible chaleur + Installation x PAC air-eau x Individuel . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - Installation x PAC air-eau x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -548,9 +551,10 @@ env . Installation x PAC air-eau x Collectif:
   avec:
     besoins de chauffage: 0
     auxiliaires et combustible électrique:
-      # F58 =XLOOKUP(LEFT(A58;11);'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: Installation x PAC air-eau x Collectif . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      # =('Calculs techniques'!C108+'Calculs techniques'!F107)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D108*'Ratios environnementaux'!$C$27
+      somme:
+        - (Installation x PAC air-eau x Collectif . consommation combustible chaleur + Installation x PAC air-eau x Collectif . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - Installation x PAC air-eau x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
