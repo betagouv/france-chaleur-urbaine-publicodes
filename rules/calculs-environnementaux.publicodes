@@ -93,7 +93,8 @@ env . Installation x Réseaux de froid x Collectif:
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé poêle à bois
+      # ='Calculs techniques'!C95/Conso_comb_GRA_Poele*(XLOOKUP(C45,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur / ratios . GRA POELE Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé poêle à bois
       unité: kgCO2 équ.
     besoins d'ECS: 0
     auxiliaires et combustible électrique: 0
@@ -136,7 +137,8 @@ env . Installation x Poêle à granulés indiv x Individuel:
 env . Installation x Chaudière à granulés coll x Collectif:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé chaudière
+      # ='Calculs techniques'!C96/Conso_comb_GRA_Chaud*(XLOOKUP(C46,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur / ratios . GRA CHAUD Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé chaudière
       unité: kgCO2 équ.
     besoins d'ECS:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Granulé chaudière
@@ -173,7 +175,8 @@ env . Installation x Chaudière à granulés coll x Collectif:
 env . Installation x Gaz indiv avec cond x Individuel:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      # ='Calculs techniques'!C97/Conso_comb_GAZ_indiv_cond*(XLOOKUP(C47,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     besoins d'ECS:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
@@ -209,7 +212,8 @@ env . Installation x Gaz indiv avec cond x Individuel:
 env . Installation x Gaz indiv sans cond x Individuel:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      # ='Calculs techniques'!C98/Conso_comb_GAZ_indiv_scond*(XLOOKUP(C48,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     besoins d'ECS:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
@@ -245,7 +249,8 @@ env . Installation x Gaz indiv sans cond x Individuel:
 env . Installation x Gaz coll avec cond x Collectif:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      # ='Calculs techniques'!C99/Conso_comb_GAZ_coll_cond*(XLOOKUP(C49,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     besoins d'ECS:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
@@ -281,7 +286,8 @@ env . Installation x Gaz coll avec cond x Collectif:
 env . Installation x Gaz coll sans cond x Collectif:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      # ='Calculs techniques'!C100/Conso_comb_GAZ_coll_scond*(XLOOKUP(C50,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     besoins d'ECS:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
@@ -317,7 +323,8 @@ env . Installation x Gaz coll sans cond x Collectif:
 env . Installation x Fioul indiv x Individuel:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      # ='Calculs techniques'!C101/Conso_comb_FIOUL_indiv*(XLOOKUP(C51,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Fioul indiv x Individuel . consommation combustible chaleur / ratios . FIOUL IND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     besoins d'ECS:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Fioul chaudière
@@ -353,7 +360,8 @@ env . Installation x Fioul indiv x Individuel:
 env . Installation x Fioul coll x Collectif:
   avec:
     besoins de chauffage:
-      formule: besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      # ='Calculs techniques'!C102/Conso_comb_FIOUL_coll*(XLOOKUP(C52,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Fioul coll x Collectif . consommation combustible chaleur / ratios . FIOUL COLL Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     besoins d'ECS:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Fioul chaudière
