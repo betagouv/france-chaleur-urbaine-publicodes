@@ -45,16 +45,21 @@ ratios environnementaux:
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2023'
 
-    Emission moy Photovoltaique:
+    Emission moy Parc électrique francais moyenne chauffage:
       # Ratios environnementaux'!$C$25
-      formule: 0.0439
-      unité: kgCO2e/kWh
-      note: 'Source: Base Empreinte 2023'
-    Emission moy Parc électrique francais moyenne:
-      # Ratios environnementaux'!$C$26
-      formule: 0.052
+      formule: 0.0693
       unité: kgCO2eq/kWh
-      note: 'Source: Base Empreinte 2023'
+      note: 'Source: Base Empreinte 2020'
+    Emission moy Parc électrique francais moyenne ECS:
+      # Ratios environnementaux'!$C$26
+      formule: 0.0585
+      unité: kgCO2eq/kWh
+      note: 'Source: Base Empreinte 2020'
+    Emission moy Parc électrique francais moyenne froid:
+      # Ratios environnementaux'!$C$27
+      formule: 0.0583
+      unité: kgCO2eq/kWh
+      note: 'Source: Base Empreinte 2020'
     Emission moy Ratio moyen RC:
       # Ratios environnementaux'!$C$27
       formule: 0.0972
@@ -171,4 +176,4 @@ ratios environnementaux:
     # FIXME à voir si ç doit bien être dans ce fichier. Estce qu'un ratio de ratio est un ratio ou un calcul?
     ECS avec ballon électrique:
       # =$B$15*'Ratios environnementaux'!$C$26
-      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission moy Parc électrique francais moyenne
+      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
