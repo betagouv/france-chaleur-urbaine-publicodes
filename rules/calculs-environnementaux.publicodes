@@ -140,7 +140,7 @@ env . Installation x Chaudière à granulés coll x Collectif:
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
       # ='Calculs techniques'!F96*'Ratios environnementaux'!$C$25
-      formule: Installation x Chaudière à granulés coll x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -171,7 +171,7 @@ env . Installation x Gaz indiv avec cond x Individuel:
       formule: Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz indiv avec cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -202,7 +202,7 @@ env . Installation x Gaz indiv sans cond x Individuel:
       formule: Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz indiv sans cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -233,7 +233,7 @@ env . Installation x Gaz coll avec cond x Collectif:
       formule: Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz coll avec cond x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: Installation x Gaz coll avec cond x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -264,7 +264,7 @@ env . Installation x Gaz coll sans cond x Collectif:
       formule: Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz coll sans cond x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: Installation x Gaz coll sans cond x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -295,7 +295,7 @@ env . Installation x Fioul indiv x Individuel:
       formule: Installation x Fioul indiv x Individuel . consommation combustible chaleur / ratios . FIOUL IND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: Installation x Fioul indiv x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: Installation x Fioul indiv x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -326,7 +326,7 @@ env . Installation x Fioul coll x Collectif:
       formule: Installation x Fioul coll x Collectif . consommation combustible chaleur / ratios . FIOUL COLL Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: Installation x Fioul coll x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: Installation x Fioul coll x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique:
@@ -356,7 +356,7 @@ env . Installation x PAC air-air x Individuel:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C103+'Calculs techniques'!F102)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D103*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC air-air x Individuel . consommation combustible chaleur + Installation x PAC air-air x Individuel . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - (Installation x PAC air-air x Individuel . consommation combustible chaleur + Installation x PAC air-air x Individuel . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC air-air x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique:
@@ -404,7 +404,7 @@ env . Installation x PAC air-air x Collectif:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C106+'Calculs techniques'!F105)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D106*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC air-air x Collectif . consommation combustible chaleur + Installation x PAC air-air x Collectif . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - (Installation x PAC air-air x Collectif . consommation combustible chaleur + Installation x PAC air-air x Collectif . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC air-air x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique:
@@ -452,7 +452,7 @@ env . Installation x PAC eau-eau x Individuel:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C104+'Calculs techniques'!F103)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D104*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC eau-eau x Individuel . consommation combustible chaleur + Installation x PAC eau-eau x Individuel . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - (Installation x PAC eau-eau x Individuel . consommation combustible chaleur + Installation x PAC eau-eau x Individuel . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC eau-eau x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0
@@ -486,7 +486,7 @@ env . Installation x PAC eau-eau x Collectif:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C107+'Calculs techniques'!F106)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D107*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC eau-eau x Collectif . consommation combustible chaleur + Installation x PAC eau-eau x Collectif . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - (Installation x PAC eau-eau x Collectif . consommation combustible chaleur + Installation x PAC eau-eau x Collectif . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC eau-eau x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0
@@ -520,7 +520,7 @@ env . Installation x PAC air-eau x Individuel:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C105+'Calculs techniques'!F104)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D105*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC air-eau x Individuel . consommation combustible chaleur + Installation x PAC air-eau x Individuel . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - (Installation x PAC air-eau x Individuel . consommation combustible chaleur + Installation x PAC air-eau x Individuel . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC air-eau x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0
@@ -553,7 +553,7 @@ env . Installation x PAC air-eau x Collectif:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C108+'Calculs techniques'!F107)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D108*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC air-eau x Collectif . consommation combustible chaleur + Installation x PAC air-eau x Collectif . consommation auxilliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - (Installation x PAC air-eau x Collectif . consommation combustible chaleur + Installation x PAC air-eau x Collectif . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC air-eau x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique: 0

@@ -1511,10 +1511,10 @@ ratios:
     RCU Rendement sous station ECS:
       valeur: 98%
       unité: '%'
-    RCU Conso auxilliaire chauffage:
+    RCU Conso auxiliaire chauffage:
       valeur: 96%
       unité: '%'
-    RCU Conso auxilliaire ECS:
+    RCU Conso auxiliaire ECS:
       valeur: 91%
       unité: '%'
     RCU Durée avant renouvellement:
@@ -1544,7 +1544,7 @@ ratios:
     GRA CHAUD Conso combustible:
       valeur: 0.217391304
       unité: kg/kWh
-    GRA CHAUD Conso auxilliaire:
+    GRA CHAUD Conso auxiliaire:
       valeur: 98%
       unité: '%'
     GRA CHAUD Durée de vie:
@@ -1559,10 +1559,10 @@ ratios:
     GAZ IND COND Conso combustible:
       valeur: 0.0970
       unité: Nm3/kWh PCI
-    GAZ IND COND Conso auxilliaire chauffage:
+    GAZ IND COND Conso auxiliaire chauffage:
       valeur: 96%
       unité: '%'
-    GAZ IND COND Conso auxilliaire ECS:
+    GAZ IND COND Conso auxiliaire ECS:
       valeur: 99%
       unité: '%'
     GAZ IND COND Durée de vie:
@@ -1574,10 +1574,10 @@ ratios:
     GAZ IND SCOND Conso combustible:
       valeur: 0.0970
       unité: Nm3/kWh PCI
-    GAZ IND SCOND Conso auxilliaire chauffage:
+    GAZ IND SCOND Conso auxiliaire chauffage:
       valeur: 96%
       unité: '%'
-    GAZ IND SCOND Conso auxilliaire ECS:
+    GAZ IND SCOND Conso auxiliaire ECS:
       valeur: 99%
       unité: '%'
     GAZ IND SCOND Durée de vie:
@@ -1592,10 +1592,10 @@ ratios:
     GAZ COLL COND Conso combustible:
       valeur: 0.0970
       unité: Nm3/kWh PCI
-    GAZ COLL COND Conso auxilliaire chauffage:
+    GAZ COLL COND Conso auxiliaire chauffage:
       valeur: 93%
       unité: '%'
-    GAZ COLL COND Conso auxilliaire ECS:
+    GAZ COLL COND Conso auxiliaire ECS:
       valeur: 97%
       unité: '%'
     GAZ COLL COND Durée de vie:
@@ -1607,10 +1607,10 @@ ratios:
     GAZ COLL SCOND Conso combustible:
       valeur: 0.0970
       unité: Nm3/kWh PCI
-    GAZ COLL SCOND Conso auxilliaire chauffage:
+    GAZ COLL SCOND Conso auxiliaire chauffage:
       valeur: 93%
       unité: '%'
-    GAZ COLL SCOND Conso auxilliaire ECS:
+    GAZ COLL SCOND Conso auxiliaire ECS:
       valeur: 97%
       unité: '%'
     GAZ COLL SCOND Durée de vie:
@@ -1622,10 +1622,10 @@ ratios:
     FIOUL IND Conso combustible:
       valeur: 0.0947
       unité: l/kWh PCI
-    FIOUL IND Conso auxilliaire chauffage:
+    FIOUL IND Conso auxiliaire chauffage:
       valeur: 93%
       unité: '%'
-    FIOUL IND Conso auxilliaire ECS:
+    FIOUL IND Conso auxiliaire ECS:
       valeur: 97%
       unité: '%'
     FIOUL IND Durée de vie:
@@ -1640,10 +1640,10 @@ ratios:
     FIOUL COLL Conso combustible:
       valeur: 0.0947
       unité: l/kWh PCI
-    FIOUL COLL Conso auxilliaire chauffage:
+    FIOUL COLL Conso auxiliaire chauffage:
       valeur: 93%
       unité: '%'
-    FIOUL COLL Conso auxilliaire ECS:
+    FIOUL COLL Conso auxiliaire ECS:
       valeur: 97%
       unité: '%'
     FIOUL COLL Durée de vie:
