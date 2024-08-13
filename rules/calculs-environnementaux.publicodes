@@ -256,7 +256,7 @@ env . Installation x Gaz coll avec cond x Collectif:
       formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz indiv avec cond x Individuel . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
+      formule: Installation x Gaz coll avec cond x Collectif . consommation auxilliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne
       unité: kgCO2 équ.
     ECS solaire thermique: 0
     ECS avec ballon électrique: 0
