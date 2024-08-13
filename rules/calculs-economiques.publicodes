@@ -134,7 +134,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -190,7 +190,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -245,7 +245,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -303,7 +303,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -354,13 +354,13 @@ Calcul Eco:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
             - Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur
-            - 1 / ratios . GAZ IND COND Conso auxilliaire chauffage
+            - 1 / ratios . GAZ IND COND Conso auxiliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -411,13 +411,13 @@ Calcul Eco:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
             - Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur
-            - 1 / ratios . GAZ IND SCOND Conso auxilliaire chauffage
+            - 1 / ratios . GAZ IND SCOND Conso auxiliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -468,13 +468,13 @@ Calcul Eco:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
             - Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur
-            - 1 / ratios . GAZ COLL COND Conso auxilliaire chauffage
+            - 1 / ratios . GAZ COLL COND Conso auxiliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -526,13 +526,13 @@ Calcul Eco:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
             - Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur
-            - 1 / ratios . GAZ COLL SCOND Conso auxilliaire chauffage
+            - 1 / ratios . GAZ COLL SCOND Conso auxiliaire chauffage
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -588,7 +588,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -644,7 +644,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -709,7 +709,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -762,7 +762,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -815,7 +815,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -868,7 +868,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -921,7 +921,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -974,7 +974,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
@@ -1029,7 +1029,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           # TODO
           unité: €TTC/an
-          note: "Coût électricité auxilliaire (P1') €TTC/an"
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
           # TODO
           unité: €TTC/an
