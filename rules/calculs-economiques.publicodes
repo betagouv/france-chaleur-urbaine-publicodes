@@ -732,14 +732,14 @@ Calcul Eco:
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
-            - si: Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+            - si: Installation x PAC eau-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS
               alors: Calcul Eco . Investissement ballon ECS à accumulation
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
           applicable si:
             toutes ces conditions:
-              - Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+              - Installation x PAC eau-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS = "Solaire thermique"
           formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
           unité: €TTC
@@ -891,14 +891,14 @@ Calcul Eco:
           unité: €TTC
         Investissement ballon ECS à accumulation:
           variations:
-            - si: Installation x PAC eau-eau champs de sondes x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+            - si: Installation x PAC eau-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS
               alors: Calcul Eco . Investissement ballon ECS à accumulation
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
           applicable si:
             toutes ces conditions:
-              - Installation x PAC eau-eau champs de sondes x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+              - Installation x PAC eau-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS = "Solaire thermique"
           formule: Calcul Eco . Investissement ballon ECS à accumulation + Calcul Eco . Investissement panneaux solaires pour ballon ECS
           unité: €TTC

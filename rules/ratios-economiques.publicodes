@@ -343,25 +343,25 @@ ratios économiques:
           # 'Paramètres économiques'!B74
           # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250;'Ratios économiques - Coûts'!C172;'Ratios économiques - Coûts'!C174)*IF(affichage="Technicien";1;(1+TVA_inv))
           produit:
-            - Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
+            - Installation x PAC eau-eau x Collectif . gamme de puissance existante
             - variations:
-              - si: Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante < 250
+              - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
                 alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW Coût investissement hors captage sous-sol coll
               - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
         Coûts captage sous-sol champs sur sonde:
           # 'Paramètres économiques'!B75
           # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250;'Ratios économiques - Coûts'!C173;'Ratios économiques - Coûts'!C175)*IF(affichage="Technicien";1;(1+TVA_inv))
           produit:
-            - Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante
+            - Installation x PAC eau-eau x Collectif . gamme de puissance existante
             - variations:
-              - si: Installation x PAC eau-eau champs de sondes x Collectif . gamme de puissance existante < 250
+              - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
                 alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW coût captage sous-sol coll
               - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW coût captage sous-sol coll
 
     PAC x eau-eau non réversible x Individuel:
       produit:
         - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
-        - Installation x PAC eau glycolée-eau capteurs verticaux x Individuel . gamme de puissance existante
+        - Installation x PAC eau-eau x Individuel . gamme de puissance existante
 
     PAC x eau-eau non réversible x Collectif:
       # 'Paramètres économiques'!B73
