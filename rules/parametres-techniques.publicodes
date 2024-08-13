@@ -248,8 +248,8 @@ besoins eau chaude sanitaire par appartement:
               alors: consommation spécifique ECS * Nombre d'habitants moyen par appartement
             - sinon: consommation spécifique ECS * surface logement type tertiaire
       - sinon: 0
-consommation spécifique climatisation par habitant: consommation spécifique climatisation par habitant # maj depuis les ratios techniques
+consommation spécifique climatisation: consommation spécifique climatisation # maj depuis les ratios techniques
   # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=$C$35&XLOOKUP(commune,Communes!C:C,Communes!I:I,,0)),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=Type_bat&XLOOKUP(commune,Communes!C:C,Communes!I:I,,0)),'Ratios techniques'!C:C,"Non trouvé"))
 besoins en climatisation par appartement:
   # =Conso_spé_raf*Surface*Surf_clim
-  par défaut: consommation spécifique climatisation par habitant * surface logement type tertiaire * Part de la surface à climatiser
+  par défaut: consommation spécifique climatisation * surface logement type tertiaire * Part de la surface à climatiser

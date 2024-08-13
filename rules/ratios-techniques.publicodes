@@ -493,7 +493,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -503,7 +503,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -513,7 +513,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -523,7 +523,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 7
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -533,7 +533,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -543,7 +543,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 40
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -553,7 +553,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 40
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -563,7 +563,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Bureaux"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 68
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -573,7 +573,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -583,7 +583,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -593,7 +593,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -603,7 +603,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 8
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -613,7 +613,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -623,7 +623,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 44
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -633,7 +633,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 44
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -643,7 +643,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Commerces"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 74
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -653,7 +653,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -663,7 +663,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -673,7 +673,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -683,7 +683,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 24
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -693,7 +693,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -703,7 +703,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 100
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -713,7 +713,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 100
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -723,7 +723,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Santé"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 152
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -733,7 +733,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 35
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -743,7 +743,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 35
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -753,7 +753,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 35
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -763,7 +763,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 9
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -773,7 +773,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 35
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -783,7 +783,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 48
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -793,7 +793,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 48
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -803,7 +803,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Hôtel"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 82
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -813,7 +813,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 18
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -823,7 +823,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 18
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -833,7 +833,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 18
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -843,7 +843,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 5
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -853,7 +853,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 18
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -863,7 +863,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 25
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -873,7 +873,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 25
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -883,7 +883,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Sport"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 42
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -893,7 +893,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -903,7 +903,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -913,7 +913,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -923,7 +923,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 7
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -933,7 +933,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -943,7 +943,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 40
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -953,7 +953,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 40
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -963,7 +963,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement secondaire"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 68
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -973,7 +973,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -983,7 +983,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -993,7 +993,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1003,7 +1003,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 7
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1013,7 +1013,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 29
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1023,7 +1023,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 40
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1033,7 +1033,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 40
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1043,7 +1043,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Enseignement primaire"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 68
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1052,7 +1052,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = 'H1a'
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 5
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1061,7 +1061,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 5
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1070,7 +1070,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 17
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1079,7 +1079,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 2
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1088,7 +1088,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 5
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1097,7 +1097,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 17
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1106,7 +1106,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 43
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1115,7 +1115,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 56
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1125,7 +1125,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1135,7 +1135,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1145,7 +1145,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1155,7 +1155,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 24
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1165,7 +1165,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 77
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1175,7 +1175,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 100
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1185,7 +1185,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 100
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1195,7 +1195,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "EHPAD"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 152
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1205,7 +1205,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H1a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1215,7 +1215,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H1b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1225,7 +1225,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H1c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1235,7 +1235,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H2a"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 8
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1245,7 +1245,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H2b"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 32
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1255,7 +1255,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H2c"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 44
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1265,7 +1265,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H2d"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 44
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
@@ -1275,7 +1275,7 @@ ratios:
           - type de bâtiment = "tertiaire"
           - normes thermiques = "Café, restaurant"
           - sous zone climatique = "H3"
-      remplace: consommation spécifique climatisation par habitant
+      remplace: consommation spécifique climatisation
       valeur: 74
       unité: kWhef/m2.an
       note: 'Source: ADEME 2024'
