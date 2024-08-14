@@ -44,207 +44,371 @@ ratios:
       valeur: 100%
       unité: '%'
     CHAF A:
-      applicable si: DPE = "A"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "A"
       remplace: consommation spécifique chauffage
       valeur: 45
       unité: kWh/m2/an
     CHAF B:
-      applicable si: DPE = "B"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "B"
       remplace: consommation spécifique chauffage
       valeur: 70
       unité: kWh/m2/an
     CHAF C:
-      applicable si: DPE = "C"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "C"
       remplace: consommation spécifique chauffage
       valeur: 115
       unité: kWh/m2/an
     CHAF D:
-      applicable si: DPE = "D"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "D"
       remplace: consommation spécifique chauffage
       valeur: 165
       unité: kWh/m2/an
     CHAF E:
-      applicable si: DPE = "E"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "E"
       remplace: consommation spécifique chauffage
       valeur: 215
       unité: kWh/m2/an
     CHAF F:
-      applicable si: DPE = "F"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "F"
       remplace: consommation spécifique chauffage
       valeur: 275
       unité: kWh/m2/an
     CHAF G:
-      applicable si: DPE = "G"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "G"
       remplace: consommation spécifique chauffage
       valeur: 300
       unité: kWh/m2/an
     CHAF RE2020 Après 2020:
-      applicable si: normes thermiques et âge du bâtiment = "RE2020 Après 2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RE2020 Après 2020"
       remplace: consommation spécifique chauffage
       valeur: 0.18
       unité: W/m3.°C
     CHAF RT2012 Entre 2012 et 2020:
-      applicable si: normes thermiques et âge du bâtiment = "RT2012 Entre 2012 et 2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RT2012 Entre 2012 et 2020"
       remplace: consommation spécifique chauffage
       valeur: 0.22
       unité: W/m3.°C
     CHAF RT2005 Entre 2005 et 2012:
-      applicable si: normes thermiques et âge du bâtiment = "RT2005 Entre 2005 et 2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RT2005 Entre 2005 et 2012"
       remplace: consommation spécifique chauffage
       valeur: 0.65
       unité: W/m3.°C
     CHAF RT2000 Entre 2000 et 2005:
-      applicable si: normes thermiques et âge du bâtiment = "RT2000 Entre 2000 et 2005"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RT2000 Entre 2000 et 2005"
       remplace: consommation spécifique chauffage
       valeur: 0.75
       unité: W/m3.°C
     CHAF de 1990 à 2000:
-      applicable si: normes thermiques et âge du bâtiment = "de 1990 à 2000"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "de 1990 à 2000"
       remplace: consommation spécifique chauffage
       valeur: 1
       unité: W/m3.°C
     CHAF de 1974 à 1990:
-      applicable si: normes thermiques et âge du bâtiment = "de 1974 à 1990"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "de 1974 à 1990"
       remplace: consommation spécifique chauffage
       valeur: 1.4
       unité: W/m3.°C
     CHAF avant 1974:
-      applicable si: normes thermiques et âge du bâtiment = "avant 1974"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "avant 1974"
       remplace: consommation spécifique chauffage
       valeur: 2
       unité: W/m3.°C
     CHAF Bureaux RE2020:
-      applicable si: normes thermiques = "Bureaux RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 50
       unité: kWhef/m2.an
     CHAF Bureaux RT2012:
-      applicable si: normes thermiques = "Bureaux RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 65
       unité: kWhef/m2.an
     CHAF Bureaux Moyenne française 2021:
-      applicable si: normes thermiques = "Bureaux Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 95
       unité: kWhef/m2.an
     CHAF Enseignement secondaire RE2020:
-      applicable si: normes thermiques = "Enseignement secondaire RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 40
       unité: kWhef/m2.an
     CHAF Enseignement secondaire RT2012:
-      applicable si: normes thermiques = "Enseignement secondaire RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 55
       unité: kWhef/m2.an
     CHAF Enseignement secondaire Moyenne française 2021:
-      applicable si: normes thermiques = "Enseignement secondaire Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 81
       unité: kWhef/m2.an
     CHAF Commerces RE2020:
-      applicable si: normes thermiques = "Commerces RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 40
       unité: kWhef/m2.an
     CHAF Commerces RT2012:
-      applicable si: normes thermiques = "Commerces RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 55
       unité: kWhef/m2.an
     CHAF Commerces Moyenne française 2021:
-      applicable si: normes thermiques = "Commerces Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 74
       unité: kWhef/m2.an
     CHAF Café, restaurant RE2020:
-      applicable si: normes thermiques = "Café, restaurant RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 100
       unité: kWhef/m2.an
     CHAF Café, restaurant RT2012:
-      applicable si: normes thermiques = "Café, restaurant RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 100
       unité: kWhef/m2.an
     CHAF Café, restaurant Moyenne française 2021:
-      applicable si: normes thermiques = "Café, restaurant Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 106
       unité: kWhef/m2.an
     CHAF Hôtel RE2020:
-      applicable si: normes thermiques = "Hôtel RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 45
       unité: kWhef/m2.an
     CHAF Hôtel RT2012:
-      applicable si: normes thermiques = "Hôtel RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 55
       unité: kWhef/m2.an
     CHAF Hôtel Moyenne française 2021:
-      applicable si: normes thermiques = "Hôtel Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 83
       unité: kWhef/m2.an
     CHAF Enseignement primaire RE2020:
-      applicable si: normes thermiques = "Enseignement primaire RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 50
       unité: kWhef/m2.an
     CHAF Enseignement primaire RT2012:
-      applicable si: normes thermiques = "Enseignement primaire RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 65
       unité: kWhef/m2.an
     CHAF Enseignement primaire Moyenne française 2021:
-      applicable si: normes thermiques = "Enseignement primaire Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 81
       unité: kWhef/m2.an
     CHAF Sport RE2020:
-      applicable si: normes thermiques = "Sport RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 30
       unité: kWhef/m2.an
     CHAF Sport RT2012:
-      applicable si: normes thermiques = "Sport RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 45
       unité: kWhef/m2.an
     CHAF Sport Moyenne française 2021:
-      applicable si: normes thermiques = "Sport Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 97
       unité: kWhef/m2.an
     CHAF Santé RE2020:
-      applicable si: normes thermiques = "Santé RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 35
       unité: kWhef/m2.an
     CHAF Santé RT2012:
-      applicable si: normes thermiques = "Santé RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 55
       unité: kWhef/m2.an
     CHAF Santé Moyenne française 2021:
-      applicable si: normes thermiques = "Santé Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 100
       unité: kWhef/m2.an
     CHAF EHPAD RE2020:
-      applicable si: normes thermiques = "EHPAD RE2020"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique chauffage
       valeur: 55
       unité: kWhef/m2.an
     CHAF EHPAD RT2012:
-      applicable si: normes thermiques = "EHPAD RT2012"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique chauffage
       valeur: 75
       unité: kWhef/m2.an
     CHAF EHPAD Moyenne française 2021:
-      applicable si: normes thermiques = "EHPAD Moyenne française 2021"
+      applicable si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique chauffage
       valeur: 110
       unité: kWhef/m2.an
@@ -272,7 +436,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux RE2020"
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 7
       unité: kWhef/m2.an
@@ -280,7 +445,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux RT2012"
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 7
       unité: kWhef/m2.an
@@ -288,7 +454,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux Moyenne française 2021"
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 7
       unité: kWhef/m2.an
@@ -296,7 +463,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire RE2020"
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 5
       unité: kWhef/m2.an
@@ -304,7 +472,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire RT2012"
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 5
       unité: kWhef/m2.an
@@ -312,7 +481,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire Moyenne française 2021"
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 5
       unité: kWhef/m2.an
@@ -320,7 +490,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces RE2020"
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 0
       unité: kWhef/m2.an
@@ -328,7 +499,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces RT2012"
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 0
       unité: kWhef/m2.an
@@ -336,7 +508,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces Moyenne française 2021"
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 0
       unité: kWhef/m2.an
@@ -344,7 +517,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant RE2020"
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 15
       unité: kWhef/m2.an
@@ -352,7 +526,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant RT2012"
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 15
       unité: kWhef/m2.an
@@ -360,7 +535,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant Moyenne française 2021"
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 15
       unité: kWhef/m2.an
@@ -368,7 +544,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel RE2020"
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 40
       unité: kWhef/m2.an
@@ -376,7 +553,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel RT2012"
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 40
       unité: kWhef/m2.an
@@ -384,7 +562,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel Moyenne française 2021"
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 40
       unité: kWhef/m2.an
@@ -392,7 +571,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire RE2020"
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 12.5
       unité: kWhef/m2.an
@@ -400,7 +580,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire RT2012"
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 12.5
       unité: kWhef/m2.an
@@ -408,7 +589,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire Moyenne française 2021"
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 12.5
       unité: kWhef/m2.an
@@ -416,7 +598,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport RE2020"
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 10
       unité: kWhef/m2.an
@@ -424,7 +607,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport RT2012"
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 10
       unité: kWhef/m2.an
@@ -432,7 +616,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport Moyenne française 2021"
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 10
       unité: kWhef/m2.an
@@ -440,7 +625,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé RE2020"
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 20
       unité: kWhef/m2.an
@@ -448,7 +634,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé RT2012"
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 20
       unité: kWhef/m2.an
@@ -456,7 +643,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé Moyenne française 2021"
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 20
       unité: kWhef/m2.an
@@ -464,7 +652,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD RE2020"
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RE2020"
       remplace: consommation spécifique ECS
       valeur: 30
       unité: kWhef/m2.an
@@ -472,7 +661,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD RT2012"
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RT2012"
       remplace: consommation spécifique ECS
       valeur: 30
       unité: kWhef/m2.an
@@ -480,7 +670,8 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD Moyenne française 2021"
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "Moyenne française 2021"
       remplace: consommation spécifique ECS
       valeur: 30
       unité: kWhef/m2.an
@@ -491,7 +682,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -501,7 +692,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -511,7 +702,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -521,7 +712,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 7
@@ -531,7 +722,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -541,7 +732,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 40
@@ -551,7 +742,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 40
@@ -561,7 +752,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 68
@@ -571,7 +762,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -581,7 +772,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -591,7 +782,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -601,7 +792,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 8
@@ -611,7 +802,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -621,7 +812,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 44
@@ -631,7 +822,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 44
@@ -641,7 +832,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 74
@@ -651,7 +842,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -661,7 +852,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -671,7 +862,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -681,7 +872,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 24
@@ -691,7 +882,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -701,7 +892,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 100
@@ -711,7 +902,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 100
@@ -721,7 +912,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 152
@@ -731,7 +922,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 35
@@ -741,7 +932,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 35
@@ -751,7 +942,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 35
@@ -761,7 +952,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 9
@@ -771,7 +962,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 35
@@ -781,7 +972,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 48
@@ -791,7 +982,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 48
@@ -801,7 +992,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 82
@@ -811,7 +1002,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 18
@@ -821,7 +1012,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 18
@@ -831,7 +1022,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 18
@@ -841,7 +1032,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 5
@@ -851,7 +1042,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 18
@@ -861,7 +1052,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 25
@@ -871,7 +1062,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 25
@@ -881,7 +1072,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 42
@@ -891,7 +1082,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -901,7 +1092,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -911,7 +1102,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -921,7 +1112,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 7
@@ -931,7 +1122,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -941,7 +1132,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 40
@@ -951,7 +1142,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 40
@@ -961,7 +1152,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 68
@@ -971,7 +1162,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -981,7 +1172,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -991,7 +1182,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -1001,7 +1192,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 7
@@ -1011,7 +1202,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 29
@@ -1021,7 +1212,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 40
@@ -1031,7 +1222,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 40
@@ -1041,7 +1232,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 68
@@ -1123,7 +1314,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -1133,7 +1324,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -1143,7 +1334,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -1153,7 +1344,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 24
@@ -1163,7 +1354,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 77
@@ -1173,7 +1364,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 100
@@ -1183,7 +1374,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 100
@@ -1193,7 +1384,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 152
@@ -1203,7 +1394,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H1a"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -1213,7 +1404,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H1b"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -1223,7 +1414,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H1c"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -1233,7 +1424,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H2a"
       remplace: consommation spécifique climatisation
       valeur: 8
@@ -1243,7 +1434,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H2b"
       remplace: consommation spécifique climatisation
       valeur: 32
@@ -1253,7 +1444,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H2c"
       remplace: consommation spécifique climatisation
       valeur: 44
@@ -1263,7 +1454,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H2d"
       remplace: consommation spécifique climatisation
       valeur: 44
@@ -1273,7 +1464,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
           - sous zone climatique = "H3"
       remplace: consommation spécifique climatisation
       valeur: 74
@@ -1429,7 +1620,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Bureaux"
+          - méthode tertiaire = "Bureaux"
       remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
@@ -1437,7 +1628,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement secondaire"
+          - méthode tertiaire = "Enseignement secondaire"
       remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
@@ -1445,7 +1636,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Santé"
+          - méthode tertiaire = "Santé"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
@@ -1453,7 +1644,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Café, restaurant"
+          - méthode tertiaire = "Café, restaurant"
       remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
@@ -1461,7 +1652,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Hôtel"
+          - méthode tertiaire = "Hôtel"
       remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
@@ -1469,7 +1660,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Commerces"
+          - méthode tertiaire = "Commerces"
       remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
@@ -1477,7 +1668,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Enseignement primaire"
+          - méthode tertiaire = "Enseignement primaire"
       remplace: puissance coefficient d'intermittence
       valeur: 80%
       unité: '%'
@@ -1485,7 +1676,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Sport"
+          - méthode tertiaire = "Sport"
       remplace: puissance coefficient d'intermittence
       valeur: 60%
       unité: '%'
@@ -1493,7 +1684,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "Centre aqualudique"
+          - méthode tertiaire = "Centre aqualudique"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
@@ -1501,7 +1692,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "tertiaire"
-          - normes thermiques = "EHPAD"
+          - méthode tertiaire = "EHPAD"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
