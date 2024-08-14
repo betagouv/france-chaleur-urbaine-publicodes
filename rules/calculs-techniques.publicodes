@@ -97,17 +97,13 @@ Installation x Réseaux de chaleur x Collectif:
     consommation auxiliaire:
       # =(1-Conso_aux_RCU_chauf)*Besoin_cha+(1-Conso_aux_RCU_ECS)*Besoin_ECS
       formule: (1 - ratios . RCU Conso auxiliaire chauffage) * besoins chauffage par appartement + (1 - ratios . RCU Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      # H93 =$E$70
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       # =IF(C70="Non",F93,F93+H93+I93)
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Réseaux de froid x Collectif:
@@ -140,15 +136,12 @@ Installation x Réseaux de froid x Collectif:
     consommation auxiliaire:
       # =(1-Conso_aux_RFU)*Besoin_raf
       formule: (1 - ratios . RFU Conso auxiliaire) * besoins en climatisation par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible froid
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Poêle à granulés indiv x Individuel:
@@ -184,15 +177,12 @@ Installation x Poêle à granulés indiv x Individuel:
     consommation combustible froid:
       formule: 0
       unité: kWh elec
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors:  consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors:  consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: 0
 
 Installation x Chaudière à granulés coll x Collectif:
@@ -322,15 +312,12 @@ Installation x Chaudière à granulés coll x Collectif:
     consommation auxiliaire:
       # =(1-Conso_aux_GRA_Chaud)*Besoin_cha+(1-Conso_aux_GRA_Chaud)*Besoin_ECS
       formule: (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins chauffage par appartement  + (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Gaz indiv avec cond x Individuel:
@@ -387,15 +374,12 @@ Installation x Gaz indiv avec cond x Individuel:
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_indiv_cond_chauf)*Besoin_cha+(1-Conso_aux_GAZ_indiv_cond_ECS)*Besoin_ECS
       formule: ratios . GAZ IND COND Conso auxiliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ IND COND Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Gaz indiv sans cond x Individuel:
@@ -452,15 +436,12 @@ Installation x Gaz indiv sans cond x Individuel:
       unité: kWh elec
     consommation auxiliaire:
       formule: ratios . GAZ IND SCOND Conso auxiliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ IND SCOND Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Gaz coll avec cond x Collectif:
@@ -537,15 +518,12 @@ Installation x Gaz coll avec cond x Collectif:
       unité: kWh elec
     consommation auxiliaire:
       formule: ratios . GAZ COLL COND Conso auxiliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ COLL COND Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Gaz coll sans cond x Collectif:
@@ -622,15 +600,12 @@ Installation x Gaz coll sans cond x Collectif:
       unité: kWh elec
     consommation auxiliaire:
       formule: ratios . GAZ COLL SCOND Conso auxiliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . GAZ COLL SCOND Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Fioul indiv x Individuel:
@@ -688,15 +663,12 @@ Installation x Fioul indiv x Individuel:
       unité: kWh elec
     consommation auxiliaire:
       formule: ratios . FIOUL IND Conso auxiliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . FIOUL IND Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x Fioul coll x Collectif:
@@ -773,15 +745,12 @@ Installation x Fioul coll x Collectif:
       unité: kWh elec
     consommation auxiliaire:
       formule: ratios . FIOUL COLL Conso auxiliaire chauffage * besoins chauffage par appartement + ( 1 - ratios . FIOUL COLL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
 
 Installation x PAC air-air x Individuel:
@@ -821,15 +790,11 @@ Installation x PAC air-air x Individuel:
     consommation auxiliaire:
       #=(1-'Ratios techniques'!$C$275)*(Besoin_cha+Besoin_raf)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
       formule: (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation) * ( besoins chauffage par appartement + besoins en climatisation par appartement ) + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      # QUESTION: normal qu'on prenne la conso PAC AIR AIR collectif ?
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       # =IF(C80="Non",F103+C103+D103,F103+H103+I103)
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC eau-eau x Individuel:
@@ -869,14 +834,10 @@ Installation x PAC eau-eau x Individuel:
       unité: kWh elec
     consommation auxiliaire:
       formule: 12 # TODO
-    consommation d'électricité bis:
-      # QUESTION: normal pas de valeur ici ?
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire + consommation combustible chaleur
 
 Installation x PAC air-eau x Individuel:
@@ -921,14 +882,10 @@ Installation x PAC air-eau x Individuel:
     consommation auxiliaire:
       #=(1-'Ratios techniques'!$C$275)*(Besoin_cha+Besoin_raf)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
       formule: (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation) * ( besoins chauffage par appartement + besoins en climatisation par appartement ) + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      # QUESTION: normal pas de valeur ici ?
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC air-air x Collectif:
@@ -968,13 +925,10 @@ Installation x PAC air-air x Collectif:
     consommation auxiliaire:
       #=(1-'Ratios techniques'!$C$275)*(Besoin_cha+Besoin_raf)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
       formule: (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation) * ( besoins chauffage par appartement + besoins en climatisation par appartement ) + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC eau-eau x Collectif:
@@ -1016,13 +970,10 @@ Installation x PAC eau-eau x Collectif:
     consommation auxiliaire:
       # =(1-'Ratios techniques'!$C$275)*(Besoin_cha)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
       formule: ( 1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation ) * besoins chauffage par appartement + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x PAC air-eau x Collectif:
@@ -1068,13 +1019,10 @@ Installation x PAC air-eau x Collectif:
     consommation auxiliaire:
       # =(1-'Ratios techniques'!$C$275)*(Besoin_cha)+(1-'Ratios techniques'!$C$276)*Besoin_ECS
       formule: ( 1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation ) * besoins chauffage par appartement + ( 1 - ratios . PAC GNRL Conso auxiliaire ECS ) * besoins eau chaude sanitaire par appartement
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
 
 Installation x Radiateur électrique x Individuel:
@@ -1107,13 +1055,10 @@ Installation x Radiateur électrique x Individuel:
     consommation combustible froid:
       formule: 0
       unité: kWh elec
-    consommation d'électricité bis:
-      formule: consommation d'électricité chauffe-eau électrique
-      unité: kWh elec/an
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation combustible chaleur + consommation d'électricité chauffe-eau électrique + appoint d'électricité
+          alors: consommation combustible chaleur + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation combustible chaleur
 
 
@@ -1151,8 +1096,8 @@ surface de panneau nécessaire:
     - sinon: 6m2
   unité: m2
 
-appoint d'électricité:
-  # =IF(C71="Oui",Besoin_ECS*(1-'Paramètres techniques'!$D$199)/'Paramètres techniques'!$D$197,"")
+chauffe-eau solaire x appoint d'électricité:
+  # Besoin_ECS*(1-'Paramètres techniques'!$D$197)/'Paramètres techniques'!$D$195
   formule: besoins eau chaude sanitaire par appartement * (1 - ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS) / ratios . CHAUF EAU SOLAIRE Rendement stockage ballon
   unité: kWh/an
 
