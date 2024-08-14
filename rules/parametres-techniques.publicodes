@@ -151,29 +151,6 @@ Température émetteurs delta: Température émetteurs delta
 
 ###### Besoins calculés
 
-méthode résidentiel:
-  par défaut: "'Normes thermiques et âge du bâtiment'"
-  une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'Normes thermiques et âge du bâtiment'"
-      - "'DPE'"
-
-méthode tertiaire:
-  par défaut: "'Bureaux'"
-  une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'Bureaux'"
-      - "'Enseignement secondaire'"
-      - "'Enseignement primaire'"
-      - "'Commerces'"
-      - "'Café, restaurant'"
-      - "'Hôtel'"
-      - "'Sport'"
-      - "'EHPAD'"
-      - "'Santé'"
-
 méthode de calcul pour les besoins en chauffage et refroidissement:
   par défaut:
     variations:
@@ -182,8 +159,15 @@ méthode de calcul pour les besoins en chauffage et refroidissement:
       - si: type de bâtiment = "tertiaire"
         alors: méthode tertiaire
 
-
 # quand bâtiment résidentiel
+méthode résidentiel:
+  par défaut: "'DPE'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'Normes thermiques et âge du bâtiment'"
+      - "'DPE'"
+
 DPE:
   par défaut: "'D'"
   une possibilité:
@@ -211,13 +195,29 @@ normes thermiques et âge du bâtiment:
       - "'avant 1974'"
 
 # quand bâtiment tertiaire
-normes thermiques:
-  par défaut: "'Bureaux RT2012'"
-  # Si méthode = Enseignement secondaire, choix supplémentaires =
-  # Enseignement secondaire RE2020
-  # Enseignement secondaire RE2012
-  # Enseignement secondaire Moyenne française 2021
-  # idem pour les autres choix avec 3 choix
+méthode tertiaire:
+  par défaut: "'Bureaux'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'Bureaux'"
+      - "'Enseignement secondaire'"
+      - "'Enseignement primaire'"
+      - "'Commerces'"
+      - "'Café, restaurant'"
+      - "'Hôtel'"
+      - "'Sport'"
+      - "'EHPAD'"
+      - "'Santé'"
+
+normes thermiques tertiaire:
+  par défaut: "'RE2020'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'RE2020'"
+      - "'RE2012'"
+      - "'Moyenne française 2021'"
 
 
 consommation spécifique chauffage: consommation spécifique chauffage # maj depuis les ratios techniques
