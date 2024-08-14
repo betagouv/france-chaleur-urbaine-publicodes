@@ -33,29 +33,12 @@ env . Installation x Réseaux de chaleur x Collectif:
         - si: Production eau chaude sanitaire
           alors: ratios environnementaux . CO2 INS RCU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
         - sinon: ratios environnementaux . CO2 INS RCU * besoins chauffage par appartement
-    Total émissions avec ECS produite par solaire thermique:
-      # K43 =IF($B$17="Oui";$F$43+$G$2)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: $G$2 n'existe pas du coup je ne mets rien
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions avec ECS produite par ballon électrique:
-      # L43 =IF($B$17="Oui";F43+H43)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: H43 est toujours vide car grisé, doit-on l'enlever ?
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique
-        - sinon: "'Pas concerné'"
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2 équ./an
 
 env . Installation x Réseaux de froid x Collectif:
   avec:
@@ -81,27 +64,12 @@ env . Installation x Réseaux de froid x Collectif:
         - si: Production eau chaude sanitaire
           alors: ratios environnementaux . CO2 INS RFU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
         - sinon: ratios environnementaux . CO2 INS RFU * besoins chauffage par appartement
-    Total émissions avec ECS produite par solaire thermique:
-      # =IF($B$17="Oui";F44+G44)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique +  ECS solaire thermique
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions avec ECS produite par ballon électrique:
-      # =IF($B$17="Oui";F44+H44)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique + ECS avec ballon électrique
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique
-        - sinon: "'Pas concerné'"
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2 équ./an
 
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -123,32 +91,12 @@ env . Installation x Poêle à granulés indiv x Individuel:
     Scope 3:
       # =(XLOOKUP(A45,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B22/Durée_vie_GRA_Poele
       formule: ratios environnementaux . CO2 INS Poêle à granulés indiv * Installation x Poêle à granulés indiv x Individuel . gamme de puissance existante / ratios . GRA POELE Durée de vie
-    Total émissions avec ECS produite par solaire thermique:
-      # K45 =IF($B$17="Oui";$D$45+$G$45+$J$45)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: c'est aussi bizarre que la formule ne soit pas cohérente avec les 2 du dessus et celle à droite
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: besoins de chauffage + ECS solaire thermique + ECS avec ballon électrique
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions avec ECS produite par ballon électrique:
-      # L45 =IF($B$17="Oui";D45+F45+H45+J45)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: F45 qui n'existe pas car grisé
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: besoins de chauffage + ECS avec ballon électrique + Scope 3
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - Scope 3
-        - sinon: "'Pas concerné'"
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2 équ./an
 
 env . Installation x Chaudière à granulés coll x Collectif:
   avec:
@@ -173,22 +121,12 @@ env . Installation x Chaudière à granulés coll x Collectif:
     Scope 3:
       # =(XLOOKUP(A46,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B23/Durée_vie_GRA_Chaud/Nb_lgt
       formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante / ratios . GRA CHAUD Durée de vie / nombre de logement dans l'immeuble concerné
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+    Total:
       somme:
-        - besoins de chauffage
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x Gaz indiv avec cond x Individuel:
   avec:
@@ -212,22 +150,12 @@ env . Installation x Gaz indiv avec cond x Individuel:
     Scope 3:
       # =(XLOOKUP(A47,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B24/Durée_vie_GAZ_indiv_cond
       formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante / ratios . GAZ IND COND Durée de vie
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+    Total:
       somme:
-        - besoins de chauffage
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x Gaz indiv sans cond x Individuel:
   avec:
@@ -251,22 +179,12 @@ env . Installation x Gaz indiv sans cond x Individuel:
     Scope 3:
       # =(XLOOKUP(A48,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B25/Durée_vie_GAZ_indiv_scond
       formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante / ratios . GAZ IND SCOND Durée de vie
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+    Total:
       somme:
-        - besoins de chauffage
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x Gaz coll avec cond x Collectif:
   avec:
@@ -290,22 +208,12 @@ env . Installation x Gaz coll avec cond x Collectif:
     Scope 3:
       # =(XLOOKUP(A49,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B26/Durée_vie_GAZ_coll_cond/Nb_lgt
       formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante / ratios . GAZ COLL COND Durée de vie / nombre de logement dans l'immeuble concerné
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+    Total:
       somme:
-        - besoins de chauffage
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x Gaz coll sans cond x Collectif:
   avec:
@@ -329,22 +237,12 @@ env . Installation x Gaz coll sans cond x Collectif:
     Scope 3:
       # =(XLOOKUP(A50,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B27/Durée_vie_GAZ_coll_scond/Nb_lgt
       formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante / ratios . GAZ COLL SCOND Durée de vie / nombre de logement dans l'immeuble concerné
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+    Total:
       somme:
-        - besoins de chauffage
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x Fioul indiv x Individuel:
   avec:
@@ -368,22 +266,12 @@ env . Installation x Fioul indiv x Individuel:
     Scope 3:
       # =(XLOOKUP(A51,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B28/Durée_vie_FIOUL_indiv
       formule: ratios environnementaux . CO2 INS Fioul indiv * Installation x Fioul indiv x Individuel . gamme de puissance existante / ratios . FIOUL IND Durée de vie
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+    Total:
       somme:
-        - besoins de chauffage
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x Fioul coll x Collectif:
   avec:
@@ -407,22 +295,12 @@ env . Installation x Fioul coll x Collectif:
     Scope 3:
       # =(XLOOKUP(A52,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B29/Durée_vie_FIOUL_coll/Nb_lgt
       formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante / ratios . FIOUL COLL Durée de vie / nombre de logement dans l'immeuble concerné
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
+    Total:
       somme:
-        - besoins de chauffage
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - besoins de chauffage
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x PAC air-air x Individuel:
   avec:
@@ -446,34 +324,12 @@ env . Installation x PAC air-air x Individuel:
     Scope 3:
       # ='Ratios environnementaux'!C46*B30/Durée_vie_PAC_AA
       formule: ratios environnementaux . CO2 INS PAC air-air indiv * Installation x PAC air-air x Individuel . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie indiv
-    Total émissions avec ECS produite par solaire thermique:
-      # G53 =IF($B$17="Oui";D53+F53+G53+J53)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: D53 n'existe pas car grisé
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions avec ECS produite par ballon électrique:
-      # =IF($B$17="Oui";D53+F53+H53+J53)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: D53 n'existe pas car grisé
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # L53 =IF(@Prod_ECS?="Non";D53+F53+J53;"Pas concerné")
-      # QUESTION déjà posée: D53 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2 équ./an
 
 env . Installation x PAC air-air x Collectif:
   avec:
@@ -497,34 +353,12 @@ env . Installation x PAC air-air x Collectif:
     Scope 3:
       # ='Ratios environnementaux'!C49*B33/Durée_vie_PAC_AA_Coll/Nb_lgt
       formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie coll / nombre de logement dans l'immeuble concerné
-    Total émissions avec ECS produite par solaire thermique:
-      # K54 =IF($B$17="Oui";D54+F54+G54+J54)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: D54 n'existe pas car grisé
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions avec ECS produite par ballon électrique:
-      # L54 =IF($B$17="Oui";D54+F54+H54+J54)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: D54 n'existe pas car grisé
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # N54 =IF(@Prod_ECS?="Non";D54+F54+J54;"Pas concerné")
-      # QUESTION déjà posée: D54 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2 équ./an
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
@@ -548,23 +382,12 @@ env . Installation x PAC eau-eau x Individuel:
     Scope 3:
       # ='Ratios environnementaux'!C47*B31/Durée_vie_PAC_EE
       formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * Installation x PAC eau-eau x Individuel . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie
-    Total émissions avec ECS produite par l'installation:
-      # M55 =IF($B$17="Oui";D55+E55+F55+J55;D55+F55+J55)
-      # QUESTION déjà posée: D55 et E55 n'existent pas car grisés, à supprimer dans l'excel original
+    Total:
       somme:
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # N55 =IF(@Prod_ECS?="Non";D55+F55+J55;"Pas concerné")
-      # QUESTION déjà posée: D55 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x PAC eau-eau x Collectif:
   avec:
@@ -588,23 +411,12 @@ env . Installation x PAC eau-eau x Collectif:
     Scope 3:
       # ='Ratios environnementaux'!C50*B34/Durée_vie_PAC_EE/Nb_lgt
       formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau x Collectif . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie / nombre de logement dans l'immeuble concerné
-    Total émissions avec ECS produite par l'installation:
-      # =IF($B$17="Oui";D56+E56+F56+J56;D56+F56+J56)
-      # QUESTION déjà posée: D56 et E56 n'existent pas car grisés, à supprimer dans l'excel original
+    Total:
       somme:
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D56+F56+J56;"Pas concerné")
-      # QUESTION déjà posée: D56 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x PAC air-eau x Individuel:
   avec:
@@ -628,23 +440,12 @@ env . Installation x PAC air-eau x Individuel:
     Scope 3:
       # ='Ratios environnementaux'!C48*B32/Durée_vie_PAC_AE
       formule: ratios environnementaux . CO2 INS PAC air-eau indiv * Installation x PAC air-eau x Individuel . gamme de puissance existante / ratios . PAC AIR EAU Durée de vie indiv
-    Total émissions avec ECS produite par l'installation:
-      # M57 =IF($B$17="Oui";D57+E57+F57+J57;D57+F57+J57)
-      # QUESTION déjà posée: D57 et E57 n'existent pas car grisés, à supprimer dans l'excel original
+    Total:
       somme:
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # N57 =IF(@Prod_ECS?="Non";D57+F57+J57;"Pas concerné")
-      # QUESTION déjà posée: D57 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x PAC air-eau x Collectif:
   avec:
@@ -668,23 +469,12 @@ env . Installation x PAC air-eau x Collectif:
     Scope 3:
       # ='Ratios environnementaux'!C51*B35/Durée_vie_PAC_AE_Coll/Nb_lgt
       formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante / ratios . PAC AIR EAU Durée de vie coll / nombre de logement dans l'immeuble concerné
-    Total émissions avec ECS produite par l'installation:
-      # M58 =IF($B$17="Oui";D58+E58+F58+J58;D58+F58+J58)
-      # QUESTION déjà posée: D58 et E58 n'existent pas car grisés, à supprimer dans l'excel original
+    Total:
       somme:
-        - auxiliaires et combustible électrique
+        - Scope 1
+        - Scope 2
         - Scope 3
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # N58 =IF(@Prod_ECS?="Non";D58+F58+J58;"Pas concerné")
-      # QUESTION déjà posée: D58 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
+      unité: kgCO2 équ./an
 
 env . Installation x Radiateur électrique x Individuel:
   avec:
@@ -706,31 +496,9 @@ env . Installation x Radiateur électrique x Individuel:
     Scope 3:
       # =B14*'Ratios environnementaux'!$C$52
       formule: besoins chauffage par appartement * ratios environnementaux . CO2 INS Radiateur électrique
-    Total émissions avec ECS produite par solaire thermique:
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: D60 n'existe pas car grisé
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique + ECS solaire thermique + Scope 3
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions avec ECS produite par ballon électrique:
-      # =IF($B$17="Oui";D60+F60+H60+J60)
-      # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
-      # QUESTION déjà posée: D60 n'existe pas car grisé
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: auxiliaires et combustible électrique + ECS avec ballon électrique + Scope 3
-        - sinon: 0 # FIXME
-      unité: kgCO2 équ.
-    Total émissions sans ECS:
-      # =IF(@Prod_ECS?="Non";D60+F60+J60;"Pas concerné")
-      # QUESTION déjà posée: D60 n'existe pas car grisé, à enlever dans l'excel original
-      variations:
-        - si: Production eau chaude sanitaire
-          alors:
-            somme:
-              - auxiliaires et combustible électrique
-              - Scope 3
-        - sinon: "'Pas concerné'"
-
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2 équ./an
