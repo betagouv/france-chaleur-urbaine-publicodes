@@ -110,7 +110,7 @@ Installation x Réseaux de chaleur x Collectif:
       unité: kWh
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: kWh
     consommation auxiliaire:
       # =(1-Conso_aux_RCU_chauf)*Besoin_cha+(1-Conso_aux_RCU_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -173,6 +173,9 @@ Installation x Réseaux de froid x Collectif:
           alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
+    consommation combustible chaud:
+      formule: 0
+      unité: kWh
     consommation combustible froid:
       # =Besoin_raf/Rend_RFU
       formule: besoins en climatisation par appartement / ratios . RFU Rendement sous station
@@ -233,10 +236,10 @@ Installation x Poêle à granulés indiv x Individuel:
       unité: kWh/an
     consommation combustible chaleur:
       formule: ratios . GRA POELE Conso combustible * (besoins chauffage par appartement / ratios . GRA POELE Rendement poêle chauffage)
-      unité: kg/an
+      unité: kg granulés/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: kg granulés/an
     consommation auxiliaire:
       formule: 0
       unité: kWh elec
@@ -380,10 +383,10 @@ Installation x Chaudière à granulés coll x Collectif:
               alors: besoins eau chaude sanitaire par appartement
             - sinon: 0
         - 1 / ratios . GRA CHAUD Rendement chaudière chauffage
-      unité: kg/an
+      unité: kg granulés/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: kg granulés/an
     consommation auxiliaire:
       # =(1-Conso_aux_GRA_Chaud)*Besoin_cha+(1-Conso_aux_GRA_Chaud)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -464,9 +467,10 @@ Installation x Gaz indiv avec cond x Individuel:
             - si: type de production ECS = 'Avec équipement chauffage'
               alors: besoins eau chaude sanitaire par appartement / ratios . GAZ IND COND Rendement chaudière ECS
             - sinon: 0
+      unité: Nm3 gaz/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: Nm3 gaz/an
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_indiv_cond_chauf)*Besoin_cha+(1-Conso_aux_GAZ_indiv_cond_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -548,9 +552,10 @@ Installation x Gaz indiv sans cond x Individuel:
               alors: besoins eau chaude sanitaire par appartement
             - sinon: 0
         - 1 / ratios . GAZ IND SCOND Rendement chaudière
+      unité: Nm3 gaz/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: Nm3 gaz/an
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_indiv_scond)*Besoin_cha+(1-Conso_aux_GAZ_indiv_scond_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -652,9 +657,10 @@ Installation x Gaz coll avec cond x Collectif:
             - si: type de production ECS = 'Avec équipement chauffage'
               alors: besoins eau chaude sanitaire par appartement / ratios . GAZ COLL COND Rendement chaudière ECS
             - sinon: 0
+      unité: Nm3 gaz/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: Nm3 gaz/an
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_coll_cond_chauf)*Besoin_cha+(1-Conso_aux_GAZ_coll_cond_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -756,9 +762,10 @@ Installation x Gaz coll sans cond x Collectif:
               alors: besoins eau chaude sanitaire par appartement
             - sinon: 0
         - 1 / ratios . GAZ COLL SCOND Rendement chaudière
+      unité: Nm3 gaz/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: Nm3 gaz/an
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_coll_scond)*Besoin_cha+(1-Conso_aux_GAZ_coll_scond_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -840,10 +847,10 @@ Installation x Fioul indiv x Individuel:
               alors: besoins eau chaude sanitaire par appartement
             - sinon: 0
         - 1 / ratios . FIOUL IND Rendement chaudière
-      unité: litre/an
+      unité: l fioul/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: l fioul/an
     consommation auxiliaire:
       # =(1-Conso_aux_FIOUL_indiv)*Besoin_cha+(1-Conso_aux_FIOUL_indiv_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -944,10 +951,10 @@ Installation x Fioul coll x Collectif:
             - si: type de production ECS = 'Avec équipement chauffage'
               alors: besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS
             - sinon: 0
-      unité: litre/an
+      unité: l fioul/an
     consommation combustible froid:
       formule: 0
-      unité: kWh elec
+      unité: l fioul/an
     consommation auxiliaire:
       # =(1-Conso_aux_FIOUL_coll_chauf)*Besoin_cha+(1-Conso_aux_FIOUL_coll_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
