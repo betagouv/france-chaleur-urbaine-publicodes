@@ -67,7 +67,13 @@ Installation x Réseaux de chaleur x Collectif:
     gamme de puissance existante:
       formule: puissance équipement
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      # =IF(OR(Prod_ECS="Non",AND(E47>0)),"Non","Oui")
+      # simplifié en =IF(AND(Prod_ECS="oui",E47<=0)),"oui","non")
+      # valeur commune à tous les types d'installations
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       # E70 =IF(AND(C70="Oui",Type_ECS<>"Solaire thermique"),Besoin_ECS/'Paramètres techniques'!$D$189,0)
       # valeur commune à tous les types d'installations
@@ -139,7 +145,10 @@ Installation x Réseaux de froid x Collectif:
     gamme de puissance existante:
       formule: puissance équipement
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -191,7 +200,10 @@ Installation x Poêle à granulés indiv x Individuel:
           alors: 12
         - sinon: 0 # Apparement non applicable . Calculs techniques H49 référence une cellule non existante $F$548
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -325,7 +337,10 @@ Installation x Chaudière à granulés coll x Collectif:
           alors: 1950
         - sinon: 2000
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -408,7 +423,10 @@ Installation x Gaz indiv avec cond x Individuel:
           alors: 30
         - sinon: 35
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -488,7 +506,10 @@ Installation x Gaz indiv sans cond x Individuel:
           alors: 30
         - sinon: 35
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -590,7 +611,10 @@ Installation x Gaz coll avec cond x Collectif:
         - sinon: 2000
       unité: kW
       note: La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -690,7 +714,10 @@ Installation x Gaz coll sans cond x Collectif:
           alors: 1750
         - sinon: 2000
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -771,7 +798,10 @@ Installation x Fioul indiv x Individuel:
           alors: 30
         - sinon: 35
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -873,7 +903,10 @@ Installation x Fioul coll x Collectif:
           alors: 1750
         - sinon: 2000
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -944,7 +977,10 @@ Installation x PAC air-air x Individuel:
       # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
       formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible indiv # FIXME arrondi?
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -1007,7 +1043,10 @@ Installation x PAC eau-eau x Individuel:
       formule: puissance équipement / (ratios . PAC EAU EAU Puissance unitaire indiv + 1 ) * ratios . PAC EAU EAU Puissance unitaire indiv
       unité: kW
 
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -1073,7 +1112,10 @@ Installation x PAC air-eau x Individuel:
     gamme de puissance existante:
       formule: puissance équipement / (ratios . PAC AIR EAU Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR EAU Puissance unitaire réversible indiv
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -1134,7 +1176,10 @@ Installation x PAC air-air x Collectif:
       # H60 =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
       formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible coll # FIXME arrondi?
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -1197,7 +1242,10 @@ Installation x PAC eau-eau x Collectif:
       formule: puissance équipement / (ratios . PAC EAU EAU Puissance unitaire coll + 1 ) * ratios . PAC EAU EAU Puissance unitaire coll
       unité: kW
 
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -1264,7 +1312,10 @@ Installation x PAC air-eau x Collectif:
       # H62
       formule: puissance équipement / (ratios . PAC AIR EAU Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR EAU Puissance unitaire réversible coll
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: non
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
@@ -1321,7 +1372,10 @@ Installation x Radiateur électrique x Individuel:
       # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
       formule: puissance équipement / ( ratios économiques . radiateur électrique x puissance de l'installation + 1 ) * ratios économiques . radiateur électrique x puissance de l'installation # FIXME arrondi?
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS: Production eau chaude sanitaire
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
     consommation d'électricité chauffe-eau électrique:
       variations:
         - si:
