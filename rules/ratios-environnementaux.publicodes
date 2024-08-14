@@ -86,17 +86,17 @@ ratios environnementaux:
       note: 'Source: INIES 2022'
     CO2 INS Chaudière à granulés coll:
       # Ratios environnementaux'!$C$36
-      formule: 102
+      formule: 88.5
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS Gaz indiv avec cond:
       # Ratios environnementaux'!$C$37
-      formule: 3000
+      formule: 33
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS Gaz indiv sans cond:
       # Ratios environnementaux'!$C$38
-      formule: 13
+      formule: 53.6
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS Gaz coll avec cond:
@@ -131,40 +131,36 @@ ratios environnementaux:
       note: 'Source: INIES 2022'
     CO2 INS PAC air-air indiv:
       # Ratios environnementaux'!$C$45
-      formule: 2229
+      formule: 1000
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS PAC eau-eau indiv:
       # Ratios environnementaux'!$C$46
-      formule: 622
+      formule: 453.3
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS PAC air-eau indiv:
       # Ratios environnementaux'!$C$47
-      formule: 7420
+      formule: 910
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS PAC air-air collectif-tertiaire:
       # Ratios environnementaux'!$C$48
-      formule: 7227
+      formule: 409.375
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS PAC eau-eau collectif-tertiaire:
       # Ratios environnementaux'!$C$49
-      formule: 3559
+      formule: 615
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
     CO2 INS PAC air-eau collectif-tertiaire:
       # Ratios environnementaux'!$C$50
-      formule: 249
+      formule: 302
       unité: kgCO2 équ./kW
       note: 'Source: INIES 2022'
-    CO2 INS PAC absorption gaz:
-      # Ratios environnementaux'!$C$51
-      formule: 249
-      unité: kgCO2 équ./kW
     CO2 INS Radiateur électrique:
       # Ratios environnementaux'!$C$52
-      formule: 1
-      unité: kgCO2 équ./L
+      formule: 0.079
+      unité: kg CO2 éq./kWh
       note: 'Source: INIES 2022'
