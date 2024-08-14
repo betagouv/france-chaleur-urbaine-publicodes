@@ -59,7 +59,7 @@ choix du réseau de chaleur:
 contenu CO2 réseau de chaleur:
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   # à définir en externe via le réseau le plus proche
-  par défaut: caractéristique réseau de chaleur . contenu CO2
+  par défaut: caractéristique réseau de chaleur . contenu CO2 - ratios environnementaux . CO2 INS RCU
   note: Contenu_CO2_RCU
 choix du réseau de froid:
   par défaut: "'MOYENNE RESEAUX FROID'"
@@ -82,7 +82,7 @@ choix du réseau de froid:
 contenu CO2 réseau de froid:
   # =XLOOKUP(C18,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   # à définir en externe via le réseau le plus proche
-  par défaut: caractéristique réseau de froid . contenu CO2
+  par défaut: caractéristique réseau de froid . contenu CO2 - ratios environnementaux . CO2 INS RFU
   note: Contenu_CO2_RFU
 
 ###### Choix du bâtiment
