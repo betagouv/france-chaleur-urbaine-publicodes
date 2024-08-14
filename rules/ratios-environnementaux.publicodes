@@ -168,13 +168,3 @@ ratios environnementaux:
       formule: 1
       unité: kgCO2 équ./L
       note: 'Source: INIES 2022'
-
-    ECS solaire thermique:
-      # =$B$15*'Ratios environnementaux'!$C$8*'Ratios environnementaux'!$C$25+'Ratios environnementaux'!$C$9*$B$15*'Ratios environnementaux'!$C$26
-      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Production par solaire thermique
-
-    # FIXME à voir si ç doit bien être dans ce fichier. Estce qu'un ratio de ratio est un ratio ou un calcul?
-    # FIXME peut-être à supprimer car les valeurs sont maintenant spécfiques au type d'installation
-    ECS avec ballon électrique:
-      # =$B$15*'Ratios environnementaux'!$C$26
-      formule: besoins eau chaude sanitaire par appartement * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
