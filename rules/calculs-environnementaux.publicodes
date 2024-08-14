@@ -444,9 +444,8 @@ env . Installation x PAC air-air x Individuel:
         - ECS solaire thermique
         - ECS avec ballon électrique
     Scope 3:
-      # F53 =(XLOOKUP(A53;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A53;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: ratios environnementaux . CO2 INS PAC air-air indiv * Installation x PAC air-air x Individuel . gamme de puissance existante
+      # ='Ratios environnementaux'!C46*B30/Durée_vie_PAC_AA
+      formule: ratios environnementaux . CO2 INS PAC air-air indiv * Installation x PAC air-air x Individuel . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie indiv
     Total émissions avec ECS produite par solaire thermique:
       # G53 =IF($B$17="Oui";D53+F53+G53+J53)
       # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
@@ -496,9 +495,8 @@ env . Installation x PAC air-air x Collectif:
         - ECS solaire thermique
         - ECS avec ballon électrique
     Scope 3:
-      # J54 =(XLOOKUP(A54;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A54;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION déjà posée: le LEFT semble etre faux car il ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante
+      # ='Ratios environnementaux'!C49*B33/Durée_vie_PAC_AA_Coll/Nb_lgt
+      formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie coll / nombre de logement dans l'immeuble concerné
     Total émissions avec ECS produite par solaire thermique:
       # K54 =IF($B$17="Oui";D54+F54+G54+J54)
       # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
@@ -548,9 +546,8 @@ env . Installation x PAC eau-eau x Individuel:
         - ECS solaire thermique
         - ECS avec ballon électrique
     Scope 3:
-      # J55 =(XLOOKUP(A55;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A55;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * Installation x PAC eau-eau x Individuel . gamme de puissance existante
+      # ='Ratios environnementaux'!C47*B31/Durée_vie_PAC_EE
+      formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * Installation x PAC eau-eau x Individuel . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie
     Total émissions avec ECS produite par l'installation:
       # M55 =IF($B$17="Oui";D55+E55+F55+J55;D55+F55+J55)
       # QUESTION déjà posée: D55 et E55 n'existent pas car grisés, à supprimer dans l'excel original
@@ -589,9 +586,8 @@ env . Installation x PAC eau-eau x Collectif:
         - ECS solaire thermique
         - ECS avec ballon électrique
     Scope 3:
-      # =(XLOOKUP(A56;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A56;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
-      # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
-      formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau x Collectif . gamme de puissance existante
+      # ='Ratios environnementaux'!C50*B34/Durée_vie_PAC_EE/Nb_lgt
+      formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau x Collectif . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie / nombre de logement dans l'immeuble concerné
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D56+E56+F56+J56;D56+F56+J56)
       # QUESTION déjà posée: D56 et E56 n'existent pas car grisés, à supprimer dans l'excel original
@@ -630,8 +626,8 @@ env . Installation x PAC air-eau x Individuel:
         - ECS solaire thermique
         - ECS avec ballon électrique
     Scope 3:
-      # J57
-      formule: ratios environnementaux . CO2 INS PAC air-eau indiv * Installation x PAC air-eau x Individuel . gamme de puissance existante
+      # ='Ratios environnementaux'!C48*B32/Durée_vie_PAC_AE
+      formule: ratios environnementaux . CO2 INS PAC air-eau indiv * Installation x PAC air-eau x Individuel . gamme de puissance existante / ratios . PAC AIR EAU Durée de vie indiv
     Total émissions avec ECS produite par l'installation:
       # M57 =IF($B$17="Oui";D57+E57+F57+J57;D57+F57+J57)
       # QUESTION déjà posée: D57 et E57 n'existent pas car grisés, à supprimer dans l'excel original
@@ -670,8 +666,8 @@ env . Installation x PAC air-eau x Collectif:
         - ECS solaire thermique
         - ECS avec ballon électrique
     Scope 3:
-      # J58
-      formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante
+      # ='Ratios environnementaux'!C51*B35/Durée_vie_PAC_AE_Coll/Nb_lgt
+      formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante / ratios . PAC AIR EAU Durée de vie coll / nombre de logement dans l'immeuble concerné
     Total émissions avec ECS produite par l'installation:
       # M58 =IF($B$17="Oui";D58+E58+F58+J58;D58+F58+J58)
       # QUESTION déjà posée: D58 et E58 n'existent pas car grisés, à supprimer dans l'excel original
@@ -708,7 +704,8 @@ env . Installation x Radiateur électrique x Individuel:
         - ECS solaire thermique
         - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Radiateur électrique * Installation x Radiateur électrique x Individuel . gamme de puissance existante
+      # =B14*'Ratios environnementaux'!$C$52
+      formule: besoins chauffage par appartement * ratios environnementaux . CO2 INS Radiateur électrique
     Total émissions avec ECS produite par solaire thermique:
       # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
       # QUESTION déjà posée: D60 n'existe pas car grisé
