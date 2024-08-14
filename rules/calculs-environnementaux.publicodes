@@ -6,6 +6,7 @@ env: # useless
 env . Installation x Réseaux de chaleur x Collectif:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       formule:
         variations:
@@ -13,9 +14,18 @@ env . Installation x Réseaux de chaleur x Collectif:
             alors: contenu CO2 réseau de chaleur * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
           - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      # ='Calculs techniques'!I93*'Ratios environnementaux'!$C$26
+      formule: Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
+      # ='Calculs techniques'!H93*'Ratios environnementaux'!$C$25
       formule: Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      # =SUM(E43:G43)
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # J43 =(IF($B$17="Oui";'Ratios environnementaux'!C33*($B$14+$B$15);'Ratios environnementaux'!C33*'Calculs environnementaux'!$B$14))
       # QUESTION déjà posée: ça s'appelle vraiment Scope 3 ?
@@ -50,17 +60,21 @@ env . Installation x Réseaux de chaleur x Collectif:
 env . Installation x Réseaux de froid x Collectif:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # F44 =(Contenu_CO2_RFU*'Calculs environnementaux'!$B$16)
       # QUESTION déjà posée: Calculs environnementaux'!$B$16 est vide.
       formule: contenu CO2 réseau de froid * besoins en climatisation par appartement
       unité: kgCO2 équ.
     ECS solaire thermique:
-      formule: ratios environnementaux . ECS solaire thermique
+      formule: Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Variation entre eau chaude sanitaire et solaire thermique:
-      formule: ECS avec ballon électrique - ECS solaire thermique
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # =(IF($B$17="Oui";'Ratios environnementaux'!C34*($B$14+$B$15);'Ratios environnementaux'!C34*'Calculs environnementaux'!$B$14))
       variations:
@@ -95,16 +109,20 @@ env . Installation x Poêle à granulés indiv x Individuel:
       # ='Calculs techniques'!C95/Conso_comb_GRA_Poele*(XLOOKUP(C45,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur / ratios . GRA POELE Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé poêle à bois
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique: 0
     ECS solaire thermique:
-      formule: ratios environnementaux . ECS solaire thermique
+      formule: Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Variation entre eau chaude sanitaire et solaire thermique:
-      formule: ECS avec ballon électrique - ECS solaire thermique
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      # =(XLOOKUP(A45;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(A45;$A$20:$A$37;$B$20:$B$37))
-      formule: ratios environnementaux . CO2 INS Poêle à granulés indiv * Installation x Poêle à granulés indiv x Individuel . gamme de puissance existante
+      # =(XLOOKUP(A45,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B22/Durée_vie_GRA_Poele
+      formule: ratios environnementaux . CO2 INS Poêle à granulés indiv * Installation x Poêle à granulés indiv x Individuel . gamme de puissance existante / ratios . GRA POELE Durée de vie
     Total émissions avec ECS produite par solaire thermique:
       # K45 =IF($B$17="Oui";$D$45+$G$45+$J$45)
       # QUESTION déjà posée: ici, si c'est non ça affiche false, ce qui n'est peut-être pas ce qu'on veut
@@ -138,15 +156,23 @@ env . Installation x Chaudière à granulés coll x Collectif:
       # ='Calculs techniques'!C96/Conso_comb_GRA_Chaud*(XLOOKUP(C46,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur / ratios . GRA CHAUD Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé chaudière
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # ='Calculs techniques'!F96*'Ratios environnementaux'!$C$25
       formule: Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
+      # =(XLOOKUP(A46,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B23/Durée_vie_GRA_Chaud/Nb_lgt
+      formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante / ratios . GRA CHAUD Durée de vie / nombre de logement dans l'immeuble concerné
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
       somme:
@@ -170,14 +196,22 @@ env . Installation x Gaz indiv avec cond x Individuel:
       # ='Calculs techniques'!C97/Conso_comb_GAZ_indiv_cond*(XLOOKUP(C47,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       formule: Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante
+      # =(XLOOKUP(A47,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B24/Durée_vie_GAZ_indiv_cond
+      formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante / ratios . GAZ IND COND Durée de vie
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
       somme:
@@ -201,14 +235,22 @@ env . Installation x Gaz indiv sans cond x Individuel:
       # ='Calculs techniques'!C98/Conso_comb_GAZ_indiv_scond*(XLOOKUP(C48,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       formule: Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante
+      # =(XLOOKUP(A48,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B25/Durée_vie_GAZ_indiv_scond
+      formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante / ratios . GAZ IND SCOND Durée de vie
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
       somme:
@@ -232,14 +274,22 @@ env . Installation x Gaz coll avec cond x Collectif:
       # ='Calculs techniques'!C99/Conso_comb_GAZ_coll_cond*(XLOOKUP(C49,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       formule: Installation x Gaz coll avec cond x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
+      # =(XLOOKUP(A49,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B26/Durée_vie_GAZ_coll_cond/Nb_lgt
+      formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante / ratios . GAZ COLL COND Durée de vie / nombre de logement dans l'immeuble concerné
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
       somme:
@@ -263,14 +313,22 @@ env . Installation x Gaz coll sans cond x Collectif:
       # ='Calculs techniques'!C100/Conso_comb_GAZ_coll_scond*(XLOOKUP(C50,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       formule: Installation x Gaz coll sans cond x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante
+      # =(XLOOKUP(A50,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B27/Durée_vie_GAZ_coll_scond/Nb_lgt
+      formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante / ratios . GAZ COLL SCOND Durée de vie / nombre de logement dans l'immeuble concerné
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
       somme:
@@ -294,14 +352,22 @@ env . Installation x Fioul indiv x Individuel:
       # ='Calculs techniques'!C101/Conso_comb_FIOUL_indiv*(XLOOKUP(C51,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Fioul indiv x Individuel . consommation combustible chaleur / ratios . FIOUL IND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       formule: Installation x Fioul indiv x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Fioul indiv * Installation x Fioul indiv x Individuel . gamme de puissance existante
+      # =(XLOOKUP(A51,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B28/Durée_vie_FIOUL_indiv
+      formule: ratios environnementaux . CO2 INS Fioul indiv * Installation x Fioul indiv x Individuel . gamme de puissance existante / ratios . FIOUL IND Durée de vie
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
       somme:
@@ -325,14 +391,22 @@ env . Installation x Fioul coll x Collectif:
       # ='Calculs techniques'!C102/Conso_comb_FIOUL_coll*(XLOOKUP(C52,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
       formule: Installation x Fioul coll x Collectif . consommation combustible chaleur / ratios . FIOUL COLL Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       formule: Installation x Fioul coll x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
-      formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante
+      # =(XLOOKUP(A52,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B29/Durée_vie_FIOUL_coll/Nb_lgt
+      formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante / ratios . FIOUL COLL Durée de vie / nombre de logement dans l'immeuble concerné
     Total émissions avec ECS produite par l'installation:
       # =IF($B$17="Oui";D46+E46+F46+J46;D46+F46+J46)
       somme:
@@ -353,6 +427,7 @@ env . Installation x Fioul coll x Collectif:
 env . Installation x PAC air-air x Individuel:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C103+'Calculs techniques'!F102)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D103*'Ratios environnementaux'!$C$27
       somme:
@@ -360,11 +435,14 @@ env . Installation x PAC air-air x Individuel:
         - Installation x PAC air-air x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique:
-      formule: ratios environnementaux . ECS solaire thermique
+      formule: Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Variation entre eau chaude sanitaire et solaire thermique:
-      formule: ECS avec ballon électrique - ECS solaire thermique
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # F53 =(XLOOKUP(A53;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A53;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -401,6 +479,7 @@ env . Installation x PAC air-air x Individuel:
 env . Installation x PAC air-air x Collectif:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C106+'Calculs techniques'!F105)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D106*'Ratios environnementaux'!$C$27
       somme:
@@ -408,11 +487,14 @@ env . Installation x PAC air-air x Collectif:
         - Installation x PAC air-air x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
     ECS solaire thermique:
-      formule: ratios environnementaux . ECS solaire thermique
+      formule: Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x PAC air-air x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Variation entre eau chaude sanitaire et solaire thermique:
-      formule: ECS avec ballon électrique - ECS solaire thermique
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # J54 =(XLOOKUP(A54;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A54;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION déjà posée: le LEFT semble etre faux car il ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -449,15 +531,22 @@ env . Installation x PAC air-air x Collectif:
 env . Installation x PAC eau-eau x Individuel:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C104+'Calculs techniques'!F103)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D104*'Ratios environnementaux'!$C$27
       somme:
         - (Installation x PAC eau-eau x Individuel . consommation combustible chaleur + Installation x PAC eau-eau x Individuel . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC eau-eau x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # J55 =(XLOOKUP(A55;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A55;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -483,15 +572,22 @@ env . Installation x PAC eau-eau x Individuel:
 env . Installation x PAC eau-eau x Collectif:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C107+'Calculs techniques'!F106)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D107*'Ratios environnementaux'!$C$27
       somme:
         - (Installation x PAC eau-eau x Collectif . consommation combustible chaleur + Installation x PAC eau-eau x Collectif . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC eau-eau x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A56;'Ratios environnementaux'!$B$35:$B$50;'Ratios environnementaux'!$C$35:$C$50))*(XLOOKUP(LEFT(A56;9);LEFT($A$20:$A$37;9);$B$20:$B$37))
       # QUESTION déjà posée: le LEFT semble etre faux car il n'ira ira toujours chercher la première valeur, à savoir indiv, meme si c'est pour du collectif; A faire modifier dans l'excel original, et déjà corrigé ici
@@ -517,15 +613,22 @@ env . Installation x PAC eau-eau x Collectif:
 env . Installation x PAC air-eau x Individuel:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C105+'Calculs techniques'!F104)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D105*'Ratios environnementaux'!$C$27
       somme:
         - (Installation x PAC air-eau x Individuel . consommation combustible chaleur + Installation x PAC air-eau x Individuel . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC air-eau x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x PAC air-eau x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # J57
       formule: ratios environnementaux . CO2 INS PAC air-eau indiv * Installation x PAC air-eau x Individuel . gamme de puissance existante
@@ -550,15 +653,22 @@ env . Installation x PAC air-eau x Individuel:
 env . Installation x PAC air-eau x Collectif:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C108+'Calculs techniques'!F107)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D108*'Ratios environnementaux'!$C$27
       somme:
         - (Installation x PAC air-eau x Collectif . consommation combustible chaleur + Installation x PAC air-eau x Collectif . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         - Installation x PAC air-eau x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2 équ.
-    ECS solaire thermique: 0
+    ECS solaire thermique:
+      formule: Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x PAC air-eau x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       # J58
       formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante
@@ -583,16 +693,20 @@ env . Installation x PAC air-eau x Collectif:
 env . Installation x Radiateur électrique x Individuel:
   avec:
     besoins de chauffage: 0
+    Scope 1: besoins de chauffage
     auxiliaires et combustible électrique:
       # =XLOOKUP(A60;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
       formule: Installation x Radiateur électrique x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2 équ.
     ECS solaire thermique:
-      formule: ratios environnementaux . ECS solaire thermique
+      formule: Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Variation entre eau chaude sanitaire et solaire thermique:
-      formule: ECS avec ballon électrique - ECS solaire thermique
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
     Scope 3:
       formule: ratios environnementaux . CO2 INS Radiateur électrique * Installation x Radiateur électrique x Individuel . gamme de puissance existante
     Total émissions avec ECS produite par solaire thermique:

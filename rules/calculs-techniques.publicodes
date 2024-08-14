@@ -79,6 +79,17 @@ Installation x Réseaux de chaleur x Collectif:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      # =IF(AND(C70="Oui",Type_ECS="Solaire thermique"),Besoin_ECS*(1-'Paramètres techniques'!$D$197)/'Paramètres techniques'!$D$195,0)
+      # valeur commune à tous les types d'installations
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       # =Besoin_cha/Rend_RCU_chauf+IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)*Besoin_ECS/Rend_RCU_ECS
       somme:
@@ -129,6 +140,15 @@ Installation x Réseaux de froid x Collectif:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible froid:
       # =Besoin_raf/Rend_RFU
       formule: besoins en climatisation par appartement / ratios . RFU Rendement sous station
@@ -169,6 +189,15 @@ Installation x Poêle à granulés indiv x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != 'Solaire thermique'
           alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
@@ -293,6 +322,15 @@ Installation x Chaudière à granulés coll x Collectif:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       # =Conso_comb_GRA_Chaud*(Besoin_cha/Rend_GRA_Chaud+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GRA_Chaud)
       # formule: ratios . GRA CHAUD Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GRA CHAUD Rendement chaudière chauffage
@@ -358,6 +396,15 @@ Installation x Gaz indiv avec cond x Individuel:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       # =Conso_comb_GAZ_indiv_cond*(Besoin_cha/Rend_GAZ_indiv_cond_chauf+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GAZ_indiv_cond_ECS)
       produit:
@@ -418,6 +465,15 @@ Installation x Gaz indiv sans cond x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != 'Solaire thermique'
           alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
@@ -503,6 +559,15 @@ Installation x Gaz coll avec cond x Collectif:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       # =Conso_comb_GAZ_coll_cond*(Besoin_cha/Rend_GAZ_coll_cond_chauf+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GAZ_coll_cond_ECS)
       produit:
@@ -584,6 +649,15 @@ Installation x Gaz coll sans cond x Collectif:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       # =Conso_comb_GAZ_coll_scond*(Besoin_cha/Rend_GAZ_coll_scond+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GAZ_coll_scond)
       produit:
@@ -644,6 +718,15 @@ Installation x Fioul indiv x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != 'Solaire thermique'
           alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
@@ -729,6 +812,15 @@ Installation x Fioul coll x Collectif:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       # =Conso_comb_FIOUL_coll*(Besoin_cha/Rend_FIOUL_coll_chauf+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_FIOUL_coll_ECS)
       produit:
@@ -781,6 +873,15 @@ Installation x PAC air-air x Individuel:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       formule: besoins chauffage par appartement / ratios . PAC AIR AIR SCOP indiv
       unité: kWh elec
@@ -824,6 +925,15 @@ Installation x PAC eau-eau x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != 'Solaire thermique'
           alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
@@ -873,6 +983,15 @@ Installation x PAC air-eau x Individuel:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC AIR EAU SCOP indiv
       unité: kWh elec
@@ -914,6 +1033,15 @@ Installation x PAC air-air x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != 'Solaire thermique'
           alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
@@ -959,6 +1087,15 @@ Installation x PAC eau-eau x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != 'Solaire thermique'
           alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
@@ -1010,6 +1147,15 @@ Installation x PAC air-eau x Collectif:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
     consommation combustible chaleur:
       formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC AIR EAU SCOP coll
       unité: kWh elec
@@ -1047,6 +1193,15 @@ Installation x Radiateur électrique x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != 'Solaire thermique'
           alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
