@@ -18,6 +18,23 @@ const engine = new Engine(model, {
 
 (window as any).engine = engine
 
+// DEBUG
+engine.setSituation({
+  'mode affichage': "'technicien'",
+  'degré jours unifié spécifique chaud': 1459,
+  'degré jours unifié spécifique froid': 73,
+  'température de référence chaud': -5,
+  'zone climatique': "'H2'",
+  'sous zone climatique': "'H2c'",
+
+  'contenu CO2 réseau de chaleur': 0.085,
+  'contenu CO2 réseau de froid': 0.017,
+  'type de bâtiment': "'résidentiel'",
+  'Production eau chaude sanitaire': 'oui',
+  'méthode résidentiel': "'DPE'",
+  DPE: "'C'",
+} satisfies Partial<Record<DottedName, any>>);
+
 // The base URL of the application (in production, the app is served from a subdirectory of
 // the github pages repository, so we need to prefix all the URLs with the subdirectory)
 const baseUrl = process.env.NODE_ENV === "development" ? "" : "/france-chaleur-urbaine-publicodes"
