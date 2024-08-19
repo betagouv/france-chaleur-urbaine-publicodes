@@ -40,45 +40,11 @@ mode affichage:
       - "'technicien'"
 
 ###### Réseaux de chaleur et de froid
-choix du réseau de chaleur:
-  par défaut: "'MOYENNE RESEAUX CHAUD'"
-  une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'MOYENNE RESEAUX CHAUD'"
-      - "'Réseau de chaleur d'Hauteville Lompnes'"
-      - "'Oyonnax BioChaleur'"
-      - "'Réseau de saint-denis-les-bourg'"
-      - "'Belena'"
-      - "'Secteur Verger du Moulin'"
-      - "'Bourg-en-Bresse - La Vinaigrerie'"
-      - "'Réseau chauffage DORTAN'"
-      - "'Réseau de chaleur ASSURC à Bourg-en-Bresse'"
-      - "'CORMARANCHE'"
-      - "'TODO à définir en externe'" # FIXME
 contenu CO2 réseau de chaleur:
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   # à définir en externe via le réseau le plus proche
   par défaut: caractéristique réseau de chaleur . contenu CO2 - ratios environnementaux . CO2 INS RCU
   note: Contenu_CO2_RCU
-choix du réseau de froid:
-  par défaut: "'MOYENNE RESEAUX FROID'"
-  une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'MOYENNE RESEAUX FROID'"
-      - "'MSE Réseau froid'"
-      - "'BET CAP AZUR froid'"
-      - "'Réseau de froid Thassalia Marseille'"
-      - "'Réseau du pôle Yvon Morandat'"
-      - "'BET MASSILEO froid'"
-      - "'CANCEROPOLE'"
-      - "'Toulouse energie durable (TED) froid'"
-      - "'LASERIS'"
-      - "'BASSINS A FLOT - Froid'"
-      - "'Polygone Antigone'"
-      - "'Ernest Granier'"
-      - "'TODO à définir en externe'" # FIXME
 contenu CO2 réseau de froid:
   # =XLOOKUP(C18,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   # à définir en externe via le réseau le plus proche
