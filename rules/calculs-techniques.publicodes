@@ -1287,7 +1287,14 @@ Installation x PAC eau-eau x Collectif:
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
-      formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC EAU EAU SCOP coll champ de sondes
+      produit:
+        - somme:
+          - besoins chauffage par appartement
+          - variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: besoins eau chaude sanitaire par appartement
+            - sinon: 0
+        - 1 / ratios . PAC EAU EAU SCOP coll champ de sondes
       unité: kWh elec
     consommation combustible froid:
       formule: 0
@@ -1357,7 +1364,14 @@ Installation x PAC air-eau x Collectif:
         - sinon: 0
       unité: kWh/an
     consommation combustible chaleur:
-      formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC AIR EAU SCOP coll
+      produit:
+        - somme:
+          - besoins chauffage par appartement
+          - variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: besoins eau chaude sanitaire par appartement
+            - sinon: 0
+        - 1 / ratios . PAC AIR EAU SCOP coll
       unité: kWh elec
     consommation combustible froid:
       formule: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
