@@ -1508,6 +1508,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "DPE"
           - DPE = "A"
       remplace: puissance coefficient d'intermittence
       valeur: 70%
@@ -1516,6 +1517,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "DPE"
           - DPE = "B"
       remplace: puissance coefficient d'intermittence
       valeur: 70%
@@ -1524,6 +1526,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "DPE"
           - DPE = "C"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
@@ -1532,6 +1535,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "DPE"
           - DPE = "D"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
@@ -1540,6 +1544,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "DPE"
           - DPE = "E"
       remplace: puissance coefficient d'intermittence
       valeur: 100%
@@ -1548,6 +1553,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "DPE"
           - DPE = "F"
       remplace: puissance coefficient d'intermittence
       valeur: 100%
@@ -1556,6 +1562,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "DPE"
           - DPE = "G"
       remplace: puissance coefficient d'intermittence
       valeur: 100%
@@ -1564,6 +1571,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "Normes thermiques et âge du bâtiment"
           - normes thermiques et âge du bâtiment = "RE2020 Après 2020"
       remplace: puissance coefficient d'intermittence
       valeur: 70%
@@ -1572,6 +1580,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "Normes thermiques et âge du bâtiment"
           - normes thermiques et âge du bâtiment = "RT2012 Entre 2012 et 2020"
       remplace: puissance coefficient d'intermittence
       valeur: 70%
@@ -1580,6 +1589,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "Normes thermiques et âge du bâtiment"
           - normes thermiques et âge du bâtiment = "RT2005 Entre 2005 et 2012"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
@@ -1588,6 +1598,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "Normes thermiques et âge du bâtiment"
           - normes thermiques et âge du bâtiment = "RT2000 Entre 2000 et 2005"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
@@ -1596,6 +1607,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "Normes thermiques et âge du bâtiment"
           - normes thermiques et âge du bâtiment = "de 1990 à 2000"
       remplace: puissance coefficient d'intermittence
       valeur: 100%
@@ -1604,6 +1616,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "Normes thermiques et âge du bâtiment"
           - normes thermiques et âge du bâtiment = "de 1974 à 1990"
       remplace: puissance coefficient d'intermittence
       valeur: 100%
@@ -1612,6 +1625,7 @@ ratios:
       applicable si:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
+          - méthode résidentiel = "Normes thermiques et âge du bâtiment"
           - normes thermiques et âge du bâtiment = "avant 1974"
       remplace: puissance coefficient d'intermittence
       valeur: 100%
