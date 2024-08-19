@@ -169,7 +169,7 @@ méthode résidentiel:
       - "'DPE'"
 
 DPE:
-  par défaut: "'D'"
+  par défaut: "'C'"
   une possibilité:
     choix obligatoire: méthode de calcul pour les besoins en chauffage et refroidissement = "DPE"
     possibilités:
