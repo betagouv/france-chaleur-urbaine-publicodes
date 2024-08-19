@@ -33,11 +33,11 @@ caractéristique réseau de chaleur:
       unité: €TTC/MWh
     part fixe:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 0.395
+      par défaut: 39.5
       unité: '%'
     part variable:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 0.605
+      par défaut: 60.5
       unité: '%'
 
 caractéristique réseau de froid:
@@ -69,9 +69,9 @@ caractéristique réseau de froid:
       unité: €TTC/MWh
     part fixe:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 0.6
+      par défaut: 60
       unité: '%'
     part variable:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 0.4
+      par défaut: 40
       unité: '%'
