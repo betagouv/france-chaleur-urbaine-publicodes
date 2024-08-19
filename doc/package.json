@@ -15,7 +15,7 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.2.1",
-    "publicodes": "^1.4.0",
+    "publicodes": "npm:@totak/publicodes@1.5.0-fcu3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.7",
