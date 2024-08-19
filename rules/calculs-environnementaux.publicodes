@@ -5,7 +5,9 @@ env: # useless
 
 env . Installation x Réseaux de chaleur x Collectif:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       formule:
@@ -42,7 +44,9 @@ env . Installation x Réseaux de chaleur x Collectif:
 
 env . Installation x Réseaux de froid x Collectif:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # F44 =(Contenu_CO2_RFU*'Calculs environnementaux'!$B$16)
@@ -75,10 +79,12 @@ env . Installation x Poêle à granulés indiv x Individuel:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C95/Conso_comb_GRA_Poele*(XLOOKUP(C45,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur / ratios . GRA POELE Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé poêle à bois
+      formule: (Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur / ratios . GRA POELE Conso combustible) * ratios environnementaux . Emission spé Granulé poêle à bois
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
-    auxiliaires et combustible électrique: 0
+    auxiliaires et combustible électrique:
+      valeur: 0
+      unité: kgCO2 équ.
     ECS solaire thermique:
       formule: Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
@@ -102,7 +108,7 @@ env . Installation x Chaudière à granulés coll x Collectif:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C96/Conso_comb_GRA_Chaud*(XLOOKUP(C46,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur / ratios . GRA CHAUD Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Granulé chaudière
+      formule: Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur / ratios . GRA CHAUD Conso combustible * ratios environnementaux . Emission spé Granulé chaudière
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
@@ -132,7 +138,7 @@ env . Installation x Gaz indiv avec cond x Individuel:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C97/Conso_comb_GAZ_indiv_cond*(XLOOKUP(C47,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      formule: Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
@@ -161,7 +167,7 @@ env . Installation x Gaz indiv sans cond x Individuel:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C98/Conso_comb_GAZ_indiv_scond*(XLOOKUP(C48,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      formule: Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
@@ -190,7 +196,7 @@ env . Installation x Gaz coll avec cond x Collectif:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C99/Conso_comb_GAZ_coll_cond*(XLOOKUP(C49,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      formule: Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
@@ -219,7 +225,7 @@ env . Installation x Gaz coll sans cond x Collectif:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C100/Conso_comb_GAZ_coll_scond*(XLOOKUP(C50,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Gaz chaudière
+      formule: Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
@@ -248,7 +254,7 @@ env . Installation x Fioul indiv x Individuel:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C101/Conso_comb_FIOUL_indiv*(XLOOKUP(C51,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Fioul indiv x Individuel . consommation combustible chaleur / ratios . FIOUL IND Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      formule: Installation x Fioul indiv x Individuel . consommation combustible chaleur / ratios . FIOUL IND Conso combustible * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
@@ -277,7 +283,7 @@ env . Installation x Fioul coll x Collectif:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C102/Conso_comb_FIOUL_coll*(XLOOKUP(C52,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Fioul coll x Collectif . consommation combustible chaleur / ratios . FIOUL COLL Conso combustible * besoins chauffage par appartement * ratios environnementaux . Emission spé Fioul chaudière
+      formule: Installation x Fioul coll x Collectif . consommation combustible chaleur / ratios . FIOUL COLL Conso combustible * ratios environnementaux . Emission spé Fioul chaudière
       unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
@@ -304,7 +310,9 @@ env . Installation x Fioul coll x Collectif:
 
 env . Installation x PAC air-air x Individuel:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C103+'Calculs techniques'!F102)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D103*'Ratios environnementaux'!$C$27
@@ -333,7 +341,9 @@ env . Installation x PAC air-air x Individuel:
 
 env . Installation x PAC air-air x Collectif:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C106+'Calculs techniques'!F105)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D106*'Ratios environnementaux'!$C$27
@@ -362,7 +372,9 @@ env . Installation x PAC air-air x Collectif:
 
 env . Installation x PAC eau-eau x Individuel:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C104+'Calculs techniques'!F103)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D104*'Ratios environnementaux'!$C$27
@@ -391,7 +403,9 @@ env . Installation x PAC eau-eau x Individuel:
 
 env . Installation x PAC eau-eau x Collectif:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C107+'Calculs techniques'!F106)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D107*'Ratios environnementaux'!$C$27
@@ -420,7 +434,9 @@ env . Installation x PAC eau-eau x Collectif:
 
 env . Installation x PAC air-eau x Individuel:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C105+'Calculs techniques'!F104)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D105*'Ratios environnementaux'!$C$27
@@ -449,7 +465,9 @@ env . Installation x PAC air-eau x Individuel:
 
 env . Installation x PAC air-eau x Collectif:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C108+'Calculs techniques'!F107)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D108*'Ratios environnementaux'!$C$27
@@ -478,7 +496,9 @@ env . Installation x PAC air-eau x Collectif:
 
 env . Installation x Radiateur électrique x Individuel:
   avec:
-    besoins de chauffage et ECS si même équipement: 0
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2 équ.
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
       # =XLOOKUP(A60;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
