@@ -150,7 +150,8 @@ Installation x Réseaux de froid x Collectif:
       unité: kW
     puissance nécessaire pour refroidissement équipement:
       formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . RFU Rendement sous station * nombre de logement dans l'immeuble concerné
-      unité: kW
+      # unité: kW # corrigé pour faire fonctionner la division
+      unité: kW.logements
     puissance équipement:
       somme:
         - puissance nécessaire pour refroidissement équipement
@@ -283,83 +284,83 @@ Installation x Chaudière à granulés coll x Collectif:
     gamme de puissance existante:
       #=MROUND(G50;50)
       variations:
-        - si: puissance équipement <= 50
+        - si: puissance équipement < 75
           alors: 50
-        - si: puissance équipement <= 100
+        - si: puissance équipement < 125
           alors: 100
-        - si: puissance équipement <= 150
+        - si: puissance équipement < 175
           alors: 150
-        - si: puissance équipement <= 200
+        - si: puissance équipement < 225
           alors: 200
-        - si: puissance équipement <= 250
+        - si: puissance équipement < 275
           alors: 250
-        - si: puissance équipement <= 300
+        - si: puissance équipement < 325
           alors: 300
-        - si: puissance équipement <= 350
+        - si: puissance équipement < 375
           alors: 350
-        - si: puissance équipement <= 400
+        - si: puissance équipement < 425
           alors: 400
-        - si: puissance équipement <= 450
+        - si: puissance équipement < 475
           alors: 450
-        - si: puissance équipement <= 500
+        - si: puissance équipement < 525
           alors: 500
-        - si: puissance équipement <= 550
+        - si: puissance équipement < 575
           alors: 550
-        - si: puissance équipement <= 600
+        - si: puissance équipement < 625
           alors: 600
-        - si: puissance équipement <= 650
+        - si: puissance équipement < 675
           alors: 650
-        - si: puissance équipement <= 700
+        - si: puissance équipement < 725
           alors: 700
-        - si: puissance équipement <= 750
+        - si: puissance équipement < 775
           alors: 750
-        - si: puissance équipement <= 800
+        - si: puissance équipement < 825
           alors: 800
-        - si: puissance équipement <= 850
+        - si: puissance équipement < 875
           alors: 850
-        - si: puissance équipement <= 900
+        - si: puissance équipement < 925
           alors: 900
-        - si: puissance équipement <= 950
+        - si: puissance équipement < 975
           alors: 950
-        - si: puissance équipement <= 1000
+        - si: puissance équipement < 1025
           alors: 1000
-        - si: puissance équipement <= 1050
+        - si: puissance équipement < 1075
           alors: 1050
-        - si: puissance équipement <= 1100
+        - si: puissance équipement < 1125
           alors: 1100
-        - si: puissance équipement <= 1150
+        - si: puissance équipement < 1175
           alors: 1150
-        - si: puissance équipement <= 1200
+        - si: puissance équipement < 1225
           alors: 1200
-        - si: puissance équipement <= 1250
+        - si: puissance équipement < 1275
           alors: 1250
-        - si: puissance équipement <= 1300
+        - si: puissance équipement < 1325
           alors: 1300
-        - si: puissance équipement <= 1350
+        - si: puissance équipement < 1375
           alors: 1350
-        - si: puissance équipement <= 1400
+        - si: puissance équipement < 1425
           alors: 1400
-        - si: puissance équipement <= 1450
+        - si: puissance équipement < 1475
           alors: 1450
-        - si: puissance équipement <= 1500
+        - si: puissance équipement < 1525
           alors: 1500
-        - si: puissance équipement <= 1550
+        - si: puissance équipement < 1575
           alors: 1550
-        - si: puissance équipement <= 1600
+        - si: puissance équipement < 1625
           alors: 1600
-        - si: puissance équipement <= 1650
+        - si: puissance équipement < 1675
           alors: 1650
-        - si: puissance équipement <= 1700
+        - si: puissance équipement < 1725
           alors: 1700
-        - si: puissance équipement <= 1750
+        - si: puissance équipement < 1775
           alors: 1750
-        - si: puissance équipement <= 1800
+        - si: puissance équipement < 1825
           alors: 1800
-        - si: puissance équipement <= 1850
+        - si: puissance équipement < 1875
           alors: 1850
-        - si: puissance équipement <= 1900
+        - si: puissance équipement < 1925
           alors: 1900
-        - si: puissance équipement <= 1950
+        - si: puissance équipement < 1975
           alors: 1950
         - sinon: 2000
       unité: kW
@@ -1045,7 +1046,13 @@ Installation x PAC air-air x Individuel:
       unité: kW
     gamme de puissance existante:
       # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
-      formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible indiv # FIXME arrondi?
+      produit:
+        - somme:
+          - valeur: puissance équipement / ratios . PAC AIR AIR Puissance unitaire réversible indiv
+            arrondi: 0décimales
+            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - 1
+        - ratios . PAC AIR AIR Puissance unitaire réversible indiv
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
       toutes ces conditions:
@@ -1116,7 +1123,13 @@ Installation x PAC eau-eau x Individuel:
         - puissance nécessaire pour ECS avec équipement
       unité: kW
     gamme de puissance existante:
-      formule: puissance équipement / (ratios . PAC EAU EAU Puissance unitaire indiv + 1 ) * ratios . PAC EAU EAU Puissance unitaire indiv
+      produit:
+        - somme:
+          - valeur: puissance équipement / ratios . PAC EAU EAU Puissance unitaire indiv
+            arrondi: 0décimales
+            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - 1
+        - ratios . PAC EAU EAU Puissance unitaire indiv
       unité: kW
 
     besoin d'installation supplémentaire pour produire l'ECS:
@@ -1192,7 +1205,13 @@ Installation x PAC air-eau x Individuel:
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
-      formule: puissance équipement / (ratios . PAC AIR EAU Puissance unitaire réversible indiv + 1 ) * ratios . PAC AIR EAU Puissance unitaire réversible indiv
+      produit:
+        - somme:
+          - valeur: puissance équipement / ratios . PAC AIR EAU Puissance unitaire réversible indiv
+            arrondi: 0décimales
+            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - 1
+        - ratios . PAC AIR EAU Puissance unitaire réversible indiv
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
       toutes ces conditions:
@@ -1260,7 +1279,13 @@ Installation x PAC air-air x Collectif:
       unité: kW
     gamme de puissance existante:
       # H60 =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
-      formule: puissance équipement / (ratios . PAC AIR AIR Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR AIR Puissance unitaire réversible coll # FIXME arrondi?
+      produit:
+        - somme:
+          - valeur: puissance équipement / ratios . PAC AIR AIR Puissance unitaire réversible coll
+            arrondi: 0décimales
+            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - 1
+        - ratios . PAC AIR AIR Puissance unitaire réversible coll
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
       toutes ces conditions:
@@ -1331,7 +1356,13 @@ Installation x PAC eau-eau x Collectif:
       unité: kW
     gamme de puissance existante:
       # H61
-      formule: puissance équipement / (ratios . PAC EAU EAU Puissance unitaire coll + 1 ) * ratios . PAC EAU EAU Puissance unitaire coll
+      produit:
+        - somme:
+          - valeur: puissance équipement / ratios . PAC EAU EAU Puissance unitaire coll
+            arrondi: 0décimales
+            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - 1
+        - ratios . PAC EAU EAU Puissance unitaire coll
       unité: kW
 
     besoin d'installation supplémentaire pour produire l'ECS:
@@ -1415,7 +1446,13 @@ Installation x PAC air-eau x Collectif:
       unité: kW
     gamme de puissance existante:
       # H62
-      formule: puissance équipement / (ratios . PAC AIR EAU Puissance unitaire réversible coll + 1 ) * ratios . PAC AIR EAU Puissance unitaire réversible coll
+      produit:
+        - somme:
+          - valeur: puissance équipement / ratios . PAC AIR EAU Puissance unitaire réversible coll
+            arrondi: 0décimales
+            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - 1
+        - ratios . PAC AIR EAU Puissance unitaire réversible coll
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
       toutes ces conditions:
@@ -1486,7 +1523,13 @@ Installation x Radiateur électrique x Individuel:
       unité: kW
     gamme de puissance existante:
       # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
-      formule: puissance équipement / ( ratios économiques . radiateur électrique x puissance de l'installation + 1 ) * ratios économiques . radiateur électrique x puissance de l'installation # FIXME arrondi?
+      produit:
+        - somme:
+          - valeur: puissance équipement / ratios économiques . radiateur électrique x puissance de l'installation
+            arrondi: 0décimales
+            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - 1
+        - ratios économiques . radiateur électrique x puissance de l'installation
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
       toutes ces conditions:
