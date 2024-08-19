@@ -1739,7 +1739,7 @@ ratios:
       unité: '%'
     GRA POELE Conso combustible:
       valeur: 0.217391304
-      unité: kg/kWh
+      unité: kg granulés/an/kWh
     GRA POELE Durée de vie:
       valeur: 16
       unité: années
@@ -1748,7 +1748,7 @@ ratios:
       unité: '%'
     GRA CHAUD Conso combustible:
       valeur: 0.217391304
-      unité: kg/kWh
+      unité: kg granulés/an/kWh
     GRA CHAUD Conso auxiliaire:
       valeur: 98%
       unité: '%'
