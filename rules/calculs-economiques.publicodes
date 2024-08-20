@@ -73,13 +73,16 @@ Calcul Eco . Coût d'achat du combustible:
 Calcul Eco . Investissement ballon ECS à accumulation:
   # QUESTION déjà posée: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
   # 'Calculs économiques'!E23
+  # IF(affichage="Technicien",chauffe_eau_elec_inv*(1+TVA_inv)*(1+surcout_inv),chauffe_eau_elec_inv*(1+surcout_inv))
   produit:
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+    # - ( 1 + ratios économiques . Investissement x TVA )
     - ratios économiques . Chauffe-eau x électrique à accumulation
 
 Calcul Eco . Investissement panneaux solaires pour ballon ECS:
   # QUESTION déjà posée: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC
   # 'Calculs économiques'!F23
+  # =IF(AND('Calculs techniques'!C70="Oui",Type_ECS="Solaire thermique"),IF(affichage="Technicien",(chauffe_eau_sol_inv+panneau_sol_inv)*(1+TVA_inv)*(1+surcout_inv),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv)),"")
   produit:
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
     - ratios économiques . Chauffe-eau x solaire prix panneaux
@@ -91,20 +94,23 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
+          # =IF(affichage="Technicien",RCU_inv*(1+TVA_inv),RCU_inv)
           produit:
             - Investissement x frais de raccordement au réseaux x RCU
-            - ratios économiques . Investissement x TVA
+            - 1 + ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logement dans l'immeuble concerné
           unité: €TTC
         Investissement ballon ECS à accumulation:
+          # =IF('Calculs techniques'!C70="Oui",IF(affichage="Technicien",chauffe_eau_elec_inv*(1+TVA_inv)*(1+surcout_inv),chauffe_eau_elec_inv*(1+surcout_inv)),"")
           variations:
             - si: Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
               alors: Calcul Eco . Investissement ballon ECS à accumulation
             - sinon: 0
           unité: €TTC
         Investissement ballon ECS solaire panneau inclus:
+          # =IF(AND('Calculs techniques'!C70="Oui",Type_ECS="Solaire thermique"),IF(affichage="Technicien",(chauffe_eau_sol_inv+panneau_sol_inv)*(1+TVA_inv)*(1+surcout_inv),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv)),"")
           applicable si:
             toutes ces conditions:
               - Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS

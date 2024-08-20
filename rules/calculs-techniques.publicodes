@@ -1575,6 +1575,7 @@ Installation x Radiateur électrique x Individuel:
 # valeurs communes parmi tous les types d'installation
 
 volume du ballon ECS:
+  # =(Besoin_ECS*'Ratios techniques'!$C$72)/365
   formule: (besoins eau chaude sanitaire par appartement * ratios . ECS Quantité d'ECS produite par kWh) / 365
   unité: L
 
