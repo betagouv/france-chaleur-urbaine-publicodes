@@ -4,7 +4,25 @@
 
 ###### Puissance totale des installations
 
-# Pas besoin car calculé dans calculs techniques avec le variable "gamme de puissance existante"
+# Pas besoin car calculé dans calculs techniques avec le variable "gamme de puissance existante" sauf pour chauffe eau
+
+Puissance installation x Capacité chauffe eau électrique à accumulation:
+  # =IF('Calculs techniques'!$D$71>'Ratios économiques - Coûts'!$B$198,'Ratios économiques - Coûts'!$B$198,XLOOKUP('Calculs techniques'!$D$71,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$B$195:$B$198,,1))
+  variations:
+    - si: volume du ballon ECS <= 50
+      alors: 50
+    - si: volume du ballon ECS <= 100
+      alors: 100
+    - si: volume du ballon ECS <= 150
+      alors: 150
+    - si: volume du ballon ECS <= 200
+      alors: 200
+    - sinon: 200
+  unité: L
+Puissance installation x Capacité chauffe eau solaire:
+  #  =IF('Calculs techniques'!$D$71>'Ratios économiques - Coûts'!$B$198,'Ratios économiques - Coûts'!$B$198,XLOOKUP('Calculs techniques'!$D$71,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$B$195:$B$198,,1))
+  formule: Puissance installation x Capacité chauffe eau électrique à accumulation
+  unité: L
 
 ###### Investissement
 
@@ -30,7 +48,7 @@ Investissement x frais de raccordement au réseaux x RCU:
     produit:
       - variations:
         - si: type de bâtiment = 'résidentiel'
-          alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel
+          alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logement dans l'immeuble concerné
         - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
   unité: €HT
 
@@ -40,7 +58,7 @@ Investissement x frais de raccordement au réseaux x RFU:
     produit:
       - variations:
         - si: type de bâtiment = 'résidentiel'
-          alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel
+          alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logement dans l'immeuble concerné
         - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
   unité: €HT
 
