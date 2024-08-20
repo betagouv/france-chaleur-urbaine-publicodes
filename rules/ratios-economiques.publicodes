@@ -403,15 +403,17 @@ ratios économiques:
         - Installation x Radiateur électrique x Individuel . gamme de puissance existante / 2
 
     Chauffe-eau x électrique à accumulation:
+      # =IF(affichage="Technicien",XLOOKUP($D$42,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$C$195:$C$198,,1),XLOOKUP($D$42,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$C$195:$C$198,,1)*(1+$D$50))
       variations:
-        - si: volume du ballon ECS = 50
+        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 50
           alors: 610.8
-        - si: volume du ballon ECS = 100
+        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 100
           alors: 705.8
-        - si: volume du ballon ECS = 150
+        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 150
           alors: 802.5
-        - si: volume du ballon ECS = 200
+        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 200
           alors: 918.3
+        - sinon: 918.3
       unité: €HT
       note: 'Source: Thermor 2024'
 
