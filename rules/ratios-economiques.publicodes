@@ -453,12 +453,12 @@ ratios économiques:
               valeur:	80
               unité: '%'
               note: 'Source: AMORCE 2024'
-            Prix de l'énergie HC:
+            Prix de l'énergie HP:
               # D273:D292
               valeur: 0.2040
               unité: €HT/kWh
               note: 'Source: ELCIMAI + TRV 2024'
-            Prix de l'énergie HP:
+            Prix de l'énergie HC:
               # E273:E292
               valeur: 0.1513
               unité: €HT/kWh
