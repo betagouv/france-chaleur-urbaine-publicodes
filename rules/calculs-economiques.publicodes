@@ -33,7 +33,7 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
     Electricité indiv x Part consommation HC:
       # F11 =IF('Paramètres économiques'!C109="Option base","",'Paramètres économiques'!$D$115)
-      applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+      applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
       formule: Paramètres économiques . Electricité x Consommation Part variable en heure creuse
       unité: €TTC/kWh
 
