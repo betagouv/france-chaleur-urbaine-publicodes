@@ -166,7 +166,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Réseaux de froid:
@@ -235,7 +242,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Réseaux de froid x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Poêle à granulés indiv:
@@ -303,7 +317,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Chaudière à granulés coll:
@@ -374,7 +395,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz indiv avec cond:
@@ -444,7 +472,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz indiv sans cond:
@@ -514,7 +549,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz coll avec cond:
@@ -584,7 +626,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Gaz coll sans cond:
@@ -655,7 +704,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Fioul indiv:
@@ -724,7 +780,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Fioul indiv x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Fioul coll:
@@ -793,7 +856,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Fioul coll x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-air indiv:
@@ -866,7 +936,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-air x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC eau-eau indiv:
@@ -938,7 +1015,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC eau-eau x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-eau indiv:
@@ -1010,7 +1094,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-eau x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-air coll:
@@ -1084,7 +1175,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-air x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC eau-eau coll:
@@ -1158,7 +1256,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC eau-eau x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     PAC air-eau coll:
@@ -1232,7 +1337,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-eau x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
     Radiateur électrique:
@@ -1306,7 +1418,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
         Coût combustible pour ballon ECS solaire:
-          # TODO
+          applicable si: Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Radiateur électrique x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
 
