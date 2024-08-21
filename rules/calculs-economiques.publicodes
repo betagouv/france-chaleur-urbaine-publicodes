@@ -27,9 +27,14 @@ Calcul Eco . Coût d'achat du combustible:
         - Paramètres économiques . Electricité x Abonnement Part Fixe indiv + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
         - (1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA)
       unité: €TTC/an
-    Electricité indiv x Part consommation:
+    Electricité indiv x Part consommation HP:
       # D11 ='Paramètres économiques'!$D$114
-      formule: Paramètres économiques . Electricité x Consommation Part variable
+      formule: Paramètres économiques . Electricité x Consommation Part variable en heure pleine
+      unité: €TTC/kWh
+    Electricité indiv x Part consommation HC:
+      # F11 =IF('Paramètres économiques'!C109="Option base","",'Paramètres économiques'!$D$115)
+      applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+      formule: Paramètres économiques . Electricité x Consommation Part variable en heure creuse
       unité: €TTC/kWh
 
     Electricité coll x Part abonnement:
@@ -40,7 +45,7 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/an
     Electricité coll x Part consommation:
       # D12 ='Paramètres économiques'!$D$114
-      formule: Paramètres économiques . Electricité x Consommation Part variable
+      formule: Paramètres économiques . Electricité x Consommation Part variable en heure pleine
       unité: €TTC/kWh
 
     Gaz indiv x Part abonnement:
@@ -138,7 +143,14 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          # =IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!F93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!$F115+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115)
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -194,7 +206,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de froid x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de froid x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Réseaux de froid x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -249,7 +267,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -307,7 +331,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -364,7 +394,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -421,7 +457,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -478,7 +520,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -536,7 +584,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -592,7 +646,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -648,7 +708,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -713,7 +779,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-air x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -766,7 +838,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC eau-eau x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -819,7 +897,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-eau x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -872,7 +956,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-air x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -925,7 +1015,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC eau-eau x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -978,7 +1074,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Collectif . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Collectif . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-eau x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -1033,7 +1135,13 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          # TODO
+          variations:
+            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Radiateur électrique x Individuel . consommation auxiliaire
+            - sinon:
+                somme:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Radiateur électrique x Individuel . consommation auxiliaire
+                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x Radiateur électrique x Individuel . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
