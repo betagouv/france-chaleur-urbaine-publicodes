@@ -948,7 +948,7 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logement dans l'immeuble concerné
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -1007,7 +1007,7 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logement dans l'immeuble concerné
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -1066,7 +1066,7 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement
+          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logement dans l'immeuble concerné
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
