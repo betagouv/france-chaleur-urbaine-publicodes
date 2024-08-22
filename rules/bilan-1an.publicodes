@@ -1,0 +1,189 @@
+# reproduction de la fonction Excel PMT
+x-pmt: &pmt
+  - si: Paramètres économiques . Amortissement . taux actualisation != 0
+    alors: Paramètres économiques . Amortissement . taux actualisation * capital * ((1 + Paramètres économiques . Amortissement . taux actualisation) ** durée) / ((1 + Paramètres économiques . Amortissement . taux actualisation) ** durée - 1)
+  - sinon: capital / durée
+
+Bilan x Réseaux de chaleur:
+  avec:
+    P4:
+      # =-PMT('Paramètres économiques'!$D$199,Durée_vie_RCU,'Calculs économiques'!$G$23)
+      variations: *pmt
+      avec:
+        durée: ratios . RCU Durée avant renouvellement
+        capital: Calcul Eco . Réseaux de chaleur . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . RCU Durée avant renouvellement
+        capital: Calcul Eco . Réseaux de chaleur . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Poêle à granulés indiv et ECS elec:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . GRA POELE Durée de vie
+        capital: Calcul Eco . Poêle à granulés indiv . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . GRA POELE Durée de vie
+        capital: Calcul Eco . Poêle à granulés indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Chaudière à granulés coll:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . GRA CHAUD Durée de vie
+        capital: Calcul Eco . Chaudière à granulés coll . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . GRA CHAUD Durée de vie
+        capital: Calcul Eco . Chaudière à granulés coll . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Gaz indiv avec cond:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ IND COND Durée de vie
+        capital: Calcul Eco . Gaz indiv avec cond . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ IND COND Durée de vie
+        capital: Calcul Eco . Gaz indiv avec cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Gaz indiv sans cond:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ IND SCOND Durée de vie
+        capital: Calcul Eco . Gaz indiv sans cond . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ IND SCOND Durée de vie
+        capital: Calcul Eco . Gaz indiv sans cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Gaz coll avec cond:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ COLL COND Durée de vie
+        capital: Calcul Eco . Gaz coll avec cond . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ COLL COND Durée de vie
+        capital: Calcul Eco . Gaz coll avec cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Gaz coll sans cond:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ COLL COND Durée de vie
+        capital: Calcul Eco . Gaz coll sans cond . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . GAZ COLL COND Durée de vie
+        capital: Calcul Eco . Gaz coll sans cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Fioul indiv:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . FIOUL IND Durée de vie
+        capital: Calcul Eco . Fioul indiv . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . FIOUL IND Durée de vie
+        capital: Calcul Eco . Fioul indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Fioul coll:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . FIOUL COLL Durée de vie
+        capital: Calcul Eco . Fioul coll . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . FIOUL COLL Durée de vie
+        capital: Calcul Eco . Fioul coll . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x PAC air-air indiv et ECS Elec:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . PAC AIR AIR Durée de vie indiv
+        capital: Calcul Eco . PAC air-air indiv . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . PAC AIR AIR Durée de vie indiv
+        capital: Calcul Eco . PAC air-air indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Radiateur électrique et ECS elec:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . RAD ELEC INDIV Durée de vie
+        capital: Calcul Eco . Radiateur électrique . Total investissement avec ballon ECS à accumulation
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . RAD ELEC INDIV Durée de vie
+        capital: Calcul Eco . Radiateur électrique . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Radiateur électrique et ECS solaire:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . RAD ELEC INDIV Durée de vie
+        capital: Calcul Eco . Radiateur électrique . Total investissement ballon ECS solaire panneaux
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . RAD ELEC INDIV Durée de vie
+        capital: Calcul Eco . Radiateur électrique . Total investissement ballon ECS solaire panneaux - Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Total
+    aides:
+      valeur: P4 - P4 moins aides
+Bilan x Poêle à granulés indiv et ECS solaire:
+  avec:
+    P4:
+      variations: *pmt
+      avec:
+        durée: ratios . GRA POELE Durée de vie
+        capital: Calcul Eco . Poêle à granulés indiv . Total investissement ballon ECS solaire panneaux
+    P4 moins aides:
+      variations: *pmt
+      avec:
+        durée: ratios . GRA POELE Durée de vie
+        capital: Calcul Eco . Poêle à granulés indiv . Total investissement ballon ECS solaire panneaux - Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Total
+    aides:
+      valeur: P4 - P4 moins aides
