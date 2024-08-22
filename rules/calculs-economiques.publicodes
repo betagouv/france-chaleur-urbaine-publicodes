@@ -1633,11 +1633,15 @@ Calcul Eco . Montant des aides par logement tertiaire:
       avec:
         Ma prime renov':
           # =IF($B$91="Eligible",XLOOKUP(1,('Ratios économiques - Aides'!$A$9:$A$26='Paramètres économiques'!$D$213)*('Ratios économiques - Aides'!$B$9:$B$26='Calculs économiques'!A97),'Ratios économiques - Aides'!$C$9:$C$26,0),0)
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
           # =IF($B$92="Eligible",
           # IF('Paramètres économiques'!$D$213="Modeste",XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$267:$B$272,'Ratios économiques - Aides'!$C$267:$C$272,0),XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$273:$B$278,'Ratios économiques - Aides'!$C$273:$C$278,0)),0)
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1672,9 +1676,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Réseaux de froid:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1694,9 +1702,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Poêle à granulés indiv:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1708,9 +1720,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Chaudière à granulés coll:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1722,9 +1738,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Gaz indiv avec cond:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1736,9 +1756,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Gaz indiv sans cond:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1750,9 +1774,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Gaz coll avec cond:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1801,9 +1829,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Gaz coll sans cond:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1815,9 +1847,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Fioul indiv:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1829,9 +1865,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Fioul coll:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1843,9 +1883,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     PAC air-air indiv:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1857,9 +1901,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     PAC eau-eau indiv:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1871,9 +1919,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     PAC air-eau indiv:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1885,9 +1937,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     PAC air-air coll:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1940,9 +1996,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     PAC eau-eau coll:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1967,9 +2027,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     PAC air-eau coll:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1981,9 +2045,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Radiateur électrique:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
@@ -1995,9 +2063,13 @@ Calcul Eco . Montant des aides par logement tertiaire:
     Panneau solaire thermique pour production ECS:
       avec:
         Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
         CEE:
