@@ -14,32 +14,8 @@ ratios économiques:
       valeur: 20
       unité: '%'
       note: 'source: ELCIMAI 2024'
-    Investissement x Taux actualisation par défaut:
+    Amortissement x Taux actualisation:
       valeur: 0
-      unité: '%'
-      note: 'source: AMORCE'
-    Investissement x Inflation:
-      valeur: 1
-      unité: '%'
-      note: 'source: AMORCE'
-    Investissement x Indexation du prix de la chaleur:
-      valeur: 2
-      unité: '%'
-      note: 'source: AMORCE'
-    Investissement x Indexation du prix des granulés:
-      valeur: 2
-      unité: '%'
-      note: 'source: ELCIMAI'
-    Investissement x Indexation du prix de l'électricité:
-      valeur: 3
-      unité: '%'
-      note: 'source: AMORCE'
-    Investissement x Indexation du prix du gaz:
-      valeur: 4
-      unité: '%'
-      note: 'source: AMORCE'
-    Investissement x Indexation du prix du fioul:
-      valeur: 4
       unité: '%'
       note: 'source: AMORCE'
 
