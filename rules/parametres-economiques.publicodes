@@ -408,12 +408,6 @@ Paramètres économiques:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
 
-    Amortissement:
-      avec:
-        taux actualisation:
-          par défaut: 0
-          unité: '%'
-
     Aides:
       avec:
         Éligibilité x Prise en compte des aides:

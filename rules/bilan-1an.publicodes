@@ -1,7 +1,7 @@
 # reproduction de la fonction Excel PMT
 x-pmt: &pmt
-  - si: Paramètres économiques . Amortissement . taux actualisation != 0
-    alors: Paramètres économiques . Amortissement . taux actualisation * capital * ((1 + Paramètres économiques . Amortissement . taux actualisation) ** durée) / ((1 + Paramètres économiques . Amortissement . taux actualisation) ** durée - 1)
+  - si: ratios économiques . Amortissement x Taux actualisation != 0
+    alors: ratios économiques . Amortissement x Taux actualisation * capital * ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée - 1)
   - sinon: capital / durée
 
 Bilan x Réseaux de chaleur:
