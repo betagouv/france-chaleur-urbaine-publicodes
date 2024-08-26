@@ -26,10 +26,28 @@ augmenter la température de chauffe:
   unité: °C
 
 nom département: nom département # se fait remplacer par les données département
-zone climatique: zone climatique
+zone climatique:
+  par défaut: zone climatique
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'H1'"
+      - "'H2'"
+      - "'H3'"
 sous zone climatique:
   # FIXME: à définir en externe via la commune
   par défaut: "'H1a'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'H1a'"
+      - "'H1b'"
+      - "'H1c'"
+      - "'H2a'"
+      - "'H2b'"
+      - "'H2c'"
+      - "'H2d'"
+      - "'H3'"
 
 mode affichage:
   par défaut: "'technicien'"
