@@ -163,7 +163,6 @@ Paramètres économiques:
       unité: €/kWh
     Electricité x Consommation Part variable en heure creuse:
       # =IF($D$109="Heure pleine/Heure creuse",XLOOKUP(1,('Ratios économiques - Coûts'!A:A="Heure pleine/Heure creuse")*('Ratios économiques - Coûts'!B:B=$D$110),'Ratios économiques - Coûts'!E:E,"Non trouvé"),"")
-      applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
       par défaut: ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HC
       unité: €/kWh
 
