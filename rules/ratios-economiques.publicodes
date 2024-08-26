@@ -374,9 +374,7 @@ ratios économiques:
           note: 'Source: Atlantic 2023'
 
     Radiateur électrique x Individuel:
-      produit:
-        - ratios économiques . Radiateur électrique . Coût investissement Puissance 2kW
-        - Installation x Radiateur électrique x Individuel . gamme de puissance existante / 2
+      par défaut: Installation x Radiateur électrique x Individuel . gamme de puissance existante / 2
 
     Chauffe-eau x électrique à accumulation:
       # =IF(affichage="Technicien",XLOOKUP($D$42,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$C$195:$C$198,,1),XLOOKUP($D$42,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$C$195:$C$198,,1)*(1+$D$50))

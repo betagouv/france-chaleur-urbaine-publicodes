@@ -62,13 +62,11 @@ Investissement x frais de raccordement au réseaux x RFU:
         - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
   unité: €HT
 
-Investissement x frais de raccordement au réseaux x Granulés:
-  par défaut:
-    produit:
-      - variations:
-        - si: type de bâtiment = 'résidentiel'
-          alors: 0 # FIXME: ce cas ne doit pas arriver
-        - sinon: ratios économiques . Granulés x Chaudière à granulés collective
+Investissement x Poêle à granulés indiv:
+  par défaut: ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+  unité: €HT
+Investissement x Chaudière à granulés coll:
+  par défaut: ratios économiques . Granulés x Chaudière à granulés collective
   unité: €HT
 
 ###### Combustibles P1
