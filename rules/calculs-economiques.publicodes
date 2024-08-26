@@ -67,13 +67,13 @@ Calcul Eco . Coût d'achat du combustible:
 
     Granulés x Part consommation:
       # D15 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$129/1000;('Paramètres économiques'!$D$129*(1+'Paramètres économiques'!$D$131))/1000)
-      valeur: 0.345 # A remplacer par la formule
+      valeur: (Paramètres économiques . Granulés . Prix pour les granulés / 1000) * (1 + Paramètres économiques . Granulés . TVA)
       unité: €TTC/kg
 
     Fioul x Part consommation:
       # D16 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$135;('Paramètres économiques'!$D$135*(1+'Paramètres économiques'!$D$137+'Paramètres économiques'!$D$138)))
-      valeur: 1.232 # A remplacer par la formule
-      unité: €TTC/litre
+      valeur: (Paramètres économiques . Fioul . Prix livraison incluse) * (1 + Paramètres économiques . Fioul . TVA) + Paramètres économiques . Fioul . TICPE
+      unité: €TTC/L
 
 Calcul Eco . Investissement ballon ECS à accumulation:
   # QUESTION déjà posée: il me semble qu'il ne faut pas rajouter la TVA ici car le prix du ballon est déjà TTC

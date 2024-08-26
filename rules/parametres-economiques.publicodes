@@ -261,6 +261,50 @@ Paramètres économiques:
       par défaut: 20
       unité: '%'
 
+    Granulés:
+      avec:
+        Type de conditionnement:
+          par défaut: "'Conditionné en sac'"
+          une possibilité:
+            possibilités:
+              - "'Conditionné en sac'"
+              - "'Conditionné en vrac'"
+          note: 'Source: ELCIMAI 2024'
+        Prix pour les granulés:
+          # =IF($C$6="Grand Public",XLOOKUP(D$128,'Ratios économiques - Coûts'!$B$308:$B$309,'Ratios économiques - Coûts'!$C$308:$C$309)*(1+'Ratios économiques - Coûts'!$C$310),XLOOKUP(D$128,'Ratios économiques - Coûts'!$B$308:$B$309,'Ratios économiques - Coûts'!$C$308:$C$309))
+          # Note: HT toujours, les taxes sont ajoutées dans les calculs
+          par défaut:
+            variations:
+              - si: Type de conditionnement = 'Conditionné en sac'
+                alors: 300.9
+              - sinon: 313.2
+          note: 'Source: CEEB 2024'
+          unité: '€HT/tonne'
+        TVA:
+          par défaut: 10
+          unité: '%'
+          note: 'Source: site gouvernemental (impots.gouv) 2024'
+
+    Fioul:
+      avec:
+        Prix livraison incluse:
+          # =IF(C6="Grand Public",XLOOKUP($C$7,'Ratios économiques - Coûts'!$A$315:$A$316,'Ratios économiques - Coûts'!$C$315:$C$316,"Non trouvé")*(1+'Ratios économiques - Coûts'!C317)+'Ratios économiques - Coûts'!$C$318,XLOOKUP($C$7,'Ratios économiques - Coûts'!$A$315:$A$316,'Ratios économiques - Coûts'!$C$315:$C$316,"Non trouvé"))
+          # Note: HT toujours, les taxes sont ajoutées dans les calculs
+          par défaut:
+            variations:
+              - si: type de bâtiment = 'résidentiel'
+                alors: 0.8878
+              - sinon: 0.8213
+          unité: '€HT/L'
+        TVA:
+          par défaut: 20
+          unité: '%'
+          note: 'Source: site gouvernemental (impots.gouv) 2024'
+        TICPE:
+          par défaut: 0.1874
+          unité: '€/L'
+          note: 'Source: site gouvernemental (impots.gouv) 2024'
+
     Réseaux chaleur:
       avec:
         Coût:
