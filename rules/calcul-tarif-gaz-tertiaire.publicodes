@@ -1,190 +1,190 @@
 tarif gaz tertiaire x estimation part fixe:
   # QUESTION déjà posée: on fait bien <= plutôt que = ? Car les seuils du excel n'ont pas les mêmes points (par exemple 120 kW vs 150 kW)
   variations:
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 4
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 4
       alors: 187.05
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 10
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 10
       alors: 242.89
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 20
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 20
       alors: 285.13
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 30
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 30
       alors: 309.84
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 40
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 40
       alors: 327.37
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 50
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 50
       alors: 340.97
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 75
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 75
       alors: 365.68
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 100
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 100
       alors: 383.21
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 150
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 150
       alors: 407.92
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 200
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 200
       alors: 425.45
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 250
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 250
       alors: 439.05
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 300
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 300
       alors: 450.16
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 350
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 350
       alors: 459.55
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 400
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 400
       alors: 467.69
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 450
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 450
       alors: 474.87
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 500
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 500
       alors: 481.29
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 550
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 550
       alors: 487.10
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 600
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 600
       alors: 492.40
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 650
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 650
       alors: 497.28
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 700
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 700
       alors: 501.79
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 750
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 750
       alors: 506.00
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 800
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 800
       alors: 509.93
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 850
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 850
       alors: 513.62
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 900
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 900
       alors: 517.11
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 950
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 950
       alors: 520.40
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1000
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1000
       alors: 523.53
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1050
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1050
       alors: 526.50
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1100
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1100
       alors: 529.34
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1150
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1150
       alors: 532.05
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1200
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1200
       alors: 534.64
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1250
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1250
       alors: 537.13
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1300
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1300
       alors: 539.52
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1350
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1350
       alors: 541.82
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1400
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1400
       alors: 544.03
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1450
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1450
       alors: 546.17
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1500
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1500
       alors: 548.24
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1550
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1550
       alors: 550.24
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1600
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1600
       alors: 552.17
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1650
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1650
       alors: 554.05
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1700
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1700
       alors: 555.87
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1750
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1750
       alors: 557.63
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1800
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1800
       alors: 559.35
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1850
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1850
       alors: 561.02
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1900
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1900
       alors: 562.64
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1950
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1950
       alors: 564.23
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 2000
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 2000
       alors: 565.77
 
 tarif gaz tertiaire x estimation part variable:
   variations:
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 4
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 4
       alors: 0.07654
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 10
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 10
       alors: 0.06376
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 20
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 20
       alors: 0.06376
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 30
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 30
       alors: 0.06376
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 40
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 40
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 50
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 50
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 75
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 75
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 100
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 100
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 150
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 150
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 200
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 200
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 250
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 250
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 300
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 300
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 350
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 350
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 400
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 400
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 450
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 450
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 500
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 500
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 550
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 550
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 600
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 600
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 650
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 650
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 700
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 700
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 750
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 750
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 800
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 800
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 850
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 850
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 900
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 900
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 950
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 950
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1000
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1000
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1050
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1050
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1100
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1100
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1150
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1150
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1200
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1200
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1250
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1250
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1300
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1300
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1350
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1350
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1400
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1400
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1450
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1450
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1500
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1500
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1550
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1550
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1600
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1600
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1650
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1650
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1700
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1700
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1750
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1750
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1800
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1800
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1850
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1850
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1900
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1900
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 1950
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 1950
       alors: 0.06174
-    - si: Paramètres économiques . Gas x Puissance souscrite pour calcul installation collective ou tertiaire <= 2000
+    - si: Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire <= 2000
       alors: 0.06174

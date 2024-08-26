@@ -184,79 +184,79 @@ Paramètres économiques:
         Part Variable x TVA:
           par défaut: 20%
 
-    Gas x Puissance souscrite pour calcul installation collective ou tertiaire:
+    Gaz x Puissance souscrite pour calcul installation collective ou tertiaire:
       # B89 ='Calculs techniques'!$H$53
       par défaut: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
       unité: kW
-    Gas x Abonnement x Part Fixe TTC collectif ou tertiaire:
+    Gaz x Abonnement x Part Fixe TTC collectif ou tertiaire:
       # B90 =(XLOOKUP($D$89,'Calcul tarif gaz tertitaire'!$A$24:$A$69,'Calcul tarif gaz tertitaire'!$B$24:$B$69,,1)+'Ratios économiques - Coûts'!$C$226)*(1+'Ratios économiques - Coûts'!$C$227)
       # QUESTION déjà posée: est-ce qu'il faudrait pas utiliser la TVA part fixe des paramètres plutôt que des ratios ? Paramètres utilisé pour le moment
       par défaut:
         produit:
           - somme:
             - tarif gaz tertiaire x estimation part fixe
-            - Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
-          - 1 + Gas x Taxe x Part fixe x TVA
+            - Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
+          - 1 + Gaz x Taxe x Part fixe x TVA
       unité: €/an
-    Gas x Abonnement x Part Fixe TTC individuel:
+    Gaz x Abonnement x Part Fixe TTC individuel:
       # B91 =SUM($D$92:$D$93,$D$101)*(1+$D$102)
       par défaut:
         produit:
           - somme:
-            - Gas x Abonnement x Part Fixe TTC individuel x Coût distribution HT
-            - Gas x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT
-            - Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
-          - 1 + Gas x Taxe x Part fixe x TVA
+            - Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT
+            - Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT
+            - Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
+          - 1 + Gaz x Taxe x Part fixe x TVA
       unité: €/an
-    Gas x Abonnement x Part Fixe TTC individuel x Coût distribution HT:
+    Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT:
       # B92 ='Ratios économiques - Coûts'!$C$216
       par défaut: 139.44
       unité: €/an
-    Gas x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT:
+    Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT:
       # B93 ='Ratios économiques - Coûts'!$C$217
       par défaut: 79
       unité: €/an
-    Gas x Consommation x Part Variable TTC:
+    Gaz x Consommation x Part Variable TTC:
       # B94 =SUM($D$95:$D$98,$D$104)*(1+$D$105)
       par défaut:
         produit:
           - somme:
-            - Gas x Coût de la molécule HT
-            - Gas x Coût de transport HT
-            - Gas x Coût distribution HT
-            - Gas x Coût des CEE HT
-            - Gas x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN
-          - 1 + Gas x Taxe x Part variable x TVA
+            - Gaz x Coût de la molécule HT
+            - Gaz x Coût de transport HT
+            - Gaz x Coût distribution HT
+            - Gaz x Coût des CEE HT
+            - Gaz x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN
+          - 1 + Gaz x Taxe x Part variable x TVA
       unité: €/kWh
-    Gas x Coût de la molécule HT:
+    Gaz x Coût de la molécule HT:
       # B95 ='Ratios économiques - Coûts'!$C$220
       par défaut: 0.02638
       unité: €/kWh
-    Gas x Coût de transport HT:
+    Gaz x Coût de transport HT:
       # B96 ='Ratios économiques - Coûts'!$C$221
       par défaut: 0.02118
       unité: €/kWh
-    Gas x Coût distribution HT:
+    Gaz x Coût distribution HT:
       # B97 ='Ratios économiques - Coûts'!$C$222
       par défaut: 0.00404
       unité: €/kWh
-    Gas x Coût des CEE HT:
+    Gaz x Coût des CEE HT:
       # B98 ='Ratios économiques - Coûts'!$C$223
       par défaut: 0.00585
       unité: €/kWh
-    Gas x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA:
+    Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA:
       # B101 ='Ratios économiques - Coûts'!$C$226
       par défaut: 34.49
       unité: €/an
-    Gas x Taxe x Part fixe x TVA:
+    Gaz x Taxe x Part fixe x TVA:
       # B102 ='Ratios économiques - Coûts'!$C$227
       par défaut: 5.5
       unité: '%'
-    Gas x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN:
+    Gaz x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN:
       # B104 ='Ratios économiques - Coûts'!$C$229
       par défaut: 0.01637
       unité: €/kWh
-    Gas x Taxe x Part variable x TVA:
+    Gaz x Taxe x Part variable x TVA:
       # B105 ='Ratios économiques - Coûts'!$C$230
       par défaut: 20
       unité: '%'

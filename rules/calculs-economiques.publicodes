@@ -50,19 +50,19 @@ Calcul Eco . Coût d'achat du combustible:
 
     Gaz indiv x Part abonnement:
       # B13 ='Paramètres économiques'!$D$91
-      valeur: Paramètres économiques . Gas x Abonnement x Part Fixe TTC individuel
+      valeur: Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel
       unité: €TTC/an
     Gaz indiv x Part consommation:
-      valeur: Paramètres économiques . Gas x Consommation x Part Variable TTC
+      valeur: Paramètres économiques . Gaz x Consommation x Part Variable TTC
       unité: €TTC/kWh
 
     Gaz coll x Part abonnement:
       # B14 ='Paramètres économiques'!$D$90
-      valeur: Paramètres économiques . Gas x Abonnement x Part Fixe TTC collectif ou tertiaire
+      valeur: Paramètres économiques . Gaz x Abonnement x Part Fixe TTC collectif ou tertiaire
       unité: €TTC/an
     Gaz coll x Part consommation:
       # D14 ='Paramètres économiques'!$D$94
-      valeur: Paramètres économiques . Gas x Consommation x Part Variable TTC
+      valeur: Paramètres économiques . Gaz x Consommation x Part Variable TTC
       unité: €TTC/kWh
 
     Granulés x Part consommation:
