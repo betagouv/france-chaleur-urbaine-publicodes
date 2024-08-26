@@ -258,7 +258,7 @@ Calcul Eco:
         Investissement équipement Total:
           produit:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-            - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+            - Investissement x Poêle à granulés indiv
             - 1 + ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
@@ -336,7 +336,7 @@ Calcul Eco:
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             # QUESTION déjà posée: la valeur dans le excel parait fausse car elle ne prend pas en compte si la chaudière est 25, 30, 40 ou 50kW pour lesquels on a des valeurs précises
             # Je l'ai corrigé ici
-            - ratios économiques . Granulés x Chaudière à granulés collective
+            - Investissement x Chaudière à granulés coll
             - 1 + ratios économiques . Investissement x TVA
           unité: €TTC
         Investissement équipement par logement type tertiaire:
