@@ -11,13 +11,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          registry-url: "https://registry.npmjs.org/"
-          node-version: 18
+          registry-url: "https://registry.npmjs.org"
+          node-version: 20
           cache: "yarn"
 
       - name: Install dependencies
@@ -27,6 +27,6 @@ jobs:
         run: yarn build
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
