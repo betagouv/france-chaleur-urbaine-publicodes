@@ -16,39 +16,33 @@ Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenari
 
 </div>
 
-## Usage
 
-Ajouter le paquet à vos dépendances :
+### Usage
 
 ```sh
-yarn add @betagouv/france-chaleur-urbaine-publicodes
+# installe les dépendances
+yarn install
+
+# compile le modèle publicodes en un fichier JSON et lance la documentation (mode watch)
+yarn dev
 ```
 
-Instancier un nouveau moteur Publicode :
 
-```typescript
-import Engine from "publicodes"
-import rules from "@betagouv/france-chaleur-urbaine-publicodes"
+### Publier une nouvelle version
 
-const engine = new Engine(rules)
-
-engine.evaluate("dépenses primeur")
+Afin de publier une nouvelle version il suffit d'exécuter la commande `npm version`, pour créer un commit avec la nouvelle version dans le package.json et faire un tag git.
+```sh
+# prochaine version v0.X.0
+npm version minor
 ```
 
-Utiliser certaines règles dans un autre modèle publicodes :
-
-```yaml
-importer!:
-  depuis:
-    nom: @betagouv/france-chaleur-urbaine-publicodes
-    url: https://github.com/betagouv/france-chaleur-urbaine-publicodes
-  les règles:
-    - prix . carottes
-    - prix . carottes
-    - prix . avocats
+Il ne reste alors plus qu'à pousser le commit et le tag pour créer une release sur le [registre NPM](https://www.npmjs.com/package/@betagouv/france-chaleur-urbaine-publicodes).
+```sh
+git push && git push --tags
 ```
 
-### En local
+
+### Détail des commandes
 
 #### Compiler le modèle
 
@@ -78,7 +72,7 @@ yarn install --cwd doc
 yarn doc
 ```
 
-#### Lancer l'API
+#### Lancer l'API (non utilisé)
 
 > Le code de l'API est disponible dans le workspace
 > [`api/`](https://github.com/betagouv/france-chaleur-urbaine-publicodes/tree/main/api).
@@ -90,17 +84,4 @@ suivantes :
 yarn install --cwd api
 
 yarn api
-```
-
-## Publier une nouvelle version
-
-Afin de publier une nouvelle version il suffit d'exécuter la commande `npm version`, pour créer un commit avec la nouvelle version dans le package.json et faire un tag git.
-```sh
-# prochaine version v0.X.0
-npm version minor
-```
-
-Il ne reste alors plus qu'à pousser le commit et le tag pour créer une release sur le [registre NPM](https://www.npmjs.com/package/@betagouv/france-chaleur-urbaine-publicodes).
-```sh
-git push && git push --tags
 ```
