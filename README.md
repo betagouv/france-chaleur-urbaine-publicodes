@@ -92,6 +92,15 @@ yarn install --cwd api
 yarn api
 ```
 
-## Publier une nouvelle version (manuellement pour le moment)
+## Publier une nouvelle version
 
-Afin de publier une nouvelle version il suffit d'exécuter la commande `yarn publish`.
+Afin de publier une nouvelle version il suffit d'exécuter la commande `npm version`, pour créer un commit avec la nouvelle version dans le package.json et faire un tag git.
+```sh
+# prochaine version v0.X.0
+npm version minor
+```
+
+Il ne reste alors plus qu'à pousser le commit et le tag pour créer une release sur le [registre NPM](https://www.npmjs.com/package/@betagouv/france-chaleur-urbaine-publicodes).
+```sh
+git push && git push --tags
+```
