@@ -1335,10 +1335,10 @@ property-information@^6.0.0:
   resolved "https://registry.yarnpkg.com/property-information/-/property-information-6.5.0.tgz#6212fbb52ba757e92ef4fb9d657563b933b7ffec"
   integrity sha512-PgTgs/BlvHxOu8QuEN7wi5A0OmXaBcHpmCSTehcs6Uuu9IkDIEo13Hy7n898RHfrQ49vKCoGeWZSaAK01nwVig==
 
-"publicodes@npm:@totak/publicodes@1.5.0-fcu4":
-  version "1.5.0-fcu4"
-  resolved "https://registry.yarnpkg.com/@totak/publicodes/-/publicodes-1.5.0-fcu4.tgz#381c78e3d2c19962428ec3b250d7c09c21cd733d"
-  integrity sha512-4OmMSbISnG6z5hN+S4Jke0IWKnH4s5v84izB3v6khMXTwl7/JuRTpyz4vuSGeGWVUt23mhxDCHc6WKaY73gtSg==
+"publicodes@npm:@totak/publicodes@1.5.0-fcu5":
+  version "1.5.0-fcu5"
+  resolved "https://registry.yarnpkg.com/@totak/publicodes/-/publicodes-1.5.0-fcu5.tgz#058d94cc319d5c342186ebf5c559bac5a74731a6"
+  integrity sha512-NRp/3aPOA7HpCDS/Xv/+AJ2S9/H3BQ8Mb3acCnbHdyPk5bIb2111U7CmtADEvx9524/cRU/s2yxyQUl6FmPm0A==
 
 react-dom@^18.2.0:
   version "18.3.1"

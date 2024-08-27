@@ -37,7 +37,7 @@
     "concurrently": "^8.2.2"
   },
   "peerDependencies": {
-    "publicodes": "^1.4.0"
+    "publicodes": "npm:@totak/publicodes@1.5.0-fcu5"
   },
   "license": "MIT",
   "publishConfig": {

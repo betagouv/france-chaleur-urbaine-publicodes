@@ -1138,9 +1138,7 @@ Installation x PAC air-air x Individuel:
       # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
       produit:
         - somme:
-          - valeur: puissance équipement / ratios . PAC AIR AIR Puissance unitaire réversible indiv
-            arrondi: 0décimales
-            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible indiv
           - 1
         - ratios . PAC AIR AIR Puissance unitaire réversible indiv
       unité: kW
@@ -1224,9 +1222,7 @@ Installation x PAC eau-eau x Individuel:
     gamme de puissance existante:
       produit:
         - somme:
-          - valeur: puissance équipement / ratios . PAC EAU EAU Puissance unitaire indiv
-            arrondi: 0décimales
-            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire indiv
           - 1
         - ratios . PAC EAU EAU Puissance unitaire indiv
       unité: kW
@@ -1315,9 +1311,7 @@ Installation x PAC air-eau x Individuel:
     gamme de puissance existante:
       produit:
         - somme:
-          - valeur: puissance équipement / ratios . PAC AIR EAU Puissance unitaire réversible indiv
-            arrondi: 0décimales
-            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - valeur: puissance équipement // ratios . PAC AIR EAU Puissance unitaire réversible indiv
           - 1
         - ratios . PAC AIR EAU Puissance unitaire réversible indiv
       unité: kW
@@ -1398,9 +1392,7 @@ Installation x PAC air-air x Collectif:
       # H60 =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
       produit:
         - somme:
-          - valeur: puissance équipement / ratios . PAC AIR AIR Puissance unitaire réversible coll
-            arrondi: 0décimales
-            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible coll
           - 1
         - ratios . PAC AIR AIR Puissance unitaire réversible coll
       unité: kW
@@ -1484,9 +1476,7 @@ Installation x PAC eau-eau x Collectif:
       # H61
       produit:
         - somme:
-          - valeur: puissance équipement / ratios . PAC EAU EAU Puissance unitaire coll
-            arrondi: 0décimales
-            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire coll
           - 1
         - ratios . PAC EAU EAU Puissance unitaire coll
       unité: kW
@@ -1583,9 +1573,7 @@ Installation x PAC air-eau x Collectif:
       # H62
       produit:
         - somme:
-          - valeur: puissance équipement / ratios . PAC AIR EAU Puissance unitaire réversible coll
-            arrondi: 0décimales
-            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - valeur: puissance équipement // ratios . PAC AIR EAU Puissance unitaire réversible coll
           - 1
         - ratios . PAC AIR EAU Puissance unitaire réversible coll
       unité: kW
@@ -1669,9 +1657,7 @@ Installation x Radiateur électrique x Individuel:
       # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
       produit:
         - somme:
-          - valeur: puissance équipement / ratios économiques . radiateur électrique x puissance de l'installation
-            arrondi: 0décimales
-            # TODO arrondi à l'entier inférieur pour reproduire QUOTIENT
+          - valeur: puissance équipement // ratios économiques . radiateur électrique x puissance de l'installation
           - 1
         - ratios économiques . radiateur électrique x puissance de l'installation
       unité: kW
