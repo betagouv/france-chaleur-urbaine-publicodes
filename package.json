@@ -34,9 +34,7 @@
   "devDependencies": {
     "@publicodes/tools": "^1.2.4",
     "chokidar-cli": "^3.0.0",
-    "concurrently": "^8.2.2"
-  },
-  "peerDependencies": {
+    "concurrently": "^8.2.2",
     "publicodes": "npm:@totak/publicodes@1.5.0-fcu5"
   },
   "license": "MIT",
