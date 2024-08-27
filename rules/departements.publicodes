@@ -16,6 +16,9 @@ départements . dep 01:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 02:
   applicable si: code département = "02"
   avec:
@@ -33,6 +36,9 @@ départements . dep 02:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 03:
   applicable si: code département = "03"
   avec:
@@ -50,6 +56,9 @@ départements . dep 03:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 04:
   applicable si: code département = "04"
   avec:
@@ -67,6 +76,9 @@ départements . dep 04:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2d'"
+      remplace: sous zone climatique
 départements . dep 05:
   applicable si: code département = "05"
   avec:
@@ -84,6 +96,9 @@ départements . dep 05:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 06:
   applicable si: code département = "06"
   avec:
@@ -101,6 +116,9 @@ départements . dep 06:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 07:
   applicable si: code département = "07"
   avec:
@@ -118,6 +136,9 @@ départements . dep 07:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 08:
   applicable si: code département = "08"
   avec:
@@ -135,6 +156,9 @@ départements . dep 08:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 09:
   applicable si: code département = "09"
   avec:
@@ -152,6 +176,9 @@ départements . dep 09:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 10:
   applicable si: code département = "10"
   avec:
@@ -169,6 +196,9 @@ départements . dep 10:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 11:
   applicable si: code département = "11"
   avec:
@@ -186,6 +216,9 @@ départements . dep 11:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 12:
   applicable si: code département = "12"
   avec:
@@ -203,6 +236,9 @@ départements . dep 12:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 13:
   applicable si: code département = "13"
   avec:
@@ -220,6 +256,9 @@ départements . dep 13:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 14:
   applicable si: code département = "14"
   avec:
@@ -237,6 +276,9 @@ départements . dep 14:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 15:
   applicable si: code département = "15"
   avec:
@@ -254,6 +296,9 @@ départements . dep 15:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 16:
   applicable si: code département = "16"
   avec:
@@ -271,6 +316,9 @@ départements . dep 16:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 17:
   applicable si: code département = "17"
   avec:
@@ -288,6 +336,9 @@ départements . dep 17:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 18:
   applicable si: code département = "18"
   avec:
@@ -305,6 +356,9 @@ départements . dep 18:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 19:
   applicable si: code département = "19"
   avec:
@@ -322,6 +376,9 @@ départements . dep 19:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 2A:
   applicable si: code département = "2A"
   avec:
@@ -339,6 +396,9 @@ départements . dep 2A:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 2B:
   applicable si: code département = "2B"
   avec:
@@ -356,6 +416,9 @@ départements . dep 2B:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 21:
   applicable si: code département = "21"
   avec:
@@ -373,6 +436,9 @@ départements . dep 21:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 22:
   applicable si: code département = "22"
   avec:
@@ -390,6 +456,9 @@ départements . dep 22:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2a'"
+      remplace: sous zone climatique
 départements . dep 23:
   applicable si: code département = "23"
   avec:
@@ -407,6 +476,9 @@ départements . dep 23:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 24:
   applicable si: code département = "24"
   avec:
@@ -424,6 +496,9 @@ départements . dep 24:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 25:
   applicable si: code département = "25"
   avec:
@@ -441,6 +516,9 @@ départements . dep 25:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 26:
   applicable si: code département = "26"
   avec:
@@ -458,6 +536,9 @@ départements . dep 26:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2d'"
+      remplace: sous zone climatique
 départements . dep 27:
   applicable si: code département = "27"
   avec:
@@ -475,6 +556,9 @@ départements . dep 27:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 28:
   applicable si: code département = "28"
   avec:
@@ -492,6 +576,9 @@ départements . dep 28:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 29:
   applicable si: code département = "29"
   avec:
@@ -509,6 +596,9 @@ départements . dep 29:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2a'"
+      remplace: sous zone climatique
 départements . dep 30:
   applicable si: code département = "30"
   avec:
@@ -526,6 +616,9 @@ départements . dep 30:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 31:
   applicable si: code département = "31"
   avec:
@@ -543,6 +636,9 @@ départements . dep 31:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 32:
   applicable si: code département = "32"
   avec:
@@ -560,6 +656,9 @@ départements . dep 32:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 33:
   applicable si: code département = "33"
   avec:
@@ -577,6 +676,9 @@ départements . dep 33:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 34:
   applicable si: code département = "34"
   avec:
@@ -594,6 +696,9 @@ départements . dep 34:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 35:
   applicable si: code département = "35"
   avec:
@@ -611,6 +716,9 @@ départements . dep 35:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2a'"
+      remplace: sous zone climatique
 départements . dep 36:
   applicable si: code département = "36"
   avec:
@@ -628,6 +736,9 @@ départements . dep 36:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 37:
   applicable si: code département = "37"
   avec:
@@ -645,6 +756,9 @@ départements . dep 37:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 38:
   applicable si: code département = "38"
   avec:
@@ -662,6 +776,9 @@ départements . dep 38:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 39:
   applicable si: code département = "39"
   avec:
@@ -679,6 +796,9 @@ départements . dep 39:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 40:
   applicable si: code département = "40"
   avec:
@@ -696,6 +816,9 @@ départements . dep 40:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 41:
   applicable si: code département = "41"
   avec:
@@ -713,6 +836,9 @@ départements . dep 41:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 42:
   applicable si: code département = "42"
   avec:
@@ -730,6 +856,9 @@ départements . dep 42:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 43:
   applicable si: code département = "43"
   avec:
@@ -747,6 +876,9 @@ départements . dep 43:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 44:
   applicable si: code département = "44"
   avec:
@@ -764,6 +896,9 @@ départements . dep 44:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 45:
   applicable si: code département = "45"
   avec:
@@ -781,6 +916,9 @@ départements . dep 45:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 46:
   applicable si: code département = "46"
   avec:
@@ -798,6 +936,9 @@ départements . dep 46:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 47:
   applicable si: code département = "47"
   avec:
@@ -815,6 +956,9 @@ départements . dep 47:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 48:
   applicable si: code département = "48"
   avec:
@@ -832,6 +976,9 @@ départements . dep 48:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2d'"
+      remplace: sous zone climatique
 départements . dep 49:
   applicable si: code département = "49"
   avec:
@@ -849,6 +996,9 @@ départements . dep 49:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 50:
   applicable si: code département = "50"
   avec:
@@ -866,6 +1016,9 @@ départements . dep 50:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2a'"
+      remplace: sous zone climatique
 départements . dep 51:
   applicable si: code département = "51"
   avec:
@@ -883,6 +1036,9 @@ départements . dep 51:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 52:
   applicable si: code département = "52"
   avec:
@@ -900,6 +1056,9 @@ départements . dep 52:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 53:
   applicable si: code département = "53"
   avec:
@@ -917,6 +1076,9 @@ départements . dep 53:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 54:
   applicable si: code département = "54"
   avec:
@@ -934,6 +1096,9 @@ départements . dep 54:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 55:
   applicable si: code département = "55"
   avec:
@@ -951,6 +1116,9 @@ départements . dep 55:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 56:
   applicable si: code département = "56"
   avec:
@@ -968,6 +1136,9 @@ départements . dep 56:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2a'"
+      remplace: sous zone climatique
 départements . dep 57:
   applicable si: code département = "57"
   avec:
@@ -985,6 +1156,9 @@ départements . dep 57:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 58:
   applicable si: code département = "58"
   avec:
@@ -1002,6 +1176,9 @@ départements . dep 58:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 59:
   applicable si: code département = "59"
   avec:
@@ -1019,6 +1196,9 @@ départements . dep 59:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 60:
   applicable si: code département = "60"
   avec:
@@ -1036,6 +1216,9 @@ départements . dep 60:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 61:
   applicable si: code département = "61"
   avec:
@@ -1053,6 +1236,9 @@ départements . dep 61:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 62:
   applicable si: code département = "62"
   avec:
@@ -1070,6 +1256,9 @@ départements . dep 62:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 63:
   applicable si: code département = "63"
   avec:
@@ -1087,6 +1276,9 @@ départements . dep 63:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 64:
   applicable si: code département = "64"
   avec:
@@ -1104,6 +1296,9 @@ départements . dep 64:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 65:
   applicable si: code département = "65"
   avec:
@@ -1121,6 +1316,9 @@ départements . dep 65:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 66:
   applicable si: code département = "66"
   avec:
@@ -1138,6 +1336,9 @@ départements . dep 66:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 67:
   applicable si: code département = "67"
   avec:
@@ -1155,6 +1356,9 @@ départements . dep 67:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 68:
   applicable si: code département = "68"
   avec:
@@ -1172,6 +1376,9 @@ départements . dep 68:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 69:
   applicable si: code département = "69"
   avec:
@@ -1189,6 +1396,9 @@ départements . dep 69:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 70:
   applicable si: code département = "70"
   avec:
@@ -1206,6 +1416,9 @@ départements . dep 70:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 71:
   applicable si: code département = "71"
   avec:
@@ -1223,6 +1436,9 @@ départements . dep 71:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 72:
   applicable si: code département = "72"
   avec:
@@ -1240,6 +1456,9 @@ départements . dep 72:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 73:
   applicable si: code département = "73"
   avec:
@@ -1257,6 +1476,9 @@ départements . dep 73:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 74:
   applicable si: code département = "74"
   avec:
@@ -1274,6 +1496,9 @@ départements . dep 74:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 75:
   applicable si: code département = "75"
   avec:
@@ -1291,6 +1516,9 @@ départements . dep 75:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 76:
   applicable si: code département = "76"
   avec:
@@ -1308,6 +1536,9 @@ départements . dep 76:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 77:
   applicable si: code département = "77"
   avec:
@@ -1325,6 +1556,9 @@ départements . dep 77:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 78:
   applicable si: code département = "78"
   avec:
@@ -1342,6 +1576,9 @@ départements . dep 78:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 79:
   applicable si: code département = "79"
   avec:
@@ -1359,6 +1596,9 @@ départements . dep 79:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 80:
   applicable si: code département = "80"
   avec:
@@ -1376,6 +1616,9 @@ départements . dep 80:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 81:
   applicable si: code département = "81"
   avec:
@@ -1393,6 +1636,9 @@ départements . dep 81:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 82:
   applicable si: code département = "82"
   avec:
@@ -1410,6 +1656,9 @@ départements . dep 82:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2c'"
+      remplace: sous zone climatique
 départements . dep 83:
   applicable si: code département = "83"
   avec:
@@ -1427,6 +1676,9 @@ départements . dep 83:
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H3'"
+      remplace: sous zone climatique
 départements . dep 84:
   applicable si: code département = "84"
   avec:
@@ -1444,6 +1696,9 @@ départements . dep 84:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2d'"
+      remplace: sous zone climatique
 départements . dep 85:
   applicable si: code département = "85"
   avec:
@@ -1461,6 +1716,9 @@ départements . dep 85:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 86:
   applicable si: code département = "86"
   avec:
@@ -1478,6 +1736,9 @@ départements . dep 86:
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H2b'"
+      remplace: sous zone climatique
 départements . dep 87:
   applicable si: code département = "87"
   avec:
@@ -1495,6 +1756,9 @@ départements . dep 87:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1c'"
+      remplace: sous zone climatique
 départements . dep 88:
   applicable si: code département = "88"
   avec:
@@ -1512,6 +1776,9 @@ départements . dep 88:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 89:
   applicable si: code département = "89"
   avec:
@@ -1529,6 +1796,9 @@ départements . dep 89:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 90:
   applicable si: code département = "90"
   avec:
@@ -1546,6 +1816,9 @@ départements . dep 90:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1b'"
+      remplace: sous zone climatique
 départements . dep 91:
   applicable si: code département = "91"
   avec:
@@ -1563,6 +1836,9 @@ départements . dep 91:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 92:
   applicable si: code département = "92"
   avec:
@@ -1580,6 +1856,9 @@ départements . dep 92:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 93:
   applicable si: code département = "93"
   avec:
@@ -1597,6 +1876,9 @@ départements . dep 93:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 94:
   applicable si: code département = "94"
   avec:
@@ -1614,6 +1896,9 @@ départements . dep 94:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique
 départements . dep 95:
   applicable si: code département = "95"
   avec:
@@ -1631,3 +1916,6 @@ départements . dep 95:
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
+    sous zone climatique:
+      valeur: "'H1a'"
+      remplace: sous zone climatique

@@ -34,8 +34,7 @@ zone climatique:
       - "'H1'"
       - "'H2'"
       - "'H3'"
-sous zone climatique:
-  # FIXME: à définir en externe via la commune
+sous zone climatique: # se fait remplacer par les données département
   par défaut: "'H1a'"
   une possibilité:
     choix obligatoire: oui
