@@ -8,8 +8,6 @@ on:
 
 jobs:
   build:
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,11 +23,6 @@ jobs:
 
       - name: Compile the rules
         run: yarn build
-
-      - name: Debug secrets
-        run: echo "${NPM_TOKEN}" | sed 's/./& /g'
-      - name: Debug secrets
-        run: echo ${{ env.NPM_TOKEN }} | sed 's/./& /g'
 
   deploy_gh_page:
     runs-on: ubuntu-latest
