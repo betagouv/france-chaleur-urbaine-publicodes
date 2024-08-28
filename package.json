@@ -8,7 +8,8 @@
   "homepage": "https://github.com/betagouv/france-chaleur-urbaine-publicodes#readme",
   "description": "",
   "authors": [
-    "Emile Rolley <emile.rolley@tuta.io>"
+    "Maxime Dréau <maxime.dreau@beta.gouv.fr>",
+    "Martin Ratinaud <martin.ratinaud@beta.gouv.fr>"
   ],
   "bugs": {
     "url": "https://github.com/betagouv/france-chaleur-urbaine-publicodes/issues"
