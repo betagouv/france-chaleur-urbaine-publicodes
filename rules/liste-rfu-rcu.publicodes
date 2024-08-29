@@ -39,7 +39,7 @@ caractéristique réseau de chaleur:
       note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
     part variable:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 65
+      formule: 100% - caractéristique réseau de chaleur . part fixe
       unité: '%'
       note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
 
@@ -79,6 +79,6 @@ caractéristique réseau de froid:
       note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
     part variable:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 50
+      formule: 100% - caractéristique réseau de froid . part fixe
       unité: '%'
       note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"

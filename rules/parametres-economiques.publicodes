@@ -318,7 +318,7 @@ Paramètres économiques:
           unité: '%'
         Part variable:
           # B144 =XLOOKUP($C$14,Tableau36[Nom],Tableau36[Part Variable (%)],"Non trouvé",0)
-          par défaut: caractéristique réseau de chaleur . part variable
+          formule: 100% - Part fixe
           unité: '%'
 
     Réseaux froid:
@@ -337,7 +337,7 @@ Paramètres économiques:
           unité: '%'
         Part variable:
           # B150 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Variable (%)],"Non trouvé",0)
-          par défaut: caractéristique réseau de froid . part variable
+          formule: 100% - Part fixe
           unité: '%'
 
     Petit entretien P2:
