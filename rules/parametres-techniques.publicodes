@@ -3,7 +3,6 @@
 code département:
   # fourni via l'adresse
   question: code département de l'utilisateur
-  par défaut: "'31'"
 
 département:
 département . degré jours unifié spécifique chaud: département . degré jours unifié spécifique chaud # se fait remplacer par les données département
@@ -18,9 +17,8 @@ degré jours unifié spécifique froid:
   unité: °C
 température de référence chaud:
   # =XLOOKUP(commune,Communes!$C$6:$C$36618,Communes!$G$6:$G$36618,,0)
-  # FIXME: à définir en externe
+  # défini en externe via la commune
   unité: °C
-  par défaut: -5 # Toulouse
 augmenter la température de chauffe:
   par défaut: 0
   unité: °C
@@ -59,12 +57,10 @@ mode affichage:
 ###### Réseaux de chaleur et de froid
 contenu CO2 réseau de chaleur:
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
-  # à définir en externe via le réseau le plus proche
   par défaut: caractéristique réseau de chaleur . contenu CO2 - ratios environnementaux . CO2 INS RCU
   note: Contenu_CO2_RCU
 contenu CO2 réseau de froid:
   # =XLOOKUP(C18,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
-  # à définir en externe via le réseau le plus proche
   par défaut: caractéristique réseau de froid . contenu CO2 - ratios environnementaux . CO2 INS RFU
   note: Contenu_CO2_RFU
 
@@ -105,7 +101,7 @@ Production eau chaude sanitaire:
       - non
 type de production ECS:
   # C29 alias Paramètres économiques C8 (Type de résidentiel)
-  par défaut: "'Solaire thermique'"
+  par défaut: "'Avec équipement chauffage'"
   une possibilité:
     choix obligatoire: oui
     possibilités:

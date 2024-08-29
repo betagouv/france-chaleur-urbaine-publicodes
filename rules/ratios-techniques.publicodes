@@ -24,7 +24,7 @@ ratios:
       valeur: 35
       unité: °C
     GNRL Production ECS:
-      par défaut: non
+      par défaut: oui
       une possibilité:
         choix obligatoire: oui
         possibilités:
