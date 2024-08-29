@@ -1,28 +1,29 @@
-# Contient les caractéristiques des réseaux de chaleur et de froid sélectionnés dans l'UI.
+# Contient les caractéristiques des réseaux de chaleur et de froid sélectionnées dans l'UI.
 # Elles seront mises à jour directement en dehors du simulateur.
 # Par défaut, les valeurs sont les moyennes chaud et froid.
 
 caractéristique réseau de chaleur:
   avec:
     contenu CO2:
-      par défaut: 0.0883
+      par défaut: 0.084
       unité: kg CO2/kWh
-      source: 2021
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
     contenu CO2 ACV:
-      par défaut: 0.117
+      par défaut: 0.112
       unité: kg CO2/kWh
-      source: 2021
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
     taux EnRR:
-      par défaut: 69
+      par défaut: 66.5
       unité: '%'
-      source: 2021
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
     livraisons totales:
       unité: MWh
     production totale:
       unité: MWh
     prix moyen:
-      par défaut: 115.46
+      par défaut: 119.8
       unité: €TTC/MWh
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
     coût résidentiel:
       par défaut: 107.89
       # QUESTION déjà posée: colonne indiquée à retravailler
@@ -33,12 +34,14 @@ caractéristique réseau de chaleur:
       unité: €TTC/MWh
     part fixe:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 39.5
+      par défaut: 35
       unité: '%'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
     part variable:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 60.5
+      par défaut: 65
       unité: '%'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
 
 caractéristique réseau de froid:
   avec:
@@ -49,7 +52,7 @@ caractéristique réseau de froid:
     contenu CO2 ACV:
       par défaut: 0.021
       unité: kg CO2/kWh
-      source: 2021
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
     taux EnRR:
       unité: '%'
       source: 2021
@@ -58,7 +61,9 @@ caractéristique réseau de froid:
     production totale:
       unité: MWh
     prix moyen:
+      par défaut: 173
       unité: €TTC/MWh
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
     coût résidentiel:
       par défaut: 100
       # QUESTION déjà posée: colonne indiquée à retravailler
@@ -69,9 +74,11 @@ caractéristique réseau de froid:
       unité: €TTC/MWh
     part fixe:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 60
+      par défaut: 50
       unité: '%'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
     part variable:
       # QUESTION déjà posée: colonne indiquée à retravailler
-      par défaut: 40
+      par défaut: 50
       unité: '%'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2022, Amorce"
