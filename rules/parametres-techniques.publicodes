@@ -235,3 +235,7 @@ besoins en climatisation par appartement:
   # =Conso_spé_raf*Surface*Surf_clim
   par défaut: consommation spécifique climatisation * surface logement type tertiaire * Part de la surface à climatiser
   unité: kWh
+
+# usage interne utilisé pour récupérer les valeurs par défaut des paramètres :
+# > engine.evaluate({ valeur: "ma règle", contexte: { "ma règle": "non défini" }})
+non défini:
