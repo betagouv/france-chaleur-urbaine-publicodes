@@ -1,6 +1,6 @@
 {
   "name": "@betagouv/france-chaleur-urbaine-publicodes",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/betagouv/france-chaleur-urbaine-publicodes.git"
