@@ -77,7 +77,7 @@ nombre de logement dans l'immeuble concerné:
   # =IF(Type_bat="Tertiaire",1,'Ratios techniques'!$C$18)
   par défaut:
     variations:
-      - si: type de bâtiment = 'tertiaire'
+      - si: type de bâtiment = 'résidentiel'
         alors: 1
       - sinon: ratios . GNRL Nombre de logement dans l'immeuble concerné
 
