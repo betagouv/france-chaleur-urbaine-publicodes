@@ -16,7 +16,20 @@ const engine = new Engine(model, {
   },
 });
 
-(window as any).engine = engine
+(window as any).engine = engine;
+
+(() => {
+  const searchParams = new URLSearchParams(window.location.search);
+  try {
+    const serializedSituation = searchParams.get('situation');
+    if (serializedSituation) {
+      const situation = JSON.parse(decodeURIComponent(serializedSituation));
+      engine.setSituation(situation);
+    }
+  } catch(err) {
+    console.warn('could not set situation', err);
+  }
+})()
 
 // The base URL of the application (in production, the app is served from a subdirectory of
 // the github pages repository, so we need to prefix all the URLs with the subdirectory)
