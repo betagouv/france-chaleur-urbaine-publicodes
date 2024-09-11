@@ -1720,7 +1720,8 @@ volume du ballon ECS:
 
 chauffe-eau électrique x consommation d'électricité:
   formule: besoins eau chaude sanitaire par appartement / ratios . CHAUF EAU ELEC Rendement stockage ballon
-  unité: kWh/an
+  # unité: kWh/an
+  unité: kWh # corrigé pour faire fonctionner la division
 
 durée avant renouvellement elec:
   formule: ratios . CHAUF EAU ELEC Durée de vie

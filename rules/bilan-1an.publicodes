@@ -18,8 +18,8 @@ Bilan x Réseaux de chaleur:
           alors: Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS solaire
         # Avec équipement chauffage
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire
     P4:
       # =-PMT('Paramètres économiques'!$D$199,Durée_vie_RCU,'Calculs économiques'!$G$23)
       variations: *pmt
@@ -41,8 +41,8 @@ Bilan x Réseaux de chaleur:
         - Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
         - Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire
         - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -50,8 +50,8 @@ Bilan x Réseaux de chaleur:
         - Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
         - Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire
         - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Réseaux de froid:
@@ -66,8 +66,8 @@ Bilan x Réseaux de froid:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -88,8 +88,8 @@ Bilan x Réseaux de froid:
         - Calcul Eco . Réseaux de froid . Coût du combustible consommation
         - Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
         - Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -97,8 +97,8 @@ Bilan x Réseaux de froid:
         - Calcul Eco . Réseaux de froid . Coût du combustible consommation
         - Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
         - Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Poêle à granulés indiv:
@@ -113,8 +113,8 @@ Bilan x Poêle à granulés indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -135,8 +135,8 @@ Bilan x Poêle à granulés indiv:
         - Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
         - Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire
         - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -144,8 +144,8 @@ Bilan x Poêle à granulés indiv:
         - Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
         - Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire
         - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Chaudière à granulés coll:
@@ -160,8 +160,8 @@ Bilan x Chaudière à granulés coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -182,8 +182,8 @@ Bilan x Chaudière à granulés coll:
         - Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
         - Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire
         - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -191,8 +191,8 @@ Bilan x Chaudière à granulés coll:
         - Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
         - Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire
         - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Gaz indiv avec cond:
@@ -207,8 +207,8 @@ Bilan x Gaz indiv avec cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -229,8 +229,8 @@ Bilan x Gaz indiv avec cond:
         - Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
         - Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -238,8 +238,8 @@ Bilan x Gaz indiv avec cond:
         - Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
         - Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Gaz indiv sans cond:
@@ -254,8 +254,8 @@ Bilan x Gaz indiv sans cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -276,8 +276,8 @@ Bilan x Gaz indiv sans cond:
         - Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
         - Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -285,8 +285,8 @@ Bilan x Gaz indiv sans cond:
         - Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
         - Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Gaz coll avec cond:
@@ -301,8 +301,8 @@ Bilan x Gaz coll avec cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -323,8 +323,8 @@ Bilan x Gaz coll avec cond:
         - Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
         - Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -332,8 +332,8 @@ Bilan x Gaz coll avec cond:
         - Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
         - Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Gaz coll sans cond:
@@ -348,8 +348,8 @@ Bilan x Gaz coll sans cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -370,8 +370,8 @@ Bilan x Gaz coll sans cond:
         - Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
         - Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -379,8 +379,8 @@ Bilan x Gaz coll sans cond:
         - Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
         - Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire
         - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Fioul indiv:
@@ -395,8 +395,8 @@ Bilan x Fioul indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -417,8 +417,8 @@ Bilan x Fioul indiv:
         - Calcul Eco . Fioul indiv . Coût du combustible consommation
         - Calcul Eco . Fioul indiv . Coût électricité auxiliaire
         - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -426,8 +426,8 @@ Bilan x Fioul indiv:
         - Calcul Eco . Fioul indiv . Coût du combustible consommation
         - Calcul Eco . Fioul indiv . Coût électricité auxiliaire
         - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Fioul coll:
@@ -442,8 +442,8 @@ Bilan x Fioul coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Fioul coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -464,8 +464,8 @@ Bilan x Fioul coll:
         - Calcul Eco . Fioul coll . Coût du combustible consommation
         - Calcul Eco . Fioul coll . Coût électricité auxiliaire
         - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -473,8 +473,8 @@ Bilan x Fioul coll:
         - Calcul Eco . Fioul coll . Coût du combustible consommation
         - Calcul Eco . Fioul coll . Coût électricité auxiliaire
         - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x PAC air-air indiv:
@@ -489,8 +489,8 @@ Bilan x PAC air-air indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -511,8 +511,8 @@ Bilan x PAC air-air indiv:
         - Calcul Eco . PAC air-air indiv . Coût du combustible consommation
         - Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire
         - Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -520,8 +520,8 @@ Bilan x PAC air-air indiv:
         - Calcul Eco . PAC air-air indiv . Coût du combustible consommation
         - Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire
         - Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x PAC air-air coll:
@@ -536,8 +536,8 @@ Bilan x PAC air-air coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -558,8 +558,8 @@ Bilan x PAC air-air coll:
         - Calcul Eco . PAC air-air coll . Coût du combustible consommation
         - Calcul Eco . PAC air-air coll . Coût électricité auxiliaire
         - Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -567,8 +567,8 @@ Bilan x PAC air-air coll:
         - Calcul Eco . PAC air-air coll . Coût du combustible consommation
         - Calcul Eco . PAC air-air coll . Coût électricité auxiliaire
         - Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x PAC eau-eau indiv:
@@ -583,8 +583,8 @@ Bilan x PAC eau-eau indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -605,8 +605,8 @@ Bilan x PAC eau-eau indiv:
         - Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
         - Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire
         - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -614,8 +614,8 @@ Bilan x PAC eau-eau indiv:
         - Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
         - Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire
         - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x PAC eau-eau coll:
@@ -630,8 +630,8 @@ Bilan x PAC eau-eau coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -652,8 +652,8 @@ Bilan x PAC eau-eau coll:
         - Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
         - Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire
         - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -661,8 +661,8 @@ Bilan x PAC eau-eau coll:
         - Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
         - Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire
         - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x PAC air-eau indiv:
@@ -677,8 +677,8 @@ Bilan x PAC air-eau indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -699,8 +699,8 @@ Bilan x PAC air-eau indiv:
         - Calcul Eco . PAC air-eau indiv . Coût du combustible consommation
         - Calcul Eco . PAC air-eau indiv . Coût électricité auxiliaire
         - Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -708,8 +708,8 @@ Bilan x PAC air-eau indiv:
         - Calcul Eco . PAC air-eau indiv . Coût du combustible consommation
         - Calcul Eco . PAC air-eau indiv . Coût électricité auxiliaire
         - Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x PAC air-eau coll:
@@ -724,8 +724,8 @@ Bilan x PAC air-eau coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -746,8 +746,8 @@ Bilan x PAC air-eau coll:
         - Calcul Eco . PAC air-eau coll . Coût du combustible consommation
         - Calcul Eco . PAC air-eau coll . Coût électricité auxiliaire
         - Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -755,8 +755,8 @@ Bilan x PAC air-eau coll:
         - Calcul Eco . PAC air-eau coll . Coût du combustible consommation
         - Calcul Eco . PAC air-eau coll . Coût électricité auxiliaire
         - Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
 Bilan x Radiateur électrique:
@@ -771,8 +771,8 @@ Bilan x Radiateur électrique:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire
     P4:
       variations: *pmt
       avec:
@@ -793,8 +793,8 @@ Bilan x Radiateur électrique:
         - Calcul Eco . Radiateur électrique . Coût du combustible consommation
         - Calcul Eco . Radiateur électrique . Coût électricité auxiliaire
         - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire
         - P4
     total avec aides:
       somme:
@@ -802,7 +802,7 @@ Bilan x Radiateur électrique:
         - Calcul Eco . Radiateur électrique . Coût du combustible consommation
         - Calcul Eco . Radiateur électrique . Coût électricité auxiliaire
         - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3
+        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire
+        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
