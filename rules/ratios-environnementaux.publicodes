@@ -12,32 +12,32 @@ ratios environnementaux:
     Emission spé Granulé poêle à bois:
       # Ratios environnementaux'!$C$14
       formule: 0.032
-      unité: kg éq.CO2/kWh PCI
+      unité: kgCO2e/kWh PCI
       note: 'Source: Base Empreinte 2023'
     Emission spé Granulé chaudière:
       # Ratios environnementaux'!$C$15
       formule: 0.027
-      unité: kg éq.CO2/kWh PCI
+      unité: kgCO2e/kWh PCI
       note: 'Source: Base Empreinte 2023'
     Emission spé Buches poêle à bois:
       # Ratios environnementaux'!$C$16
       formule: 0.046
-      unité: kg éq.CO2/kWh PCI
+      unité: kgCO2e/kWh PCI
       note: 'Source: Base Empreinte 2023'
     Emission spé Buches chaudière:
       # Ratios environnementaux'!$C$17
       formule: 0.032
-      unité: kg éq.CO2/kWh PCI
+      unité: kgCO2e/kWh PCI
       note: 'Source: Base Empreinte 2023'
     Emission spé Gaz chaudière:
       # Ratios environnementaux'!$C$18
       formule: 0.243
-      unité: kg éq.CO2/kWh
+      unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2023'
     Emission spé Fioul chaudière:
       # Ratios environnementaux'!$C$19
       formule: 0.314
-      unité: kg éq.CO2/kWh
+      unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2023'
     Emission spé Biogaz chaudière:
       # Ratios environnementaux'!$C$20
@@ -48,17 +48,17 @@ ratios environnementaux:
     Emission moy Parc électrique francais moyenne chauffage:
       # Ratios environnementaux'!$C$25
       formule: 0.0693
-      unité: kgCO2eq/kWh
+      unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2020'
     Emission moy Parc électrique francais moyenne ECS:
       # Ratios environnementaux'!$C$26
       formule: 0.0585
-      unité: kgCO2eq/kWh
+      unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2020'
     Emission moy Parc électrique francais moyenne froid:
       # Ratios environnementaux'!$C$27
       formule: 0.0583
-      unité: kgCO2eq/kWh
+      unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2020'
     Emission moy Ratio moyen RC:
       # Ratios environnementaux'!$C$27
@@ -162,5 +162,5 @@ ratios environnementaux:
     CO2 INS Radiateur électrique:
       # Ratios environnementaux'!$C$52
       formule: 0.079
-      unité: kg CO2 éq./kWh
+      unité: kgCO2e/kWh
       note: 'Source: INIES 2022'

@@ -6,11 +6,11 @@ caractéristique réseau de chaleur:
   avec:
     contenu CO2:
       par défaut: 0.084
-      unité: kg CO2/kWh
+      unité: kgCO2e/kWh
       note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
     contenu CO2 ACV:
       par défaut: 0.112
-      unité: kg CO2/kWh
+      unité: kgCO2e/kWh
       note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
     taux EnRR:
       par défaut: 66.5
@@ -47,11 +47,11 @@ caractéristique réseau de froid:
   avec:
     contenu CO2:
       par défaut: 0.011
-      unité: kg CO2/kWh
+      unité: kgCO2e/kWh
       source: 2021
     contenu CO2 ACV:
       par défaut: 0.021
-      unité: kg CO2/kWh
+      unité: kgCO2e/kWh
       note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
     taux EnRR:
       unité: '%'

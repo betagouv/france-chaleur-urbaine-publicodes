@@ -186,7 +186,7 @@ ratios économiques x aides:
     CEE x FCU x Résidentiel sup 125 variable:
       valeur: 77000
       # QUESTION : est-ce appartement = logement ? pour harmoniser les unités vers logement
-      unité: kWh cumac/appartement
+      unité: kWh cumac/logement
       note: 'Source : Gouvernement 2024'
     CEE x FCU x Résidentiel sup 125 fixe:
       valeur: 2300000

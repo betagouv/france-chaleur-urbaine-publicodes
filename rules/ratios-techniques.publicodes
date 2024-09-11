@@ -426,12 +426,12 @@ ratios:
       unité: L/kWh
     ECS Quanté d'ECS par an:
       valeur: 50.0
-      unité: L/hab
+      unité: L/habitant
     ECS Résidentiel:
       applicable si: type de bâtiment = "résidentiel"
       remplace: consommation spécifique ECS
       valeur: 955
-      unité: kWh/hab
+      unité: kWh/habitant
     ECS Bureaux RE2020:
       applicable si:
         toutes ces conditions:

@@ -276,7 +276,7 @@ Paramètres économiques:
                 alors: 313.2
               - sinon: 300.9
           note: 'Source: CEEB 2024'
-          unité: '€HT/tonne'
+          unité: €HT/tonne
         TVA:
           par défaut: 10
           unité: '%'
@@ -292,14 +292,14 @@ Paramètres économiques:
               - si: type de bâtiment = 'résidentiel'
                 alors: 0.8878
               - sinon: 0.8213
-          unité: '€HT/L'
+          unité: €HT/L
         TVA:
           par défaut: 20
           unité: '%'
           note: 'Source: site gouvernemental (impots.gouv) 2024'
         TICPE:
           par défaut: 0.1874
-          unité: '€/L'
+          unité: €/L
           note: 'Source: site gouvernemental (impots.gouv) 2024'
 
     Réseaux chaleur:

@@ -160,7 +160,8 @@ Installation x Réseaux de froid x Collectif:
     puissance nécessaire pour refroidissement équipement:
       formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . RFU Rendement sous station * nombre de logement dans l'immeuble concerné
       # unité: kW # corrigé pour faire fonctionner la division
-      unité: kW.logements
+      # QUESTION : Quelle est l'unité ? Peut-on changer l'unité pour kW ?
+      unité: kW
     puissance équipement:
       somme:
         - puissance nécessaire pour refroidissement équipement
