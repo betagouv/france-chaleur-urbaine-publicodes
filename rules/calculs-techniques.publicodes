@@ -7,14 +7,14 @@ puissance coefficient d'intermittence: puissance coefficient d'intermittence
 Calcul . Chauffage Nb heure fonctionnement pleine puissance chauffage continu:
   # =(_DJU_spe*24)/(TNC-T°C_ref_chaud)
   formule: degré jours unifié spécifique chaud * 24 / (ratios . PUIS Température de non chauffage - température de référence chaud)
-  unité: heures
+  unité: h
 
 Calcul . Chauffage Nb heure fonctionnement pleine puissance:
   # =NHFPPcc*(IF(Type_bat="Résidentiel",XLOOKUP('Paramètres techniques'!C38,'Ratios techniques'!$B$147:$B$160,'Ratios techniques'!$C$147:$C$160),XLOOKUP(Choix_methode,'Ratios techniques'!$B$147:$B$170,'Ratios techniques'!$C$147:$C$170)))
   produit:
     - Calcul . Chauffage Nb heure fonctionnement pleine puissance chauffage continu
     - puissance coefficient d'intermittence
-  unité: heures
+  unité: h
 
 Calcul . Chauffage Puissance chauffage appelée:
   # =(Besoin_cha/NHFPP)*(1+F_sur_p)
@@ -24,7 +24,7 @@ Calcul . Chauffage Puissance chauffage appelée:
 Calcul . ECS Nb heure fonctionnement non climatique:
   # =NHFNC
   formule: ratios . PUIS Nombre heure de fonctionnement non climatique ECS
-  unité: heures
+  unité: h
 
 Calcul . ECS Puissance ECS appelée:
   # =(Besoin_ECS/NHFNC)*(1+F_sur_p)
@@ -37,7 +37,7 @@ Calcul . Climatisation Nb heure fonctionnement pleine puissance:
     - degré jours unifié spécifique froid
     - 24
     - puissance coefficient d'intermittence
-  unité: heures
+  unité: h
 
 Calcul . Climatisation Puissance refroidissement appelée:
   applicable si: Calcul . Climatisation Nb heure fonctionnement pleine puissance > 0
@@ -973,10 +973,10 @@ Installation x Fioul indiv x Individuel:
               alors: besoins eau chaude sanitaire par appartement
             - sinon: 0
         - 1 / ratios . FIOUL IND Rendement chaudière
-      unité: l fioul/an
+      unité: L/an
     consommation combustible froid:
       formule: 0
-      unité: l fioul/an
+      unité: L/an
     consommation auxiliaire:
       # =(1-Conso_aux_FIOUL_indiv)*Besoin_cha+(1-Conso_aux_FIOUL_indiv_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -1092,10 +1092,10 @@ Installation x Fioul coll x Collectif:
             - si: type de production ECS = 'Avec équipement chauffage'
               alors: besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS
             - sinon: 0
-      unité: l fioul/an
+      unité: L/an
     consommation combustible froid:
       formule: 0
-      unité: l fioul/an
+      unité: L/an
     consommation auxiliaire:
       # =(1-Conso_aux_FIOUL_coll_chauf)*Besoin_cha+(1-Conso_aux_FIOUL_coll_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -1725,7 +1725,7 @@ chauffe-eau électrique x consommation d'électricité:
 
 durée avant renouvellement elec:
   formule: ratios . CHAUF EAU ELEC Durée de vie
-  unité: années
+  unité: an
 
 surface de panneau nécessaire:
   #   IF(
@@ -1753,4 +1753,4 @@ chauffe-eau solaire x appoint d'électricité:
 
 durée avant renouvellement solaire:
   formule: ratios . CHAUF EAU SOLAIRE Durée de vie
-  unité: années
+  unité: an
