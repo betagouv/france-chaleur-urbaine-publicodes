@@ -273,8 +273,8 @@ Paramètres économiques:
           par défaut:
             variations:
               - si: Type de conditionnement = 'Conditionné en sac'
-                alors: 300.9
-              - sinon: 313.2
+                alors: 313.2
+              - sinon: 300.9
           note: 'Source: CEEB 2024'
           unité: '€HT/tonne'
         TVA:
