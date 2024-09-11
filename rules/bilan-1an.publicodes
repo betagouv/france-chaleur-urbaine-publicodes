@@ -6,6 +6,12 @@ x-pmt: &pmt
 
 Bilan x Réseaux de chaleur:
   avec:
+    P1abo: Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
+    P1conso: Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
+    P1prime: Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3
     P4:
       # =-PMT('Paramètres économiques'!$D$199,Durée_vie_RCU,'Calculs économiques'!$G$23)
       variations: *pmt
@@ -42,6 +48,12 @@ Bilan x Réseaux de chaleur:
         - (- aides)
 Bilan x Réseaux de froid:
   avec:
+    P1abo: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+    P1conso: Calcul Eco . Réseaux de froid . Coût du combustible consommation
+    P1prime: Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -77,6 +89,12 @@ Bilan x Réseaux de froid:
         - (- aides)
 Bilan x Poêle à granulés indiv:
   avec:
+    P1abo: Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement
+    P1conso: Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
+    P1prime: Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -112,6 +130,12 @@ Bilan x Poêle à granulés indiv:
         - (- aides)
 Bilan x Chaudière à granulés coll:
   avec:
+    P1abo: Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement
+    P1conso: Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
+    P1prime: Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -147,6 +171,12 @@ Bilan x Chaudière à granulés coll:
         - (- aides)
 Bilan x Gaz indiv avec cond:
   avec:
+    P1abo: Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement
+    P1conso: Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
+    P1prime: Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -182,6 +212,12 @@ Bilan x Gaz indiv avec cond:
         - (- aides)
 Bilan x Gaz indiv sans cond:
   avec:
+    P1abo: Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement
+    P1conso: Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
+    P1prime: Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -217,6 +253,12 @@ Bilan x Gaz indiv sans cond:
         - (- aides)
 Bilan x Gaz coll avec cond:
   avec:
+    P1abo: Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement
+    P1conso: Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
+    P1prime: Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -252,6 +294,12 @@ Bilan x Gaz coll avec cond:
         - (- aides)
 Bilan x Gaz coll sans cond:
   avec:
+    P1abo: Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement
+    P1conso: Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
+    P1prime: Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -287,6 +335,12 @@ Bilan x Gaz coll sans cond:
         - (- aides)
 Bilan x Fioul indiv:
   avec:
+    P1abo: Calcul Eco . Fioul indiv . Coût du combustible abonnement
+    P1conso: Calcul Eco . Fioul indiv . Coût du combustible consommation
+    P1prime: Calcul Eco . Fioul indiv . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -322,6 +376,12 @@ Bilan x Fioul indiv:
         - (- aides)
 Bilan x Fioul coll:
   avec:
+    P1abo: Calcul Eco . Fioul coll . Coût du combustible abonnement
+    P1conso: Calcul Eco . Fioul coll . Coût du combustible consommation
+    P1prime: Calcul Eco . Fioul coll . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -357,6 +417,12 @@ Bilan x Fioul coll:
         - (- aides)
 Bilan x PAC air-air indiv:
   avec:
+    P1abo: Calcul Eco . PAC air-air indiv . Coût du combustible abonnement
+    P1conso: Calcul Eco . PAC air-air indiv . Coût du combustible consommation
+    P1prime: Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -392,6 +458,12 @@ Bilan x PAC air-air indiv:
         - (- aides)
 Bilan x PAC air-air coll:
   avec:
+    P1abo: Calcul Eco . PAC air-air coll . Coût du combustible abonnement
+    P1conso: Calcul Eco . PAC air-air coll . Coût du combustible consommation
+    P1prime: Calcul Eco . PAC air-air coll . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -427,6 +499,12 @@ Bilan x PAC air-air coll:
         - (- aides)
 Bilan x PAC eau-eau indiv:
   avec:
+    P1abo: Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement
+    P1conso: Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
+    P1prime: Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -462,6 +540,12 @@ Bilan x PAC eau-eau indiv:
         - (- aides)
 Bilan x PAC eau-eau coll:
   avec:
+    P1abo: Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement
+    P1conso: Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
+    P1prime: Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -497,6 +581,12 @@ Bilan x PAC eau-eau coll:
         - (- aides)
 Bilan x PAC air-eau indiv:
   avec:
+    P1abo: Calcul Eco . PAC air-eau indiv . Coût du combustible abonnement
+    P1conso: Calcul Eco . PAC air-eau indiv . Coût du combustible consommation
+    P1prime: Calcul Eco . PAC air-eau indiv . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -532,6 +622,12 @@ Bilan x PAC air-eau indiv:
         - (- aides)
 Bilan x PAC air-eau coll:
   avec:
+    P1abo: Calcul Eco . PAC air-eau coll . Coût du combustible abonnement
+    P1conso: Calcul Eco . PAC air-eau coll . Coût du combustible consommation
+    P1prime: Calcul Eco . PAC air-eau coll . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3
     P4:
       variations: *pmt
       avec:
@@ -567,6 +663,12 @@ Bilan x PAC air-eau coll:
         - (- aides)
 Bilan x Radiateur électrique:
   avec:
+    P1abo: Calcul Eco . Radiateur électrique . Coût du combustible abonnement
+    P1conso: Calcul Eco . Radiateur électrique . Coût du combustible consommation
+    P1prime: Calcul Eco . Radiateur électrique . Coût électricité auxiliaire
+    P1ECS: Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3
     P4:
       variations: *pmt
       avec:
