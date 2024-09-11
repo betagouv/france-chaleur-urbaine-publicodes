@@ -9,7 +9,15 @@ Bilan x Réseaux de chaleur:
     P1abo: Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
     P1conso: Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
     P1prime: Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      #
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS solaire
+        # Avec équipement chauffage
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3
     P4:
@@ -51,7 +59,13 @@ Bilan x Réseaux de froid:
     P1abo: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
     P1conso: Calcul Eco . Réseaux de froid . Coût du combustible consommation
     P1prime: Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3
     P4:
@@ -92,7 +106,13 @@ Bilan x Poêle à granulés indiv:
     P1abo: Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
     P1prime: Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3
     P4:
@@ -133,7 +153,13 @@ Bilan x Chaudière à granulés coll:
     P1abo: Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement
     P1conso: Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
     P1prime: Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3
     P4:
@@ -174,7 +200,13 @@ Bilan x Gaz indiv avec cond:
     P1abo: Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
     P1prime: Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3
     P4:
@@ -215,7 +247,13 @@ Bilan x Gaz indiv sans cond:
     P1abo: Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
     P1prime: Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3
     P4:
@@ -256,7 +294,13 @@ Bilan x Gaz coll avec cond:
     P1abo: Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
     P1prime: Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3
     P4:
@@ -297,7 +341,13 @@ Bilan x Gaz coll sans cond:
     P1abo: Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
     P1prime: Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3
     P4:
@@ -338,7 +388,13 @@ Bilan x Fioul indiv:
     P1abo: Calcul Eco . Fioul indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . Fioul indiv . Coût du combustible consommation
     P1prime: Calcul Eco . Fioul indiv . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3
     P4:
@@ -379,7 +435,13 @@ Bilan x Fioul coll:
     P1abo: Calcul Eco . Fioul coll . Coût du combustible abonnement
     P1conso: Calcul Eco . Fioul coll . Coût du combustible consommation
     P1prime: Calcul Eco . Fioul coll . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Fioul coll . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3
     P4:
@@ -420,7 +482,13 @@ Bilan x PAC air-air indiv:
     P1abo: Calcul Eco . PAC air-air indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC air-air indiv . Coût du combustible consommation
     P1prime: Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3
     P4:
@@ -461,7 +529,13 @@ Bilan x PAC air-air coll:
     P1abo: Calcul Eco . PAC air-air coll . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC air-air coll . Coût du combustible consommation
     P1prime: Calcul Eco . PAC air-air coll . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3
     P4:
@@ -502,7 +576,13 @@ Bilan x PAC eau-eau indiv:
     P1abo: Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
     P1prime: Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3
     P4:
@@ -543,7 +623,13 @@ Bilan x PAC eau-eau coll:
     P1abo: Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
     P1prime: Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3
     P4:
@@ -584,7 +670,13 @@ Bilan x PAC air-eau indiv:
     P1abo: Calcul Eco . PAC air-eau indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC air-eau indiv . Coût du combustible consommation
     P1prime: Calcul Eco . PAC air-eau indiv . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3
     P4:
@@ -625,7 +717,13 @@ Bilan x PAC air-eau coll:
     P1abo: Calcul Eco . PAC air-eau coll . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC air-eau coll . Coût du combustible consommation
     P1prime: Calcul Eco . PAC air-eau coll . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3
     P4:
@@ -666,7 +764,13 @@ Bilan x Radiateur électrique:
     P1abo: Calcul Eco . Radiateur électrique . Coût du combustible abonnement
     P1conso: Calcul Eco . Radiateur électrique . Coût du combustible consommation
     P1prime: Calcul Eco . Radiateur électrique . Coût électricité auxiliaire
-    P1ECS: Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
+    P1ECS:
+      variations:
+        - si: type de production ECS = 'Chauffe-eau électrique'
+          alors: Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS solaire
+        - sinon: 0
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3
     P4:
