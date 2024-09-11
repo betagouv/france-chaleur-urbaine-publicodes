@@ -470,10 +470,10 @@ publicodes@^1.3.3:
   resolved "https://registry.yarnpkg.com/publicodes/-/publicodes-1.5.0.tgz#776ce14af79a1c130bd1e9092a5f23574d2f4711"
   integrity sha512-A4rQkVN56tBg5uYzL0W639UTKrfjV4jLP+w1uxpNEpfw4NygV8sZQpG2wJVI/AOZoVUUbRbpyi8UXXb07O4YSA==
 
-"publicodes@npm:@totak/publicodes@1.5.0-fcu5":
-  version "1.5.0-fcu5"
-  resolved "https://registry.yarnpkg.com/@totak/publicodes/-/publicodes-1.5.0-fcu5.tgz#058d94cc319d5c342186ebf5c559bac5a74731a6"
-  integrity sha512-NRp/3aPOA7HpCDS/Xv/+AJ2S9/H3BQ8Mb3acCnbHdyPk5bIb2111U7CmtADEvx9524/cRU/s2yxyQUl6FmPm0A==
+"publicodes@npm:@totak/publicodes@1.5.1-fcu6":
+  version "1.5.1-fcu6"
+  resolved "https://registry.yarnpkg.com/@totak/publicodes/-/publicodes-1.5.1-fcu6.tgz#7d63a9f9aed6ea57cb5ef1d7abfe1ce239cd95cd"
+  integrity sha512-92QM2d8vLs5IsEoBNwjsad6+w7jqwPIvsAxkulSM2n4bsN0qGfof6t4/F7/zjCk3GkGZm0obCycVlgywdCGf1g==
 
 readdirp@~3.6.0:
   version "3.6.0"
