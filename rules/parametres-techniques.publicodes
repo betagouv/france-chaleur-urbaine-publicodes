@@ -25,15 +25,15 @@ augmenter la température de chauffe:
 
 nom département: nom département # se fait remplacer par les données département
 zone climatique:
-  par défaut: zone climatique
+  par défaut: zone climatique # se fait remplacer par les données département
   une possibilité:
     choix obligatoire: oui
     possibilités:
       - "'H1'"
       - "'H2'"
       - "'H3'"
-sous zone climatique: # se fait remplacer par les données département
-  par défaut: "'H1a'"
+sous zone climatique:
+  par défaut: sous zone climatique # se fait remplacer par les données département
   une possibilité:
     choix obligatoire: oui
     possibilités:
