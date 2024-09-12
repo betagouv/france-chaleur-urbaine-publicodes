@@ -15,9 +15,13 @@ degré jours unifié spécifique froid:
   # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$D$6:$D$101,"",0)
   par défaut: département . degré jours unifié spécifique froid
   unité: °C
-température de référence chaud:
+
+température de référence chaud commune:
   # =XLOOKUP(commune,Communes!$C$6:$C$36618,Communes!$G$6:$G$36618,,0)
   # défini en externe via la commune
+  unité: °C
+température de référence chaud:
+  par défaut: température de référence chaud commune
   unité: °C
 augmenter la température de chauffe:
   par défaut: 0
