@@ -115,6 +115,7 @@ Part de la surface à climatiser:
       - si: type de bâtiment = 'résidentiel'
         alors: ratios . GNRL Part surface à climatiser résidentiel
       - sinon: ratios . GNRL Part surface à climatiser tertiaire
+  unité: '%'
 Température émetteurs:
   par défaut: "'35'"
   une possibilité:

@@ -176,10 +176,12 @@ Paramètres économiques:
           unité: €/an
         Part Fixe x TVA:
           par défaut: 5.5%
+          unité: '%'
         Part Variable x Accise sur l'électricité ex TIPCSE CSPE:
           par défaut: 0.021€/kWh
         Part Variable x TVA:
           par défaut: 20%
+          unité: '%'
 
     Gaz x Puissance souscrite pour calcul installation collective ou tertiaire:
       # B89 ='Calculs techniques'!$H$53
