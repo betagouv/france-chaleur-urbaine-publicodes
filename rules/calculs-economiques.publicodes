@@ -1508,7 +1508,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - 1 / nombre de logement dans l'immeuble concerné
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Réseaux de froid:
       avec:
@@ -1534,7 +1537,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Poêle à granulés indiv:
       avec:
@@ -1552,7 +1558,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Chaudière à granulés coll:
       avec:
@@ -1570,7 +1579,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Gaz indiv avec cond:
       avec:
@@ -1588,7 +1600,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Gaz indiv sans cond:
       avec:
@@ -1606,7 +1621,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Gaz coll avec cond:
       avec:
@@ -1661,7 +1679,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Gaz coll sans cond:
       avec:
@@ -1679,7 +1700,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Fioul indiv:
       avec:
@@ -1697,7 +1721,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Fioul coll:
       avec:
@@ -1715,7 +1742,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     PAC air-air indiv:
       avec:
@@ -1733,7 +1763,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     PAC eau-eau indiv:
       avec:
@@ -1751,7 +1784,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     PAC air-eau indiv:
       avec:
@@ -1769,7 +1805,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     PAC air-air coll:
       avec:
@@ -1828,7 +1867,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     PAC eau-eau coll:
       avec:
@@ -1859,7 +1901,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     PAC air-eau coll:
       avec:
@@ -1877,7 +1922,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Radiateur électrique:
       avec:
@@ -1895,7 +1943,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     Panneau solaire thermique pour production ECS:
       avec:
@@ -1928,7 +1979,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
         Total:
-          formule: Ma prime renov' + Coup de pouce + CEE
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
           unité: €
     # Chauffe-eau électrique à accumulation:
 
