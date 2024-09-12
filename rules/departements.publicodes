@@ -1,9 +1,8 @@
 départements:
-départements . dep 01:
   applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "01"
+    est défini: code département
+départements . dep 01:
+  applicable si: code département = "01"
   avec:
     nom:
       valeur: "'AIN'"
@@ -23,10 +22,7 @@ départements . dep 01:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 02:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "02"
+  applicable si: code département = "02"
   avec:
     nom:
       valeur: "'AISNE'"
@@ -46,10 +42,7 @@ départements . dep 02:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 03:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "03"
+  applicable si: code département = "03"
   avec:
     nom:
       valeur: "'ALLIER'"
@@ -69,10 +62,7 @@ départements . dep 03:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 04:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "04"
+  applicable si: code département = "04"
   avec:
     nom:
       valeur: "'ALPES-DE-HAUTE-PROVENCE'"
@@ -92,10 +82,7 @@ départements . dep 04:
       valeur: "'H2d'"
       remplace: sous zone climatique
 départements . dep 05:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "05"
+  applicable si: code département = "05"
   avec:
     nom:
       valeur: "'HAUTES-ALPES'"
@@ -115,10 +102,7 @@ départements . dep 05:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 06:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "06"
+  applicable si: code département = "06"
   avec:
     nom:
       valeur: "'ALPES-MARITIMES'"
@@ -138,10 +122,7 @@ départements . dep 06:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 07:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "07"
+  applicable si: code département = "07"
   avec:
     nom:
       valeur: "'ARDECHE'"
@@ -161,10 +142,7 @@ départements . dep 07:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 08:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "08"
+  applicable si: code département = "08"
   avec:
     nom:
       valeur: "'ARDENNES'"
@@ -184,10 +162,7 @@ départements . dep 08:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 09:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "09"
+  applicable si: code département = "09"
   avec:
     nom:
       valeur: "'ARIEGE'"
@@ -207,10 +182,7 @@ départements . dep 09:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 10:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "10"
+  applicable si: code département = "10"
   avec:
     nom:
       valeur: "'AUBE'"
@@ -230,10 +202,7 @@ départements . dep 10:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 11:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "11"
+  applicable si: code département = "11"
   avec:
     nom:
       valeur: "'AUDE'"
@@ -253,10 +222,7 @@ départements . dep 11:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 12:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "12"
+  applicable si: code département = "12"
   avec:
     nom:
       valeur: "'AVEYRON'"
@@ -276,10 +242,7 @@ départements . dep 12:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 13:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "13"
+  applicable si: code département = "13"
   avec:
     nom:
       valeur: "'BOUCHES-DU-RHONE'"
@@ -299,10 +262,7 @@ départements . dep 13:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 14:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "14"
+  applicable si: code département = "14"
   avec:
     nom:
       valeur: "'CALVADOS'"
@@ -322,10 +282,7 @@ départements . dep 14:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 15:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "15"
+  applicable si: code département = "15"
   avec:
     nom:
       valeur: "'CANTAL'"
@@ -345,10 +302,7 @@ départements . dep 15:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 16:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "16"
+  applicable si: code département = "16"
   avec:
     nom:
       valeur: "'CHARENTE'"
@@ -368,10 +322,7 @@ départements . dep 16:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 17:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "17"
+  applicable si: code département = "17"
   avec:
     nom:
       valeur: "'CHARENTE-MARITIME'"
@@ -391,10 +342,7 @@ départements . dep 17:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 18:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "18"
+  applicable si: code département = "18"
   avec:
     nom:
       valeur: "'CHER'"
@@ -414,10 +362,7 @@ départements . dep 18:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 19:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "19"
+  applicable si: code département = "19"
   avec:
     nom:
       valeur: "'CORREZE'"
@@ -437,10 +382,7 @@ départements . dep 19:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 2A:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "2A"
+  applicable si: code département = "2A"
   avec:
     nom:
       valeur: "'CORSE-DU-SUD'"
@@ -460,10 +402,7 @@ départements . dep 2A:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 2B:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "2B"
+  applicable si: code département = "2B"
   avec:
     nom:
       valeur: "'HAUTE-CORSE'"
@@ -483,10 +422,7 @@ départements . dep 2B:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 21:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "21"
+  applicable si: code département = "21"
   avec:
     nom:
       valeur: "'COTE-D'OR'"
@@ -506,10 +442,7 @@ départements . dep 21:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 22:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "22"
+  applicable si: code département = "22"
   avec:
     nom:
       valeur: "'COTES-D'ARMOR'"
@@ -529,10 +462,7 @@ départements . dep 22:
       valeur: "'H2a'"
       remplace: sous zone climatique
 départements . dep 23:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "23"
+  applicable si: code département = "23"
   avec:
     nom:
       valeur: "'CREUSE'"
@@ -552,10 +482,7 @@ départements . dep 23:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 24:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "24"
+  applicable si: code département = "24"
   avec:
     nom:
       valeur: "'DORDOGNE'"
@@ -575,10 +502,7 @@ départements . dep 24:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 25:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "25"
+  applicable si: code département = "25"
   avec:
     nom:
       valeur: "'DOUBS'"
@@ -598,10 +522,7 @@ départements . dep 25:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 26:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "26"
+  applicable si: code département = "26"
   avec:
     nom:
       valeur: "'DROME'"
@@ -621,10 +542,7 @@ départements . dep 26:
       valeur: "'H2d'"
       remplace: sous zone climatique
 départements . dep 27:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "27"
+  applicable si: code département = "27"
   avec:
     nom:
       valeur: "'EURE'"
@@ -644,10 +562,7 @@ départements . dep 27:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 28:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "28"
+  applicable si: code département = "28"
   avec:
     nom:
       valeur: "'EURE-ET-LOIR'"
@@ -667,10 +582,7 @@ départements . dep 28:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 29:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "29"
+  applicable si: code département = "29"
   avec:
     nom:
       valeur: "'FINISTERE'"
@@ -690,10 +602,7 @@ départements . dep 29:
       valeur: "'H2a'"
       remplace: sous zone climatique
 départements . dep 30:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "30"
+  applicable si: code département = "30"
   avec:
     nom:
       valeur: "'GARD'"
@@ -713,10 +622,7 @@ départements . dep 30:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 31:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "31"
+  applicable si: code département = "31"
   avec:
     nom:
       valeur: "'HAUTE-GARONNE'"
@@ -736,10 +642,7 @@ départements . dep 31:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 32:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "32"
+  applicable si: code département = "32"
   avec:
     nom:
       valeur: "'GERS'"
@@ -759,10 +662,7 @@ départements . dep 32:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 33:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "33"
+  applicable si: code département = "33"
   avec:
     nom:
       valeur: "'GIRONDE'"
@@ -782,10 +682,7 @@ départements . dep 33:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 34:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "34"
+  applicable si: code département = "34"
   avec:
     nom:
       valeur: "'HERAULT'"
@@ -805,10 +702,7 @@ départements . dep 34:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 35:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "35"
+  applicable si: code département = "35"
   avec:
     nom:
       valeur: "'ILLE-ET-VILAINE'"
@@ -828,10 +722,7 @@ départements . dep 35:
       valeur: "'H2a'"
       remplace: sous zone climatique
 départements . dep 36:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "36"
+  applicable si: code département = "36"
   avec:
     nom:
       valeur: "'INDRE'"
@@ -851,10 +742,7 @@ départements . dep 36:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 37:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "37"
+  applicable si: code département = "37"
   avec:
     nom:
       valeur: "'INDRE-ET-LOIRE'"
@@ -874,10 +762,7 @@ départements . dep 37:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 38:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "38"
+  applicable si: code département = "38"
   avec:
     nom:
       valeur: "'ISERE'"
@@ -897,10 +782,7 @@ départements . dep 38:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 39:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "39"
+  applicable si: code département = "39"
   avec:
     nom:
       valeur: "'JURA'"
@@ -920,10 +802,7 @@ départements . dep 39:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 40:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "40"
+  applicable si: code département = "40"
   avec:
     nom:
       valeur: "'LANDES'"
@@ -943,10 +822,7 @@ départements . dep 40:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 41:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "41"
+  applicable si: code département = "41"
   avec:
     nom:
       valeur: "'LOIR-ET-CHER'"
@@ -966,10 +842,7 @@ départements . dep 41:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 42:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "42"
+  applicable si: code département = "42"
   avec:
     nom:
       valeur: "'LOIRE'"
@@ -989,10 +862,7 @@ départements . dep 42:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 43:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "43"
+  applicable si: code département = "43"
   avec:
     nom:
       valeur: "'HAUTE-LOIRE'"
@@ -1012,10 +882,7 @@ départements . dep 43:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 44:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "44"
+  applicable si: code département = "44"
   avec:
     nom:
       valeur: "'LOIRE-ATLANTIQUE'"
@@ -1035,10 +902,7 @@ départements . dep 44:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 45:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "45"
+  applicable si: code département = "45"
   avec:
     nom:
       valeur: "'LOIRET'"
@@ -1058,10 +922,7 @@ départements . dep 45:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 46:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "46"
+  applicable si: code département = "46"
   avec:
     nom:
       valeur: "'LOT'"
@@ -1081,10 +942,7 @@ départements . dep 46:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 47:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "47"
+  applicable si: code département = "47"
   avec:
     nom:
       valeur: "'LOT-ET-GARONNE'"
@@ -1104,10 +962,7 @@ départements . dep 47:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 48:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "48"
+  applicable si: code département = "48"
   avec:
     nom:
       valeur: "'LOZERE'"
@@ -1127,10 +982,7 @@ départements . dep 48:
       valeur: "'H2d'"
       remplace: sous zone climatique
 départements . dep 49:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "49"
+  applicable si: code département = "49"
   avec:
     nom:
       valeur: "'MAINE-ET-LOIRE'"
@@ -1150,10 +1002,7 @@ départements . dep 49:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 50:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "50"
+  applicable si: code département = "50"
   avec:
     nom:
       valeur: "'MANCHE'"
@@ -1173,10 +1022,7 @@ départements . dep 50:
       valeur: "'H2a'"
       remplace: sous zone climatique
 départements . dep 51:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "51"
+  applicable si: code département = "51"
   avec:
     nom:
       valeur: "'MARNE'"
@@ -1196,10 +1042,7 @@ départements . dep 51:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 52:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "52"
+  applicable si: code département = "52"
   avec:
     nom:
       valeur: "'HAUTE-MARNE'"
@@ -1219,10 +1062,7 @@ départements . dep 52:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 53:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "53"
+  applicable si: code département = "53"
   avec:
     nom:
       valeur: "'MAYENNE'"
@@ -1242,10 +1082,7 @@ départements . dep 53:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 54:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "54"
+  applicable si: code département = "54"
   avec:
     nom:
       valeur: "'MEURTHE-ET-MOSELLE'"
@@ -1265,10 +1102,7 @@ départements . dep 54:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 55:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "55"
+  applicable si: code département = "55"
   avec:
     nom:
       valeur: "'MEUSE'"
@@ -1288,10 +1122,7 @@ départements . dep 55:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 56:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "56"
+  applicable si: code département = "56"
   avec:
     nom:
       valeur: "'MORBIHAN'"
@@ -1311,10 +1142,7 @@ départements . dep 56:
       valeur: "'H2a'"
       remplace: sous zone climatique
 départements . dep 57:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "57"
+  applicable si: code département = "57"
   avec:
     nom:
       valeur: "'MOSELLE'"
@@ -1334,10 +1162,7 @@ départements . dep 57:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 58:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "58"
+  applicable si: code département = "58"
   avec:
     nom:
       valeur: "'NIEVRE'"
@@ -1357,10 +1182,7 @@ départements . dep 58:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 59:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "59"
+  applicable si: code département = "59"
   avec:
     nom:
       valeur: "'NORD'"
@@ -1380,10 +1202,7 @@ départements . dep 59:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 60:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "60"
+  applicable si: code département = "60"
   avec:
     nom:
       valeur: "'OISE'"
@@ -1403,10 +1222,7 @@ départements . dep 60:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 61:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "61"
+  applicable si: code département = "61"
   avec:
     nom:
       valeur: "'ORNE'"
@@ -1426,10 +1242,7 @@ départements . dep 61:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 62:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "62"
+  applicable si: code département = "62"
   avec:
     nom:
       valeur: "'PAS-DE-CALAIS'"
@@ -1449,10 +1262,7 @@ départements . dep 62:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 63:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "63"
+  applicable si: code département = "63"
   avec:
     nom:
       valeur: "'PUY-DE-DOME'"
@@ -1472,10 +1282,7 @@ départements . dep 63:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 64:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "64"
+  applicable si: code département = "64"
   avec:
     nom:
       valeur: "'PYRENEES-ATLANTIQUES'"
@@ -1495,10 +1302,7 @@ départements . dep 64:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 65:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "65"
+  applicable si: code département = "65"
   avec:
     nom:
       valeur: "'HAUTES-PYRENEES'"
@@ -1518,10 +1322,7 @@ départements . dep 65:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 66:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "66"
+  applicable si: code département = "66"
   avec:
     nom:
       valeur: "'PYRENEES-ORIENTALES'"
@@ -1541,10 +1342,7 @@ départements . dep 66:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 67:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "67"
+  applicable si: code département = "67"
   avec:
     nom:
       valeur: "'BAS-RHIN'"
@@ -1564,10 +1362,7 @@ départements . dep 67:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 68:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "68"
+  applicable si: code département = "68"
   avec:
     nom:
       valeur: "'HAUT-RHIN'"
@@ -1587,10 +1382,7 @@ départements . dep 68:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 69:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "69"
+  applicable si: code département = "69"
   avec:
     nom:
       valeur: "'RHONE'"
@@ -1610,10 +1402,7 @@ départements . dep 69:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 70:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "70"
+  applicable si: code département = "70"
   avec:
     nom:
       valeur: "'HAUTE-SAONE'"
@@ -1633,10 +1422,7 @@ départements . dep 70:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 71:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "71"
+  applicable si: code département = "71"
   avec:
     nom:
       valeur: "'SAONE-ET-LOIRE'"
@@ -1656,10 +1442,7 @@ départements . dep 71:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 72:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "72"
+  applicable si: code département = "72"
   avec:
     nom:
       valeur: "'SARTHE'"
@@ -1679,10 +1462,7 @@ départements . dep 72:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 73:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "73"
+  applicable si: code département = "73"
   avec:
     nom:
       valeur: "'SAVOIE'"
@@ -1702,10 +1482,7 @@ départements . dep 73:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 74:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "74"
+  applicable si: code département = "74"
   avec:
     nom:
       valeur: "'HAUTE-SAVOIE'"
@@ -1725,10 +1502,7 @@ départements . dep 74:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 75:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "75"
+  applicable si: code département = "75"
   avec:
     nom:
       valeur: "'PARIS'"
@@ -1748,10 +1522,7 @@ départements . dep 75:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 76:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "76"
+  applicable si: code département = "76"
   avec:
     nom:
       valeur: "'SEINE-MARITIME'"
@@ -1771,10 +1542,7 @@ départements . dep 76:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 77:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "77"
+  applicable si: code département = "77"
   avec:
     nom:
       valeur: "'SEINE-ET-MARNE'"
@@ -1794,10 +1562,7 @@ départements . dep 77:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 78:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "78"
+  applicable si: code département = "78"
   avec:
     nom:
       valeur: "'YVELINES'"
@@ -1817,10 +1582,7 @@ départements . dep 78:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 79:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "79"
+  applicable si: code département = "79"
   avec:
     nom:
       valeur: "'DEUX-SEVRES'"
@@ -1840,10 +1602,7 @@ départements . dep 79:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 80:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "80"
+  applicable si: code département = "80"
   avec:
     nom:
       valeur: "'SOMME'"
@@ -1863,10 +1622,7 @@ départements . dep 80:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 81:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "81"
+  applicable si: code département = "81"
   avec:
     nom:
       valeur: "'TARN'"
@@ -1886,10 +1642,7 @@ départements . dep 81:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 82:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "82"
+  applicable si: code département = "82"
   avec:
     nom:
       valeur: "'TARN-ET-GARONNE'"
@@ -1909,10 +1662,7 @@ départements . dep 82:
       valeur: "'H2c'"
       remplace: sous zone climatique
 départements . dep 83:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "83"
+  applicable si: code département = "83"
   avec:
     nom:
       valeur: "'VAR'"
@@ -1932,10 +1682,7 @@ départements . dep 83:
       valeur: "'H3'"
       remplace: sous zone climatique
 départements . dep 84:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "84"
+  applicable si: code département = "84"
   avec:
     nom:
       valeur: "'VAUCLUSE'"
@@ -1955,10 +1702,7 @@ départements . dep 84:
       valeur: "'H2d'"
       remplace: sous zone climatique
 départements . dep 85:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "85"
+  applicable si: code département = "85"
   avec:
     nom:
       valeur: "'VENDEE'"
@@ -1978,10 +1722,7 @@ départements . dep 85:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 86:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "86"
+  applicable si: code département = "86"
   avec:
     nom:
       valeur: "'VIENNE'"
@@ -2001,10 +1742,7 @@ départements . dep 86:
       valeur: "'H2b'"
       remplace: sous zone climatique
 départements . dep 87:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "87"
+  applicable si: code département = "87"
   avec:
     nom:
       valeur: "'HAUTE-VIENNE'"
@@ -2024,10 +1762,7 @@ départements . dep 87:
       valeur: "'H1c'"
       remplace: sous zone climatique
 départements . dep 88:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "88"
+  applicable si: code département = "88"
   avec:
     nom:
       valeur: "'VOSGES'"
@@ -2047,10 +1782,7 @@ départements . dep 88:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 89:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "89"
+  applicable si: code département = "89"
   avec:
     nom:
       valeur: "'YONNE'"
@@ -2070,10 +1802,7 @@ départements . dep 89:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 90:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "90"
+  applicable si: code département = "90"
   avec:
     nom:
       valeur: "'TERRITOIRE DE BELFORT'"
@@ -2093,10 +1822,7 @@ départements . dep 90:
       valeur: "'H1b'"
       remplace: sous zone climatique
 départements . dep 91:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "91"
+  applicable si: code département = "91"
   avec:
     nom:
       valeur: "'ESSONNE'"
@@ -2116,10 +1842,7 @@ départements . dep 91:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 92:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "92"
+  applicable si: code département = "92"
   avec:
     nom:
       valeur: "'HAUTS-DE-SEINE'"
@@ -2139,10 +1862,7 @@ départements . dep 92:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 93:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "93"
+  applicable si: code département = "93"
   avec:
     nom:
       valeur: "'SEINE-SAINT-DENIS'"
@@ -2162,10 +1882,7 @@ départements . dep 93:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 94:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "94"
+  applicable si: code département = "94"
   avec:
     nom:
       valeur: "'VAL-DE-MARNE'"
@@ -2185,10 +1902,7 @@ départements . dep 94:
       valeur: "'H1a'"
       remplace: sous zone climatique
 départements . dep 95:
-  applicable si:
-    toutes ces conditions:
-      - est défini: code département
-      - code département = "95"
+  applicable si: code département = "95"
   avec:
     nom:
       valeur: "'VAL-D'OISE'"
