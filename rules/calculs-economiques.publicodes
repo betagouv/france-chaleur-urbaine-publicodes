@@ -49,10 +49,28 @@ Calcul Eco . Coût d'achat du combustible:
         - Paramètres économiques . Electricité x Abonnement Part Fixe coll + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
         - (1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA)
       unité: €TTC/an
-    Electricité coll x Part consommation:
-      # D12 ='Paramètres économiques'!$D$114
+    
+    Electricité coll x Part consommation Option Base:
+      # D12 ='Paramètres économiques'!$D$116
+      formule: Paramètres économiques . Electricité x Consommation Part variable en option de base
+      unité: €TTC/kWh
+    Electricité coll x Part consommation HP:
+      # D12 ='Paramètres économiques'!$D$116
       formule: Paramètres économiques . Electricité x Consommation Part variable en heure pleine
       unité: €TTC/kWh
+    Electricité coll x Part consommation HC:
+      # F12 =IF('Paramètres économiques'!C111="Option base";"";'Paramètres économiques'!$D$117)
+      formule: Paramètres économiques . Electricité x Consommation Part variable en heure creuse
+      unité: €TTC/kWh
+    Electricité coll x Part consommation:
+      # Ceci n'existe pas dans le fichier de base mais permet de ne pas répéter la variation trop de fois
+      - variations:
+        - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+          alors: Electricité coll x Part consommation Option Base
+        - sinon: 
+          somme:
+            - Electricité coll x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP
+            - Electricité coll x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC
 
     Gaz indiv x Part abonnement:
       # B13 ='Paramètres économiques'!$D$91
@@ -1149,25 +1167,15 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          variations:
-            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * Installation x PAC air-air x Collectif . consommation combustible chaleur
-            - sinon:
-                somme:
-                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Collectif . consommation combustible chaleur
-                  # FIXME Electricité coll x Part consommation HC n'existe pas encore
-                  # - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-air x Collectif . consommation combustible chaleur
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-air x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          variations:
-            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Collectif . consommation auxiliaire
-            - sinon:
-                somme:
-                  - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Collectif . consommation auxiliaire
-                  # FIXME Electricité coll x Part consommation HC n'existe pas encore
-                  # - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-air x Collectif . consommation auxiliaire
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-air x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -1230,25 +1238,15 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          variations:
-            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * Installation x PAC eau-eau x Collectif . consommation combustible chaleur
-            - sinon:
-                somme:
-                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Collectif . consommation combustible chaleur
-                  # FIXME Electricité coll x Part consommation HC n'existe pas encore
-                  # - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC eau-eau x Collectif . consommation combustible chaleur
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC eau-eau x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          variations:
-            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * Installation x PAC eau-eau x Collectif . consommation auxiliaire
-            - sinon:
-                somme:
-                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Collectif . consommation auxiliaire
-                  # FIXME Electricité coll x Part consommation HC n'existe pas encore
-                  # - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC eau-eau x Collectif . consommation auxiliaire
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC eau-eau x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
@@ -1311,25 +1309,15 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
-          variations:
-            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * Installation x PAC air-eau x Collectif . consommation combustible chaleur
-            - sinon:
-                somme:
-                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Collectif . consommation combustible chaleur
-                  # FIXME Electricité coll x Part consommation HC n'existe pas encore
-                  # - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-eau x Collectif . consommation combustible chaleur
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-eau x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible consommation (P1 conso) €TTC/an"
         Coût électricité auxiliaire:
-          variations:
-            - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * Installation x PAC air-eau x Collectif . consommation auxiliaire
-            - sinon:
-                somme:
-                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation  * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Collectif . consommation auxiliaire
-                  # FIXME Electricité coll x Part consommation HC n'existe pas encore
-                  # - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC * Installation x PAC air-eau x Collectif . consommation auxiliaire
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-eau x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation:
