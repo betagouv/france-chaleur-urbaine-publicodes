@@ -27,7 +27,13 @@ Calcul Eco . Coût d'achat du combustible:
         - Paramètres économiques . Electricité x Abonnement Part Fixe indiv + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
         - (1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA)
       unité: €TTC/an
+    Electricité indiv x Part consommation Option Base:
+      applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
+      # D11 ='Paramètres économiques'!$D$114
+      formule: Paramètres économiques . Electricité x Consommation Part variable en option de base
+      unité: €TTC/kWh
     Electricité indiv x Part consommation HP:
+      applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
       # D11 ='Paramètres économiques'!$D$114
       formule: Paramètres économiques . Electricité x Consommation Part variable en heure pleine
       unité: €TTC/kWh
@@ -147,7 +153,7 @@ Calcul Eco:
           # =IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!F93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!$F115+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115)
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
@@ -159,7 +165,7 @@ Calcul Eco:
           applicable si: Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique
@@ -170,7 +176,7 @@ Calcul Eco:
           applicable si: Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
@@ -224,7 +230,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de froid x Collectif . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Réseaux de froid x Collectif . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de froid x Collectif . consommation auxiliaire
@@ -235,7 +241,7 @@ Calcul Eco:
           applicable si: Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique
@@ -246,7 +252,7 @@ Calcul Eco:
           applicable si: Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire
@@ -299,7 +305,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
@@ -310,7 +316,7 @@ Calcul Eco:
           applicable si: Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique
@@ -321,7 +327,7 @@ Calcul Eco:
           applicable si: Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire
@@ -377,7 +383,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
@@ -388,7 +394,7 @@ Calcul Eco:
           applicable si: Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique
@@ -399,7 +405,7 @@ Calcul Eco:
           applicable si: Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire
@@ -454,7 +460,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
@@ -465,7 +471,7 @@ Calcul Eco:
           applicable si: Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique
@@ -476,7 +482,7 @@ Calcul Eco:
           applicable si: Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire
@@ -531,7 +537,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
@@ -542,7 +548,7 @@ Calcul Eco:
           applicable si: Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique
@@ -553,7 +559,7 @@ Calcul Eco:
           applicable si: Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire
@@ -608,7 +614,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
@@ -619,7 +625,7 @@ Calcul Eco:
           applicable si: Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique
@@ -630,7 +636,7 @@ Calcul Eco:
           applicable si: Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire
@@ -686,7 +692,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
@@ -697,7 +703,7 @@ Calcul Eco:
           applicable si: Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique
@@ -708,7 +714,7 @@ Calcul Eco:
           applicable si: Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire
@@ -762,7 +768,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul indiv x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Fioul indiv x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul indiv x Individuel . consommation auxiliaire
@@ -773,7 +779,7 @@ Calcul Eco:
           applicable si: Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique
@@ -784,7 +790,7 @@ Calcul Eco:
           applicable si: Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire
@@ -838,7 +844,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul coll x Collectif . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Fioul coll x Collectif . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul coll x Collectif . consommation auxiliaire
@@ -849,7 +855,7 @@ Calcul Eco:
           applicable si: Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique
@@ -860,7 +866,7 @@ Calcul Eco:
           applicable si: Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire
@@ -908,7 +914,7 @@ Calcul Eco:
           # D56 =IF('Paramètres économiques'!$D$109="Option base";$D$11*'Calculs techniques'!C103;$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Individuel . consommation combustible chaleur
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Individuel . consommation combustible chaleur
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Individuel . consommation combustible chaleur
@@ -918,7 +924,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Individuel . consommation auxiliaire
@@ -929,7 +935,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique
@@ -940,7 +946,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire
@@ -987,7 +993,7 @@ Calcul Eco:
         Coût du combustible consommation:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Individuel . consommation combustible chaleur
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC eau-eau x Individuel . consommation combustible chaleur
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Individuel . consommation combustible chaleur
@@ -997,7 +1003,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC eau-eau x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Individuel . consommation auxiliaire
@@ -1008,7 +1014,7 @@ Calcul Eco:
           applicable si: Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique
@@ -1019,7 +1025,7 @@ Calcul Eco:
           applicable si: Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire
@@ -1066,7 +1072,7 @@ Calcul Eco:
         Coût du combustible consommation:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Individuel . consommation combustible chaleur
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-eau x Individuel . consommation combustible chaleur
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Individuel . consommation combustible chaleur
@@ -1076,7 +1082,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-eau x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Individuel . consommation auxiliaire
@@ -1087,7 +1093,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-eau x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-eau x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Individuel . consommation d'électricité chauffe-eau électrique
@@ -1098,7 +1104,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire
@@ -1156,7 +1162,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Collectif . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Collectif . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Collectif . consommation auxiliaire
@@ -1168,7 +1174,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-air x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Collectif . consommation d'électricité chauffe-eau électrique
@@ -1179,7 +1185,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire
@@ -1249,7 +1255,7 @@ Calcul Eco:
           applicable si: Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique
@@ -1260,7 +1266,7 @@ Calcul Eco:
           applicable si: Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire
@@ -1330,7 +1336,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-eau x Collectif . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Collectif . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-eau x Collectif . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Collectif . consommation d'électricité chauffe-eau électrique
@@ -1341,7 +1347,7 @@ Calcul Eco:
           applicable si: Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire
@@ -1390,7 +1396,7 @@ Calcul Eco:
         Coût du combustible consommation:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Radiateur électrique x Individuel . consommation combustible chaleur
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Radiateur électrique x Individuel . consommation combustible chaleur
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Radiateur électrique x Individuel . consommation combustible chaleur
@@ -1400,7 +1406,7 @@ Calcul Eco:
         Coût électricité auxiliaire:
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Radiateur électrique x Individuel . consommation auxiliaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Radiateur électrique x Individuel . consommation auxiliaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Radiateur électrique x Individuel . consommation auxiliaire
@@ -1411,7 +1417,7 @@ Calcul Eco:
           applicable si: Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique >= 0
           variations:
           - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique
+            alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique
           - sinon:
               somme:
                 - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique
@@ -1422,7 +1428,7 @@ Calcul Eco:
           applicable si: Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire >= 0
           variations:
             - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire
+              alors: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation Option Base * Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire
             - sinon:
                 somme:
                   - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP * Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire

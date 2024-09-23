@@ -151,14 +151,19 @@ Paramètres économiques:
       # QUESTION déjà posée: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
       par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif
       unité: €/an
+    Electricité x Consommation Part variable en option de base:   
+      # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D126)+D125
+      par défaut:
+        somme:
+          - ratios économiques . Coût des combustibles x Electricité . Option Base . Prix de l'énergie * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
+          - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+      unité: €/kWh
     Electricité x Consommation Part variable en heure pleine:
       # B114 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!D:D;"Non trouvé")
       # D114 =IF(C114="";B114*(1+D124)+D123;C114)
-      # QUESTION déjà posée: il est marqué HT dans le libellé de gauche alors alors que c'est du TTC dans la colonne de droite
-      # QUESTION déjà posée: ici in ne prend en compte que les heures pleines, il serait plus judicieux de calculer le prix moyen HP HC
       par défaut:
         somme:
-          - ratios économiques . Coût des combustibles x Electricité . Prix de l'énergie * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
+          - ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HP * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
           - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
       unité: €/kWh
     Electricité x Consommation Part variable en heure creuse:
