@@ -1862,9 +1862,9 @@ ratios:
       valeur:  4.85
     PAC GNRL Aplusplusplus:
       valeur:  5.10
-    PAC GNRL Conso auxiliaire chauffage climatisation:
+    PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air:
       valeur: 96%
-    PAC GNRL Conso auxiliaire ECS:
+    PAC GNRL Conso auxiliaire ECS hors PAC air-air:
       valeur: 99%
     PAC GNRL SCOP mini:
       valeur: 1.8
