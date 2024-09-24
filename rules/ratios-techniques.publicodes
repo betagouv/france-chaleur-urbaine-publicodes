@@ -1882,6 +1882,9 @@ ratios:
     PAC AIR AIR Puissance unitaire réversible coll:
       valeur: 22
       unité: kW
+    PAC AIR AIR Puissance unitaire groupe froid indiv:
+      valeur: 2.5
+      unité: kW
     PAC AIR AIR Classe énergétique:
       valeur: "'A+'"
     PAC AIR AIR Durée de vie indiv:
