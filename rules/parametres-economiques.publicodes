@@ -313,11 +313,7 @@ Paramètres économiques:
       avec:
         Coût:
           # B142 =IF($C$7="Résidentiel",XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
-          par défaut:
-            variations:
-              - si: type de bâtiment = 'résidentiel'
-                alors: caractéristique réseau de chaleur . coût résidentiel / 1000
-              - sinon: caractéristique réseau de chaleur . coût tertiaire / 1000
+          par défaut: caractéristique réseau de chaleur . prix moyen / 1000
           unité: €/kWh
         Part fixe:
           # B143 =XLOOKUP($C$14,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
@@ -332,11 +328,7 @@ Paramètres économiques:
       avec:
         Coût:
           # B148 =IF($C$7="Résidentiel",XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
-          par défaut:
-            variations:
-              - si: type de bâtiment = 'résidentiel'
-                alors: caractéristique réseau de froid . coût résidentiel / 1000
-              - sinon: caractéristique réseau de froid . coût tertiaire / 1000
+          par défaut: caractéristique réseau de froid . prix moyen / 1000
           unité: €/kWh
         Part fixe:
           # B149 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
