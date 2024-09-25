@@ -796,7 +796,7 @@ ratios économiques:
                   - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
                     alors: 86.40
                   - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                    alors: 66.97
+                    alors: 78.82
             - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 40
               alors:
                 variations:
