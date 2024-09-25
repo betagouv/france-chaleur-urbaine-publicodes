@@ -51,7 +51,7 @@ sous zone climatique:
       - "'H3'"
 
 mode affichage:
-  par défaut: "'technicien'"
+  par défaut: "'grand public'"
   une possibilité:
     choix obligatoire: oui
     possibilités:
