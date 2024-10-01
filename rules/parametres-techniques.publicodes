@@ -103,6 +103,16 @@ Production eau chaude sanitaire:
     possibilités:
       - oui
       - non
+
+Inclure la climatisation:
+  # Temporaire le temps que le fichier excel soit à jour
+  par défaut: oui
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - oui
+      - non
+
 type de production ECS:
   # C29 alias Paramètres économiques C8 (Type de résidentiel)
   par défaut: "'Avec équipement chauffage'"

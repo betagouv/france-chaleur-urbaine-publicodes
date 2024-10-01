@@ -522,3 +522,24 @@ env . Installation x Radiateur électrique x Individuel:
         - Scope 2
         - Scope 3
       unité: kgCO2e/an
+
+env . Installation x Groupe froid x Individuel:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2e
+    Scope 1: 0
+    auxiliaires et combustible électrique:
+      valeur: 0
+      unité: kgCO2e
+    ECS solaire thermique:
+      valeur: 0
+    ECS avec ballon électrique:
+      valeur: 0
+    Scope 2:
+      valeur: 0
+    Scope 3:
+      valeur: 0
+    Total:
+      valeur: 0
+      unité: kgCO2e/an

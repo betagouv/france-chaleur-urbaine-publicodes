@@ -1226,6 +1226,34 @@ Calcul Eco:
             - Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+    
+    Groupe froid:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          valeur: 0
+          unité: €TTC
+          note: "TODO"
+        Investissement équipement par logement type tertiaire:
+          valeur: 0
+          unité: €TTC
+          note: "TODO"
+        Investissement ballon ECS à accumulation:
+          valeur: 0
+          unité: €TTC
+          note: "TODO"
+        Investissement ballon ECS solaire panneau inclus:
+          valeur: 0
+          unité: €TTC
+          note: "TODO"
+        Total investissement avec ballon ECS à accumulation:
+          valeur: 0
+          unité: €TTC
+          note: "TODO"
+        Total investissement ballon ECS solaire panneaux:
+          valeur: 0
+          unité: €TTC
+          note: "TODO"
 
 Calcul Eco . P2 P3 Coût de l'entretien:
   avec:

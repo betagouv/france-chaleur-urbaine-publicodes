@@ -806,3 +806,17 @@ Bilan x Radiateur électrique:
         - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire
         - P4
         - (- aides)
+Bilan x Groupe froid:
+  # Temporaire le temps que le fichier excel soit à jour
+  avec:
+    P1abo: 0
+    P1conso: 0
+    P1prime: 0
+    P1ECS: 0
+    P2: 0
+    P3: 0
+    P4: 0
+    P4 moins aides: 0
+    aides: 0
+    total sans aides: 0
+    total avec aides: 0
