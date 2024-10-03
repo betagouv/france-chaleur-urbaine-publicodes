@@ -143,13 +143,11 @@ Paramètres économiques:
               - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
       # B112
-      # QUESTION déjà posée: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
-      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel individuel
+      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel individuel * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
       unité: €/an
     Electricité x Abonnement Part Fixe coll:
       # B113
-      # QUESTION déjà posée: il est marqué HT alors que c'est du TTC car les prix des abonnements sont TTC
-      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif
+      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
       unité: €/an
     Electricité x Consommation Part variable en option de base:   
       # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D126)+D125
@@ -160,6 +158,7 @@ Paramètres économiques:
       unité: €/kWh
     Electricité x Consommation Part variable en heure pleine:
       # B114 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!D:D;"Non trouvé")
+      # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D124)+D123
       # D114 =IF(C114="";B114*(1+D124)+D123;C114)
       par défaut:
         somme:
@@ -168,7 +167,7 @@ Paramètres économiques:
       unité: €/kWh
     Electricité x Consommation Part variable en heure creuse:
       # =IF($D$109="Heure pleine/Heure creuse",XLOOKUP(1,('Ratios économiques - Coûts'!A:A="Heure pleine/Heure creuse")*('Ratios économiques - Coûts'!B:B=$D$110),'Ratios économiques - Coûts'!E:E,"Non trouvé"),"")
-      par défaut: ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HC
+      par défaut: ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HC * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
       unité: €/kWh
 
     Electricité x Taxe:
@@ -311,6 +310,10 @@ Paramètres économiques:
 
     Réseaux chaleur:
       avec:
+        Tarification R2 x Part fixe:
+          unité: €/kWh
+        Tarification R1 x Part variable:
+          unité: €/kWh
         Coût:
           # B142 =IF($C$7="Résidentiel",XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
           par défaut: caractéristique réseau de chaleur . prix moyen / 1000

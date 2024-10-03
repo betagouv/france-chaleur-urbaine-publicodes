@@ -444,7 +444,6 @@ ratios économiques:
         Abonnement annuel individuel:
           # B247:B267 et C247:C267
           # B273:B292 et C273:C292
-          # QUESTION déjà posée: on est sûr de l'effet de seuil de 300/an à 1000€/an au passage de 36 à 40kVA ?
           variations:
             - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 6
               alors:
