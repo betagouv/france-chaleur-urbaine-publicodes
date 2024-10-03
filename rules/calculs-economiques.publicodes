@@ -4,11 +4,22 @@ Calcul Eco . Coût d'achat du combustible:
   avec:
     Chaleur RCU x Part abonnement:
       # D8 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$143
-      valeur: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part fixe
+      variations:
+        - si:  Paramètres économiques . Réseaux chaleur . Tarification connue = 'oui'
+          alors: 
+            produit: 
+              - Paramètres économiques . Réseaux chaleur . Tarification R2 x Part fixe
+              - Installation x Réseaux de chaleur x Collectif . gamme de puissance existante
+              - 1 / ( Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur * nombre de logement dans l'immeuble concerné ) 
+        - sinon: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part fixe
       unité: €TTC/kWh
     Chaleur RCU x Part consommation:
       # D9 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$144
-      valeur: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part variable
+      # SI('Paramètres économiques'!$D$142="Oui";'Paramètres économiques'!$D$147;'Paramètres économiques'!$D$143*'Paramètres économiques'!$D$145)
+      variations:
+        - si:  Paramètres économiques . Réseaux chaleur . Tarification connue = 'oui'
+          alors: Paramètres économiques . Réseaux chaleur . Tarification R1 x Part variable
+        - sinon: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part variable
       unité: €TTC/kWh
 
     Froid RFU x Part abonnement:

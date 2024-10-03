@@ -310,6 +310,13 @@ Paramètres économiques:
 
     Réseaux chaleur:
       avec:
+        Tarification connue:
+          par défaut: "'non'"
+          une possibilité:
+            choix obligatoire: non
+            possibilités:
+              - oui
+              - non
         Tarification R2 x Part fixe:
           unité: €/kWh
         Tarification R1 x Part variable:
