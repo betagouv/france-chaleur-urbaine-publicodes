@@ -111,9 +111,8 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kg
 
     Fioul x Part consommation:
-      # D16 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$135;('Paramètres économiques'!$D$135*(1+'Paramètres économiques'!$D$137+'Paramètres économiques'!$D$138)))
-      # D16 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$137;('Paramètres économiques'!$D$137*(1+'Paramètres économiques'!$D$139)+'Paramètres économiques'!$D$140))
-      valeur: (Paramètres économiques . Fioul . Prix livraison incluse) * (1 + Paramètres économiques . Fioul . TVA) + Paramètres économiques . Fioul . TICPE
+      # D16 ='Paramètres économiques'!$D$136
+      valeur: Paramètres économiques . Fioul . Prix livraison incluse
       unité: €TTC/L
 
 Calcul Eco . Investissement ballon ECS à accumulation:

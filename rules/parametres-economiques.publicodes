@@ -74,7 +74,7 @@ Investissement x Groupe froid indiv:
       - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
       - Installation x Groupe froid x Individuel . gamme de puissance existante
       - 1 / ratios économiques . Investissement x TVA
-  unité: €HT
+  unité: €TTC
   note: PAC AIR/AIR
 
 ###### Combustibles P1
@@ -295,14 +295,17 @@ Paramètres économiques:
     Fioul:
       avec:
         Prix livraison incluse:
-          # =IF(C6="Grand Public",XLOOKUP($C$7,'Ratios économiques - Coûts'!$A$315:$A$316,'Ratios économiques - Coûts'!$C$315:$C$316,"Non trouvé")*(1+'Ratios économiques - Coûts'!C317)+'Ratios économiques - Coûts'!$C$318,XLOOKUP($C$7,'Ratios économiques - Coûts'!$A$315:$A$316,'Ratios économiques - Coûts'!$C$315:$C$316,"Non trouvé"))
-          # Note: HT toujours, les taxes sont ajoutées dans les calculs
+          # =XLOOKUP($C$7,'Ratios économiques - Coûts'!$A$315:$A$316,'Ratios économiques - Coûts'!$C$315:$C$316,"Non trouvé")*(1+$D$138)+$D$139
           par défaut:
-            variations:
-              - si: type de bâtiment = 'résidentiel'
-                alors: 0.8878
-              - sinon: 0.8213
-          unité: €HT/L
+            somme:
+              - produit:
+                - variations:
+                  - si: type de bâtiment = 'résidentiel'
+                    alors: 0.8878
+                  - sinon: 0.8213
+                - 1 + TVA
+              - TICPE
+          unité: €TTC/L
         TVA:
           par défaut: 20
           unité: '%'
