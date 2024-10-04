@@ -68,6 +68,14 @@ Investissement x Poêle à granulés indiv:
 Investissement x Chaudière à granulés coll:
   par défaut: ratios économiques . Granulés x Chaudière à granulés collective
   unité: €HT
+Investissement x Groupe froid indiv:
+  par défaut:
+    produit:
+      - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
+      - Installation x Groupe froid x Individuel . gamme de puissance existante
+      - 1 / ratios économiques . Investissement x TVA
+  unité: €HT
+  note: PAC AIR/AIR
 
 ###### Combustibles P1
 

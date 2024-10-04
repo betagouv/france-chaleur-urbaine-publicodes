@@ -1691,6 +1691,29 @@ Installation x Radiateur électrique x Individuel:
         - sinon: consommation combustible chaleur
       unité: kWh/an
 
+Installation x Groupe froid x Individuel:
+  avec:
+    production eau chaude sanitaire: non
+    puissance nécessaire équipement chauffage:
+      formule: 0
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      formule: 0
+      unité: kW
+    puissance nécessaire pour refroidissement équipement:
+      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
+      unité: kW
+    puissance équipement:
+      formule: puissance nécessaire pour refroidissement équipement
+      unité: kW
+    gamme de puissance existante:
+      # =(QUOTIENT(G65,'Ratios techniques'!$C$339)+1)*'Ratios techniques'!$C$339
+      produit:
+        - somme:
+          - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
+          - 1
+        - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
+      unité: kW
 
 ###### Production différenciée d'ECS par lgt / tertiaire
 
