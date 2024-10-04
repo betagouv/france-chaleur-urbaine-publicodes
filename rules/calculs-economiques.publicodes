@@ -119,14 +119,14 @@ Calcul Eco . Investissement ballon ECS à accumulation:
   # 'Calculs économiques'!E23
   # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
   produit:
-    - ratios économiques . Chauffe-eau x électrique à accumulation
+    - ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
 
 Calcul Eco . Investissement ballon ECS panneau inclus:
   # 'Calculs économiques'!F23
   # =IF(AND('Calculs techniques'!C71="Oui",Type_ECS="Solaire thermique"),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv),"")
   produit:
-    - ratios économiques . Chauffe-eau x solaire + ratios économiques . Chauffe-eau x solaire prix panneaux
+    - ratios économiques . Chauffe-eau x solaire x coût investissement + ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
 
 Calcul Eco:
@@ -1148,7 +1148,7 @@ Calcul Eco:
         Investissement équipement Total:
           # C63
           produit:
-            - ratios économiques . Radiateur électrique x Individuel
+            - ratios économiques . Radiateur électrique x Individuel x investissement total
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
