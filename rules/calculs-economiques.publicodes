@@ -139,10 +139,8 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
-          # =IF(affichage="Technicien",RCU_inv*(1+TVA_inv),RCU_inv)
-          produit:
-            - Investissement x frais de raccordement au réseaux x RCU
-            - 1 + ratios économiques . Investissement x TVA
+          # =RCU_inv
+          formule: Investissement x frais de raccordement au réseaux x RCU
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -208,9 +206,7 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
-          produit:
-            - Investissement x frais de raccordement au réseaux x RFU
-            - 1 + ratios économiques . Investissement x TVA
+          formule: Investissement x frais de raccordement au réseaux x RFU
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné

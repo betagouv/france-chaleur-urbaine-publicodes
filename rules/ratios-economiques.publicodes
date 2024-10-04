@@ -20,7 +20,6 @@ ratios économiques:
       note: 'source: AMORCE'
 
     Réseaux x Coût raccordement RCU SST x Résidentiel:
-      # FIXME: est-ce bien du <= ?
       variations:
         - si: nombre de logements dans l'immeuble concerné <= 25
           alors: 3709
@@ -42,27 +41,24 @@ ratios économiques:
       note: 'source: FEDENE 2024'
 
     Réseaux x Coût raccordement RCU SST x Tertiaire:
-      # QUESTION déjà posée: est-ce bien du <= ?
       variations:
-        - si: surface logement type tertiaire <= 1500
+        - si: surface logement type tertiaire < 2500
           alors: 92725
-        - si: surface logement type tertiaire <= 2500
+        - si: surface logement type tertiaire < 3500
           alors: 99305
-        - si: surface logement type tertiaire <= 3500
+        - si: surface logement type tertiaire < 5000
           alors: 107146
-        - si: surface logement type tertiaire <= 5000
+        - si: surface logement type tertiaire < 7500
           alors: 115621
-        - si: surface logement type tertiaire <= 7500
+        - si: surface logement type tertiaire < 10000
           alors: 128398
-        - si: surface logement type tertiaire <= 10000
+        - si: surface logement type tertiaire < 15000
           alors: 143072
-        - si: surface logement type tertiaire <= 15000
-          alors: 175203
+        - sinon: 175203
       unité: €HT
       note: 'source: FEDENE 2024'
 
     Réseaux x Coût raccordement RFU x Résidentiel:
-      # QUESTION déjà posée: est-ce bien du <= ?
       variations:
         - si: nombre de logements dans l'immeuble concerné <= 25
           alors: 4822
@@ -84,22 +80,20 @@ ratios économiques:
       note: 'source: ELCIMAI'
 
     Réseaux x Coût raccordement RFU x Tertiaire:
-      # QUESTION déjà posée: est-ce bien du <= ?
       variations:
-        - si: surface logement type tertiaire <= 1500
+        - si: surface logement type tertiaire < 2500
           alors: 120543
-        - si: surface logement type tertiaire <= 2500
+        - si: surface logement type tertiaire < 3500
           alors: 129097
-        - si: surface logement type tertiaire <= 3500
+        - si: surface logement type tertiaire < 5000
           alors: 139290
-        - si: surface logement type tertiaire <= 5000
+        - si: surface logement type tertiaire < 7500
           alors: 150307
-        - si: surface logement type tertiaire <= 7500
+        - si: surface logement type tertiaire < 10000
           alors: 166917
-        - si: surface logement type tertiaire <= 10000
+        - si: surface logement type tertiaire < 15000
           alors: 185994
-        - si: surface logement type tertiaire <= 15000
-          alors: 227764
+        - sinon: 227764
       unité: €HT
       note: 'Source: ELCIMAI'
 

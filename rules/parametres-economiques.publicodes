@@ -27,22 +27,26 @@ Puissance installation x Capacité chauffe eau solaire:
 ###### Investissement
 
 Investissement x frais de raccordement au réseaux x RCU:
-  # =IF($C$7="Résidentiel";
-  #   IF(affichage="Technicien";
-  #     XLOOKUP($C$10;
-  #     'Ratios économiques - Coûts'!$B$22:$B$29;
-  #     'Ratios économiques - Coûts'!$C$22:$C$29;
-  #     ;1)*$C$10;
-  #     XLOOKUP($C$10;
-  #     'Ratios économiques - Coûts'!$B$22:$B$29;
-  #     'Ratios économiques - Coûts'!$C$22:$C$29;
-  #     ;1)*$C$10*(1+$D$50));
-  #   IF(affichage="Technicien";
-  #   1;
-  #   (1+$D$50))*XLOOKUP($C$12;
-  #   'Ratios économiques - Coûts'!$B$31:$B$38;
-  #   'Ratios économiques - Coûts'!$C$31:$C$38;
-  #   ;-1))
+  # =IF(
+  #   $C$7 = "Résidentiel",
+  #   XLOOKUP(
+  #       $C$10,
+  #       'Ratios économiques - Coûts'!$B$22:$B$29,
+  #       'Ratios économiques - Coûts'!$C$22:$C$29,
+  #       ,
+  #       1
+  #   ) * $C$10 * ( 1 + $D$50 ),
+  #   (
+  #       1 + $D$50
+  #   ) *
+  #   XLOOKUP(
+  #       $C$12,
+  #       'Ratios économiques - Coûts'!$B$31:$B$38,
+  #       'Ratios économiques - Coûts'!$C$31:$C$38,
+  #       ,
+  #       -1
+  #   )
+  # )
   # RCU_inv B52
   par défaut:
     produit:
@@ -50,7 +54,8 @@ Investissement x frais de raccordement au réseaux x RCU:
         - si: type de bâtiment = 'résidentiel'
           alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logements dans l'immeuble concerné
         - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
-  unité: €HT
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
 
 Investissement x frais de raccordement au réseaux x RFU:
    # RFU_inv B53
@@ -60,7 +65,8 @@ Investissement x frais de raccordement au réseaux x RFU:
         - si: type de bâtiment = 'résidentiel'
           alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logements dans l'immeuble concerné
         - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
-  unité: €HT
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
 
 Investissement x Poêle à granulés indiv:
   par défaut: ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
