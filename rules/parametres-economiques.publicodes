@@ -86,7 +86,7 @@ Investissement x Groupe froid indiv:
     produit:
       - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
       - Installation x Groupe froid x Individuel . gamme de puissance existante
-      - 1 / ratios économiques . Investissement x TVA
+      - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
   note: PAC AIR/AIR
 
