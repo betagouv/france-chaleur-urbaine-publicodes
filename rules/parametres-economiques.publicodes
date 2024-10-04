@@ -142,12 +142,12 @@ Paramètres économiques:
               - nombre de logements dans l'immeuble concerné
               - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
-      # B112
-      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel individuel * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
+      # B114 =(XLOOKUP(1,('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112),'Ratios économiques - Coûts'!C:C,"Non trouvé"))*(1+'Paramètres économiques'!$D$122)
+      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel individuel * ( 1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA )
       unité: €/an
     Electricité x Abonnement Part Fixe coll:
-      # B113
-      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
+      # B115 =(XLOOKUP(1,('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$113),'Ratios économiques - Coûts'!C:C,"Non trouvé"))*(1+'Paramètres économiques'!D122)
+      par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif * ( 1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA )
       unité: €/an
     Electricité x Consommation Part variable en option de base:
       # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D126)+D125
@@ -157,17 +157,18 @@ Paramètres économiques:
           - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
       unité: €/kWh
     Electricité x Consommation Part variable en heure pleine:
-      # B114 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!D:D;"Non trouvé")
-      # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D124)+D123
-      # D114 =IF(C114="";B114*(1+D124)+D123;C114)
+      # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D125)+D124
       par défaut:
         somme:
           - ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HP * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
           - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
       unité: €/kWh
     Electricité x Consommation Part variable en heure creuse:
-      # =IF($D$109="Heure pleine/Heure creuse",XLOOKUP(1,('Ratios économiques - Coûts'!A:A="Heure pleine/Heure creuse")*('Ratios économiques - Coûts'!B:B=$D$110),'Ratios économiques - Coûts'!E:E,"Non trouvé"),"")
-      par défaut: ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HC * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
+      # B117 =IF($D$111="Heure pleine/Heure creuse";XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!E:E;"Non trouvé")*(1+D125)+D124;"")
+      par défaut:
+        somme:
+          - ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HC * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
+          - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
       unité: €/kWh
 
     Electricité x Taxe:

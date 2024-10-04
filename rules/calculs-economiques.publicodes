@@ -34,7 +34,6 @@ Calcul Eco . Coût d'achat du combustible:
 
     Electricité indiv x Part abonnement:
       # B11 ='Paramètres économiques'!$D$114
-      # QUESTION : bizarre, on a enlevé la CTA + la TVA tout court ici ?
       formule: Paramètres économiques . Electricité x Abonnement Part Fixe indiv
       unité: €TTC/an
     Electricité indiv x Part consommation Option Base:
