@@ -277,15 +277,16 @@ Paramètres économiques:
               - "'Conditionné en vrac'"
           note: 'Source: ELCIMAI 2024'
         Prix pour les granulés:
-          # =IF($C$6="Grand Public",XLOOKUP(D$128,'Ratios économiques - Coûts'!$B$308:$B$309,'Ratios économiques - Coûts'!$C$308:$C$309)*(1+'Ratios économiques - Coûts'!$C$310),XLOOKUP(D$128,'Ratios économiques - Coûts'!$B$308:$B$309,'Ratios économiques - Coûts'!$C$308:$C$309))
-          # Note: HT toujours, les taxes sont ajoutées dans les calculs
+          # =XLOOKUP(D$129,'Ratios économiques - Coûts'!$B$308:$B$309,'Ratios économiques - Coûts'!$C$308:$C$309)*(1+$D$132)
           par défaut:
-            variations:
-              - si: Type de conditionnement = 'Conditionné en sac'
-                alors: 313.2
-              - sinon: 300.9
+            produit:
+              - variations:
+                - si: Type de conditionnement = 'Conditionné en sac'
+                  alors: 313.2
+                - sinon: 300.9
+              - 1 + TVA
           note: 'Source: CEEB 2024'
-          unité: €HT/tonne
+          unité: €TTC/tonne
         TVA:
           par défaut: 10
           unité: '%'

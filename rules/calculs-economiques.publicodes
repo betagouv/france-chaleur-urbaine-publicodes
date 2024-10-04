@@ -106,8 +106,8 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
 
     Granulés x Part consommation:
-      # D15 =IF('Paramètres économiques'!$C$6="Grand Public";'Paramètres économiques'!$D$129/1000;('Paramètres économiques'!$D$129*(1+'Paramètres économiques'!$D$131))/1000)
-      valeur: (Paramètres économiques . Granulés . Prix pour les granulés / 1000) * (1 + Paramètres économiques . Granulés . TVA)
+      # D15 ='Paramètres économiques'!$D$130/1000
+      valeur: (Paramètres économiques . Granulés . Prix pour les granulés / 1000)
       unité: €TTC/kg
 
     Fioul x Part consommation:
