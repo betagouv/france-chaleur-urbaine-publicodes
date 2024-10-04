@@ -69,11 +69,18 @@ Investissement x frais de raccordement au réseaux x RFU:
   unité: €TTC
 
 Investissement x Poêle à granulés indiv:
-  par défaut: ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+  # ='Ratios économiques - Coûts'!$C$65*(1+$D$50)
+  par défaut:
+    produit:
+      - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+      - 1 + ratios économiques . Investissement x TVA
   unité: €HT
 Investissement x Chaudière à granulés coll:
-  par défaut: ratios économiques . Granulés x Chaudière à granulés collective
-  unité: €HT
+  par défaut:
+    produit:
+      - ratios économiques . Granulés x Chaudière à granulés collective
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
 Investissement x Groupe froid indiv:
   par défaut:
     produit:
