@@ -181,12 +181,6 @@ Paramètres économiques:
 
     Electricité x Taxe:
       avec:
-        Part Fixe x CTA:
-          # B120 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$109)*('Ratios économiques - Coûts'!B:B=$D$110);'Ratios économiques - Coûts'!J:J;"Non trouvé")
-          # QUESTION déjà posée: ceci ne prend pas en compte la TURPE car elle ne prend que J:J et la TURPE est dans la colonne K
-          # QUESTION déjà posée: cela ne change pas pour du collectif?
-          par défaut: ratios économiques . Coût des combustibles x Electricité . Contribution tarifaire d'acheminement CTA
-          unité: €/an
         Part Fixe x TVA:
           par défaut: 5.5%
           unité: '%'
