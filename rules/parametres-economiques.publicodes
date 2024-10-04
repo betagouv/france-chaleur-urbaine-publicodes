@@ -48,7 +48,7 @@ Investissement x frais de raccordement au réseaux x RCU:
     produit:
       - variations:
         - si: type de bâtiment = 'résidentiel'
-          alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logement dans l'immeuble concerné
+          alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logements dans l'immeuble concerné
         - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
   unité: €HT
 
@@ -58,7 +58,7 @@ Investissement x frais de raccordement au réseaux x RFU:
     produit:
       - variations:
         - si: type de bâtiment = 'résidentiel'
-          alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logement dans l'immeuble concerné
+          alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logements dans l'immeuble concerné
         - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
   unité: €HT
 
@@ -139,7 +139,7 @@ Paramètres économiques:
           par défaut:
             produit:
               - Calcul . Chauffage Puissance chauffage appelée
-              - nombre de logement dans l'immeuble concerné
+              - nombre de logements dans l'immeuble concerné
               - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
       # B112
@@ -149,7 +149,7 @@ Paramètres économiques:
       # B113
       par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
       unité: €/an
-    Electricité x Consommation Part variable en option de base:   
+    Electricité x Consommation Part variable en option de base:
       # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D126)+D125
       par défaut:
         somme:

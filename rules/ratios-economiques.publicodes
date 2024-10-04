@@ -22,21 +22,21 @@ ratios économiques:
     Réseaux x Coût raccordement RCU SST x Résidentiel:
       # FIXME: est-ce bien du <= ?
       variations:
-        - si: nombre de logement dans l'immeuble concerné <= 25
+        - si: nombre de logements dans l'immeuble concerné <= 25
           alors: 3709
-        - si: nombre de logement dans l'immeuble concerné <= 42
+        - si: nombre de logements dans l'immeuble concerné <= 42
           alors: 2364
-        - si: nombre de logement dans l'immeuble concerné <= 58
+        - si: nombre de logements dans l'immeuble concerné <= 58
           alors: 1847
-        - si: nombre de logement dans l'immeuble concerné <= 83
+        - si: nombre de logements dans l'immeuble concerné <= 83
           alors: 1393
-        - si: nombre de logement dans l'immeuble concerné <= 125
+        - si: nombre de logements dans l'immeuble concerné <= 125
           alors: 1027
-        - si: nombre de logement dans l'immeuble concerné <= 167
+        - si: nombre de logements dans l'immeuble concerné <= 167
           alors: 857
-        - si: nombre de logement dans l'immeuble concerné <= 250
+        - si: nombre de logements dans l'immeuble concerné <= 250
           alors: 701
-        - si: nombre de logement dans l'immeuble concerné <= 333
+        - si: nombre de logements dans l'immeuble concerné <= 333
           alors: 608
       unité: €HT/logement
       note: 'source: FEDENE 2024'
@@ -64,21 +64,21 @@ ratios économiques:
     Réseaux x Coût raccordement RFU x Résidentiel:
       # QUESTION déjà posée: est-ce bien du <= ?
       variations:
-        - si: nombre de logement dans l'immeuble concerné <= 25
+        - si: nombre de logements dans l'immeuble concerné <= 25
           alors: 4822
-        - si: nombre de logement dans l'immeuble concerné <= 42
+        - si: nombre de logements dans l'immeuble concerné <= 42
           alors: 3074
-        - si: nombre de logement dans l'immeuble concerné <= 58
+        - si: nombre de logements dans l'immeuble concerné <= 58
           alors: 2402
-        - si: nombre de logement dans l'immeuble concerné <= 83
+        - si: nombre de logements dans l'immeuble concerné <= 83
           alors: 1811
-        - si: nombre de logement dans l'immeuble concerné <= 125
+        - si: nombre de logements dans l'immeuble concerné <= 125
           alors: 1335
-        - si: nombre de logement dans l'immeuble concerné <= 167
+        - si: nombre de logements dans l'immeuble concerné <= 167
           alors: 1114
-        - si: nombre de logement dans l'immeuble concerné <= 250
+        - si: nombre de logements dans l'immeuble concerné <= 250
           alors: 911
-        - si: nombre de logement dans l'immeuble concerné <= 333
+        - si: nombre de logements dans l'immeuble concerné <= 333
           alors: 790
       unité: €HT/logement
       note: 'source: ELCIMAI'
@@ -738,7 +738,7 @@ ratios économiques:
                     alors: 78.82
             - si: Paramètres économiques . Electricité x Puissance souscrite indiv > 36
               alors: 0 # Au dela, le CTA est inclus dans la TURPE et donc dans l'abonnement. Plus besoin de le rajouter ici.
-                
+
           unité: €/an
           note: 'Source: ELCIMAI + TRV 2024'
     Coût des combustibles x Taxes:

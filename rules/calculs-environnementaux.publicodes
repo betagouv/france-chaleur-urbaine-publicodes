@@ -126,7 +126,7 @@ env . Installation x Chaudière à granulés coll x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A46,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B23/Durée_vie_GRA_Chaud/Nb_lgt
-      formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante / ratios . GRA CHAUD Durée de vie / nombre de logement dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante / ratios . GRA CHAUD Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -213,7 +213,7 @@ env . Installation x Gaz coll avec cond x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A49,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B26/Durée_vie_GAZ_coll_cond/Nb_lgt
-      formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante / ratios . GAZ COLL COND Durée de vie / nombre de logement dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante / ratios . GAZ COLL COND Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -242,7 +242,7 @@ env . Installation x Gaz coll sans cond x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A50,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B27/Durée_vie_GAZ_coll_scond/Nb_lgt
-      formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante / ratios . GAZ COLL SCOND Durée de vie / nombre de logement dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante / ratios . GAZ COLL SCOND Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -300,7 +300,7 @@ env . Installation x Fioul coll x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A52,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B29/Durée_vie_FIOUL_coll/Nb_lgt
-      formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante / ratios . FIOUL COLL Durée de vie / nombre de logement dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante / ratios . FIOUL COLL Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -362,7 +362,7 @@ env . Installation x PAC air-air x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # ='Ratios environnementaux'!C49*B33/Durée_vie_PAC_AA_Coll/Nb_lgt
-      formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie coll / nombre de logement dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * Installation x PAC air-air x Collectif . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie coll / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -424,7 +424,7 @@ env . Installation x PAC eau-eau x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # ='Ratios environnementaux'!C50*B34/Durée_vie_PAC_EE/Nb_lgt
-      formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau x Collectif . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie / nombre de logement dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau x Collectif . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -486,7 +486,7 @@ env . Installation x PAC air-eau x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # ='Ratios environnementaux'!C51*B35/Durée_vie_PAC_AE_Coll/Nb_lgt
-      formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante / ratios . PAC AIR EAU Durée de vie coll / nombre de logement dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS PAC air-eau collectif-tertiaire * Installation x PAC air-eau x Collectif . gamme de puissance existante / ratios . PAC AIR EAU Durée de vie coll / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
