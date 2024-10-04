@@ -120,146 +120,159 @@ ratios économiques:
       note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
 
     Gaz x indiv avec cond:
-      variations:
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 12
-          alors: 2660
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 20
-          alors: 2810
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 25
-          alors: 2920
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante = 30
-          alors: 3220
-        - sinon: 3620
-      unité: €HT
+      # B59 =XLOOKUP($D$27,'Ratios économiques - Coûts'!$B$81:$B$85,'Ratios économiques - Coûts'!$C$81:$C$85,,1)*(1+$D$50)
+      produit:
+        - variations:
+          - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 12
+            alors: 2660
+          - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 20
+            alors: 2810
+          - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 25
+            alors: 2920
+          - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 30
+            alors: 3220
+          - sinon: 3620
+        - 1 + ratios économiques . Investissement x TVA
+      unité: €TTC
       note: 'Source: Atlantic 2023'
 
     Gaz x indiv sans cond:
-      variations:
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 12
-          alors: 2660
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 20
-          alors: 2810
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 25
-          alors: 2920
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante = 30
-          alors: 3220
-        - sinon: 3620
-      unité: €HT
+      produit:
+        - variations:
+          - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 12
+            alors: 2660
+          - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 20
+            alors: 2810
+          - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 25
+            alors: 2920
+          - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 30
+            alors: 3220
+          - sinon: 3620
+        - 1 + ratios économiques . Investissement x TVA
+      unité: €TTC
       note: 'Source: ELCIMAI 2024'
 
     Gaz x coll avec cond:
-      variations:
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 35
-          alors: 4800
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 120
-          alors: 15000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 200
-          alors: 25000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 300
-          alors: 37500
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
-          alors: 40000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 500
-          alors: 45000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 600
-          alors: 52335
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 700
-          alors: 61058
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 800
-          alors: 69780
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 900
-          alors: 78503
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1000
-          alors: 87225
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1250
-          alors: 109031
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1500
-          alors: 130838
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1750
-          alors: 152644
-        - sinon: 174450
-      unité: €HT
+      produit:
+        - variations:
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 35
+            alors: 4800
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 120
+            alors: 15000
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 200
+            alors: 25000
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 300
+            alors: 37500
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
+            alors: 40000
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 500
+            alors: 45000
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 600
+            alors: 52335
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 700
+            alors: 61058
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 800
+            alors: 69780
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 900
+            alors: 78503
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1000
+            alors: 87225
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1250
+            alors: 109031
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1500
+            alors: 130838
+          - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1750
+            alors: 152644
+          - sinon: 174450
+        - 1 + ratios économiques . Investissement x TVA
+      unité: €TTC
       note: 'Source: ELCIMAI 2024 et Atlantic 2024'
 
     Gaz x coll sans cond:
-      variations:
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 35
-          alors: 4800
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 120
-          alors: 15000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 200
-          alors: 25000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 300
-          alors: 37500
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 400
-          alors: 40000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 500
-          alors: 45000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 600
-          alors: 52335
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 700
-          alors: 61058
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 800
-          alors: 69780
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 900
-          alors: 78503
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1000
-          alors: 87225
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1250
-          alors: 109031
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1500
-          alors: 130838
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1750
-          alors: 152644
-        - sinon: 174450
-      unité: €HT
+      produit:
+        - variations:
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 35
+            alors: 4800
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 120
+            alors: 15000
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 200
+            alors: 25000
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 300
+            alors: 37500
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 400
+            alors: 40000
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 500
+            alors: 45000
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 600
+            alors: 52335
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 700
+            alors: 61058
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 800
+            alors: 69780
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 900
+            alors: 78503
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1000
+            alors: 87225
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1250
+            alors: 109031
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1500
+            alors: 130838
+          - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1750
+            alors: 152644
+          - sinon: 174450
+        - 1 + ratios économiques . Investissement x TVA
+      unité: €TTC
       note: 'Source: ELCIMAI 2024'
 
     Fioul x indiv:
-      variations:
-        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 12
-          alors: 2926
-        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 20
-          alors: 3091
-        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 25
-          alors: 3212
-        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante = 30
-          alors: 3542
-        - sinon: 3982
-      unité: €HT
+      produit:
+        - variations:
+          - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 12
+            alors: 2926
+          - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 20
+            alors: 3091
+          - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 25
+            alors: 3212
+          - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 30
+            alors: 3542
+          - sinon: 3982
+        - 1 + ratios économiques . Investissement x TVA
+      unité: €TTC
 
     Fioul x collectif:
-      variations:
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 35
-          alors: 5280
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 120
-          alors: 16500
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 200
-          alors: 27500
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 300
-          alors: 41250
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 400
-          alors: 44000
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 500
-          alors: 49500
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 600
-          alors: 57569
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 700
-          alors: 67163
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 800
-          alors: 76758
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 900
-          alors: 86353
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1000
-          alors: 95948
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1250
-          alors: 119934
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1500
-          alors: 143921
-        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1750
-          alors: 167908
-        - sinon: 191895
-      unité: €HT
+      produit:
+        - variations:
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 35
+            alors: 5280
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 120
+            alors: 16500
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 200
+            alors: 27500
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 300
+            alors: 41250
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 400
+            alors: 44000
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 500
+            alors: 49500
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 600
+            alors: 57569
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 700
+            alors: 67163
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 800
+            alors: 76758
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 900
+            alors: 86353
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1000
+            alors: 95948
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1250
+            alors: 119934
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1500
+            alors: 143921
+          - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1750
+            alors: 167908
+          - sinon: 191895
+        - 1 + ratios économiques . Investissement x TVA
+      unité: €TTC
 
     PAC x air-air réversible:
       avec:
