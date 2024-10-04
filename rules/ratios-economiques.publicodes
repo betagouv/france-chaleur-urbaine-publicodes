@@ -285,15 +285,21 @@ ratios économiques:
           unité: €HT/kW
           note: 'Source: ELCIMAI 2024'
 
+    # pas un ratio
     PAC x air-air réversible x Individuel:
+      # param éco D68 ='Ratios économiques - Coûts'!C166*'Calculs techniques'!H57*(1+TVA_inv)
       produit:
         - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
         - Installation x PAC air-air x Individuel . gamme de puissance existante
+        - 1 + ratios économiques . Investissement x TVA
 
+    # pas un ratio
     PAC x air-air réversible x Collectif:
+      # param éco D69 ='Calculs techniques'!H58*'Ratios économiques - Coûts'!C171*(1+TVA_inv)
       produit:
         - ratios économiques . PAC x air-air réversible . Coût investissement Collectif
         - Installation x PAC air-air x Collectif . gamme de puissance existante
+        - 1 + ratios économiques . Investissement x TVA
 
     PAC x eau-eau non réversible:
       avec:
@@ -324,30 +330,33 @@ ratios économiques:
           note: 'ADEME Coûts EnR 2022 2020'
         Coûts hors captage sous-sol:
           # 'Paramètres économiques'!B74
-          # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250;'Ratios économiques - Coûts'!C172;'Ratios économiques - Coûts'!C174)*IF(affichage="Technicien";1;(1+TVA_inv))
+          # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C172,'Ratios économiques - Coûts'!C174)*(1+TVA_inv)
           produit:
             - Installation x PAC eau-eau x Collectif . gamme de puissance existante
             - variations:
               - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
                 alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW Coût investissement hors captage sous-sol coll
               - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
+            - 1 + ratios économiques . Investissement x TVA
         Coûts captage sous-sol champs sur sonde:
           # 'Paramètres économiques'!B75
-          # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250;'Ratios économiques - Coûts'!C173;'Ratios économiques - Coûts'!C175)*IF(affichage="Technicien";1;(1+TVA_inv))
+          # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C173,'Ratios économiques - Coûts'!C175)*(1+TVA_inv)
           produit:
             - Installation x PAC eau-eau x Collectif . gamme de puissance existante
             - variations:
               - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
                 alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW coût captage sous-sol coll
               - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW coût captage sous-sol coll
+            - 1 + ratios économiques . Investissement x TVA
 
     PAC x eau-eau non réversible x Individuel:
       produit:
         - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
         - Installation x PAC eau-eau x Individuel . gamme de puissance existante
+        - 1 + ratios économiques . Investissement x TVA
 
     PAC x eau-eau non réversible x Collectif:
-      # 'Paramètres économiques'!B73
+      # 'Paramètres économiques'!B73 =B74+B75
       somme:
         - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
         - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
@@ -367,11 +376,13 @@ ratios économiques:
       produit:
         - ratios économiques . PAC x air-eau réversible . Coût investissement Individuel
         - Installation x PAC air-eau x Individuel . gamme de puissance existante
+        - 1 + ratios économiques . Investissement x TVA
 
     PAC x air-eau réversible x Collectif:
       produit:
         - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
         - Installation x PAC air-eau x Collectif . gamme de puissance existante
+        - 1 + ratios économiques . Investissement x TVA
 
     Radiateur électrique:
       avec:
@@ -380,8 +391,20 @@ ratios économiques:
           unité: €HT
           note: 'Source: Atlantic 2023'
 
-    Radiateur électrique x Individuel:
-      par défaut: Installation x Radiateur électrique x Individuel . gamme de puissance existante / 2
+    # pas un ratio
+    Radiateur électrique x Individuel x investissement total:
+      # Param eco B78 =$D$79*'Ratios économiques - Coûts'!$C$189*(1+$D$50)
+      par défaut:
+        produit:
+          - Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires
+          - Radiateur électrique . Coût investissement Puissance 2kW
+          - 1 + ratios économiques . Investissement x TVA
+      unité: €TTC
+
+    # pas un ratio
+    Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires:
+      # Param eco B79 =QUOTIENT('Calculs techniques'!$H$64,'Ratios économiques - Coûts'!$B$189)
+      par défaut: Installation x Radiateur électrique x Individuel . gamme de puissance existante // 2
 
     Groupe froid:
       # Temporaire le temps que le fichier excel soit à jour
