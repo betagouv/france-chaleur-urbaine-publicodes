@@ -269,9 +269,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - Investissement x Poêle à granulés indiv
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
@@ -333,11 +332,8 @@ Calcul Eco:
         Investissement équipement Total:
           # C26
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-            # QUESTION déjà posée: la valeur dans le excel parait fausse car elle ne prend pas en compte si la chaudière est 25, 30, 40 ou 50kW pour lesquels on a des valeurs précises
-            # Je l'ai corrigé ici
             - Investissement x Chaudière à granulés coll
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -398,9 +394,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Gaz x indiv avec cond
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
@@ -463,9 +458,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Gaz x indiv sans cond
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
@@ -528,9 +522,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Gaz x coll avec cond
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -593,9 +586,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Gaz x coll sans cond
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -659,9 +651,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Fioul x indiv
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
@@ -723,9 +714,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Fioul x collectif
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -786,10 +776,10 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
+          # ='Paramètres économiques'!$D$68*(1+surcout_inv)
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . PAC x air-air réversible x Individuel
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
@@ -851,9 +841,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . PAC x eau-eau non réversible x Individuel
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
@@ -914,9 +903,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . PAC x air-eau réversible x Individuel
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
@@ -977,9 +965,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . PAC x air-air réversible x Collectif
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -1040,9 +1027,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . PAC x eau-eau non réversible x Collectif
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -1103,9 +1089,8 @@ Calcul Eco:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . PAC x air-eau réversible x Collectif
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -1167,10 +1152,8 @@ Calcul Eco:
         Investissement équipement Total:
           # C63
           produit:
-            # QUESTION déjà posée: a-t-on vraiment besoin du surcout d'installation surcout_inv ?
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
             - ratios économiques . Radiateur électrique x Individuel
-            - 1 + ratios économiques . Investissement x TVA
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
