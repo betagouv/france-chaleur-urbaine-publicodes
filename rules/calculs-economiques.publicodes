@@ -55,15 +55,13 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
     Electricité indiv x Part consommation:
       # Ceci n'existe pas dans le fichier de base mais permet de ne pas répéter la variation trop de fois
-      - variations:
+      variations:
         - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
           alors: Electricité indiv x Part consommation Option Base
         - sinon:
             somme:
               - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP
               - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC
-
-
 
     Electricité coll x Part abonnement:
       # B12 =('Paramètres économiques'!D113+'Paramètres économiques'!D120)*(1+'Paramètres économiques'!D124)
@@ -86,13 +84,13 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
     Electricité coll x Part consommation:
       # Ceci n'existe pas dans le fichier de base mais permet de ne pas répéter la variation trop de fois
-      - variations:
+      variations:
         - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
           alors: Electricité coll x Part consommation Option Base
         - sinon:
-          somme:
-            - Electricité coll x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP
-            - Electricité coll x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC
+            somme:
+              - Electricité coll x Part consommation HP * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP
+              - Electricité coll x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC
 
     Gaz indiv x Part abonnement:
       # B13 ='Paramètres économiques'!$D$91
