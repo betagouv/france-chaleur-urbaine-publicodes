@@ -33,10 +33,9 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
 
     Electricité indiv x Part abonnement:
-      # B11 =('Paramètres économiques'!$D$112+'Paramètres économiques'!$D$120)*(1+'Paramètres économiques'!$D$121)
-      produit:
-        - Paramètres économiques . Electricité x Abonnement Part Fixe indiv + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
-        - (1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA)
+      # B11 ='Paramètres économiques'!$D$114
+      # QUESTION : bizarre, on a enlevé la CTA + la TVA tout court ici ?
+      formule: Paramètres économiques . Electricité x Abonnement Part Fixe indiv
       unité: €TTC/an
     Electricité indiv x Part consommation Option Base:
       applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
@@ -64,10 +63,8 @@ Calcul Eco . Coût d'achat du combustible:
               - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC
 
     Electricité coll x Part abonnement:
-      # B12 =('Paramètres économiques'!D113+'Paramètres économiques'!D120)*(1+'Paramètres économiques'!D124)
-      produit:
-        - Paramètres économiques . Electricité x Abonnement Part Fixe coll + Paramètres économiques . Electricité x Taxe . Part Fixe x CTA
-        - (1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA)
+      # B12 ='Paramètres économiques'!D115
+      formule: Paramètres économiques . Electricité x Abonnement Part Fixe coll
       unité: €TTC/an
 
     Electricité coll x Part consommation Option Base:
