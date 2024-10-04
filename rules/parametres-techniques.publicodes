@@ -131,7 +131,7 @@ Part de la surface à climatiser:
       - sinon: ratios . GNRL Part surface à climatiser tertiaire
   unité: '%'
 Température émetteurs:
-  par défaut: "'35'"
+  par défaut: "'55'"
   une possibilité:
     choix obligatoire: oui
     possibilités:
