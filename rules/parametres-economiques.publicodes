@@ -74,7 +74,7 @@ Investissement x Poêle à granulés indiv:
     produit:
       - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
       - 1 + ratios économiques . Investissement x TVA
-  unité: €HT
+  unité: €TTC
 Investissement x Chaudière à granulés coll:
   par défaut:
     produit:
