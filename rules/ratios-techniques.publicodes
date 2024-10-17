@@ -1869,13 +1869,13 @@ ratios:
     PAC GNRL SCOP mini:
       valeur: 1.8
     PAC AIR AIR SCOP indiv:
-      valeur: 4.2
+      valeur: 2.65
     PAC AIR AIR SCOP coll:
-      valeur: 3.65
+      valeur: 3.15
     PAC AIR AIR SEER indiv:
-      valeur: 6.1
+      valeur: 3.5
     PAC AIR AIR SEER coll:
-      valeur: 6.55
+      valeur: 4
     PAC AIR AIR Puissance unitaire réversible indiv:
       valeur: 5
       unité: kW
@@ -1895,11 +1895,11 @@ ratios:
       unité: an
     PAC EAU EAU SCOP indiv capteurs horizontaux:
       somme:
-        - 5.33
+        - 4.6
         - Température émetteurs delta
     PAC EAU EAU SCOP coll champ de sondes:
       somme:
-        - 4.86
+        - 3.9
         - Température émetteurs delta
     PAC EAU EAU Puissance unitaire indiv:
       valeur: 8
@@ -1915,16 +1915,16 @@ ratios:
       unité: an
     PAC AIR EAU SCOP indiv:
       somme:
-        - 3.36
+        - 3
         - Température émetteurs delta
     PAC AIR EAU SCOP coll:
       somme:
-        - 5
+        - 3.4
         - Température émetteurs delta
     PAC AIR EAU SEER indiv:
-      valeur: 3.9
+      valeur: 3.5
     PAC AIR EAU SEER coll:
-      valeur: 5.29
+      valeur: 4.8
     PAC AIR EAU Puissance unitaire réversible indiv:
       valeur: 6.4
     PAC AIR EAU Puissance unitaire réversible coll:
