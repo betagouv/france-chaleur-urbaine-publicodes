@@ -45,7 +45,6 @@ Calcul . Climatisation Puissance refroidissement appelée:
   formule: besoins en climatisation par appartement / Calcul . Climatisation Nb heure fonctionnement pleine puissance * (1 + ratios . PUIS Facteur de surpuissance)
   unité: kW
 
-
 ###### Puissance totale des installations
 
 Installation x Réseaux de chaleur x Collectif:
@@ -147,6 +146,7 @@ Installation x Réseaux de chaleur x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
       unité: kWh/an
+
 
 Installation x Réseaux de froid x Collectif:
   avec:
@@ -1760,3 +1760,30 @@ chauffe-eau solaire x appoint d'électricité:
 durée avant renouvellement solaire:
   formule: ratios . CHAUF EAU SOLAIRE Durée de vie
   unité: an
+
+puissance équipement par appartement Groupe froid x résidentiel:
+  # I47 =IF(Type_bat="Résidentiel";(QUOTIENT(P_clim/SEER_PAC_AA_indiv;'Ratios techniques'!$C$340)+1)*'Ratios techniques'!$C$340;0)*IF('Paramètres techniques'!$C$31="Non";0;1)
+  variations:
+    - si:
+        toutes ces conditions:
+          - Inclure la climatisation = 'oui'
+          - type de bâtiment = 'résidentiel'
+      alors:
+        produit:
+          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
+          - ratios . PAC AIR AIR SEER indiv
+    - sinon: 0
+  unité: kW
+puissance groupe d'eau glacée x tertiaire:
+  # I48 =IF(Type_bat="Résidentiel";0;(QUOTIENT(P_clim/SEER_PAC_AE_coll;'Ratios techniques'!$C$362)+1)*'Ratios techniques'!$C$362)*IF('Paramètres techniques'!$C$31="Non";0;1)
+  variations:
+    - si:
+        toutes ces conditions:
+          - Inclure la climatisation = 'oui'
+          - type de bâtiment = 'tertiaire'
+      alors:
+        produit:
+          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER coll) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
+          - ratios . PAC AIR AIR SEER coll
+    - sinon: 0
+  unité: kW
