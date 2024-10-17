@@ -1277,80 +1277,115 @@ Calcul Eco . P2 P3 Coût de l'entretien:
     Poêle à granulés indiv:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv * besoins chauffage par appartement / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv
+            - besoins chauffage par appartement / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Poêle à granulés indiv . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv
+            - Calcul Eco . Poêle à granulés indiv . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     Chaudière à granulés coll:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll * (1 + Paramètres économiques . Petit entretien P2 . TVA) * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) * nombre de logements dans l'immeuble concerné / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Chaudière à granulés coll . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll
+            - Calcul Eco . Chaudière à granulés coll . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     Gaz indiv avec cond:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Gaz indiv avec cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Gaz indiv avec cond . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Gaz indiv avec cond
+            - Calcul Eco . Gaz indiv avec cond . Investissement équipement Total
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Gaz indiv avec cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz indiv avec cond . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Gaz indiv avec cond
+            - Calcul Eco . Gaz indiv avec cond . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     Gaz indiv sans cond:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Gaz indiv sans cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Gaz indiv sans cond . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Gaz indiv sans cond
+            - Calcul Eco . Gaz indiv sans cond . Investissement équipement Total
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Gaz indiv sans cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz indiv sans cond . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Gaz indiv sans cond
+            - Calcul Eco . Gaz indiv sans cond . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     Gaz coll avec cond:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Gaz coll avec cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) * nombre de logements dans l'immeuble concerné / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Gaz coll avec cond
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Gaz coll avec cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz coll avec cond . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Gaz coll avec cond
+            - Calcul Eco . Gaz coll avec cond . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     Gaz coll sans cond:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Gaz coll sans cond * (1 + Paramètres économiques . Petit entretien P2 . TVA) * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) * nombre de logements dans l'immeuble concerné / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Gaz coll sans cond
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Gaz coll sans cond * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Gaz coll sans cond . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Gaz coll sans cond
+            - Calcul Eco . Gaz coll sans cond . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     Fioul indiv:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Fioul indiv * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Fioul indiv . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Fioul indiv
+            - Calcul Eco . Fioul indiv . Investissement équipement Total
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Fioul indiv * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Fioul indiv . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Fioul indiv
+            - Calcul Eco . Fioul indiv . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     Fioul coll:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Fioul coll * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Fioul coll . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Fioul coll
+            - Calcul Eco . Fioul coll . Investissement équipement Total
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Fioul coll * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Fioul coll . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Fioul coll
+            - Calcul Eco . Fioul coll . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -1358,30 +1393,45 @@ Calcul Eco . P2 P3 Coût de l'entretien:
       avec:
         petit entretien P2:
           # ='Paramètres économiques'!D166*(SUM('Calculs techniques'!$B$20:$B$22)/1000)
-          formule: Paramètres économiques . Petit entretien P2 . PAC air-air * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC air-air
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . PAC air-air * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-air indiv . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC air-air
+            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+            - Calcul Eco . PAC air-air indiv . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     PAC eau-eau indiv:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . PAC eau-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC eau-eau
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . PAC eau-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC eau-eau indiv . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC eau-eau
+            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+            - Calcul Eco . PAC eau-eau indiv . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     PAC air-eau indiv:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . PAC air-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC air-eau
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . PAC air-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-eau indiv . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC air-eau
+            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+            - Calcul Eco . PAC air-eau indiv . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1389,40 +1439,62 @@ Calcul Eco . P2 P3 Coût de l'entretien:
       avec:
         petit entretien P2:
           # ='Paramètres économiques'!D166*(SUM('Calculs techniques'!$B$20:$B$22)*'Calculs techniques'!$B$17/1000)
-          formule: Paramètres économiques . Petit entretien P2 . PAC air-air * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) * nombre de logements dans l'immeuble concerné / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC air-air
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . PAC air-air * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-air coll . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC air-air
+            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+            - Calcul Eco . PAC air-air coll . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     PAC eau-eau coll:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . PAC eau-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) * nombre de logements dans l'immeuble concerné / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC eau-eau
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . PAC eau-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC eau-eau coll . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC eau-eau
+            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+            - Calcul Eco . PAC eau-eau coll . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     PAC air-eau coll:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . PAC air-eau * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) * nombre de logements dans l'immeuble concerné / 1000
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC air-eau
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . PAC air-eau * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . PAC air-eau coll . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC air-eau
+            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+            - Calcul Eco . PAC air-eau coll . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     Radiateur électrique:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . Radiateur électrique * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Radiateur électrique . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Radiateur électrique
+            - Calcul Eco . Radiateur électrique . Investissement équipement Total
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Radiateur électrique * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Radiateur électrique . Investissement équipement Total
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Radiateur électrique
+            - Calcul Eco . Radiateur électrique . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1430,10 +1502,14 @@ Calcul Eco . P2 P3 Coût de l'entretien:
       avec:
         petit entretien P2:
           # ='Paramètres économiques'!D171*(1+TVA_P2)*$E$24
-          formule: Paramètres économiques . Petit entretien P2 . Chauffe-eau électrique à accumulation * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Investissement ballon ECS à accumulation
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Chauffe-eau électrique à accumulation
+            - Calcul Eco . Investissement ballon ECS à accumulation
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Chauffe-eau électrique à accumulation * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Investissement ballon ECS à accumulation
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Chauffe-eau électrique à accumulation
+            - Calcul Eco . Investissement ballon ECS à accumulation
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1441,10 +1517,14 @@ Calcul Eco . P2 P3 Coût de l'entretien:
       avec:
         petit entretien P2:
           # =IFERROR('Paramètres économiques'!D172*(1+TVA_P2)*$F$24,)
-          formule: Paramètres économiques . Petit entretien P2 . Chauffe-eau solaire * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Investissement ballon ECS panneau inclus
+          produit:
+            - Paramètres économiques . Petit entretien P2 . Chauffe-eau solaire
+            - Calcul Eco . Investissement ballon ECS panneau inclus
           unité: €TTC/an
         gros entretien P3:
-          formule: Paramètres économiques . Gros entretien P3 . Chauffe-eau solaire * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Investissement ballon ECS panneau inclus
+          produit:
+            - Paramètres économiques . Gros entretien P3 . Chauffe-eau solaire
+            - Calcul Eco . Investissement ballon ECS panneau inclus
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
