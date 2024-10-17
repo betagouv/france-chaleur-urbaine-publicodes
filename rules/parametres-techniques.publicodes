@@ -105,7 +105,6 @@ Production eau chaude sanitaire:
       - non
 
 Inclure la climatisation:
-  # Temporaire le temps que le fichier excel soit à jour
   par défaut: oui
   une possibilité:
     choix obligatoire: oui
@@ -247,8 +246,16 @@ besoins eau chaude sanitaire par appartement:
 consommation spécifique climatisation: consommation spécifique climatisation # maj depuis les ratios techniques
   # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=$C$35&XLOOKUP(commune,Communes!C:C,Communes!I:I,,0)),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=Type_bat&XLOOKUP(commune,Communes!C:C,Communes!I:I,,0)),'Ratios techniques'!C:C,"Non trouvé"))
 besoins en climatisation par appartement:
-  # =Conso_spé_raf*Surface*Surf_clim
-  par défaut: consommation spécifique climatisation * surface logement type tertiaire * Part de la surface à climatiser
+  # B43 =IF($C$31="Oui";Conso_spé_raf*Surface*Surf_clim;0)
+  par défaut:
+    variations:
+      - si: Inclure la climatisation = 'oui'
+        alors:
+          produit:
+            - consommation spécifique climatisation
+            - surface logement type tertiaire
+            - Part de la surface à climatiser
+      - sinon: 0
   unité: kWh
 
 # usage interne utilisé pour récupérer les valeurs par défaut des paramètres :
