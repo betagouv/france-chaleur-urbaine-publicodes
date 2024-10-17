@@ -375,10 +375,10 @@ Paramètres économiques:
           par défaut: 20%
           unité: '%'
         RCU:
-          par défaut: 1.26 / 100
-          unité: €HT/€d'investissment # %
+          par défaut: 3.5 / 100
+          unité: €HT/€d'investissment
         RFU:
-          par défaut: 0.00 / 100
+          par défaut: 3.5 / 100
           unité: €HT/€d'investissment # %
         Poêle à granulés indiv:
           # B161 ='Ratios économiques - Coûts'!C325*(1+TVA_P2)
@@ -436,10 +436,10 @@ Paramètres économiques:
           par défaut: 20%
           unité: '%'
         RCU:
-          par défaut: 0.83 / 100
+          par défaut: 1.75 / 100
           unité: €HT/€d'investissment # %
         RFU:
-          par défaut: 0.00 / 100
+          par défaut: 1.75 / 100
           unité: €HT/€d'investissment # %
         # non présent dans excel
         Poêle à granulés indiv:
