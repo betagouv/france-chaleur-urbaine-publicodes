@@ -1239,8 +1239,12 @@ Calcul Eco . P2 P3 Coût de l'entretien:
     Réseaux de chaleur:
       avec:
         petit entretien P2:
-          # C67 ='Paramètres économiques'!D156*(1+TVA_P2)*C23
-          formule: Paramètres économiques . Petit entretien P2 . RCU * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Réseaux de chaleur . Investissement équipement Total
+          # C67 ='Paramètres économiques'!D159*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
+          produit:
+            - Paramètres économiques . Petit entretien P2 . RCU
+            - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+            - Calcul Eco . Réseaux de chaleur . Investissement équipement Total
+            - ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel
           unité: €TTC/an
         gros entretien P3:
           formule: Paramètres économiques . Gros entretien P3 . RCU * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Réseaux de chaleur . Investissement équipement Total
@@ -1250,7 +1254,12 @@ Calcul Eco . P2 P3 Coût de l'entretien:
     Réseaux de froid:
       avec:
         petit entretien P2:
-          formule: Paramètres économiques . Petit entretien P2 . RFU * (1 + Paramètres économiques . Petit entretien P2 . TVA) * Calcul Eco . Réseaux de froid . Investissement équipement Total
+          # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
+          produit:
+            - Paramètres économiques . Petit entretien P2 . RFU
+            - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+            - Calcul Eco . Réseaux de froid . Investissement équipement Total
+            - ratios économiques . Réseaux x Coût raccordement RFU SST x Résidentiel
           unité: €TTC/an
         gros entretien P3:
           formule: Paramètres économiques . Gros entretien P3 . RFU * (1 + Paramètres économiques . Gros entretien P3 . TVA) * Calcul Eco . Réseaux de froid . Investissement équipement Total
