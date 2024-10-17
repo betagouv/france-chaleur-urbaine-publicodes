@@ -381,7 +381,8 @@ Paramètres économiques:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
         Poêle à granulés indiv:
-          par défaut: 41.0
+          # B161 ='Ratios économiques - Coûts'!C325*(1+TVA_P2)
+          par défaut: 35 * (1 + TVA)
           unité: €TTC/MWh
         Chaudière à granulés coll:
           par défaut: 22.000
