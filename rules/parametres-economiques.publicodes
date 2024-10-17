@@ -467,14 +467,17 @@ Paramètres économiques:
           par défaut: 1.10 / 100
           unité: €HT/€d'investissment # %
         PAC air-air:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
+          # B190 ='Ratios économiques - Coûts'!C353*(1+TVA_P3)
+          par défaut: 10 * (1 + TVA)
+          unité: €TTC/MWh
         PAC eau-eau:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
+          # B191 ='Ratios économiques - Coûts'!C354*(1+TVA_P3)
+          par défaut: 3 * (1 + TVA)
+          unité: €TTC/MWh
         PAC air-eau:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
+          # B192 ='Ratios économiques - Coûts'!C355*(1+TVA_P3)
+          par défaut: 2 * (1 + TVA)
+          unité: €TTC/MWh
         Radiateur électrique:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
