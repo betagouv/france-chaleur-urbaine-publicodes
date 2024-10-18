@@ -1774,6 +1774,7 @@ puissance équipement par appartement Groupe froid x résidentiel:
           - ratios . PAC AIR AIR SEER indiv
     - sinon: 0
   unité: kW
+
 puissance groupe d'eau glacée x tertiaire:
   # I48 =IF(Type_bat="Résidentiel";0;(QUOTIENT(P_clim/SEER_PAC_AE_coll;'Ratios techniques'!$C$362)+1)*'Ratios techniques'!$C$362)*IF('Paramètres techniques'!$C$31="Non";0;1)
   variations:
@@ -1787,3 +1788,20 @@ puissance groupe d'eau glacée x tertiaire:
           - ratios . PAC AIR AIR SEER coll
     - sinon: 0
   unité: kW
+
+consommation par appartement Groupe froid x résidentiel:
+  # J90 =IF(Type_bat="Résidentiel";(Besoin_raf)/SEER_PAC_AA_indiv;0)
+  variations:
+    - si: type de bâtiment = 'résidentiel'
+      alors: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+    - sinon: 0
+  unité: kW/an
+
+consommation Groupe froid x tertiaire:
+  # K90 =IF(Type_bat="Résidentiel";0;(Besoin_raf)/SEER_PAC_AE_coll)
+  variations:
+    - si: type de bâtiment = 'résidentiel'
+      alors: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
+    - sinon: 0
+  unité: kWh/an
+
