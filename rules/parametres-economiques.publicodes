@@ -75,20 +75,31 @@ Investissement x Poêle à granulés indiv:
       - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
+
 Investissement x Chaudière à granulés coll:
   par défaut:
     produit:
       - ratios économiques . Granulés x Chaudière à granulés collective
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
-Investissement x Groupe froid indiv:
+
+Investissement x Groupe froid x résidentiel:
+  # B82 ='Ratios économiques - Coûts'!C166*'Calculs techniques'!$I$47*(1+TVA_inv)
   par défaut:
     produit:
       - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
-      - Installation x Groupe froid x Individuel . gamme de puissance existante
+      - puissance équipement par appartement Groupe froid x résidentiel
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
-  note: PAC AIR/AIR
+
+Investissement x Groupe eau glacée x tertiaire:
+  # B84 ='Ratios économiques - Coûts'!C180*'Calculs techniques'!$J$47*(1+TVA_inv)
+  par défaut:
+    produit:
+      - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
+      - puissance groupe d'eau glacée x tertiaire
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
 
 ###### Combustibles P1
 
