@@ -114,8 +114,12 @@ Paramètres économiques:
           - "'Heure pleine/Heure creuse'"
       par défaut: "'Option base'"
     Electricité x Puissance souscrite indiv:
-      # B110
-      par défaut:	6
+      # B111 =SI('Paramètres techniques'!$C$31="Oui";9;6)
+      par défaut:
+        variations:
+          - si: Inclure la climatisation = 'oui'
+            alors: 9
+          - sinon: 6
       unité: kVA
       note: 'Source: ELCIMAI 2024'
     Electricité x Puissance souscrite coll:
