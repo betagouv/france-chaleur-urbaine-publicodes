@@ -1330,14 +1330,12 @@ Calcul Eco . P2 P3 Coût de l'entretien:
           produit:
             - Paramètres économiques . Petit entretien P2 . RCU
             - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-            - Calcul Eco . Réseaux de chaleur . Investissement équipement Total
             - ratios économiques . Réseaux x Coût Investissement SST RCU
           unité: €TTC/an
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . RCU
             - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . Réseaux de chaleur . Investissement équipement Total
             - ratios économiques . Réseaux x Coût Investissement SST RCU
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
@@ -1352,7 +1350,6 @@ Calcul Eco . P2 P3 Coût de l'entretien:
                 produit:
                   - Paramètres économiques . Petit entretien P2 . RFU
                   - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-                  - Calcul Eco . Réseaux de froid . Investissement équipement Total
                   - ratios économiques . Réseaux x Coût Investissement SST RFU
                 unité: €TTC/an
             - sinon: 0
@@ -1364,7 +1361,6 @@ Calcul Eco . P2 P3 Coût de l'entretien:
                 produit:
                   - Paramètres économiques . Gros entretien P3 . RFU
                   - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-                  - Calcul Eco . Réseaux de froid . Investissement équipement Total
                   - ratios économiques . Réseaux x Coût Investissement SST RFU
             - sinon: 0
           unité: €TTC/an
