@@ -1554,10 +1554,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
           # QUESTION déjà posée: 'Calculs techniques'!$B$13="Résidentiel Collectif" => ne vaut jamais cette valeur car contient toujours ECS
           produit:
             - variations:
-              - si:
-                  toutes ces conditions:
-                    - type de bâtiment = 'résidentiel'
-                    - ratios . GNRL Type de résidentiel = 'Collectif'
+              - si: type de bâtiment = 'résidentiel'
                 alors:
                   variations:
                     - si: nombre de logements dans l'immeuble concerné <= 125
