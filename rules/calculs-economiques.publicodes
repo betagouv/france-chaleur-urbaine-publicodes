@@ -198,6 +198,13 @@ Calcul Eco:
             - Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          # H45 =IF('Paramètres économiques'!$D$110="Option base";$D$12*('Calculs techniques'!J90+'Calculs techniques'!K90);$D$12*'Paramètres économiques'!$D$117*('Calculs techniques'!J90+'Calculs techniques'!K90)+$F$12*'Paramètres économiques'!$D$118*('Calculs techniques'!J90+'Calculs techniques'!K90))
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Réseaux de chaleur x Collectif . consommation Groupe Froid
+          unité: €TTC/an
+
     Réseaux de froid:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -260,6 +267,11 @@ Calcul Eco:
             - Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Réseaux de froid x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     Poêle à granulés indiv:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -322,6 +334,11 @@ Calcul Eco:
             - Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Poêle à granulés indiv x Individuel . consommation Groupe Froid
+          unité: €TTC/an
     Chaudière à granulés coll:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -385,6 +402,11 @@ Calcul Eco:
             - Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Chaudière à granulés coll x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     Gaz indiv avec cond:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -449,6 +471,11 @@ Calcul Eco:
             - Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Gaz indiv avec cond x Individuel . consommation Groupe Froid
+          unité: €TTC/an
     Gaz indiv sans cond:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -513,6 +540,11 @@ Calcul Eco:
             - Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Gaz indiv sans cond x Individuel . consommation Groupe Froid
+          unité: €TTC/an
     Gaz coll avec cond:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -577,6 +609,11 @@ Calcul Eco:
             - Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Gaz coll avec cond x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     Gaz coll sans cond:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -642,6 +679,11 @@ Calcul Eco:
             - Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Gaz coll sans cond x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     Fioul indiv:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -705,6 +747,11 @@ Calcul Eco:
             - Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Fioul indiv x Individuel . consommation Groupe Froid
+          unité: €TTC/an
     Fioul coll:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -768,6 +815,11 @@ Calcul Eco:
             - Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Fioul coll x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     PAC air-air indiv:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -832,6 +884,11 @@ Calcul Eco:
             - Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-air x Individuel . consommation Groupe Froid
+          unité: €TTC/an
     PAC eau-eau indiv:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -894,6 +951,11 @@ Calcul Eco:
             - Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC eau-eau x Individuel . consommation Groupe Froid
+          unité: €TTC/an
     PAC air-eau indiv:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -956,6 +1018,11 @@ Calcul Eco:
             - Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-eau x Individuel . consommation Groupe Froid
+          unité: €TTC/an
     PAC air-air coll:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -1018,6 +1085,11 @@ Calcul Eco:
             - Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-air x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     PAC eau-eau coll:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -1080,6 +1152,11 @@ Calcul Eco:
             - Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC eau-eau x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     PAC air-eau coll:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -1142,6 +1219,11 @@ Calcul Eco:
             - Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x PAC air-eau x Collectif . consommation Groupe Froid
+          unité: €TTC/an
     Radiateur électrique:
       avec:
         # P4 - Investissement total (sans aide) €TTC
@@ -1205,6 +1287,11 @@ Calcul Eco:
             - Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - Installation x Radiateur électrique x Individuel . consommation Groupe Froid
+          unité: €TTC/an
 
     Groupe froid:
       avec:
@@ -1259,18 +1346,27 @@ Calcul Eco . P2 P3 Coût de l'entretien:
       avec:
         petit entretien P2:
           # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
-          produit:
-            - Paramètres économiques . Petit entretien P2 . RFU
-            - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-            - Calcul Eco . Réseaux de froid . Investissement équipement Total
-            - ratios économiques . Réseaux x Coût Investissement SST RFU
+          variations:
+            - si: Inclure la climatisation = 'oui'
+              alors:
+                produit:
+                  - Paramètres économiques . Petit entretien P2 . RFU
+                  - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+                  - Calcul Eco . Réseaux de froid . Investissement équipement Total
+                  - ratios économiques . Réseaux x Coût Investissement SST RFU
+                unité: €TTC/an
+            - sinon: 0
           unité: €TTC/an
         gros entretien P3:
-          produit:
-            - Paramètres économiques . Gros entretien P3 . RFU
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . Réseaux de froid . Investissement équipement Total
-            - ratios économiques . Réseaux x Coût Investissement SST RFU
+          variations:
+            - si: Inclure la climatisation = 'oui'
+              alors:
+                produit:
+                  - Paramètres économiques . Gros entretien P3 . RFU
+                  - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+                  - Calcul Eco . Réseaux de froid . Investissement équipement Total
+                  - ratios économiques . Réseaux x Coût Investissement SST RFU
+            - sinon: 0
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -1528,6 +1624,42 @@ Calcul Eco . P2 P3 Coût de l'entretien:
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
+
+    Groupe froid résidentiel:
+      avec:
+        petit entretien P2:
+          # C86 =IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$169*'Calculs techniques'!$B$22/1000*Nb_lgt;0)
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC air-air
+            - besoins en climatisation par appartement
+            - nombre de logements dans l'immeuble concerné
+            - 1 / 1000
+        gros entretien P3:
+          # D86 =IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$190*'Calculs techniques'!$B$22/1000*Nb_lgt;0)
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC air-air
+            - besoins en climatisation par appartement
+            - nombre de logements dans l'immeuble concerné
+            - 1 / 1000
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+
+    Groupe eau glacée tertiaire:
+      avec:
+        petit entretien P2:
+          # C87 =IF(Type_bat="Tertiaire";'Paramètres économiques'!D171*'Calculs techniques'!$B$22/1000;0)
+          produit:
+            - Paramètres économiques . Petit entretien P2 . PAC air-eau
+            - nombre de logements dans l'immeuble concerné
+            - 1 / 1000
+        gros entretien P3:
+          # D87 =IF(Type_bat="Tertiaire";'Paramètres économiques'!D192*'Calculs techniques'!$B$22/1000;0)
+          produit:
+            - Paramètres économiques . Gros entretien P3 . PAC air-eau
+            - nombre de logements dans l'immeuble concerné
+            - 1 / 1000
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
 
 Calcul Eco . Montant des aides par logement tertiaire:
   avec:

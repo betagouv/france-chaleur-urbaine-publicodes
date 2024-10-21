@@ -146,7 +146,7 @@ Installation x Réseaux de chaleur x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
         - sinon: consommation auxiliaire
       unité: kWh/an
-
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Réseaux de froid x Collectif:
   avec:
@@ -219,6 +219,7 @@ Installation x Réseaux de froid x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
+    consommation Groupe Froid: 0
 
 Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -288,7 +289,7 @@ Installation x Poêle à granulés indiv x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: 0
       unité: kWh/an
-
+    consommation Groupe Froid: calcul consommation Groupe Froid
 Installation x Chaudière à granulés coll x Collectif:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
@@ -459,7 +460,7 @@ Installation x Chaudière à granulés coll x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
-
+    consommation Groupe Froid: calcul consommation Groupe Froid
 Installation x Gaz indiv avec cond x Individuel:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
@@ -558,6 +559,7 @@ Installation x Gaz indiv avec cond x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Gaz indiv sans cond x Individuel:
   avec:
@@ -658,6 +660,7 @@ Installation x Gaz indiv sans cond x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Gaz coll avec cond x Collectif:
   avec:
@@ -778,6 +781,7 @@ Installation x Gaz coll avec cond x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Gaz coll sans cond x Collectif:
   avec:
@@ -898,6 +902,7 @@ Installation x Gaz coll sans cond x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Fioul indiv x Individuel:
   avec:
@@ -998,6 +1003,7 @@ Installation x Fioul indiv x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Fioul coll x Collectif:
   avec:
@@ -1117,6 +1123,7 @@ Installation x Fioul coll x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x PAC air-air x Individuel:
   avec:
@@ -1190,7 +1197,7 @@ Installation x PAC air-air x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
-
+    consommation Groupe Froid: 0
 Installation x PAC eau-eau x Individuel:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
@@ -1274,6 +1281,7 @@ Installation x PAC eau-eau x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x PAC air-eau x Individuel:
   avec:
@@ -1362,6 +1370,7 @@ Installation x PAC air-eau x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
+    consommation Groupe Froid: 0
 
 Installation x PAC air-air x Collectif:
   avec:
@@ -1434,6 +1443,7 @@ Installation x PAC air-air x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
+    consommation Groupe Froid: 0
 
 Installation x PAC eau-eau x Collectif:
   avec:
@@ -1526,6 +1536,7 @@ Installation x PAC eau-eau x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x PAC air-eau x Collectif:
   avec:
@@ -1622,6 +1633,7 @@ Installation x PAC air-eau x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
+    consommation Groupe Froid: 0
 
 Installation x Radiateur électrique x Individuel:
   avec:
@@ -1690,6 +1702,7 @@ Installation x Radiateur électrique x Individuel:
           alors: consommation combustible chaleur + consommation d'électricité chauffe-eau électrique
         - sinon: consommation combustible chaleur
       unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Groupe froid x Individuel:
   avec:
@@ -1714,7 +1727,6 @@ Installation x Groupe froid x Individuel:
           - 1
         - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
       unité: kW
-
 ###### Production différenciée d'ECS par lgt / tertiaire
 
 # valeurs communes parmi tous les types d'installation
@@ -1789,19 +1801,10 @@ puissance groupe d'eau glacée x tertiaire:
     - sinon: 0
   unité: kW
 
-consommation par appartement Groupe froid x résidentiel:
-  # J90 =IF(Type_bat="Résidentiel";(Besoin_raf)/SEER_PAC_AA_indiv;0)
+calcul consommation Groupe Froid:
   variations:
     - si: type de bâtiment = 'résidentiel'
-      alors: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
-    - sinon: 0
-  unité: kW/an
+      alors:  besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+    - sinon: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
 
-consommation Groupe froid x tertiaire:
-  # K90 =IF(Type_bat="Résidentiel";0;(Besoin_raf)/SEER_PAC_AE_coll)
-  variations:
-    - si: type de bâtiment = 'résidentiel'
-      alors: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
-    - sinon: 0
-  unité: kWh/an
 
