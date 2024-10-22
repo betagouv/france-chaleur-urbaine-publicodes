@@ -1804,7 +1804,7 @@ puissance équipement par appartement Groupe froid x résidentiel:
       alors:
         produit:
           - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
-          - ratios . PAC AIR AIR SEER indiv
+          - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
     - sinon: 0
   unité: kW
 
@@ -1818,7 +1818,7 @@ puissance groupe d'eau glacée x tertiaire:
       alors:
         produit:
           - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER coll) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
-          - ratios . PAC AIR AIR SEER coll
+          - ratios . PAC AIR EAU Puissance unitaire réversible coll
     - sinon: 0
   unité: kW
 
