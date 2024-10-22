@@ -1672,11 +1672,10 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: Coup de pouce
           unité: €
         CEE:
-          # =(IF('Calculs techniques'!$B$13="Résidentiel Collectif",
+          # =(IF('Calculs techniques'!$B$13="Résidentiel",
           #   IF('Calculs techniques'!$B$17<'Ratios économiques - Aides'!$B$37,'Ratios économiques - Aides'!$C$36,'Ratios économiques - Aides'!$C$37*'Calculs techniques'!$B$17+'Ratios économiques - Aides'!$C$38),
           #   IF('Calculs techniques'!$B$14<'Ratios économiques - Aides'!$B$41,'Ratios économiques - Aides'!$C$40,'Ratios économiques - Aides'!$C$41*'Calculs techniques'!$B$14+'Ratios économiques - Aides'!$C$42))
           # *'Calculs économiques'!$B$94*'Ratios économiques - Aides'!$C$39)/'Calculs techniques'!$B$17
-          # QUESTION déjà posée: 'Calculs techniques'!$B$13="Résidentiel Collectif" => ne vaut jamais cette valeur car contient toujours ECS
           produit:
             - variations:
               - si: type de bâtiment = 'résidentiel'
