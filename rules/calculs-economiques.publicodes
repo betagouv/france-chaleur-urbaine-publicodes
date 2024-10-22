@@ -1492,8 +1492,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . PAC air-air
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . PAC air-air indiv . Investissement équipement Total
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1507,8 +1506,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . PAC eau-eau
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . PAC eau-eau indiv . Investissement équipement Total
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1522,8 +1520,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . PAC air-eau
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . PAC air-eau indiv . Investissement équipement Total
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1539,8 +1536,8 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . PAC air-air
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . PAC air-air coll . Investissement équipement Total
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -1555,8 +1552,8 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . PAC eau-eau
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . PAC eau-eau coll . Investissement équipement Total
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -1571,8 +1568,8 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . PAC air-eau
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - Calcul Eco . PAC air-eau coll . Investissement équipement Total
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
