@@ -526,7 +526,7 @@ ratios économiques:
               unité: '%'
             Prix de l'énergie:
               # D247:D267
-              valeur: 0.1887
+              valeur: 0.1708
               unité: €HT/kWh
               note: 'Source: AMORCE 2024'
         Heure pleine x Heure creuse:
