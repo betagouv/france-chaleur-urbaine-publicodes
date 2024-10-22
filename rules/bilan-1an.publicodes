@@ -132,15 +132,15 @@ Bilan x Réseaux de chaleur:
         - P4spec
         - Calcul Bilan . P4ECS
         - Calcul Bilan . P4 groupe froid
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . RCU Durée avant renouvellement
-        capital: Calcul Eco . Réseaux de chaleur . Investissement équipement par logement type tertiaire - Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
         - Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
@@ -158,8 +158,7 @@ Bilan x Réseaux de chaleur:
         - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire
         - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire
-        - P4
-        - (- aides)
+        - P4 moins aides
 Bilan x Réseaux de froid:
   avec:
     P1abo: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
