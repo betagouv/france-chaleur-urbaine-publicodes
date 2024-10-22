@@ -95,7 +95,7 @@ Investissement x frais de raccordement au réseaux x RFU:
 
   par défaut:
     variations:
-      - si: Inclure la climatisation = 'oui'
+      - si: Inclure la climatisation
         alors:
           produit:
             - variations:
@@ -155,7 +155,7 @@ Paramètres économiques:
       # B111 =SI('Paramètres techniques'!$C$31="Oui";9;6)
       par défaut:
         variations:
-          - si: Inclure la climatisation = 'oui'
+          - si: Inclure la climatisation
             alors: 9
           - sinon: 6
       unité: kVA

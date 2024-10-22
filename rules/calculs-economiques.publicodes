@@ -1345,7 +1345,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         petit entretien P2:
           # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
           variations:
-            - si: Inclure la climatisation = 'oui'
+            - si: Inclure la climatisation
               alors:
                 produit:
                   - Paramètres économiques . Petit entretien P2 . RFU
@@ -1356,7 +1356,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
           unité: €TTC/an
         gros entretien P3:
           variations:
-            - si: Inclure la climatisation = 'oui'
+            - si: Inclure la climatisation
               alors:
                 produit:
                   - Paramètres économiques . Gros entretien P3 . RFU

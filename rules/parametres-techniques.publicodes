@@ -249,7 +249,7 @@ besoins en climatisation par appartement:
   # B43 =IF($C$31="Oui";Conso_spé_raf*Surface*Surf_clim;0)
   par défaut:
     variations:
-      - si: Inclure la climatisation = 'oui'
+      - si: Inclure la climatisation
         alors:
           produit:
             - consommation spécifique climatisation

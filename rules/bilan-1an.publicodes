@@ -8,7 +8,7 @@ Calcul Bilan:
   avec:
     Surcout froid P2:
       variations:
-        - si: Inclure la climatisation = 'oui'
+        - si: Inclure la climatisation
           alors:
             variations:
               - si: type de bâtiment = 'résidentiel'
@@ -19,7 +19,7 @@ Calcul Bilan:
 
     Surcout froid P3:
       variations:
-        - si: Inclure la climatisation = 'oui'
+        - si: Inclure la climatisation
           alors:
             variations:
               - si: type de bâtiment = 'résidentiel'

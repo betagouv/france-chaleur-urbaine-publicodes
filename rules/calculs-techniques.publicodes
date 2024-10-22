@@ -1799,7 +1799,7 @@ puissance équipement par appartement Groupe froid x résidentiel:
   variations:
     - si:
         toutes ces conditions:
-          - Inclure la climatisation = 'oui'
+          - Inclure la climatisation
           - type de bâtiment = 'résidentiel'
       alors:
         produit:
@@ -1813,7 +1813,7 @@ puissance groupe d'eau glacée x tertiaire:
   variations:
     - si:
         toutes ces conditions:
-          - Inclure la climatisation = 'oui'
+          - Inclure la climatisation
           - type de bâtiment = 'tertiaire'
       alors:
         produit:
