@@ -110,7 +110,7 @@ Bilan x Réseaux de chaleur:
           alors: Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS solaire
         # Avec équipement chauffage
         - sinon: 0
-    P1froid: Calcul Eco . Réseaux de chaleur . Coût combustible froid
+    P1Consofroid: Calcul Eco . Réseaux de chaleur . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
@@ -172,7 +172,7 @@ Bilan x Réseaux de froid:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Réseaux de froid . Coût combustible froid
+    P1Consofroid: Calcul Eco . Réseaux de froid . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -220,7 +220,7 @@ Bilan x Poêle à granulés indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Poêle à granulés indiv . Coût combustible froid
+    P1Consofroid: Calcul Eco . Poêle à granulés indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -268,7 +268,7 @@ Bilan x Chaudière à granulés coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Chaudière à granulés coll . Coût combustible froid
+    P1Consofroid: Calcul Eco . Chaudière à granulés coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -316,7 +316,7 @@ Bilan x Gaz indiv avec cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Gaz indiv avec cond . Coût combustible froid
+    P1Consofroid: Calcul Eco . Gaz indiv avec cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -364,7 +364,7 @@ Bilan x Gaz indiv sans cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Gaz indiv sans cond . Coût combustible froid
+    P1Consofroid: Calcul Eco . Gaz indiv sans cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -412,7 +412,7 @@ Bilan x Gaz coll avec cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Gaz coll avec cond . Coût combustible froid
+    P1Consofroid: Calcul Eco . Gaz coll avec cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -460,7 +460,7 @@ Bilan x Gaz coll sans cond:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Gaz coll sans cond . Coût combustible froid
+    P1Consofroid: Calcul Eco . Gaz coll sans cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -508,7 +508,7 @@ Bilan x Fioul indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Fioul indiv . Coût combustible froid
+    P1Consofroid: Calcul Eco . Fioul indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -556,7 +556,7 @@ Bilan x Fioul coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Fioul coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Fioul coll . Coût combustible froid
+    P1Consofroid: Calcul Eco . Fioul coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -604,7 +604,7 @@ Bilan x PAC air-air indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . PAC air-air indiv . Coût combustible froid
+    P1Consofroid: Calcul Eco . PAC air-air indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
     P4:
@@ -652,7 +652,7 @@ Bilan x PAC air-air coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . PAC air-air coll . Coût combustible froid
+    P1Consofroid: Calcul Eco . PAC air-air coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire
     P4:
@@ -700,7 +700,7 @@ Bilan x PAC eau-eau indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . PAC eau-eau indiv . Coût combustible froid
+    P1Consofroid: Calcul Eco . PAC eau-eau indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -748,7 +748,7 @@ Bilan x PAC eau-eau coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . PAC eau-eau coll . Coût combustible froid
+    P1Consofroid: Calcul Eco . PAC eau-eau coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -796,7 +796,7 @@ Bilan x PAC air-eau indiv:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . PAC air-eau indiv . Coût combustible froid
+    P1Consofroid: Calcul Eco . PAC air-eau indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire
     P4:
@@ -844,7 +844,7 @@ Bilan x PAC air-eau coll:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . PAC air-eau coll . Coût combustible froid
+    P1Consofroid: Calcul Eco . PAC air-eau coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire
     P4:
@@ -892,7 +892,7 @@ Bilan x Radiateur électrique:
         - si: type de production ECS = 'Solaire thermique'
           alors: Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS solaire
         - sinon: 0
-    P1froid: Calcul Eco . Radiateur électrique . Coût combustible froid
+    P1Consofroid: Calcul Eco . Radiateur électrique . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4:
@@ -935,7 +935,7 @@ Bilan x Groupe froid:
     P1conso: 0
     P1prime: 0
     P1ECS: 0
-    P1froid: froid
+    P1Consofroid: froid
     P2: 0
     P3: 0
     P4: 0
