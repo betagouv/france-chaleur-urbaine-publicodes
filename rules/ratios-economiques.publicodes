@@ -42,66 +42,68 @@ ratios économiques:
       note: 'source: FEDENE 2024'
 
     Réseaux x Coût Investissement SST RCU:
+      # VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
       variations:
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 50
-          alors: 21500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 100
-          alors: 22500
+          alors: 21500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 150
-          alors: 23500
+          alors: 22500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 200
-          alors: 24500
+          alors: 23500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 250
-          alors: 25500
+          alors: 24500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 300
-          alors: 26000
+          alors: 25500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 350
-          alors: 27000
+          alors: 26000
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 400
-          alors: 28000
+          alors: 27000
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 500
-          alors: 30000
+          alors: 28000
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 600
-          alors: 32000
+          alors: 30000
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 700
-          alors: 33500
+          alors: 32000
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 800
-          alors: 35500
+          alors: 33500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 900
-          alors: 37500
+          alors: 35500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 1000
-          alors: 39000
+          alors: 37500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 1500
-          alors: 48500
+          alors: 39000
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 2000
-          alors: 57500
+          alors: 48500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 2500
-          alors: 67000
+          alors: 57500
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 3000
-          alors: 76000
+          alors: 67000
         - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 4500
+          alors: 76000
+        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 6000
           alors: 104000
         - sinon: 132000
       unité: €HT
       note: 'ELCIMAI'
 
     Réseaux x Coût Investissement SST RFU:
+      # =VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;TRUE)
       variations:
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 50
-          alors: 28000
         - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 100
-          alors: 29500
+          alors: 28000
         - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 150
-          alors: 30500
+          alors: 29500
         - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 200
-          alors: 32000
+          alors: 30500
         - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 250
-          alors: 33000
+          alors: 32000
         - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 300
-          alors: 34000
+          alors: 33000
         - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 350
-          alors: 35000
+          alors: 34000
         - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 400
+          alors: 35000
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 500
           alors: 36500
         - sinon: 39000
       unité: €HT
