@@ -200,7 +200,7 @@ Installation x Réseaux de froid x Collectif:
           alors: chauffe-eau solaire x appoint d'électricité
         - sinon: 0
       unité: kWh/an
-    consommation combustible chaud:
+    consommation combustible chaleur:
       formule: 0
       unité: kWh
     consommation combustible froid:
@@ -1190,6 +1190,9 @@ Installation x PAC air-air x Individuel:
     consommation auxiliaire:
       valeur: 0
       unité: kWh elec
+    consommation combustible hors électricité:
+      valeur: 0
+      unité: kWh elec
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       # =IF(C80="Non",F103+C103+D103,F103+H103+I103)
       variations:
@@ -1274,6 +1277,9 @@ Installation x PAC eau-eau x Individuel:
                 - Production eau chaude sanitaire
             alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
           - sinon: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      valeur: 0
       unité: kWh elec
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
@@ -1364,6 +1370,9 @@ Installation x PAC air-eau x Individuel:
             alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
           - sinon: 0
       unité: kWh elec
+    consommation combustible hors électricité:
+      valeur: 0
+      unité: kWh elec
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
@@ -1435,6 +1444,9 @@ Installation x PAC air-air x Collectif:
       formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER coll
       unité: kWh elec
     consommation auxiliaire:
+      valeur: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
       valeur: 0
       unité: kWh elec
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
@@ -1529,6 +1541,9 @@ Installation x PAC eau-eau x Collectif:
                 - Production eau chaude sanitaire
             alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
           - sinon: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      valeur: 0
       unité: kWh elec
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
@@ -1627,6 +1642,9 @@ Installation x PAC air-eau x Collectif:
             alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
           - sinon: 0
       unité: kWh elec
+    consommation combustible hors électricité:
+      valeur: 0
+      unité: kWh elec
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
@@ -1695,6 +1713,9 @@ Installation x Radiateur électrique x Individuel:
       unité: kWh elec
     consommation auxiliaire:
       formule: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      valeur: 0
       unité: kWh elec
     consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
       variations:
