@@ -2174,3 +2174,18 @@ Calcul Eco . Montant des aides par logement tertiaire:
     # Chauffe-eau électrique à accumulation:
 
 
+
+calcul total investissement groupe froid résidentiel:
+  # I23 ='Paramètres économiques'!$D$82*(1+surcout_inv)
+  produit:
+    - Investissement x Groupe froid x résidentiel
+    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+
+calcul total investissement groupe eau glacée tertiaire:
+  # J23 ='Paramètres économiques'!$D$84*(1+surcout_inv)/Nb_lgt
+  produit:
+    - Investissement x Groupe eau glacée x tertiaire
+    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+    - 1 / nombre de logements dans l'immeuble concerné
+
+
