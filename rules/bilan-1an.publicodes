@@ -143,22 +143,19 @@ Bilan x Réseaux de chaleur:
         - 0
     total sans aides:
       somme:
-        - Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
-        - Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
-        - Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire
-        - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
-        - Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
-        - Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire
-        - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire
-        - P4 moins aides
+        - total sans aides
+        - (- aides)
+
 Bilan x Réseaux de froid:
   avec:
     P1abo: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
@@ -174,39 +171,40 @@ Bilan x Réseaux de froid:
     P1Consofroid: Calcul Eco . Réseaux de froid . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . RFU Durée de vie
-        capital: Calcul Eco . Réseaux de froid . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Réseaux de froid . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . RFU Durée de vie
-        capital: Calcul Eco . Réseaux de froid . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Réseaux de froid . Coût du combustible abonnement
-        - Calcul Eco . Réseaux de froid . Coût du combustible consommation
-        - Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
-        - Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Réseaux de froid . Coût du combustible abonnement
-        - Calcul Eco . Réseaux de froid . Coût du combustible consommation
-        - Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
-        - Calcul Eco . Réseaux de froid . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Poêle à granulés indiv:
   avec:
     P1abo: Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement
@@ -222,39 +220,40 @@ Bilan x Poêle à granulés indiv:
     P1Consofroid: Calcul Eco . Poêle à granulés indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . GRA POELE Durée de vie
-        capital: Calcul Eco . Poêle à granulés indiv . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Poêle à granulés indiv . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . GRA POELE Durée de vie
-        capital: Calcul Eco . Poêle à granulés indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement
-        - Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
-        - Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire
-        - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement
-        - Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
-        - Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire
-        - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Chaudière à granulés coll:
   avec:
     P1abo: Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement
@@ -270,39 +269,40 @@ Bilan x Chaudière à granulés coll:
     P1Consofroid: Calcul Eco . Chaudière à granulés coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . GRA CHAUD Durée de vie
-        capital: Calcul Eco . Chaudière à granulés coll . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . GRA CHAUD Durée de vie
-        capital: Calcul Eco . Chaudière à granulés coll . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement
-        - Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
-        - Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire
-        - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement
-        - Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
-        - Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire
-        - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Gaz indiv avec cond:
   avec:
     P1abo: Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement
@@ -318,39 +318,40 @@ Bilan x Gaz indiv avec cond:
     P1Consofroid: Calcul Eco . Gaz indiv avec cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . GAZ IND COND Durée de vie
-        capital: Calcul Eco . Gaz indiv avec cond . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Gaz indiv avec cond . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . GAZ IND COND Durée de vie
-        capital: Calcul Eco . Gaz indiv avec cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
-        - Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
-        - Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Gaz indiv sans cond:
   avec:
     P1abo: Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement
@@ -366,39 +367,40 @@ Bilan x Gaz indiv sans cond:
     P1Consofroid: Calcul Eco . Gaz indiv sans cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . GAZ IND SCOND Durée de vie
-        capital: Calcul Eco . Gaz indiv sans cond . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Gaz indiv sans cond . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . GAZ IND SCOND Durée de vie
-        capital: Calcul Eco . Gaz indiv sans cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
-        - Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
-        - Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Gaz coll avec cond:
   avec:
     P1abo: Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement
@@ -414,39 +416,40 @@ Bilan x Gaz coll avec cond:
     P1Consofroid: Calcul Eco . Gaz coll avec cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . GAZ COLL COND Durée de vie
-        capital: Calcul Eco . Gaz coll avec cond . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Gaz coll avec cond . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . GAZ COLL COND Durée de vie
-        capital: Calcul Eco . Gaz coll avec cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
-        - Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
-        - Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Gaz coll sans cond:
   avec:
     P1abo: Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement
@@ -462,39 +465,40 @@ Bilan x Gaz coll sans cond:
     P1Consofroid: Calcul Eco . Gaz coll sans cond . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . GAZ COLL COND Durée de vie
-        capital: Calcul Eco . Gaz coll sans cond . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Gaz coll sans cond . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . GAZ COLL COND Durée de vie
-        capital: Calcul Eco . Gaz coll sans cond . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
-        - Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement
-        - Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
-        - Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire
-        - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Fioul indiv:
   avec:
     P1abo: Calcul Eco . Fioul indiv . Coût du combustible abonnement
@@ -510,39 +514,40 @@ Bilan x Fioul indiv:
     P1Consofroid: Calcul Eco . Fioul indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . FIOUL IND Durée de vie
-        capital: Calcul Eco . Fioul indiv . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Fioul indiv . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . FIOUL IND Durée de vie
-        capital: Calcul Eco . Fioul indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Fioul indiv . Coût du combustible abonnement
-        - Calcul Eco . Fioul indiv . Coût du combustible consommation
-        - Calcul Eco . Fioul indiv . Coût électricité auxiliaire
-        - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Fioul indiv . Coût du combustible abonnement
-        - Calcul Eco . Fioul indiv . Coût du combustible consommation
-        - Calcul Eco . Fioul indiv . Coût électricité auxiliaire
-        - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Fioul coll:
   avec:
     P1abo: Calcul Eco . Fioul coll . Coût du combustible abonnement
@@ -558,39 +563,40 @@ Bilan x Fioul coll:
     P1Consofroid: Calcul Eco . Fioul coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . FIOUL COLL Durée de vie
-        capital: Calcul Eco . Fioul coll . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Fioul coll . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . FIOUL COLL Durée de vie
-        capital: Calcul Eco . Fioul coll . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Fioul coll . Coût du combustible abonnement
-        - Calcul Eco . Fioul coll . Coût du combustible consommation
-        - Calcul Eco . Fioul coll . Coût électricité auxiliaire
-        - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Fioul coll . Coût du combustible abonnement
-        - Calcul Eco . Fioul coll . Coût du combustible consommation
-        - Calcul Eco . Fioul coll . Coût électricité auxiliaire
-        - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x PAC air-air indiv:
   avec:
     P1abo: Calcul Eco . PAC air-air indiv . Coût du combustible abonnement
@@ -606,39 +612,40 @@ Bilan x PAC air-air indiv:
     P1Consofroid: Calcul Eco . PAC air-air indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . PAC AIR AIR Durée de vie indiv
-        capital: Calcul Eco . PAC air-air indiv . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . PAC air-air indiv . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . PAC AIR AIR Durée de vie indiv
-        capital: Calcul Eco . PAC air-air indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . PAC air-air indiv . Coût du combustible abonnement
-        - Calcul Eco . PAC air-air indiv . Coût du combustible consommation
-        - Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . PAC air-air indiv . Coût du combustible abonnement
-        - Calcul Eco . PAC air-air indiv . Coût du combustible consommation
-        - Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x PAC air-air coll:
   avec:
     P1abo: Calcul Eco . PAC air-air coll . Coût du combustible abonnement
@@ -654,39 +661,40 @@ Bilan x PAC air-air coll:
     P1Consofroid: Calcul Eco . PAC air-air coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . PAC AIR AIR Durée de vie coll
-        capital: Calcul Eco . PAC air-air coll . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . PAC air-air coll . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . PAC AIR AIR Durée de vie coll
-        capital: Calcul Eco . PAC air-air coll . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . PAC air-air coll . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-air coll . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . PAC air-air coll . Coût du combustible abonnement
-        - Calcul Eco . PAC air-air coll . Coût du combustible consommation
-        - Calcul Eco . PAC air-air coll . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . PAC air-air coll . Coût du combustible abonnement
-        - Calcul Eco . PAC air-air coll . Coût du combustible consommation
-        - Calcul Eco . PAC air-air coll . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x PAC eau-eau indiv:
   avec:
     P1abo: Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement
@@ -702,39 +710,40 @@ Bilan x PAC eau-eau indiv:
     P1Consofroid: Calcul Eco . PAC eau-eau indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
-        capital: Calcul Eco . PAC eau-eau indiv . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . PAC eau-eau indiv . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
-        capital: Calcul Eco . PAC eau-eau indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement
-        - Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
-        - Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire
-        - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement
-        - Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
-        - Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire
-        - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x PAC eau-eau coll:
   avec:
     P1abo: Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement
@@ -750,39 +759,40 @@ Bilan x PAC eau-eau coll:
     P1Consofroid: Calcul Eco . PAC eau-eau coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
-        capital: Calcul Eco . PAC eau-eau coll . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
-        capital: Calcul Eco . PAC eau-eau coll . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement
-        - Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
-        - Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire
-        - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement
-        - Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
-        - Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire
-        - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x PAC air-eau indiv:
   avec:
     P1abo: Calcul Eco . PAC air-eau indiv . Coût du combustible abonnement
@@ -798,39 +808,40 @@ Bilan x PAC air-eau indiv:
     P1Consofroid: Calcul Eco . PAC air-eau indiv . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . PAC AIR EAU Durée de vie indiv
-        capital: Calcul Eco . PAC air-eau indiv . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . PAC air-eau indiv . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . PAC AIR EAU Durée de vie indiv
-        capital: Calcul Eco . PAC air-eau indiv . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . PAC air-eau indiv . Coût du combustible abonnement
-        - Calcul Eco . PAC air-eau indiv . Coût du combustible consommation
-        - Calcul Eco . PAC air-eau indiv . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . PAC air-eau indiv . Coût du combustible abonnement
-        - Calcul Eco . PAC air-eau indiv . Coût du combustible consommation
-        - Calcul Eco . PAC air-eau indiv . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x PAC air-eau coll:
   avec:
     P1abo: Calcul Eco . PAC air-eau coll . Coût du combustible abonnement
@@ -846,39 +857,40 @@ Bilan x PAC air-eau coll:
     P1Consofroid: Calcul Eco . PAC air-eau coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . PAC AIR EAU Durée de vie coll
-        capital: Calcul Eco . PAC air-eau coll . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . PAC AIR EAU Durée de vie coll
-        capital: Calcul Eco . PAC air-eau coll . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . PAC air-eau coll . Coût du combustible abonnement
-        - Calcul Eco . PAC air-eau coll . Coût du combustible consommation
-        - Calcul Eco . PAC air-eau coll . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . PAC air-eau coll . Coût du combustible abonnement
-        - Calcul Eco . PAC air-eau coll . Coût du combustible consommation
-        - Calcul Eco . PAC air-eau coll . Coût électricité auxiliaire
-        - Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Radiateur électrique:
   avec:
     P1abo: Calcul Eco . Radiateur électrique . Coût du combustible abonnement
@@ -894,39 +906,40 @@ Bilan x Radiateur électrique:
     P1Consofroid: Calcul Eco . Radiateur électrique . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
-    P4:
+    P4spec:
       variations: *pmt
       avec:
         durée: ratios . RAD ELEC INDIV Durée de vie
-        capital: Calcul Eco . Radiateur électrique . Total investissement avec ballon ECS à accumulation
-    P4 moins aides:
-      le maximum de:
-        - variations: *pmt
-        - 0
+        capital: Calcul Eco . Radiateur électrique . Investissement équipement par logement type tertiaire
+    P4:
+      somme:
+        - P4spec
+        - Calcul Bilan . P4ECS
+        - Calcul Bilan . P4 groupe froid
+    aides:
+      variations: *pmt
       avec:
         durée: ratios . RAD ELEC INDIV Durée de vie
-        capital: Calcul Eco . Radiateur électrique . Total investissement avec ballon ECS à accumulation - Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Total
-    aides:
-      valeur: P4 - P4 moins aides
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Total
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
     total sans aides:
       somme:
-        - Calcul Eco . Radiateur électrique . Coût du combustible abonnement
-        - Calcul Eco . Radiateur électrique . Coût du combustible consommation
-        - Calcul Eco . Radiateur électrique . Coût électricité auxiliaire
-        - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
         - P4
     total avec aides:
       somme:
-        - Calcul Eco . Radiateur électrique . Coût du combustible abonnement
-        - Calcul Eco . Radiateur électrique . Coût du combustible consommation
-        - Calcul Eco . Radiateur électrique . Coût électricité auxiliaire
-        - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire
-        - Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire
-        - P4
+        - total sans aides
         - (- aides)
+
 Bilan x Groupe froid:
   # Temporaire le temps que le fichier excel soit à jour
   avec:
