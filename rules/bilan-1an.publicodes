@@ -54,13 +54,8 @@ Calcul Bilan:
             - si: type de production ECS = 'Solaire thermique'
               alors: ratios . CHAUF EAU SOLAIRE Durée de vie
             - sinon: 0
-        capital:
-          variations:
-            - si: type de production ECS = 'Chauffe-eau électrique'
-              alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS à accumulation
-            - si: type de production ECS = 'Solaire thermique'
-              alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS solaire panneau inclus
-            - sinon: 0
+        # utilisé par les formules propres à chaque mode de chauffage
+        # capital:
 
     # P4 groupe froid
     # +MAX(
@@ -127,10 +122,20 @@ Bilan x Réseaux de chaleur:
       avec:
         durée: ratios . RCU Durée avant renouvellement
         capital: Calcul Eco . Réseaux de chaleur . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -176,10 +181,20 @@ Bilan x Réseaux de froid:
       avec:
         durée: ratios . RFU Durée de vie
         capital: Calcul Eco . Réseaux de froid . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Réseaux de froid . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Réseaux de froid . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -225,10 +240,20 @@ Bilan x Poêle à granulés indiv:
       avec:
         durée: ratios . GRA POELE Durée de vie
         capital: Calcul Eco . Poêle à granulés indiv . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -274,10 +299,20 @@ Bilan x Chaudière à granulés coll:
       avec:
         durée: ratios . GRA CHAUD Durée de vie
         capital: Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -323,10 +358,20 @@ Bilan x Gaz indiv avec cond:
       avec:
         durée: ratios . GAZ IND COND Durée de vie
         capital: Calcul Eco . Gaz indiv avec cond . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -372,10 +417,20 @@ Bilan x Gaz indiv sans cond:
       avec:
         durée: ratios . GAZ IND SCOND Durée de vie
         capital: Calcul Eco . Gaz indiv sans cond . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -421,10 +476,20 @@ Bilan x Gaz coll avec cond:
       avec:
         durée: ratios . GAZ COLL COND Durée de vie
         capital: Calcul Eco . Gaz coll avec cond . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Gaz coll avec cond . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Gaz coll avec cond . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -470,10 +535,20 @@ Bilan x Gaz coll sans cond:
       avec:
         durée: ratios . GAZ COLL COND Durée de vie
         capital: Calcul Eco . Gaz coll sans cond . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Gaz coll sans cond . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Gaz coll sans cond . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -519,10 +594,20 @@ Bilan x Fioul indiv:
       avec:
         durée: ratios . FIOUL IND Durée de vie
         capital: Calcul Eco . Fioul indiv . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Fioul indiv . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Fioul indiv . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -568,10 +653,20 @@ Bilan x Fioul coll:
       avec:
         durée: ratios . FIOUL COLL Durée de vie
         capital: Calcul Eco . Fioul coll . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Fioul coll . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Fioul coll . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -617,10 +712,20 @@ Bilan x PAC air-air indiv:
       avec:
         durée: ratios . PAC AIR AIR Durée de vie indiv
         capital: Calcul Eco . PAC air-air indiv . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . PAC air-air indiv . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . PAC air-air indiv . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -666,10 +771,20 @@ Bilan x PAC air-air coll:
       avec:
         durée: ratios . PAC AIR AIR Durée de vie coll
         capital: Calcul Eco . PAC air-air coll . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . PAC air-air coll . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . PAC air-air coll . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -715,10 +830,20 @@ Bilan x PAC eau-eau indiv:
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
         capital: Calcul Eco . PAC eau-eau indiv . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -764,10 +889,20 @@ Bilan x PAC eau-eau coll:
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
         capital: Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . PAC eau-eau coll . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . PAC eau-eau coll . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -813,10 +948,20 @@ Bilan x PAC air-eau indiv:
       avec:
         durée: ratios . PAC AIR EAU Durée de vie indiv
         capital: Calcul Eco . PAC air-eau indiv . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . PAC air-eau indiv . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . PAC air-eau indiv . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -862,10 +1007,20 @@ Bilan x PAC air-eau coll:
       avec:
         durée: ratios . PAC AIR EAU Durée de vie coll
         capital: Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . PAC air-eau coll . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . PAC air-eau coll . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
@@ -911,10 +1066,20 @@ Bilan x Radiateur électrique:
       avec:
         durée: ratios . RAD ELEC INDIV Durée de vie
         capital: Calcul Eco . Radiateur électrique . Investissement équipement par logement type tertiaire
+    P4ECS:
+      formule: Calcul Bilan . P4ECS
+      avec:
+        capital:
+          variations:
+            - si: type de production ECS = 'Chauffe-eau électrique'
+              alors: Calcul Eco . Radiateur électrique . Investissement ballon ECS à accumulation
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Radiateur électrique . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
     P4:
       somme:
         - P4spec
-        - Calcul Bilan . P4ECS
+        - P4ECS
         - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
