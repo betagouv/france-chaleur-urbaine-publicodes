@@ -54,8 +54,8 @@ Calcul Bilan:
             - si: type de production ECS = 'Solaire thermique'
               alors: ratios . CHAUF EAU SOLAIRE Durée de vie
             - sinon: 0
-        # utilisé par les formules propres à chaque mode de chauffage
-        # capital:
+        # utilisé et surchargé par les formules propres à chaque mode de chauffage
+        capital:
 
     # P4 groupe froid
     # +MAX(
