@@ -616,7 +616,7 @@ Paramètres économiques:
           par défaut:
             variations:
               - si: Éligibilité x Ressources du ménage = "Très modeste"
-                alors: 0.00816
-              - sinon: 0.00804
+                alors: ratios économiques x aides . CEE x Prix moyen du CEE ménage précaire
+              - sinon: ratios économiques x aides . CEE x Prix moyen du CEE autre ménage
           unité: €/kWh cumac
           note: "source : Registre National des Certificats d'Economie d'Energie"
