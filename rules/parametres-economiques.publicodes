@@ -348,8 +348,8 @@ Paramètres économiques:
             produit:
               - variations:
                 - si: Type de conditionnement = 'Conditionné en sac'
-                  alors: 313.2
-                - sinon: 300.9
+                  alors: 438
+                - sinon: 426
               - 1 + TVA
           note: 'Source: CEEB 2024'
           unité: €TTC/tonne
