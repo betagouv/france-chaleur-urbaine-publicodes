@@ -301,7 +301,7 @@ Paramètres économiques:
       unité: €/kWh
     Gaz x Coût de la molécule HT:
       # B95 ='Ratios économiques - Coûts'!$C$220
-      par défaut: 0.02638
+      par défaut: 0.02638 + 0.01191
       unité: €/kWh
     Gaz x Coût de transport HT:
       # B96 ='Ratios économiques - Coûts'!$C$221
