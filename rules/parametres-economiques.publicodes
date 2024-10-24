@@ -366,8 +366,8 @@ Paramètres économiques:
               - produit:
                 - variations:
                   - si: type de bâtiment = 'résidentiel'
-                    alors: 0.8878
-                  - sinon: 0.8213
+                    alors: 0.86
+                  - sinon: 0.82
                 - 1 + TVA
               - TICPE
           unité: €TTC/L
