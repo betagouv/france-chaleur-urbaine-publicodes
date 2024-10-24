@@ -887,7 +887,7 @@ Calcul Eco:
         Coût combustible froid:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x PAC air-air x Individuel . consommation Groupe Froid
+            - Installation x PAC air-air x Individuel . consommation combustible froid
           unité: €TTC/an
     PAC eau-eau indiv:
       avec:
@@ -1021,7 +1021,7 @@ Calcul Eco:
         Coût combustible froid:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x PAC air-eau x Individuel . consommation Groupe Froid
+            - Installation x PAC air-eau x Individuel . consommation combustible froid
           unité: €TTC/an
     PAC air-air coll:
       avec:
@@ -1088,7 +1088,7 @@ Calcul Eco:
         Coût combustible froid:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x PAC air-air x Collectif . consommation Groupe Froid
+            - Installation x PAC air-air x Collectif . consommation combustible froid
           unité: €TTC/an
     PAC eau-eau coll:
       avec:
@@ -1222,7 +1222,7 @@ Calcul Eco:
         Coût combustible froid:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x PAC air-eau x Collectif . consommation Groupe Froid
+            - Installation x PAC air-eau x Collectif . consommation combustible froid
           unité: €TTC/an
     Radiateur électrique:
       avec:
