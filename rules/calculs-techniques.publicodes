@@ -219,7 +219,7 @@ Installation x Réseaux de froid x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire
       unité: kWh/an
-    consommation Groupe Froid: 0
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Poêle à granulés indiv x Individuel:
   avec:
@@ -1200,7 +1200,7 @@ Installation x PAC air-air x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
-    consommation Groupe Froid: 0
+    consommation Groupe Froid: calcul consommation Groupe Froid
 Installation x PAC eau-eau x Individuel:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
@@ -1379,7 +1379,7 @@ Installation x PAC air-eau x Individuel:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
-    consommation Groupe Froid: 0
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x PAC air-air x Collectif:
   avec:
@@ -1455,7 +1455,7 @@ Installation x PAC air-air x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
-    consommation Groupe Froid: 0
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x PAC eau-eau x Collectif:
   avec:
@@ -1651,7 +1651,7 @@ Installation x PAC air-eau x Collectif:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
-    consommation Groupe Froid: 0
+    consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Radiateur électrique x Individuel:
   avec:
