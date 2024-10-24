@@ -515,9 +515,6 @@ ratios économiques:
         - 1 + ratios économiques . Investissement x TVA
       unité: €TTC
 
-    Coût des combustibles x Gaz:
-      # TODO
-
     Coût des combustibles x Electricité:
       avec:
         Option Base:
