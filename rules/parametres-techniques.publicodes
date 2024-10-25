@@ -61,11 +61,11 @@ mode affichage:
 ###### Réseaux de chaleur et de froid
 contenu CO2 réseau de chaleur:
   # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
-  par défaut: caractéristique réseau de chaleur . contenu CO2 - ratios environnementaux . CO2 INS RCU
+  par défaut: caractéristique réseau de chaleur . contenu CO2 ACV - ratios environnementaux . CO2 INS RCU
   note: Contenu_CO2_RCU
 contenu CO2 réseau de froid:
   # =XLOOKUP(C18,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
-  par défaut: caractéristique réseau de froid . contenu CO2 - ratios environnementaux . CO2 INS RFU
+  par défaut: caractéristique réseau de froid . contenu CO2 ACV - ratios environnementaux . CO2 INS RFU
   note: Contenu_CO2_RFU
 
 ###### Choix du bâtiment
