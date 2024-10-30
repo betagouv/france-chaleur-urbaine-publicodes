@@ -1787,9 +1787,17 @@ puissance groupe d'eau glacée x tertiaire:
   unité: kW
 
 calcul consommation Groupe Froid:
+  # Excel L299-300
   variations:
-    - si: type de bâtiment = 'résidentiel'
-      alors:  besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
-    - sinon: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
+    - si:
+        toutes ces conditions:
+          - Inclure la climatisation
+          - type de production de froid = 'Groupe froid'
+      alors:
+        variations:
+          - si: type de bâtiment = 'résidentiel'
+            alors:  besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+          - sinon: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
+    - sinon: 0
 
 
