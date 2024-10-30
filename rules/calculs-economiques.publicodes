@@ -214,26 +214,6 @@ Calcul Eco:
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
           unité: €TTC
-        Investissement ballon ECS à accumulation:
-          variations:
-            - si: Installation x Réseaux de froid x Collectif . besoin d'installation supplémentaire pour produire l'ECS
-              alors: Calcul Eco . Investissement ballon ECS à accumulation
-            - sinon: 0
-          unité: €TTC
-        Investissement ballon ECS solaire panneau inclus:
-          applicable si:
-            toutes ces conditions:
-              - Installation x Réseaux de froid x Collectif . besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS = "Solaire thermique"
-          formule: Calcul Eco . Investissement ballon ECS panneau inclus
-          unité: €TTC
-        Total investissement avec ballon ECS à accumulation:
-          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
-          unité: €TTC
-        Total investissement ballon ECS solaire panneaux:
-          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
-          unité: €TTC
-
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           produit:
@@ -253,20 +233,6 @@ Calcul Eco:
             - Installation x Réseaux de froid x Collectif . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
-        Coût combustible pour ballon ECS à accumulation:
-          applicable si: Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique >= 0
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-            - Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique
-          unité: €TTC/an
-          note: "Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an"
-        Coût combustible pour ballon ECS solaire:
-          applicable si: Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire >= 0
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-            - Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire
-          unité: €TTC/an
-          note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation

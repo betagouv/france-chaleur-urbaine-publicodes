@@ -42,39 +42,6 @@ env . Installation x Réseaux de chaleur x Collectif:
         - Scope 3
       unité: kgCO2e/an
 
-env . Installation x Réseaux de froid x Collectif:
-  avec:
-    besoins de chauffage et ECS si même équipement:
-      valeur: 0
-      unité: kgCO2e
-    Scope 1: besoins de chauffage et ECS si même équipement
-    auxiliaires et combustible électrique:
-      # F44 =(Contenu_CO2_RFU*'Calculs environnementaux'!$B$16)
-      # QUESTION déjà posée: Calculs environnementaux'!$B$16 est vide.
-      formule: contenu CO2 réseau de froid * besoins en climatisation par appartement
-      unité: kgCO2e
-    ECS solaire thermique:
-      formule: Installation x Réseaux de froid x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
-    ECS avec ballon électrique:
-      formule: Installation x Réseaux de froid x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Scope 2:
-      somme:
-        - auxiliaires et combustible électrique
-        - ECS solaire thermique
-        - ECS avec ballon électrique
-    Scope 3:
-      # =(IF($B$17="Oui";'Ratios environnementaux'!C34*($B$14+$B$15);'Ratios environnementaux'!C34*'Calculs environnementaux'!$B$14))
-      variations:
-        - si: Production eau chaude sanitaire
-          alors: ratios environnementaux . CO2 INS RFU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-        - sinon: ratios environnementaux . CO2 INS RFU * besoins chauffage par appartement
-    Total:
-      somme:
-        - Scope 1
-        - Scope 2
-        - Scope 3
-      unité: kgCO2e/an
-
 env . Installation x Poêle à granulés indiv x Individuel:
   avec:
     besoins de chauffage et ECS si même équipement:

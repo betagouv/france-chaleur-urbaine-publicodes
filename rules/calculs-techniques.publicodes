@@ -169,37 +169,6 @@ Installation x Réseaux de froid x Collectif:
     gamme de puissance existante:
       formule: puissance équipement
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS:
-      toutes ces conditions:
-        - Production eau chaude sanitaire
-        - puissance nécessaire pour ECS avec équipement <= 0
-    volume du ballon ECS:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != "Solaire thermique"
-          alors: volume du ballon ECS
-        - sinon: 0
-      unité: L
-    consommation d'électricité chauffe-eau électrique:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != 'Solaire thermique'
-          alors: chauffe-eau électrique x consommation d'électricité
-        - sinon: 0
-      unité: kWh/an
-    appoint d'électricité chauffe-eau solaire:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS = 'Solaire thermique'
-          alors: chauffe-eau solaire x appoint d'électricité
-        - sinon: 0
-      unité: kWh/an
     consommation combustible chaleur:
       formule: 0
       unité: kWh
@@ -211,14 +180,7 @@ Installation x Réseaux de froid x Collectif:
       # =(1-Conso_aux_RFU)*Besoin_raf
       formule: (1 - ratios . RFU Conso auxiliaire) * besoins en climatisation par appartement
       unité: kWh elec
-    consommation combustible hors électricité:
-      formule: consommation combustible froid
-    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-      variations:
-        - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
-        - sinon: consommation auxiliaire
-      unité: kWh/an
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: consommation auxiliaire
     consommation Groupe Froid: calcul consommation Groupe Froid
 
 Installation x Poêle à granulés indiv x Individuel:
