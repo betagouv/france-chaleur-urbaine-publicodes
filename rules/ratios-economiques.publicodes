@@ -89,21 +89,21 @@ ratios économiques:
     Réseaux x Coût Investissement SST RFU:
       # =VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;TRUE)
       variations:
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 100
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 100
           alors: 28000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 150
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 150
           alors: 29500
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 200
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 200
           alors: 30500
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 250
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 250
           alors: 32000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 300
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 300
           alors: 33000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 350
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 350
           alors: 34000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 400
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 400
           alors: 35000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante <= 500
+        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 500
           alors: 36500
         - sinon: 39000
       unité: €HT
