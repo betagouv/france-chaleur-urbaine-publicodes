@@ -112,6 +112,15 @@ Inclure la climatisation:
       - oui
       - non
 
+type de production de froid:
+  # L32
+  par défaut: "'Groupe froid'"
+  une possibilité:
+    choix obligatoire: oui
+    possibilités:
+      - "'Groupe froid'"
+      - "'Réseau de froid'"
+
 type de production ECS:
   # C29 alias Paramètres économiques C8 (Type de résidentiel)
   par défaut: "'Avec équipement chauffage'"
