@@ -199,10 +199,17 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          # H45 =IF('Paramètres économiques'!$D$110="Option base";$D$12*('Calculs techniques'!J90+'Calculs techniques'!K90);$D$12*'Paramètres économiques'!$D$117*('Calculs techniques'!J90+'Calculs techniques'!K90)+$F$12*'Paramètres économiques'!$D$118*('Calculs techniques'!J90+'Calculs techniques'!K90))
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Réseaux de chaleur x Collectif . consommation Groupe Froid
+          # H45 =IF(AND(Prod_clim="Oui";Type_clim="Réseau de froid");'Calculs économiques'!$H$46;IF('Paramètres économiques'!$D$110="Option base";$D$12*('Calculs techniques'!J89+'Calculs techniques'!K89);$D$12*'Paramètres économiques'!$D$117*('Calculs techniques'!J89+'Calculs techniques'!K89)+$F$12*'Paramètres économiques'!$D$118*('Calculs techniques'!J89+'Calculs techniques'!K89)))
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Réseaux de chaleur x Collectif . consommation Groupe Froid
           unité: €TTC/an
 
     Réseaux de froid:
@@ -301,9 +308,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Poêle à granulés indiv x Individuel . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Poêle à granulés indiv x Individuel . consommation Groupe Froid
           unité: €TTC/an
     Chaudière à granulés coll:
       avec:
@@ -369,9 +383,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Chaudière à granulés coll x Collectif . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Chaudière à granulés coll x Collectif . consommation Groupe Froid
           unité: €TTC/an
     Gaz indiv avec cond:
       avec:
@@ -438,9 +459,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Gaz indiv avec cond x Individuel . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Gaz indiv avec cond x Individuel . consommation Groupe Froid
           unité: €TTC/an
     Gaz indiv sans cond:
       avec:
@@ -507,9 +535,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Gaz indiv sans cond x Individuel . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Gaz indiv sans cond x Individuel . consommation Groupe Froid
           unité: €TTC/an
     Gaz coll avec cond:
       avec:
@@ -576,9 +611,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Gaz coll avec cond x Collectif . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Gaz coll avec cond x Collectif . consommation Groupe Froid
           unité: €TTC/an
     Gaz coll sans cond:
       avec:
@@ -646,9 +688,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Gaz coll sans cond x Collectif . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Gaz coll sans cond x Collectif . consommation Groupe Froid
           unité: €TTC/an
     Fioul indiv:
       avec:
@@ -714,9 +763,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Fioul indiv x Individuel . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Fioul indiv x Individuel . consommation Groupe Froid
           unité: €TTC/an
     Fioul coll:
       avec:
@@ -782,9 +838,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Fioul coll x Collectif . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Fioul coll x Collectif . consommation Groupe Froid
           unité: €TTC/an
     PAC air-air indiv:
       avec:
@@ -918,9 +981,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x PAC eau-eau x Individuel . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x PAC eau-eau x Individuel . consommation Groupe Froid
           unité: €TTC/an
     PAC air-eau indiv:
       avec:
@@ -1119,9 +1189,16 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x PAC eau-eau x Collectif . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x PAC eau-eau x Collectif . consommation Groupe Froid
           unité: €TTC/an
     PAC air-eau coll:
       avec:
@@ -1254,38 +1331,17 @@ Calcul Eco:
           unité: €TTC/an
           note: "Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an"
         Coût combustible froid:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Radiateur électrique x Individuel . consommation Groupe Froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+            - sinon:
+                produit:
+                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - Installation x Radiateur électrique x Individuel . consommation Groupe Froid
           unité: €TTC/an
-
-    Groupe froid:
-      avec:
-        # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
-          valeur: 0
-          unité: €TTC
-          note: "TODO"
-        Investissement équipement par logement type tertiaire:
-          valeur: 0
-          unité: €TTC
-          note: "TODO"
-        Investissement ballon ECS à accumulation:
-          valeur: 0
-          unité: €TTC
-          note: "TODO"
-        Investissement ballon ECS solaire panneau inclus:
-          valeur: 0
-          unité: €TTC
-          note: "TODO"
-        Total investissement avec ballon ECS à accumulation:
-          valeur: 0
-          unité: €TTC
-          note: "TODO"
-        Total investissement ballon ECS solaire panneaux:
-          valeur: 0
-          unité: €TTC
-          note: "TODO"
 
 Calcul Eco . P2 P3 Coût de l'entretien:
   avec:
