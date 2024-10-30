@@ -165,9 +165,17 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement
-            - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - produit:
+              - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement
+              - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -223,9 +231,17 @@ Calcul Eco:
           unité: €TTC
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          produit:
-            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
-            - Installation x Réseaux de froid x Collectif . consommation combustible froid
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - produit:
+              - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
+              - Installation x Réseaux de froid x Collectif . consommation combustible froid
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -278,7 +294,13 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: 0
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+            - sinon: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -353,7 +375,13 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: 0
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+            - sinon: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -427,7 +455,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -503,7 +539,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -579,7 +623,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -655,7 +707,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -732,7 +792,13 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: 0
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+            - sinon: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -807,7 +873,13 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: 0
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+            - sinon: 0
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -883,7 +955,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -951,7 +1031,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -1025,7 +1113,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -1092,7 +1188,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -1159,7 +1263,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -1233,7 +1345,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -1301,7 +1421,15 @@ Calcul Eco:
 
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          valeur: Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          somme:
+            - variations:
+              - si:
+                  toutes ces conditions:
+                    - Inclure la climatisation
+                    - type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
