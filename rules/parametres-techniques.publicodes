@@ -218,7 +218,7 @@ normes thermiques tertiaire:
     choix obligatoire: oui
     possibilités:
       - "'RE2020'"
-      - "'RE2012'"
+      - "'RT2012'"
       - "'Moyenne française 2021'"
 
 
