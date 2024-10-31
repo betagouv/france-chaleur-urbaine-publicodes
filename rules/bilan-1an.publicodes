@@ -8,30 +8,32 @@ Calcul Bilan:
   avec:
     Surcout Réseau de froid P2:
       variations:
-        - si:
-            toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
+        - si: Inclure la climatisation
           alors:
             variations:
-              - si: type de bâtiment = 'résidentiel'
-                alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . petit entretien P2 par logement tertiaire
-              - si: type de bâtiment = 'tertiaire'
-                alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . petit entretien P2 par logement tertiaire
+              - si: type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
+              - sinon:
+                  variations:
+                    - si: type de bâtiment = 'résidentiel'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . petit entretien P2 par logement tertiaire
+                    - si: type de bâtiment = 'tertiaire'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . petit entretien P2 par logement tertiaire
         - sinon: 0
 
     Surcout Réseau de froid P3:
       variations:
-        - si:
-            toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
+        - si: Inclure la climatisation
           alors:
             variations:
-              - si: type de bâtiment = 'résidentiel'
-                alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . gros entretien P3 par logement tertiaire
-              - si: type de bâtiment = 'tertiaire'
-                alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . gros entretien P3 par logement tertiaire
+              - si: type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
+              - sinon:
+                  variations:
+                    - si: type de bâtiment = 'résidentiel'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . gros entretien P3 par logement tertiaire
+                    - si: type de bâtiment = 'tertiaire'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . gros entretien P3 par logement tertiaire
         - sinon: 0
 
     Surcout Réseau de froid P1prime:
@@ -40,7 +42,7 @@ Calcul Bilan:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+          alors: Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
         - sinon: 0
 
     # P4 groupe froid

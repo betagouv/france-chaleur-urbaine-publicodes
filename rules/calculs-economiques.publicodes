@@ -231,17 +231,9 @@ Calcul Eco:
           unité: €TTC
         # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
-          somme:
-            - variations:
-              - si:
-                  toutes ces conditions:
-                    - Inclure la climatisation
-                    - type de production de froid = 'Réseau de froid'
-                alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
-              - sinon: 0
-            - produit:
-              - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
-              - Installation x Réseaux de froid x Collectif . consommation combustible froid
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
+            - Installation x Réseaux de froid x Collectif . consommation combustible froid
           unité: €TTC/an
           note: "Coût du combustible abonnement (P1 abo) €TTC/an"
         Coût du combustible consommation:
@@ -258,8 +250,8 @@ Calcul Eco:
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible froid:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-            - Installation x Réseaux de froid x Collectif . consommation Groupe Froid
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
+            - Installation x Réseaux de froid x Collectif . consommation combustible froid
           unité: €TTC/an
     Poêle à granulés indiv:
       avec:
