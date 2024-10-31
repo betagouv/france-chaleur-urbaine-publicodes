@@ -189,9 +189,9 @@ normes thermiques et âge du bâtiment:
     choix obligatoire: méthode de calcul pour les besoins en chauffage et refroidissement = "Normes thermiques et âge du bâtiment"
     possibilités:
       - "'RE2020 - Après 2020'"
-      - "'RE2012 - Entre 2012 et 2020'"
-      - "'RE2005 - Entre 2005 et 2012'"
-      - "'RE2000 - Entre 2000 et 2005'"
+      - "'RT2012 - Entre 2012 et 2020'"
+      - "'RT2005 - Entre 2005 et 2012'"
+      - "'RT2000 - Entre 2000 et 2005'"
       - "'de 1990 à 2000'"
       - "'de 1974 à 2005'"
       - "'avant 1974'"
