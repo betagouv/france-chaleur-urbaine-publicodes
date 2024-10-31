@@ -6,9 +6,12 @@ x-pmt: &pmt
 
 Calcul Bilan:
   avec:
-    Surcout froid P2:
+    Surcout Réseau de froid P2:
       variations:
-        - si: Inclure la climatisation
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
           alors:
             variations:
               - si: type de bâtiment = 'résidentiel'
@@ -72,7 +75,7 @@ Bilan x Réseaux de chaleur:
         - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Réseaux de chaleur . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       # P4spec
@@ -161,7 +164,7 @@ Bilan x Poêle à granulés indiv:
         - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Poêle à granulés indiv . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -224,7 +227,7 @@ Bilan x Chaudière à granulés coll:
         - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Chaudière à granulés coll . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -287,7 +290,7 @@ Bilan x Gaz indiv avec cond:
         - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Gaz indiv avec cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -350,7 +353,7 @@ Bilan x Gaz indiv sans cond:
         - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Gaz indiv sans cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -413,7 +416,7 @@ Bilan x Gaz coll avec cond:
         - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Gaz coll avec cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -476,7 +479,7 @@ Bilan x Gaz coll sans cond:
         - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Gaz coll sans cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -539,7 +542,7 @@ Bilan x Fioul indiv:
         - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Fioul indiv . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -602,7 +605,7 @@ Bilan x Fioul coll:
         - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Fioul coll . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -791,7 +794,7 @@ Bilan x PAC eau-eau indiv:
         - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . PAC eau-eau indiv . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -854,7 +857,7 @@ Bilan x PAC eau-eau coll:
         - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . PAC eau-eau coll . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
@@ -1043,7 +1046,7 @@ Bilan x Radiateur électrique:
         - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
         - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS solaire
     P1Consofroid: Calcul Eco . Radiateur électrique . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout froid P2
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout froid P3
     P4spec:
       variations: *pmt
