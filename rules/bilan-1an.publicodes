@@ -894,11 +894,22 @@ Bilan x PAC eau-eau coll:
     P1Consofroid: Calcul Eco . PAC eau-eau coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+    P4specPuit:
+      produit:
+        - variations: *pmt
+          avec:
+            durée: ratios . PAC EAU EAU Durée de vie puits géothermiques
+            capital: ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
+        - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+        - 1 / nombre de logements dans l'immeuble concerné
     P4spec:
-      variations: *pmt
-      avec:
-        durée: ratios . PAC EAU EAU Durée de vie
-        capital: Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire
+      produit:
+        - variations: *pmt
+          avec:
+            durée: ratios . PAC EAU EAU Durée de vie
+            capital: ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
+        - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+        - 1 / nombre de logements dans l'immeuble concerné
     P4ECS:
       variations: *pmt
       avec:
@@ -918,6 +929,7 @@ Bilan x PAC eau-eau coll:
             - sinon: 0
     P4:
       somme:
+        - P4specPuit
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
