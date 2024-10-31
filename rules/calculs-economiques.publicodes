@@ -1771,36 +1771,69 @@ Calcul Eco . P2 P3 Coût de l'entretien:
     Groupe froid résidentiel:
       avec:
         petit entretien P2:
-          # C86 =IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$169*'Calculs techniques'!$B$22/1000*Nb_lgt;0)
-          produit:
-            - Paramètres économiques . Petit entretien P2 . PAC air-air
-            - besoins en climatisation par appartement
-            - nombre de logements dans l'immeuble concerné
-            - 1 / 1000
+          # C86 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$169*'Calculs techniques'!$B$22/1000*Nb_lgt;0);0)
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Groupe froid'
+                  - type de bâtiment = 'résidentiel'
+              alors:
+                produit:
+                  - Paramètres économiques . Petit entretien P2 . PAC air-air
+                  - besoins en climatisation par appartement
+                  - nombre de logements dans l'immeuble concerné
+                  - 1 / 1000
+            - sinon: 0
+
         gros entretien P3:
-          # D86 =IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$190*'Calculs techniques'!$B$22/1000*Nb_lgt;0)
-          produit:
-            - Paramètres économiques . Gros entretien P3 . PAC air-air
-            - besoins en climatisation par appartement
-            - nombre de logements dans l'immeuble concerné
-            - 1 / 1000
+          # D86 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$190*'Calculs techniques'!$B$22/1000*Nb_lgt;0);0)
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Groupe froid'
+                  - type de bâtiment = 'résidentiel'
+              alors:
+                produit:
+                  - Paramètres économiques . Gros entretien P3 . PAC air-air
+                  - besoins en climatisation par appartement
+                  - nombre de logements dans l'immeuble concerné
+                  - 1 / 1000
+            - sinon: 0
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
 
     Groupe eau glacée tertiaire:
       avec:
         petit entretien P2:
-          # C87 =IF(Type_bat="Tertiaire";'Paramètres économiques'!D171*'Calculs techniques'!$B$22/1000;0)
-          produit:
-            - Paramètres économiques . Petit entretien P2 . PAC air-eau
-            - nombre de logements dans l'immeuble concerné
-            - 1 / 1000
+          # C87 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Tertiaire";'Paramètres économiques'!D171*'Calculs techniques'!$B$22/1000;0);0)
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Groupe froid'
+                  - type de bâtiment = 'tertiaire'
+              alors:
+                produit:
+                  - Paramètres économiques . Petit entretien P2 . PAC air-eau
+                  - besoins en climatisation par appartement
+                  - 1 / 1000
+            - sinon: 0
         gros entretien P3:
-          # D87 =IF(Type_bat="Tertiaire";'Paramètres économiques'!D192*'Calculs techniques'!$B$22/1000;0)
-          produit:
-            - Paramètres économiques . Gros entretien P3 . PAC air-eau
-            - nombre de logements dans l'immeuble concerné
-            - 1 / 1000
+          # D87 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Tertiaire";'Paramètres économiques'!D192*'Calculs techniques'!$B$22/1000;0);0)
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Groupe froid'
+                  - type de bâtiment = 'tertiaire'
+              alors:
+                produit:
+                  - Paramètres économiques . Gros entretien P3 . PAC air-eau
+                  - besoins en climatisation par appartement
+                  - 1 / 1000
+            - sinon: 0
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
 
