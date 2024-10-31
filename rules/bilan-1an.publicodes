@@ -75,7 +75,19 @@ Calcul Bilan:
             - si: type de bâtiment = 'résidentiel'
               alors: calcul total investissement groupe froid résidentiel
             - sinon: calcul total investissement groupe eau glacée tertiaire
-
+    P4 Réseau de froid:
+      # J10 = ...-IF(AND(Prod_clim="Oui";Type_clim="Réseau de froid");IFERROR(PMT('Paramètres économiques'!$D$200;Durée_vie_RFU;P4_RFU);0))
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors:
+            variations: *pmt
+            avec:
+              durée: ratios . RFU Durée de vie
+              capital: Calcul Eco . Réseaux de froid . Investissement équipement par logement type tertiaire
+        - sinon: 0
 
 Bilan x Réseaux de chaleur:
   avec:
@@ -89,6 +101,7 @@ Bilan x Réseaux de chaleur:
     P1Consofroid: Calcul Eco . Réseaux de chaleur . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+
     P4spec:
       # P4spec
       # =IFERROR(
@@ -141,6 +154,7 @@ Bilan x Réseaux de chaleur:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -205,6 +219,7 @@ Bilan x Poêle à granulés indiv:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -268,6 +283,7 @@ Bilan x Chaudière à granulés coll:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -331,6 +347,7 @@ Bilan x Gaz indiv avec cond:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -394,6 +411,7 @@ Bilan x Gaz indiv sans cond:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -457,6 +475,7 @@ Bilan x Gaz coll avec cond:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -520,6 +539,7 @@ Bilan x Gaz coll sans cond:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -583,6 +603,7 @@ Bilan x Fioul indiv:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -646,6 +667,7 @@ Bilan x Fioul coll:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -835,6 +857,7 @@ Bilan x PAC eau-eau indiv:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -898,6 +921,7 @@ Bilan x PAC eau-eau coll:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
@@ -1087,6 +1111,7 @@ Bilan x Radiateur électrique:
         - P4spec
         - P4ECS
         - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
     aides:
       variations: *pmt
       avec:
