@@ -732,7 +732,6 @@ Bilan x PAC air-air indiv:
       somme:
         - P4spec
         - P4ECS
-        - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
       avec:
@@ -795,7 +794,6 @@ Bilan x PAC air-air coll:
       somme:
         - P4spec
         - P4ECS
-        - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
       avec:
@@ -986,7 +984,6 @@ Bilan x PAC air-eau indiv:
       somme:
         - P4spec
         - P4ECS
-        - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
       avec:
@@ -1049,7 +1046,6 @@ Bilan x PAC air-eau coll:
       somme:
         - P4spec
         - P4ECS
-        - Calcul Bilan . P4 groupe froid
     aides:
       variations: *pmt
       avec:
@@ -1137,19 +1133,3 @@ Bilan x Radiateur électrique:
       somme:
         - total sans aides
         - (- aides)
-
-Bilan x Groupe froid:
-  # Temporaire le temps que le fichier excel soit à jour
-  avec:
-    P1abo: 0
-    P1conso: 0
-    P1prime: 0
-    P1ECS: 0
-    P1Consofroid: froid
-    P2: 0
-    P3: 0
-    P4: 0
-    P4 moins aides: 0
-    aides: 0
-    total sans aides: 0
-    total avec aides: 0
