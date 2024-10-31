@@ -139,6 +139,8 @@ Bilan x Réseaux de chaleur:
         durée:
           # P4ECS
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -146,6 +148,8 @@ Bilan x Réseaux de chaleur:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -204,6 +208,8 @@ Bilan x Poêle à granulés indiv:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -211,6 +217,8 @@ Bilan x Poêle à granulés indiv:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -268,6 +276,8 @@ Bilan x Chaudière à granulés coll:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -275,6 +285,8 @@ Bilan x Chaudière à granulés coll:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -332,6 +344,8 @@ Bilan x Gaz indiv avec cond:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -339,6 +353,8 @@ Bilan x Gaz indiv avec cond:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -396,6 +412,8 @@ Bilan x Gaz indiv sans cond:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -403,6 +421,8 @@ Bilan x Gaz indiv sans cond:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -460,6 +480,8 @@ Bilan x Gaz coll avec cond:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -467,6 +489,8 @@ Bilan x Gaz coll avec cond:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Gaz coll avec cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Gaz coll avec cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -524,6 +548,8 @@ Bilan x Gaz coll sans cond:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -531,6 +557,8 @@ Bilan x Gaz coll sans cond:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Gaz coll sans cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Gaz coll sans cond . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -588,6 +616,8 @@ Bilan x Fioul indiv:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -595,6 +625,8 @@ Bilan x Fioul indiv:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Fioul indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Fioul indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -652,6 +684,8 @@ Bilan x Fioul coll:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -659,6 +693,8 @@ Bilan x Fioul coll:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Fioul coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Fioul coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -716,6 +752,8 @@ Bilan x PAC air-air indiv:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -723,6 +761,8 @@ Bilan x PAC air-air indiv:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . PAC air-air indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . PAC air-air indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -778,6 +818,8 @@ Bilan x PAC air-air coll:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -785,6 +827,8 @@ Bilan x PAC air-air coll:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . PAC air-air coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . PAC air-air coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -840,6 +884,8 @@ Bilan x PAC eau-eau indiv:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -847,6 +893,8 @@ Bilan x PAC eau-eau indiv:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -915,6 +963,8 @@ Bilan x PAC eau-eau coll:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -922,6 +972,8 @@ Bilan x PAC eau-eau coll:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . PAC eau-eau coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . PAC eau-eau coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -980,6 +1032,8 @@ Bilan x PAC air-eau indiv:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -987,6 +1041,8 @@ Bilan x PAC air-eau indiv:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . PAC air-eau indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . PAC air-eau indiv . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -1042,6 +1098,8 @@ Bilan x PAC air-eau coll:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -1049,6 +1107,8 @@ Bilan x PAC air-eau coll:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . PAC air-eau coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . PAC air-eau coll . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
@@ -1104,6 +1164,8 @@ Bilan x Radiateur électrique:
       avec:
         durée:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: ratios . CHAUF EAU ELEC Durée de vie
             - si: type de production ECS = 'Solaire thermique'
@@ -1111,6 +1173,8 @@ Bilan x Radiateur électrique:
             - sinon: 0
         capital:
           variations:
+            - si: type de production ECS = 'Avec équipement chauffage'
+              alors: Calcul Eco . Radiateur électrique . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Chauffe-eau électrique'
               alors: Calcul Eco . Radiateur électrique . Investissement ballon ECS à accumulation
             - si: type de production ECS = 'Solaire thermique'
