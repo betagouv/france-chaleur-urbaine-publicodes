@@ -34,6 +34,15 @@ Calcul Bilan:
                 alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . gros entretien P3 par logement tertiaire
         - sinon: 0
 
+    Surcout Réseau de froid P1prime:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+        - sinon: 0
+
     # P4 groupe froid
     # +MAX(
     #     -IFERROR(
@@ -72,7 +81,7 @@ Bilan x Réseaux de chaleur:
   avec:
     P1abo: Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
     P1conso: Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
-    P1prime: Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
@@ -161,7 +170,7 @@ Bilan x Poêle à granulés indiv:
   avec:
     P1abo: Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
-    P1prime: Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
@@ -224,7 +233,7 @@ Bilan x Chaudière à granulés coll:
   avec:
     P1abo: Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement
     P1conso: Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
-    P1prime: Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
@@ -287,7 +296,7 @@ Bilan x Gaz indiv avec cond:
   avec:
     P1abo: Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
@@ -350,7 +359,7 @@ Bilan x Gaz indiv sans cond:
   avec:
     P1abo: Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
@@ -413,7 +422,7 @@ Bilan x Gaz coll avec cond:
   avec:
     P1abo: Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
@@ -476,7 +485,7 @@ Bilan x Gaz coll sans cond:
   avec:
     P1abo: Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement
     P1conso: Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
@@ -539,7 +548,7 @@ Bilan x Fioul indiv:
   avec:
     P1abo: Calcul Eco . Fioul indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . Fioul indiv . Coût du combustible consommation
-    P1prime: Calcul Eco . Fioul indiv . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Fioul indiv . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
@@ -602,7 +611,7 @@ Bilan x Fioul coll:
   avec:
     P1abo: Calcul Eco . Fioul coll . Coût du combustible abonnement
     P1conso: Calcul Eco . Fioul coll . Coût du combustible consommation
-    P1prime: Calcul Eco . Fioul coll . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Fioul coll . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
@@ -791,7 +800,7 @@ Bilan x PAC eau-eau indiv:
   avec:
     P1abo: Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
-    P1prime: Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire
+    P1prime: Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
@@ -854,7 +863,7 @@ Bilan x PAC eau-eau coll:
   avec:
     P1abo: Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement
     P1conso: Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
-    P1prime: Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire
+    P1prime: Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
@@ -1043,7 +1052,7 @@ Bilan x Radiateur électrique:
   avec:
     P1abo: Calcul Eco . Radiateur électrique . Coût du combustible abonnement
     P1conso: Calcul Eco . Radiateur électrique . Coût du combustible consommation
-    P1prime: Calcul Eco . Radiateur électrique . Coût électricité auxiliaire
+    P1prime: Calcul Eco . Radiateur électrique . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
         - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
