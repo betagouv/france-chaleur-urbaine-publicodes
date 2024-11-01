@@ -86,7 +86,7 @@ Installation x Réseaux de chaleur x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       # E70 =IF(AND(C70="Oui",Type_ECS<>"Solaire thermique"),Besoin_ECS/'Paramètres techniques'!$D$189,0)
@@ -214,7 +214,7 @@ Installation x Poêle à granulés indiv x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -366,7 +366,7 @@ Installation x Chaudière à granulés coll x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -467,7 +467,7 @@ Installation x Gaz indiv avec cond x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -567,7 +567,7 @@ Installation x Gaz indiv sans cond x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -689,7 +689,7 @@ Installation x Gaz coll avec cond x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -809,7 +809,7 @@ Installation x Gaz coll sans cond x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -910,7 +910,7 @@ Installation x Fioul indiv x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1031,7 +1031,7 @@ Installation x Fioul coll x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1123,7 +1123,7 @@ Installation x PAC air-air x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1202,7 +1202,7 @@ Installation x PAC eau-eau x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1294,7 +1294,7 @@ Installation x PAC air-eau x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1379,7 +1379,7 @@ Installation x PAC air-air x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1459,7 +1459,7 @@ Installation x PAC eau-eau x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1559,7 +1559,7 @@ Installation x PAC air-eau x Collectif:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1647,7 +1647,7 @@ Installation x Radiateur électrique x Individuel:
               - besoin d'installation supplémentaire pour produire l'ECS
               - type de production ECS != "Solaire thermique"
           alors: volume du ballon ECS
-        - sinon: 0
+        - sinon: 50
       unité: L
     consommation d'électricité chauffe-eau électrique:
       variations:
@@ -1716,7 +1716,10 @@ Installation x Groupe froid x Individuel:
 
 volume du ballon ECS:
   # =(Besoin_ECS*'Ratios techniques'!$C$72)/365
-  formule: (besoins eau chaude sanitaire par appartement * ratios . ECS Quantité d'ECS produite par kWh) / 365
+  variations:
+    - si: type de production ECS = 'Solaire thermique'
+      alors: 50
+    - sinon: (besoins eau chaude sanitaire par appartement * ratios . ECS Quantité d'ECS produite par kWh) / 365
   unité: L
 
 chauffe-eau électrique x consommation d'électricité:
