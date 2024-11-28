@@ -105,7 +105,7 @@ Production eau chaude sanitaire:
       - non
 
 Inclure la climatisation:
-  par défaut: oui
+  par défaut: non
   une possibilité:
     choix obligatoire: oui
     possibilités:
