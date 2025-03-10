@@ -33,7 +33,7 @@
     "doc:build": "yarn run build && yarn --cwd doc run build"
   },
   "devDependencies": {
-    "@publicodes/tools": "^1.5.3",
+    "@publicodes/tools": "^1.2.4",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
     "publicodes": "npm:@totak/publicodes@1.5.1-fcu6"
