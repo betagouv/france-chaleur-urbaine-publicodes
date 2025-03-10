@@ -1709,25 +1709,25 @@ ratios:
       valeur: 90%
       unité: '%'
     RCU Rendement sous station chauffage:
-      valeur: 98%
+      valeur: 86%
       unité: '%'
     RCU Rendement sous station ECS:
-      valeur: 98%
+      valeur: 93%
       unité: '%'
     RCU Conso auxiliaire chauffage:
-      valeur: 96%
+      valeur: 99.8%
       unité: '%'
     RCU Conso auxiliaire ECS:
-      valeur: 91%
+      valeur: 99%
       unité: '%'
     RCU Durée avant renouvellement:
       valeur: 30
       unité: an
     RFU Rendement sous station:
-      valeur: 98%
+      valeur: 93%
       unité: '%'
     RFU Conso auxiliaire:
-      valeur: 95%
+      valeur: 99.8%
       unité: '%'
     RFU Durée de vie:
       valeur: 30
@@ -1742,19 +1742,19 @@ ratios:
       valeur: 16
       unité: an
     GRA CHAUD Rendement chaudière chauffage:
-      valeur: 90%
+      valeur: 82%
       unité: '%'
     GRA CHAUD Conso combustible:
       valeur: 0.217391304
       unité: kg granulés/an/kWh
     GRA CHAUD Conso auxiliaire:
-      valeur: 98%
+      valeur: 99.8%
       unité: '%'
     GRA CHAUD Durée de vie:
       valeur: 17
       unité: an
     GAZ IND COND Rendement chaudière chauffage:
-      valeur: 103%
+      valeur: 82%
       unité: '%'
     GAZ IND COND Rendement chaudière ECS:
       valeur: 87%
@@ -1763,31 +1763,31 @@ ratios:
       valeur: 0.0970
       unité: Nm3/kWh PCI
     GAZ IND COND Conso auxiliaire chauffage:
-      valeur: 96%
+      valeur: 99.9%
       unité: '%'
     GAZ IND COND Conso auxiliaire ECS:
-      valeur: 99%
+      valeur: 99.9%
       unité: '%'
     GAZ IND COND Durée de vie:
       valeur: 17
       unité: an
     GAZ IND SCOND Rendement chaudière:
-      valeur: 90%
+      valeur: 75%
       unité: '%'
     GAZ IND SCOND Conso combustible:
       valeur: 0.0970
       unité: Nm3/kWh PCI
     GAZ IND SCOND Conso auxiliaire chauffage:
-      valeur: 96%
+      valeur: 99.9%
       unité: '%'
     GAZ IND SCOND Conso auxiliaire ECS:
-      valeur: 99%
+      valeur: 99.9%
       unité: '%'
     GAZ IND SCOND Durée de vie:
       valeur: 17
       unité: an
     GAZ COLL COND Rendement chaudière chauffage:
-      valeur: 105%
+      valeur: 80%
       unité: '%'
     GAZ COLL COND Rendement chaudière ECS:
       valeur: 86%
@@ -1796,58 +1796,58 @@ ratios:
       valeur: 0.0970
       unité: Nm3/kWh PCI
     GAZ COLL COND Conso auxiliaire chauffage:
-      valeur: 93%
+      valeur: 99.8%
       unité: '%'
     GAZ COLL COND Conso auxiliaire ECS:
-      valeur: 97%
+      valeur: 99%
       unité: '%'
     GAZ COLL COND Durée de vie:
       valeur: 22
       unité: an
     GAZ COLL SCOND Rendement chaudière:
-      valeur: 90%
+      valeur: 73%
       unité: '%'
     GAZ COLL SCOND Conso combustible:
       valeur: 0.0970
       unité: Nm3/kWh PCI
     GAZ COLL SCOND Conso auxiliaire chauffage:
-      valeur: 93%
+      valeur: 99.8%
       unité: '%'
     GAZ COLL SCOND Conso auxiliaire ECS:
-      valeur: 97%
+      valeur: 99%
       unité: '%'
     GAZ COLL SCOND Durée de vie:
       valeur: 22
       unité: an
     FIOUL IND Rendement chaudière:
-      valeur: 85%
+      valeur: 73%
       unité: '%'
     FIOUL IND Conso combustible:
       valeur: 0.0947
       unité: L/kWh PCI
     FIOUL IND Conso auxiliaire chauffage:
-      valeur: 93%
+      valeur: 99.9%
       unité: '%'
     FIOUL IND Conso auxiliaire ECS:
-      valeur: 97%
+      valeur: 99.9%
       unité: '%'
     FIOUL IND Durée de vie:
       valeur: 21
       unité: an
     FIOUL COLL Rendement chaudière chauffage:
-      valeur: 80%
+      valeur: 71%
       unité: '%'
     FIOUL COLL Rendement chaudière ECS:
-      valeur: 70%
+      valeur: 71%
       unité: '%'
     FIOUL COLL Conso combustible:
       valeur: 0.0947
       unité: L/kWh PCI
     FIOUL COLL Conso auxiliaire chauffage:
-      valeur: 93%
+      valeur: 99.8%
       unité: '%'
     FIOUL COLL Conso auxiliaire ECS:
-      valeur: 97%
+      valeur: 99%
       unité: '%'
     FIOUL COLL Durée de vie:
       valeur: 21
@@ -1861,15 +1861,15 @@ ratios:
     PAC GNRL Aplusplusplus:
       valeur:  5.10
     PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air:
-      valeur: 96%
+      valeur: 99.8%
     PAC GNRL Conso auxiliaire ECS hors PAC air-air:
       valeur: 99%
     PAC GNRL SCOP mini:
       valeur: 1.8
     PAC AIR AIR SCOP indiv:
-      valeur: 2.65
+      valeur: 2.7
     PAC AIR AIR SCOP coll:
-      valeur: 3.15
+      valeur: 3.3
     PAC AIR AIR SEER indiv:
       valeur: 3.5
     PAC AIR AIR SEER coll:
@@ -1893,11 +1893,11 @@ ratios:
       unité: an
     PAC EAU EAU SCOP indiv capteurs horizontaux:
       somme:
-        - 4.6
+        - 4
         - Température émetteurs delta
     PAC EAU EAU SCOP coll champ de sondes:
       somme:
-        - 3.9
+        - 5
         - Température émetteurs delta
     PAC EAU EAU Puissance unitaire indiv:
       valeur: 8
@@ -1906,18 +1906,18 @@ ratios:
     PAC EAU EAU Classe énergétique:
       valeur: "'A+'"
     PAC EAU EAU Durée de vie:
-      valeur: 17
+      valeur: 22
       unité: an
     PAC EAU EAU Durée de vie puits géothermiques:
       valeur:  50
       unité: an
     PAC AIR EAU SCOP indiv:
       somme:
-        - 3
+        - 3.8
         - Température émetteurs delta
     PAC AIR EAU SCOP coll:
       somme:
-        - 3.4
+        - 3.98
         - Température émetteurs delta
     PAC AIR EAU SEER indiv:
       valeur: 3.5
@@ -1973,7 +1973,7 @@ ratios:
       remplace: Température émetteurs delta
       valeur: -1.2
     RAD ELEC INDIV Rendement:
-      valeur: 100%
+      valeur: 96%
       unité: '%'
     RAD ELEC INDIV Conso combustible:
       valeur: 100%
