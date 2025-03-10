@@ -1091,7 +1091,7 @@ Installation x PAC air-air x Individuel:
   avec:
     production eau chaude sanitaire: non
     puissance nécessaire équipement chauffage:
-      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC AIR AIR SCOP indiv)
+      formule: Calcul . Chauffage Puissance chauffage appelée
       unité: kW
     puissance nécessaire pour ECS avec équipement:
       formule: 0
@@ -1167,7 +1167,7 @@ Installation x PAC eau-eau x Individuel:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
-      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC EAU EAU SCOP indiv capteurs horizontaux)
+      formule: Calcul . Chauffage Puissance chauffage appelée
       unité: kW
     puissance nécessaire pour ECS avec équipement:
       variations:
@@ -1255,7 +1255,7 @@ Installation x PAC air-eau x Individuel:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
-      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC AIR EAU SCOP indiv)
+      formule: Calcul . Chauffage Puissance chauffage appelée
       unité: kW
     puissance nécessaire pour ECS avec équipement:
       variations:
@@ -1347,7 +1347,7 @@ Installation x PAC air-air x Collectif:
   avec:
     production eau chaude sanitaire: non
     puissance nécessaire équipement chauffage:
-      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC AIR AIR SCOP coll) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+      formule: Calcul . Chauffage Puissance chauffage appelée * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
       unité: kW
     puissance nécessaire pour ECS avec équipement:
       formule: 0
@@ -1423,7 +1423,7 @@ Installation x PAC eau-eau x Collectif:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
-      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . PAC EAU EAU SCOP coll champ de sondes) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+      formule: Calcul . Chauffage Puissance chauffage appelée * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
       unité: kW
     puissance nécessaire pour ECS avec équipement:
       variations:
@@ -1519,7 +1519,7 @@ Installation x PAC air-eau x Collectif:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
-      formule: (Calcul . Chauffage Puissance chauffage appelée /  ratios . PAC AIR EAU SCOP coll) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+      formule: Calcul . Chauffage Puissance chauffage appelée * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
       unité: kW
     puissance nécessaire pour ECS avec équipement:
       variations:
