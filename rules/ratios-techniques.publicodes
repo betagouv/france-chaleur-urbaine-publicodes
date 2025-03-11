@@ -1570,7 +1570,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - méthode résidentiel = "Normes thermiques et âge du bâtiment"
-          - normes thermiques et âge du bâtiment = "RE2020 Après 2020"
+          - normes thermiques et âge du bâtiment = "RE2020 - Après 2020"
       remplace: puissance coefficient d'intermittence
       valeur: 70%
       unité: '%'
@@ -1579,7 +1579,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - méthode résidentiel = "Normes thermiques et âge du bâtiment"
-          - normes thermiques et âge du bâtiment = "RT2012 Entre 2012 et 2020"
+          - normes thermiques et âge du bâtiment = "RT2012 - Entre 2012 et 2020"
       remplace: puissance coefficient d'intermittence
       valeur: 70%
       unité: '%'
@@ -1588,7 +1588,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - méthode résidentiel = "Normes thermiques et âge du bâtiment"
-          - normes thermiques et âge du bâtiment = "RT2005 Entre 2005 et 2012"
+          - normes thermiques et âge du bâtiment = "RT2005 - Entre 2005 et 2012"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
@@ -1597,7 +1597,7 @@ ratios:
         toutes ces conditions:
           - type de bâtiment = "résidentiel"
           - méthode résidentiel = "Normes thermiques et âge du bâtiment"
-          - normes thermiques et âge du bâtiment = "RT2000 Entre 2000 et 2005"
+          - normes thermiques et âge du bâtiment = "RT2000 - Entre 2000 et 2005"
       remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
