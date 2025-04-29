@@ -347,7 +347,7 @@ Paramètres économiques:
             produit:
               - variations:
                 - si: Type de conditionnement = 'Conditionné en sac'
-                  alors: 438
+                  alors: 443
                 - sinon: 426
               - 1 + TVA
           note: 'Source: CEEB 2024'
