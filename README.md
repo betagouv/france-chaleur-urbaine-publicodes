@@ -1,41 +1,48 @@
-# france-chaleur-urbaine-publicodes
+# Publicodes x France Chaleur Urbaine
 
+[API docs](https://betagouv.github.io/france-chaleur-urbaine-publicodes/)
 
+Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenariat avec l'association [AMORCE](https://amorce.asso.fr/) dans le cadre de l'[action C3 du programme européen Heat & Cool](https://www.cerema.fr/fr/actualites/quels-leviers-collectivites-locales-developper-reseaux)
 
-## Installation
-
-```sh
-pnpm install france-chaleur-urbaine-publicodes publicodes
-```
 
 ## Usage
 
-```typescript
-import { Engine } from 'publicodes'
-import rules from 'france-chaleur-urbaine-publicodes'
+```sh
+# installe les dépendances
+pnpm install
 
-const engine = new Engine(rules)
+# compile le modèle publicodes en un fichier JSON et lance la documentation (mode watch)
+pnpm dev
+```
 
-console.log(engine.evaluate('salaire net').nodeValue)
-// 1957.5
+### Publier une nouvelle version
 
-engine.setSituation({ 'salaire brut': 4000 })
-console.log(engine.evaluate('salaire net').nodeValue)
-// 3120
+Afin de publier une nouvelle version il suffit d'exécuter la commande `npm version`, pour créer un commit avec la nouvelle version dans le package.json et faire un tag git.
+```sh
+# prochaine version v0.X.0
+pnpm version minor
+```
+
+Il ne reste alors plus qu'à pousser le commit et le tag pour créer une release sur le [registre NPM](https://www.npmjs.com/package/@betagouv/france-chaleur-urbaine-publicodes).
+```sh
+git push && git push --tags
 ```
 
 ## Development
 
 ```sh
-// Install the dependencies
+# Install the dependencies
 pnpm install
 
-// Compile the Publicodes rules
-pnpm run compile
+# Compile the Publicodes rules
+pnpm compile
 
-// Run the tests
-pnpm run test
+# Run the tests
+pnpm test
 
-// Run the documentation server
-pnpm run doc
+# Run the benchmark
+pnpm bench
+
+# Run the documentation server
+pnpm dev
 ```
