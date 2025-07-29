@@ -1,3 +1,6 @@
+packages:
+  - '.'
+  - 'doc'
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
