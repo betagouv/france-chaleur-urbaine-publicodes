@@ -1,4 +1,6 @@
 name: Build rules
+permissions:
+  contents: read
 
 on:
   push:
