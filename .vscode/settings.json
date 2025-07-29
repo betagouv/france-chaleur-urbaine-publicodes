@@ -1,4 +1,6 @@
+
 {
+  "prettier.documentSelectors": ["**/*.publicodes"],
   "editor.semanticTokenColorCustomizations": {
     "rules": {
       "*.readonly:publicodes": {

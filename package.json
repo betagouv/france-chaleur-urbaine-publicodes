@@ -1,45 +1,28 @@
 {
-  "name": "@betagouv/france-chaleur-urbaine-publicodes",
-  "version": "1.0.6",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/betagouv/france-chaleur-urbaine-publicodes.git"
-  },
-  "homepage": "https://github.com/betagouv/france-chaleur-urbaine-publicodes#readme",
+  "name": "france-chaleur-urbaine-publicodes",
   "description": "",
-  "authors": [
-    "Maxime Dréau <maxime.dreau@beta.gouv.fr>",
-    "Martin Ratinaud <martin.ratinaud@beta.gouv.fr>"
-  ],
-  "bugs": {
-    "url": "https://github.com/betagouv/france-chaleur-urbaine-publicodes/issues"
-  },
-  "files": [
-    "france-chaleur-urbaine-publicodes.model.json",
-    "index.js",
-    "index.d.ts"
-  ],
-  "main": "index.js",
-  "module": "index.js",
+  "version": "0.1.0",
+  "author": "",
+  "license": "MIT",
   "type": "module",
-  "types": "index.d.ts",
+  "main": "publicodes-build/index.js",
+  "types": "publicodes-build/index.d.ts",
+  "files": [
+    "publicodes-build"
+  ],
   "scripts": {
-    "dev": "concurrently npm:watch:*",
-    "clean": "rm -r france-chaleur-urbaine-publicodes.model.json index.d.ts index.js",
-    "api": "yarn --cwd api start",
-    "watch:build": "chokidar --initial 'rules/**/*.publicodes' --command 'yarn build'",
-    "watch:doc": "yarn --cwd doc run dev",
-    "build": "node build.js",
-    "doc:build": "yarn run build && yarn --cwd doc run build"
+    "compile": "publicodes compile",
+    "dev": "publicodes dev",
+    "pretest": "pnpm run compile",
+    "test": "vitest run",
+    "bench": "pnpm compile && node --experimental-strip-types ./bench/index.ts"
+  },
+  "peerDependencies": {
+    "publicodes": "^1.9.0"
   },
   "devDependencies": {
-    "@publicodes/tools": "^1.2.4",
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^8.2.2",
-    "publicodes": "npm:@totak/publicodes@1.5.1-fcu6"
-  },
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+    "@publicodes/tools": "^1.7.2",
+    "vitest": "^2.1.2",
+    "mitata": "^0.1.6"
   }
 }

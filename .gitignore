@@ -1,8 +1,2 @@
 node_modules
-.yarn
-france-chaleur-urbaine-publicodes.model.json
-index.d.ts
-index.js
-
-# direnv
-.envrc
+publicodes-build
