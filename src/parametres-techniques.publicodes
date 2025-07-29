@@ -31,32 +31,26 @@ nom département: nom département # se fait remplacer par les données départe
 zone climatique:
   par défaut: zone climatique # se fait remplacer par les données département
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'H1'"
-      - "'H2'"
-      - "'H3'"
+    - "'H1'"
+    - "'H2'"
+    - "'H3'"
 sous zone climatique:
   par défaut: sous zone climatique # se fait remplacer par les données département
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'H1a'"
-      - "'H1b'"
-      - "'H1c'"
-      - "'H2a'"
-      - "'H2b'"
-      - "'H2c'"
-      - "'H2d'"
-      - "'H3'"
+    - "'H1a'"
+    - "'H1b'"
+    - "'H1c'"
+    - "'H2a'"
+    - "'H2b'"
+    - "'H2c'"
+    - "'H2d'"
+    - "'H3'"
 
 mode affichage:
   par défaut: "'grand public'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'grand public'"
-      - "'technicien'"
+    - "'grand public'"
+    - "'technicien'"
 
 ###### Réseaux de chaleur et de froid
 contenu CO2 réseau de chaleur:
@@ -72,10 +66,8 @@ contenu CO2 réseau de froid:
 type de bâtiment:
   par défaut: "'résidentiel'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'résidentiel'"
-      - "'tertiaire'"
+    - "'résidentiel'"
+    - "'tertiaire'"
 
 nombre de logements dans l'immeuble concerné:
   # =IF(Type_bat="Tertiaire",1,'Ratios techniques'!$C$18)
@@ -99,37 +91,29 @@ Production eau chaude sanitaire:
   # ='Ratios techniques'!$C$15
   par défaut: ratios . GNRL Production ECS
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - oui
-      - non
+    - "'oui'"
+    - "'non'"
 
 Inclure la climatisation:
   par défaut: non
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - oui
-      - non
+    - "'oui'"
+    - "'non'"
 
 type de production de froid:
   # L32
   par défaut: "'Groupe froid'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'Groupe froid'"
-      - "'Réseau de froid'"
+    - "'Groupe froid'"
+    - "'Réseau de froid'"
 
 type de production ECS:
   # C29 alias Paramètres économiques C8 (Type de résidentiel)
   par défaut: "'Avec équipement chauffage'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'Avec équipement chauffage'"
-      - "'Chauffe-eau électrique'"
-      - "'Solaire thermique'"
+    - "'Avec équipement chauffage'"
+    - "'Chauffe-eau électrique'"
+    - "'Solaire thermique'"
 Part de la surface à climatiser:
   # =IF(Type_bat="Résidentiel",'Ratios techniques'!$C$19,'Ratios techniques'!$C$20)
   par défaut:
@@ -141,14 +125,12 @@ Part de la surface à climatiser:
 Température émetteurs:
   par défaut: "'55'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'35'"
-      - "'45'"
-      - "'55'"
-      - "'65'"
-      - "'Plancher'"
-      - "'Radiateur'"
+    - "'35'"
+    - "'45'"
+    - "'55'"
+    - "'65'"
+    - "'Plancher'"
+    - "'Radiateur'"
 Température émetteurs delta: Température émetteurs delta
 
 ###### Besoins calculés
@@ -165,61 +147,51 @@ méthode de calcul pour les besoins en chauffage et refroidissement:
 méthode résidentiel:
   par défaut: "'DPE'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'Normes thermiques et âge du bâtiment'"
-      - "'DPE'"
+    - "'Normes thermiques et âge du bâtiment'"
+    - "'DPE'"
 
 DPE:
   par défaut: "'C'"
   une possibilité:
-    choix obligatoire: méthode de calcul pour les besoins en chauffage et refroidissement = "DPE"
-    possibilités:
-      - "'A'"
-      - "'B'"
-      - "'C'"
-      - "'D'"
-      - "'E'"
-      - "'F'"
-      - "'G'"
+    - "'A'"
+    - "'B'"
+    - "'C'"
+    - "'D'"
+    - "'E'"
+    - "'F'"
+    - "'G'"
 
 normes thermiques et âge du bâtiment:
   par défaut: "'de 1990 à 2000'"
   une possibilité:
-    choix obligatoire: méthode de calcul pour les besoins en chauffage et refroidissement = "Normes thermiques et âge du bâtiment"
-    possibilités:
-      - "'RE2020 - Après 2020'"
-      - "'RT2012 - Entre 2012 et 2020'"
-      - "'RT2005 - Entre 2005 et 2012'"
-      - "'RT2000 - Entre 2000 et 2005'"
-      - "'de 1990 à 2000'"
-      - "'de 1974 à 1990'"
-      - "'avant 1974'"
+    - "'RE2020 - Après 2020'"
+    - "'RT2012 - Entre 2012 et 2020'"
+    - "'RT2005 - Entre 2005 et 2012'"
+    - "'RT2000 - Entre 2000 et 2005'"
+    - "'de 1990 à 2000'"
+    - "'de 1974 à 1990'"
+    - "'avant 1974'"
 
 # quand bâtiment tertiaire
 méthode tertiaire:
   par défaut: "'Bureaux'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'Bureaux'"
-      - "'Enseignement secondaire'"
-      - "'Enseignement primaire'"
-      - "'Commerces'"
-      - "'Café, restaurant'"
-      - "'Hôtel'"
-      - "'Sport'"
-      - "'EHPAD'"
-      - "'Santé'"
+    - "'Bureaux'"
+    - "'Enseignement secondaire'"
+    - "'Enseignement primaire'"
+    - "'Commerces'"
+    - "'Café, restaurant'"
+    - "'Hôtel'"
+    - "'Sport'"
+    - "'EHPAD'"
+    - "'Santé'"
 
 normes thermiques tertiaire:
   par défaut: "'RE2020'"
   une possibilité:
-    choix obligatoire: oui
-    possibilités:
-      - "'RE2020'"
-      - "'RT2012'"
-      - "'Moyenne française 2021'"
+    - "'RE2020'"
+    - "'RT2012'"
+    - "'Moyenne française 2021'"
 
 
 consommation spécifique chauffage: consommation spécifique chauffage # maj depuis les ratios techniques

@@ -26,10 +26,8 @@ ratios:
     GNRL Production ECS:
       par défaut: oui
       une possibilité:
-        choix obligatoire: oui
-        possibilités:
-          - oui
-          - non
+        - "'oui'"
+        - "'non'"
     GNRL Appartement ou maison:
       valeur: "'Appartement'"
     GNRL Nombre de logement dans l'immeuble concerné:
