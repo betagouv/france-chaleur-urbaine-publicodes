@@ -31,4 +31,4 @@ jobs:
         run: pnpm install
 
       - name: Compile the rules
-        run: yarn build
+        run: pnpm compile
