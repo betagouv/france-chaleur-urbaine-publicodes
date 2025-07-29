@@ -15,7 +15,8 @@
     "dev": "publicodes dev",
     "pretest": "pnpm run compile",
     "test": "vitest run",
-    "bench": "pnpm compile && node --experimental-strip-types ./bench/index.ts"
+    "bench": "pnpm compile && node --experimental-strip-types ./bench/index.ts",
+    "doc:build": "pnpm compile && pnpm --filter doc build"
   },
   "peerDependencies": {
     "publicodes": "^1.9.0"
