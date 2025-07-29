@@ -1,8 +1,19 @@
 {
   "name": "france-chaleur-urbaine-publicodes",
   "description": "",
-  "version": "0.1.0",
-  "author": "",
+  "version": "1.0.6",
+  "homepage": "https://github.com/betagouv/france-chaleur-urbaine-publicodes#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/betagouv/france-chaleur-urbaine-publicodes.git"
+  },
+  "authors": [
+    "Maxime Dréau <maxime.dreau@beta.gouv.fr>",
+    "Martin Ratinaud <martin.ratinaud@beta.gouv.fr>"
+  ],
+  "bugs": {
+    "url": "https://github.com/betagouv/france-chaleur-urbaine-publicodes/issues"
+  },
   "license": "MIT",
   "type": "module",
   "main": "publicodes-build/index.js",
@@ -25,5 +36,8 @@
     "@publicodes/tools": "^1.7.2",
     "vitest": "^2.1.2",
     "mitata": "^0.1.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
