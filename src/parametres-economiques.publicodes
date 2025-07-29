@@ -146,10 +146,8 @@ Paramètres économiques:
     Electricité x Option tarifaire:
       # B109
       une possibilité:
-        choix obligatoire: oui
-        possibilités:
-          - "'Option base'"
-          - "'Heure pleine/Heure creuse'"
+        - "'Option base'"
+        - "'Heure pleine/Heure creuse'"
       par défaut: "'Option base'"
     Electricité x Puissance souscrite indiv:
       # B111 =SI('Paramètres techniques'!$C$31="Oui";9;6)
@@ -337,9 +335,8 @@ Paramètres économiques:
         Type de conditionnement:
           par défaut: "'Conditionné en sac'"
           une possibilité:
-            possibilités:
-              - "'Conditionné en sac'"
-              - "'Conditionné en vrac'"
+            - "'Conditionné en sac'"
+            - "'Conditionné en vrac'"
           note: 'Source: ELCIMAI 2024'
         Prix pour les granulés:
           # =XLOOKUP(D$129,'Ratios économiques - Coûts'!$B$308:$B$309,'Ratios économiques - Coûts'!$C$308:$C$309)*(1+$D$132)
@@ -385,10 +382,8 @@ Paramètres économiques:
         Tarification connue:
           par défaut: "'non'"
           une possibilité:
-            choix obligatoire: non
-            possibilités:
-              - oui
-              - non
+            - "'oui'"
+            - "'non'"
         Tarification R2 x Part fixe:
           unité: €/kWh
         Tarification R1 x Part variable:
@@ -546,36 +541,28 @@ Paramètres économiques:
           # alias Calculs économiques B90
           par défaut: "'oui'"
           une possibilité:
-            choix obligatoire: oui
-            possibilités:
-              - oui
-              - non
+            - "'oui'"
+            - "'non'"
         Éligibilité x Je suis un particulier:
           # ='Ratios économiques - Aides'!$C$7
           par défaut: "'oui'"
           une possibilité:
-            choix obligatoire: oui
-            possibilités:
-              - oui
-              - non
+            - "'oui'"
+            - "'non'"
         Éligibilité x Ressources du ménage:
           # ='Ratios économiques - Aides'!$C$8
           par défaut: "'Modeste'"
           une possibilité:
-            choix obligatoire: oui
-            possibilités:
-              - "'Très modeste'"
-              - "'Modeste'"
-              - "'Intermédiaire'"
-              - "'Supérieur'"
+            - "'Très modeste'"
+            - "'Modeste'"
+            - "'Intermédiaire'"
+            - "'Supérieur'"
         Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul:
           # ='Ratios économiques - Aides'!$C$265
           par défaut: "'oui'"
           une possibilité:
-            choix obligatoire: oui
-            possibilités:
-              - oui
-              - non
+            - "'oui'"
+            - "'non'"
         Aides x Éligible Ma prime renov':
           # =IF(AND($D$212="Oui",$D$213<>"Supérieur"),"Eligible","Non éligible")
           # alias Calculs économiques B91
@@ -584,10 +571,8 @@ Paramètres économiques:
               - Éligibilité x Je suis un particulier
               - Éligibilité x Ressources du ménage != 'Supérieur'
           une possibilité:
-            choix obligatoire: oui
-            possibilités:
-              - oui
-              - non
+            - "'oui'"
+            - "'non'"
         Aides x Éligible Coup de pouce chauffage:
           # =IF(AND($D$212="Oui",$D$214="Oui",$C$7="Résidentiel"),"Eligible","Non éligible")
           # alias Calculs économiques B92
@@ -597,18 +582,14 @@ Paramètres économiques:
               - Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
               - type de bâtiment = 'résidentiel'
           une possibilité:
-            choix obligatoire: oui
-            possibilités:
-              - oui
-              - non
+            - "'oui'"
+            - "'non'"
         Aides x Éligible CEE:
           # alias Calculs économiques B93
           par défaut: "'oui'"
           une possibilité:
-            choix obligatoire: oui
-            possibilités:
-              - oui
-              - non
+            - "'oui'"
+            - "'non'"
         Valeur CEE:
           # =IF(D213="Très modeste", 'Ratios économiques - Aides'!$C$31,'Ratios économiques - Aides'!$C$32)
           # alias Calculs économiques B94
