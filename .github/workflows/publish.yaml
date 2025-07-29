@@ -42,7 +42,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy_gh_page:
-    needs: publish
+    # temporary to test the build
+    # needs: publish
     runs-on: ubuntu-22.04
     strategy:
       matrix:
