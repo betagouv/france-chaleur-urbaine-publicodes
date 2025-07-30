@@ -27,6 +27,7 @@
     "pretest": "pnpm run compile",
     "test": "vitest run",
     "bench": "pnpm compile && node --experimental-strip-types ./bench/index.ts",
+    "build": "pnpm compile",
     "doc:build": "pnpm compile && pnpm --filter ./doc build"
   },
   "peerDependencies": {
