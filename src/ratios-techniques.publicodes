@@ -1851,13 +1851,13 @@ ratios:
       valeur: 21
       unité: an
     PAC GNRL A:
-      valeur:  3.60
+      valeur: 3.60
     PAC GNRL Aplus:
-      valeur:  4.30
+      valeur: 4.30
     PAC GNRL Aplusplus:
-      valeur:  4.85
+      valeur: 4.85
     PAC GNRL Aplusplusplus:
-      valeur:  5.10
+      valeur: 5.10
     PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air:
       valeur: 99.8%
     PAC GNRL Conso auxiliaire ECS hors PAC air-air:
@@ -1907,7 +1907,7 @@ ratios:
       valeur: 22
       unité: an
     PAC EAU EAU Durée de vie puits géothermiques:
-      valeur:  50
+      valeur: 50
       unité: an
     PAC AIR EAU SCOP indiv:
       somme:
@@ -1938,7 +1938,7 @@ ratios:
     PAC AB Classe énergétique:
       valeur: "'A+'"
     PAC AB Puissance unitaire coll:
-      valeur:  35
+      valeur: 35
       unité: kW
     PAC AB Conso combustible gaz coll:
       valeur: 72%

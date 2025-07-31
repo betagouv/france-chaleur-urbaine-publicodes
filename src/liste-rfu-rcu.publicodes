@@ -3,7 +3,7 @@
 # Par défaut, les valeurs sont les moyennes chaud et froid.
 
 caractéristique réseau de chaleur:
-  note: "MOYENNE RESEAUX CHAUD"
+  note: 'MOYENNE RESEAUX CHAUD'
   avec:
     contenu CO2:
       par défaut: 0.084
@@ -24,18 +24,18 @@ caractéristique réseau de chaleur:
     prix moyen:
       par défaut: 114.2
       unité: €TTC/MWh
-      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce"
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
     part fixe:
       par défaut: 40
       unité: '%'
-      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce"
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
     part variable:
       formule: 100% - caractéristique réseau de chaleur . part fixe
       unité: '%'
-      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce"
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
 
 caractéristique réseau de froid:
-  note: "MOYENNE RESEAUX FROID"
+  note: 'MOYENNE RESEAUX FROID'
   avec:
     contenu CO2:
       par défaut: 0.011
@@ -55,12 +55,12 @@ caractéristique réseau de froid:
     prix moyen:
       par défaut: 233
       unité: €TTC/MWh
-      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce"
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
     part fixe:
       par défaut: 45
       unité: '%'
-      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce"
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
     part variable:
       formule: 100% - caractéristique réseau de froid . part fixe
       unité: '%'
-      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce"
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'

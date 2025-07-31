@@ -107,7 +107,6 @@ Calcul Bilan:
           alors: Amortissement aides réseau de froid
         - sinon: 0
 
-
 Bilan x Réseaux de chaleur:
   avec:
     P1abo: Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
@@ -205,7 +204,6 @@ Bilan x Réseaux de chaleur:
       somme:
         - total sans aides
         - (- aides)
-
 
 Bilan x Poêle à granulés indiv:
   avec:

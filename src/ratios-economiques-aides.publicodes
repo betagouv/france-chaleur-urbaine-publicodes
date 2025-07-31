@@ -215,7 +215,7 @@ ratios économiques x aides:
         - si: zone climatique = 'H3'
           alors: 11600
       unité: kWh cumac
-      note: "Source : ADEME 2024"
+      note: 'Source : ADEME 2024'
     CEE x PAC air-air inf 12kW appartement indiv x facteur correctif:
       # TODO vérifier si c'est bien ce type de condition
       variations:
@@ -232,18 +232,18 @@ ratios économiques x aides:
         - si: surface logement type tertiaire <= 130
           alors: 1.9
         - sinon: 2.5
-      note: "Source : ADEME 2024"
+      note: 'Source : ADEME 2024'
 
     CEE x PAC air-air inf 12kW maison indiv x montant:
       variations:
         - si: zone climatique = 'H1'
-          alors:  77900
+          alors: 77900
         - si: zone climatique = 'H2'
-          alors:  63700
+          alors: 63700
         - si: zone climatique = 'H3'
-          alors:  42500
+          alors: 42500
       unité: kWh cumac
-      note: "Source : ADEME 2024"
+      note: 'Source : ADEME 2024'
     CEE x PAC air-air inf 12kW maison indiv x facteur correctif:
       # TODO vérifier si c'est bien ce type de condition
       variations:
@@ -260,7 +260,7 @@ ratios économiques x aides:
         - si: surface logement type tertiaire <= 130
           alors: 1.1
         - sinon: 1.6
-      note: "Source : ADEME 2024"
+      note: 'Source : ADEME 2024'
 
     # N'existe pas dans les types d'installations retenus
     # Coup de pouce x Modeste x Chaudière biomasse:
@@ -355,7 +355,6 @@ ratios économiques x aides:
       unité: €
       note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
 
-
     CEE x Chauffe-eau solaire collectif x Ratio:
       valeur: 0.196
 
@@ -370,7 +369,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 1.8
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x RFU x facteur correctif:
           variations:
             - si: méthode tertiaire = 'Bureaux'
@@ -392,7 +391,7 @@ ratios économiques x aides:
             - si: méthode tertiaire = 'Sport'
               alors: 19800
           unité: kWh cumac/kW
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x PAC air-air inf 12kW x montant:
           variations:
             - si: zone climatique = 'H1'
@@ -402,7 +401,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 620
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x PAC air-air inf 12kW x facteur correctif:
           variations:
             - si: méthode tertiaire = 'Bureaux'
@@ -423,7 +422,7 @@ ratios économiques x aides:
               alors: 0.7
             - si: méthode tertiaire = 'Sport'
               alors: 0.7
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x PAC air-air sup 12kW x montant:
           variations:
             - si: zone climatique = 'H1'
@@ -433,7 +432,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 630
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x PAC air-air sup 12kW x facteur correctif:
           variations:
             - si: méthode tertiaire = 'Bureaux'
@@ -454,7 +453,7 @@ ratios économiques x aides:
               alors: 0.7
             - si: méthode tertiaire = 'Sport'
               alors: 0.7
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
 
         CEE x GAZ COLL COND inf 400kW x montant chauffage seul:
           variations:
@@ -465,7 +464,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 200
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x GAZ COLL COND inf 400kW x montant chauffage avec ECS:
           variations:
             - si: zone climatique = 'H1'
@@ -475,7 +474,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 240
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x GAZ COLL COND inf 400kW x facteur correctif:
           variations:
             - si: méthode tertiaire = 'Bureaux'
@@ -496,7 +495,7 @@ ratios économiques x aides:
               alors: 1.4
             - si: méthode tertiaire = 'Sport'
               alors: 0.7
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x GAZ COLL COND sup 400kW x montant chauffage seul:
           variations:
             - si: zone climatique = 'H1'
@@ -506,7 +505,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 220
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x GAZ COLL COND sup 400kW x montant chauffage avec ECS:
           variations:
             - si: zone climatique = 'H1'
@@ -516,7 +515,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 260
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x GAZ COLL COND sup 400kW x facteur correctif:
           variations:
             - si: méthode tertiaire = 'Bureaux'
@@ -537,7 +536,7 @@ ratios économiques x aides:
               alors: 1.4
             - si: méthode tertiaire = 'Sport'
               alors: 0.7
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x PAC air-eau ou eau-eau inf 400 kW x facteur correctif:
           variations:
             - si: méthode tertiaire = 'Bureaux'
@@ -558,7 +557,7 @@ ratios économiques x aides:
               alors: 0.7
             - si: méthode tertiaire = 'Sport'
               alors: 0.7
-          note: "Source : ADEME 2024"
+          note: 'Source : ADEME 2024'
         CEE x PAC air-eau ou eau-eau inf 400 kW x montant:
           variations:
             - si: zone climatique = 'H1'
@@ -568,7 +567,7 @@ ratios économiques x aides:
             - si: zone climatique = 'H3'
               alors: 260
           unité: kWh cumac/m2
-          note: "Source : ADEME 2024 avec rendement saisonnier 120%"
+          note: 'Source : ADEME 2024 avec rendement saisonnier 120%'
 
         CEE x Chauffe-eau solaire x Ratio:
           # QUESTION déjà posée: quelle différence entre ratios éco - aides > C261 et C447 ?

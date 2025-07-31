@@ -115,12 +115,12 @@ Installation x Réseaux de chaleur x Collectif:
       somme:
         - besoins chauffage par appartement / ratios . RCU Rendement sous station chauffage
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: besoins eau chaude sanitaire par appartement / ratios . RCU Rendement sous station ECS
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: besoins eau chaude sanitaire par appartement / ratios . RCU Rendement sous station ECS
+            - sinon: 0
       unité: kWh
     consommation combustible froid:
       formule: 0
@@ -130,12 +130,12 @@ Installation x Réseaux de chaleur x Collectif:
       somme:
         - (1 - ratios . RCU Conso auxiliaire chauffage) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . RCU Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . RCU Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -392,11 +392,11 @@ Installation x Chaudière à granulés coll x Collectif:
       produit:
         - ratios . GRA CHAUD Conso combustible
         - somme:
-          - besoins chauffage par appartement
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement
-            - sinon: 0
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
         - 1 / ratios . GRA CHAUD Rendement chaudière chauffage
       unité: kg granulés/an
     consommation combustible froid:
@@ -407,12 +407,12 @@ Installation x Chaudière à granulés coll x Collectif:
       somme:
         - (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -492,11 +492,11 @@ Installation x Gaz indiv avec cond x Individuel:
       produit:
         - ratios . GAZ IND COND Conso combustible
         - somme:
-          - besoins chauffage par appartement /  ratios . GAZ IND COND Rendement chaudière chauffage
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement / ratios . GAZ IND COND Rendement chaudière ECS
-            - sinon: 0
+            - besoins chauffage par appartement /  ratios . GAZ IND COND Rendement chaudière chauffage
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement / ratios . GAZ IND COND Rendement chaudière ECS
+                - sinon: 0
       unité: Nm3 gaz/an
     consommation combustible froid:
       formule: 0
@@ -506,12 +506,12 @@ Installation x Gaz indiv avec cond x Individuel:
       somme:
         - (1 - ratios . GAZ IND COND Conso auxiliaire chauffage) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . GAZ IND COND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . GAZ IND COND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -592,11 +592,11 @@ Installation x Gaz indiv sans cond x Individuel:
       produit:
         - ratios . GAZ IND SCOND Conso combustible
         - somme:
-          - besoins chauffage par appartement
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement
-            - sinon: 0
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
         - 1 / ratios . GAZ IND SCOND Rendement chaudière
       unité: Nm3 gaz/an
     consommation combustible froid:
@@ -607,12 +607,12 @@ Installation x Gaz indiv sans cond x Individuel:
       somme:
         - (1 - ratios . GAZ IND SCOND Conso auxiliaire chauffage) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . GAZ IND SCOND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . GAZ IND SCOND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -714,11 +714,11 @@ Installation x Gaz coll avec cond x Collectif:
       produit:
         - ratios . GAZ COLL COND Conso combustible
         - somme:
-          - besoins chauffage par appartement / ratios . GAZ COLL COND Rendement chaudière chauffage
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement / ratios . GAZ COLL COND Rendement chaudière ECS
-            - sinon: 0
+            - besoins chauffage par appartement / ratios . GAZ COLL COND Rendement chaudière chauffage
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement / ratios . GAZ COLL COND Rendement chaudière ECS
+                - sinon: 0
       unité: Nm3 gaz/an
     consommation combustible froid:
       formule: 0
@@ -728,12 +728,12 @@ Installation x Gaz coll avec cond x Collectif:
       somme:
         - (1 - ratios . GAZ COLL COND Conso auxiliaire chauffage) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . GAZ COLL COND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . GAZ COLL COND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -834,11 +834,11 @@ Installation x Gaz coll sans cond x Collectif:
       produit:
         - ratios . GAZ COLL SCOND Conso combustible
         - somme:
-          - besoins chauffage par appartement
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement
-            - sinon: 0
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
         - 1 / ratios . GAZ COLL SCOND Rendement chaudière
       unité: Nm3 gaz/an
     consommation combustible froid:
@@ -849,12 +849,12 @@ Installation x Gaz coll sans cond x Collectif:
       somme:
         - (1 - ratios . GAZ COLL SCOND Conso auxiliaire chauffage) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . GAZ COLL SCOND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . GAZ COLL SCOND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -935,11 +935,11 @@ Installation x Fioul indiv x Individuel:
       produit:
         - ratios . FIOUL IND Conso combustible
         - somme:
-          - besoins chauffage par appartement
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement
-            - sinon: 0
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
         - 1 / ratios . FIOUL IND Rendement chaudière
       unité: L/an
     consommation combustible froid:
@@ -950,12 +950,12 @@ Installation x Fioul indiv x Individuel:
       somme:
         - (1 - ratios . FIOUL IND Conso auxiliaire chauffage) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . FIOUL IND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . FIOUL IND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -1056,11 +1056,11 @@ Installation x Fioul coll x Collectif:
       produit:
         - ratios . FIOUL COLL Conso combustible
         - somme:
-          - besoins chauffage par appartement / ratios . FIOUL COLL Rendement chaudière chauffage
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS
-            - sinon: 0
+            - besoins chauffage par appartement / ratios . FIOUL COLL Rendement chaudière chauffage
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS
+                - sinon: 0
       unité: L/an
     consommation combustible froid:
       formule: 0
@@ -1070,12 +1070,12 @@ Installation x Fioul coll x Collectif:
       somme:
         - (1 - ratios . FIOUL COLL Conso auxiliaire chauffage) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . FIOUL COLL Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . FIOUL COLL Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
@@ -1108,8 +1108,8 @@ Installation x PAC air-air x Individuel:
       # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
       produit:
         - somme:
-          - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible indiv
-          - 1
+            - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible indiv
+            - 1
         - ratios . PAC AIR AIR Puissance unitaire réversible indiv
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
@@ -1186,8 +1186,8 @@ Installation x PAC eau-eau x Individuel:
     gamme de puissance existante:
       produit:
         - somme:
-          - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire indiv
-          - 1
+            - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire indiv
+            - 1
         - ratios . PAC EAU EAU Puissance unitaire indiv
       unité: kW
 
@@ -1233,12 +1233,12 @@ Installation x PAC eau-eau x Individuel:
       somme:
         - (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       valeur: 0
@@ -1272,15 +1272,15 @@ Installation x PAC air-eau x Individuel:
     puissance équipement:
       le maximum de:
         - somme:
-          - puissance nécessaire équipement chauffage
-          - puissance nécessaire pour ECS avec équipement
+            - puissance nécessaire équipement chauffage
+            - puissance nécessaire pour ECS avec équipement
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       produit:
         - somme:
-          - valeur: puissance équipement // ratios . PAC AIR EAU Puissance unitaire réversible indiv
-          - 1
+            - valeur: puissance équipement // ratios . PAC AIR EAU Puissance unitaire réversible indiv
+            - 1
         - ratios . PAC AIR EAU Puissance unitaire réversible indiv
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
@@ -1325,12 +1325,12 @@ Installation x PAC air-eau x Individuel:
       somme:
         - (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air) * (besoins chauffage par appartement + besoins en climatisation par appartement)
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       valeur: 0
@@ -1364,8 +1364,8 @@ Installation x PAC air-air x Collectif:
       # H60 =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
       produit:
         - somme:
-          - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible coll
-          - 1
+            - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible coll
+            - 1
         - ratios . PAC AIR AIR Puissance unitaire réversible coll
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
@@ -1443,8 +1443,8 @@ Installation x PAC eau-eau x Collectif:
       # H61
       produit:
         - somme:
-          - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire coll
-          - 1
+            - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire coll
+            - 1
         - ratios . PAC EAU EAU Puissance unitaire coll
       unité: kW
 
@@ -1482,11 +1482,11 @@ Installation x PAC eau-eau x Collectif:
     consommation combustible chaleur:
       produit:
         - somme:
-          - besoins chauffage par appartement
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement
-            - sinon: 0
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
         - 1 / ratios . PAC EAU EAU SCOP coll champ de sondes
       unité: kWh elec
     consommation combustible froid:
@@ -1497,12 +1497,12 @@ Installation x PAC eau-eau x Collectif:
       somme:
         - (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air) * besoins chauffage par appartement
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       valeur: 0
@@ -1536,16 +1536,16 @@ Installation x PAC air-eau x Collectif:
     puissance équipement:
       le maximum de:
         - somme:
-          - puissance nécessaire équipement chauffage
-          - puissance nécessaire pour ECS avec équipement
+            - puissance nécessaire équipement chauffage
+            - puissance nécessaire pour ECS avec équipement
         - puissance nécessaire pour refroidissement équipement
       unité: kW
     gamme de puissance existante:
       # H62
       produit:
         - somme:
-          - valeur: puissance équipement // ratios . PAC AIR EAU Puissance unitaire réversible coll
-          - 1
+            - valeur: puissance équipement // ratios . PAC AIR EAU Puissance unitaire réversible coll
+            - 1
         - ratios . PAC AIR EAU Puissance unitaire réversible coll
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
@@ -1582,11 +1582,11 @@ Installation x PAC air-eau x Collectif:
     consommation combustible chaleur:
       produit:
         - somme:
-          - besoins chauffage par appartement
-          - variations:
-            - si: type de production ECS = 'Avec équipement chauffage'
-              alors: besoins eau chaude sanitaire par appartement
-            - sinon: 0
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
         - 1 / ratios . PAC AIR EAU SCOP coll
       unité: kWh elec
     consommation combustible froid:
@@ -1597,12 +1597,12 @@ Installation x PAC air-eau x Collectif:
       somme:
         - (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air) * (besoins chauffage par appartement + besoins en climatisation par appartement)
         - variations:
-          - si:
-              toutes ces conditions:
-                - type de production ECS = 'Avec équipement chauffage'
-                - Production eau chaude sanitaire
-            alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
-          - sinon: 0
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
       unité: kWh elec
     consommation combustible hors électricité:
       valeur: 0
@@ -1632,8 +1632,8 @@ Installation x Radiateur électrique x Individuel:
       # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
       produit:
         - somme:
-          - valeur: puissance équipement // ratios économiques . radiateur électrique x puissance de l'installation
-          - 1
+            - valeur: puissance équipement // ratios économiques . radiateur électrique x puissance de l'installation
+            - 1
         - ratios économiques . radiateur électrique x puissance de l'installation
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
@@ -1706,8 +1706,8 @@ Installation x Groupe froid x Individuel:
       # =(QUOTIENT(G65,'Ratios techniques'!$C$339)+1)*'Ratios techniques'!$C$339
       produit:
         - somme:
-          - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
-          - 1
+            - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
+            - 1
         - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
       unité: kW
 ###### Production différenciée d'ECS par lgt / tertiaire
@@ -1799,8 +1799,6 @@ calcul consommation Groupe Froid:
       alors:
         variations:
           - si: type de bâtiment = 'résidentiel'
-            alors:  besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+            alors: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
           - sinon: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
     - sinon: 0
-
-

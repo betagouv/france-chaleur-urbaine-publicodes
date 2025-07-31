@@ -51,9 +51,9 @@ Investissement x frais de raccordement au réseaux x RCU:
   par défaut:
     produit:
       - variations:
-        - si: type de bâtiment = 'résidentiel'
-          alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logements dans l'immeuble concerné
-        - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
+          - si: type de bâtiment = 'résidentiel'
+            alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logements dans l'immeuble concerné
+          - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
 
@@ -99,9 +99,9 @@ Investissement x frais de raccordement au réseaux x RFU:
         alors:
           produit:
             - variations:
-              - si: type de bâtiment = 'résidentiel'
-                alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logements dans l'immeuble concerné
-              - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
+                - si: type de bâtiment = 'résidentiel'
+                  alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logements dans l'immeuble concerné
+                - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
             - 1 + ratios économiques . Investissement x TVA
       - sinon: 0
   unité: €TTC
@@ -263,8 +263,8 @@ Paramètres économiques:
       par défaut:
         produit:
           - somme:
-            - tarif gaz tertiaire x estimation part fixe
-            - Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
+              - tarif gaz tertiaire x estimation part fixe
+              - Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
           - 1 + Gaz x Taxe x Part fixe x TVA
       unité: €/an
     Gaz x Abonnement x Part Fixe TTC individuel:
@@ -272,9 +272,9 @@ Paramètres économiques:
       par défaut:
         produit:
           - somme:
-            - Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT
-            - Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT
-            - Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
+              - Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT
+              - Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT
+              - Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA
           - 1 + Gaz x Taxe x Part fixe x TVA
       unité: €/an
     Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT:
@@ -290,11 +290,11 @@ Paramètres économiques:
       par défaut:
         produit:
           - somme:
-            - Gaz x Coût de la molécule HT
-            - Gaz x Coût de transport HT
-            - Gaz x Coût distribution HT
-            - Gaz x Coût des CEE HT
-            - Gaz x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN
+              - Gaz x Coût de la molécule HT
+              - Gaz x Coût de transport HT
+              - Gaz x Coût distribution HT
+              - Gaz x Coût des CEE HT
+              - Gaz x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN
           - 1 + Gaz x Taxe x Part variable x TVA
       unité: €/kWh
     Gaz x Coût de la molécule HT:
@@ -343,9 +343,9 @@ Paramètres économiques:
           par défaut:
             produit:
               - variations:
-                - si: Type de conditionnement = 'Conditionné en sac'
-                  alors: 443
-                - sinon: 426
+                  - si: Type de conditionnement = 'Conditionné en sac'
+                    alors: 443
+                  - sinon: 426
               - 1 + TVA
           note: 'Source: CEEB 2024'
           unité: €TTC/tonne
@@ -361,11 +361,11 @@ Paramètres économiques:
           par défaut:
             somme:
               - produit:
-                - variations:
-                  - si: type de bâtiment = 'résidentiel'
-                    alors: 0.86
-                  - sinon: 0.82
-                - 1 + TVA
+                  - variations:
+                      - si: type de bâtiment = 'résidentiel'
+                        alors: 0.86
+                      - sinon: 0.82
+                  - 1 + TVA
               - TICPE
           unité: €TTC/L
         TVA:

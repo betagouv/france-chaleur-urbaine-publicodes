@@ -10,11 +10,11 @@ départements . dep 01:
     dju chaud moyen:
       valeur: 2042
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 37
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -30,11 +30,11 @@ départements . dep 02:
     dju chaud moyen:
       valeur: 2156
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 9
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -50,11 +50,11 @@ départements . dep 03:
     dju chaud moyen:
       valeur: 2018
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 25
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -70,11 +70,11 @@ départements . dep 04:
     dju chaud moyen:
       valeur: 1726
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 54
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -90,11 +90,11 @@ départements . dep 05:
     dju chaud moyen:
       valeur: 2236
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 19
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -110,11 +110,11 @@ départements . dep 06:
     dju chaud moyen:
       valeur: 939
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 60
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -130,11 +130,11 @@ départements . dep 07:
     dju chaud moyen:
       valeur: 1639
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 60
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -150,11 +150,11 @@ départements . dep 08:
     dju chaud moyen:
       valeur: 2344
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 4
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -170,11 +170,11 @@ départements . dep 09:
     dju chaud moyen:
       valeur: 1750
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 14
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -190,11 +190,11 @@ départements . dep 10:
     dju chaud moyen:
       valeur: 2090
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 16
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -210,11 +210,11 @@ départements . dep 11:
     dju chaud moyen:
       valeur: 1410
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 61
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -230,11 +230,11 @@ départements . dep 12:
     dju chaud moyen:
       valeur: 2146
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 21
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -250,11 +250,11 @@ départements . dep 13:
     dju chaud moyen:
       valeur: 1188
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 105
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -270,11 +270,11 @@ départements . dep 14:
     dju chaud moyen:
       valeur: 1928
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 4
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -290,11 +290,11 @@ départements . dep 15:
     dju chaud moyen:
       valeur: 2269
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 9
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -310,11 +310,11 @@ départements . dep 16:
     dju chaud moyen:
       valeur: 1525
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 39
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -330,11 +330,11 @@ départements . dep 17:
     dju chaud moyen:
       valeur: 1465
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 21
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -350,11 +350,11 @@ départements . dep 18:
     dju chaud moyen:
       valeur: 1897
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 28
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -370,11 +370,11 @@ départements . dep 19:
     dju chaud moyen:
       valeur: 1676
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 36
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -390,11 +390,11 @@ départements . dep 2A:
     dju chaud moyen:
       valeur: 979
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 60
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -410,11 +410,11 @@ départements . dep 2B:
     dju chaud moyen:
       valeur: 972
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 60
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -430,11 +430,11 @@ départements . dep 21:
     dju chaud moyen:
       valeur: 2148
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 28
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -450,11 +450,11 @@ départements . dep 22:
     dju chaud moyen:
       valeur: 1819
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 2
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -470,11 +470,11 @@ départements . dep 23:
     dju chaud moyen:
       valeur: 2170
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 8
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -490,11 +490,11 @@ départements . dep 24:
     dju chaud moyen:
       valeur: 1650
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 24
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -510,11 +510,11 @@ départements . dep 25:
     dju chaud moyen:
       valeur: 2112
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 24
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -530,11 +530,11 @@ départements . dep 26:
     dju chaud moyen:
       valeur: 1542
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 91
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -550,11 +550,11 @@ départements . dep 27:
     dju chaud moyen:
       valeur: 2057
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 10
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -570,11 +570,11 @@ départements . dep 28:
     dju chaud moyen:
       valeur: 2013
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 13
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -590,11 +590,11 @@ départements . dep 29:
     dju chaud moyen:
       valeur: 1729
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 1
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -610,11 +610,11 @@ départements . dep 30:
     dju chaud moyen:
       valeur: 1236
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 163
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -630,11 +630,11 @@ départements . dep 31:
     dju chaud moyen:
       valeur: 1459
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 73
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -650,11 +650,11 @@ départements . dep 32:
     dju chaud moyen:
       valeur: 1578
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 40
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -670,11 +670,11 @@ départements . dep 33:
     dju chaud moyen:
       valeur: 1388
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 50
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -690,11 +690,11 @@ départements . dep 34:
     dju chaud moyen:
       valeur: 1206
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 92
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -710,11 +710,11 @@ départements . dep 35:
     dju chaud moyen:
       valeur: 1753
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 8
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -730,11 +730,11 @@ départements . dep 36:
     dju chaud moyen:
       valeur: 1932
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 19
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -750,11 +750,11 @@ départements . dep 37:
     dju chaud moyen:
       valeur: 1812
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 23
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -770,11 +770,11 @@ départements . dep 38:
     dju chaud moyen:
       valeur: 2189
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 16
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -790,11 +790,11 @@ départements . dep 39:
     dju chaud moyen:
       valeur: 2021
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 42
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -810,11 +810,11 @@ départements . dep 40:
     dju chaud moyen:
       valeur: 1480
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 37
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -830,11 +830,11 @@ départements . dep 41:
     dju chaud moyen:
       valeur: 1985
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 18
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -850,11 +850,11 @@ départements . dep 42:
     dju chaud moyen:
       valeur: 2062
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 30
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -870,11 +870,11 @@ départements . dep 43:
     dju chaud moyen:
       valeur: 2600
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 3
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -890,11 +890,11 @@ départements . dep 44:
     dju chaud moyen:
       valeur: 1650
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 20
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -910,11 +910,11 @@ départements . dep 45:
     dju chaud moyen:
       valeur: 1990
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 15
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -930,11 +930,11 @@ départements . dep 46:
     dju chaud moyen:
       valeur: 1713
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 41
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -950,11 +950,11 @@ départements . dep 47:
     dju chaud moyen:
       valeur: 1536
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 45
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -970,11 +970,11 @@ départements . dep 48:
     dju chaud moyen:
       valeur: 2496
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 6
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -990,11 +990,11 @@ départements . dep 49:
     dju chaud moyen:
       valeur: 1711
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 18
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1010,11 +1010,11 @@ départements . dep 50:
     dju chaud moyen:
       valeur: 1824
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 0
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1030,11 +1030,11 @@ départements . dep 51:
     dju chaud moyen:
       valeur: 2144
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 8
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1050,11 +1050,11 @@ départements . dep 52:
     dju chaud moyen:
       valeur: 2387
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 24
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1070,11 +1070,11 @@ départements . dep 53:
     dju chaud moyen:
       valeur: 1900
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 12
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1090,11 +1090,11 @@ départements . dep 54:
     dju chaud moyen:
       valeur: 2214
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 18
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1110,11 +1110,11 @@ départements . dep 55:
     dju chaud moyen:
       valeur: 2272
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 21
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1130,11 +1130,11 @@ départements . dep 56:
     dju chaud moyen:
       valeur: 1690
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 9
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1150,11 +1150,11 @@ départements . dep 57:
     dju chaud moyen:
       valeur: 2219
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 16
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1170,11 +1170,11 @@ départements . dep 58:
     dju chaud moyen:
       valeur: 2050
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 15
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1190,11 +1190,11 @@ départements . dep 59:
     dju chaud moyen:
       valeur: 2042
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 13
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1210,11 +1210,11 @@ départements . dep 60:
     dju chaud moyen:
       valeur: 2146
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 6
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1230,11 +1230,11 @@ départements . dep 61:
     dju chaud moyen:
       valeur: 2015
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 8
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1250,11 +1250,11 @@ départements . dep 62:
     dju chaud moyen:
       valeur: 1965
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 6
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1270,11 +1270,11 @@ départements . dep 63:
     dju chaud moyen:
       valeur: 1897
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 35
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1290,11 +1290,11 @@ départements . dep 64:
     dju chaud moyen:
       valeur: 1458
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 22
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1310,11 +1310,11 @@ départements . dep 65:
     dju chaud moyen:
       valeur: 1693
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 18
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1330,11 +1330,11 @@ départements . dep 66:
     dju chaud moyen:
       valeur: 1047
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 133
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -1350,11 +1350,11 @@ départements . dep 67:
     dju chaud moyen:
       valeur: 2117
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 25
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1370,11 +1370,11 @@ départements . dep 68:
     dju chaud moyen:
       valeur: 2203
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 20
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1390,11 +1390,11 @@ départements . dep 69:
     dju chaud moyen:
       valeur: 1796
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 72
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1410,11 +1410,11 @@ départements . dep 70:
     dju chaud moyen:
       valeur: 2277
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 14
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1430,11 +1430,11 @@ départements . dep 71:
     dju chaud moyen:
       valeur: 1935
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 40
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1450,11 +1450,11 @@ départements . dep 72:
     dju chaud moyen:
       valeur: 1772
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 26
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1470,11 +1470,11 @@ départements . dep 73:
     dju chaud moyen:
       valeur: 2357
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 26
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1490,11 +1490,11 @@ départements . dep 74:
     dju chaud moyen:
       valeur: 2245
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 7
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1510,11 +1510,11 @@ départements . dep 75:
     dju chaud moyen:
       valeur: 1718
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 35
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1530,11 +1530,11 @@ départements . dep 76:
     dju chaud moyen:
       valeur: 2079
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 5
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1550,11 +1550,11 @@ départements . dep 77:
     dju chaud moyen:
       valeur: 1982
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 15
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1570,11 +1570,11 @@ départements . dep 78:
     dju chaud moyen:
       valeur: 2017
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 22
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1590,11 +1590,11 @@ départements . dep 79:
     dju chaud moyen:
       valeur: 1688
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 29
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1610,11 +1610,11 @@ départements . dep 80:
     dju chaud moyen:
       valeur: 2019
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 8
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1630,11 +1630,11 @@ départements . dep 81:
     dju chaud moyen:
       valeur: 1622
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 69
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1650,11 +1650,11 @@ départements . dep 82:
     dju chaud moyen:
       valeur: 1559
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 58
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -1670,11 +1670,11 @@ départements . dep 83:
     dju chaud moyen:
       valeur: 1224
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 58
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H3'"
       remplace: zone climatique
@@ -1690,11 +1690,11 @@ départements . dep 84:
     dju chaud moyen:
       valeur: 1464
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 115
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1710,11 +1710,11 @@ départements . dep 85:
     dju chaud moyen:
       valeur: 1730
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 9
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1730,11 +1730,11 @@ départements . dep 86:
     dju chaud moyen:
       valeur: 1823
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 21
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H2'"
       remplace: zone climatique
@@ -1750,11 +1750,11 @@ départements . dep 87:
     dju chaud moyen:
       valeur: 1943
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 25
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1770,11 +1770,11 @@ départements . dep 88:
     dju chaud moyen:
       valeur: 2346
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 11
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1790,11 +1790,11 @@ départements . dep 89:
     dju chaud moyen:
       valeur: 2085
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 20
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1810,11 +1810,11 @@ départements . dep 90:
     dju chaud moyen:
       valeur: 2255
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 24
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1830,11 +1830,11 @@ départements . dep 91:
     dju chaud moyen:
       valeur: 1893
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 24
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1850,11 +1850,11 @@ départements . dep 92:
     dju chaud moyen:
       valeur: 1764
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 35
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1870,11 +1870,11 @@ départements . dep 93:
     dju chaud moyen:
       valeur: 1873
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 35
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1890,11 +1890,11 @@ départements . dep 94:
     dju chaud moyen:
       valeur: 1764
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 35
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
@@ -1910,11 +1910,11 @@ départements . dep 95:
     dju chaud moyen:
       valeur: 1899
       remplace: département . degré jours unifié spécifique chaud
-      note: "Source : Costic"
+      note: 'Source : Costic'
     dju froid moyen:
       valeur: 24
       remplace: département . degré jours unifié spécifique froid
-      note: "Source : Cégibat"
+      note: 'Source : Cégibat'
     zone climatique:
       valeur: "'H1'"
       remplace: zone climatique
