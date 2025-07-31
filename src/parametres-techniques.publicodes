@@ -90,15 +90,17 @@ Nombre d'habitants moyen par appartement:
 Production eau chaude sanitaire:
   # ='Ratios techniques'!$C$15
   par défaut: ratios . GNRL Production ECS
-  une possibilité:
-    - "'oui'"
-    - "'non'"
+  #une possibilité:
+  #  - "'oui'"
+  #  - "'non'"
+
+version: 1.0
 
 Inclure la climatisation:
   par défaut: non
-  une possibilité:
-    - "'oui'"
-    - "'non'"
+  #une possibilité:
+  #  - "'oui'"
+  #  - "'non'"
 
 type de production de froid:
   # L32

@@ -25,9 +25,9 @@ ratios:
       unité: °C
     GNRL Production ECS:
       par défaut: oui
-      une possibilité:
-        - "'oui'"
-        - "'non'"
+      #une possibilité:
+      #  - "'oui'"
+      #  - "'non'"
     GNRL Appartement ou maison:
       valeur: "'Appartement'"
     GNRL Nombre de logement dans l'immeuble concerné:

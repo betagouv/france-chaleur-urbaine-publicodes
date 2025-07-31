@@ -18,8 +18,8 @@ group('Evaluation', () => {
 	bench('Bilan total avec aides', () => {
 		engine.setSituation({
 			// 20 Avenue de Ségur 75007 Paris
-			"Inclure la climatisation": "'non'",
-			"Production eau chaude sanitaire": "'oui'",
+			"Inclure la climatisation": 'non',
+			"Production eau chaude sanitaire": 'oui',
 			"type de production ECS": "'Avec équipement chauffage'",
 			"caractéristique réseau de chaleur . contenu CO2": 0.157,
 			"caractéristique réseau de chaleur . contenu CO2 ACV": 0.182,

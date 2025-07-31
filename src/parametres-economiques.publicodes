@@ -380,10 +380,10 @@ Paramètres économiques:
     Réseaux chaleur:
       avec:
         Tarification connue:
-          par défaut: "'non'"
-          une possibilité:
-            - "'oui'"
-            - "'non'"
+          par défaut: non
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
         Tarification R2 x Part fixe:
           unité: €/kWh
         Tarification R1 x Part variable:
@@ -539,16 +539,16 @@ Paramètres économiques:
       avec:
         Éligibilité x Prise en compte des aides:
           # alias Calculs économiques B90
-          par défaut: "'oui'"
-          une possibilité:
-            - "'oui'"
-            - "'non'"
+          par défaut: oui
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
         Éligibilité x Je suis un particulier:
           # ='Ratios économiques - Aides'!$C$7
-          par défaut: "'oui'"
-          une possibilité:
-            - "'oui'"
-            - "'non'"
+          par défaut: oui
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
         Éligibilité x Ressources du ménage:
           # ='Ratios économiques - Aides'!$C$8
           par défaut: "'Modeste'"
@@ -559,10 +559,10 @@ Paramètres économiques:
             - "'Supérieur'"
         Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul:
           # ='Ratios économiques - Aides'!$C$265
-          par défaut: "'oui'"
-          une possibilité:
-            - "'oui'"
-            - "'non'"
+          par défaut: oui
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
         Aides x Éligible Ma prime renov':
           # =IF(AND($D$212="Oui",$D$213<>"Supérieur"),"Eligible","Non éligible")
           # alias Calculs économiques B91
@@ -570,9 +570,9 @@ Paramètres économiques:
             toutes ces conditions:
               - Éligibilité x Je suis un particulier
               - Éligibilité x Ressources du ménage != 'Supérieur'
-          une possibilité:
-            - "'oui'"
-            - "'non'"
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
         Aides x Éligible Coup de pouce chauffage:
           # =IF(AND($D$212="Oui",$D$214="Oui",$C$7="Résidentiel"),"Eligible","Non éligible")
           # alias Calculs économiques B92
@@ -581,15 +581,15 @@ Paramètres économiques:
               - Éligibilité x Je suis un particulier
               - Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
               - type de bâtiment = 'résidentiel'
-          une possibilité:
-            - "'oui'"
-            - "'non'"
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
         Aides x Éligible CEE:
           # alias Calculs économiques B93
-          par défaut: "'oui'"
-          une possibilité:
-            - "'oui'"
-            - "'non'"
+          par défaut: oui
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
         Valeur CEE:
           # =IF(D213="Très modeste", 'Ratios économiques - Aides'!$C$31,'Ratios économiques - Aides'!$C$32)
           # alias Calculs économiques B94
