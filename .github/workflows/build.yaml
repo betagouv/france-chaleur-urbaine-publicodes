@@ -34,3 +34,6 @@ jobs:
 
       - name: Compile the rules
         run: pnpm compile
+
+      - name: Test the rules
+        run: pnpm test
