@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+      - dev
   pull_request:
 
 jobs:
@@ -37,3 +38,22 @@ jobs:
 
       - name: Test the rules
         run: pnpm test
+
+      - name: Trigger Scalingo deployment
+        if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+        run: |
+          # Exchange API token for bearer token
+          BEARER_TOKEN=$(curl -s -H "Accept: application/json" -H "Content-Type: application/json" \
+            -u ":${{ secrets.SCALINGO_API_TOKEN }}" \
+            -X POST https://auth.scalingo.com/v1/tokens/exchange | jq -r '.token')
+          
+          # Trigger deployment the branch dev-publicodes of the repository france-chaleur-urbaine
+          curl -H "Accept: application/json" -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $BEARER_TOKEN" \
+            -X POST https://api.osc-fr1.scalingo.com/v1/apps/france-chaleur-urbaine-dev-pr1153/deployments \
+            -d '{
+              "deployment": {
+                "git_ref": "dev-publicodes",
+                "source_url": "https://github.com/betagouv/france-chaleur-urbaine/archive/refs/heads/dev-publicodes.tar.gz"
+              }
+            }'

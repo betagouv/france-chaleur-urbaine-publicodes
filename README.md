@@ -47,3 +47,7 @@ pnpm bench
 # Run the documentation server
 pnpm dev
 ```
+
+## CI
+
+Un token Scalingo SCALINGO_API_TOKEN a été généré et défini en tant que secret de Github Actions pour permettre de redéployer la branche dev-publicodes de FCU.
