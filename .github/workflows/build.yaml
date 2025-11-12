@@ -54,7 +54,7 @@ jobs:
           # Trigger deployment the branch dev-publicodes of the repository france-chaleur-urbaine
           curl -f -H "Accept: application/json" -H "Content-Type: application/json" \
             -H "Authorization: Bearer $BEARER_TOKEN" \
-            -X POST https://api.osc-fr1.scalingo.com/v1/apps/france-chaleur-urbaine-dev-pr1153/deployments \
+            -X POST https://api.osc-fr1.scalingo.com/v1/apps/france-chaleur-urbaine-dev-publicodes/deployments \
             -d '{
               "deployment": {
                 "git_ref": "dev-publicodes",
