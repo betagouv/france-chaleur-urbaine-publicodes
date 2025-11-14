@@ -299,15 +299,15 @@ Paramètres économiques:
       unité: €/kWh
     Gaz x Coût de la molécule HT:
       # B95 ='Ratios économiques - Coûts'!$C$220
-      par défaut: 0.02638 + 0.01191
+      par défaut: 0.03713
       unité: €/kWh
     Gaz x Coût de transport HT:
       # B96 ='Ratios économiques - Coûts'!$C$221
-      par défaut: 0.02118
+      par défaut: 0.00977
       unité: €/kWh
     Gaz x Coût distribution HT:
       # B97 ='Ratios économiques - Coûts'!$C$222
-      par défaut: 0.00404
+      par défaut: 0.00893
       unité: €/kWh
     Gaz x Coût des CEE HT:
       # B98 ='Ratios économiques - Coûts'!$C$223
@@ -315,7 +315,7 @@ Paramètres économiques:
       unité: €/kWh
     Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA:
       # B101 ='Ratios économiques - Coûts'!$C$226
-      par défaut: 34.49
+      par défaut: 43.51
       unité: €/an
     Gaz x Taxe x Part fixe x TVA:
       # B102 ='Ratios économiques - Coûts'!$C$227
