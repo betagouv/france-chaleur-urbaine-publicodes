@@ -249,7 +249,7 @@ Paramètres économiques:
           par défaut: 5.5%
           unité: '%'
         Part Variable x Accise sur l'électricité ex TIPCSE CSPE:
-          par défaut: 0.001€/kWh
+          par défaut: 0.021€/kWh
         Part Variable x TVA:
           par défaut: 20%
           unité: '%'
@@ -344,8 +344,8 @@ Paramètres économiques:
             produit:
               - variations:
                   - si: Type de conditionnement = 'Conditionné en sac'
-                    alors: 443
-                  - sinon: 426
+                    alors: 330
+                  - sinon: 365
               - 1 + TVA
           note: 'Source: CEEB 2024'
           unité: €TTC/tonne
@@ -363,8 +363,8 @@ Paramètres économiques:
               - produit:
                   - variations:
                       - si: type de bâtiment = 'résidentiel'
-                        alors: 0.86
-                      - sinon: 0.82
+                        alors: 0.84
+                      - sinon: 0.80
                   - 1 + TVA
               - TICPE
           unité: €TTC/L
@@ -373,7 +373,7 @@ Paramètres économiques:
           unité: '%'
           note: 'Source: site gouvernemental (impots.gouv) 2024'
         TICPE:
-          par défaut: 0.1874
+          par défaut: 0.1562
           unité: €/L
           note: 'Source: site gouvernemental (impots.gouv) 2024'
 

@@ -22,17 +22,17 @@ caractéristique réseau de chaleur:
     production totale:
       unité: MWh
     prix moyen:
-      par défaut: 114.2
+      par défaut: 110.9
       unité: €TTC/MWh
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
     part fixe:
-      par défaut: 40
+      par défaut: 42.8
       unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
     part variable:
       formule: 100% - caractéristique réseau de chaleur . part fixe
       unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
 
 caractéristique réseau de froid:
   note: 'MOYENNE RESEAUX FROID'
