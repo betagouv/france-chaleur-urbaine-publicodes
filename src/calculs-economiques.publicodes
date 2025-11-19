@@ -1627,43 +1627,30 @@ Calcul Eco . P2 P3 Coût de l'entretien:
     PAC air-air indiv:
       avec:
         petit entretien P2:
-          # ='Paramètres économiques'!D166*(SUM('Calculs techniques'!$B$20:$B$22)/1000)
-          produit:
-            - Paramètres économiques . Petit entretien P2 . PAC air-air
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          valeur: Paramètres économiques . Petit entretien P2 . PAC air-air indiv
           unité: €TTC/an
         gros entretien P3:
-          produit:
-            - Paramètres économiques . Gros entretien P3 . PAC air-air
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          valeur: Paramètres économiques . Petit entretien P3 . PAC air-air indiv
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     PAC eau-eau indiv:
       avec:
         petit entretien P2:
-          produit:
-            - Paramètres économiques . Petit entretien P2 . PAC eau-eau
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          valeur : Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv
           unité: €TTC/an
         gros entretien P3:
-          produit:
-            - Paramètres économiques . Gros entretien P3 . PAC eau-eau
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          valeur : Paramètres économiques . Petit entretien P3 . PAC eau-eau indiv
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     PAC air-eau indiv:
       avec:
         petit entretien P2:
-          produit:
-            - Paramètres économiques . Petit entretien P2 . PAC air-eau
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          valeur : Paramètres économiques . Petit entretien P2 . PAC air-eau indiv
           unité: €TTC/an
         gros entretien P3:
-          produit:
-            - Paramètres économiques . Gros entretien P3 . PAC air-eau
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement) / 1000
+          valeur : Paramètres économiques . Petit entretien P3 . PAC air-eau indiv
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3

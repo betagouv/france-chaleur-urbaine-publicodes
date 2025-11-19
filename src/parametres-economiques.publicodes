@@ -455,13 +455,22 @@ Paramètres économiques:
         Fioul coll:
           par défaut: 1.91 / 100
           unité: €HT/€d'investissment # %
+        PAC air-air indiv:
+          par défaut: 208.3 / 2 * (1 + TVA)
+          unité: €TTC/MWh
         PAC air-air:
           # B169 ='Ratios économiques - Coûts'!C333*(1+TVA_P2)
           par défaut: 25 * (1 + TVA)
           unité: €TTC/MWh
+        PAC eau-eau indiv:
+          par défaut: 208.3 / 2 * (1 + TVA)
+          unité: €TTC/MWh
         PAC eau-eau:
           # B170 ='Ratios économiques - Coûts'!C334*(1+TVA_P2)
           par défaut: 7 *  (1 + TVA)
+          unité: €TTC/MWh
+        PAC air-eau indiv:
+          par défaut: 208.3 / 2 * (1 + TVA)
           unité: €TTC/MWh
         PAC air-eau:
           # B171 ='Ratios économiques - Coûts'!C335*(1+TVA_P2)
@@ -517,14 +526,24 @@ Paramètres économiques:
           # B190 ='Ratios économiques - Coûts'!C353*(1+TVA_P3)
           par défaut: 10 * (1 + TVA)
           unité: €TTC/MWh
+        PAC air-air indiv:
+          par défaut: 208.3 / 2 * (1 + TVA)
+          unité: €TTC/MWh
         PAC eau-eau:
           # B191 ='Ratios économiques - Coûts'!C354*(1+TVA_P3)
           par défaut: 3 * (1 + TVA)
+          unité: €TTC/MWh
+        PAC eau-eau indiv:
+          par défaut: 208.3 / 2 * (1 + TVA)
           unité: €TTC/MWh
         PAC air-eau:
           # B192 ='Ratios économiques - Coûts'!C355*(1+TVA_P3)
           par défaut: 2 * (1 + TVA)
           unité: €TTC/MWh
+        PAC air-eau indiv:
+          par défaut: 208.3 / 2 * (1 + TVA)
+          unité: €TTC/MWh
+
         Radiateur électrique:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
