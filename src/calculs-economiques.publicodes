@@ -1630,7 +1630,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
           valeur: Paramètres économiques . Petit entretien P2 . PAC air-air indiv
           unité: €TTC/an
         gros entretien P3:
-          valeur: Paramètres économiques . Petit entretien P3 . PAC air-air indiv
+          valeur: Paramètres économiques . Gros entretien P3 . PAC air-air indiv
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1640,7 +1640,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
           valeur : Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv
           unité: €TTC/an
         gros entretien P3:
-          valeur : Paramètres économiques . Petit entretien P3 . PAC eau-eau indiv
+          valeur : Paramètres économiques . Gros entretien P3 . PAC eau-eau indiv
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -1650,7 +1650,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
           valeur : Paramètres économiques . Petit entretien P2 . PAC air-eau indiv
           unité: €TTC/an
         gros entretien P3:
-          valeur : Paramètres économiques . Petit entretien P3 . PAC air-eau indiv
+          valeur : Paramètres économiques . Gros entretien P3 . PAC air-eau indiv
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
