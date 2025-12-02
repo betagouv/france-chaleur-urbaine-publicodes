@@ -3,6 +3,10 @@
   "description": "",
   "version": "1.1.0",
   "homepage": "https://github.com/betagouv/france-chaleur-urbaine-publicodes#readme",
+  "devEngines": {
+    "node": "24",
+    "pnpm": "10"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/betagouv/france-chaleur-urbaine-publicodes.git"
