@@ -279,11 +279,11 @@ Paramètres économiques:
       unité: €/an
     Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT:
       # B92 ='Ratios économiques - Coûts'!$C$216
-      par défaut: 139.44 * 208 / 218.44
+      par défaut: 139
       unité: €/an
     Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT:
       # B93 ='Ratios économiques - Coûts'!$C$217
-      par défaut: 79 * 208 / 218.44
+      par défaut: 79
       unité: €/an
     Gaz x Consommation x Part Variable TTC:
       # B94 =SUM($D$95:$D$98,$D$104)*(1+$D$105)
