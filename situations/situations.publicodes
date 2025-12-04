@@ -42,3 +42,24 @@
     Inclure la climatisation: oui 
     Production eau chaude sanitaire: oui
     type de production ECS: "'Avec équipement chauffage'"
+
+parc social moyen:
+  contexte:
+    caractéristique réseau de chaleur . contenu CO2: 0.91
+    caractéristique réseau de chaleur . contenu CO2 ACV: 0.113
+    caractéristique réseau de chaleur . livraisons totales: 3739841
+    caractéristique réseau de chaleur . part fixe: 40
+    caractéristique réseau de chaleur . part variable: 60
+    caractéristique réseau de chaleur . prix moyen: 110
+    caractéristique réseau de chaleur . production totale: 5907294.94
+    caractéristique réseau de chaleur . taux EnRR: 48.8
+    caractéristique réseau de froid . contenu CO2: 0.008
+    caractéristique réseau de froid . contenu CO2 ACV: 0.016
+    caractéristique réseau de froid . livraisons totales: 425178
+    caractéristique réseau de froid . production totale: 515292
+    besoins chauffage par appartement : 7320 #parc social moyen
+    code département: "'75'"
+    température de référence chaud commune: -5
+    Inclure la climatisation: non 
+    Production eau chaude sanitaire: oui
+    type de production ECS: "'Avec équipement chauffage'"
