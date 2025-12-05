@@ -1601,12 +1601,12 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         petit entretien P2:
           produit:
             - Paramètres économiques . Petit entretien P2 . Fioul indiv
-            - Calcul Eco . Fioul indiv . Investissement équipement Total
+            - (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/an
         gros entretien P3:
           produit:
             - Paramètres économiques . Gros entretien P3 . Fioul indiv
-            - Calcul Eco . Fioul indiv . Investissement équipement Total
+            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
