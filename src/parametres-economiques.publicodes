@@ -436,11 +436,11 @@ Paramètres économiques:
           par défaut: 22.000 * (1 + TVA)
           unité: €TTC/MWh
         Gaz indiv avec cond:
-          par défaut: 2.18 / 100
-          unité: €HT/€d'investissment # %
+          par défaut: 143
+          unité: €HT/an
         Gaz indiv sans cond:
-          par défaut: 2.18 / 100
-          unité: €HT/€d'investissment # %
+          par défaut: 143
+          unité: €HT/an
         Gaz coll avec cond:
           # B165 ='Ratios économiques - Coûts'!C329*(1+TVA_P2)
           par défaut: 7.00 * (1 + TVA)
@@ -505,11 +505,11 @@ Paramètres économiques:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
         Gaz indiv avec cond:
-          par défaut: 0.83 / 100
-          unité: €HT/€d'investissment # %
+          par défaut: 70
+          unité: €HT
         Gaz indiv sans cond:
-          par défaut: 0.83 / 100
-          unité: €HT/€d'investissment # %
+          par défaut: 70
+          unité: €HT
         Gaz coll avec cond:
           par défaut: 1.72 / 100
           unité: €HT/€d'investissment # %
