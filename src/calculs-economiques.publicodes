@@ -1913,26 +1913,11 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
     Chaudière à granulés coll:
-      avec:
-        Ma prime renov':
-          applicable si:
-            est défini: Ma prime renov'
-          formule: Ma prime renov'
-          unité: €
-        Coup de pouce:
-          applicable si:
-            est défini: Coup de pouce
-          formule: Coup de pouce
-          unité: €
-        CEE:
-          formule: 0
-          unité: €
-        Total:
-          variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
-            - sinon: 0
-          unité: €
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: 25 / 100 * Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
+        - sinon: 0
+      unité: €
     Gaz indiv avec cond:
       avec:
         Ma prime renov':
@@ -1988,44 +1973,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: Coup de pouce
           unité: €
         CEE:
-          # =IF($B$93="Eligible",
-          # IF('Paramètres économiques'!$C$7="Résidentiel",0,
-          # IFS(AND(Prod_ECS?="Non",'Paramètres économiques'!$C$30<400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$458:$B$466,'Ratios économiques - Aides'!$C$458:$C$466)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$451:$B$453,'Ratios économiques - Aides'!$C$451:$C$453)*'Paramètres économiques'!$C$12*$B$94,
-          # AND(Prod_ECS?="Oui",'Paramètres économiques'!$C$30<400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$458:$B$466,'Ratios économiques - Aides'!$C$458:$C$466)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$454:$B$456,'Ratios économiques - Aides'!$C$454:$C$456)*'Paramètres économiques'!$C$12*$B$94,
-          # AND(Prod_ECS?="Non",'Paramètres économiques'!$C$30>400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$476:$B$484,'Ratios économiques - Aides'!$C$476:$C$484)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$470:$B$472,'Ratios économiques - Aides'!$C$470:$C$472)*'Paramètres économiques'!$C$12*$B$94,
-          # AND(Prod_ECS?="Oui",'Paramètres économiques'!$C$30>400),XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$476:$B$484,'Ratios économiques - Aides'!$C$476:$C$484)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$473:$B$475,'Ratios économiques - Aides'!$C$473:$C$475)*'Paramètres économiques'!$C$12*$B$94
-          # )),0)
-          # QUESTION : je transforme < 400 en <= 400 ?
-          variations:
-            - si: Paramètres économiques . Aides . Aides x Éligible CEE
-              alors:
-                variations:
-                  - si: type de bâtiment = 'résidentiel'
-                    alors: 0
-                  - sinon:
-                      variations:
-                        - si:
-                            toutes ces conditions:
-                              - Production eau chaude sanitaire = non
-                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
-                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x montant chauffage seul * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
-                        - si:
-                            toutes ces conditions:
-                              - Production eau chaude sanitaire
-                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
-                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND inf 400kW x montant chauffage avec ECS * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
-                        - si:
-                            toutes ces conditions:
-                              - Production eau chaude sanitaire = non
-                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante > 400
-                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x montant chauffage seul * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
-                        - si:
-                            toutes ces conditions:
-                              - Production eau chaude sanitaire
-                              - Installation x Gaz coll avec cond x Collectif . gamme de puissance existante > 400
-                          alors: ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x facteur correctif * ratios économiques x aides . Tertiaire . CEE x GAZ COLL COND sup 400kW x montant chauffage avec ECS * surface logement type tertiaire * Paramètres économiques . Aides . Valeur CEE
-                        - sinon: 0
-            - sinon: 0
+          formule: 0
           unité: €
         Total:
           variations:
@@ -2237,37 +2185,11 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
     PAC air-eau coll:
-      avec:
-        Ma prime renov':
-          applicable si:
-            est défini: Ma prime renov'
-          formule: Ma prime renov'
-          unité: €
-        Coup de pouce:
-          applicable si:
-            est défini: Coup de pouce
-          formule: Coup de pouce
-          unité: €
-        CEE:
-          variations:
-            - si: Paramètres économiques . Aides . Aides x Éligible CEE
-              alors:
-                produit:
-                  - ratios économiques x aides . Tertiaire . CEE x PAC air-eau ou eau-eau inf 400 kW x montant
-                  - surface logement type tertiaire
-                  - variations:
-                      - si: type de bâtiment = "tertiaire"
-                        alors: ratios économiques x aides . Tertiaire . CEE x PAC air-eau ou eau-eau inf 400 kW x facteur correctif
-                      - sinon: 1
-                  - Paramètres économiques . Aides . Valeur CEE
-            - sinon: 0
-          unité: €
-        Total:
-          variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
-            - sinon: 0
-          unité: €
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: 25 / 100 * Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire
+        - sinon: 0
+      unité: €
     Radiateur électrique:
       avec:
         Ma prime renov':

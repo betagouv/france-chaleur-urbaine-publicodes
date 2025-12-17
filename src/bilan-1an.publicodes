@@ -328,7 +328,7 @@ Bilan x Chaudière à granulés coll:
       variations: *pmt
       avec:
         durée: ratios . GRA CHAUD Durée de vie
-        capital: Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Total
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll
 
     aides:
       somme:
@@ -1208,7 +1208,7 @@ Bilan x PAC air-eau coll:
       variations: *pmt
       avec:
         durée: ratios . PAC AIR EAU Durée de vie coll
-        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . Total
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll
     aides: aides spécifiques
     P4 moins aides:
       le maximum de:
