@@ -1657,17 +1657,15 @@ Calcul Eco . P2 P3 Coût de l'entretien:
     PAC air-air coll:
       avec:
         petit entretien P2:
-          # ='Paramètres économiques'!D166*(SUM('Calculs techniques'!$B$20:$B$22)*'Calculs techniques'!$B$17/1000)
           produit:
-            - Paramètres économiques . Petit entretien P2 . PAC air-air
+            - Paramètres économiques . Petit entretien P2 . PAC air-air coll
             - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
             - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . PAC air-air
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
-            - nombre de logements dans l'immeuble concerné / 1000
+            - Paramètres économiques . Gros entretien P3 . PAC air-air coll
+            - Calcul Eco . PAC air-air coll . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -1675,15 +1673,14 @@ Calcul Eco . P2 P3 Coût de l'entretien:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . PAC eau-eau
+            - Paramètres économiques . Petit entretien P2 . PAC eau-eau coll
             - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
             - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . PAC eau-eau
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
-            - nombre de logements dans l'immeuble concerné / 1000
+            - Paramètres économiques . Gros entretien P3 . PAC eau-eau coll
+            - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -1691,15 +1688,14 @@ Calcul Eco . P2 P3 Coût de l'entretien:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . PAC air-eau
+            - Paramètres économiques . Petit entretien P2 . PAC air-eau coll
             - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
             - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . PAC air-eau
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
-            - nombre de logements dans l'immeuble concerné / 1000
+            - Paramètres économiques . Gros entretien P3 . PAC air-air coll
+            - Calcul Eco . PAC air-eau coll . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -1751,7 +1747,6 @@ Calcul Eco . P2 P3 Coût de l'entretien:
     Groupe froid résidentiel:
       avec:
         petit entretien P2:
-          # C86 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$169*'Calculs techniques'!$B$22/1000*Nb_lgt;0);0)
           variations:
             - si:
                 toutes ces conditions:
@@ -1760,7 +1755,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
                   - type de bâtiment = 'résidentiel'
               alors:
                 produit:
-                  - Paramètres économiques . Petit entretien P2 . PAC air-air
+                  - Paramètres économiques . Petit entretien P2 . PAC air-eau coll
                   - besoins en climatisation par appartement
                   - nombre de logements dans l'immeuble concerné
                   - 1 / 1000
@@ -1776,7 +1771,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
                   - type de bâtiment = 'résidentiel'
               alors:
                 produit:
-                  - Paramètres économiques . Gros entretien P3 . PAC air-air
+                  - Paramètres économiques . Gros entretien P3 . PAC air-eau coll
                   - besoins en climatisation par appartement
                   - nombre de logements dans l'immeuble concerné
                   - 1 / 1000
@@ -1796,7 +1791,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
                   - type de bâtiment = 'tertiaire'
               alors:
                 produit:
-                  - Paramètres économiques . Petit entretien P2 . PAC air-eau
+                  - Paramètres économiques . Petit entretien P2 . PAC air-eau coll
                   - besoins en climatisation par appartement
                   - 1 / 1000
             - sinon: 0
@@ -1810,7 +1805,7 @@ Calcul Eco . P2 P3 Coût de l'entretien:
                   - type de bâtiment = 'tertiaire'
               alors:
                 produit:
-                  - Paramètres économiques . Gros entretien P3 . PAC air-eau
+                  - Paramètres économiques . Gros entretien P3 . PAC air-eau coll
                   - besoins en climatisation par appartement
                   - 1 / 1000
             - sinon: 0
