@@ -2125,58 +2125,16 @@ Calcul Eco . Montant des aides par logement tertiaire:
           unité: €
     PAC eau-eau coll:
       avec:
-        Ma prime renov':
-          applicable si:
-            est défini: Ma prime renov'
-          formule: Ma prime renov'
-          unité: €
-        Coup de pouce:
-          applicable si:
-            est défini: Coup de pouce
-          formule: Coup de pouce
-          unité: €
-        CEE:
-          # =IF($B$95="Eligible";
-          # XLOOKUP(
-          #     LEFT(
-          #         XLOOKUP(
-          #             commune;
-          #             Communes!$C:$C;
-          #             Communes!$I:$I;
-          #             ;
-          #             0
-          #         );
-          #         2
-          #     );
-          #     'Ratios économiques - Aides'!$B$387:$B$389;
-          #     'Ratios économiques - Aides'!$C$387:$C$389;
-          #     0;
-          #     0
-          # )*Surface*XLOOKUP(
-          #     Choix_methode;
-          #     'Ratios économiques - Aides'!$B$391:$B$399;
-          #     'Ratios économiques - Aides'!$C$391:$C$399;
-          #     1;
-          #     0
-          # );
-          #     0)*$B$96
-          variations:
-            - si: Paramètres économiques . Aides . Aides x Éligible CEE
-              alors:
-                produit:
-                  - ratios économiques x aides . Tertiaire . CEE x PAC air-eau ou eau-eau inf 400 kW x montant
-                  - surface logement type tertiaire
-                  - variations:
-                      - si: type de bâtiment = "tertiaire"
-                        alors: ratios économiques x aides . Tertiaire . CEE x PAC air-eau ou eau-eau inf 400 kW x facteur correctif
-                      - sinon: 1
-                  - Paramètres économiques . Aides . Valeur CEE
-            - sinon: 0
-          unité: €
-        Total:
+        Total PAC:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
+              alors: 25 / 100 * ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol / nombre de logements dans l'immeuble concerné
+            - sinon: 0
+          unité: €
+        Total forages:
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: 25 / 100 * ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde / nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: €
     PAC air-eau coll:

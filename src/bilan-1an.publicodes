@@ -1019,13 +1019,12 @@ Bilan x PAC eau-eau coll:
     P1Consofroid: Calcul Eco . PAC eau-eau coll . Coût combustible froid
     P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
-    P4specPuit:
+    P4specForages:
       produit:
         - variations: *pmt
           avec:
             durée: ratios . PAC EAU EAU Durée de vie puits géothermiques
             capital: ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
-        - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
         - 1 / nombre de logements dans l'immeuble concerné
     P4spec:
       produit:
@@ -1058,21 +1057,28 @@ Bilan x PAC eau-eau coll:
 
     P4:
       somme:
-        - P4specPuit
+        - P4specForages
         - P4spec
         - P4ECS Ballon électrique
         - P4ECS Solaire Thermique
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
-    aides spécifiques:
+    aides spécifiques PAC:
       variations: *pmt
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
-        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total PAC
+
+    aides spécifiques forages:
+      variations: *pmt
+      avec:
+        durée: ratios . PAC EAU EAU Durée de vie puits géothermiques
+        capital : Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total forages
 
     aides:
       somme:
-        - aides spécifiques
+        - aides spécifiques PAC
+        - aides spécifiques forages
         - Calcul Bilan . aides réseau de froid
     P4 moins aides:
       le maximum de:
