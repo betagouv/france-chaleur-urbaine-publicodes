@@ -6,17 +6,17 @@ caractéristique réseau de chaleur:
   note: 'MOYENNE RESEAUX CHAUD'
   avec:
     contenu CO2:
-      par défaut: 0.084
+      par défaut: 0.087
       unité: kgCO2e/kWh
-      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2024"
     contenu CO2 ACV:
-      par défaut: 0.112
+      par défaut: 0.109
       unité: kgCO2e/kWh
-      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2024"
     taux EnRR:
-      par défaut: 66.5
+      par défaut: 67
       unité: '%'
-      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2024"
     livraisons totales:
       unité: MWh
     production totale:
@@ -44,7 +44,7 @@ caractéristique réseau de froid:
     contenu CO2 ACV:
       par défaut: 0.021
       unité: kgCO2e/kWh
-      note: "Source : Enquête FEDENE 2023 portant sur l'année 2022"
+      note: "Source : Enquête FEDENE 2023 portant sur l'année 2024"
     taux EnRR:
       unité: '%'
       source: 2021
@@ -53,14 +53,14 @@ caractéristique réseau de froid:
     production totale:
       unité: MWh
     prix moyen:
-      par défaut: 233
+      par défaut: 205
       unité: €TTC/MWh
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
     part fixe:
-      par défaut: 45
+      par défaut: 51
       unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
     part variable:
       formule: 100% - caractéristique réseau de froid . part fixe
       unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2023, Amorce'
+      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
