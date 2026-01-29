@@ -134,12 +134,19 @@ Calcul Eco:
     Réseaux de chaleur:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
+        Investissement raccordement:
           # =RCU_inv
-          formule: Investissement x frais de raccordement au réseaux x RCU
+          valeur: Investissement x frais de raccordement au réseaux x RCU
           unité: €TTC
-        Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
+        Investissement raccordement par logement type tertiaire:
+          valeur: Investissement raccordement / nombre de logements dans l'immeuble concerné
+          unité: €TTC
+        Investissement reseau secondaire RCU:
+          produit:
+            - ratios économiques . Réseaux x Coût Investissement SST RCU
+            - 1 + ratios économiques . Investissement x TVA
+        Investissement reseau secondaire RCU par logement type tertiaire:
+          valeur: Investissement reseau secondaire RCU / nombre de logements dans l'immeuble concerné
           unité: €TTC
         Investissement ballon ECS à accumulation:
           # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
@@ -157,10 +164,10 @@ Calcul Eco:
           formule: Calcul Eco . Investissement ballon ECS panneau inclus
           unité: €TTC
         Total investissement avec ballon ECS à accumulation:
-          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          valeur: Investissement raccordement par logement type tertiaire + Investissement ballon ECS à accumulation
           unité: €TTC
         Total investissement ballon ECS solaire panneaux:
-          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          valeur: Investissement raccordement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
 
         # P1 - Coût du combustible par lgt type / tertiaire
@@ -1615,7 +1622,8 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         petit entretien P2:
           produit:
             - Paramètres économiques . Petit entretien P2 . Fioul coll
-            - Calcul Eco . Fioul coll . Investissement équipement Total
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+            - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
           produit:

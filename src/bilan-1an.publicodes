@@ -120,35 +120,18 @@ Bilan x Réseaux de chaleur:
     P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
 
-    P4spec:
-      # P4spec
-      # =IFERROR(
-      #     -PMT(
-      #         'Paramètres économiques'!$D$200;
-      #         Durée_vie_RCU;
-      #         'Calculs économiques'!D23
-      #     );
-      #     0
-      # )
+    P4 raccordement:
       variations: *pmt
       avec:
         durée: ratios . RCU Durée avant renouvellement
-        capital: Calcul Eco . Réseaux de chaleur . Investissement équipement par logement type tertiaire
-    # -IFERROR(
-    #     PMT(
-    #         'Paramètres économiques'!$D$200;
-    #         Durée_vie_ECS_accu;
-    #         'Calculs économiques'!E23
-    #     );
-    #     0
-    # )-IFERROR(
-    #     PMT(
-    #         'Paramètres économiques'!$D$200;
-    #         Durée_vie_ECS_st;
-    #         'Calculs économiques'!F23
-    #     );
-    #     0
-    # )
+        capital: Calcul Eco . Réseaux de chaleur . Investissement raccordement par logement type tertiaire
+
+    P4 reseau secondaire:
+      variations: *pmt
+      avec:
+        durée: ratios . RCU Durée sous station
+        capital: Calcul Eco . Réseaux de chaleur . Investissement reseau secondaire RCU par logement type tertiaire
+
     P4ECS Ballon électrique:
       variations: *pmt
       avec:
@@ -170,7 +153,8 @@ Bilan x Réseaux de chaleur:
             - sinon: 0
     P4:
       somme:
-        - P4spec
+        - P4 raccordement
+        - P4 reseau secondaire
         - P4ECS Ballon électrique
         - P4ECS Solaire Thermique
         - Calcul Bilan . P4 groupe froid

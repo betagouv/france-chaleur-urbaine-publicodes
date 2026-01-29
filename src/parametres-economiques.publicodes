@@ -27,27 +27,6 @@ Puissance installation x Capacité chauffe eau solaire:
 ###### Investissement
 
 Investissement x frais de raccordement au réseaux x RCU:
-  # =IF(
-  #   $C$7 = "Résidentiel",
-  #   XLOOKUP(
-  #       $C$10,
-  #       'Ratios économiques - Coûts'!$B$22:$B$29,
-  #       'Ratios économiques - Coûts'!$C$22:$C$29,
-  #       ,
-  #       1
-  #   ) * $C$10 * ( 1 + $D$50 ),
-  #   (
-  #       1 + $D$50
-  #   ) *
-  #   XLOOKUP(
-  #       $C$12,
-  #       'Ratios économiques - Coûts'!$B$31:$B$38,
-  #       'Ratios économiques - Coûts'!$C$31:$C$38,
-  #       ,
-  #       -1
-  #   )
-  # )
-  # RCU_inv B52
   par défaut:
     produit:
       - variations:
@@ -58,41 +37,6 @@ Investissement x frais de raccordement au réseaux x RCU:
   unité: €TTC
 
 Investissement x frais de raccordement au réseaux x RFU:
-  # RFU_inv B53
-  # =IF($C$7="Résidentiel";
-  #   XLOOKUP(
-  #       $C$10;
-  #       'Ratios économiques - Coûts'!$B$43:$B$50;
-  #       'Ratios économiques - Coûts'!$C$43:$C$50;
-  #       ;
-  #       1
-  #   )*$C$10*(1+$D$50);
-  #   (1+$D$50)*XLOOKUP(
-  #       $C$12;
-  #       'Ratios économiques - Coûts'!$B$52:$B$59;
-  #       'Ratios économiques - Coûts'!$C$52:$C$59;
-  #       ;
-  #       1
-  #   ))
-
-  # =IF('Paramètres techniques'!$C$31="Non";
-  # 0;
-  # IF($C$7="Résidentiel";
-  # XLOOKUP(
-  #     $C$9;
-  #     'Ratios économiques - Coûts'!$B$43:$B$50;
-  #     'Ratios économiques - Coûts'!$C$43:$C$50;
-  #     'Ratios économiques - Coûts'!$C$43*'Ratios économiques - Coûts'!$B$43/C9;
-  #     -1
-  # )*$C$9*(1+$D$48);
-  # (1+$D$48)*XLOOKUP(
-  #     $C$11;
-  #     'Ratios économiques - Coûts'!$B$52:$B$59;
-  #     'Ratios économiques - Coûts'!$C$52:$C$59;
-  #     ;
-  #     -1
-  # )))
-
   par défaut:
     variations:
       - si: Inclure la climatisation
@@ -453,8 +397,8 @@ Paramètres économiques:
           par défaut: 143
           unité: €HT
         Fioul coll:
-          par défaut: 1.91 / 100
-          unité: €HT/€d'investissment # %
+          par défaut: 7.00 * (1 + TVA)
+          unité: €TTC/MWh
         PAC air-air indiv:
           par défaut: 199 * (1 + TVA)
           unité: €TTC/MWh
@@ -517,7 +461,7 @@ Paramètres économiques:
           par défaut: 70
           unité: €HT
         Fioul coll:
-          par défaut: 1.10 / 100
+          par défaut: 1.72 / 100
           unité: €HT/€d'investissment # %
         PAC air-air coll:
           par défaut: 1.72 / 100

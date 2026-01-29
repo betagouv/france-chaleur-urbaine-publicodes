@@ -1721,6 +1721,10 @@ ratios:
     RCU Durée avant renouvellement:
       valeur: 30
       unité: an
+      note : durée d'amortissement du raccordement de la sous-station au bâtiment
+    RCU Durée sous station:
+      valeur : 22
+      unité : an
     RFU Rendement sous station:
       valeur: 93%
       unité: '%'
