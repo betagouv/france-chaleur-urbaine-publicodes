@@ -312,7 +312,7 @@ Bilan x Chaudière à granulés coll:
       variations: *pmt
       avec:
         durée: ratios . GRA CHAUD Durée de vie
-        capital: Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Total
 
     aides:
       somme:
@@ -1010,14 +1010,18 @@ Bilan x PAC eau-eau coll:
             durée: ratios . PAC EAU EAU Durée de vie puits géothermiques
             capital: ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
         - 1 / nombre de logements dans l'immeuble concerné
-    P4spec:
+    P4specPAC:
       produit:
         - variations: *pmt
           avec:
             durée: ratios . PAC EAU EAU Durée de vie
             capital: ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
         - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
-        - 1 / nombre de logements dans l'immeuble concerné
+        - 1 / nombre de logements dans l'immeuble concerné   
+    P4spec:
+      somme:
+         - P4specForages
+         - P4specPAC
 
     P4ECS Ballon électrique:
       variations: *pmt
@@ -1041,7 +1045,6 @@ Bilan x PAC eau-eau coll:
 
     P4:
       somme:
-        - P4specForages
         - P4spec
         - P4ECS Ballon électrique
         - P4ECS Solaire Thermique
@@ -1051,13 +1054,13 @@ Bilan x PAC eau-eau coll:
       variations: *pmt
       avec:
         durée: ratios . PAC EAU EAU Durée de vie
-        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total PAC
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . PAC
 
     aides spécifiques forages:
       variations: *pmt
       avec:
         durée: ratios . PAC EAU EAU Durée de vie puits géothermiques
-        capital : Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total forages
+        capital : Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . forage
 
     aides:
       somme:

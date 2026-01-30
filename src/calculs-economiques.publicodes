@@ -148,6 +148,11 @@ Calcul Eco:
         Investissement reseau secondaire RCU par logement type tertiaire:
           valeur: Investissement reseau secondaire RCU / nombre de logements dans l'immeuble concerné
           unité: €TTC
+        Investissement équipement Total:
+          valeur: Investissement raccordement + Investissement reseau secondaire RCU
+        Investissement équipement par logement type tertiaire:
+          valeur : Investissement raccordement par logement type tertiaire + Investissement reseau secondaire RCU par logement type tertiaire
+          unité: €TTC
         Investissement ballon ECS à accumulation:
           # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
           variations:
@@ -1233,11 +1238,19 @@ Calcul Eco:
     PAC eau-eau coll:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
-          produit:
-            - ratios économiques . PAC x eau-eau non réversible x Collectif
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+        Investissement équipement forage:
+          valeur: ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
           unité: €TTC
+        Investissement équipement PAC:
+          valeur: ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
+          unité: €TTC
+        Investissement équipement Total:
+          valeur: Investissement équipement forage + Investissement équipement PAC
+          unité: €TTC
+        Investissement équipement par logement type tertiaire forage:
+          valeur: Investissement équipement forage / nombre de logements dans l'immeuble concerné
+        Investissement équipement par logement type tertiaire PAC:
+          valeur: Investissement équipement PAC / nombre de logements dans l'immeuble concerné
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
           unité: €TTC
@@ -1916,11 +1929,27 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
     Chaudière à granulés coll:
-      variations:
-        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: 25 / 100 * Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
-        - sinon: 0
-      unité: €
+      avec:
+        Ma prime renov':
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: 25 / 100 * Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
+            - sinon: 0
+          unité: €
+        Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
+          unité: €
     Gaz indiv avec cond:
       avec:
         Ma prime renov':
@@ -2133,24 +2162,83 @@ Calcul Eco . Montant des aides par logement tertiaire:
           unité: €
     PAC eau-eau coll:
       avec:
-        Total PAC:
+        Ma prime renov'forage:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: 25 / 100 * ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol / nombre de logements dans l'immeuble concerné
-            - sinon: 0
-          unité: €
-        Total forages:
+              alors: 25 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire forage
+            - sinon: 0   
+        Ma prime renov'PAC:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: 25 / 100 * ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde / nombre de logements dans l'immeuble concerné
-            - sinon: 0
+              alors: 25 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire PAC
+            - sinon: 0    
+        Ma prime renov':
+          somme:
+            - Ma prime renov'forage
+            - Ma prime renov'PAC
           unité: €
+        Coup de pouce forage:
+          applicable si:
+            est défini: Coup de pouce
+          formule: Coup de pouce
+          unité: €
+        Coup de pouce PAC:
+          applicable si:
+            est défini: Coup de pouce
+          formule: Coup de pouce
+          unité: €
+        Coup de pouce:
+          somme:
+            - Coup de pouce forage
+            - Coup de pouce PAC
+        CEE forage:
+          formule: 0
+          unité: €
+        CEE PAC:
+          formule: 0
+          unité: €
+        CEE:
+          somme:
+            - CEE forage
+            - CEE PAC
+        forage:
+          somme:
+            - Ma prime renov'forage
+            - Coup de pouce forage
+            - CEE forage
+        PAC:
+          somme:
+            - Ma prime renov'PAC
+            - Coup de pouce PAC
+            - CEE PAC
+        Total:
+          somme:
+            - forage
+            - PAC
+          unité: €
+
     PAC air-eau coll:
-      variations:
-        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: 25 / 100 * Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire
-        - sinon: 0
-      unité: €
+      avec:
+        Ma prime renov':
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: 25 / 100 * Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire
+            - sinon: 0
+          unité: €
+        Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
+          unité: €
     Radiateur électrique:
       avec:
         Ma prime renov':
