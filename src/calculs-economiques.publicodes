@@ -1933,7 +1933,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
         Ma prime renov':
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: 25 / 100 * Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
+              alors: 35 / 100 * Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
             - sinon: 0
           unité: €
         Coup de pouce:
@@ -2165,12 +2165,12 @@ Calcul Eco . Montant des aides par logement tertiaire:
         Ma prime renov'forage:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: 25 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire forage
+              alors: 35 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire forage
             - sinon: 0   
         Ma prime renov'PAC:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: 25 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire PAC
+              alors: 35 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire PAC
             - sinon: 0    
         Ma prime renov':
           somme:
@@ -2222,7 +2222,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
         Ma prime renov':
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-              alors: 25 / 100 * Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire
+              alors: 35 / 100 * Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire
             - sinon: 0
           unité: €
         Coup de pouce:
