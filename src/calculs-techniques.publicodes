@@ -1106,11 +1106,9 @@ Installation x PAC air-air x Individuel:
       unité: kW
     gamme de puissance existante:
       # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
-      produit:
-        - somme:
-            - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible indiv
-            - 1
-        - ratios . PAC AIR AIR Puissance unitaire réversible indiv
+      le maximum de:
+        - puissance équipement
+        - 3
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
       toutes ces conditions:
