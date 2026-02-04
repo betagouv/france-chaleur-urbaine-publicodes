@@ -1108,7 +1108,7 @@ Installation x PAC air-air x Individuel:
       # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
       le maximum de:
         - puissance équipement
-        - 3
+        - 2
       unité: kW
     besoin d'installation supplémentaire pour produire l'ECS:
       toutes ces conditions:
