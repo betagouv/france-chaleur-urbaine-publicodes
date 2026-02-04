@@ -84,3 +84,27 @@ RE2020:
     Inclure la climatisation: non 
     Production eau chaude sanitaire: oui
     type de production ECS: "'Avec équipement chauffage'"
+
+
+tertiaire moyen:
+  contexte:
+    caractéristique réseau de chaleur . contenu CO2: 0.91
+    caractéristique réseau de chaleur . contenu CO2 ACV: 0.113
+    caractéristique réseau de chaleur . livraisons totales: 3739841
+    caractéristique réseau de chaleur . part fixe: 40
+    caractéristique réseau de chaleur . part variable: 60
+    caractéristique réseau de chaleur . prix moyen: 110
+    caractéristique réseau de chaleur . production totale: 5907294.94
+    caractéristique réseau de chaleur . taux EnRR: 48.8
+    caractéristique réseau de froid . contenu CO2: 0.008
+    caractéristique réseau de froid . contenu CO2 ACV: 0.016
+    caractéristique réseau de froid . livraisons totales: 425178
+    caractéristique réseau de froid . production totale: 515292
+    code département: "'75'"
+    température de référence chaud commune: -5
+    type de bâtiment : "'tertiaire'"
+    normes thermiques tertiaire : "'Moyenne française 2021'"
+    ratios . GNRL Surface de référence tertiaire: 1000
+    Inclure la climatisation: non 
+    Production eau chaude sanitaire: oui
+    type de production ECS: "'Avec équipement chauffage'"
