@@ -329,6 +329,213 @@ const clesEnv = envInstallations.flatMap((inst) =>
   envSuffixes.map((s) => `env . Installation x ${inst} . ${s}` as const)
 ) satisfies RuleName[];
 
+// --- ParametresDesModesDeChauffage.tsx ---
+
+const clesParamsStatiques = [
+  'type de production de froid',
+] satisfies RuleName[];
+
+const clesRatiosEcoInvestissement = [
+  "ratios économiques . Investissement x Pose et mise en place de l'installation",
+  'ratios économiques . Investissement x TVA',
+  "ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement",
+  'ratios économiques . Chauffe-eau x solaire x coût investissement',
+  "ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement",
+  'ratios économiques . Amortissement x Taux actualisation',
+] satisfies RuleName[];
+
+const clesParamsCombustibles = [
+  'Paramètres économiques . Réseaux chaleur . Coût',
+  'Paramètres économiques . Réseaux chaleur . Part fixe',
+  'Paramètres économiques . Réseaux chaleur . Part variable',
+  'Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire',
+  'Paramètres économiques . Gaz x Abonnement x Part Fixe TTC collectif ou tertiaire',
+  'Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel',
+  'Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT',
+  'Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT',
+  'Paramètres économiques . Gaz x Consommation x Part Variable TTC',
+  'Paramètres économiques . Gaz x Coût de la molécule HT',
+  'Paramètres économiques . Gaz x Coût de transport HT',
+  'Paramètres économiques . Gaz x Coût distribution HT',
+  'Paramètres économiques . Gaz x Coût des CEE HT',
+  "Paramètres économiques . Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA",
+  'Paramètres économiques . Gaz x Taxe x Part fixe x TVA',
+  'Paramètres économiques . Gaz x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN',
+  'Paramètres économiques . Gaz x Taxe x Part variable x TVA',
+  'Paramètres économiques . Electricité x Option tarifaire',
+  'Paramètres économiques . Electricité x Puissance souscrite indiv',
+  'Paramètres économiques . Electricité x Puissance souscrite coll',
+  'Paramètres économiques . Electricité x Abonnement Part Fixe indiv',
+  'Paramètres économiques . Electricité x Abonnement Part Fixe coll',
+  'Paramètres économiques . Electricité x Consommation Part variable en heure pleine',
+  'Paramètres économiques . Electricité x Consommation Part variable en heure creuse',
+  "ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP",
+  "ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC",
+  'Paramètres économiques . Electricité x Taxe . Part Fixe x TVA',
+  "Paramètres économiques . Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE",
+  'Paramètres économiques . Electricité x Taxe . Part Variable x TVA',
+  'Paramètres économiques . Granulés . Type de conditionnement',
+  'Paramètres économiques . Granulés . Prix pour les granulés',
+  'Paramètres économiques . Granulés . TVA',
+  'Paramètres économiques . Fioul . Prix livraison incluse',
+  'Paramètres économiques . Fioul . TVA',
+  'Paramètres économiques . Fioul . TICPE',
+  'Paramètres économiques . Réseaux froid . Coût',
+  'Paramètres économiques . Réseaux froid . Part fixe',
+  'Paramètres économiques . Réseaux froid . Part variable',
+] satisfies RuleName[];
+
+const clesParamsEntretienP2 = [
+  'Paramètres économiques . Petit entretien P2 . TVA',
+  'Paramètres économiques . Petit entretien P2 . RCU',
+  'Paramètres économiques . Petit entretien P2 . RFU',
+  'Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv',
+  'Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll',
+  'Paramètres économiques . Petit entretien P2 . Gaz indiv avec cond',
+  'Paramètres économiques . Petit entretien P2 . Gaz indiv sans cond',
+  'Paramètres économiques . Petit entretien P2 . Gaz coll avec cond',
+  'Paramètres économiques . Petit entretien P2 . Gaz coll sans cond',
+  'Paramètres économiques . Petit entretien P2 . Fioul indiv',
+  'Paramètres économiques . Petit entretien P2 . Fioul coll',
+  'Paramètres économiques . Petit entretien P2 . PAC air-air indiv',
+  'Paramètres économiques . Petit entretien P2 . PAC air-air coll',
+  'Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv',
+  'Paramètres économiques . Petit entretien P2 . PAC eau-eau coll',
+  'Paramètres économiques . Petit entretien P2 . PAC air-eau indiv',
+  'Paramètres économiques . Petit entretien P2 . PAC air-eau coll',
+  'Paramètres économiques . Petit entretien P2 . Radiateur électrique',
+  'Paramètres économiques . Petit entretien P2 . Chauffe-eau électrique à accumulation',
+  'Paramètres économiques . Petit entretien P2 . Chauffe-eau solaire',
+] satisfies RuleName[];
+
+const clesParamsEntretienP3 = [
+  'Paramètres économiques . Gros entretien P3 . TVA',
+  'Paramètres économiques . Gros entretien P3 . RCU',
+  'Paramètres économiques . Gros entretien P3 . RFU',
+  'Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv',
+  'Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll',
+  'Paramètres économiques . Gros entretien P3 . Gaz indiv avec cond',
+  'Paramètres économiques . Gros entretien P3 . Gaz indiv sans cond',
+  'Paramètres économiques . Gros entretien P3 . Gaz coll avec cond',
+  'Paramètres économiques . Gros entretien P3 . Gaz coll sans cond',
+  'Paramètres économiques . Gros entretien P3 . Fioul indiv',
+  'Paramètres économiques . Gros entretien P3 . Fioul coll',
+  'Paramètres économiques . Gros entretien P3 . PAC air-air indiv',
+  'Paramètres économiques . Gros entretien P3 . PAC air-air coll',
+  'Paramètres économiques . Gros entretien P3 . PAC eau-eau indiv',
+  'Paramètres économiques . Gros entretien P3 . PAC eau-eau coll',
+  'Paramètres économiques . Gros entretien P3 . PAC air-eau indiv',
+  'Paramètres économiques . Gros entretien P3 . PAC air-eau coll',
+  'Paramètres économiques . Gros entretien P3 . Radiateur électrique',
+  'Paramètres économiques . Gros entretien P3 . Chauffe-eau électrique à accumulation',
+  'Paramètres économiques . Gros entretien P3 . Chauffe-eau solaire',
+] satisfies RuleName[];
+
+const clesParamsAides = [
+  'Paramètres économiques . Aides . Éligibilité x Prise en compte des aides',
+  'Paramètres économiques . Aides . Éligibilité x Je suis un particulier',
+  'Paramètres économiques . Aides . Éligibilité x Ressources du ménage',
+  "Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul",
+  "Paramètres économiques . Aides . Aides x Éligible Ma prime renov'",
+  'Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage',
+  'Paramètres économiques . Aides . Aides x Éligible CEE',
+  'Paramètres économiques . Aides . Valeur CEE',
+] satisfies RuleName[];
+
+const clesRatiosTechniques = [
+  'ratios . RCU Rendement sous station chauffage',
+  'ratios . RCU Rendement sous station ECS',
+  'ratios . RCU Conso auxiliaire chauffage',
+  'ratios . RCU Conso auxiliaire ECS',
+  'ratios . RCU Durée avant renouvellement',
+  'ratios . RFU Rendement sous station',
+  'ratios . RFU Conso auxiliaire',
+  'ratios . RFU Durée de vie',
+  'ratios . GRA POELE Rendement poêle chauffage',
+  'ratios . GRA POELE Conso combustible',
+  'ratios . GRA POELE Durée de vie',
+  'ratios . GRA CHAUD Rendement chaudière chauffage',
+  'ratios . GRA CHAUD Conso combustible',
+  'ratios . GRA CHAUD Conso auxiliaire',
+  'ratios . GRA CHAUD Durée de vie',
+  'ratios . GAZ IND COND Rendement chaudière chauffage',
+  'ratios . GAZ IND COND Rendement chaudière ECS',
+  'ratios . GAZ IND COND Conso combustible',
+  'ratios . GAZ IND COND Conso auxiliaire chauffage',
+  'ratios . GAZ IND COND Conso auxiliaire ECS',
+  'ratios . GAZ IND COND Durée de vie',
+  'ratios . GAZ IND SCOND Rendement chaudière',
+  'ratios . GAZ IND SCOND Conso combustible',
+  'ratios . GAZ IND SCOND Conso auxiliaire chauffage',
+  'ratios . GAZ IND SCOND Conso auxiliaire ECS',
+  'ratios . GAZ IND SCOND Durée de vie',
+  'ratios . GAZ COLL COND Rendement chaudière chauffage',
+  'ratios . GAZ COLL COND Rendement chaudière ECS',
+  'ratios . GAZ COLL COND Conso combustible',
+  'ratios . GAZ COLL COND Conso auxiliaire chauffage',
+  'ratios . GAZ COLL COND Conso auxiliaire ECS',
+  'ratios . GAZ COLL COND Durée de vie',
+  'ratios . GAZ COLL SCOND Rendement chaudière',
+  'ratios . GAZ COLL SCOND Conso combustible',
+  'ratios . GAZ COLL SCOND Conso auxiliaire chauffage',
+  'ratios . GAZ COLL SCOND Conso auxiliaire ECS',
+  'ratios . GAZ COLL SCOND Durée de vie',
+  'ratios . FIOUL IND Rendement chaudière',
+  'ratios . FIOUL IND Conso combustible',
+  'ratios . FIOUL IND Conso auxiliaire chauffage',
+  'ratios . FIOUL IND Conso auxiliaire ECS',
+  'ratios . FIOUL IND Durée de vie',
+  'ratios . FIOUL COLL Rendement chaudière chauffage',
+  'ratios . FIOUL COLL Rendement chaudière ECS',
+  'ratios . FIOUL COLL Conso combustible',
+  'ratios . FIOUL COLL Conso auxiliaire chauffage',
+  'ratios . FIOUL COLL Conso auxiliaire ECS',
+  'ratios . FIOUL COLL Durée de vie',
+  'ratios . PAC AIR AIR SCOP indiv',
+  'ratios . PAC AIR AIR SEER indiv',
+  'ratios . PAC AIR AIR Durée de vie indiv',
+  'ratios . PAC AIR AIR SCOP coll',
+  'ratios . PAC AIR AIR SEER coll',
+  'ratios . PAC AIR AIR Durée de vie coll',
+  'ratios . PAC EAU EAU SCOP indiv capteurs horizontaux',
+  'ratios . PAC EAU EAU Durée de vie',
+  'ratios . PAC EAU EAU SCOP coll champ de sondes',
+  'ratios . PAC AIR EAU SCOP indiv',
+  'ratios . PAC AIR EAU SEER indiv',
+  'ratios . PAC AIR EAU Durée de vie indiv',
+  'ratios . PAC AIR EAU SCOP coll',
+  'ratios . PAC AIR EAU SEER coll',
+  'ratios . PAC AIR EAU Durée de vie coll',
+  'ratios . RAD ELEC INDIV Rendement',
+  'ratios . RAD ELEC INDIV Conso combustible',
+  'ratios . RAD ELEC INDIV Durée de vie',
+] satisfies RuleName[];
+
+const clesInvestissementInstallation = [
+  'Investissement x frais de raccordement au réseaux x RCU',
+  'Investissement x frais de raccordement au réseaux x RFU',
+  'Investissement x Poêle à granulés indiv',
+  'Investissement x Chaudière à granulés coll',
+] satisfies RuleName[];
+
+const clesRatiosEcoInstallation = [
+  'ratios économiques . Gaz x indiv avec cond',
+  'ratios économiques . Gaz x indiv sans cond',
+  'ratios économiques . Gaz x coll avec cond',
+  'ratios économiques . Gaz x coll sans cond',
+  'ratios économiques . Fioul x indiv',
+  'ratios économiques . Fioul x collectif',
+  'ratios économiques . PAC x air-air réversible x Individuel',
+  'ratios économiques . PAC x air-air réversible x Collectif',
+  'ratios économiques . PAC x eau-eau non réversible x Individuel',
+  'ratios économiques . PAC x eau-eau non réversible x Collectif',
+  'ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol',
+  'ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde',
+  'ratios économiques . PAC x air-eau réversible x Individuel',
+  'ratios économiques . PAC x air-eau réversible x Collectif',
+  'ratios économiques . Radiateur électrique x Individuel x investissement total',
+] satisfies RuleName[];
+
 // --- Tests ---
 
 const assertKeysExist = (keys: RuleName[]) => {
@@ -373,5 +580,33 @@ describe('Clés externes', () => {
   });
   describe('Env - Émissions CO2', () => {
     assertKeysExist(clesEnv);
+  });
+
+  describe('Params - Clés statiques', () => {
+    assertKeysExist(clesParamsStatiques);
+  });
+  describe('Params - Ratios économiques investissement', () => {
+    assertKeysExist(clesRatiosEcoInvestissement);
+  });
+  describe('Params - Combustibles', () => {
+    assertKeysExist(clesParamsCombustibles);
+  });
+  describe('Params - Petit entretien P2', () => {
+    assertKeysExist(clesParamsEntretienP2);
+  });
+  describe('Params - Gros entretien P3', () => {
+    assertKeysExist(clesParamsEntretienP3);
+  });
+  describe('Params - Aides', () => {
+    assertKeysExist(clesParamsAides);
+  });
+  describe('Params - Ratios techniques', () => {
+    assertKeysExist(clesRatiosTechniques);
+  });
+  describe('Params - Investissement par installation', () => {
+    assertKeysExist(clesInvestissementInstallation);
+  });
+  describe('Params - Ratios économiques par installation', () => {
+    assertKeysExist(clesRatiosEcoInstallation);
   });
 });
