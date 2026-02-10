@@ -31,6 +31,7 @@
     "pretest": "pnpm run compile",
     "test": "vitest run",
     "bench": "pnpm compile && node --experimental-strip-types ./bench/index.ts",
+    "export-csv": "node --experimental-strip-types ./scripts/export-csv.ts",
     "build": "pnpm compile",
     "doc:build": "pnpm compile && pnpm --filter ./doc build"
   },

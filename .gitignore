@@ -1,5 +1,9 @@
 node_modules
 publicodes-build
+debug-tables.csv
 
 # direnv
 .envrc
+
+.cursor/
+CLAUDE.md

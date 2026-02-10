@@ -44,6 +44,9 @@ pnpm test
 # Run the benchmark
 pnpm bench
 
+# Export all debug tables (as in DebugDrawer) to a CSV file
+pnpm export-csv
+
 # Run the documentation server
 pnpm dev
 ```
