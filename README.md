@@ -50,4 +50,4 @@ pnpm dev
 
 ## CI
 
-Un token Scalingo SCALINGO_API_TOKEN a été [généré](https://dashboard.scalingo.com/account/tokens) et défini en tant que secret de Github Actions pour permettre de redéployer la branche dev-publicodes de FCU.
+Le workflow exact `publish.yaml` a été approuvé en tant que [trusted publisher sur npmjs.com](https://www.npmjs.com/package/@betagouv/france-chaleur-urbaine-publicodes/access) afin de pouvoir publier automatiquement les tags vX.X.X et pouvoir les réutiliser dans le dépôt [france-chaleur-urbaine](https://github.com/betagouv/france-chaleur-urbaine).
