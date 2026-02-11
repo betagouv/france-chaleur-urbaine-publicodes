@@ -1,0 +1,390 @@
+# reproduction de la fonction Excel PMT
+x-pmt reseau-de-chaleur: &pmt
+  - si: ratios économiques . Amortissement x Taux actualisation != 0
+    alors: ratios économiques . Amortissement x Taux actualisation * capital * ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée - 1)
+  - sinon: capital / durée
+
+Installation x Réseaux de chaleur x Collectif:
+  avec:
+    production eau chaude sanitaire: Production eau chaude sanitaire
+    puissance nécessaire équipement chauffage:
+      # =(P_CHAUF/Rend_RCU_chauf)*$B$17*'Paramètres techniques'!$D$53
+      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . RCU Rendement sous station chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      # =IF(AND(C47="Oui",Type_ECS="Avec équipement chauffage"),CF_ECS*(P_ECS/Rend_RCU_ECS),0)*IF(B47="Collectif",Nb_lgt,1)
+      variations:
+        - si:
+            toutes ces conditions:
+              - production eau chaude sanitaire
+              - type de production ECS = 'Avec équipement chauffage'
+          alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . RCU Rendement sous station ECS) * nombre de logements dans l'immeuble concerné
+        - sinon: 0
+      unité: kW
+    puissance équipement:
+      somme:
+        - puissance nécessaire équipement chauffage
+        - puissance nécessaire pour ECS avec équipement
+      unité: kW
+    gamme de puissance existante:
+      formule: puissance équipement
+      unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS:
+      # =IF(OR(Prod_ECS="Non",AND(E47>0)),"Non","Oui")
+      # simplifié en =IF(AND(Prod_ECS="oui",E47<=0)),"oui","non")
+      # valeur commune à tous les types d'installations
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
+    volume du ballon ECS:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != "Solaire thermique"
+          alors: volume du ballon ECS
+        - sinon: 50
+      unité: L
+    consommation d'électricité chauffe-eau électrique:
+      # E70 =IF(AND(C70="Oui",Type_ECS<>"Solaire thermique"),Besoin_ECS/'Paramètres techniques'!$D$189,0)
+      # valeur commune à tous les types d'installations
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != 'Solaire thermique'
+          alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      # =IF(AND(C70="Oui",Type_ECS="Solaire thermique"),Besoin_ECS*(1-'Paramètres techniques'!$D$197)/'Paramètres techniques'!$D$195,0)
+      # valeur commune à tous les types d'installations
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
+    consommation combustible chaleur:
+      # =Besoin_cha/Rend_RCU_chauf+IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)*Besoin_ECS/Rend_RCU_ECS
+      somme:
+        - besoins chauffage par appartement / ratios . RCU Rendement sous station chauffage
+        - variations:
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: besoins eau chaude sanitaire par appartement / ratios . RCU Rendement sous station ECS
+            - sinon: 0
+      unité: kWh
+    consommation combustible froid:
+      formule: 0
+      unité: kWh
+    consommation auxiliaire:
+      # =(1-Conso_aux_RCU_chauf)*Besoin_cha+(1-Conso_aux_RCU_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
+      somme:
+        - (1 - ratios . RCU Conso auxiliaire chauffage) * besoins chauffage par appartement
+        - variations:
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . RCU Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      # =IF(C70="Non",F93,F93+H93+I93)
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
+        - sinon: consommation auxiliaire
+      unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
+
+Calcul Eco . Réseaux de chaleur:
+  avec:
+    # P4 - Investissement total (sans aide) €TTC
+    Investissement raccordement:
+      # =RCU_inv
+      valeur: Investissement x frais de raccordement au réseaux x RCU
+      unité: €TTC
+    Investissement raccordement par logement type tertiaire:
+      valeur: Investissement raccordement / nombre de logements dans l'immeuble concerné
+      unité: €TTC
+    Investissement reseau secondaire RCU:
+      produit:
+        - ratios économiques . Réseaux x Coût Investissement SST RCU
+        - 1 + ratios économiques . Investissement x TVA
+    Investissement reseau secondaire RCU par logement type tertiaire:
+      valeur: Investissement reseau secondaire RCU / nombre de logements dans l'immeuble concerné
+      unité: €TTC
+    Investissement équipement Total:
+      valeur: Investissement raccordement + Investissement reseau secondaire RCU
+    Investissement équipement par logement type tertiaire:
+      valeur : Investissement raccordement par logement type tertiaire + Investissement reseau secondaire RCU par logement type tertiaire
+      unité: €TTC
+    Investissement ballon ECS à accumulation:
+      # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
+      variations:
+        - si: Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          alors: Calcul Eco . Investissement ballon ECS à accumulation
+        - sinon: 0
+      unité: €TTC
+    Investissement ballon ECS solaire panneau inclus:
+      # IF(AND('Calculs techniques'!C71="Oui",Type_ECS="Solaire thermique"),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv),"")
+      applicable si:
+        toutes ces conditions:
+          - Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          - type de production ECS = "Solaire thermique"
+      formule: Calcul Eco . Investissement ballon ECS panneau inclus
+      unité: €TTC
+    Total investissement avec ballon ECS à accumulation:
+      valeur: Investissement raccordement par logement type tertiaire + Investissement ballon ECS à accumulation
+      unité: €TTC
+    Total investissement ballon ECS solaire panneaux:
+      valeur: Investissement raccordement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+      unité: €TTC
+
+    # P1 - Coût du combustible par lgt type / tertiaire
+    Coût du combustible abonnement:
+      somme:
+        - variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+            - sinon: 0
+        - produit:
+            - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement
+            - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
+      unité: €TTC/an
+      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible consommation:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part consommation
+        - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
+      unité: €TTC/an
+      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+    Coût électricité auxiliaire:
+      # =IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!F93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!$F115+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115)
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
+      unité: €TTC/an
+      note: "Coût électricité auxiliaire (P1') €TTC/an"
+    Coût combustible pour ballon ECS à accumulation:
+      # F45 =IF('Calculs techniques'!H93<>"",IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!H93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!H93+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115),"")
+      applicable si: Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
+    Coût combustible pour ballon ECS solaire:
+      applicable si: Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
+    Coût combustible froid:
+      # H45 =IF(AND(Prod_clim="Oui";Type_clim="Réseau de froid");'Calculs économiques'!$H$46;IF('Paramètres économiques'!$D$110="Option base";$D$12*('Calculs techniques'!J89+'Calculs techniques'!K89);$D$12*'Paramètres économiques'!$D$117*('Calculs techniques'!J89+'Calculs techniques'!K89)+$F$12*'Paramètres économiques'!$D$118*('Calculs techniques'!J89+'Calculs techniques'!K89)))
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+        - sinon:
+            produit:
+              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+              - Installation x Réseaux de chaleur x Collectif . consommation Groupe Froid
+      unité: €TTC/an
+
+Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur:
+  avec:
+    petit entretien P2:
+      # C67 ='Paramètres économiques'!D159*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
+      produit:
+        - Paramètres économiques . Petit entretien P2 . RCU
+        - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+        - ratios économiques . Réseaux x Coût Investissement SST RCU
+      unité: €TTC/an
+    gros entretien P3:
+      produit:
+        - Paramètres économiques . Gros entretien P3 . RCU
+        - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+        - ratios économiques . Réseaux x Coût Investissement SST RCU
+      unité: €TTC/an
+    petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+    gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+
+Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur:
+  avec:
+    Ma prime renov':
+      # =IF($B$91="Eligible",XLOOKUP(1,('Ratios économiques - Aides'!$A$9:$A$26='Paramètres économiques'!$D$213)*('Ratios économiques - Aides'!$B$9:$B$26='Calculs économiques'!A97),'Ratios économiques - Aides'!$C$9:$C$26,0),0)
+      applicable si:
+        est défini: Ma prime renov'
+      formule: Ma prime renov'
+      unité: €
+    Coup de pouce:
+      # =IF($B$92="Eligible",
+      # IF('Paramètres économiques'!$D$213="Modeste",XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$267:$B$272,'Ratios économiques - Aides'!$C$267:$C$272,0),XLOOKUP('Calculs économiques'!A97,'Ratios économiques - Aides'!$B$273:$B$278,'Ratios économiques - Aides'!$C$273:$C$278,0)),0)
+      applicable si:
+        est défini: Coup de pouce
+      formule: Coup de pouce
+      unité: €
+    CEE:
+      # =(IF('Calculs techniques'!$B$13="Résidentiel",
+      #   IF('Calculs techniques'!$B$17<'Ratios économiques - Aides'!$B$37,'Ratios économiques - Aides'!$C$36,'Ratios économiques - Aides'!$C$37*'Calculs techniques'!$B$17+'Ratios économiques - Aides'!$C$38),
+      #   IF('Calculs techniques'!$B$14<'Ratios économiques - Aides'!$B$41,'Ratios économiques - Aides'!$C$40,'Ratios économiques - Aides'!$C$41*'Calculs techniques'!$B$14+'Ratios économiques - Aides'!$C$42))
+      # *'Calculs économiques'!$B$94*'Ratios économiques - Aides'!$C$39)/'Calculs techniques'!$B$17
+      produit:
+        - variations:
+            - si: type de bâtiment = 'résidentiel'
+              alors:
+                variations:
+                  - si: nombre de logements dans l'immeuble concerné <= 125
+                    alors: ratios économiques x aides . CEE x FCU x Résidentiel inf 125 appt
+                  - sinon: ratios économiques x aides . CEE x FCU x Résidentiel sup 125 variable * nombre de logements dans l'immeuble concerné + ratios économiques x aides . CEE x FCU x Résidentiel sup 125 fixe
+            - sinon:
+                variations:
+                  - si: surface logement type tertiaire <= 7500
+                    alors: ratios économiques x aides . CEE x FCU x Tertiaire inf 7500 appt
+                  - sinon: ratios économiques x aides . CEE x FCU x Tertiaire sup 7500 variable * surface logement type tertiaire + ratios économiques x aides . CEE x FCU x Tertiaire sup 7500 fixe
+        - Paramètres économiques . Aides . Valeur CEE
+        - ratios économiques x aides . CEE x RCU x facteur correctif
+        - 1 / nombre de logements dans l'immeuble concerné
+      unité: €
+    Total:
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: Ma prime renov' + Coup de pouce + CEE
+        - sinon: 0
+      unité: €
+
+env . Installation x Réseaux de chaleur x Collectif:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2e
+    Scope 1: besoins de chauffage et ECS si même équipement
+    auxiliaires et combustible électrique:
+      formule:
+        variations:
+          - si: Production eau chaude sanitaire
+            alors: contenu CO2 réseau de chaleur * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+          - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
+      unité: kgCO2e
+    ECS solaire thermique:
+      # ='Calculs techniques'!I93*'Ratios environnementaux'!$C$26
+      formule: Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+    ECS avec ballon électrique:
+      # ='Calculs techniques'!H93*'Ratios environnementaux'!$C$25
+      formule: Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      # =SUM(E43:G43)
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
+    Scope 3:
+      # J43 =(IF($B$17="Oui";'Ratios environnementaux'!C33*($B$14+$B$15);'Ratios environnementaux'!C33*'Calculs environnementaux'!$B$14))
+      # QUESTION déjà posée: ça s'appelle vraiment Scope 3 ?
+      variations:
+        - si: Production eau chaude sanitaire
+          alors: ratios environnementaux . CO2 INS RCU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+        - sinon: ratios environnementaux . CO2 INS RCU * besoins chauffage par appartement
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2e/an
+
+Bilan x Réseaux de chaleur:
+  avec:
+    P1abo: Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
+    P1conso: Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
+    P1prime: Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1ECS:
+      le maximum de:
+        - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
+        - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS solaire
+    P1Consofroid: Calcul Eco . Réseaux de chaleur . Coût combustible froid
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+
+    P4 raccordement:
+      variations: *pmt
+      avec:
+        durée: ratios . RCU Durée avant renouvellement
+        capital: Calcul Eco . Réseaux de chaleur . Investissement raccordement par logement type tertiaire
+
+    P4 reseau secondaire:
+      variations: *pmt
+      avec:
+        durée: ratios . RCU Durée sous station
+        capital: Calcul Eco . Réseaux de chaleur . Investissement reseau secondaire RCU par logement type tertiaire
+
+    P4ECS Ballon électrique:
+      variations: *pmt
+      avec:
+        durée: ratios . CHAUF EAU ELEC Durée de vie
+        capital: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS à accumulation
+
+    P4ECS Solaire Thermique:
+      variations: *pmt
+      avec:
+        durée:
+          variations:
+            - si: type de production ECS = 'Solaire thermique'
+              alors: ratios . CHAUF EAU SOLAIRE Durée de vie
+            - sinon: 0
+        capital:
+          variations:
+            - si: type de production ECS = 'Solaire thermique'
+              alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS solaire panneau inclus
+            - sinon: 0
+    P4:
+      somme:
+        - P4 raccordement
+        - P4 reseau secondaire
+        - P4ECS Ballon électrique
+        - P4ECS Solaire Thermique
+        - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
+    aides spécifiques:
+      variations: *pmt
+      avec:
+        durée: ratios . RCU Durée avant renouvellement
+        capital: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Total
+
+    aides:
+      somme:
+        - aides spécifiques
+        - Calcul Bilan . aides réseau de froid
+
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
+    total sans aides:
+      somme:
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
+        - P4
+    total avec aides:
+      somme:
+        - total sans aides
+        - (- aides)
