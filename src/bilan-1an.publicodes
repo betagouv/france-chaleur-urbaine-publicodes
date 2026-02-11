@@ -1201,7 +1201,7 @@ Bilan x PAC air-eau coll:
       variations: *pmt
       avec:
         durée: ratios . PAC AIR EAU Durée de vie coll
-        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll
+        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . Total
     aides: aides spécifiques
     P4 moins aides:
       le maximum de:
