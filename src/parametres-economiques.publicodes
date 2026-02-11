@@ -200,7 +200,7 @@ Paramètres économiques:
 
     Gaz x Puissance souscrite pour calcul installation collective ou tertiaire:
       # B89 ='Calculs techniques'!$H$53
-      par défaut: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante
+      par défaut: Gaz coll avec cond . Installation . gamme de puissance existante
       unité: kW
     Gaz x Abonnement x Part Fixe TTC collectif ou tertiaire:
       # B90 =(XLOOKUP($D$89,'Calcul tarif gaz tertitaire'!$A$24:$A$69,'Calcul tarif gaz tertitaire'!$B$24:$B$69,,1)+'Ratios économiques - Coûts'!$C$226)*(1+'Ratios économiques - Coûts'!$C$227)

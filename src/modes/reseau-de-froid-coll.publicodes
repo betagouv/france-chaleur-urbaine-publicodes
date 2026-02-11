@@ -1,0 +1,127 @@
+Réseaux de froid:
+  avec:
+    Installation:
+      avec:
+        production eau chaude sanitaire: non
+        puissance nécessaire équipement chauffage:
+          formule: 0
+          unité: kW
+        puissance nécessaire pour ECS avec équipement:
+          formule: 0
+          unité: kW
+        puissance nécessaire pour refroidissement équipement:
+          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . RFU Rendement sous station * nombre de logements dans l'immeuble concerné
+          # unité: kW # corrigé pour faire fonctionner la division
+          # QUESTION : Quelle est l'unité ? Peut-on changer l'unité pour kW ?
+          unité: kW
+        puissance équipement:
+          somme:
+            - puissance nécessaire pour refroidissement équipement
+          unité: kW
+        gamme de puissance existante:
+          formule: puissance équipement
+          unité: kW
+        consommation combustible chaleur:
+          formule: 0
+          unité: kWh
+        consommation combustible froid:
+          # =Besoin_raf/Rend_RFU
+          formule: besoins en climatisation par appartement / ratios . RFU Rendement sous station
+          unité: kWh
+        consommation auxiliaire:
+          # =(1-Conso_aux_RFU)*Besoin_raf
+          formule: (1 - ratios . RFU Conso auxiliaire) * besoins en climatisation par appartement
+          unité: kWh elec
+        consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: consommation auxiliaire
+        consommation Groupe Froid: calcul consommation Groupe Froid
+
+    Calcul Eco:
+      avec:
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          formule: Investissement x frais de raccordement au réseaux x RFU
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
+          unité: €TTC
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
+            - Réseaux de froid . Installation . consommation combustible froid
+          unité: €TTC/an
+          note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+        Coût du combustible consommation:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
+            - Réseaux de froid . Installation . consommation combustible froid
+          unité: €TTC/an
+          note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+        Coût électricité auxiliaire:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - Réseaux de froid . Installation . consommation auxiliaire
+          unité: €TTC/an
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
+            - Réseaux de froid . Installation . consommation combustible froid
+          unité: €TTC/an
+
+    P2 P3 Coût de l'entretien:
+      avec:
+        petit entretien P2:
+          # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
+          variations:
+            - si: Inclure la climatisation
+              alors:
+                produit:
+                  - Paramètres économiques . Petit entretien P2 . RFU
+                  - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+                  - ratios économiques . Réseaux x Coût Investissement SST RFU
+                unité: €TTC/an
+            - sinon: 0
+          unité: €TTC/an
+        gros entretien P3:
+          variations:
+            - si: Inclure la climatisation
+              alors:
+                produit:
+                  - Paramètres économiques . Gros entretien P3 . RFU
+                  - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+                  - ratios économiques . Réseaux x Coût Investissement SST RFU
+            - sinon: 0
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+
+    Montant des aides par logement tertiaire:
+      avec:
+        Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          # =IF($B$93="Eligible",IF('Paramètres économiques'!$C$7="Résidentiel",0,XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$334:$B$342,'Ratios économiques - Aides'!$C$334:$C$342)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$331:$B$333,'Ratios économiques - Aides'!$C$331:$C$333)*'Paramètres économiques'!$C$21*$B$94),0)
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible CEE
+              alors:
+                variations:
+                  - si: type de bâtiment = 'résidentiel'
+                    alors: 0
+                  - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * Réseaux de froid . Installation . gamme de puissance existante * Paramètres économiques . Aides . Valeur CEE
+            - sinon: 0
+          unité: €
+        Total:
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
+          unité: €

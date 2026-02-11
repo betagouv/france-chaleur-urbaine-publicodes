@@ -32,25 +32,6 @@ const installations = [
   'Radiateur électrique',
 ] as const;
 
-const envInstallations = [
-  'Réseaux de chaleur x Collectif',
-  'Chaudière à granulés coll x Collectif',
-  'Gaz coll avec cond x Collectif',
-  'Gaz coll sans cond x Collectif',
-  'Fioul coll x Collectif',
-  'PAC air-air x Collectif',
-  'PAC air-eau x Collectif',
-  'PAC eau-eau x Collectif',
-  'Poêle à granulés indiv x Individuel',
-  'Gaz indiv avec cond x Individuel',
-  'Gaz indiv sans cond x Individuel',
-  'Fioul indiv x Individuel',
-  'PAC air-air x Individuel',
-  'PAC air-eau x Individuel',
-  'PAC eau-eau x Individuel',
-  'Radiateur électrique x Individuel',
-] as const;
-
 // --- Clés statiques (ComparateurPublicodes.tsx) ---
 
 const clesStatiques = [
@@ -97,7 +78,7 @@ const bilanSuffixes = [
 ] as const;
 
 const clesBilan = installations.flatMap((inst) =>
-  bilanSuffixes.map((suffix) => `Bilan x ${inst} . ${suffix}` as const)
+  bilanSuffixes.map((suffix) => `${inst} . Bilan . ${suffix}` as const)
 ) satisfies RuleName[];
 
 // --- Calcul Eco - Coût d'achat du combustible (statiques, DebugDrawer.tsx) ---
@@ -133,7 +114,7 @@ const investissementSuffixes = [
 
 const clesInvestissement = installations.flatMap((inst) =>
   investissementSuffixes.map(
-    (suffix) => `Calcul Eco . ${inst} . ${suffix}` as const
+    (suffix) => `${inst} . Calcul Eco . ${suffix}` as const
   )
 ) satisfies RuleName[];
 
@@ -149,7 +130,7 @@ const p1CombustibleSuffixes = [
 
 const clesP1Combustible = installations.flatMap((inst) =>
   p1CombustibleSuffixes.map(
-    (suffix) => `Calcul Eco . ${inst} . ${suffix}` as const
+    (suffix) => `${inst} . Calcul Eco . ${suffix}` as const
   )
 ) satisfies RuleName[];
 
@@ -165,16 +146,11 @@ const p2p3Suffixes = [
 const clesP2P3 = installations.flatMap((inst) =>
   p2p3Suffixes.map(
     (suffix) =>
-      `Calcul Eco . P2 P3 Coût de l'entretien . ${inst} . ${suffix}` as const
+      `${inst} . P2 P3 Coût de l'entretien . ${suffix}` as const
   )
 ) satisfies RuleName[];
 
 // --- Calcul Eco - Montant des aides (par coutPublicodeKey + statique, DebugDrawer.tsx) ---
-
-const aidesInstallations = [
-  ...installations,
-  'Panneau solaire thermique pour production ECS',
-] as const;
 
 const aidesSuffixes = [
   'CEE',
@@ -183,27 +159,34 @@ const aidesSuffixes = [
   'Total',
 ] as const;
 
-const clesAides = aidesInstallations.flatMap((inst) =>
-  aidesSuffixes.map(
+const clesAides = [
+  ...installations.flatMap((inst) =>
+    aidesSuffixes.map(
+      (suffix) =>
+        `${inst} . Montant des aides par logement tertiaire . ${suffix}` as const
+    )
+  ),
+  // Panneau solaire thermique reste sous Calcul Eco (règle partagée)
+  ...aidesSuffixes.map(
     (suffix) =>
-      `Calcul Eco . Montant des aides par logement tertiaire . ${inst} . ${suffix}` as const
-  )
-) satisfies RuleName[];
+      `Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . ${suffix}` as const
+  ),
+] satisfies RuleName[];
 
 // --- Installation - Puissance totale (statiques, DebugDrawer.tsx) ---
 // Les suffixes varient selon le type d'installation.
 
 const puissanceAvecECS = [
-  'Réseaux de chaleur x Collectif',
-  'Chaudière à granulés coll x Collectif',
-  'Gaz indiv avec cond x Individuel',
-  'Gaz indiv sans cond x Individuel',
-  'Gaz coll avec cond x Collectif',
-  'Gaz coll sans cond x Collectif',
-  'Fioul indiv x Individuel',
-  'Fioul coll x Collectif',
-  'PAC eau-eau x Individuel',
-  'PAC eau-eau x Collectif',
+  'Réseaux de chaleur',
+  'Chaudière à granulés coll',
+  'Gaz indiv avec cond',
+  'Gaz indiv sans cond',
+  'Gaz coll avec cond',
+  'Gaz coll sans cond',
+  'Fioul indiv',
+  'Fioul coll',
+  'PAC eau-eau indiv',
+  'PAC eau-eau coll',
 ] as const;
 
 const puissanceSuffixesAvecECS = [
@@ -215,8 +198,8 @@ const puissanceSuffixesAvecECS = [
 ] as const;
 
 const puissanceSansECSSansFroid = [
-  'Poêle à granulés indiv x Individuel',
-  'Radiateur électrique x Individuel',
+  'Poêle à granulés indiv',
+  'Radiateur électrique',
 ] as const;
 
 const puissanceSuffixesSansECS = [
@@ -227,8 +210,8 @@ const puissanceSuffixesSansECS = [
 ] as const;
 
 const puissanceAvecFroidSansECS = [
-  'PAC air-air x Individuel',
-  'PAC air-air x Collectif',
+  'PAC air-air indiv',
+  'PAC air-air coll',
 ] as const;
 
 const puissanceSuffixesAvecFroid = [
@@ -240,8 +223,8 @@ const puissanceSuffixesAvecFroid = [
 ] as const;
 
 const puissanceAvecECSEtFroid = [
-  'PAC air-eau x Individuel',
-  'PAC air-eau x Collectif',
+  'PAC air-eau indiv',
+  'PAC air-eau coll',
 ] as const;
 
 const puissanceSuffixesAvecECSEtFroid = [
@@ -263,26 +246,26 @@ const puissanceSuffixesReseauxFroid = [
 const clesPuissance = [
   ...puissanceAvecECS.flatMap((inst) =>
     puissanceSuffixesAvecECS.map(
-      (s) => `Installation x ${inst} . ${s}` as const
+      (s) => `${inst} . Installation . ${s}` as const
     )
   ),
   ...puissanceSansECSSansFroid.flatMap((inst) =>
     puissanceSuffixesSansECS.map(
-      (s) => `Installation x ${inst} . ${s}` as const
+      (s) => `${inst} . Installation . ${s}` as const
     )
   ),
   ...puissanceAvecFroidSansECS.flatMap((inst) =>
     puissanceSuffixesAvecFroid.map(
-      (s) => `Installation x ${inst} . ${s}` as const
+      (s) => `${inst} . Installation . ${s}` as const
     )
   ),
   ...puissanceAvecECSEtFroid.flatMap((inst) =>
     puissanceSuffixesAvecECSEtFroid.map(
-      (s) => `Installation x ${inst} . ${s}` as const
+      (s) => `${inst} . Installation . ${s}` as const
     )
   ),
   ...puissanceSuffixesReseauxFroid.map(
-    (s) => `Installation x Réseaux de froid x Collectif . ${s}` as const
+    (s) => `Réseaux de froid . Installation . ${s}` as const
   ),
 ] satisfies RuleName[];
 
@@ -295,8 +278,8 @@ const ecsSuffixes = [
   "appoint d'électricité chauffe-eau solaire",
 ] as const;
 
-const clesECS = envInstallations.flatMap((inst) =>
-  ecsSuffixes.map((s) => `Installation x ${inst} . ${s}` as const)
+const clesECS = installations.flatMap((inst) =>
+  ecsSuffixes.map((s) => `${inst} . Installation . ${s}` as const)
 ) satisfies RuleName[];
 
 // --- Installation - Bilan consommations (par emissionsCO2PublicodesKey, DebugDrawer.tsx) ---
@@ -309,8 +292,8 @@ const consommationSuffixes = [
   "consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS",
 ] as const;
 
-const clesConsommation = envInstallations.flatMap((inst) =>
-  consommationSuffixes.map((s) => `Installation x ${inst} . ${s}` as const)
+const clesConsommation = installations.flatMap((inst) =>
+  consommationSuffixes.map((s) => `${inst} . Installation . ${s}` as const)
 ) satisfies RuleName[];
 
 // --- Env - Émissions CO2 (par emissionsCO2PublicodesKey) ---
@@ -325,8 +308,8 @@ const envSuffixes = [
   'Total',
 ] as const;
 
-const clesEnv = envInstallations.flatMap((inst) =>
-  envSuffixes.map((s) => `env . Installation x ${inst} . ${s}` as const)
+const clesEnv = installations.flatMap((inst) =>
+  envSuffixes.map((s) => `${inst} . Environnement . ${s}` as const)
 ) satisfies RuleName[];
 
 // --- ParametresDesModesDeChauffage.tsx ---

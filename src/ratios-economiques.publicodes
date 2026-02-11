@@ -44,43 +44,43 @@ ratios économiques:
     Réseaux x Coût Investissement SST RCU:
       # VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
       variations:
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 100
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 100
           alors: 21500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 150
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 150
           alors: 22500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 200
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 200
           alors: 23500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 250
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 250
           alors: 24500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 300
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 300
           alors: 25500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 350
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 350
           alors: 26000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 400
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 400
           alors: 27000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 500
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 500
           alors: 28000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 600
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 600
           alors: 30000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 700
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 700
           alors: 32000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 800
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 800
           alors: 33500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 900
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 900
           alors: 35500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 1000
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 1000
           alors: 37500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 1500
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 1500
           alors: 39000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 2000
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 2000
           alors: 48500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 2500
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 2500
           alors: 57500
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 3000
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 3000
           alors: 67000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 4500
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 4500
           alors: 76000
-        - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 6000
+        - si: Réseaux de chaleur . Installation . gamme de puissance existante <= 6000
           alors: 104000
         - sinon: 132000
       unité: €HT
@@ -89,21 +89,21 @@ ratios économiques:
     Réseaux x Coût Investissement SST RFU:
       # =VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;TRUE)
       variations:
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 100
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 100
           alors: 28000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 150
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 150
           alors: 29500
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 200
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 200
           alors: 30500
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 250
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 250
           alors: 32000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 300
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 300
           alors: 33000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 350
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 350
           alors: 34000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 400
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 400
           alors: 35000
-        - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 500
+        - si: Réseaux de froid . Installation . gamme de puissance existante < 500
           alors: 36500
         - sinon: 39000
       unité: €HT
@@ -176,30 +176,30 @@ ratios économiques:
 
     Granulés x Chaudière à granulés collective:
       variations:
-        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante < 25
-          alors: 750 * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
-        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante = 25
+        - si: Chaudière à granulés coll . Installation . gamme de puissance existante < 25
+          alors: 750 * Chaudière à granulés coll . Installation . gamme de puissance existante
+        - si: Chaudière à granulés coll . Installation . gamme de puissance existante = 25
           alors: 20000
-        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 30
+        - si: Chaudière à granulés coll . Installation . gamme de puissance existante <= 30
           alors: 26250
-        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 40
+        - si: Chaudière à granulés coll . Installation . gamme de puissance existante <= 40
           alors: 29750
-        - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 50
+        - si: Chaudière à granulés coll . Installation . gamme de puissance existante <= 50
           alors: 37500
-        - sinon: 750 * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
+        - sinon: 750 * Chaudière à granulés coll . Installation . gamme de puissance existante
       note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
 
     Gaz x indiv avec cond:
       # B59 =XLOOKUP($D$27,'Ratios économiques - Coûts'!$B$81:$B$85,'Ratios économiques - Coûts'!$C$81:$C$85,,1)*(1+$D$50)
       produit:
         - variations:
-            - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 12
+            - si: Gaz indiv avec cond . Installation . gamme de puissance existante <= 12
               alors: 2660
-            - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 20
+            - si: Gaz indiv avec cond . Installation . gamme de puissance existante <= 20
               alors: 2810
-            - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 25
+            - si: Gaz indiv avec cond . Installation . gamme de puissance existante <= 25
               alors: 2920
-            - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 30
+            - si: Gaz indiv avec cond . Installation . gamme de puissance existante <= 30
               alors: 3220
             - sinon: 3620
         - 1 + ratios économiques . Investissement x TVA
@@ -209,13 +209,13 @@ ratios économiques:
     Gaz x indiv sans cond:
       produit:
         - variations:
-            - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 12
+            - si: Gaz indiv sans cond . Installation . gamme de puissance existante <= 12
               alors: 2660
-            - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 20
+            - si: Gaz indiv sans cond . Installation . gamme de puissance existante <= 20
               alors: 2810
-            - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 25
+            - si: Gaz indiv sans cond . Installation . gamme de puissance existante <= 25
               alors: 2920
-            - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 30
+            - si: Gaz indiv sans cond . Installation . gamme de puissance existante <= 30
               alors: 3220
             - sinon: 3620
         - 1 + ratios économiques . Investissement x TVA
@@ -225,33 +225,33 @@ ratios économiques:
     Gaz x coll avec cond:
       produit:
         - variations:
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 35
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 35
               alors: 4800
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 120
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 120
               alors: 15000
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 200
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 200
               alors: 25000
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 300
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 300
               alors: 37500
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 400
               alors: 40000
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 500
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 500
               alors: 45000
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 600
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 600
               alors: 52335
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 700
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 700
               alors: 61058
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 800
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 800
               alors: 69780
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 900
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 900
               alors: 78503
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1000
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 1000
               alors: 87225
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1250
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 1250
               alors: 109031
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1500
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 1500
               alors: 130838
-            - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1750
+            - si: Gaz coll avec cond . Installation . gamme de puissance existante <= 1750
               alors: 152644
             - sinon: 174450
         - 1 + ratios économiques . Investissement x TVA
@@ -261,33 +261,33 @@ ratios économiques:
     Gaz x coll sans cond:
       produit:
         - variations:
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 35
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 35
               alors: 4800
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 120
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 120
               alors: 15000
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 200
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 200
               alors: 25000
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 300
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 300
               alors: 37500
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 400
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 400
               alors: 40000
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 500
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 500
               alors: 45000
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 600
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 600
               alors: 52335
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 700
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 700
               alors: 61058
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 800
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 800
               alors: 69780
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 900
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 900
               alors: 78503
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1000
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 1000
               alors: 87225
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1250
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 1250
               alors: 109031
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1500
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 1500
               alors: 130838
-            - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1750
+            - si: Gaz coll sans cond . Installation . gamme de puissance existante <= 1750
               alors: 152644
             - sinon: 174450
         - 1 + ratios économiques . Investissement x TVA
@@ -297,13 +297,13 @@ ratios économiques:
     Fioul x indiv:
       produit:
         - variations:
-            - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 12
+            - si: Fioul indiv . Installation . gamme de puissance existante <= 12
               alors: 2926
-            - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 20
+            - si: Fioul indiv . Installation . gamme de puissance existante <= 20
               alors: 3091
-            - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 25
+            - si: Fioul indiv . Installation . gamme de puissance existante <= 25
               alors: 3212
-            - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 30
+            - si: Fioul indiv . Installation . gamme de puissance existante <= 30
               alors: 3542
             - sinon: 3982
         - 1 + ratios économiques . Investissement x TVA
@@ -312,33 +312,33 @@ ratios économiques:
     Fioul x collectif:
       produit:
         - variations:
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 35
+            - si: Fioul coll . Installation . gamme de puissance existante <= 35
               alors: 5280
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 120
+            - si: Fioul coll . Installation . gamme de puissance existante <= 120
               alors: 16500
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 200
+            - si: Fioul coll . Installation . gamme de puissance existante <= 200
               alors: 27500
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 300
+            - si: Fioul coll . Installation . gamme de puissance existante <= 300
               alors: 41250
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 400
+            - si: Fioul coll . Installation . gamme de puissance existante <= 400
               alors: 44000
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 500
+            - si: Fioul coll . Installation . gamme de puissance existante <= 500
               alors: 49500
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 600
+            - si: Fioul coll . Installation . gamme de puissance existante <= 600
               alors: 57569
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 700
+            - si: Fioul coll . Installation . gamme de puissance existante <= 700
               alors: 67163
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 800
+            - si: Fioul coll . Installation . gamme de puissance existante <= 800
               alors: 76758
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 900
+            - si: Fioul coll . Installation . gamme de puissance existante <= 900
               alors: 86353
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1000
+            - si: Fioul coll . Installation . gamme de puissance existante <= 1000
               alors: 95948
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1250
+            - si: Fioul coll . Installation . gamme de puissance existante <= 1250
               alors: 119934
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1500
+            - si: Fioul coll . Installation . gamme de puissance existante <= 1500
               alors: 143921
-            - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1750
+            - si: Fioul coll . Installation . gamme de puissance existante <= 1750
               alors: 167908
             - sinon: 191895
         - 1 + ratios économiques . Investissement x TVA
@@ -360,7 +360,7 @@ ratios économiques:
       # param éco D68 ='Ratios économiques - Coûts'!C166*'Calculs techniques'!H57*(1+TVA_inv)
       produit:
         - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
-        - Installation x PAC air-air x Individuel . gamme de puissance existante
+        - PAC air-air indiv . Installation . gamme de puissance existante
         - 1 + ratios économiques . Investissement x TVA
 
     # pas un ratio
@@ -368,7 +368,7 @@ ratios économiques:
       # param éco D69 ='Calculs techniques'!H58*'Ratios économiques - Coûts'!C171*(1+TVA_inv)
       produit:
         - ratios économiques . PAC x air-air réversible . Coût investissement Collectif
-        - Installation x PAC air-air x Collectif . gamme de puissance existante
+        - PAC air-air coll . Installation . gamme de puissance existante
         - 1 + ratios économiques . Investissement x TVA
 
     PAC x eau-eau non réversible:
@@ -402,9 +402,9 @@ ratios économiques:
           # 'Paramètres économiques'!B74
           # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C172,'Ratios économiques - Coûts'!C174)*(1+TVA_inv)
           produit:
-            - Installation x PAC eau-eau x Collectif . gamme de puissance existante
+            - PAC eau-eau coll . Installation . gamme de puissance existante
             - variations:
-                - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
+                - si: PAC eau-eau coll . Installation . gamme de puissance existante < 250
                   alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW Coût investissement hors captage sous-sol coll
                 - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
             - 1 + ratios économiques . Investissement x TVA
@@ -412,9 +412,9 @@ ratios économiques:
           # 'Paramètres économiques'!B75
           # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C173,'Ratios économiques - Coûts'!C175)*(1+TVA_inv)
           produit:
-            - Installation x PAC eau-eau x Collectif . gamme de puissance existante
+            - PAC eau-eau coll . Installation . gamme de puissance existante
             - variations:
-                - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
+                - si: PAC eau-eau coll . Installation . gamme de puissance existante < 250
                   alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW coût captage sous-sol coll
                 - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW coût captage sous-sol coll
             - 1 + ratios économiques . Investissement x TVA
@@ -422,7 +422,7 @@ ratios économiques:
     PAC x eau-eau non réversible x Individuel:
       produit:
         - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
-        - Installation x PAC eau-eau x Individuel . gamme de puissance existante
+        - PAC eau-eau indiv . Installation . gamme de puissance existante
         - 1 + ratios économiques . Investissement x TVA
 
     PAC x eau-eau non réversible x Collectif:
@@ -445,13 +445,13 @@ ratios économiques:
     PAC x air-eau réversible x Individuel:
       produit:
         - ratios économiques . PAC x air-eau réversible . Coût investissement Individuel
-        - Installation x PAC air-eau x Individuel . gamme de puissance existante
+        - PAC air-eau indiv . Installation . gamme de puissance existante
         - 1 + ratios économiques . Investissement x TVA
 
     PAC x air-eau réversible x Collectif:
       produit:
         - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
-        - Installation x PAC air-eau x Collectif . gamme de puissance existante
+        - PAC air-eau coll . Installation . gamme de puissance existante
         - 1 + ratios économiques . Investissement x TVA
 
     Radiateur électrique:
@@ -474,7 +474,7 @@ ratios économiques:
     # pas un ratio
     Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires:
       # Param eco B79 =QUOTIENT('Calculs techniques'!$H$64,'Ratios économiques - Coûts'!$B$189)
-      par défaut: Installation x Radiateur électrique x Individuel . gamme de puissance existante // 2
+      par défaut: Radiateur électrique . Installation . gamme de puissance existante // 2
 
     Groupe froid:
       # Temporaire le temps que le fichier excel soit à jour
