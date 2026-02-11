@@ -4,287 +4,289 @@ x-pmt pac-air-air-indiv: &pmt
     alors: ratios économiques . Amortissement x Taux actualisation * capital * ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée - 1)
   - sinon: capital / durée
 
-Installation x PAC air-air x Individuel:
+PAC air-air indiv:
   avec:
-    production eau chaude sanitaire: non
-    puissance nécessaire équipement chauffage:
-      formule: Calcul . Chauffage Puissance chauffage appelée
-      unité: kW
-    puissance nécessaire pour ECS avec équipement:
-      formule: 0
-      unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
-      unité: kW
-    puissance équipement:
-      le maximum de:
-        - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour refroidissement équipement
-      unité: kW
-    gamme de puissance existante:
-      # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
-      le maximum de:
-        - puissance équipement
-        - 2
-      unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS:
-      toutes ces conditions:
-        - Production eau chaude sanitaire
-        - puissance nécessaire pour ECS avec équipement <= 0
-    volume du ballon ECS:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != "Solaire thermique"
-          alors: volume du ballon ECS
-        - sinon: 50
-      unité: L
-    consommation d'électricité chauffe-eau électrique:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != 'Solaire thermique'
-          alors: chauffe-eau électrique x consommation d'électricité
-        - sinon: 0
-      unité: kWh/an
-    appoint d'électricité chauffe-eau solaire:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS = 'Solaire thermique'
-          alors: chauffe-eau solaire x appoint d'électricité
-        - sinon: 0
-      unité: kWh/an
-    consommation combustible chaleur:
-      formule: besoins chauffage par appartement / ratios . PAC AIR AIR SCOP indiv
-      unité: kWh elec
-    consommation combustible froid:
-      formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
-      unité: kWh elec
-    consommation auxiliaire:
-      valeur: 0
-      unité: kWh elec
-    consommation combustible hors électricité:
-      valeur: 0
-      unité: kWh elec
-    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-      # =IF(C80="Non",F103+C103+D103,F103+H103+I103)
-      variations:
-        - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
-        - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
-      unité: kWh/an
-    consommation Groupe Froid: calcul consommation Groupe Froid
-
-Calcul Eco . PAC air-air indiv:
-  avec:
-    # P4 - Investissement total (sans aide) €TTC
-    Investissement équipement Total:
-      # ='Paramètres économiques'!$D$68*(1+surcout_inv)
-      produit:
-        - ratios économiques . PAC x air-air réversible x Individuel
-        - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-      unité: €TTC
-    Investissement équipement par logement type tertiaire:
-      valeur: Investissement équipement Total
-      unité: €TTC
-    Investissement ballon ECS à accumulation:
-      variations:
-        - si: Installation x PAC air-air x Individuel . besoin d'installation supplémentaire pour produire l'ECS
-          alors: Calcul Eco . Investissement ballon ECS à accumulation
-        - sinon: 0
-      unité: €TTC
-    Investissement ballon ECS solaire panneau inclus:
-      applicable si:
-        toutes ces conditions:
-          - Installation x PAC air-air x Individuel . besoin d'installation supplémentaire pour produire l'ECS
-          - type de production ECS = "Solaire thermique"
-      formule: Calcul Eco . Investissement ballon ECS panneau inclus
-      unité: €TTC
-    Total investissement avec ballon ECS à accumulation:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
-      unité: €TTC
-    Total investissement ballon ECS solaire panneaux:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
-      unité: €TTC
-
-    # P1 - Coût du combustible par lgt type / tertiaire
-    Coût du combustible abonnement:
-      somme:
-        - variations:
+    Installation:
+      avec:
+        production eau chaude sanitaire: non
+        puissance nécessaire équipement chauffage:
+          formule: Calcul . Chauffage Puissance chauffage appelée
+          unité: kW
+        puissance nécessaire pour ECS avec équipement:
+          formule: 0
+          unité: kW
+        puissance nécessaire pour refroidissement équipement:
+          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
+          unité: kW
+        puissance équipement:
+          le maximum de:
+            - puissance nécessaire équipement chauffage
+            - puissance nécessaire pour refroidissement équipement
+          unité: kW
+        gamme de puissance existante:
+          # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
+          le maximum de:
+            - puissance équipement
+            - 2
+          unité: kW
+        besoin d'installation supplémentaire pour produire l'ECS:
+          toutes ces conditions:
+            - Production eau chaude sanitaire
+            - puissance nécessaire pour ECS avec équipement <= 0
+        volume du ballon ECS:
+          variations:
             - si:
                 toutes ces conditions:
-                  - Inclure la climatisation
-                  - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
-            - sinon: 0
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
-      unité: €TTC/an
-      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
-    Coût du combustible consommation:
-      # D56 =IF('Paramètres économiques'!$D$109="Option base";$D$11*'Calculs techniques'!C103;$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC air-air x Individuel . consommation combustible chaleur
-      unité: €TTC/an
-      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
-    Coût électricité auxiliaire:
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC air-air x Individuel . consommation auxiliaire
-      unité: €TTC/an
-      note: "Coût électricité auxiliaire (P1') €TTC/an"
-    Coût combustible pour ballon ECS à accumulation:
-      applicable si: Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
-    Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
-    Coût combustible froid:
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-        - Installation x PAC air-air x Individuel . consommation combustible froid
-      unité: €TTC/an
-
-Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv:
-  avec:
-    petit entretien P2:
-      valeur: Paramètres économiques . Petit entretien P2 . PAC air-air indiv
-      unité: €TTC/an
-    gros entretien P3:
-      valeur: Paramètres économiques . Gros entretien P3 . PAC air-air indiv
-      unité: €TTC/an
-    petit entretien P2 par logement tertiaire: petit entretien P2
-    gros entretien P3 par logement tertiaire: gros entretien P3
-
-Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv:
-  avec:
-    Ma prime renov':
-      applicable si:
-        est défini: Ma prime renov'
-      formule: Ma prime renov'
-      unité: €
-    Coup de pouce:
-      applicable si:
-        est défini: Coup de pouce
-      formule: Coup de pouce
-      unité: €
-    CEE:
-      formule: 0
-      unité: €
-    Total:
-      variations:
-        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: Ma prime renov' + Coup de pouce + CEE
-        - sinon: 0
-      unité: €
-
-env . Installation x PAC air-air x Individuel:
-  avec:
-    besoins de chauffage et ECS si même équipement:
-      valeur: 0
-      unité: kgCO2e
-    Scope 1: besoins de chauffage et ECS si même équipement
-    auxiliaires et combustible électrique:
-      # =('Calculs techniques'!C103+'Calculs techniques'!F102)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D103*'Ratios environnementaux'!$C$27
-      somme:
-        - (Installation x PAC air-air x Individuel . consommation combustible chaleur + Installation x PAC air-air x Individuel . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-        - Installation x PAC air-air x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
-      unité: kgCO2e
-    ECS solaire thermique:
-      formule: Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
-    ECS avec ballon électrique:
-      formule: Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Scope 2:
-      somme:
-        - auxiliaires et combustible électrique
-        - ECS solaire thermique
-        - ECS avec ballon électrique
-    Scope 3:
-      # ='Ratios environnementaux'!C46*B30/Durée_vie_PAC_AA
-      formule: ratios environnementaux . CO2 INS PAC air-air indiv * Installation x PAC air-air x Individuel . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie indiv
-    Total:
-      somme:
-        - Scope 1
-        - Scope 2
-        - Scope 3
-      unité: kgCO2e/an
-
-Bilan x PAC air-air indiv:
-  avec:
-    P1abo: Calcul Eco . PAC air-air indiv . Coût du combustible abonnement
-    P1conso: Calcul Eco . PAC air-air indiv . Coût du combustible consommation
-    P1prime: Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire
-    P1ECS:
-      le maximum de:
-        - Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . PAC air-air indiv . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire
-    P4spec:
-      variations: *pmt
-      avec:
-        durée: ratios . PAC AIR AIR Durée de vie indiv
-        capital: Calcul Eco . PAC air-air indiv . Investissement équipement par logement type tertiaire
-
-    P4ECS Ballon électrique:
-      variations: *pmt
-      avec:
-        durée: ratios . CHAUF EAU ELEC Durée de vie
-        capital: Calcul Eco . PAC air-air indiv . Investissement ballon ECS à accumulation
-
-    P4ECS Solaire Thermique:
-      variations: *pmt
-      avec:
-        durée:
+                  - besoin d'installation supplémentaire pour produire l'ECS
+                  - type de production ECS != "Solaire thermique"
+              alors: volume du ballon ECS
+            - sinon: 50
+          unité: L
+        consommation d'électricité chauffe-eau électrique:
           variations:
-            - si: type de production ECS = 'Solaire thermique'
-              alors: ratios . CHAUF EAU SOLAIRE Durée de vie
+            - si:
+                toutes ces conditions:
+                  - besoin d'installation supplémentaire pour produire l'ECS
+                  - type de production ECS != 'Solaire thermique'
+              alors: chauffe-eau électrique x consommation d'électricité
             - sinon: 0
-        capital:
+          unité: kWh/an
+        appoint d'électricité chauffe-eau solaire:
           variations:
-            - si: type de production ECS = 'Solaire thermique'
-              alors: Calcul Eco . PAC air-air indiv . Investissement ballon ECS solaire panneau inclus
+            - si:
+                toutes ces conditions:
+                  - besoin d'installation supplémentaire pour produire l'ECS
+                  - type de production ECS = 'Solaire thermique'
+              alors: chauffe-eau solaire x appoint d'électricité
             - sinon: 0
+          unité: kWh/an
+        consommation combustible chaleur:
+          formule: besoins chauffage par appartement / ratios . PAC AIR AIR SCOP indiv
+          unité: kWh elec
+        consommation combustible froid:
+          formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+          unité: kWh elec
+        consommation auxiliaire:
+          valeur: 0
+          unité: kWh elec
+        consommation combustible hors électricité:
+          valeur: 0
+          unité: kWh elec
+        consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+          # =IF(C80="Non",F103+C103+D103,F103+H103+I103)
+          variations:
+            - si: besoin d'installation supplémentaire pour produire l'ECS
+              alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
+            - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
+          unité: kWh/an
+        consommation Groupe Froid: calcul consommation Groupe Froid
 
-    P4:
-      somme:
-        - P4spec
-        - P4ECS Ballon électrique
-        - P4ECS Solaire Thermique
-    aides spécifiques:
-      variations: *pmt
+    Calcul Eco:
       avec:
-        durée: ratios . PAC AIR AIR Durée de vie indiv
-        capital: Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . Total
-    aides: aides spécifiques
-    P4 moins aides:
-      le maximum de:
-        - P4 - aides
-        - 0
-    total sans aides:
-      somme:
-        - P1abo
-        - P1conso
-        - P1prime
-        - P1ECS
-        - P1Consofroid
-        - P2
-        - P3
-        - P4
-    total avec aides:
-      somme:
-        - total sans aides
-        - (- aides)
+        # P4 - Investissement total (sans aide) €TTC
+        Investissement équipement Total:
+          # ='Paramètres économiques'!$D$68*(1+surcout_inv)
+          produit:
+            - ratios économiques . PAC x air-air réversible x Individuel
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+          unité: €TTC
+        Investissement équipement par logement type tertiaire:
+          valeur: Investissement équipement Total
+          unité: €TTC
+        Investissement ballon ECS à accumulation:
+          variations:
+            - si: PAC air-air indiv . Installation . besoin d'installation supplémentaire pour produire l'ECS
+              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - sinon: 0
+          unité: €TTC
+        Investissement ballon ECS solaire panneau inclus:
+          applicable si:
+            toutes ces conditions:
+              - PAC air-air indiv . Installation . besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = "Solaire thermique"
+          formule: Calcul Eco . Investissement ballon ECS panneau inclus
+          unité: €TTC
+        Total investissement avec ballon ECS à accumulation:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+          unité: €TTC
+        Total investissement ballon ECS solaire panneaux:
+          valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+          unité: €TTC
+
+        # P1 - Coût du combustible par lgt type / tertiaire
+        Coût du combustible abonnement:
+          somme:
+            - variations:
+                - si:
+                    toutes ces conditions:
+                      - Inclure la climatisation
+                      - type de production de froid = 'Réseau de froid'
+                  alors: Réseaux de froid . Calcul Eco . Coût du combustible abonnement
+                - sinon: 0
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+          unité: €TTC/an
+          note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+        Coût du combustible consommation:
+          # D56 =IF('Paramètres économiques'!$D$109="Option base";$D$11*'Calculs techniques'!C103;$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - PAC air-air indiv . Installation . consommation combustible chaleur
+          unité: €TTC/an
+          note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+        Coût électricité auxiliaire:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - PAC air-air indiv . Installation . consommation auxiliaire
+          unité: €TTC/an
+          note: "Coût électricité auxiliaire (P1') €TTC/an"
+        Coût combustible pour ballon ECS à accumulation:
+          applicable si: PAC air-air indiv . Installation . consommation d'électricité chauffe-eau électrique >= 0
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - PAC air-air indiv . Installation . consommation d'électricité chauffe-eau électrique
+          unité: €TTC/an
+          note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
+        Coût combustible pour ballon ECS solaire:
+          applicable si: PAC air-air indiv . Installation . appoint d'électricité chauffe-eau solaire >= 0
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - PAC air-air indiv . Installation . appoint d'électricité chauffe-eau solaire
+          unité: €TTC/an
+          note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
+        Coût combustible froid:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - PAC air-air indiv . Installation . consommation combustible froid
+          unité: €TTC/an
+
+    P2 P3 Coût de l'entretien:
+      avec:
+        petit entretien P2:
+          valeur: Paramètres économiques . Petit entretien P2 . PAC air-air indiv
+          unité: €TTC/an
+        gros entretien P3:
+          valeur: Paramètres économiques . Gros entretien P3 . PAC air-air indiv
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+
+    Montant des aides par logement tertiaire:
+      avec:
+        Ma prime renov':
+          applicable si:
+            est défini: Ma prime renov'
+          formule: Ma prime renov'
+          unité: €
+        Coup de pouce:
+          applicable si:
+            est défini: Coup de pouce
+          formule: Coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        Total:
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
+          unité: €
+
+    Environnement:
+      avec:
+        besoins de chauffage et ECS si même équipement:
+          valeur: 0
+          unité: kgCO2e
+        Scope 1: besoins de chauffage et ECS si même équipement
+        auxiliaires et combustible électrique:
+          # =('Calculs techniques'!C103+'Calculs techniques'!F102)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D103*'Ratios environnementaux'!$C$27
+          somme:
+            - (PAC air-air indiv . Installation . consommation combustible chaleur + PAC air-air indiv . Installation . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+            - PAC air-air indiv . Installation . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
+          unité: kgCO2e
+        ECS solaire thermique:
+          formule: PAC air-air indiv . Installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+        ECS avec ballon électrique:
+          formule: PAC air-air indiv . Installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        Scope 2:
+          somme:
+            - auxiliaires et combustible électrique
+            - ECS solaire thermique
+            - ECS avec ballon électrique
+        Scope 3:
+          # ='Ratios environnementaux'!C46*B30/Durée_vie_PAC_AA
+          formule: ratios environnementaux . CO2 INS PAC air-air indiv * PAC air-air indiv . Installation . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie indiv
+        Total:
+          somme:
+            - Scope 1
+            - Scope 2
+            - Scope 3
+          unité: kgCO2e/an
+
+    Bilan:
+      avec:
+        P1abo: PAC air-air indiv . Calcul Eco . Coût du combustible abonnement
+        P1conso: PAC air-air indiv . Calcul Eco . Coût du combustible consommation
+        P1prime: PAC air-air indiv . Calcul Eco . Coût électricité auxiliaire
+        P1ECS:
+          le maximum de:
+            - PAC air-air indiv . Calcul Eco . Coût combustible pour ballon ECS à accumulation
+            - PAC air-air indiv . Calcul Eco . Coût combustible pour ballon ECS solaire
+        P1Consofroid: PAC air-air indiv . Calcul Eco . Coût combustible froid
+        P2: PAC air-air indiv . P2 P3 Coût de l'entretien . petit entretien P2 par logement tertiaire
+        P3: PAC air-air indiv . P2 P3 Coût de l'entretien . gros entretien P3 par logement tertiaire
+        P4spec:
+          variations: *pmt
+          avec:
+            durée: ratios . PAC AIR AIR Durée de vie indiv
+            capital: PAC air-air indiv . Calcul Eco . Investissement équipement par logement type tertiaire
+
+        P4ECS Ballon électrique:
+          variations: *pmt
+          avec:
+            durée: ratios . CHAUF EAU ELEC Durée de vie
+            capital: PAC air-air indiv . Calcul Eco . Investissement ballon ECS à accumulation
+
+        P4ECS Solaire Thermique:
+          variations: *pmt
+          avec:
+            durée:
+              variations:
+                - si: type de production ECS = 'Solaire thermique'
+                  alors: ratios . CHAUF EAU SOLAIRE Durée de vie
+                - sinon: 0
+            capital:
+              variations:
+                - si: type de production ECS = 'Solaire thermique'
+                  alors: PAC air-air indiv . Calcul Eco . Investissement ballon ECS solaire panneau inclus
+                - sinon: 0
+
+        P4:
+          somme:
+            - P4spec
+            - P4ECS Ballon électrique
+            - P4ECS Solaire Thermique
+        aides spécifiques:
+          variations: *pmt
+          avec:
+            durée: ratios . PAC AIR AIR Durée de vie indiv
+            capital: PAC air-air indiv . Montant des aides par logement tertiaire . Total
+        aides: aides spécifiques
+        P4 moins aides:
+          le maximum de:
+            - P4 - aides
+            - 0
+        total sans aides:
+          somme:
+            - P1abo
+            - P1conso
+            - P1prime
+            - P1ECS
+            - P1Consofroid
+            - P2
+            - P3
+            - P4
+        total avec aides:
+          somme:
+            - total sans aides
+            - (- aides)

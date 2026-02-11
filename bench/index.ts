@@ -35,7 +35,7 @@ group('Evaluation', () => {
       'code département': "'75'",
       'température de référence chaud commune': -5,
     });
-    engine.evaluate('Bilan x Gaz coll avec cond . total avec aides');
+    engine.evaluate('Gaz coll avec cond . Bilan . total avec aides' satisfies keyof typeof rules);
   });
 });
 

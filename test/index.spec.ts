@@ -46,25 +46,25 @@ describe('Moteur Publicodes France Chaleur Urbaine', () => {
         'type de production ECS': "'Avec équipement chauffage'",
       },
       expected: {
-        'Bilan x Gaz coll avec cond . P1abo': 73,
-        'Bilan x Gaz coll avec cond . P1conso': 1056,
-        'Bilan x Gaz coll avec cond . P1prime': 7,
-        'Bilan x Gaz coll avec cond . P1ECS': 0,
-        'Bilan x Gaz coll avec cond . P1Consofroid': 0,
-        'Bilan x Gaz coll avec cond . P2': 70,
-        'Bilan x Gaz coll avec cond . P3': 27,
-        'Bilan x Gaz coll avec cond . P4': 71,
-        'Bilan x Gaz coll avec cond . P4 moins aides': 71,
-        'Bilan x Gaz coll avec cond . aides': 0,
-        'Bilan x Gaz coll avec cond . total sans aides': 1304,
-        'Bilan x Gaz coll avec cond . total avec aides': 1304,
-        'env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement': 2495,
-        'env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique': 2,
-        'env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique': 0,
-        'env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique': 0,
-        'env . Installation x Gaz coll avec cond x Collectif . Scope 2': 2,
-        'env . Installation x Gaz coll avec cond x Collectif . Scope 3': 9,
-        'env . Installation x Gaz coll avec cond x Collectif . Total': 2506,
+        'Gaz coll avec cond . Bilan . P1abo': 73,
+        'Gaz coll avec cond . Bilan . P1conso': 1056,
+        'Gaz coll avec cond . Bilan . P1prime': 7,
+        'Gaz coll avec cond . Bilan . P1ECS': 0,
+        'Gaz coll avec cond . Bilan . P1Consofroid': 0,
+        'Gaz coll avec cond . Bilan . P2': 70,
+        'Gaz coll avec cond . Bilan . P3': 27,
+        'Gaz coll avec cond . Bilan . P4': 71,
+        'Gaz coll avec cond . Bilan . P4 moins aides': 71,
+        'Gaz coll avec cond . Bilan . aides': 0,
+        'Gaz coll avec cond . Bilan . total sans aides': 1304,
+        'Gaz coll avec cond . Bilan . total avec aides': 1304,
+        'Gaz coll avec cond . Environnement . besoins de chauffage et ECS si même équipement': 2495,
+        'Gaz coll avec cond . Environnement . auxiliaires et combustible électrique': 2,
+        'Gaz coll avec cond . Environnement . ECS solaire thermique': 0,
+        'Gaz coll avec cond . Environnement . ECS avec ballon électrique': 0,
+        'Gaz coll avec cond . Environnement . Scope 2': 2,
+        'Gaz coll avec cond . Environnement . Scope 3': 9,
+        'Gaz coll avec cond . Environnement . Total': 2506,
       },
     },
     {
@@ -75,25 +75,25 @@ describe('Moteur Publicodes France Chaleur Urbaine', () => {
         'type de production ECS': "'Avec équipement chauffage'",
       },
       expected: {
-        'Bilan x Gaz coll avec cond . P1abo': 73,
-        'Bilan x Gaz coll avec cond . P1conso': 1056,
-        'Bilan x Gaz coll avec cond . P1prime': 7,
-        'Bilan x Gaz coll avec cond . P1ECS': 0,
-        'Bilan x Gaz coll avec cond . P1Consofroid': 14,
-        'Bilan x Gaz coll avec cond . P2': 78,
-        'Bilan x Gaz coll avec cond . P3': 30,
-        'Bilan x Gaz coll avec cond . P4': 239,
-        'Bilan x Gaz coll avec cond . P4 moins aides': 239,
-        'Bilan x Gaz coll avec cond . aides': 0,
-        'Bilan x Gaz coll avec cond . total sans aides': 1497,
-        'Bilan x Gaz coll avec cond . total avec aides': 1497,
-        'env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement': 2495,
-        'env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique': 2,
-        'env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique': 0,
-        'env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique': 0,
-        'env . Installation x Gaz coll avec cond x Collectif . Scope 2': 2,
-        'env . Installation x Gaz coll avec cond x Collectif . Scope 3': 9,
-        'env . Installation x Gaz coll avec cond x Collectif . Total': 2506,
+        'Gaz coll avec cond . Bilan . P1abo': 73,
+        'Gaz coll avec cond . Bilan . P1conso': 1056,
+        'Gaz coll avec cond . Bilan . P1prime': 7,
+        'Gaz coll avec cond . Bilan . P1ECS': 0,
+        'Gaz coll avec cond . Bilan . P1Consofroid': 14,
+        'Gaz coll avec cond . Bilan . P2': 78,
+        'Gaz coll avec cond . Bilan . P3': 30,
+        'Gaz coll avec cond . Bilan . P4': 239,
+        'Gaz coll avec cond . Bilan . P4 moins aides': 239,
+        'Gaz coll avec cond . Bilan . aides': 0,
+        'Gaz coll avec cond . Bilan . total sans aides': 1497,
+        'Gaz coll avec cond . Bilan . total avec aides': 1497,
+        'Gaz coll avec cond . Environnement . besoins de chauffage et ECS si même équipement': 2495,
+        'Gaz coll avec cond . Environnement . auxiliaires et combustible électrique': 2,
+        'Gaz coll avec cond . Environnement . ECS solaire thermique': 0,
+        'Gaz coll avec cond . Environnement . ECS avec ballon électrique': 0,
+        'Gaz coll avec cond . Environnement . Scope 2': 2,
+        'Gaz coll avec cond . Environnement . Scope 3': 9,
+        'Gaz coll avec cond . Environnement . Total': 2506,
       },
     },
     {
@@ -104,25 +104,25 @@ describe('Moteur Publicodes France Chaleur Urbaine', () => {
         'type de production ECS': "'Chauffe-eau électrique'",
       },
       expected: {
-        'Bilan x Gaz coll avec cond . P1abo': 55,
-        'Bilan x Gaz coll avec cond . P1conso': 808,
-        'Bilan x Gaz coll avec cond . P1prime': 3,
-        'Bilan x Gaz coll avec cond . P1ECS': 491,
-        'Bilan x Gaz coll avec cond . P1Consofroid': 0,
-        'Bilan x Gaz coll avec cond . P2': 70,
-        'Bilan x Gaz coll avec cond . P3': 16,
-        'Bilan x Gaz coll avec cond . P4': 105,
-        'Bilan x Gaz coll avec cond . P4 moins aides': 105,
-        'Bilan x Gaz coll avec cond . aides': 0,
-        'Bilan x Gaz coll avec cond . total sans aides': 1548,
-        'Bilan x Gaz coll avec cond . total avec aides': 1548,
-        'env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement': 1909,
-        'env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique': 1,
-        'env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique': 0,
-        'env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique': 165,
-        'env . Installation x Gaz coll avec cond x Collectif . Scope 2': 166,
-        'env . Installation x Gaz coll avec cond x Collectif . Scope 3': 5,
-        'env . Installation x Gaz coll avec cond x Collectif . Total': 2081,
+        'Gaz coll avec cond . Bilan . P1abo': 55,
+        'Gaz coll avec cond . Bilan . P1conso': 808,
+        'Gaz coll avec cond . Bilan . P1prime': 3,
+        'Gaz coll avec cond . Bilan . P1ECS': 491,
+        'Gaz coll avec cond . Bilan . P1Consofroid': 0,
+        'Gaz coll avec cond . Bilan . P2': 70,
+        'Gaz coll avec cond . Bilan . P3': 16,
+        'Gaz coll avec cond . Bilan . P4': 105,
+        'Gaz coll avec cond . Bilan . P4 moins aides': 105,
+        'Gaz coll avec cond . Bilan . aides': 0,
+        'Gaz coll avec cond . Bilan . total sans aides': 1548,
+        'Gaz coll avec cond . Bilan . total avec aides': 1548,
+        'Gaz coll avec cond . Environnement . besoins de chauffage et ECS si même équipement': 1909,
+        'Gaz coll avec cond . Environnement . auxiliaires et combustible électrique': 1,
+        'Gaz coll avec cond . Environnement . ECS solaire thermique': 0,
+        'Gaz coll avec cond . Environnement . ECS avec ballon électrique': 165,
+        'Gaz coll avec cond . Environnement . Scope 2': 166,
+        'Gaz coll avec cond . Environnement . Scope 3': 5,
+        'Gaz coll avec cond . Environnement . Total': 2081,
       },
     },
   ] satisfies TestCases[];
@@ -146,28 +146,5 @@ describe('Moteur Publicodes France Chaleur Urbaine', () => {
 type TestCases = {
   description: string;
   situation: Situation<keyof typeof rules>;
-  expected: Pick<
-    Situation<keyof typeof rules>,
-    // coûts
-    | 'Bilan x Gaz coll avec cond . P1abo'
-    | 'Bilan x Gaz coll avec cond . P1conso'
-    | 'Bilan x Gaz coll avec cond . P1prime'
-    | 'Bilan x Gaz coll avec cond . P1ECS'
-    | 'Bilan x Gaz coll avec cond . P1Consofroid'
-    | 'Bilan x Gaz coll avec cond . P2'
-    | 'Bilan x Gaz coll avec cond . P3'
-    | 'Bilan x Gaz coll avec cond . P4'
-    | 'Bilan x Gaz coll avec cond . P4 moins aides'
-    | 'Bilan x Gaz coll avec cond . aides'
-    | 'Bilan x Gaz coll avec cond . total sans aides'
-    | 'Bilan x Gaz coll avec cond . total avec aides'
-    // émissions de CO2
-    | 'env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement'
-    | 'env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique'
-    | 'env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique'
-    | 'env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique'
-    | 'env . Installation x Gaz coll avec cond x Collectif . Scope 2'
-    | 'env . Installation x Gaz coll avec cond x Collectif . Scope 3'
-    | 'env . Installation x Gaz coll avec cond x Collectif . Total'
-  >;
+  expected:Partial<Situation<keyof typeof rules>>;
 };
