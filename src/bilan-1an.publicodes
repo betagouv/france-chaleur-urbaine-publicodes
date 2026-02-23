@@ -1222,6 +1222,33 @@ Bilan x PAC air-eau coll:
         - total sans aides
         - (- aides)
 
+Bilan x PAC air-eau coll hybride:
+  avec:
+    total sans aides:
+      produit:
+        - Bilan x PAC air-eau coll . total avec aides
+        - 120 %
+    total avec aides: total sans aides
+
+Bilan x Solaire thermique:
+  avec:
+    total sans aides:
+      produit: 
+        - 955 # conso kWh/an/habitant POUR ECS UNIQUEMENT
+        - Nombre d'habitants moyen par appartement
+        - 0.15 # prix du gaz €/kWh
+        - 50 % # taux de couverture solaire
+    total avec aides: total sans aides
+
+Bilan x Système solaire combiné:
+  avec: 
+    total sans aides:
+      produit:
+        - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+        - 0.15 # prix du gaz €/kWh
+        - 50 % # taux de couverture solaire
+    total avec aides: total sans aides
+
 Bilan x Radiateur électrique:
   avec:
     P1abo: Calcul Eco . Radiateur électrique . Coût du combustible abonnement
