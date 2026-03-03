@@ -188,6 +188,11 @@ Bilan x Réseaux de chaleur:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
+
 
 Bilan x Poêle à granulés indiv:
   avec:
@@ -262,6 +267,10 @@ Bilan x Poêle à granulés indiv:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
 
 Bilan x Chaudière à granulés coll:
   avec:
@@ -336,6 +345,10 @@ Bilan x Chaudière à granulés coll:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
 
 Bilan x Gaz indiv avec cond:
   avec:
@@ -848,6 +861,10 @@ Bilan x PAC air-air indiv:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
 
 Bilan x PAC air-air coll:
   avec:
@@ -990,6 +1007,10 @@ Bilan x PAC eau-eau indiv:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
 
 Bilan x PAC eau-eau coll:
   avec:
@@ -1017,7 +1038,7 @@ Bilan x PAC eau-eau coll:
             durée: ratios . PAC EAU EAU Durée de vie
             capital: ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
         - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
-        - 1 / nombre de logements dans l'immeuble concerné   
+        - 1 / nombre de logements dans l'immeuble concerné
     P4spec:
       somme:
          - P4specForages
@@ -1085,6 +1106,10 @@ Bilan x PAC eau-eau coll:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
 
 Bilan x PAC air-eau indiv:
   avec:
@@ -1153,6 +1178,10 @@ Bilan x PAC air-eau indiv:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
 
 Bilan x PAC air-eau coll:
   avec:
@@ -1221,6 +1250,10 @@ Bilan x PAC air-eau coll:
       somme:
         - total sans aides
         - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
 
 Bilan x PAC air-eau coll hybride:
   avec:
@@ -1228,26 +1261,36 @@ Bilan x PAC air-eau coll hybride:
       produit:
         - Bilan x PAC air-eau coll . total avec aides
         - 120 %
-    total avec aides: total sans aides
+    total sans installation:
+      somme:
+        - Bilan x PAC air-eau coll . P1abo
+        - Bilan x PAC air-eau coll . P1prime
+        - Bilan x PAC air-eau coll . P1Consofroid
+        - produit:
+          - 120%
+          - Bilan x PAC air-eau coll . P1ECS
+        - produit:
+          - 120%
+          - Bilan x PAC air-eau coll . P1conso
+        - Bilan x PAC air-eau coll . P2
+        - Bilan x PAC air-eau coll . P3
 
 Bilan x Solaire thermique:
   avec:
-    total sans aides:
-      produit: 
+    total sans installation:
+      produit:
         - 955 # conso kWh/an/habitant POUR ECS UNIQUEMENT
         - Nombre d'habitants moyen par appartement
         - 0.15 # prix du gaz €/kWh
         - 50 % # taux de couverture solaire
-    total avec aides: total sans aides
 
 Bilan x Système solaire combiné:
-  avec: 
-    total sans aides:
+  avec:
+    total sans installation:
       produit:
         - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
         - 0.15 # prix du gaz €/kWh
         - 50 % # taux de couverture solaire
-    total avec aides: total sans aides
 
 Bilan x Radiateur électrique:
   avec:
