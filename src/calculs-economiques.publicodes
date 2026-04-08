@@ -1833,6 +1833,176 @@ Calcul Eco . P2 P3 Coût de l'entretien:
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
 
+Calcul Eco . Montant des aides:
+  avec:
+    Réseaux de chaleur:
+      avec:
+        Coup de pouce:
+          produit:
+            - variations:
+              - si: type de bâtiment = 'résidentiel'
+                alors:
+                  variations:
+                    - si: nombre de logements dans l'immeuble concerné <= 125
+                      alors: 24000 * nombre de logements dans l'immeuble concerné + 9000000
+                    - sinon: 54000 * nombre de logements dans l'immeuble concerné + 5200000
+              - si: type de bâtiment = 'tertiaire'
+                alors:
+                  variations:
+                    - si: surface logement type tertiaire <= 7500
+                      alors: 200 * surface logement type tertiaire + 9500000
+                    - sinon: 800 * surface logement type tertiaire + 5000000
+              - sinon: 0
+            - Paramètres économiques . Aides . Valeur CEE
+          note: https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires
+          unité: €
+        CEE:
+          produit:
+            - variations:
+              - si: type de bâtiment = 'résidentiel'
+                alors: BAR-TH-137
+              - si: type de bâtiment = 'tertiaire'
+                alors: BAT-TH-127
+            - Paramètres économiques . Aides . Valeur CEE
+          unité: €
+        BAR-TH-137:
+          produit:
+            - variations:
+                - si: zone climatique = 'H1'
+                  alors: 47700
+                - si: zone climatique = 'H2'
+                  alors: 39500
+                - si: zone climatique = 'H3'
+                  alors: 30800
+            - nombre de logements dans l'immeuble concerné
+          note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAR-TH-137%20vA79-4%20%C3%A0%20compter%20du%2001-01-2026.pdf
+        BAT-TH-127:
+          produit:
+            - variations:
+                - si: Installation x Réseaux de chaleur x Collectif . puissance équipement <= 400
+                  alors:
+                    variations:
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Bureaux'
+                            - Production eau chaude sanitaire
+                        alors: 510
+                      - si: méthode tertiaire = 'Bureaux'
+                        alors: 480
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Enseignement'
+                            - Production eau chaude sanitaire
+                        alors: 360
+                      - si: méthode tertiaire = 'Enseignement'
+                        alors: 310
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Santé'
+                            - Production eau chaude sanitaire
+                        alors: 540
+                      - si: méthode tertiaire = 'Santé'
+                        alors: 400
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Commerces'
+                            - Production eau chaude sanitaire
+                        alors: 420
+                      - si: méthode tertiaire = 'Commerces'
+                        alors: 370
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Hôtel'
+                            - Production eau chaude sanitaire
+                        alors: 680
+                      - si: méthode tertiaire = 'Hôtel'
+                        alors: 540
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Café, restaurant'
+                            - Production eau chaude sanitaire
+                        alors: 680
+                      - si: méthode tertiaire = 'Café, restaurant'
+                        alors: 540
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Autres'
+                            - Production eau chaude sanitaire
+                        alors: 330
+                      - si: méthode tertiaire = 'Autres'
+                        alors: 310
+                - sinon:
+                    variations:
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Bureaux'
+                            - Production eau chaude sanitaire
+                        alors: 390
+                      - si: méthode tertiaire = 'Bureaux'
+                        alors: 370
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Enseignement'
+                            - Production eau chaude sanitaire
+                        alors: 270
+                      - si: méthode tertiaire = 'Enseignement'
+                        alors: 240
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Santé'
+                            - Production eau chaude sanitaire
+                        alors: 410
+                      - si: méthode tertiaire = 'Santé'
+                        alors: 310
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Commerces'
+                            - Production eau chaude sanitaire
+                        alors: 320
+                      - si: méthode tertiaire = 'Commerces'
+                        alors: 280
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Hôtel'
+                            - Production eau chaude sanitaire
+                        alors: 520
+                      - si: méthode tertiaire = 'Hôtel'
+                        alors: 410
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Café, restaurant'
+                            - Production eau chaude sanitaire
+                        alors: 520
+                      - si: méthode tertiaire = 'Café, restaurant'
+                        alors: 410
+                      - si:
+                          toutes ces conditions:
+                            - méthode tertiaire = 'Autres'
+                            - Production eau chaude sanitaire
+                        alors: 260
+                      - si: méthode tertiaire = 'Autres'
+                        alors: 240
+            - variations:
+                - si: zone climatique = 'H1'
+                  alors: 1.1
+                - si: zone climatique = 'H2'
+                  alors: 0.9
+                - si: zone climatique = 'H3'
+                  alors: 0.6
+            - surface logement type tertiaire
+          note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAT-TH-127%20vA79-5%20%C3%A0%20compter%20du%2001-01-2026_0.pdf
+        Total:
+          variations:
+            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+              alors:
+                somme:
+                  - variations:
+                      - si: caractéristique réseau de chaleur . taux EnRR > 50 %
+                        alors: Coup de pouce
+                      - sinon: CEE
+            - sinon: 0
+          unité: €
+
 Calcul Eco . Montant des aides par logement tertiaire:
   avec:
     Réseaux de chaleur:
@@ -2166,12 +2336,12 @@ Calcul Eco . Montant des aides par logement tertiaire:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
               alors: 35 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire forage
-            - sinon: 0   
+            - sinon: 0
         Ma prime renov'PAC:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
               alors: 35 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire PAC
-            - sinon: 0    
+            - sinon: 0
         Ma prime renov':
           somme:
             - Ma prime renov'forage
