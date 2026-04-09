@@ -1853,9 +1853,8 @@ Calcul Eco . Montant des aides:
                       alors: 200 * surface logement type tertiaire + 9500000
                     - sinon: 800 * surface logement type tertiaire + 5000000
               - sinon: 0
-            - Paramètres économiques . Aides . Valeur CEE
+          unité: kWh cumac
           note: https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires
-          unité: €
         CEE:
           produit:
             - variations:
@@ -1863,8 +1862,7 @@ Calcul Eco . Montant des aides:
                 alors: BAR-TH-137
               - si: type de bâtiment = 'tertiaire'
                 alors: BAT-TH-127
-            - Paramètres économiques . Aides . Valeur CEE
-          unité: €
+          unité: kWh cumac
         BAR-TH-137:
           produit:
             - variations:
@@ -1995,14 +1993,17 @@ Calcul Eco . Montant des aides:
           variations:
             - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
               alors:
-                somme:
-                  - variations:
-                      - si: caractéristique réseau de chaleur . taux EnRR > 50 %
-                        alors: Coup de pouce
-                      - sinon: CEE
+                variations:
+                  - si: caractéristique réseau de chaleur . taux EnRR > 50 %
+                    alors: Coup de pouce
+                  - sinon: CEE
             - sinon: 0
+          unité: kWh cumac
+        Total montant:
+          produit:
+            - Total
+            - Paramètres économiques . Aides . Valeur CEE
           unité: €
-
 Calcul Eco . Montant des aides par logement tertiaire:
   avec:
     Réseaux de chaleur:
