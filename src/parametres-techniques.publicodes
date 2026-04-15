@@ -3,7 +3,7 @@
 code département:
   # fourni via l'adresse
   question: code département de l'utilisateur
- 
+
 département:
 département . degré jours unifié spécifique chaud: département . degré jours unifié spécifique chaud # se fait remplacer par les données département
 degré jours unifié spécifique chaud:
@@ -181,12 +181,14 @@ méthode tertiaire:
     - "'Bureaux'"
     - "'Enseignement secondaire'"
     - "'Enseignement primaire'"
+    - "'Enseignement'"
     - "'Commerces'"
     - "'Café, restaurant'"
     - "'Hôtel'"
     - "'Sport'"
     - "'EHPAD'"
     - "'Santé'"
+    - "'Autres'"
 
 normes thermiques tertiaire:
   par défaut: "'RE2020'"
