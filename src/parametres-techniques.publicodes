@@ -181,13 +181,21 @@ méthode tertiaire:
     - "'Bureaux'"
     - "'Enseignement secondaire'"
     - "'Enseignement primaire'"
-    - "'Enseignement'"
     - "'Commerces'"
     - "'Café, restaurant'"
     - "'Hôtel'"
     - "'Sport'"
     - "'EHPAD'"
     - "'Santé'"
+
+méthode tertiaire 2026:
+  par défaut: "'Bureaux'"
+  une possibilité:
+    - "'Bureaux'"
+    - "'Enseignement'"
+    - "'Santé'"
+    - "'Commerces'"
+    - "'Hôtellerie/Restauration'"
     - "'Autres'"
 
 normes thermiques tertiaire:

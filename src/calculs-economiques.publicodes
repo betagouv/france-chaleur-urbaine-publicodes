@@ -1882,103 +1882,89 @@ Calcul Eco . Montant des aides:
                     variations:
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Bureaux'
+                            - méthode tertiaire 2026 = 'Bureaux'
                             - Production eau chaude sanitaire
                         alors: 510
-                      - si: méthode tertiaire = 'Bureaux'
+                      - si: méthode tertiaire 2026 = 'Bureaux'
                         alors: 480
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Enseignement'
+                            - méthode tertiaire 2026 = 'Enseignement'
                             - Production eau chaude sanitaire
                         alors: 360
-                      - si: méthode tertiaire = 'Enseignement'
+                      - si: méthode tertiaire 2026 = 'Enseignement'
                         alors: 310
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Santé'
+                            - méthode tertiaire 2026 = 'Santé'
                             - Production eau chaude sanitaire
                         alors: 540
-                      - si: méthode tertiaire = 'Santé'
+                      - si: méthode tertiaire 2026 = 'Santé'
                         alors: 400
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Commerces'
+                            - méthode tertiaire 2026 = 'Commerces'
                             - Production eau chaude sanitaire
                         alors: 420
-                      - si: méthode tertiaire = 'Commerces'
+                      - si: méthode tertiaire 2026 = 'Commerces'
                         alors: 370
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Hôtel'
+                            - méthode tertiaire 2026 = 'Hôtellerie/Restauration'
                             - Production eau chaude sanitaire
                         alors: 680
-                      - si: méthode tertiaire = 'Hôtel'
+                      - si: méthode tertiaire 2026 = 'Hôtellerie/Restauration'
                         alors: 540
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Café, restaurant'
-                            - Production eau chaude sanitaire
-                        alors: 680
-                      - si: méthode tertiaire = 'Café, restaurant'
-                        alors: 540
-                      - si:
-                          toutes ces conditions:
-                            - méthode tertiaire = 'Autres'
+                            - méthode tertiaire 2026 = 'Autres'
                             - Production eau chaude sanitaire
                         alors: 330
-                      - si: méthode tertiaire = 'Autres'
+                      - si: méthode tertiaire 2026 = 'Autres'
                         alors: 310
                 - sinon:
                     variations:
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Bureaux'
+                            - méthode tertiaire 2026 = 'Bureaux'
                             - Production eau chaude sanitaire
                         alors: 390
-                      - si: méthode tertiaire = 'Bureaux'
+                      - si: méthode tertiaire 2026 = 'Bureaux'
                         alors: 370
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Enseignement'
+                            - méthode tertiaire 2026 = 'Enseignement'
                             - Production eau chaude sanitaire
                         alors: 270
-                      - si: méthode tertiaire = 'Enseignement'
+                      - si: méthode tertiaire 2026 = 'Enseignement'
                         alors: 240
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Santé'
+                            - méthode tertiaire 2026 = 'Santé'
                             - Production eau chaude sanitaire
                         alors: 410
-                      - si: méthode tertiaire = 'Santé'
+                      - si: méthode tertiaire 2026 = 'Santé'
                         alors: 310
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Commerces'
+                            - méthode tertiaire 2026 = 'Commerces'
                             - Production eau chaude sanitaire
                         alors: 320
-                      - si: méthode tertiaire = 'Commerces'
+                      - si: méthode tertiaire 2026 = 'Commerces'
                         alors: 280
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Hôtel'
+                            - méthode tertiaire 2026 = 'Hôtellerie/Restauration'
                             - Production eau chaude sanitaire
                         alors: 520
-                      - si: méthode tertiaire = 'Hôtel'
+                      - si: méthode tertiaire 2026 = 'Hôtellerie/Restauration'
                         alors: 410
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire = 'Café, restaurant'
-                            - Production eau chaude sanitaire
-                        alors: 520
-                      - si: méthode tertiaire = 'Café, restaurant'
-                        alors: 410
-                      - si:
-                          toutes ces conditions:
-                            - méthode tertiaire = 'Autres'
+                            - méthode tertiaire 2026 = 'Autres'
                             - Production eau chaude sanitaire
                         alors: 260
-                      - si: méthode tertiaire = 'Autres'
+                      - si: méthode tertiaire 2026 = 'Autres'
                         alors: 240
             - variations:
                 - si: zone climatique = 'H1'
