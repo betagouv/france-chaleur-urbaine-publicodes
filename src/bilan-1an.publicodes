@@ -1284,6 +1284,18 @@ Bilan x Solaire thermique:
         - 0.15 # prix du gaz €/kWh
         - 50 % # taux de couverture solaire
 
+Bilan x PAC capteurs solaires atmosphériques:
+  avec:
+    total sans installation: Bilan x PAC air-eau coll . P1ECS
+
+Bilan x PAC air-eau collective ECS:
+  avec:
+    total sans installation: Bilan x PAC air-eau coll . P1ECS
+
+Bilan x Chauffe-eau thermodynamique:
+  avec:
+    total sans installation: Bilan x PAC air-eau coll . P1ECS
+
 Bilan x Système solaire combiné:
   avec:
     total sans installation:
