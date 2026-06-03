@@ -1294,7 +1294,10 @@ Bilan x PAC air-eau collective ECS:
 
 Bilan x Chauffe-eau thermodynamique:
   avec:
-    total sans installation: Bilan x PAC air-eau coll . P1ECS
+    total sans installation:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - besoins eau chaude sanitaire par appartement / ratios . PAC AIR EAU SCOP coll
 
 Bilan x Système solaire combiné:
   avec:
