@@ -508,7 +508,15 @@ Paramètres économiques:
           #  - "'non'"
         Éligibilité x Ressources du ménage:
           # ='Ratios économiques - Aides'!$C$8
-          par défaut: "'Modeste'"
+          par défaut:
+            variations:
+              - si:
+                  toutes ces conditions:
+                    - est défini: code département
+                    - est défini: ménage . revenu
+                    - est défini: Nombre d'habitants moyen par appartement
+                alors: ménage . revenu . classe
+              - sinon: "'Modeste'"
           une possibilité:
             - "'Très modeste'"
             - "'Modeste'"

@@ -1,0 +1,155 @@
+ménage:
+
+ménage . revenu:
+  question: Revenu fiscal de référence du ménage
+  unité: €
+
+ménage . personnes plus:
+  formule:
+    variations:
+      - si: Nombre d'habitants moyen par appartement > 5
+        alors: Nombre d'habitants moyen par appartement - 5
+      - sinon: 0
+
+ménage . département IdF:
+  formule:
+    une de ces conditions:
+      - code département = "75"
+      - code département = "77"
+      - code département = "78"
+      - code département = "91"
+      - code département = "92"
+      - code département = "93"
+      - code département = "94"
+      - code département = "95"
+
+ménage . revenu . plafond très modeste:
+  unité: €
+  formule:
+    variations:
+      - si: ménage . département IdF
+        alors: plafond très modeste IdF
+      - sinon: plafond très modeste hors IdF
+
+ménage . revenu . plafond modeste:
+  unité: €
+  formule:
+    variations:
+      - si: ménage . département IdF
+        alors: plafond modeste IdF
+      - sinon: plafond modeste hors IdF
+
+ménage . revenu . plafond intermédiaire:
+  unité: €
+  formule:
+    variations:
+      - si: ménage . département IdF
+        alors: plafond intermédiaire IdF
+      - sinon: plafond intermédiaire hors IdF
+
+ménage . revenu . plafond très modeste IdF:
+  unité: €
+  formule:
+    variations:
+      - si: Nombre d'habitants moyen par appartement = 1
+        alors: 24031
+      - si: Nombre d'habitants moyen par appartement = 2
+        alors: 35270
+      - si: Nombre d'habitants moyen par appartement = 3
+        alors: 42357
+      - si: Nombre d'habitants moyen par appartement = 4
+        alors: 49455
+      - si: Nombre d'habitants moyen par appartement = 5
+        alors: 56580
+      - sinon: 56580 + ménage . personnes plus * 7116
+
+ménage . revenu . plafond modeste IdF:
+  unité: €
+  formule:
+    variations:
+      - si: Nombre d'habitants moyen par appartement = 1
+        alors: 29253
+      - si: Nombre d'habitants moyen par appartement = 2
+        alors: 42933
+      - si: Nombre d'habitants moyen par appartement = 3
+        alors: 51564
+      - si: Nombre d'habitants moyen par appartement = 4
+        alors: 60208
+      - si: Nombre d'habitants moyen par appartement = 5
+        alors: 68877
+      - sinon: 68877 + ménage . personnes plus * 8663
+
+ménage . revenu . plafond intermédiaire IdF:
+  unité: €
+  formule:
+    variations:
+      - si: Nombre d'habitants moyen par appartement = 1
+        alors: 40851
+      - si: Nombre d'habitants moyen par appartement = 2
+        alors: 60051
+      - si: Nombre d'habitants moyen par appartement = 3
+        alors: 71846
+      - si: Nombre d'habitants moyen par appartement = 4
+        alors: 84562
+      - si: Nombre d'habitants moyen par appartement = 5
+        alors: 96817
+      - sinon: 96817 + ménage . personnes plus * 12257
+
+ménage . revenu . plafond très modeste hors IdF:
+  unité: €
+  formule:
+    variations:
+      - si: Nombre d'habitants moyen par appartement = 1
+        alors: 17363
+      - si: Nombre d'habitants moyen par appartement = 2
+        alors: 25393
+      - si: Nombre d'habitants moyen par appartement = 3
+        alors: 30540
+      - si: Nombre d'habitants moyen par appartement = 4
+        alors: 35676
+      - si: Nombre d'habitants moyen par appartement = 5
+        alors: 40835
+      - sinon: 40835 + ménage . personnes plus * 5151
+
+ménage . revenu . plafond modeste hors IdF:
+  unité: €
+  formule:
+    variations:
+      - si: Nombre d'habitants moyen par appartement = 1
+        alors: 22259
+      - si: Nombre d'habitants moyen par appartement = 2
+        alors: 32553
+      - si: Nombre d'habitants moyen par appartement = 3
+        alors: 39148
+      - si: Nombre d'habitants moyen par appartement = 4
+        alors: 45735
+      - si: Nombre d'habitants moyen par appartement = 5
+        alors: 52348
+      - sinon: 52348 + ménage . personnes plus * 6598
+
+ménage . revenu . plafond intermédiaire hors IdF:
+  unité: €
+  formule:
+    variations:
+      - si: Nombre d'habitants moyen par appartement = 1
+        alors: 31185
+      - si: Nombre d'habitants moyen par appartement = 2
+        alors: 45842
+      - si: Nombre d'habitants moyen par appartement = 3
+        alors: 55196
+      - si: Nombre d'habitants moyen par appartement = 4
+        alors: 64550
+      - si: Nombre d'habitants moyen par appartement = 5
+        alors: 73907
+      - sinon: 73907 + ménage . personnes plus * 9357
+
+ménage . revenu . classe:
+  formule:
+    variations:
+      - si: ménage . revenu <= plafond très modeste
+        alors: '"Très modeste"'
+      - si: ménage . revenu <= plafond modeste
+        alors: '"Modeste"'
+      - si: ménage . revenu <= plafond intermédiaire
+        alors: '"Intermédiaire"'
+      - sinon: '"Supérieur"'
