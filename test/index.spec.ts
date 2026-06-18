@@ -130,6 +130,75 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		});
 	});
 
+	describe("CEE BAR-TH-171 PAC air-eau individuelle", () => {
+		it("calcule le montant CEE pour une maison individuelle H1 avec Etas entre 111% et 140%", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière":
+					"120%",
+				"Paramètres économiques . Aides . Aides x Éligible CEE": "oui",
+				"Paramètres économiques . Aides . Valeur CEE": 0.00804,
+				"ratios . GNRL Appartement ou maison": "'Maison'",
+				"surface logement type tertiaire": 95,
+				"zone climatique": "'H1'",
+			});
+
+			expect(
+				engine.evaluate(
+					"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171",
+				).nodeValue,
+			).toBe(109080);
+			expect(
+				engine.evaluate(
+					"Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . CEE",
+				).nodeValue,
+			).toBeCloseTo(877.0032);
+			expect(
+				engine.evaluate(
+					"Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce",
+				).nodeValue,
+			).toBeCloseTo(4385.016);
+		});
+
+		it("n'accorde pas de kWh cumac sous 111% d'Etas", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière":
+					"110%",
+				"ratios . GNRL Appartement ou maison": "'Appartement'",
+				"surface logement type tertiaire": 70,
+				"zone climatique": "'H2'",
+			});
+
+			expect(
+				engine.evaluate(
+					"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171",
+				).nodeValue,
+			).toBe(0);
+		});
+
+		it("n'accorde pas le Coup de pouce sans remplacement de chaudière", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière":
+					"120%",
+				"Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul":
+					"non",
+				"Paramètres économiques . Aides . Valeur CEE": 0.00804,
+				"ratios . GNRL Appartement ou maison": "'Maison'",
+				"surface logement type tertiaire": 95,
+				"type de bâtiment": "'résidentiel'",
+				"zone climatique": "'H1'",
+			});
+
+			expect(
+				engine.evaluate(
+					"Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce",
+				).nodeValue,
+			).toBe(0);
+		});
+	});
+
 	const testCases = [
 		{
 			description: "Bilan x Gaz coll avec cond",

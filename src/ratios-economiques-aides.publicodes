@@ -262,6 +262,69 @@ ratios économiques x aides:
         - sinon: 1.6
       note: 'Source : ADEME 2024'
 
+    CEE x PAC air-eau indiv:
+      applicable si: Paramètres économiques . Aides . Aides x Éligible CEE
+      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . CEE
+      valeur: CEE x PAC air-eau indiv x BAR-TH-171 * Paramètres économiques . Aides . Valeur CEE
+      unité: €
+    CEE x PAC air-eau indiv x BAR-TH-171:
+      produit:
+        - montant
+        - facteur correctif selon la surface chauffée
+        - facteur correctif selon la zone géographique
+      unité: kWh cumac
+      note: BAR-TH-171 - Pompe à chaleur de type air/eau
+    CEE x PAC air-eau indiv x BAR-TH-171 . montant:
+      variations:
+        - si: efficacité énergétique saisonnière < 111%
+          alors: 0
+        - si: ratios . GNRL Appartement ou maison = 'Appartement'
+          alors:
+            variations:
+              - si: efficacité énergétique saisonnière < 140%
+                alors: 48700
+              - sinon: 58900
+        - sinon:
+            variations:
+              - si: efficacité énergétique saisonnière < 140%
+                alors: 90900
+              - sinon: 109200
+      unité: kWh cumac
+    CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière:
+      par défaut: ratios . PAC AIR EAU SCOP indiv / 2.5
+      unité: '%'
+    CEE x PAC air-eau indiv x BAR-TH-171 . facteur correctif selon la surface chauffée:
+      variations:
+        - si: ratios . GNRL Appartement ou maison = 'Appartement'
+          alors:
+            variations:
+              - si: surface logement type tertiaire < 35
+                alors: 0.5
+              - si: surface logement type tertiaire < 60
+                alors: 0.7
+              - sinon: 1
+        - sinon:
+            variations:
+              - si: surface logement type tertiaire < 70
+                alors: 0.5
+              - si: surface logement type tertiaire < 90
+                alors: 0.7
+              - sinon: 1
+    CEE x PAC air-eau indiv x BAR-TH-171 . facteur correctif selon la zone géographique:
+      variations:
+        - si: zone climatique = 'H1'
+          alors: 1.2
+        - si: zone climatique = 'H2'
+          alors: 1
+        - si: zone climatique = 'H3'
+          alors: 0.7
+
+    Coup de pouce x PAC air-eau:
+      applicable si: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
+      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce
+      valeur: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . CEE * 5
+      unité: €
+
     # N'existe pas dans les types d'installations retenus
     # Coup de pouce x Modeste x Chaudière biomasse:
     #   applicable si:
@@ -272,15 +335,6 @@ ratios économiques x aides:
     #   valeur: 4000
     #   unité: €
     #   note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
-    Coup de pouce x Modeste x PAC air-eau:
-      applicable si:
-        toutes ces conditions:
-          - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-          - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = 'Modeste'
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce
-      valeur: 4000
-      unité: €
-      note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
     Coup de pouce x Modeste x PAC eau-eau:
       applicable si:
         toutes ces conditions:
@@ -318,15 +372,6 @@ ratios économiques x aides:
     #   valeur: 2500
     #   unité: €
     #   note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
-    Coup de pouce x Autre revenu x PAC air-eau:
-      applicable si:
-        toutes ces conditions:
-          - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-          - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce
-      valeur: 2500
-      unité: €
-      note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
     Coup de pouce x Autre revenu x PAC eau-eau:
       applicable si:
         toutes ces conditions:

@@ -2283,9 +2283,7 @@ Calcul Eco . Montant des aides par logement tertiaire:
           formule: Ma prime renov'
           unité: €
         Coup de pouce:
-          applicable si:
-            est défini: Coup de pouce
-          formule: Coup de pouce
+          formule: 0
           unité: €
         CEE:
           formule: 0
