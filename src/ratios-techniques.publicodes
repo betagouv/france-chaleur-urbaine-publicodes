@@ -1756,10 +1756,10 @@ ratios:
       valeur: 17
       unité: an
     GAZ IND COND Rendement chaudière chauffage:
-      valeur: 82%
+      valeur: 85%
       unité: '%'
     GAZ IND COND Rendement chaudière ECS:
-      valeur: 87%
+      valeur: 85%
       unité: '%'
     GAZ IND COND Conso combustible:
       valeur: 0.0970
