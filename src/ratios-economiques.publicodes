@@ -14,6 +14,9 @@ ratios économiques:
       valeur: 20
       unité: '%'
       note: 'source: ELCIMAI 2024'
+    Investissement x TVA réduite:
+      valeur: 5.5
+      unité: '%'
     Amortissement x Taux actualisation:
       valeur: 0
       unité: '%'
@@ -434,9 +437,9 @@ ratios économiques:
     PAC x air-eau réversible:
       avec:
         Coût investissement Individuel:
-          valeur: 1117
-          unité: €HT/kW
-          note: 'Source: ADEME Coûts EnR 2022 2020'
+          valeur: 13270
+          unité: €HT
+          note: 'Source: SDES 2023'
         Coût investissement Collectif:
           valeur: 1005
           unité: €HT/kW
@@ -445,9 +448,7 @@ ratios économiques:
     PAC x air-eau réversible x Individuel:
       produit:
         - ratios économiques . PAC x air-eau réversible . Coût investissement Individuel
-        - Installation x PAC air-eau x Individuel . gamme de puissance existante
-        - 1 + ratios économiques . Investissement x TVA
-
+        - 1 + ratios économiques . Investissement x TVA réduite
     PAC x air-eau réversible x Collectif:
       produit:
         - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif

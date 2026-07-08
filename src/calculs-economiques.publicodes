@@ -1089,9 +1089,7 @@ Calcul Eco:
       avec:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
-          produit:
-            - ratios économiques . PAC x air-eau réversible x Individuel
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+          valeur: ratios économiques . PAC x air-eau réversible x Individuel
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total
