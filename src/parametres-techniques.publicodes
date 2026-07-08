@@ -232,7 +232,7 @@ besoins eau chaude sanitaire par appartement:
         alors:
           variations:
             - si: type de bâtiment = 'résidentiel'
-              alors: consommation spécifique ECS * Nombre d'habitants moyen par appartement
+              alors: 600 + (consommation spécifique ECS * Nombre d'habitants moyen par appartement)
             - sinon: consommation spécifique ECS * surface logement type tertiaire
       - sinon: 0
   unité: kWh

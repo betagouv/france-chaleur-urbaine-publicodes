@@ -426,7 +426,7 @@ ratios:
     ECS Résidentiel:
       applicable si: type de bâtiment = "résidentiel"
       remplace: consommation spécifique ECS
-      valeur: 955
+      valeur: 360
       unité: kWh/habitant
     ECS Bureaux RE2020:
       applicable si:

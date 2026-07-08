@@ -1279,9 +1279,8 @@ Bilan x Solaire thermique:
   avec:
     total sans installation:
       produit:
-        - 955 # conso kWh/an/habitant POUR ECS UNIQUEMENT
-        - Nombre d'habitants moyen par appartement
-        - 0.15 # prix du gaz €/kWh
+        - besoins eau chaude sanitaire par appartement
+        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation # prix du gaz €/kWh
         - 50 % # taux de couverture solaire
 
 Bilan x PAC capteurs solaires atmosphériques:
@@ -1307,7 +1306,7 @@ Bilan x Système solaire combiné:
     total sans installation:
       produit:
         - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-        - 0.15 # prix du gaz €/kWh
+        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation # prix du gaz €/kWh
         - 50 % # taux de couverture solaire
 
 Bilan x Radiateur électrique:
