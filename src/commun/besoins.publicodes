@@ -39,3 +39,85 @@ Calcul . Climatisation Puissance refroidissement appelée:
   # =Besoin_raf/$B$40*(1+F_sur_p)
   formule: besoins en climatisation par appartement / Calcul . Climatisation Nb heure fonctionnement pleine puissance * (1 + ratios . PUIS Facteur de surpuissance)
   unité: kW
+
+###### Ratios généraux et de dimensionnement
+
+ratios . GNRL Surface de référence appartement:
+  valeur: 70
+  unité: m2
+
+ratios . GNRL Surface de référence tertiaire:
+  valeur: 2500
+  unité: m2
+
+ratios . GNRL Hauteur:
+  valeur: 2.2
+  unité: m
+
+ratios . GNRL DJU REF chaud:
+  valeur: 2200
+  unité: DJU chaud
+
+ratios . GNRL Nombre habitant par logement:
+  valeur: 2.17
+  unité: personne
+
+ratios . GNRL Production ECS:
+  par défaut: oui
+  #une possibilité:
+  #  - "'oui'"
+  #  - "'non'"
+
+ratios . GNRL Appartement ou maison:
+  valeur: "'Appartement'"
+
+ratios . GNRL Nombre de logement dans l'immeuble concerné:
+  valeur: 25
+  unité: logement
+
+ratios . GNRL Part surface à climatiser résidentiel:
+  valeur: 70%
+  unité: '%'
+
+ratios . GNRL Part surface à climatiser tertiaire:
+  valeur: 100%
+  unité: '%'
+
+# aucune valeur définie
+# RAF Santé RE2020:
+#   valeur:
+#   unité: kWhef/m2.an
+# RAF Santé RT2012:
+#   valeur:
+#   unité: kWhef/m2.an
+# RAF Santé Moyenne française 2021:
+#   valeur:
+#   unité: kWhef/m2.an
+# RAF EHPAD RE2020:
+#   valeur:
+#   unité: kWhef/m2.an
+# RAF EHPAD RT2012:
+#   valeur:
+#   unité: kWhef/m2.an
+# RAF EHPAD Moyenne française 2021:
+#   valeur:
+#   unité: kWhef/m2.an
+ratios . PUIS Température de non chauffage:
+  valeur: 18
+  unité: °C
+
+ratios . PUIS Facteur de surpuissance:
+  valeur: 20%
+  unité: '%'
+
+ratios . PUIS Nombre heure de fonctionnement non climatique ECS:
+  valeur: 3000
+  unité: h
+
+ratios . PUIS Coefficient de foisonnement ECS:
+  valeur: 50%
+  unité: '%'
+
+ratios . PUIS Coefficient de foisonnement chauffage collectif:
+  valeur: 80%
+  unité: '%'

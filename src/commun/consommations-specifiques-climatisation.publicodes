@@ -1,0 +1,875 @@
+# Consommations spécifiques de climatisation (matrices remplace sur
+# « consommation spécifique climatisation ») : types tertiaires x sous-zones
+# climatiques.
+
+ratios . RAF BureauxH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF BureauxH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF BureauxH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF BureauxH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 7
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF BureauxH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF BureauxH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 40
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF BureauxH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 40
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF BureauxH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Bureaux"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 68
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 8
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 44
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 44
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF CommercesH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Commerces"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 74
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 24
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 100
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 100
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SantéH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Santé"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 152
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 35
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 35
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 35
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 9
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 35
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 48
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 48
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF HôtelH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Hôtel"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 82
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 18
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 18
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 18
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 5
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 18
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 25
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 25
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF SportH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Sport"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 42
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 7
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 40
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 40
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement secondaireH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement secondaire"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 68
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 7
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 29
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 40
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 40
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Enseignement primaireH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Enseignement primaire"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 68
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = 'H1a'
+  remplace: consommation spécifique climatisation
+  valeur: 5
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 5
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 17
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 2
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 5
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 17
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 43
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF RésidentielH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "résidentiel"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 56
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 24
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 77
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 100
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 100
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF EHPADH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "EHPAD"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 152
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH1a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H1a"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH1b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H1b"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH1c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H1c"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH2a:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H2a"
+  remplace: consommation spécifique climatisation
+  valeur: 8
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH2b:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H2b"
+  remplace: consommation spécifique climatisation
+  valeur: 32
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH2c:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H2c"
+  remplace: consommation spécifique climatisation
+  valeur: 44
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH2d:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H2d"
+  remplace: consommation spécifique climatisation
+  valeur: 44
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
+
+ratios . RAF Café, restaurantH3:
+  applicable si:
+    toutes ces conditions:
+      - type de bâtiment = "tertiaire"
+      - méthode tertiaire = "Café, restaurant"
+      - sous zone climatique = "H3"
+  remplace: consommation spécifique climatisation
+  valeur: 74
+  unité: kWhef/m2.an
+  note: 'Source: ADEME 2024'
