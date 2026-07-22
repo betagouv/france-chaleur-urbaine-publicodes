@@ -4,6 +4,12 @@
 
 ###### Ratios techniques
 
+
+###### Modes
+
+réseau de chaleur:
+  description: Raccordement à un réseau de chaleur urbain
+
 ratios . RCU Rendement sous station chauffage:
   valeur: 86%
   unité: '%'
@@ -56,43 +62,43 @@ ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel:
 ratios économiques . Réseaux x Coût Investissement SST RCU:
   # VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
   variations:
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 100
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 100
       alors: 21500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 150
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 150
       alors: 22500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 200
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 200
       alors: 23500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 250
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 250
       alors: 24500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 300
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 300
       alors: 25500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 350
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 350
       alors: 26000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 400
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 400
       alors: 27000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 500
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 500
       alors: 28000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 600
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 600
       alors: 30000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 700
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 700
       alors: 32000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 800
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 800
       alors: 33500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 900
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 900
       alors: 35500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 1000
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 1000
       alors: 37500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 1500
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 1500
       alors: 39000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 2000
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 2000
       alors: 48500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 2500
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 2500
       alors: 57500
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 3000
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 3000
       alors: 67000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 4500
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 4500
       alors: 76000
-    - si: Installation x Réseaux de chaleur x Collectif . gamme de puissance existante <= 6000
+    - si: réseau de chaleur . installation . gamme de puissance existante <= 6000
       alors: 104000
     - sinon: 132000
   unité: €HT
@@ -137,7 +143,7 @@ Investissement x frais de raccordement au réseaux x RCU:
 
 ###### Installation (dimensionnement et consommations)
 
-Installation x Réseaux de chaleur x Collectif:
+réseau de chaleur . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
@@ -240,7 +246,7 @@ Installation x Réseaux de chaleur x Collectif:
 
 ###### Calculs économiques
 
-Calcul Eco . Réseaux de chaleur:
+réseau de chaleur . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement raccordement:
@@ -265,7 +271,7 @@ Calcul Eco . Réseaux de chaleur:
     Investissement ballon ECS à accumulation:
       # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
       variations:
-        - si: Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+        - si: réseau de chaleur . installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
@@ -273,7 +279,7 @@ Calcul Eco . Réseaux de chaleur:
       # IF(AND('Calculs techniques'!C71="Oui",Type_ECS="Solaire thermique"),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv),"")
       applicable si:
         toutes ces conditions:
-          - Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          - réseau de chaleur . installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -292,39 +298,39 @@ Calcul Eco . Réseaux de chaleur:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              alors: réseau de froid . coûts . Coût du combustible abonnement
             - sinon: 0
         - produit:
             - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement
-            - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
+            - réseau de chaleur . installation . consommation combustible chaleur
       unité: €TTC/an
       note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
     Coût du combustible consommation:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part consommation
-        - Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur
+        - réseau de chaleur . installation . consommation combustible chaleur
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       # =IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!F93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!$F115+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115)
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Réseaux de chaleur x Collectif . consommation auxiliaire
+        - réseau de chaleur . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
       # F45 =IF('Calculs techniques'!H93<>"",IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!H93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!H93+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115),"")
-      applicable si: Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: réseau de chaleur . installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique
+        - réseau de chaleur . installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: réseau de chaleur . installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire
+        - réseau de chaleur . installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -334,16 +340,16 @@ Calcul Eco . Réseaux de chaleur:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+          alors: réseau de froid . coûts . Coût combustible froid
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - Installation x Réseaux de chaleur x Collectif . consommation Groupe Froid
+              - réseau de chaleur . installation . consommation Groupe Froid
       unité: €TTC/an
 
 ###### Entretien P2 / P3
 
-Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur:
+réseau de chaleur . entretien:
   avec:
     petit entretien P2:
       # C67 ='Paramètres économiques'!D159*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
@@ -363,7 +369,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur:
 
 ###### Aides
 
-Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur:
+réseau de chaleur . aides:
   avec:
     Ma prime renov':
       # =IF($B$91="Eligible",XLOOKUP(1,('Ratios économiques - Aides'!$A$9:$A$26='Paramètres économiques'!$D$213)*('Ratios économiques - Aides'!$B$9:$B$26='Calculs économiques'!A97),'Ratios économiques - Aides'!$C$9:$C$26,0),0)
@@ -409,7 +415,7 @@ Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur:
 
 ###### Aides (calcul en kWh cumac)
 
-Calcul Eco . Montant des aides . Réseaux de chaleur:
+réseau de chaleur . aides cumac:
   avec:
     Coup de pouce:
       produit:
@@ -451,7 +457,7 @@ Calcul Eco . Montant des aides . Réseaux de chaleur:
     BAT-TH-127:
       produit:
         - variations:
-            - si: Installation x Réseaux de chaleur x Collectif . puissance équipement <= 400
+            - si: réseau de chaleur . installation . puissance équipement <= 400
               alors:
                 variations:
                   - si:
@@ -567,7 +573,7 @@ Calcul Eco . Montant des aides . Réseaux de chaleur:
 
 ###### Émissions de CO2
 
-env . Installation x Réseaux de chaleur x Collectif:
+réseau de chaleur . environnement:
   avec:
     besoins de chauffage et ECS si même équipement:
       valeur: 0
@@ -582,10 +588,10 @@ env . Installation x Réseaux de chaleur x Collectif:
       unité: kgCO2e
     ECS solaire thermique:
       # ='Calculs techniques'!I93*'Ratios environnementaux'!$C$26
-      formule: Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: réseau de chaleur . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       # ='Calculs techniques'!H93*'Ratios environnementaux'!$C$25
-      formule: Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: réseau de chaleur . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       # =SUM(E43:G43)
       somme:
@@ -608,32 +614,32 @@ env . Installation x Réseaux de chaleur x Collectif:
 
 ###### Bilan annuel
 
-Bilan x Réseaux de chaleur:
+réseau de chaleur . bilan:
   avec:
-    P1abo: Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement
-    P1conso: Calcul Eco . Réseaux de chaleur . Coût du combustible consommation
-    P1prime: Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: réseau de chaleur . coûts . Coût du combustible abonnement
+    P1conso: réseau de chaleur . coûts . Coût du combustible consommation
+    P1prime: réseau de chaleur . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . Réseaux de chaleur . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - réseau de chaleur . coûts . Coût combustible pour ballon ECS à accumulation
+        - réseau de chaleur . coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: réseau de chaleur . coûts . Coût combustible froid
+    P2: réseau de chaleur . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: réseau de chaleur . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
 
     P4 raccordement:
-      formule: Calcul Eco . Réseaux de chaleur . Investissement raccordement par logement type tertiaire * amortissement . facteur RCU renouvellement
+      formule: réseau de chaleur . coûts . Investissement raccordement par logement type tertiaire * amortissement . facteur RCU renouvellement
 
     P4 reseau secondaire:
-      formule: Calcul Eco . Réseaux de chaleur . Investissement reseau secondaire RCU par logement type tertiaire * amortissement . facteur RCU sous station
+      formule: réseau de chaleur . coûts . Investissement reseau secondaire RCU par logement type tertiaire * amortissement . facteur RCU sous station
 
     P4ECS Ballon électrique:
-      formule: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: réseau de chaleur . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: Calcul Eco . Réseaux de chaleur . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: réseau de chaleur . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
     P4:
       somme:
@@ -644,7 +650,7 @@ Bilan x Réseaux de chaleur:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Total * amortissement . facteur RCU renouvellement
+      formule: réseau de chaleur . aides . Total * amortissement . facteur RCU renouvellement
 
     aides:
       somme:

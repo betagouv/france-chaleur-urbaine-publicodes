@@ -67,7 +67,7 @@ Calcul Bilan:
           alors:
             variations:
               - si: type de production de froid = 'Réseau de froid'
-                alors: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
+                alors: réseau de froid . entretien . petit entretien P2 par logement tertiaire
               - sinon:
                   variations:
                     - si: type de bâtiment = 'résidentiel'
@@ -82,7 +82,7 @@ Calcul Bilan:
           alors:
             variations:
               - si: type de production de froid = 'Réseau de froid'
-                alors: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
+                alors: réseau de froid . entretien . gros entretien P3 par logement tertiaire
               - sinon:
                   variations:
                     - si: type de bâtiment = 'résidentiel'
@@ -97,7 +97,7 @@ Calcul Bilan:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
+          alors: réseau de froid . coûts . Coût électricité auxiliaire
         - sinon: 0
 
     # P4 groupe froid
@@ -131,11 +131,11 @@ Calcul Bilan:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Investissement équipement par logement type tertiaire * amortissement . facteur RFU
+          alors: réseau de froid . coûts . Investissement équipement par logement type tertiaire * amortissement . facteur RFU
         - sinon: 0
 
     Amortissement aides réseau de froid:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid . Total * amortissement . facteur RFU
+      formule: réseau de froid . aides . Total * amortissement . facteur RFU
 
     aides réseau de froid:
       # IF(AND(Prod_clim="Oui";Type_clim="Réseau de froid");IF(IFERROR(-PMT('Paramètres économiques'!$D$200;Durée_vie_RFU;P4_RFU-'Calculs économiques'!$F$100);0)<0;0;IFERROR(-PMT('Paramètres économiques'!$D$200;Durée_vie_RFU;P4_RFU-'Calculs économiques'!$F$100);0));0)

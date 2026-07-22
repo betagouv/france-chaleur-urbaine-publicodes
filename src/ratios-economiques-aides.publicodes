@@ -6,7 +6,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Ma prime renov'
+      remplace: poêle à granulés . aides . Ma prime renov'
       valeur: 1800
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -15,7 +15,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Ma prime renov'
+      remplace: réseau de chaleur . aides . Ma prime renov'
       valeur: 1200
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -24,7 +24,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid . Ma prime renov'
+      remplace: réseau de froid . aides . Ma prime renov'
       valeur: 1200
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -33,7 +33,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Ma prime renov'
+      remplace: PAC eau-eau indiv . aides . Ma prime renov'
       valeur: 11000
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -42,7 +42,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Ma prime renov'
+      remplace: PAC air-eau indiv . aides . Ma prime renov'
       valeur: 5000
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -60,7 +60,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Ma prime renov'
+      remplace: poêle à granulés . aides . Ma prime renov'
       valeur: 1500
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -69,7 +69,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Ma prime renov'
+      remplace: réseau de chaleur . aides . Ma prime renov'
       valeur: 800
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -78,7 +78,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid . Ma prime renov'
+      remplace: réseau de froid . aides . Ma prime renov'
       valeur: 800
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -87,7 +87,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Ma prime renov'
+      remplace: PAC eau-eau indiv . aides . Ma prime renov'
       valeur: 9000
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -96,7 +96,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Ma prime renov'
+      remplace: PAC air-eau indiv . aides . Ma prime renov'
       valeur: 4000
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -114,7 +114,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Ma prime renov'
+      remplace: poêle à granulés . aides . Ma prime renov'
       valeur: 1000
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -123,7 +123,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Ma prime renov'
+      remplace: réseau de chaleur . aides . Ma prime renov'
       valeur: 400
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -132,7 +132,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid . Ma prime renov'
+      remplace: réseau de froid . aides . Ma prime renov'
       valeur: 400
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -141,7 +141,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Ma prime renov'
+      remplace: PAC eau-eau indiv . aides . Ma prime renov'
       valeur: 6000
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -150,7 +150,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Ma prime renov'
+      remplace: PAC air-eau indiv . aides . Ma prime renov'
       valeur: 3000
       unité: €
       note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -264,7 +264,7 @@ ratios économiques x aides:
 
     CEE x PAC air-eau indiv:
       applicable si: Paramètres économiques . Aides . Aides x Éligible CEE
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . CEE
+      remplace: PAC air-eau indiv . aides . CEE
       valeur: CEE x PAC air-eau indiv x BAR-TH-171 * Paramètres économiques . Aides . Valeur CEE
       unité: €
     CEE x PAC air-eau indiv x BAR-TH-171:
@@ -321,8 +321,8 @@ ratios économiques x aides:
 
     Coup de pouce x PAC air-eau:
       applicable si: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce
-      valeur: Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . CEE * 5
+      remplace: PAC air-eau indiv . aides . Coup de pouce
+      valeur: PAC air-eau indiv . aides . CEE * 5
       unité: €
 
     # N'existe pas dans les types d'installations retenus
@@ -340,7 +340,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = 'Modeste'
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Coup de pouce
+      remplace: PAC eau-eau indiv . aides . Coup de pouce
       valeur: 5000
       unité: €
       note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
@@ -358,7 +358,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = 'Modeste'
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Coup de pouce
+      remplace: réseau de chaleur . aides . Coup de pouce
       valeur: 700
       unité: €
       note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
@@ -377,7 +377,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Coup de pouce
+      remplace: PAC eau-eau indiv . aides . Coup de pouce
       valeur: 5000
       unité: €
       note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
@@ -395,7 +395,7 @@ ratios économiques x aides:
         toutes ces conditions:
           - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
           - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
-      remplace: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Coup de pouce
+      remplace: réseau de chaleur . aides . Coup de pouce
       valeur: 450
       unité: €
       note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'

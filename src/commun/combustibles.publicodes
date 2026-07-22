@@ -10,8 +10,8 @@ Calcul Eco . Coût d'achat du combustible:
           alors:
             produit:
               - Paramètres économiques . Réseaux chaleur . Tarification R2 x Part fixe
-              - Installation x Réseaux de chaleur x Collectif . gamme de puissance existante
-              - 1 / ( Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur * nombre de logements dans l'immeuble concerné )
+              - réseau de chaleur . installation . gamme de puissance existante
+              - 1 / ( réseau de chaleur . installation . consommation combustible chaleur * nombre de logements dans l'immeuble concerné )
         - sinon: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part fixe
       unité: €TTC/kWh
     Chaleur RCU x Part consommation:

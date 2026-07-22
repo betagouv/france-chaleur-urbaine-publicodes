@@ -4,6 +4,14 @@
 
 ###### Ratios techniques
 
+
+###### Modes
+
+PAC eau-eau indiv:
+  description: Pompe à chaleur eau-eau individuelle (géothermie, capteurs horizontaux)
+PAC eau-eau coll:
+  description: Pompe à chaleur eau-eau collective (géothermie, champ de sondes)
+
 ratios . PAC EAU EAU SCOP indiv capteurs horizontaux:
   somme:
     - 4
@@ -64,9 +72,9 @@ ratios économiques . PAC x eau-eau non réversible:
       # 'Paramètres économiques'!B74
       # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C172,'Ratios économiques - Coûts'!C174)*(1+TVA_inv)
       produit:
-        - Installation x PAC eau-eau x Collectif . gamme de puissance existante
+        - PAC eau-eau coll . installation . gamme de puissance existante
         - variations:
-            - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
+            - si: PAC eau-eau coll . installation . gamme de puissance existante < 250
               alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW Coût investissement hors captage sous-sol coll
             - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
         - 1 + ratios économiques . Investissement x TVA
@@ -74,9 +82,9 @@ ratios économiques . PAC x eau-eau non réversible:
       # 'Paramètres économiques'!B75
       # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C173,'Ratios économiques - Coûts'!C175)*(1+TVA_inv)
       produit:
-        - Installation x PAC eau-eau x Collectif . gamme de puissance existante
+        - PAC eau-eau coll . installation . gamme de puissance existante
         - variations:
-            - si: Installation x PAC eau-eau x Collectif . gamme de puissance existante < 250
+            - si: PAC eau-eau coll . installation . gamme de puissance existante < 250
               alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW coût captage sous-sol coll
             - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW coût captage sous-sol coll
         - 1 + ratios économiques . Investissement x TVA
@@ -84,7 +92,7 @@ ratios économiques . PAC x eau-eau non réversible:
 ratios économiques . PAC x eau-eau non réversible x Individuel:
   produit:
     - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
-    - Installation x PAC eau-eau x Individuel . gamme de puissance existante
+    - PAC eau-eau indiv . installation . gamme de puissance existante
     - 1 + ratios économiques . Investissement x TVA
 
 ratios économiques . PAC x eau-eau non réversible x Collectif:
@@ -109,7 +117,7 @@ ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire:
 
 ###### Installation (dimensionnement et consommations)
 
-Installation x PAC eau-eau x Individuel:
+PAC eau-eau indiv . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
@@ -197,7 +205,7 @@ Installation x PAC eau-eau x Individuel:
       unité: kWh/an
     consommation Groupe Froid: calcul consommation Groupe Froid
 
-Installation x PAC eau-eau x Collectif:
+PAC eau-eau coll . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
@@ -295,7 +303,7 @@ Installation x PAC eau-eau x Collectif:
 
 ###### Calculs économiques
 
-Calcul Eco . PAC eau-eau indiv:
+PAC eau-eau indiv . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement équipement Total:
@@ -308,14 +316,14 @@ Calcul Eco . PAC eau-eau indiv:
       unité: €TTC
     Investissement ballon ECS à accumulation:
       variations:
-        - si: Installation x PAC eau-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+        - si: PAC eau-eau indiv . installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
     Investissement ballon ECS solaire panneau inclus:
       applicable si:
         toutes ces conditions:
-          - Installation x PAC eau-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          - PAC eau-eau indiv . installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -334,7 +342,7 @@ Calcul Eco . PAC eau-eau indiv:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              alors: réseau de froid . coûts . Coût du combustible abonnement
             - sinon: 0
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
       unité: €TTC/an
@@ -342,27 +350,27 @@ Calcul Eco . PAC eau-eau indiv:
     Coût du combustible consommation:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC eau-eau x Individuel . consommation combustible chaleur
+        - PAC eau-eau indiv . installation . consommation combustible chaleur
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC eau-eau x Individuel . consommation auxiliaire
+        - PAC eau-eau indiv . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
-      applicable si: Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: PAC eau-eau indiv . installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique
+        - PAC eau-eau indiv . installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: PAC eau-eau indiv . installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire
+        - PAC eau-eau indiv . installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -371,14 +379,14 @@ Calcul Eco . PAC eau-eau indiv:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+          alors: réseau de froid . coûts . Coût combustible froid
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - Installation x PAC eau-eau x Individuel . consommation Groupe Froid
+              - PAC eau-eau indiv . installation . consommation Groupe Froid
       unité: €TTC/an
 
-Calcul Eco . PAC eau-eau coll:
+PAC eau-eau coll . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement équipement forage:
@@ -399,14 +407,14 @@ Calcul Eco . PAC eau-eau coll:
       unité: €TTC
     Investissement ballon ECS à accumulation:
       variations:
-        - si: Installation x PAC eau-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+        - si: PAC eau-eau coll . installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
     Investissement ballon ECS solaire panneau inclus:
       applicable si:
         toutes ces conditions:
-          - Installation x PAC eau-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          - PAC eau-eau coll . installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -425,7 +433,7 @@ Calcul Eco . PAC eau-eau coll:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              alors: réseau de froid . coûts . Coût du combustible abonnement
             - sinon: 0
         - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
       unité: €TTC/an
@@ -433,27 +441,27 @@ Calcul Eco . PAC eau-eau coll:
     Coût du combustible consommation:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-        - Installation x PAC eau-eau x Collectif . consommation combustible chaleur
+        - PAC eau-eau coll . installation . consommation combustible chaleur
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-        - Installation x PAC eau-eau x Collectif . consommation auxiliaire
+        - PAC eau-eau coll . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
-      applicable si: Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: PAC eau-eau coll . installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique
+        - PAC eau-eau coll . installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: PAC eau-eau coll . installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire
+        - PAC eau-eau coll . installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -462,16 +470,16 @@ Calcul Eco . PAC eau-eau coll:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+          alors: réseau de froid . coûts . Coût combustible froid
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - Installation x PAC eau-eau x Collectif . consommation Groupe Froid
+              - PAC eau-eau coll . installation . consommation Groupe Froid
       unité: €TTC/an
 
 ###### Entretien P2 / P3
 
-Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv:
+PAC eau-eau indiv . entretien:
   avec:
     petit entretien P2:
       valeur : Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv
@@ -482,7 +490,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv:
     petit entretien P2 par logement tertiaire: petit entretien P2
     gros entretien P3 par logement tertiaire: gros entretien P3
 
-Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll:
+PAC eau-eau coll . entretien:
   avec:
     petit entretien P2:
       produit:
@@ -500,7 +508,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll:
 
 ###### Aides
 
-Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv:
+PAC eau-eau indiv . aides:
   avec:
     Ma prime renov':
       applicable si:
@@ -522,17 +530,17 @@ Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv:
         - sinon: 0
       unité: €
 
-Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll:
+PAC eau-eau coll . aides:
   avec:
     Ma prime renov'forage:
       variations:
         - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: 35 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire forage
+          alors: 35 / 100 * PAC eau-eau coll . coûts . Investissement équipement par logement type tertiaire forage
         - sinon: 0
     Ma prime renov'PAC:
       variations:
         - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: 35 / 100 * Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire PAC
+          alors: 35 / 100 * PAC eau-eau coll . coûts . Investissement équipement par logement type tertiaire PAC
         - sinon: 0
     Ma prime renov':
       somme:
@@ -581,7 +589,7 @@ Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll:
 
 ###### Émissions de CO2
 
-env . Installation x PAC eau-eau x Individuel:
+PAC eau-eau indiv . environnement:
   avec:
     besoins de chauffage et ECS si même équipement:
       valeur: 0
@@ -590,13 +598,13 @@ env . Installation x PAC eau-eau x Individuel:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C104+'Calculs techniques'!F103)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D104*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC eau-eau x Individuel . consommation combustible chaleur + Installation x PAC eau-eau x Individuel . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-        - Installation x PAC eau-eau x Individuel . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
+        - (PAC eau-eau indiv . installation . consommation combustible chaleur + PAC eau-eau indiv . installation . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - PAC eau-eau indiv . installation . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2e
     ECS solaire thermique:
-      formule: Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: PAC eau-eau indiv . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
-      formule: Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: PAC eau-eau indiv . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       somme:
         - auxiliaires et combustible électrique
@@ -604,7 +612,7 @@ env . Installation x PAC eau-eau x Individuel:
         - ECS avec ballon électrique
     Scope 3:
       # ='Ratios environnementaux'!C47*B31/Durée_vie_PAC_EE
-      formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * Installation x PAC eau-eau x Individuel . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie
+      formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * PAC eau-eau indiv . installation . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie
     Total:
       somme:
         - Scope 1
@@ -612,7 +620,7 @@ env . Installation x PAC eau-eau x Individuel:
         - Scope 3
       unité: kgCO2e/an
 
-env . Installation x PAC eau-eau x Collectif:
+PAC eau-eau coll . environnement:
   avec:
     besoins de chauffage et ECS si même équipement:
       valeur: 0
@@ -621,13 +629,13 @@ env . Installation x PAC eau-eau x Collectif:
     auxiliaires et combustible électrique:
       # =('Calculs techniques'!C107+'Calculs techniques'!F106)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D107*'Ratios environnementaux'!$C$27
       somme:
-        - (Installation x PAC eau-eau x Collectif . consommation combustible chaleur + Installation x PAC eau-eau x Collectif . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-        - Installation x PAC eau-eau x Collectif . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
+        - (PAC eau-eau coll . installation . consommation combustible chaleur + PAC eau-eau coll . installation . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+        - PAC eau-eau coll . installation . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
       unité: kgCO2e
     ECS solaire thermique:
-      formule: Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: PAC eau-eau coll . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
-      formule: Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: PAC eau-eau coll . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       somme:
         - auxiliaires et combustible électrique
@@ -635,7 +643,7 @@ env . Installation x PAC eau-eau x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # ='Ratios environnementaux'!C50*B34/Durée_vie_PAC_EE/Nb_lgt
-      formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * Installation x PAC eau-eau x Collectif . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie / nombre de logements dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * PAC eau-eau coll . installation . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -645,28 +653,28 @@ env . Installation x PAC eau-eau x Collectif:
 
 ###### Bilan annuel
 
-Bilan x PAC eau-eau indiv:
+PAC eau-eau indiv . bilan:
   avec:
-    P1abo: Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement
-    P1conso: Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation
-    P1prime: Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: PAC eau-eau indiv . coûts . Coût du combustible abonnement
+    P1conso: PAC eau-eau indiv . coûts . Coût du combustible consommation
+    P1prime: PAC eau-eau indiv . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . PAC eau-eau indiv . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - PAC eau-eau indiv . coûts . Coût combustible pour ballon ECS à accumulation
+        - PAC eau-eau indiv . coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: PAC eau-eau indiv . coûts . Coût combustible froid
+    P2: PAC eau-eau indiv . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: PAC eau-eau indiv . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
     P4spec:
-      formule: Calcul Eco . PAC eau-eau indiv . Investissement équipement par logement type tertiaire * amortissement . facteur PAC EAU EAU
+      formule: PAC eau-eau indiv . coûts . Investissement équipement par logement type tertiaire * amortissement . facteur PAC EAU EAU
 
     P4ECS Ballon électrique:
-      formule: Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: PAC eau-eau indiv . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: PAC eau-eau indiv . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
 
     P4:
@@ -677,7 +685,7 @@ Bilan x PAC eau-eau indiv:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Total * amortissement . facteur PAC EAU EAU
+      formule: PAC eau-eau indiv . aides . Total * amortissement . facteur PAC EAU EAU
 
     aides:
       somme:
@@ -706,18 +714,18 @@ Bilan x PAC eau-eau indiv:
         - total sans aides
         - (- P4)
 
-Bilan x PAC eau-eau coll:
+PAC eau-eau coll . bilan:
   avec:
-    P1abo: Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement
-    P1conso: Calcul Eco . PAC eau-eau coll . Coût du combustible consommation
-    P1prime: Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: PAC eau-eau coll . coûts . Coût du combustible abonnement
+    P1conso: PAC eau-eau coll . coûts . Coût du combustible consommation
+    P1prime: PAC eau-eau coll . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . PAC eau-eau coll . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - PAC eau-eau coll . coûts . Coût combustible pour ballon ECS à accumulation
+        - PAC eau-eau coll . coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: PAC eau-eau coll . coûts . Coût combustible froid
+    P2: PAC eau-eau coll . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: PAC eau-eau coll . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
     P4specForages:
       produit:
         - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde * amortissement . facteur PAC EAU EAU puits
@@ -733,12 +741,12 @@ Bilan x PAC eau-eau coll:
          - P4specPAC
 
     P4ECS Ballon électrique:
-      formule: Calcul Eco . PAC eau-eau coll . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: PAC eau-eau coll . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: Calcul Eco . PAC eau-eau coll . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: PAC eau-eau coll . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
 
     P4:
@@ -749,10 +757,10 @@ Bilan x PAC eau-eau coll:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques PAC:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . PAC * amortissement . facteur PAC EAU EAU
+      formule: PAC eau-eau coll . aides . PAC * amortissement . facteur PAC EAU EAU
 
     aides spécifiques forages:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . forage * amortissement . facteur PAC EAU EAU puits
+      formule: PAC eau-eau coll . aides . forage * amortissement . facteur PAC EAU EAU puits
 
     aides:
       somme:

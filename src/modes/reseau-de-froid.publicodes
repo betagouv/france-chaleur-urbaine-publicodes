@@ -4,6 +4,12 @@
 
 ###### Ratios techniques
 
+
+###### Modes
+
+réseau de froid:
+  description: Raccordement à un réseau de froid urbain
+
 ratios . RFU Rendement sous station:
   valeur: 93%
   unité: '%'
@@ -21,21 +27,21 @@ ratios . RFU Durée de vie:
 ratios économiques . Réseaux x Coût Investissement SST RFU:
   # =VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;TRUE)
   variations:
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 100
+    - si: réseau de froid . installation . gamme de puissance existante < 100
       alors: 28000
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 150
+    - si: réseau de froid . installation . gamme de puissance existante < 150
       alors: 29500
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 200
+    - si: réseau de froid . installation . gamme de puissance existante < 200
       alors: 30500
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 250
+    - si: réseau de froid . installation . gamme de puissance existante < 250
       alors: 32000
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 300
+    - si: réseau de froid . installation . gamme de puissance existante < 300
       alors: 33000
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 350
+    - si: réseau de froid . installation . gamme de puissance existante < 350
       alors: 34000
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 400
+    - si: réseau de froid . installation . gamme de puissance existante < 400
       alors: 35000
-    - si: Installation x Réseaux de froid x Collectif . gamme de puissance existante < 500
+    - si: réseau de froid . installation . gamme de puissance existante < 500
       alors: 36500
     - sinon: 39000
   unité: €HT
@@ -90,7 +96,7 @@ ratios environnementaux . CO2 INS RFU:
 
 ###### Installation (dimensionnement et consommations)
 
-Installation x Réseaux de froid x Collectif:
+réseau de froid . installation:
   avec:
     production eau chaude sanitaire: non
     puissance nécessaire équipement chauffage:
@@ -127,7 +133,7 @@ Installation x Réseaux de froid x Collectif:
 
 ###### Calculs économiques
 
-Calcul Eco . Réseaux de froid:
+réseau de froid . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement équipement Total:
@@ -140,30 +146,30 @@ Calcul Eco . Réseaux de froid:
     Coût du combustible abonnement:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
-        - Installation x Réseaux de froid x Collectif . consommation combustible froid
+        - réseau de froid . installation . consommation combustible froid
       unité: €TTC/an
       note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
     Coût du combustible consommation:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
-        - Installation x Réseaux de froid x Collectif . consommation combustible froid
+        - réseau de froid . installation . consommation combustible froid
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Réseaux de froid x Collectif . consommation auxiliaire
+        - réseau de froid . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible froid:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
-        - Installation x Réseaux de froid x Collectif . consommation combustible froid
+        - réseau de froid . installation . consommation combustible froid
       unité: €TTC/an
 
 ###### Entretien P2 / P3
 
-Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid:
+réseau de froid . entretien:
   avec:
     petit entretien P2:
       # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
@@ -192,7 +198,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid:
 
 ###### Aides
 
-Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid:
+réseau de froid . aides:
   avec:
     Ma prime renov':
       applicable si:
@@ -212,7 +218,7 @@ Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid:
             variations:
               - si: type de bâtiment = 'résidentiel'
                 alors: 0
-              - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * Installation x Réseaux de froid x Collectif . gamme de puissance existante * Paramètres économiques . Aides . Valeur CEE
+              - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * réseau de froid . installation . gamme de puissance existante * Paramètres économiques . Aides . Valeur CEE
         - sinon: 0
       unité: €
     Total:

@@ -4,6 +4,18 @@
 
 ###### Ratios techniques
 
+
+###### Modes
+
+gaz indiv avec cond:
+  description: Chaudière gaz individuelle à condensation
+gaz indiv sans cond:
+  description: Chaudière gaz individuelle sans condensation
+gaz coll avec cond:
+  description: Chaudière gaz collective à condensation
+gaz coll sans cond:
+  description: Chaudière gaz collective sans condensation
+
 ratios . GAZ IND COND Rendement chaudière chauffage:
   valeur: 85%
   unité: '%'
@@ -98,13 +110,13 @@ ratios économiques . Gaz x indiv avec cond:
   # B59 =XLOOKUP($D$27,'Ratios économiques - Coûts'!$B$81:$B$85,'Ratios économiques - Coûts'!$C$81:$C$85,,1)*(1+$D$50)
   produit:
     - variations:
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 12
+        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 12
           alors: 2660
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 20
+        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 20
           alors: 2810
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 25
+        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 25
           alors: 2920
-        - si: Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante <= 30
+        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 30
           alors: 3220
         - sinon: 3620
     - 1 + ratios économiques . Investissement x TVA
@@ -114,13 +126,13 @@ ratios économiques . Gaz x indiv avec cond:
 ratios économiques . Gaz x indiv sans cond:
   produit:
     - variations:
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 12
+        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 12
           alors: 2660
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 20
+        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 20
           alors: 2810
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 25
+        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 25
           alors: 2920
-        - si: Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante <= 30
+        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 30
           alors: 3220
         - sinon: 3620
     - 1 + ratios économiques . Investissement x TVA
@@ -130,33 +142,33 @@ ratios économiques . Gaz x indiv sans cond:
 ratios économiques . Gaz x coll avec cond:
   produit:
     - variations:
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 35
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 35
           alors: 4800
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 120
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 120
           alors: 15000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 200
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 200
           alors: 25000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 300
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 300
           alors: 37500
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 400
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 400
           alors: 40000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 500
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 500
           alors: 45000
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 600
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 600
           alors: 52335
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 700
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 700
           alors: 61058
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 800
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 800
           alors: 69780
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 900
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 900
           alors: 78503
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1000
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1000
           alors: 87225
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1250
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1250
           alors: 109031
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1500
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1500
           alors: 130838
-        - si: Installation x Gaz coll avec cond x Collectif . gamme de puissance existante <= 1750
+        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1750
           alors: 152644
         - sinon: 174450
     - 1 + ratios économiques . Investissement x TVA
@@ -166,33 +178,33 @@ ratios économiques . Gaz x coll avec cond:
 ratios économiques . Gaz x coll sans cond:
   produit:
     - variations:
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 35
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 35
           alors: 4800
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 120
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 120
           alors: 15000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 200
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 200
           alors: 25000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 300
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 300
           alors: 37500
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 400
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 400
           alors: 40000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 500
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 500
           alors: 45000
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 600
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 600
           alors: 52335
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 700
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 700
           alors: 61058
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 800
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 800
           alors: 69780
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 900
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 900
           alors: 78503
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1000
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1000
           alors: 87225
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1250
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1250
           alors: 109031
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1500
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1500
           alors: 130838
-        - si: Installation x Gaz coll sans cond x Collectif . gamme de puissance existante <= 1750
+        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1750
           alors: 152644
         - sinon: 174450
     - 1 + ratios économiques . Investissement x TVA
@@ -227,7 +239,7 @@ ratios environnementaux . CO2 INS Gaz coll sans cond:
 
 ###### Installation (dimensionnement et consommations)
 
-Installation x Gaz indiv avec cond x Individuel:
+gaz indiv avec cond . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
@@ -327,7 +339,7 @@ Installation x Gaz indiv avec cond x Individuel:
       unité: kWh/an
     consommation Groupe Froid: calcul consommation Groupe Froid
 
-Installation x Gaz indiv sans cond x Individuel:
+gaz indiv sans cond . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
@@ -428,7 +440,7 @@ Installation x Gaz indiv sans cond x Individuel:
       unité: kWh/an
     consommation Groupe Froid: calcul consommation Groupe Froid
 
-Installation x Gaz coll avec cond x Collectif:
+gaz coll avec cond . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
@@ -549,7 +561,7 @@ Installation x Gaz coll avec cond x Collectif:
       unité: kWh/an
     consommation Groupe Froid: calcul consommation Groupe Froid
 
-Installation x Gaz coll sans cond x Collectif:
+gaz coll sans cond . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
     puissance nécessaire équipement chauffage:
@@ -672,7 +684,7 @@ Installation x Gaz coll sans cond x Collectif:
 
 ###### Calculs économiques
 
-Calcul Eco . Gaz indiv avec cond:
+gaz indiv avec cond . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement équipement Total:
@@ -685,14 +697,14 @@ Calcul Eco . Gaz indiv avec cond:
       unité: €TTC
     Investissement ballon ECS à accumulation:
       variations:
-        - si: Installation x Gaz indiv avec cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+        - si: gaz indiv avec cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
     Investissement ballon ECS solaire panneau inclus:
       applicable si:
         toutes ces conditions:
-          - Installation x Gaz indiv avec cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          - gaz indiv avec cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -711,7 +723,7 @@ Calcul Eco . Gaz indiv avec cond:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              alors: réseau de froid . coûts . Coût du combustible abonnement
             - sinon: 0
         - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
       unité: €TTC/an
@@ -720,28 +732,28 @@ Calcul Eco . Gaz indiv avec cond:
       # D49 =($D$13*'Calculs techniques'!$C$97/Conso_comb_GAZ_indiv_cond)
       produit:
         - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
-        - Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur
+        - gaz indiv avec cond . installation . consommation combustible chaleur
         - 1 / ratios . GAZ IND COND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire
+        - gaz indiv avec cond . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
-      applicable si: Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: gaz indiv avec cond . installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique
+        - gaz indiv avec cond . installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: gaz indiv avec cond . installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire
+        - gaz indiv avec cond . installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -750,14 +762,14 @@ Calcul Eco . Gaz indiv avec cond:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+          alors: réseau de froid . coûts . Coût combustible froid
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - Installation x Gaz indiv avec cond x Individuel . consommation Groupe Froid
+              - gaz indiv avec cond . installation . consommation Groupe Froid
       unité: €TTC/an
 
-Calcul Eco . Gaz indiv sans cond:
+gaz indiv sans cond . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement équipement Total:
@@ -770,14 +782,14 @@ Calcul Eco . Gaz indiv sans cond:
       unité: €TTC
     Investissement ballon ECS à accumulation:
       variations:
-        - si: Installation x Gaz indiv sans cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+        - si: gaz indiv sans cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
     Investissement ballon ECS solaire panneau inclus:
       applicable si:
         toutes ces conditions:
-          - Installation x Gaz indiv sans cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          - gaz indiv sans cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -796,7 +808,7 @@ Calcul Eco . Gaz indiv sans cond:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              alors: réseau de froid . coûts . Coût du combustible abonnement
             - sinon: 0
         - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
       unité: €TTC/an
@@ -805,28 +817,28 @@ Calcul Eco . Gaz indiv sans cond:
       # D50 =($D$13*'Calculs techniques'!$C$98/Conso_comb_GAZ_indiv_scond)
       produit:
         - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
-        - Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur
+        - gaz indiv sans cond . installation . consommation combustible chaleur
         - 1 / ratios . GAZ IND SCOND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire
+        - gaz indiv sans cond . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
-      applicable si: Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: gaz indiv sans cond . installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique
+        - gaz indiv sans cond . installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: gaz indiv sans cond . installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire
+        - gaz indiv sans cond . installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -835,14 +847,14 @@ Calcul Eco . Gaz indiv sans cond:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+          alors: réseau de froid . coûts . Coût combustible froid
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - Installation x Gaz indiv sans cond x Individuel . consommation Groupe Froid
+              - gaz indiv sans cond . installation . consommation Groupe Froid
       unité: €TTC/an
 
-Calcul Eco . Gaz coll avec cond:
+gaz coll avec cond . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement équipement Total:
@@ -855,14 +867,14 @@ Calcul Eco . Gaz coll avec cond:
       unité: €TTC
     Investissement ballon ECS à accumulation:
       variations:
-        - si: Installation x Gaz coll avec cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+        - si: gaz coll avec cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
     Investissement ballon ECS solaire panneau inclus:
       applicable si:
         toutes ces conditions:
-          - Installation x Gaz coll avec cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          - gaz coll avec cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -882,7 +894,7 @@ Calcul Eco . Gaz coll avec cond:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              alors: réseau de froid . coûts . Coût du combustible abonnement
             - sinon: 0
         - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement / nombre de logements dans l'immeuble concerné
       unité: €TTC/an
@@ -891,28 +903,28 @@ Calcul Eco . Gaz coll avec cond:
       # D51 =($D$14*'Calculs techniques'!$C$99/Conso_comb_GAZ_coll_cond)
       produit:
         - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
-        - Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur
+        - gaz coll avec cond . installation . consommation combustible chaleur
         - 1 / ratios . GAZ COLL COND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz coll avec cond x Collectif . consommation auxiliaire
+        - gaz coll avec cond . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
-      applicable si: Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: gaz coll avec cond . installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique
+        - gaz coll avec cond . installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: gaz coll avec cond . installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire
+        - gaz coll avec cond . installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -921,14 +933,14 @@ Calcul Eco . Gaz coll avec cond:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+          alors: réseau de froid . coûts . Coût combustible froid
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - Installation x Gaz coll avec cond x Collectif . consommation Groupe Froid
+              - gaz coll avec cond . installation . consommation Groupe Froid
       unité: €TTC/an
 
-Calcul Eco . Gaz coll sans cond:
+gaz coll sans cond . coûts:
   avec:
     # P4 - Investissement total (sans aide) €TTC
     Investissement équipement Total:
@@ -941,14 +953,14 @@ Calcul Eco . Gaz coll sans cond:
       unité: €TTC
     Investissement ballon ECS à accumulation:
       variations:
-        - si: Installation x Gaz coll sans cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+        - si: gaz coll sans cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
     Investissement ballon ECS solaire panneau inclus:
       applicable si:
         toutes ces conditions:
-          - Installation x Gaz coll sans cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          - gaz coll sans cond . installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -967,7 +979,7 @@ Calcul Eco . Gaz coll sans cond:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+              alors: réseau de froid . coûts . Coût du combustible abonnement
             - sinon: 0
         - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement / nombre de logements dans l'immeuble concerné
       unité: €TTC/an
@@ -977,28 +989,28 @@ Calcul Eco . Gaz coll sans cond:
       # D52 =($D$14*'Calculs techniques'!$C$100/Conso_comb_GAZ_coll_scond)
       produit:
         - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation
-        - Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur
+        - gaz coll sans cond . installation . consommation combustible chaleur
         - 1 / ratios . GAZ COLL SCOND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz coll sans cond x Collectif . consommation auxiliaire
+        - gaz coll sans cond . installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
-      applicable si: Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: gaz coll sans cond . installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique
+        - gaz coll sans cond . installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: gaz coll sans cond . installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire
+        - gaz coll sans cond . installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -1007,16 +1019,16 @@ Calcul Eco . Gaz coll sans cond:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+          alors: réseau de froid . coûts . Coût combustible froid
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - Installation x Gaz coll sans cond x Collectif . consommation Groupe Froid
+              - gaz coll sans cond . installation . consommation Groupe Froid
       unité: €TTC/an
 
 ###### Entretien P2 / P3
 
-Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond:
+gaz indiv avec cond . entretien:
   avec:
     petit entretien P2:
       produit:
@@ -1031,7 +1043,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond:
     petit entretien P2 par logement tertiaire: petit entretien P2
     gros entretien P3 par logement tertiaire: gros entretien P3
 
-Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond:
+gaz indiv sans cond . entretien:
   avec:
     petit entretien P2:
       produit:
@@ -1046,7 +1058,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond:
     petit entretien P2 par logement tertiaire: petit entretien P2
     gros entretien P3 par logement tertiaire: gros entretien P3
 
-Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond:
+gaz coll avec cond . entretien:
   avec:
     petit entretien P2:
       produit:
@@ -1057,12 +1069,12 @@ Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond:
     gros entretien P3:
       produit:
         - Paramètres économiques . Gros entretien P3 . Gaz coll avec cond
-        - Calcul Eco . Gaz coll avec cond . Investissement équipement Total
+        - gaz coll avec cond . coûts . Investissement équipement Total
       unité: €TTC/an
     petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
     gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
 
-Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond:
+gaz coll sans cond . entretien:
   avec:
     petit entretien P2:
       produit:
@@ -1073,14 +1085,14 @@ Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond:
     gros entretien P3:
       produit:
         - Paramètres économiques . Gros entretien P3 . Gaz coll sans cond
-        - Calcul Eco . Gaz coll sans cond . Investissement équipement Total
+        - gaz coll sans cond . coûts . Investissement équipement Total
       unité: €TTC/an
     petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
     gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
 
 ###### Aides
 
-Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond:
+gaz indiv avec cond . aides:
   avec:
     Ma prime renov':
       applicable si:
@@ -1102,7 +1114,7 @@ Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond:
         - sinon: 0
       unité: €
 
-Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond:
+gaz indiv sans cond . aides:
   avec:
     Ma prime renov':
       applicable si:
@@ -1124,7 +1136,7 @@ Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond:
         - sinon: 0
       unité: €
 
-Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond:
+gaz coll avec cond . aides:
   avec:
     Ma prime renov':
       applicable si:
@@ -1146,7 +1158,7 @@ Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond:
         - sinon: 0
       unité: €
 
-Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond:
+gaz coll sans cond . aides:
   avec:
     Ma prime renov':
       applicable si:
@@ -1170,20 +1182,20 @@ Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond:
 
 ###### Émissions de CO2
 
-env . Installation x Gaz indiv avec cond x Individuel:
+gaz indiv avec cond . environnement:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C97/Conso_comb_GAZ_indiv_cond*(XLOOKUP(C47,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
+      formule: gaz indiv avec cond . installation . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz indiv avec cond . installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2e
     ECS solaire thermique:
-      formule: Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: gaz indiv avec cond . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
-      formule: Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz indiv avec cond . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       somme:
         - auxiliaires et combustible électrique
@@ -1191,7 +1203,7 @@ env . Installation x Gaz indiv avec cond x Individuel:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A47,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B24/Durée_vie_GAZ_indiv_cond
-      formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante / ratios . GAZ IND COND Durée de vie
+      formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * gaz indiv avec cond . installation . gamme de puissance existante / ratios . GAZ IND COND Durée de vie
     Total:
       somme:
         - Scope 1
@@ -1199,20 +1211,20 @@ env . Installation x Gaz indiv avec cond x Individuel:
         - Scope 3
       unité: kgCO2e/an
 
-env . Installation x Gaz indiv sans cond x Individuel:
+gaz indiv sans cond . environnement:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C98/Conso_comb_GAZ_indiv_scond*(XLOOKUP(C48,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
+      formule: gaz indiv sans cond . installation . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz indiv sans cond . installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2e
     ECS solaire thermique:
-      formule: Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: gaz indiv sans cond . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
-      formule: Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz indiv sans cond . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       somme:
         - auxiliaires et combustible électrique
@@ -1220,7 +1232,7 @@ env . Installation x Gaz indiv sans cond x Individuel:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A48,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B25/Durée_vie_GAZ_indiv_scond
-      formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante / ratios . GAZ IND SCOND Durée de vie
+      formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * gaz indiv sans cond . installation . gamme de puissance existante / ratios . GAZ IND SCOND Durée de vie
     Total:
       somme:
         - Scope 1
@@ -1228,20 +1240,20 @@ env . Installation x Gaz indiv sans cond x Individuel:
         - Scope 3
       unité: kgCO2e/an
 
-env . Installation x Gaz coll avec cond x Collectif:
+gaz coll avec cond . environnement:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C99/Conso_comb_GAZ_coll_cond*(XLOOKUP(C49,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
+      formule: gaz coll avec cond . installation . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz coll avec cond x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz coll avec cond . installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2e
     ECS solaire thermique:
-      formule: Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: gaz coll avec cond . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
-      formule: Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz coll avec cond . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       somme:
         - auxiliaires et combustible électrique
@@ -1249,7 +1261,7 @@ env . Installation x Gaz coll avec cond x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A49,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B26/Durée_vie_GAZ_coll_cond/Nb_lgt
-      formule: ratios environnementaux . CO2 INS Gaz coll avec cond * Installation x Gaz coll avec cond x Collectif . gamme de puissance existante / ratios . GAZ COLL COND Durée de vie / nombre de logements dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS Gaz coll avec cond * gaz coll avec cond . installation . gamme de puissance existante / ratios . GAZ COLL COND Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -1257,20 +1269,20 @@ env . Installation x Gaz coll avec cond x Collectif:
         - Scope 3
       unité: kgCO2e/an
 
-env . Installation x Gaz coll sans cond x Collectif:
+gaz coll sans cond . environnement:
   avec:
     besoins de chauffage et ECS si même équipement:
       # ='Calculs techniques'!C100/Conso_comb_GAZ_coll_scond*(XLOOKUP(C50,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-      formule: Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
+      formule: gaz coll sans cond . installation . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
     auxiliaires et combustible électrique:
-      formule: Installation x Gaz coll sans cond x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz coll sans cond . installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2e
     ECS solaire thermique:
-      formule: Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: gaz coll sans cond . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
-      formule: Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: gaz coll sans cond . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       somme:
         - auxiliaires et combustible électrique
@@ -1278,7 +1290,7 @@ env . Installation x Gaz coll sans cond x Collectif:
         - ECS avec ballon électrique
     Scope 3:
       # =(XLOOKUP(A50,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B27/Durée_vie_GAZ_coll_scond/Nb_lgt
-      formule: ratios environnementaux . CO2 INS Gaz coll sans cond * Installation x Gaz coll sans cond x Collectif . gamme de puissance existante / ratios . GAZ COLL SCOND Durée de vie / nombre de logements dans l'immeuble concerné
+      formule: ratios environnementaux . CO2 INS Gaz coll sans cond * gaz coll sans cond . installation . gamme de puissance existante / ratios . GAZ COLL SCOND Durée de vie / nombre de logements dans l'immeuble concerné
     Total:
       somme:
         - Scope 1
@@ -1288,28 +1300,28 @@ env . Installation x Gaz coll sans cond x Collectif:
 
 ###### Bilan annuel
 
-Bilan x Gaz indiv avec cond:
+gaz indiv avec cond . bilan:
   avec:
-    P1abo: Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement
-    P1conso: Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: gaz indiv avec cond . coûts . Coût du combustible abonnement
+    P1conso: gaz indiv avec cond . coûts . Coût du combustible consommation
+    P1prime: gaz indiv avec cond . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . Gaz indiv avec cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - gaz indiv avec cond . coûts . Coût combustible pour ballon ECS à accumulation
+        - gaz indiv avec cond . coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: gaz indiv avec cond . coûts . Coût combustible froid
+    P2: gaz indiv avec cond . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: gaz indiv avec cond . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
     P4spec:
-      formule: Calcul Eco . Gaz indiv avec cond . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ IND COND
+      formule: gaz indiv avec cond . coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ IND COND
 
     P4ECS Ballon électrique:
-      formule: Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: gaz indiv avec cond . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: gaz indiv avec cond . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
 
     P4:
@@ -1320,7 +1332,7 @@ Bilan x Gaz indiv avec cond:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . Total * amortissement . facteur GAZ IND COND
+      formule: gaz indiv avec cond . aides . Total * amortissement . facteur GAZ IND COND
 
     aides:
       somme:
@@ -1345,28 +1357,28 @@ Bilan x Gaz indiv avec cond:
         - total sans aides
         - (- aides)
 
-Bilan x Gaz indiv sans cond:
+gaz indiv sans cond . bilan:
   avec:
-    P1abo: Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement
-    P1conso: Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: gaz indiv sans cond . coûts . Coût du combustible abonnement
+    P1conso: gaz indiv sans cond . coûts . Coût du combustible consommation
+    P1prime: gaz indiv sans cond . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . Gaz indiv sans cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - gaz indiv sans cond . coûts . Coût combustible pour ballon ECS à accumulation
+        - gaz indiv sans cond . coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: gaz indiv sans cond . coûts . Coût combustible froid
+    P2: gaz indiv sans cond . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: gaz indiv sans cond . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
     P4spec:
-      formule: Calcul Eco . Gaz indiv sans cond . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ IND SCOND
+      formule: gaz indiv sans cond . coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ IND SCOND
 
     P4ECS Ballon électrique:
-      formule: Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: gaz indiv sans cond . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: gaz indiv sans cond . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
 
     P4:
@@ -1377,7 +1389,7 @@ Bilan x Gaz indiv sans cond:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . Total * amortissement . facteur GAZ IND SCOND
+      formule: gaz indiv sans cond . aides . Total * amortissement . facteur GAZ IND SCOND
 
     aides:
       somme:
@@ -1402,28 +1414,28 @@ Bilan x Gaz indiv sans cond:
         - total sans aides
         - (- aides)
 
-Bilan x Gaz coll avec cond:
+gaz coll avec cond . bilan:
   avec:
-    P1abo: Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement
-    P1conso: Calcul Eco . Gaz coll avec cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: gaz coll avec cond . coûts . Coût du combustible abonnement
+    P1conso: gaz coll avec cond . coûts . Coût du combustible consommation
+    P1prime: gaz coll avec cond . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . Gaz coll avec cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - gaz coll avec cond . coûts . Coût combustible pour ballon ECS à accumulation
+        - gaz coll avec cond . coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: gaz coll avec cond . coûts . Coût combustible froid
+    P2: gaz coll avec cond . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: gaz coll avec cond . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
     P4spec:
-      formule: Calcul Eco . Gaz coll avec cond . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
+      formule: gaz coll avec cond . coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
 
     P4ECS Ballon électrique:
-      formule: Calcul Eco . Gaz coll avec cond . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: gaz coll avec cond . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: Calcul Eco . Gaz coll avec cond . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: gaz coll avec cond . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
 
     P4:
@@ -1434,7 +1446,7 @@ Bilan x Gaz coll avec cond:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . Total * amortissement . facteur GAZ COLL COND
+      formule: gaz coll avec cond . aides . Total * amortissement . facteur GAZ COLL COND
 
     aides:
       somme:
@@ -1459,28 +1471,28 @@ Bilan x Gaz coll avec cond:
         - total sans aides
         - (- aides)
 
-Bilan x Gaz coll sans cond:
+gaz coll sans cond . bilan:
   avec:
-    P1abo: Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement
-    P1conso: Calcul Eco . Gaz coll sans cond . Coût du combustible consommation
-    P1prime: Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: gaz coll sans cond . coûts . Coût du combustible abonnement
+    P1conso: gaz coll sans cond . coûts . Coût du combustible consommation
+    P1prime: gaz coll sans cond . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation
-        - Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS solaire
-    P1Consofroid: Calcul Eco . Gaz coll sans cond . Coût combustible froid
-    P2: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - gaz coll sans cond . coûts . Coût combustible pour ballon ECS à accumulation
+        - gaz coll sans cond . coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: gaz coll sans cond . coûts . Coût combustible froid
+    P2: gaz coll sans cond . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: gaz coll sans cond . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
     P4spec:
-      formule: Calcul Eco . Gaz coll sans cond . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
+      formule: gaz coll sans cond . coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
 
     P4ECS Ballon électrique:
-      formule: Calcul Eco . Gaz coll sans cond . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: gaz coll sans cond . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: Calcul Eco . Gaz coll sans cond . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: gaz coll sans cond . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
 
     P4:
@@ -1491,7 +1503,7 @@ Bilan x Gaz coll sans cond:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques:
-      formule: Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . Total * amortissement . facteur GAZ COLL COND
+      formule: gaz coll sans cond . aides . Total * amortissement . facteur GAZ COLL COND
 
     aides:
       somme:

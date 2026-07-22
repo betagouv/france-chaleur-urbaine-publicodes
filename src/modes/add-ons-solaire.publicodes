@@ -8,21 +8,21 @@ Bilan x PAC air-eau coll hybride:
   avec:
     total sans aides:
       produit:
-        - Bilan x PAC air-eau coll . total avec aides
+        - PAC air-eau coll . bilan . total avec aides
         - 120 %
     total sans installation:
       somme:
-        - Bilan x PAC air-eau coll . P1abo
-        - Bilan x PAC air-eau coll . P1prime
-        - Bilan x PAC air-eau coll . P1Consofroid
+        - PAC air-eau coll . bilan . P1abo
+        - PAC air-eau coll . bilan . P1prime
+        - PAC air-eau coll . bilan . P1Consofroid
         - produit:
           - 120%
-          - Bilan x PAC air-eau coll . P1ECS
+          - PAC air-eau coll . bilan . P1ECS
         - produit:
           - 120%
-          - Bilan x PAC air-eau coll . P1conso
-        - Bilan x PAC air-eau coll . P2
-        - Bilan x PAC air-eau coll . P3
+          - PAC air-eau coll . bilan . P1conso
+        - PAC air-eau coll . bilan . P2
+        - PAC air-eau coll . bilan . P3
 
 Bilan x Solaire thermique:
   avec:
@@ -34,7 +34,7 @@ Bilan x Solaire thermique:
 
 Bilan x PAC capteurs solaires atmosphériques:
   avec:
-    total sans installation: Bilan x PAC air-eau coll . P1ECS
+    total sans installation: PAC air-eau coll . bilan . P1ECS
 
 Bilan x PAC air-eau collective ECS:
   avec:
