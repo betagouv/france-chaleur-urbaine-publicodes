@@ -114,7 +114,8 @@ Bilan x Gaz coll avec cond:
 
 ### Après
 
-Tout le mode vit dans `modes/gaz.publicodes`. L'amortissement est une
+Tout le mode vit dans `modes/gaz.publicodes`, regroupé sous une seule règle
+racine à son nom (sections imbriquées via `avec:`). L'amortissement est une
 multiplication par un facteur d'annuité défini une seule fois dans
 [commun/amortissement.publicodes](src/commun/amortissement.publicodes), les
 références internes au mode sont relatives (`coûts . X`), et les corps
@@ -123,31 +124,40 @@ défini sur la première variante du fichier) :
 
 ```yaml
 # modes/gaz.publicodes
-gaz coll avec cond . bilan:
+gaz coll avec cond:
+  description: Chaudière gaz collective à condensation
   avec:
-    P1abo: coûts . Coût du combustible abonnement
-    P1conso: coûts . Coût du combustible consommation
-    P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
-    P1ECS: *bilan-p1ecs
-    P1Consofroid: coûts . Coût combustible froid
-    P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
-    P4spec:
-      formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
-
-    P4ECS Ballon électrique:
-      formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
-
-    P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
-
-    P4: *bilan-p4
-    aides spécifiques:
-      formule: aides . Total * amortissement . facteur GAZ COLL COND
-
-    aides: *bilan-aides
-    P4 moins aides: *bilan-p4-moins-aides
-    total sans aides: *bilan-total-sans-aides
-    total avec aides: *bilan-total-avec-aides
+    installation:
+      avec: ...
+    coûts:
+      avec: ...
+    entretien:
+      avec: ...
+    aides:
+      avec: ...
+    environnement:
+      avec: ...
+    bilan:
+      avec:
+        P1abo: coûts . Coût du combustible abonnement
+        P1conso: coûts . Coût du combustible consommation
+        P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+        P1ECS: *bilan-p1ecs
+        P1Consofroid: coûts . Coût combustible froid
+        P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+        P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        P4spec:
+          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
+        P4ECS Ballon électrique:
+          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+        P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
+        P4: *bilan-p4
+        aides spécifiques:
+          formule: aides . Total * amortissement . facteur GAZ COLL COND
+        aides: *bilan-aides
+        P4 moins aides: *bilan-p4-moins-aides
+        total sans aides: *bilan-total-sans-aides
+        total avec aides: *bilan-total-avec-aides
 ```
 
 Et une variante ne montre plus que ses **vraies** différences. Voici
@@ -156,29 +166,30 @@ l'investissement et le ratio de consommation diffèrent de « avec cond »,
 tout le reste est un alias vers le corps défini sur la première variante :
 
 ```yaml
-gaz indiv sans cond . coûts:
-  avec:
-    Investissement équipement Total:
-      produit:
-        - ratios économiques . Gaz x indiv sans cond
-        - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-      unité: €TTC
-    Investissement équipement par logement type tertiaire: *couts-investissement-equipement-par-logement-type-tertiaire-indiv
-    Investissement ballon ECS à accumulation: *couts-investissement-ballon-ecs-a-accumulation
-    Investissement ballon ECS solaire panneau inclus: *couts-investissement-ballon-ecs-solaire-panneau-inclus
-    Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
-    Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
-    Coût du combustible abonnement: *couts-cout-du-combustible-abonnement-indiv
-    Coût du combustible consommation:
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
-        - installation . consommation combustible chaleur
-        - 1 / ratios . GAZ IND SCOND Conso combustible
-      unité: €TTC/an
-    Coût électricité auxiliaire: *couts-cout-electricite-auxiliaire
-    Coût combustible pour ballon ECS à accumulation: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
-    Coût combustible pour ballon ECS solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
-    Coût combustible froid: *couts-cout-combustible-froid
+    # (sous « gaz indiv sans cond: / avec: »)
+    coûts:
+      avec:
+        Investissement équipement Total:
+          produit:
+            - ratios économiques . Gaz x indiv sans cond
+            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+          unité: €TTC
+        Investissement équipement par logement type tertiaire: *couts-investissement-equipement-par-logement-type-tertiaire-indiv
+        Investissement ballon ECS à accumulation: *couts-investissement-ballon-ecs-a-accumulation
+        Investissement ballon ECS solaire panneau inclus: *couts-investissement-ballon-ecs-solaire-panneau-inclus
+        Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
+        Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
+        Coût du combustible abonnement: *couts-cout-du-combustible-abonnement-indiv
+        Coût du combustible consommation:
+          produit:
+            - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation
+            - installation . consommation combustible chaleur
+            - 1 / ratios . GAZ IND SCOND Conso combustible
+          unité: €TTC/an
+        Coût électricité auxiliaire: *couts-cout-electricite-auxiliaire
+        Coût combustible pour ballon ECS à accumulation: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
+        Coût combustible pour ballon ECS solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
+        Coût combustible froid: *couts-cout-combustible-froid
 ```
 
 Avant, ce même contenu occupait ~85 lignes intégralement recopiées — c'est ce
