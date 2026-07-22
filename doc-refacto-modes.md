@@ -1,5 +1,25 @@
 # Analyse — refactorisation des règles par mode de chauffage
 
+> **État d'avancement (22/07/2026, branche `refacto_regles_v2`)** — réalisé :
+> harnais golden master (102 snapshots) + complétion d'external-keys (§1.4/1.5) ;
+> PMT en facteurs d'annuité (`commun/amortissement.publicodes`, -302 lignes,
+> l'approche `contexte:` a été écartée : évaluation 3,7× plus lente) ;
+> réorganisation complète en `src/modes/` (1 fichier par énergie) et
+> `src/commun/` (besoins, ecs, froid, pac, combustibles, amortissement,
+> consommations spécifiques, coefficients d'intermittence) par déplacements
+> purs vérifiés au hash du modèle compilé ; renommage des 6 namespaces
+> calculés de chaque mode en `<mode> . installation|coûts|entretien|aides|
+> environnement|bilan` avec 947 alias générés dans `compat.publicodes`
+> (les clés ÉCRITES par le front — ratios, paramètres — ne sont pas
+> renommées : un alias ne propage pas les écritures) ; suppression de
+> 99 règles mortes vérifiées par reachabilité.
+>
+> Reste à faire : factoriser la duplication interne aux fichiers de modes
+> (socle S1-S12, paquet ECS — voir §2) ; côté front : ménage du DebugDrawer
+> puis migration vers les nouvelles clés, suppression de compat.publicodes et
+> renommage des ratios/paramètres (version majeure) ; correction des bugs
+> figés (§1.6) ; inline des intermédiaires triviaux encore contractuels (§3.2).
+
 > Analyse réalisée le 22/07/2026 sur `dev` (v1.10.0), en vue de simplifier et réorganiser
 > les règles par mode de chauffage. Décisions de cadrage : on repart de `dev` (le POC
 > `refacto_regles` sert de référence de structure), les anciennes clés sont conservées
