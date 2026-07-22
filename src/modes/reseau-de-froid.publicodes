@@ -4,7 +4,6 @@
 
 ###### Ratios techniques
 
-
 ###### Modes
 
 réseau de froid:
@@ -89,22 +88,11 @@ ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire:
 
 ###### Ratios environnementaux
 
-ratios environnementaux . CO2 INS RFU:
-  # Ratios environnementaux'!$C$34
-  formule: 0.004
-  unité: kgCO2e/kWh
-
 ###### Installation (dimensionnement et consommations)
 
 réseau de froid . installation:
   avec:
     production eau chaude sanitaire: non
-    puissance nécessaire équipement chauffage:
-      formule: 0
-      unité: kW
-    puissance nécessaire pour ECS avec équipement:
-      formule: 0
-      unité: kW
     puissance nécessaire pour refroidissement équipement:
       formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . RFU Rendement sous station * nombre de logements dans l'immeuble concerné
       # unité: kW # corrigé pour faire fonctionner la division
@@ -117,9 +105,6 @@ réseau de froid . installation:
     gamme de puissance existante:
       formule: puissance équipement
       unité: kW
-    consommation combustible chaleur:
-      formule: 0
-      unité: kWh
     consommation combustible froid:
       # =Besoin_raf/Rend_RFU
       formule: besoins en climatisation par appartement / ratios . RFU Rendement sous station
@@ -128,9 +113,6 @@ réseau de froid . installation:
       # =(1-Conso_aux_RFU)*Besoin_raf
       formule: (1 - ratios . RFU Conso auxiliaire) * besoins en climatisation par appartement
       unité: kWh elec
-    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: consommation auxiliaire
-    consommation Groupe Froid: calcul consommation Groupe Froid
-
 ###### Calculs économiques
 
 réseau de froid . coûts:
@@ -149,12 +131,6 @@ réseau de froid . coûts:
         - réseau de froid . installation . consommation combustible froid
       unité: €TTC/an
       note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
-    Coût du combustible consommation:
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
-        - réseau de froid . installation . consommation combustible froid
-      unité: €TTC/an
-      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation

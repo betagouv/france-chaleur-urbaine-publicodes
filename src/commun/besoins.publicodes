@@ -21,11 +21,6 @@ Calcul . Chauffage Puissance chauffage appelée:
   formule: (besoins chauffage par appartement / Calcul . Chauffage Nb heure fonctionnement pleine puissance) * (1 + ratios . PUIS Facteur de surpuissance)
   unité: kW
 
-Calcul . ECS Nb heure fonctionnement non climatique:
-  # =NHFNC
-  formule: ratios . PUIS Nombre heure de fonctionnement non climatique ECS
-  unité: h
-
 Calcul . ECS Puissance ECS appelée:
   # =(Besoin_ECS/NHFNC)*(1+F_sur_p)
   formule: (besoins eau chaude sanitaire par appartement / ratios . PUIS Nombre heure de fonctionnement non climatique ECS) * (1 + ratios . PUIS Facteur de surpuissance)

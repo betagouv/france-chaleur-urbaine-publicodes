@@ -19,10 +19,6 @@ chauffe-eau électrique x consommation d'électricité:
   # unité: kWh/an
   unité: kWh # corrigé pour faire fonctionner la division
 
-durée avant renouvellement elec:
-  formule: ratios . CHAUF EAU ELEC Durée de vie
-  unité: an
-
 surface de panneau nécessaire:
   #   IF(
   #     $D$71<'Ratios techniques'!$B$353,
@@ -46,10 +42,6 @@ chauffe-eau solaire x appoint d'électricité:
   formule: besoins eau chaude sanitaire par appartement * (1 - ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS) / ratios . CHAUF EAU SOLAIRE Rendement stockage ballon
   # unité: kWh/an
   unité: kWh # corrigé pour faire fonctionner la division
-
-durée avant renouvellement solaire:
-  formule: ratios . CHAUF EAU SOLAIRE Durée de vie
-  unité: an
 
 Calcul Eco . Investissement ballon ECS à accumulation:
   # 'Calculs économiques'!E23
@@ -86,25 +78,6 @@ ratios . CHAUF EAU SOLAIRE Durée de vie:
 ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS:
   valeur: 60%
   unité: '%'
-
-# aucune valeur définie
-# CHAUF EAU SOLAIRE Surface capteur solaire pour un ballon inférieur à:
-#   valeur:
-ratios . CHAUF EAU SOLAIRE 250:
-  valeur: 2.5
-  unité: m2
-
-ratios . CHAUF EAU SOLAIRE 400:
-  valeur: 4
-  unité: m2
-
-ratios . CHAUF EAU SOLAIRE 550:
-  valeur: 5.5
-  unité: m2
-
-ratios . CHAUF EAU SOLAIRE 650:
-  valeur: 6
-  unité: m2
 
 ###### Ratios économiques (investissement)
 
@@ -143,58 +116,9 @@ ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investiss
     - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
 
-Puissance installation x Capacité chauffe eau solaire:
-  #  =IF('Calculs techniques'!$D$71>'Ratios économiques - Coûts'!$B$198,'Ratios économiques - Coûts'!$B$198,XLOOKUP('Calculs techniques'!$D$71,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$B$195:$B$198,,1))
-  formule: Puissance installation x Capacité chauffe eau électrique à accumulation
-  unité: L
-
 ###### Ratios environnementaux
 
-ratios environnementaux . CO2 INS Ballon électrique:
-  # Ratios environnementaux'!$C$44
-  formule: 6
-  unité: kgCO2e/L
-  note: 'Source: INIES 2022'
-
-ratios environnementaux . CO2 INS Solaire thermique:
-  # Ratios environnementaux'!$C$43
-  formule: 9
-  unité: kgCO2e/L
-  note: 'Source: INIES 2022'
-
 ###### Entretien P2 / P3
-
-Calcul Eco . P2 P3 Coût de l'entretien . Chauffe-eau électrique à accumulation:
-  avec:
-    petit entretien P2:
-      # ='Paramètres économiques'!D171*(1+TVA_P2)*$E$24
-      produit:
-        - Paramètres économiques . Petit entretien P2 . Chauffe-eau électrique à accumulation
-        - Calcul Eco . Investissement ballon ECS à accumulation
-      unité: €TTC/an
-    gros entretien P3:
-      produit:
-        - Paramètres économiques . Gros entretien P3 . Chauffe-eau électrique à accumulation
-        - Calcul Eco . Investissement ballon ECS à accumulation
-      unité: €TTC/an
-    petit entretien P2 par logement tertiaire: petit entretien P2
-    gros entretien P3 par logement tertiaire: gros entretien P3
-
-Calcul Eco . P2 P3 Coût de l'entretien . Panneau solaire thermique pour production ECS:
-  avec:
-    petit entretien P2:
-      # =IFERROR('Paramètres économiques'!D172*(1+TVA_P2)*$F$24,)
-      produit:
-        - Paramètres économiques . Petit entretien P2 . Chauffe-eau solaire
-        - Calcul Eco . Investissement ballon ECS panneau inclus
-      unité: €TTC/an
-    gros entretien P3:
-      produit:
-        - Paramètres économiques . Gros entretien P3 . Chauffe-eau solaire
-        - Calcul Eco . Investissement ballon ECS panneau inclus
-      unité: €TTC/an
-    petit entretien P2 par logement tertiaire: petit entretien P2
-    gros entretien P3 par logement tertiaire: gros entretien P3
 
 ###### Aides
 

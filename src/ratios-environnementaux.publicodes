@@ -1,14 +1,5 @@
 ratios environnementaux:
   avec:
-    Production par solaire thermique:
-      # Ratios environnementaux'!$C$8
-      formule: 70%
-      note: 'Source: ELCIMAI 2023'
-    Production par électricité:
-      # Ratios environnementaux'!$C$9
-      formule: 30%
-      note: 'Source: ELCIMAI 2023'
-
     Emission spé Granulé poêle à bois:
       # Ratios environnementaux'!$C$14
       formule: 0.032
@@ -17,16 +8,6 @@ ratios environnementaux:
     Emission spé Granulé chaudière:
       # Ratios environnementaux'!$C$15
       formule: 0.027
-      unité: kgCO2e/kWh PCI
-      note: 'Source: Base Empreinte 2023'
-    Emission spé Buches poêle à bois:
-      # Ratios environnementaux'!$C$16
-      formule: 0.046
-      unité: kgCO2e/kWh PCI
-      note: 'Source: Base Empreinte 2023'
-    Emission spé Buches chaudière:
-      # Ratios environnementaux'!$C$17
-      formule: 0.032
       unité: kgCO2e/kWh PCI
       note: 'Source: Base Empreinte 2023'
     Emission spé Gaz chaudière:
@@ -39,12 +20,6 @@ ratios environnementaux:
       formule: 0.314
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2023'
-    Emission spé Biogaz chaudière:
-      # Ratios environnementaux'!$C$20
-      formule: 0.0445
-      unité: kgCO2e/kWh
-      note: 'Source: Base Empreinte 2023'
-
     Emission moy Parc électrique francais moyenne chauffage:
       # Ratios environnementaux'!$C$25
       formule: 0.0693
@@ -60,13 +35,3 @@ ratios environnementaux:
       formule: 0.0583
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2020'
-    Emission moy Ratio moyen RC:
-      # Ratios environnementaux'!$C$27
-      formule: 0.0972
-      unité: kgCO2e/kWh
-      note: 'Source: FEDENE 2021'
-    Emission moy Ratio moyen RF:
-      # Ratios environnementaux'!$C$28
-      formule: 0.0983
-      unité: kgCO2e/kWh
-      note: 'Source: FEDENE 2021'

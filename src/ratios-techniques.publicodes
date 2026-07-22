@@ -12,17 +12,9 @@ ratios:
     GNRL DJU REF chaud:
       valeur: 2200
       unité: DJU chaud
-    GNRL DJU REF froid:
-      valeur: 31
-      unité: DJU froid
     GNRL Nombre habitant par logement:
       valeur: 2.17
       unité: personne
-    GNRL Zone climatique de référence:
-      valeur: "'H1'"
-    GNRL Delta température référence chaud froid:
-      valeur: 35
-      unité: °C
     GNRL Production ECS:
       par défaut: oui
       #une possibilité:
@@ -408,21 +400,9 @@ ratios:
       remplace: consommation spécifique chauffage
       valeur: 110
       unité: kWhef/m2.an
-    ECS Capacité calorifique de l'eau:
-      valeur: 4.185
-      unité: kJ/L/°C
-    ECS Température de l'eau dans les canalisations:
-      valeur: 15
-      unité: °C
-    ECS Température souhaité d'ECS:
-      valeur: 60
-      unité: °C
     ECS Quantité d'ECS produite par kWh:
       valeur: 19.1
       unité: L/kWh
-    ECS Quanté d'ECS par an:
-      valeur: 50.0
-      unité: L/habitant
     ECS Résidentiel:
       applicable si: type de bâtiment = "résidentiel"
       remplace: consommation spécifique ECS
@@ -671,9 +651,6 @@ ratios:
       remplace: consommation spécifique ECS
       valeur: 30
       unité: kWhef/m2.an
-    RAF Température de déclenchement de la climatisation:
-      valeur: 24
-      unité: °C
     RAF BureauxH1a:
       applicable si:
         toutes ces conditions:

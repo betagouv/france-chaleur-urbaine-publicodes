@@ -45,9 +45,6 @@ caractéristique réseau de froid:
       par défaut: 0.021
       unité: kgCO2e/kWh
       note: "Source : Enquête FEDENE 2025 portant sur l'année 2024"
-    taux EnRR:
-      unité: '%'
-      source: 2021
     livraisons totales:
       unité: MWh
     production totale:
@@ -58,9 +55,5 @@ caractéristique réseau de froid:
       note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
     part fixe:
       par défaut: 51
-      unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
-    part variable:
-      formule: 100% - caractéristique réseau de froid . part fixe
       unité: '%'
       note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'

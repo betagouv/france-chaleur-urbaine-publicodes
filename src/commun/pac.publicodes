@@ -2,18 +2,6 @@
 # consommations auxiliaires, deltas de température des émetteurs (dérogation),
 # et PAC à absorption gaz.
 
-ratios . PAC GNRL A:
-  valeur: 3.60
-
-ratios . PAC GNRL Aplus:
-  valeur: 4.30
-
-ratios . PAC GNRL Aplusplus:
-  valeur: 4.85
-
-ratios . PAC GNRL Aplusplusplus:
-  valeur: 5.10
-
 ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air:
   valeur: 99.8%
 
@@ -22,24 +10,6 @@ ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air:
 
 ratios . PAC GNRL SCOP mini:
   valeur: 1.8
-
-ratios . PAC AB SCOP coll:
-  valeur: 1.23
-
-ratios . PAC AB Classe énergétique:
-  valeur: "'A+'"
-
-ratios . PAC AB Puissance unitaire coll:
-  valeur: 35
-  unité: kW
-
-ratios . PAC AB Conso combustible gaz coll:
-  valeur: 72%
-  unité: '%'
-
-ratios . PAC AB Durée de vie:
-  valeur: 17
-  unité: an
 
 ratios . PAC DEROG3 35:
   applicable si: Température émetteurs = "35"

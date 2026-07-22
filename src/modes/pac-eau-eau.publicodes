@@ -4,7 +4,6 @@
 
 ###### Ratios techniques
 
-
 ###### Modes
 
 PAC eau-eau indiv:
@@ -27,9 +26,6 @@ ratios . PAC EAU EAU Puissance unitaire indiv:
 
 ratios . PAC EAU EAU Puissance unitaire coll:
   valeur: 46.52
-
-ratios . PAC EAU EAU Classe énergétique:
-  valeur: "'A+'"
 
 ratios . PAC EAU EAU Durée de vie:
   valeur: 22

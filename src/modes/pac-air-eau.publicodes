@@ -4,7 +4,6 @@
 
 ###### Ratios techniques
 
-
 ###### Modes
 
 PAC air-eau indiv:
@@ -33,9 +32,6 @@ ratios . PAC AIR EAU Puissance unitaire réversible indiv:
 
 ratios . PAC AIR EAU Puissance unitaire réversible coll:
   valeur: 20
-
-ratios . PAC AIR EAU Classe énergétique:
-  valeur: "'A+'"
 
 ratios . PAC AIR EAU Durée de vie indiv:
   valeur: 17
@@ -175,8 +171,6 @@ PAC air-eau indiv . installation:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
-    consommation Groupe Froid: calcul consommation Groupe Froid
-
 PAC air-eau coll . installation:
   avec:
     production eau chaude sanitaire: Production eau chaude sanitaire
@@ -275,8 +269,6 @@ PAC air-eau coll . installation:
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
         - sinon: consommation auxiliaire + consommation combustible chaleur + consommation combustible froid
       unité: kWh/an
-    consommation Groupe Froid: calcul consommation Groupe Froid
-
 ###### Calculs économiques
 
 PAC air-eau indiv . coûts:

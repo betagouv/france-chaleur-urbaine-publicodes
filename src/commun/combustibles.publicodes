@@ -120,10 +120,6 @@ ratios économiques . Coût des combustibles x Electricité:
   avec:
     Option Base:
       avec:
-        Coût fournisseur en plus du TURPE souscrit au-delà de 36kVA:
-          # A244
-          valeur: 15
-          unité: '%'
         Prix de l'énergie:
           # D247:D267
           valeur: 0.1708
@@ -384,72 +380,5 @@ ratios économiques . Coût des combustibles x Electricité:
           alors: 3248.99
         - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 250
           alors: 3927.22
-      unité: €/an
-      note: 'Source: ELCIMAI + TRV 2024'
-    Contribution tarifaire d'acheminement CTA:
-      # B247:B267 et J247:J267 et K247:K267
-      # B273:B292 et J273:J292
-      variations:
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 3
-          alors: 0
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 6
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 20.87
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 0
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 9
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 27.42
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 25.53
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 12
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 33.97
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 31.45
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 15
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 40.53
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 37.37
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 18
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 47.08
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 43.29
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 24
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 60.18
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 55.13
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 30
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 73.29
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 66.97
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 36
-          alors:
-            variations:
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-                alors: 86.40
-              - si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-                alors: 78.82
-        - si: Paramètres économiques . Electricité x Puissance souscrite indiv > 36
-          alors: 0 # Au dela, le CTA est inclus dans la TURPE et donc dans l'abonnement. Plus besoin de le rajouter ici.
-
       unité: €/an
       note: 'Source: ELCIMAI + TRV 2024'

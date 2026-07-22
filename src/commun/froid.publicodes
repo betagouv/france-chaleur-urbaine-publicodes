@@ -167,56 +167,7 @@ Investissement x Groupe eau glacée x tertiaire:
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
 
-ratios économiques . Groupe froid:
-  # Temporaire le temps que le fichier excel soit à jour
-  par défaut: 0
-
 ###### Installation
-
-Installation x Groupe froid x Individuel:
-  avec:
-    production eau chaude sanitaire: non
-    puissance nécessaire équipement chauffage:
-      formule: 0
-      unité: kW
-    puissance nécessaire pour ECS avec équipement:
-      formule: 0
-      unité: kW
-    puissance nécessaire pour refroidissement équipement:
-      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
-      unité: kW
-    puissance équipement:
-      formule: puissance nécessaire pour refroidissement équipement
-      unité: kW
-    gamme de puissance existante:
-      # =(QUOTIENT(G65,'Ratios techniques'!$C$339)+1)*'Ratios techniques'!$C$339
-      produit:
-        - somme:
-            - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
-            - 1
-        - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
-      unité: kW
-
-env . Installation x Groupe froid x Individuel:
-  avec:
-    besoins de chauffage et ECS si même équipement:
-      valeur: 0
-      unité: kgCO2e
-    Scope 1: 0
-    auxiliaires et combustible électrique:
-      valeur: 0
-      unité: kgCO2e
-    ECS solaire thermique:
-      valeur: 0
-    ECS avec ballon électrique:
-      valeur: 0
-    Scope 2:
-      valeur: 0
-    Scope 3:
-      valeur: 0
-    Total:
-      valeur: 0
-      unité: kgCO2e/an
 
 ###### Entretien P2 / P3
 
