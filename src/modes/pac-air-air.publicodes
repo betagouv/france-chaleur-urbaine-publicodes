@@ -7,6 +7,16 @@
 PAC air-air indiv:
   description: Pompe à chaleur air-air individuelle (réversible)
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS PAC air-air indiv
+        SCOP: ratios . PAC AIR AIR SCOP indiv
+        SEER: ratios . PAC AIR AIR SEER indiv
+        durée de vie: ratios . PAC AIR AIR Durée de vie indiv
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC air-air indiv
+        investissement équipement: ratios économiques . PAC x air-air réversible x Individuel
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC air-air indiv
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -17,7 +27,7 @@ PAC air-air indiv:
           formule: 0
           unité: kW
         puissance nécessaire pour refroidissement équipement:
-          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
+          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . SEER
           unité: kW
         puissance équipement: &inst-puissance-equipement
           le maximum de:
@@ -61,11 +71,11 @@ PAC air-air indiv:
               alors: chauffe-eau solaire x appoint d'électricité
             - sinon: 0
           unité: kWh/an
-        consommation combustible chaleur:
-          formule: besoins chauffage par appartement / ratios . PAC AIR AIR SCOP indiv
+        consommation combustible chaleur: &inst-consommation-combustible-chaleur
+          formule: besoins chauffage par appartement / ratios . SCOP
           unité: kWh elec
-        consommation combustible froid:
-          formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+        consommation combustible froid: &inst-consommation-combustible-froid
+          formule: besoins en climatisation par appartement / ratios . SEER
           unité: kWh elec
         consommation auxiliaire: &inst-consommation-auxiliaire
           valeur: 0
@@ -83,10 +93,10 @@ PAC air-air indiv:
     coûts:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
+        Investissement équipement Total: &couts-investissement-equipement-total
           # ='Paramètres économiques'!$D$68*(1+surcout_inv)
           produit:
-            - ratios économiques . PAC x air-air réversible x Individuel
+            - ratios . investissement équipement
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
@@ -160,10 +170,10 @@ PAC air-air indiv:
     entretien:
       avec:
         petit entretien P2:
-          valeur: Paramètres économiques . Petit entretien P2 . PAC air-air indiv
+          valeur: ratios . petit entretien P2
           unité: €TTC/an
         gros entretien P3:
-          valeur: Paramètres économiques . Gros entretien P3 . PAC air-air indiv
+          valeur: ratios . gros entretien P3
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -211,7 +221,7 @@ PAC air-air indiv:
             - ECS avec ballon électrique
         Scope 3:
           # ='Ratios environnementaux'!C46*B30/Durée_vie_PAC_AA
-          formule: ratios environnementaux . CO2 INS PAC air-air indiv * installation . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie indiv
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
             - Scope 1
@@ -275,6 +285,17 @@ PAC air-air indiv:
 PAC air-air coll:
   description: Pompe à chaleur air-air collective (réversible)
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire
+        SCOP: ratios . PAC AIR AIR SCOP coll
+        SEER: ratios . PAC AIR AIR SEER coll
+        durée de vie: ratios . PAC AIR AIR Durée de vie coll
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC air-air coll
+        investissement équipement: ratios économiques . PAC x air-air réversible x Collectif
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC air-air coll
+        puissance unitaire réversible: ratios . PAC AIR AIR Puissance unitaire réversible coll
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -283,38 +304,30 @@ PAC air-air coll:
           unité: kW
         puissance nécessaire pour ECS avec équipement: *inst-puissance-necessaire-pour-ecs-avec-equipement
         puissance nécessaire pour refroidissement équipement:
-          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER coll * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . SEER * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance équipement: *inst-puissance-equipement
         gamme de puissance existante:
           # H60 =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
           produit:
             - somme:
-                - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire réversible coll
+                - valeur: puissance équipement // ratios . puissance unitaire réversible
                 - 1
-            - ratios . PAC AIR AIR Puissance unitaire réversible coll
+            - ratios . puissance unitaire réversible
           unité: kW
         besoin d'installation supplémentaire pour produire l'ECS: *inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
         volume du ballon ECS: *inst-volume-du-ballon-ecs
         consommation d'électricité chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
         appoint d'électricité chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
-        consommation combustible chaleur:
-          formule: besoins chauffage par appartement / ratios . PAC AIR AIR SCOP coll
-          unité: kWh elec
-        consommation combustible froid:
-          formule: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER coll
-          unité: kWh elec
+        consommation combustible chaleur: *inst-consommation-combustible-chaleur
+        consommation combustible froid: *inst-consommation-combustible-froid
         consommation auxiliaire: *inst-consommation-auxiliaire
         consommation combustible hors électricité: *inst-consommation-combustible-hors-electricite
         consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
     coûts:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
-          produit:
-            - ratios économiques . PAC x air-air réversible x Collectif
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-          unité: €TTC
+        Investissement équipement Total: *couts-investissement-equipement-total
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
           unité: €TTC
@@ -355,13 +368,13 @@ PAC air-air coll:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . PAC air-air coll
+            - ratios . petit entretien P2
             - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
             - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . PAC air-air coll
+            - ratios . gros entretien P3
             - coûts . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
@@ -384,7 +397,7 @@ PAC air-air coll:
         Scope 2: *env-scope-2
         Scope 3:
           # ='Ratios environnementaux'!C49*B33/Durée_vie_PAC_AA_Coll/Nb_lgt
-          formule: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire * installation . gamme de puissance existante / ratios . PAC AIR AIR Durée de vie coll / nombre de logements dans l'immeuble concerné
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:
       avec:

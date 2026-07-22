@@ -7,11 +7,21 @@
 poêle à granulés:
   description: Poêle à granulés individuel
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS Poêle à granulés indiv
+        conso combustible: ratios . GRA POELE Conso combustible
+        durée de vie: ratios . GRA POELE Durée de vie
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv
+        investissement équipement: Investissement x Poêle à granulés indiv
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv
+        rendement poêle chauffage: ratios . GRA POELE Rendement poêle chauffage
     installation:
       avec:
         production eau chaude sanitaire: non
         puissance nécessaire équipement chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . GRA POELE Rendement poêle chauffage)
+          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement poêle chauffage)
           unité: kW
         puissance nécessaire pour ECS avec équipement:
           formule: 0
@@ -59,7 +69,7 @@ poêle à granulés:
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
-          formule: ratios . GRA POELE Conso combustible * (besoins chauffage par appartement / ratios . GRA POELE Rendement poêle chauffage)
+          formule: ratios . conso combustible * (besoins chauffage par appartement / ratios . rendement poêle chauffage)
           unité: kg granulés/an
         consommation combustible froid: &inst-consommation-combustible-froid
           formule: 0
@@ -79,9 +89,9 @@ poêle à granulés:
     coûts:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
+        Investissement équipement Total: &couts-investissement-equipement-total
           produit:
-            - Investissement x Poêle à granulés indiv
+            - ratios . investissement équipement
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
@@ -160,12 +170,12 @@ poêle à granulés:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv
+            - ratios . petit entretien P2
             - besoins chauffage par appartement / 1000
           unité: €TTC/an
-        gros entretien P3:
+        gros entretien P3: &entretien-gros-entretien-p3
           produit:
-            - Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv
+            - ratios . gros entretien P3
             - coûts . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
@@ -195,7 +205,7 @@ poêle à granulés:
       avec:
         besoins de chauffage et ECS si même équipement:
           # ='Calculs techniques'!C95/Conso_comb_GRA_Poele*(XLOOKUP(C45,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-          formule: (installation . consommation combustible chaleur / ratios . GRA POELE Conso combustible) * ratios environnementaux . Emission spé Granulé poêle à bois
+          formule: (installation . consommation combustible chaleur / ratios . conso combustible) * ratios environnementaux . Emission spé Granulé poêle à bois
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique:
@@ -212,7 +222,7 @@ poêle à granulés:
             - ECS avec ballon électrique
         Scope 3:
           # =(XLOOKUP(A45,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B22/Durée_vie_GRA_Poele
-          formule: ratios environnementaux . CO2 INS Poêle à granulés indiv * installation . gamme de puissance existante / ratios . GRA POELE Durée de vie
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
             - Scope 1
@@ -282,11 +292,22 @@ poêle à granulés:
 chaudière à granulés:
   description: Chaudière à granulés collective
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS Chaudière à granulés coll
+        conso auxiliaire: ratios . GRA CHAUD Conso auxiliaire
+        conso combustible: ratios . GRA CHAUD Conso combustible
+        durée de vie: ratios . GRA CHAUD Durée de vie
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll
+        investissement équipement: Investissement x Chaudière à granulés coll
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll
+        rendement chaudière chauffage: ratios . GRA CHAUD Rendement chaudière chauffage
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance nécessaire équipement chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . GRA CHAUD Rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance nécessaire pour ECS avec équipement:
           variations:
@@ -294,7 +315,7 @@ chaudière à granulés:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GRA CHAUD Rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance équipement:
@@ -391,28 +412,28 @@ chaudière à granulés:
         appoint d'électricité chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
         consommation combustible chaleur:
           # =Conso_comb_GRA_Chaud*(Besoin_cha/Rend_GRA_Chaud+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GRA_Chaud)
-          # formule: ratios . GRA CHAUD Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GRA CHAUD Rendement chaudière chauffage
+          # formule: ratios . conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . rendement chaudière chauffage
           produit:
-            - ratios . GRA CHAUD Conso combustible
+            - ratios . conso combustible
             - somme:
                 - besoins chauffage par appartement
                 - variations:
                     - si: type de production ECS = 'Avec équipement chauffage'
                       alors: besoins eau chaude sanitaire par appartement
                     - sinon: 0
-            - 1 / ratios . GRA CHAUD Rendement chaudière chauffage
+            - 1 / ratios . rendement chaudière chauffage
           unité: kg granulés/an
         consommation combustible froid: *inst-consommation-combustible-froid
         consommation auxiliaire:
           # =(1-Conso_aux_GRA_Chaud)*Besoin_cha+(1-Conso_aux_GRA_Chaud)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
           somme:
-            - (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins chauffage par appartement
+            - (1 - ratios . conso auxiliaire) * besoins chauffage par appartement
             - variations:
                 - si:
                     toutes ces conditions:
                       - type de production ECS = 'Avec équipement chauffage'
                       - Production eau chaude sanitaire
-                  alors: (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins eau chaude sanitaire par appartement
+                  alors: (1 - ratios . conso auxiliaire) * besoins eau chaude sanitaire par appartement
                 - sinon: 0
           unité: kWh elec
         consommation combustible hors électricité:
@@ -427,12 +448,7 @@ chaudière à granulés:
     coûts:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
-          # C26
-          produit:
-            - Investissement x Chaudière à granulés coll
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-          unité: €TTC
+        Investissement équipement Total: *couts-investissement-equipement-total
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
           unité: €TTC
@@ -452,15 +468,11 @@ chaudière à granulés:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll
+            - ratios . petit entretien P2
             - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
             - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
-        gros entretien P3:
-          produit:
-            - Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll
-            - coûts . Investissement équipement Total
-          unité: €TTC/an
+        gros entretien P3: *entretien-gros-entretien-p3
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
@@ -478,7 +490,7 @@ chaudière à granulés:
       avec:
         besoins de chauffage et ECS si même équipement:
           # ='Calculs techniques'!C96/Conso_comb_GRA_Chaud*(XLOOKUP(C46,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-          formule: installation . consommation combustible chaleur / ratios . GRA CHAUD Conso combustible * ratios environnementaux . Emission spé Granulé chaudière
+          formule: installation . consommation combustible chaleur / ratios . conso combustible * ratios environnementaux . Emission spé Granulé chaudière
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique:
@@ -492,7 +504,7 @@ chaudière à granulés:
         Scope 2: *env-scope-2
         Scope 3:
           # =(XLOOKUP(A46,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B23/Durée_vie_GRA_Chaud/Nb_lgt
-          formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * installation . gamme de puissance existante / ratios . GRA CHAUD Durée de vie / nombre de logements dans l'immeuble concerné
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:
       avec:

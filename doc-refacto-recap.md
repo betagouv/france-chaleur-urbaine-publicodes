@@ -127,6 +127,20 @@ défini sur la première variante du fichier) :
 gaz coll avec cond:
   description: Chaudière gaz collective à condensation
   avec:
+    ratios:
+      # Paramétrage du mode : alias lisibles vers les clés plates historiques,
+      # qui restent canoniques et modifiables par le front (les écritures se
+      # propagent à travers l'alias — testé dans index.spec.ts).
+      avec:
+        rendement chaudière chauffage: ratios . GAZ COLL COND Rendement chaudière chauffage
+        rendement chaudière ECS: ratios . GAZ COLL COND Rendement chaudière ECS
+        conso combustible: ratios . GAZ COLL COND Conso combustible
+        durée de vie: ratios . GAZ COLL COND Durée de vie
+        investissement équipement: ratios économiques . Gaz x coll avec cond
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . Gaz coll avec cond
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . Gaz coll avec cond
+        CO2 installation: ratios environnementaux . CO2 INS Gaz coll avec cond
+        # ...
     installation:
       avec: ...
     coûts:
@@ -217,6 +231,15 @@ une ligne au lieu d'être noyé).
 4. **Alias de compat** (`compat.publicodes`, généré) : 947 anciennes clés
    lues par le front → nouvelles clés. Coût transitoire : parsing +20 %,
    évaluation via les anciennes clés +23 % ; disparaît avec la migration front.
+5. **Sections `ratios` par mode** (132 alias locaux) : le paramétrage de chaque
+   mode est une section explicite dont les enfants portent des noms courts
+   (`rendement chaudière chauffage`, `durée de vie`, `investissement
+   équipement`…) et aliasent les clés plates historiques — qui restent
+   canoniques et **écrites** par le front (la propagation des écritures est
+   testée). Les formules du mode référencent `ratios . durée de vie` en
+   relatif, ce qui a neutralisé les corps d'entretien/environnement entre
+   variantes et permis une seconde passe de factorisation (+22 anchors).
+   À la migration front, il suffira d'inverser le sens des alias.
 
 ## Élagage réalisé
 

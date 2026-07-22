@@ -7,11 +7,18 @@
 réseau de froid:
   description: Raccordement à un réseau de froid urbain
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        conso auxiliaire: ratios . RFU Conso auxiliaire
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . RFU
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . RFU
+        rendement sous station: ratios . RFU Rendement sous station
     installation:
       avec:
         production eau chaude sanitaire: non
         puissance nécessaire pour refroidissement équipement:
-          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . RFU Rendement sous station * nombre de logements dans l'immeuble concerné
+          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . rendement sous station * nombre de logements dans l'immeuble concerné
           # unité: kW # corrigé pour faire fonctionner la division
           # QUESTION : Quelle est l'unité ? Peut-on changer l'unité pour kW ?
           unité: kW
@@ -24,11 +31,11 @@ réseau de froid:
           unité: kW
         consommation combustible froid:
           # =Besoin_raf/Rend_RFU
-          formule: besoins en climatisation par appartement / ratios . RFU Rendement sous station
+          formule: besoins en climatisation par appartement / ratios . rendement sous station
           unité: kWh
         consommation auxiliaire:
           # =(1-Conso_aux_RFU)*Besoin_raf
-          formule: (1 - ratios . RFU Conso auxiliaire) * besoins en climatisation par appartement
+          formule: (1 - ratios . conso auxiliaire) * besoins en climatisation par appartement
           unité: kWh elec
     coûts:
       avec:
@@ -65,7 +72,7 @@ réseau de froid:
             - si: Inclure la climatisation
               alors:
                 produit:
-                  - Paramètres économiques . Petit entretien P2 . RFU
+                  - ratios . petit entretien P2
                   - (1 + Paramètres économiques . Petit entretien P2 . TVA)
                   - ratios économiques . Réseaux x Coût Investissement SST RFU
                 unité: €TTC/an
@@ -76,7 +83,7 @@ réseau de froid:
             - si: Inclure la climatisation
               alors:
                 produit:
-                  - Paramètres économiques . Gros entretien P3 . RFU
+                  - ratios . gros entretien P3
                   - (1 + Paramètres économiques . Gros entretien P3 . TVA)
                   - ratios économiques . Réseaux x Coût Investissement SST RFU
             - sinon: 0

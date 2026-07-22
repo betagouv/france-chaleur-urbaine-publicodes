@@ -7,6 +7,16 @@
 PAC eau-eau indiv:
   description: Pompe à chaleur eau-eau individuelle (géothermie, capteurs horizontaux)
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS PAC eau-eau indiv
+        SCOP capteurs horizontaux: ratios . PAC EAU EAU SCOP indiv capteurs horizontaux
+        durée de vie: ratios . PAC EAU EAU Durée de vie
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC eau-eau indiv
+        investissement équipement: ratios économiques . PAC x eau-eau non réversible x Individuel
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv
+        puissance unitaire: ratios . PAC EAU EAU Puissance unitaire indiv
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -19,7 +29,7 @@ PAC eau-eau indiv:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC EAU EAU SCOP indiv capteurs horizontaux)
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . SCOP capteurs horizontaux)
             - sinon: 0
           unité: kW
         puissance équipement: &inst-puissance-equipement
@@ -27,12 +37,12 @@ PAC eau-eau indiv:
             - puissance nécessaire équipement chauffage
             - puissance nécessaire pour ECS avec équipement
           unité: kW
-        gamme de puissance existante:
+        gamme de puissance existante: &inst-gamme-de-puissance-existante
           produit:
             - somme:
-                - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire indiv
+                - valeur: puissance équipement // ratios . puissance unitaire
                 - 1
-            - ratios . PAC EAU EAU Puissance unitaire indiv
+            - ratios . puissance unitaire
           unité: kW
 
         besoin d'installation supplémentaire pour produire l'ECS: &inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
@@ -67,7 +77,7 @@ PAC eau-eau indiv:
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
-          formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . PAC EAU EAU SCOP indiv capteurs horizontaux
+          formule: (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . SCOP capteurs horizontaux
           unité: kWh elec
         consommation combustible froid: &inst-consommation-combustible-froid
           formule: 0
@@ -99,7 +109,7 @@ PAC eau-eau indiv:
         # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
-            - ratios économiques . PAC x eau-eau non réversible x Individuel
+            - ratios . investissement équipement
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
@@ -179,10 +189,10 @@ PAC eau-eau indiv:
     entretien:
       avec:
         petit entretien P2:
-          valeur : Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv
+          valeur : ratios . petit entretien P2
           unité: €TTC/an
         gros entretien P3:
-          valeur : Paramètres économiques . Gros entretien P3 . PAC eau-eau indiv
+          valeur : ratios . gros entretien P3
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -230,7 +240,7 @@ PAC eau-eau indiv:
             - ECS avec ballon électrique
         Scope 3:
           # ='Ratios environnementaux'!C47*B31/Durée_vie_PAC_EE
-          formule: ratios environnementaux . CO2 INS PAC eau-eau indiv * installation . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
             - Scope 1
@@ -300,6 +310,15 @@ PAC eau-eau indiv:
 PAC eau-eau coll:
   description: Pompe à chaleur eau-eau collective (géothermie, champ de sondes)
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire
+        SCOP champ de sondes: ratios . PAC EAU EAU SCOP coll champ de sondes
+        durée de vie: ratios . PAC EAU EAU Durée de vie
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC eau-eau coll
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC eau-eau coll
+        puissance unitaire: ratios . PAC EAU EAU Puissance unitaire coll
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -312,18 +331,11 @@ PAC eau-eau coll:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . PAC EAU EAU SCOP coll champ de sondes) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . SCOP champ de sondes) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
-        gamme de puissance existante:
-          # H61
-          produit:
-            - somme:
-                - valeur: puissance équipement // ratios . PAC EAU EAU Puissance unitaire coll
-                - 1
-            - ratios . PAC EAU EAU Puissance unitaire coll
-          unité: kW
+        gamme de puissance existante: *inst-gamme-de-puissance-existante
 
         besoin d'installation supplémentaire pour produire l'ECS: *inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
         volume du ballon ECS: *inst-volume-du-ballon-ecs
@@ -337,7 +349,7 @@ PAC eau-eau coll:
                     - si: type de production ECS = 'Avec équipement chauffage'
                       alors: besoins eau chaude sanitaire par appartement
                     - sinon: 0
-            - 1 / ratios . PAC EAU EAU SCOP coll champ de sondes
+            - 1 / ratios . SCOP champ de sondes
           unité: kWh elec
         consommation combustible froid: *inst-consommation-combustible-froid
         consommation auxiliaire: *inst-consommation-auxiliaire
@@ -400,13 +412,13 @@ PAC eau-eau coll:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . PAC eau-eau coll
+            - ratios . petit entretien P2
             - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
             - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . PAC eau-eau coll
+            - ratios . gros entretien P3
             - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
@@ -479,7 +491,7 @@ PAC eau-eau coll:
         Scope 2: *env-scope-2
         Scope 3:
           # ='Ratios environnementaux'!C50*B34/Durée_vie_PAC_EE/Nb_lgt
-          formule: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire * installation . gamme de puissance existante / ratios . PAC EAU EAU Durée de vie / nombre de logements dans l'immeuble concerné
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:
       avec:

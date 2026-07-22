@@ -7,11 +7,20 @@
 radiateur électrique:
   description: Radiateurs électriques (individuel)
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS Radiateur électrique
+        conso combustible: ratios . RAD ELEC INDIV Conso combustible
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . Radiateur électrique
+        investissement équipement: ratios économiques . Radiateur électrique x Individuel x investissement total
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . Radiateur électrique
+        rendement: ratios . RAD ELEC INDIV Rendement
     installation:
       avec:
         production eau chaude sanitaire: non
         puissance nécessaire équipement chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . RAD ELEC INDIV Rendement)
+          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement)
           unité: kW
         puissance nécessaire pour ECS avec équipement:
           formule: 0
@@ -60,7 +69,7 @@ radiateur électrique:
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
-          formule: ratios . RAD ELEC INDIV Conso combustible * besoins chauffage par appartement
+          formule: ratios . conso combustible * besoins chauffage par appartement
           unité: kWh elec
         consommation combustible froid:
           formule: 0
@@ -84,7 +93,7 @@ radiateur électrique:
         Investissement équipement Total:
           # C63
           produit:
-            - ratios économiques . Radiateur électrique x Individuel x investissement total
+            - ratios . investissement équipement
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
@@ -165,12 +174,12 @@ radiateur électrique:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . Radiateur électrique
+            - ratios . petit entretien P2
             - coûts . Investissement équipement Total
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . Radiateur électrique
+            - ratios . gros entretien P3
             - coûts . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
@@ -217,7 +226,7 @@ radiateur électrique:
             - ECS avec ballon électrique
         Scope 3:
           # =B14*'Ratios environnementaux'!$C$52
-          formule: besoins chauffage par appartement * ratios environnementaux . CO2 INS Radiateur électrique
+          formule: besoins chauffage par appartement * ratios . CO2 installation
         Total:
           somme:
             - Scope 1

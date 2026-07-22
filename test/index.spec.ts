@@ -130,6 +130,27 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		});
 	});
 
+	describe("écritures front sur les clés historiques de ratios", () => {
+		// Les sections `<mode> . ratios` sont des alias vers les clés plates
+		// historiques que le front écrit (page paramètres). Ce test garantit
+		// qu'une écriture sur la clé historique se propage bien aux calculs.
+		it("se propagent aux calculs via les alias locaux des modes", () => {
+			const base = new Engine(rules, options);
+			base.setSituation(commonSituation);
+			const p4 = base.evaluate("gaz indiv avec cond . bilan . P4").nodeValue;
+
+			const modifie = new Engine(rules, options);
+			modifie.setSituation({
+				...commonSituation,
+				"ratios . GAZ IND COND Durée de vie": 10,
+				"ratios économiques . Gaz x indiv avec cond": 9999,
+			});
+			expect(
+				modifie.evaluate("gaz indiv avec cond . bilan . P4").nodeValue,
+			).not.toBe(p4);
+		});
+	});
+
 	describe("CEE BAR-TH-171 PAC air-eau individuelle", () => {
 		it("calcule le montant CEE pour une maison individuelle H1 avec Etas entre 111% et 140%", () => {
 			const engine = new Engine(rules, options);

@@ -7,11 +7,23 @@
 fioul indiv:
   description: Chaudière fioul individuelle
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS Fioul indiv
+        conso auxiliaire ECS: ratios . FIOUL IND Conso auxiliaire ECS
+        conso auxiliaire chauffage: ratios . FIOUL IND Conso auxiliaire chauffage
+        conso combustible: ratios . FIOUL IND Conso combustible
+        durée de vie: ratios . FIOUL IND Durée de vie
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . Fioul indiv
+        investissement équipement: ratios économiques . Fioul x indiv
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . Fioul indiv
+        rendement chaudière: ratios . FIOUL IND Rendement chaudière
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance nécessaire équipement chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . FIOUL IND Rendement chaudière)
+          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement chaudière)
           unité: kW
         puissance nécessaire pour ECS avec équipement:
           variations:
@@ -19,7 +31,7 @@ fioul indiv:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . FIOUL IND Rendement chaudière)
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement chaudière)
             - sinon: 0
           unité: kW
         puissance équipement: &inst-puissance-equipement
@@ -74,28 +86,28 @@ fioul indiv:
         consommation combustible chaleur:
           # =Conso_comb_FIOUL_indiv*(Besoin_cha/Rend_FIOUL_indiv+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_FIOUL_indiv)
           produit:
-            - ratios . FIOUL IND Conso combustible
+            - ratios . conso combustible
             - somme:
                 - besoins chauffage par appartement
                 - variations:
                     - si: type de production ECS = 'Avec équipement chauffage'
                       alors: besoins eau chaude sanitaire par appartement
                     - sinon: 0
-            - 1 / ratios . FIOUL IND Rendement chaudière
+            - 1 / ratios . rendement chaudière
           unité: L/an
         consommation combustible froid: &inst-consommation-combustible-froid
           formule: 0
           unité: L/an
-        consommation auxiliaire:
+        consommation auxiliaire: &inst-consommation-auxiliaire
           # =(1-Conso_aux_FIOUL_indiv)*Besoin_cha+(1-Conso_aux_FIOUL_indiv_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
           somme:
-            - (1 - ratios . FIOUL IND Conso auxiliaire chauffage) * besoins chauffage par appartement
+            - (1 - ratios . conso auxiliaire chauffage) * besoins chauffage par appartement
             - variations:
                 - si:
                     toutes ces conditions:
                       - type de production ECS = 'Avec équipement chauffage'
                       - Production eau chaude sanitaire
-                  alors: (1 - ratios . FIOUL IND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+                  alors: (1 - ratios . conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
                 - sinon: 0
           unité: kWh elec
         consommation combustible hors électricité:
@@ -110,9 +122,9 @@ fioul indiv:
     coûts:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
+        Investissement équipement Total: &couts-investissement-equipement-total
           produit:
-            - ratios économiques . Fioul x indiv
+            - ratios . investissement équipement
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
           unité: €TTC
         Investissement équipement par logement type tertiaire:
@@ -192,12 +204,12 @@ fioul indiv:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . Fioul indiv
+            - ratios . petit entretien P2
             - (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . Fioul indiv
+            - ratios . gros entretien P3
             - (1 + Paramètres économiques . Gros entretien P3 . TVA)
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
@@ -225,9 +237,9 @@ fioul indiv:
           unité: €
     environnement:
       avec:
-        besoins de chauffage et ECS si même équipement:
+        besoins de chauffage et ECS si même équipement: &env-besoins-de-chauffage-et-ecs-si-meme-equipement
           # ='Calculs techniques'!C101/Conso_comb_FIOUL_indiv*(XLOOKUP(C51,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-          formule: installation . consommation combustible chaleur / ratios . FIOUL IND Conso combustible * ratios environnementaux . Emission spé Fioul chaudière
+          formule: installation . consommation combustible chaleur / ratios . conso combustible * ratios environnementaux . Emission spé Fioul chaudière
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
@@ -244,7 +256,7 @@ fioul indiv:
             - ECS avec ballon électrique
         Scope 3:
           # =(XLOOKUP(A51,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B28/Durée_vie_FIOUL_indiv
-          formule: ratios environnementaux . CO2 INS Fioul indiv * installation . gamme de puissance existante / ratios . FIOUL IND Durée de vie
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
             - Scope 1
@@ -310,11 +322,24 @@ fioul indiv:
 fioul coll:
   description: Chaudière fioul collective
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS Fioul coll
+        conso auxiliaire ECS: ratios . FIOUL COLL Conso auxiliaire ECS
+        conso auxiliaire chauffage: ratios . FIOUL COLL Conso auxiliaire chauffage
+        conso combustible: ratios . FIOUL COLL Conso combustible
+        durée de vie: ratios . FIOUL COLL Durée de vie
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . Fioul coll
+        investissement équipement: ratios économiques . Fioul x collectif
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . Fioul coll
+        rendement chaudière ECS: ratios . FIOUL COLL Rendement chaudière ECS
+        rendement chaudière chauffage: ratios . FIOUL COLL Rendement chaudière chauffage
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance nécessaire équipement chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . FIOUL COLL Rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance nécessaire pour ECS avec équipement:
           variations:
@@ -322,7 +347,7 @@ fioul coll:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . FIOUL COLL Rendement chaudière ECS) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement chaudière ECS) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
@@ -366,27 +391,16 @@ fioul coll:
         consommation combustible chaleur:
           # =Conso_comb_FIOUL_coll*(Besoin_cha/Rend_FIOUL_coll_chauf+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_FIOUL_coll_ECS)
           produit:
-            - ratios . FIOUL COLL Conso combustible
+            - ratios . conso combustible
             - somme:
-                - besoins chauffage par appartement / ratios . FIOUL COLL Rendement chaudière chauffage
+                - besoins chauffage par appartement / ratios . rendement chaudière chauffage
                 - variations:
                     - si: type de production ECS = 'Avec équipement chauffage'
-                      alors: besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS
+                      alors: besoins eau chaude sanitaire par appartement / ratios . rendement chaudière ECS
                     - sinon: 0
           unité: L/an
         consommation combustible froid: *inst-consommation-combustible-froid
-        consommation auxiliaire:
-          # =(1-Conso_aux_FIOUL_coll_chauf)*Besoin_cha+(1-Conso_aux_FIOUL_coll_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
-          somme:
-            - (1 - ratios . FIOUL COLL Conso auxiliaire chauffage) * besoins chauffage par appartement
-            - variations:
-                - si:
-                    toutes ces conditions:
-                      - type de production ECS = 'Avec équipement chauffage'
-                      - Production eau chaude sanitaire
-                  alors: (1 - ratios . FIOUL COLL Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
-                - sinon: 0
-          unité: kWh elec
+        consommation auxiliaire: *inst-consommation-auxiliaire
         consommation combustible hors électricité:
           formule: consommation combustible chaleur
         consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
@@ -394,11 +408,7 @@ fioul coll:
     coûts:
       avec:
         # P4 - Investissement total (sans aide) €TTC
-        Investissement équipement Total:
-          produit:
-            - ratios économiques . Fioul x collectif
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-          unité: €TTC
+        Investissement équipement Total: *couts-investissement-equipement-total
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
           unité: €TTC
@@ -418,13 +428,13 @@ fioul coll:
       avec:
         petit entretien P2:
           produit:
-            - Paramètres économiques . Petit entretien P2 . Fioul coll
+            - ratios . petit entretien P2
             - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
             - nombre de logements dans l'immeuble concerné / 1000
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . Fioul coll
+            - ratios . gros entretien P3
             - coûts . Investissement équipement Total
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
@@ -437,10 +447,7 @@ fioul coll:
         Total: *aides-total
     environnement:
       avec:
-        besoins de chauffage et ECS si même équipement:
-          # ='Calculs techniques'!C102/Conso_comb_FIOUL_coll*(XLOOKUP(C52,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
-          formule: installation . consommation combustible chaleur / ratios . FIOUL COLL Conso combustible * ratios environnementaux . Emission spé Fioul chaudière
-          unité: kgCO2e
+        besoins de chauffage et ECS si même équipement: *env-besoins-de-chauffage-et-ecs-si-meme-equipement
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
         ECS solaire thermique:
@@ -450,7 +457,7 @@ fioul coll:
         Scope 2: *env-scope-2
         Scope 3:
           # =(XLOOKUP(A52,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B29/Durée_vie_FIOUL_coll/Nb_lgt
-          formule: ratios environnementaux . CO2 INS Fioul coll * installation . gamme de puissance existante / ratios . FIOUL COLL Durée de vie / nombre de logements dans l'immeuble concerné
+          formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:
       avec:

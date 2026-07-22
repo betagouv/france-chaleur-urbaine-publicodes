@@ -7,12 +7,22 @@
 réseau de chaleur:
   description: Raccordement à un réseau de chaleur urbain
   avec:
+    ratios:
+      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      avec:
+        CO2 installation: ratios environnementaux . CO2 INS RCU
+        conso auxiliaire ECS: ratios . RCU Conso auxiliaire ECS
+        conso auxiliaire chauffage: ratios . RCU Conso auxiliaire chauffage
+        gros entretien P3: Paramètres économiques . Gros entretien P3 . RCU
+        petit entretien P2: Paramètres économiques . Petit entretien P2 . RCU
+        rendement sous station ECS: ratios . RCU Rendement sous station ECS
+        rendement sous station chauffage: ratios . RCU Rendement sous station chauffage
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance nécessaire équipement chauffage:
           # =(P_CHAUF/Rend_RCU_chauf)*$B$17*'Paramètres techniques'!$D$53
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . RCU Rendement sous station chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement sous station chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance nécessaire pour ECS avec équipement:
           # =IF(AND(C47="Oui",Type_ECS="Avec équipement chauffage"),CF_ECS*(P_ECS/Rend_RCU_ECS),0)*IF(B47="Collectif",Nb_lgt,1)
@@ -21,7 +31,7 @@ réseau de chaleur:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . RCU Rendement sous station ECS) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement sous station ECS) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance équipement:
@@ -73,13 +83,13 @@ réseau de chaleur:
         consommation combustible chaleur:
           # =Besoin_cha/Rend_RCU_chauf+IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)*Besoin_ECS/Rend_RCU_ECS
           somme:
-            - besoins chauffage par appartement / ratios . RCU Rendement sous station chauffage
+            - besoins chauffage par appartement / ratios . rendement sous station chauffage
             - variations:
                 - si:
                     toutes ces conditions:
                       - type de production ECS = 'Avec équipement chauffage'
                       - Production eau chaude sanitaire
-                  alors: besoins eau chaude sanitaire par appartement / ratios . RCU Rendement sous station ECS
+                  alors: besoins eau chaude sanitaire par appartement / ratios . rendement sous station ECS
                 - sinon: 0
           unité: kWh
         consommation combustible froid:
@@ -88,13 +98,13 @@ réseau de chaleur:
         consommation auxiliaire:
           # =(1-Conso_aux_RCU_chauf)*Besoin_cha+(1-Conso_aux_RCU_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
           somme:
-            - (1 - ratios . RCU Conso auxiliaire chauffage) * besoins chauffage par appartement
+            - (1 - ratios . conso auxiliaire chauffage) * besoins chauffage par appartement
             - variations:
                 - si:
                     toutes ces conditions:
                       - type de production ECS = 'Avec équipement chauffage'
                       - Production eau chaude sanitaire
-                  alors: (1 - ratios . RCU Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+                  alors: (1 - ratios . conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
                 - sinon: 0
           unité: kWh elec
         consommation combustible hors électricité:
@@ -212,13 +222,13 @@ réseau de chaleur:
         petit entretien P2:
           # C67 ='Paramètres économiques'!D159*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
           produit:
-            - Paramètres économiques . Petit entretien P2 . RCU
+            - ratios . petit entretien P2
             - (1 + Paramètres économiques . Petit entretien P2 . TVA)
             - ratios économiques . Réseaux x Coût Investissement SST RCU
           unité: €TTC/an
         gros entretien P3:
           produit:
-            - Paramètres économiques . Gros entretien P3 . RCU
+            - ratios . gros entretien P3
             - (1 + Paramètres économiques . Gros entretien P3 . TVA)
             - ratios économiques . Réseaux x Coût Investissement SST RCU
           unité: €TTC/an
@@ -452,8 +462,8 @@ réseau de chaleur:
           # QUESTION déjà posée: ça s'appelle vraiment Scope 3 ?
           variations:
             - si: Production eau chaude sanitaire
-              alors: ratios environnementaux . CO2 INS RCU * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-            - sinon: ratios environnementaux . CO2 INS RCU * besoins chauffage par appartement
+              alors: ratios . CO2 installation * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+            - sinon: ratios . CO2 installation * besoins chauffage par appartement
         Total:
           somme:
             - Scope 1
