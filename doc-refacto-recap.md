@@ -231,15 +231,22 @@ une ligne au lieu d'être noyé).
 4. **Alias de compat** (`compat.publicodes`, généré) : 947 anciennes clés
    lues par le front → nouvelles clés. Coût transitoire : parsing +20 %,
    évaluation via les anciennes clés +23 % ; disparaît avec la migration front.
-5. **Sections `ratios` par mode** (132 alias locaux) : le paramétrage de chaque
-   mode est une section explicite dont les enfants portent des noms courts
-   (`rendement chaudière chauffage`, `durée de vie`, `investissement
-   équipement`…) et aliasent les clés plates historiques — qui restent
-   canoniques et **écrites** par le front (la propagation des écritures est
-   testée). Les formules du mode référencent `ratios . durée de vie` en
-   relatif, ce qui a neutralisé les corps d'entretien/environnement entre
-   variantes et permis une seconde passe de factorisation (+22 anchors).
-   À la migration front, il suffira d'inverser le sens des alias.
+5. **Sections `ratios` par mode** : le paramétrage de chaque mode est une
+   section explicite aux noms courts (`rendement chaudière chauffage`,
+   `durée de vie`, `investissement équipement`…). Les formules du mode les
+   référencent en relatif (`ratios . durée de vie`), ce qui a neutralisé les
+   corps d'entretien/environnement entre variantes et permis une seconde
+   passe de factorisation (+22 anchors). Trois catégories de valeurs :
+   - **écrites par le front** (111 : rendements, SCOP, durées, P2/P3…) —
+     alias vers la clé plate historique, qui reste canonique tant que le
+     front écrit dessus (propagation des écritures testée dans
+     index.spec.ts) ; à la migration front, inverser le sens de l'alias et
+     porter la valeur ici ;
+   - **partagées** (durée de vie PAC eau-eau indiv/coll, socle PAC GNRL…) —
+     une référence est le bon outil : une seule source de vérité ;
+   - **propres au mode et non écrites** (19 : contenus CO2 d'installation,
+     puissances unitaires PAC) — **valeur portée directement dans la
+     section**, clé plate supprimée.
 
 ## Élagage réalisé
 

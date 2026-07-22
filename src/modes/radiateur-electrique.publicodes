@@ -10,7 +10,11 @@ radiateur électrique:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS Radiateur électrique
+        CO2 installation:
+          # Ratios environnementaux'!$C$52
+          formule: 0.015
+          unité: kgCO2e/kWh
+          note: 'Source: INIES 2022'
         conso combustible: ratios . RAD ELEC INDIV Conso combustible
         gros entretien P3: Paramètres économiques . Gros entretien P3 . Radiateur électrique
         investissement équipement: ratios économiques . Radiateur électrique x Individuel x investissement total
@@ -331,12 +335,6 @@ ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs 
   par défaut: radiateur électrique . installation . gamme de puissance existante // 2
 
 ###### Ratios environnementaux
-
-ratios environnementaux . CO2 INS Radiateur électrique:
-  # Ratios environnementaux'!$C$52
-  formule: 0.015
-  unité: kgCO2e/kWh
-  note: 'Source: INIES 2022'
 
 ###### Installation (dimensionnement et consommations)
 

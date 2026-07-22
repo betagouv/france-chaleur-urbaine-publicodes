@@ -10,7 +10,11 @@ PAC air-air indiv:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS PAC air-air indiv
+        CO2 installation:
+          # Ratios environnementaux'!$C$45
+          formule: 1000
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         SCOP: ratios . PAC AIR AIR SCOP indiv
         SEER: ratios . PAC AIR AIR SEER indiv
         durée de vie: ratios . PAC AIR AIR Durée de vie indiv
@@ -288,14 +292,20 @@ PAC air-air coll:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire
+        CO2 installation:
+          # Ratios environnementaux'!$C$48
+          formule: 409.375
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         SCOP: ratios . PAC AIR AIR SCOP coll
         SEER: ratios . PAC AIR AIR SEER coll
         durée de vie: ratios . PAC AIR AIR Durée de vie coll
         gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC air-air coll
         investissement équipement: ratios économiques . PAC x air-air réversible x Collectif
         petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC air-air coll
-        puissance unitaire réversible: ratios . PAC AIR AIR Puissance unitaire réversible coll
+        puissance unitaire réversible:
+          valeur: 22
+          unité: kW
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -436,10 +446,6 @@ ratios . PAC AIR AIR SEER indiv:
 ratios . PAC AIR AIR SEER coll:
   valeur: 4
 
-ratios . PAC AIR AIR Puissance unitaire réversible coll:
-  valeur: 22
-  unité: kW
-
 ratios . PAC AIR AIR Puissance unitaire groupe froid indiv:
   valeur: 2.5
   unité: kW
@@ -482,18 +488,6 @@ ratios économiques . PAC x air-air réversible x Collectif:
     - 1 + ratios économiques . Investissement x TVA
 
 ###### Ratios environnementaux
-
-ratios environnementaux . CO2 INS PAC air-air indiv:
-  # Ratios environnementaux'!$C$45
-  formule: 1000
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
-
-ratios environnementaux . CO2 INS PAC air-air collectif-tertiaire:
-  # Ratios environnementaux'!$C$48
-  formule: 409.375
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
 
 ###### Installation (dimensionnement et consommations)
 

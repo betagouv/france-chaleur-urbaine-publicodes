@@ -10,13 +10,18 @@ PAC eau-eau indiv:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS PAC eau-eau indiv
+        CO2 installation:
+          # Ratios environnementaux'!$C$46
+          formule: 453.3
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         SCOP capteurs horizontaux: ratios . PAC EAU EAU SCOP indiv capteurs horizontaux
         durée de vie: ratios . PAC EAU EAU Durée de vie
         gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC eau-eau indiv
         investissement équipement: ratios économiques . PAC x eau-eau non réversible x Individuel
         petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv
-        puissance unitaire: ratios . PAC EAU EAU Puissance unitaire indiv
+        puissance unitaire:
+          valeur: 8
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -313,12 +318,17 @@ PAC eau-eau coll:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire
+        CO2 installation:
+          # Ratios environnementaux'!$C$49
+          formule: 615
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         SCOP champ de sondes: ratios . PAC EAU EAU SCOP coll champ de sondes
         durée de vie: ratios . PAC EAU EAU Durée de vie
         gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC eau-eau coll
         petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC eau-eau coll
-        puissance unitaire: ratios . PAC EAU EAU Puissance unitaire coll
+        puissance unitaire:
+          valeur: 46.52
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -548,12 +558,6 @@ ratios . PAC EAU EAU SCOP coll champ de sondes:
     - 5
     - Température émetteurs delta
 
-ratios . PAC EAU EAU Puissance unitaire indiv:
-  valeur: 8
-
-ratios . PAC EAU EAU Puissance unitaire coll:
-  valeur: 46.52
-
 ratios . PAC EAU EAU Durée de vie:
   valeur: 22
   unité: an
@@ -625,18 +629,6 @@ ratios économiques . PAC x eau-eau non réversible x Collectif:
     - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
 
 ###### Ratios environnementaux
-
-ratios environnementaux . CO2 INS PAC eau-eau indiv:
-  # Ratios environnementaux'!$C$46
-  formule: 453.3
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
-
-ratios environnementaux . CO2 INS PAC eau-eau collectif-tertiaire:
-  # Ratios environnementaux'!$C$49
-  formule: 615
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
 
 ###### Installation (dimensionnement et consommations)
 

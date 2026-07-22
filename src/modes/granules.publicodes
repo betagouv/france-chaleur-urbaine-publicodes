@@ -10,7 +10,11 @@ poêle à granulés:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS Poêle à granulés indiv
+        CO2 installation:
+          # Ratios environnementaux'!$C$35
+          formule: 122
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         conso combustible: ratios . GRA POELE Conso combustible
         durée de vie: ratios . GRA POELE Durée de vie
         gros entretien P3: Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv
@@ -295,7 +299,11 @@ chaudière à granulés:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS Chaudière à granulés coll
+        CO2 installation:
+          # Ratios environnementaux'!$C$36
+          formule: 88.5
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         conso auxiliaire: ratios . GRA CHAUD Conso auxiliaire
         conso combustible: ratios . GRA CHAUD Conso combustible
         durée de vie: ratios . GRA CHAUD Durée de vie
@@ -586,18 +594,6 @@ ratios économiques . Granulés x Chaudière à granulés collective:
   note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
 
 ###### Ratios environnementaux
-
-ratios environnementaux . CO2 INS Poêle à granulés indiv:
-  # Ratios environnementaux'!$C$35
-  formule: 122
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
-
-ratios environnementaux . CO2 INS Chaudière à granulés coll:
-  # Ratios environnementaux'!$C$36
-  formule: 88.5
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
 
 ###### Investissement
 

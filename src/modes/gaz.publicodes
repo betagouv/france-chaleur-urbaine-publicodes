@@ -10,7 +10,11 @@ gaz indiv avec cond:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS Gaz indiv avec cond
+        CO2 installation:
+          # Ratios environnementaux'!$C$37
+          formule: 33
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         conso auxiliaire ECS: ratios . GAZ IND COND Conso auxiliaire ECS
         conso auxiliaire chauffage: ratios . GAZ IND COND Conso auxiliaire chauffage
         conso combustible: ratios . GAZ IND COND Conso combustible
@@ -328,7 +332,11 @@ gaz indiv sans cond:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS Gaz indiv sans cond
+        CO2 installation:
+          # Ratios environnementaux'!$C$38
+          formule: 53.6
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         conso auxiliaire ECS: ratios . GAZ IND SCOND Conso auxiliaire ECS
         conso auxiliaire chauffage: ratios . GAZ IND SCOND Conso auxiliaire chauffage
         conso combustible: ratios . GAZ IND SCOND Conso combustible
@@ -448,7 +456,11 @@ gaz coll avec cond:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS Gaz coll avec cond
+        CO2 installation:
+          # Ratios environnementaux'!$C$39
+          formule: 25
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         conso auxiliaire ECS: ratios . GAZ COLL COND Conso auxiliaire ECS
         conso auxiliaire chauffage: ratios . GAZ COLL COND Conso auxiliaire chauffage
         conso combustible: ratios . GAZ COLL COND Conso combustible
@@ -633,7 +645,11 @@ gaz coll sans cond:
     ratios:
       description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS Gaz coll sans cond
+        CO2 installation:
+          # Ratios environnementaux'!$C$40
+          formule: 25
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
         conso auxiliaire ECS: ratios . GAZ COLL SCOND Conso auxiliaire ECS
         conso auxiliaire chauffage: ratios . GAZ COLL SCOND Conso auxiliaire chauffage
         conso combustible: ratios . GAZ COLL SCOND Conso combustible
@@ -973,30 +989,6 @@ ratios économiques . Gaz x coll sans cond:
   note: 'Source: ELCIMAI 2024'
 
 ###### Ratios environnementaux
-
-ratios environnementaux . CO2 INS Gaz indiv avec cond:
-  # Ratios environnementaux'!$C$37
-  formule: 33
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
-
-ratios environnementaux . CO2 INS Gaz indiv sans cond:
-  # Ratios environnementaux'!$C$38
-  formule: 53.6
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
-
-ratios environnementaux . CO2 INS Gaz coll avec cond:
-  # Ratios environnementaux'!$C$39
-  formule: 25
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
-
-ratios environnementaux . CO2 INS Gaz coll sans cond:
-  # Ratios environnementaux'!$C$40
-  formule: 25
-  unité: kgCO2e/kW
-  note: 'Source: INIES 2022'
 
 ###### Installation (dimensionnement et consommations)
 
