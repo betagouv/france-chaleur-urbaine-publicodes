@@ -146,3 +146,144 @@ Calcul Bilan:
               - type de production de froid = 'Réseau de froid'
           alors: Amortissement aides réseau de froid
         - sinon: 0
+
+###### Investissement
+
+Investissement x Groupe froid x résidentiel:
+  # B82 ='Ratios économiques - Coûts'!C166*'Calculs techniques'!$I$47*(1+TVA_inv)
+  par défaut:
+    produit:
+      - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
+      - puissance équipement par appartement Groupe froid x résidentiel
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
+
+Investissement x Groupe eau glacée x tertiaire:
+  # B84 ='Ratios économiques - Coûts'!C180*'Calculs techniques'!$J$47*(1+TVA_inv)
+  par défaut:
+    produit:
+      - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
+      - puissance groupe d'eau glacée x tertiaire
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
+
+ratios économiques . Groupe froid:
+  # Temporaire le temps que le fichier excel soit à jour
+  par défaut: 0
+
+###### Installation
+
+Installation x Groupe froid x Individuel:
+  avec:
+    production eau chaude sanitaire: non
+    puissance nécessaire équipement chauffage:
+      formule: 0
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      formule: 0
+      unité: kW
+    puissance nécessaire pour refroidissement équipement:
+      formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv
+      unité: kW
+    puissance équipement:
+      formule: puissance nécessaire pour refroidissement équipement
+      unité: kW
+    gamme de puissance existante:
+      # =(QUOTIENT(G65,'Ratios techniques'!$C$339)+1)*'Ratios techniques'!$C$339
+      produit:
+        - somme:
+            - valeur: puissance équipement // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
+            - 1
+        - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
+      unité: kW
+
+env . Installation x Groupe froid x Individuel:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2e
+    Scope 1: 0
+    auxiliaires et combustible électrique:
+      valeur: 0
+      unité: kgCO2e
+    ECS solaire thermique:
+      valeur: 0
+    ECS avec ballon électrique:
+      valeur: 0
+    Scope 2:
+      valeur: 0
+    Scope 3:
+      valeur: 0
+    Total:
+      valeur: 0
+      unité: kgCO2e/an
+
+###### Entretien P2 / P3
+
+Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel:
+  avec:
+    petit entretien P2:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Groupe froid'
+              - type de bâtiment = 'résidentiel'
+          alors:
+            produit:
+              - Paramètres économiques . Petit entretien P2 . PAC air-eau coll
+              - besoins en climatisation par appartement
+              - nombre de logements dans l'immeuble concerné
+              - 1 / 1000
+        - sinon: 0
+
+    gros entretien P3:
+      # D86 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Résidentiel";'Paramètres économiques'!$D$190*'Calculs techniques'!$B$22/1000*Nb_lgt;0);0)
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Groupe froid'
+              - type de bâtiment = 'résidentiel'
+          alors:
+            produit:
+              - Paramètres économiques . Gros entretien P3 . PAC air-eau coll
+              - besoins en climatisation par appartement
+              - nombre de logements dans l'immeuble concerné
+              - 1 / 1000
+        - sinon: 0
+    petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+    gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+
+Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire:
+  avec:
+    petit entretien P2:
+      # C87 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Tertiaire";'Paramètres économiques'!D171*'Calculs techniques'!$B$22/1000;0);0)
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Groupe froid'
+              - type de bâtiment = 'tertiaire'
+          alors:
+            produit:
+              - Paramètres économiques . Petit entretien P2 . PAC air-eau coll
+              - besoins en climatisation par appartement
+              - 1 / 1000
+        - sinon: 0
+    gros entretien P3:
+      # D87 =IF(AND(Prod_clim="Oui";Type_clim="Groupe froid");IF(Type_bat="Tertiaire";'Paramètres économiques'!D192*'Calculs techniques'!$B$22/1000;0);0)
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Groupe froid'
+              - type de bâtiment = 'tertiaire'
+          alors:
+            produit:
+              - Paramètres économiques . Gros entretien P3 . PAC air-eau coll
+              - besoins en climatisation par appartement
+              - 1 / 1000
+        - sinon: 0
+    petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+    gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné

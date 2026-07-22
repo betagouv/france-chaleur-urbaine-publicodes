@@ -70,14 +70,3 @@ ratios environnementaux:
       formule: 0.0983
       unité: kgCO2e/kWh
       note: 'Source: FEDENE 2021'
-
-    CO2 INS Solaire thermique:
-      # Ratios environnementaux'!$C$43
-      formule: 9
-      unité: kgCO2e/L
-      note: 'Source: INIES 2022'
-    CO2 INS Ballon électrique:
-      # Ratios environnementaux'!$C$44
-      formule: 6
-      unité: kgCO2e/L
-      note: 'Source: INIES 2022'

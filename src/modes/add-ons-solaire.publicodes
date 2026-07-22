@@ -1,0 +1,59 @@
+# Pseudo-modes partiels lus par le module « chaleur renouvelable » du front :
+
+# coûts d'exploitation isolés (total sans installation) combinés côté front à
+
+# un mode principal. Pas d'installation propre ni de bilan complet.
+
+Bilan x PAC air-eau coll hybride:
+  avec:
+    total sans aides:
+      produit:
+        - Bilan x PAC air-eau coll . total avec aides
+        - 120 %
+    total sans installation:
+      somme:
+        - Bilan x PAC air-eau coll . P1abo
+        - Bilan x PAC air-eau coll . P1prime
+        - Bilan x PAC air-eau coll . P1Consofroid
+        - produit:
+          - 120%
+          - Bilan x PAC air-eau coll . P1ECS
+        - produit:
+          - 120%
+          - Bilan x PAC air-eau coll . P1conso
+        - Bilan x PAC air-eau coll . P2
+        - Bilan x PAC air-eau coll . P3
+
+Bilan x Solaire thermique:
+  avec:
+    total sans installation:
+      produit:
+        - besoins eau chaude sanitaire par appartement
+        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation # prix du gaz €/kWh
+        - 50 % # taux de couverture solaire
+
+Bilan x PAC capteurs solaires atmosphériques:
+  avec:
+    total sans installation: Bilan x PAC air-eau coll . P1ECS
+
+Bilan x PAC air-eau collective ECS:
+  avec:
+    total sans installation:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+        - besoins eau chaude sanitaire par appartement / ratios . PAC AIR EAU SCOP coll
+
+Bilan x Chauffe-eau thermodynamique:
+  avec:
+    total sans installation:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - besoins eau chaude sanitaire par appartement / ratios . PAC AIR EAU SCOP coll
+
+Bilan x Système solaire combiné:
+  avec:
+    total sans installation:
+      produit:
+        - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation # prix du gaz €/kWh
+        - 50 % # taux de couverture solaire
