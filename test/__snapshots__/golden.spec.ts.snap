@@ -1,0 +1,2041 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Chaudière à granulés coll 1`] = `
+{
+  "Bilan x Chaudière à granulés coll . P1Consofroid": 15.82,
+  "Bilan x Chaudière à granulés coll . P1ECS": 0,
+  "Bilan x Chaudière à granulés coll . P1abo": 0,
+  "Bilan x Chaudière à granulés coll . P1conso": 737.89,
+  "Bilan x Chaudière à granulés coll . P1prime": 3.47,
+  "Bilan x Chaudière à granulés coll . P2": 205.3,
+  "Bilan x Chaudière à granulés coll . P3": 0,
+  "Bilan x Chaudière à granulés coll . P4": 443.68,
+  "Bilan x Chaudière à granulés coll . P4 moins aides": 347.33,
+  "Bilan x Chaudière à granulés coll . aides": 96.35,
+  "Bilan x Chaudière à granulés coll . total avec aides": 1309.81,
+  "Bilan x Chaudière à granulés coll . total sans aides": 1406.16,
+  "Bilan x Chaudière à granulés coll . total sans installation": 962.48,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 2": 1.06,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 3": 20.82,
+  "env . Installation x Chaudière à granulés coll x Collectif . Total": 274.35,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Fioul coll 1`] = `
+{
+  "Bilan x Fioul coll . P1Consofroid": 15.82,
+  "Bilan x Fioul coll . P1ECS": 0,
+  "Bilan x Fioul coll . P1abo": 0,
+  "Bilan x Fioul coll . P1conso": 1190.62,
+  "Bilan x Fioul coll . P1prime": 5.96,
+  "Bilan x Fioul coll . P2": 67.29,
+  "Bilan x Fioul coll . P3": 29.52,
+  "Bilan x Fioul coll . P4": 250.1,
+  "Bilan x Fioul coll . P4 moins aides": 250.1,
+  "Bilan x Fioul coll . aides": 0,
+  "Bilan x Fioul coll . total avec aides": 1559.31,
+  "Bilan x Fioul coll . total sans aides": 1559.31,
+  "env . Installation x Fioul coll x Collectif . Scope 2": 1.83,
+  "env . Installation x Fioul coll x Collectif . Scope 3": 16.38,
+  "env . Installation x Fioul coll x Collectif . Total": 3409.2,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Fioul indiv 1`] = `
+{
+  "Bilan x Fioul indiv . P1Consofroid": 15.82,
+  "Bilan x Fioul indiv . P1ECS": 0,
+  "Bilan x Fioul indiv . P1abo": 0,
+  "Bilan x Fioul indiv . P1conso": 1158,
+  "Bilan x Fioul indiv . P1prime": 1.73,
+  "Bilan x Fioul indiv . P2": 174.48,
+  "Bilan x Fioul indiv . P3": 84,
+  "Bilan x Fioul indiv . P4": 385.75,
+  "Bilan x Fioul indiv . P4 moins aides": 385.75,
+  "Bilan x Fioul indiv . aides": 0,
+  "Bilan x Fioul indiv . total avec aides": 1819.79,
+  "Bilan x Fioul indiv . total sans aides": 1819.79,
+  "env . Installation x Fioul indiv x Individuel . Scope 2": 0.53,
+  "env . Installation x Fioul indiv x Individuel . Scope 3": 64,
+  "env . Installation x Fioul indiv x Individuel . Total": 3362.61,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Gaz coll avec cond 1`] = `
+{
+  "Bilan x Gaz coll avec cond . P1Consofroid": 15.82,
+  "Bilan x Gaz coll avec cond . P1ECS": 0,
+  "Bilan x Gaz coll avec cond . P1abo": 73.58,
+  "Bilan x Gaz coll avec cond . P1conso": 953.06,
+  "Bilan x Gaz coll avec cond . P1prime": 5.96,
+  "Bilan x Gaz coll avec cond . P2": 67.29,
+  "Bilan x Gaz coll avec cond . P3": 26.84,
+  "Bilan x Gaz coll avec cond . P4": 239.3,
+  "Bilan x Gaz coll avec cond . P4 moins aides": 239.3,
+  "Bilan x Gaz coll avec cond . aides": 0,
+  "Bilan x Gaz coll avec cond . total avec aides": 1381.83,
+  "Bilan x Gaz coll avec cond . total sans aides": 1381.83,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 2": 1.83,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll avec cond x Collectif . Total": 2310.66,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Gaz coll sans cond 1`] = `
+{
+  "Bilan x Gaz coll sans cond . P1Consofroid": 15.82,
+  "Bilan x Gaz coll sans cond . P1ECS": 0,
+  "Bilan x Gaz coll sans cond . P1abo": 73.58,
+  "Bilan x Gaz coll sans cond . P1conso": 1057.74,
+  "Bilan x Gaz coll sans cond . P1prime": 5.96,
+  "Bilan x Gaz coll sans cond . P2": 67.29,
+  "Bilan x Gaz coll sans cond . P3": 26.84,
+  "Bilan x Gaz coll sans cond . P4": 239.3,
+  "Bilan x Gaz coll sans cond . P4 moins aides": 239.3,
+  "Bilan x Gaz coll sans cond . aides": 0,
+  "Bilan x Gaz coll sans cond . total avec aides": 1486.52,
+  "Bilan x Gaz coll sans cond . total sans aides": 1486.52,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 2": 1.83,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll sans cond x Collectif . Total": 2563.26,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Gaz indiv avec cond 1`] = `
+{
+  "Bilan x Gaz indiv avec cond . P1Consofroid": 15.82,
+  "Bilan x Gaz indiv avec cond . P1ECS": 0,
+  "Bilan x Gaz indiv avec cond . P1abo": 275.89,
+  "Bilan x Gaz indiv avec cond . P1conso": 908.41,
+  "Bilan x Gaz indiv avec cond . P1prime": 1.73,
+  "Bilan x Gaz indiv avec cond . P2": 174.48,
+  "Bilan x Gaz indiv avec cond . P3": 84,
+  "Bilan x Gaz indiv avec cond . P4": 412.48,
+  "Bilan x Gaz indiv avec cond . P4 moins aides": 412.48,
+  "Bilan x Gaz indiv avec cond . aides": 0,
+  "Bilan x Gaz indiv avec cond . total avec aides": 1872.82,
+  "Bilan x Gaz indiv avec cond . total sans aides": 1872.82,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 2": 0.53,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 3": 23.29,
+  "env . Installation x Gaz indiv avec cond x Individuel . Total": 2215.83,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Gaz indiv sans cond 1`] = `
+{
+  "Bilan x Gaz indiv sans cond . P1Consofroid": 15.82,
+  "Bilan x Gaz indiv sans cond . P1ECS": 0,
+  "Bilan x Gaz indiv sans cond . P1abo": 275.89,
+  "Bilan x Gaz indiv sans cond . P1conso": 1029.53,
+  "Bilan x Gaz indiv sans cond . P1prime": 1.73,
+  "Bilan x Gaz indiv sans cond . P2": 174.48,
+  "Bilan x Gaz indiv sans cond . P3": 84,
+  "Bilan x Gaz indiv sans cond . P4": 412.48,
+  "Bilan x Gaz indiv sans cond . P4 moins aides": 412.48,
+  "Bilan x Gaz indiv sans cond . aides": 0,
+  "Bilan x Gaz indiv sans cond . total avec aides": 1993.94,
+  "Bilan x Gaz indiv sans cond . total sans aides": 1993.94,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 2": 0.53,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 3": 37.84,
+  "env . Installation x Gaz indiv sans cond x Individuel . Total": 2522.64,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > PAC air-air coll 1`] = `
+{
+  "Bilan x PAC air-air coll . P1Consofroid": 13.84,
+  "Bilan x PAC air-air coll . P1ECS": 358.73,
+  "Bilan x PAC air-air coll . P1abo": 56.97,
+  "Bilan x PAC air-air coll . P1conso": 430.44,
+  "Bilan x PAC air-air coll . P1prime": 0,
+  "Bilan x PAC air-air coll . P2": 93.05,
+  "Bilan x PAC air-air coll . P3": 78.04,
+  "Bilan x PAC air-air coll . P4": 261.28,
+  "Bilan x PAC air-air coll . P4 moins aides": 261.28,
+  "Bilan x PAC air-air coll . aides": 0,
+  "Bilan x PAC air-air coll . total avec aides": 1292.35,
+  "Bilan x PAC air-air coll . total sans aides": 1292.35,
+  "env . Installation x PAC air-air x Collectif . Scope 2": 245.6,
+  "env . Installation x PAC air-air x Collectif . Scope 3": 81.88,
+  "env . Installation x PAC air-air x Collectif . Total": 327.48,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > PAC air-air indiv 1`] = `
+{
+  "Bilan x PAC air-air indiv . P1Consofroid": 15.82,
+  "Bilan x PAC air-air indiv . P1ECS": 358.73,
+  "Bilan x PAC air-air indiv . P1abo": 65.62,
+  "Bilan x PAC air-air indiv . P1conso": 526.09,
+  "Bilan x PAC air-air indiv . P1prime": 0,
+  "Bilan x PAC air-air indiv . P2": 238.8,
+  "Bilan x PAC air-air indiv . P3": 160.8,
+  "Bilan x PAC air-air indiv . P4": 369.97,
+  "Bilan x PAC air-air indiv . P4 moins aides": 369.97,
+  "Bilan x PAC air-air indiv . aides": 0,
+  "Bilan x PAC air-air indiv . total avec aides": 1735.84,
+  "Bilan x PAC air-air indiv . total sans aides": 1735.84,
+  "Bilan x PAC air-air indiv . total sans installation": 1365.86,
+  "env . Installation x PAC air-air x Individuel . Scope 2": 275.45,
+  "env . Installation x PAC air-air x Individuel . Scope 3": 275.03,
+  "env . Installation x PAC air-air x Individuel . Total": 550.48,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > PAC air-eau coll 1`] = `
+{
+  "Bilan x PAC air-eau coll . P1Consofroid": 11.53,
+  "Bilan x PAC air-eau coll . P1ECS": 0,
+  "Bilan x PAC air-eau coll . P1abo": 56.97,
+  "Bilan x PAC air-eau coll . P1conso": 623.22,
+  "Bilan x PAC air-eau coll . P1prime": 6.07,
+  "Bilan x PAC air-eau coll . P2": 93.05,
+  "Bilan x PAC air-eau coll . P3": 107.86,
+  "Bilan x PAC air-eau coll . P4": 285.05,
+  "Bilan x PAC air-eau coll . P4 moins aides": 185.29,
+  "Bilan x PAC air-eau coll . aides": 99.77,
+  "Bilan x PAC air-eau coll . total avec aides": 1083.99,
+  "Bilan x PAC air-eau coll . total sans aides": 1183.76,
+  "Bilan x PAC air-eau coll . total sans installation": 898.71,
+  "env . Installation x PAC air-eau x Collectif . Scope 2": 195.97,
+  "env . Installation x PAC air-eau x Collectif . Scope 3": 54.91,
+  "env . Installation x PAC air-eau x Collectif . Total": 250.88,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > PAC air-eau indiv 1`] = `
+{
+  "Bilan x PAC air-eau indiv . P1Consofroid": 15.82,
+  "Bilan x PAC air-eau indiv . P1ECS": 0,
+  "Bilan x PAC air-eau indiv . P1abo": 65.62,
+  "Bilan x PAC air-eau indiv . P1conso": 666.37,
+  "Bilan x PAC air-eau indiv . P1prime": 6.07,
+  "Bilan x PAC air-eau indiv . P2": 238.8,
+  "Bilan x PAC air-eau indiv . P3": 160.8,
+  "Bilan x PAC air-eau indiv . P4": 823.52,
+  "Bilan x PAC air-eau indiv . P4 moins aides": 588.23,
+  "Bilan x PAC air-eau indiv . aides": 235.29,
+  "Bilan x PAC air-eau indiv . total avec aides": 1741.7,
+  "Bilan x PAC air-eau indiv . total sans aides": 1977,
+  "Bilan x PAC air-eau indiv . total sans installation": 1153.48,
+  "env . Installation x PAC air-eau x Individuel . Scope 2": 210.31,
+  "env . Installation x PAC air-eau x Individuel . Scope 3": 267.65,
+  "env . Installation x PAC air-eau x Individuel . Total": 477.96,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > PAC eau-eau coll 1`] = `
+{
+  "Bilan x PAC eau-eau coll . P1Consofroid": 15.82,
+  "Bilan x PAC eau-eau coll . P1ECS": 0,
+  "Bilan x PAC eau-eau coll . P1abo": 56.97,
+  "Bilan x PAC eau-eau coll . P1conso": 455.93,
+  "Bilan x PAC eau-eau coll . P1prime": 5.96,
+  "Bilan x PAC eau-eau coll . P2": 95.93,
+  "Bilan x PAC eau-eau coll . P3": 152.44,
+  "Bilan x PAC eau-eau coll . P4": 876.58,
+  "Bilan x PAC eau-eau coll . P4 moins aides": 671.01,
+  "Bilan x PAC eau-eau coll . aides": 205.57,
+  "Bilan x PAC eau-eau coll . total avec aides": 1454.06,
+  "Bilan x PAC eau-eau coll . total sans aides": 1659.63,
+  "Bilan x PAC eau-eau coll . total sans installation": 783.05,
+  "env . Installation x PAC eau-eau x Collectif . Scope 2": 141.66,
+  "env . Installation x PAC eau-eau x Collectif . Scope 3": 156.05,
+  "env . Installation x PAC eau-eau x Collectif . Total": 297.71,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > PAC eau-eau indiv 1`] = `
+{
+  "Bilan x PAC eau-eau indiv . P1Consofroid": 15.82,
+  "Bilan x PAC eau-eau indiv . P1ECS": 0,
+  "Bilan x PAC eau-eau indiv . P1abo": 65.62,
+  "Bilan x PAC eau-eau indiv . P1conso": 618.77,
+  "Bilan x PAC eau-eau indiv . P1prime": 5.96,
+  "Bilan x PAC eau-eau indiv . P2": 241.68,
+  "Bilan x PAC eau-eau indiv . P3": 160.8,
+  "Bilan x PAC eau-eau indiv . P4": 1199.69,
+  "Bilan x PAC eau-eau indiv . P4 moins aides": 563.33,
+  "Bilan x PAC eau-eau indiv . aides": 636.36,
+  "Bilan x PAC eau-eau indiv . total avec aides": 1671.98,
+  "Bilan x PAC eau-eau indiv . total sans aides": 2308.34,
+  "Bilan x PAC eau-eau indiv . total sans installation": 1108.65,
+  "env . Installation x PAC eau-eau x Individuel . Scope 2": 191.6,
+  "env . Installation x PAC eau-eau x Individuel . Scope 3": 164.84,
+  "env . Installation x PAC eau-eau x Individuel . Total": 356.44,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Poêle à granulés indiv 1`] = `
+{
+  "Bilan x Poêle à granulés indiv . P1Consofroid": 15.82,
+  "Bilan x Poêle à granulés indiv . P1ECS": 358.73,
+  "Bilan x Poêle à granulés indiv . P1abo": 0,
+  "Bilan x Poêle à granulés indiv . P1conso": 620.09,
+  "Bilan x Poêle à granulés indiv . P1prime": 0,
+  "Bilan x Poêle à granulés indiv . P2": 266.91,
+  "Bilan x Poêle à granulés indiv . P3": 0,
+  "Bilan x Poêle à granulés indiv . P4": 769.44,
+  "Bilan x Poêle à granulés indiv . P4 moins aides": 675.69,
+  "Bilan x Poêle à granulés indiv . aides": 93.75,
+  "Bilan x Poêle à granulés indiv . total avec aides": 1937.24,
+  "Bilan x Poêle à granulés indiv . total sans aides": 2030.99,
+  "Bilan x Poêle à granulés indiv . total sans installation": 1261.55,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 2": 110.02,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 3": 91.5,
+  "env . Installation x Poêle à granulés indiv x Individuel . Total": 452.97,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Radiateur électrique 1`] = `
+{
+  "Bilan x Radiateur électrique . P1Consofroid": 15.82,
+  "Bilan x Radiateur électrique . P1ECS": 358.73,
+  "Bilan x Radiateur électrique . P1abo": 65.62,
+  "Bilan x Radiateur électrique . P1conso": 1420.46,
+  "Bilan x Radiateur électrique . P1prime": 0,
+  "Bilan x Radiateur électrique . P2": 2.88,
+  "Bilan x Radiateur électrique . P3": 0,
+  "Bilan x Radiateur électrique . P4": 326.4,
+  "Bilan x Radiateur électrique . P4 moins aides": 326.4,
+  "Bilan x Radiateur électrique . aides": 0,
+  "Bilan x Radiateur électrique . total avec aides": 2189.91,
+  "Bilan x Radiateur électrique . total sans aides": 2189.91,
+  "env . Installation x Radiateur électrique x Individuel . Scope 2": 545.66,
+  "env . Installation x Radiateur électrique x Individuel . Scope 3": 94.29,
+  "env . Installation x Radiateur électrique x Individuel . Total": 639.96,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > Réseaux de chaleur 1`] = `
+{
+  "Bilan x Réseaux de chaleur . P1Consofroid": 15.82,
+  "Bilan x Réseaux de chaleur . P1ECS": 0,
+  "Bilan x Réseaux de chaleur . P1abo": 228.1,
+  "Bilan x Réseaux de chaleur . P1conso": 734.96,
+  "Bilan x Réseaux de chaleur . P1prime": 5.96,
+  "Bilan x Réseaux de chaleur . P2": 19.08,
+  "Bilan x Réseaux de chaleur . P3": 8.1,
+  "Bilan x Réseaux de chaleur . P4": 365.84,
+  "Bilan x Réseaux de chaleur . P4 moins aides": 219.36,
+  "Bilan x Réseaux de chaleur . aides": 146.48,
+  "Bilan x Réseaux de chaleur . total avec aides": 1231.38,
+  "Bilan x Réseaux de chaleur . total sans aides": 1377.86,
+  "Bilan x Réseaux de chaleur . total sans installation": 1012.02,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 2": 1364.82,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 3": 30.67,
+  "env . Installation x Réseaux de chaleur x Collectif . Total": 1395.49,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > add-ons (solaire, hybride, thermodynamique) 1`] = `
+{
+  "Bilan x Chauffe-eau thermodynamique . total sans installation": 112.26,
+  "Bilan x PAC air-eau coll hybride . total sans aides": 1300.79,
+  "Bilan x PAC air-eau coll hybride . total sans installation": 1023.35,
+  "Bilan x PAC air-eau collective ECS . total sans installation": 112.26,
+  "Bilan x PAC capteurs solaires atmosphériques . total sans installation": 0,
+  "Bilan x Solaire thermique . total sans installation": 69.55,
+  "Bilan x Système solaire combiné . total sans installation": 386.07,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Chaudière à granulés coll 1`] = `
+{
+  "Bilan x Chaudière à granulés coll . P1Consofroid": 0,
+  "Bilan x Chaudière à granulés coll . P1ECS": 0,
+  "Bilan x Chaudière à granulés coll . P1abo": 0,
+  "Bilan x Chaudière à granulés coll . P1conso": 737.89,
+  "Bilan x Chaudière à granulés coll . P1prime": 3.47,
+  "Bilan x Chaudière à granulés coll . P2": 202.42,
+  "Bilan x Chaudière à granulés coll . P3": 0,
+  "Bilan x Chaudière à granulés coll . P4": 275.29,
+  "Bilan x Chaudière à granulés coll . P4 moins aides": 178.94,
+  "Bilan x Chaudière à granulés coll . aides": 96.35,
+  "Bilan x Chaudière à granulés coll . total avec aides": 1122.72,
+  "Bilan x Chaudière à granulés coll . total sans aides": 1219.07,
+  "Bilan x Chaudière à granulés coll . total sans installation": 943.77,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 2": 1.06,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 3": 20.82,
+  "env . Installation x Chaudière à granulés coll x Collectif . Total": 274.35,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Fioul coll 1`] = `
+{
+  "Bilan x Fioul coll . P1Consofroid": 0,
+  "Bilan x Fioul coll . P1ECS": 0,
+  "Bilan x Fioul coll . P1abo": 0,
+  "Bilan x Fioul coll . P1conso": 1190.62,
+  "Bilan x Fioul coll . P1prime": 5.96,
+  "Bilan x Fioul coll . P2": 64.41,
+  "Bilan x Fioul coll . P3": 29.52,
+  "Bilan x Fioul coll . P4": 81.71,
+  "Bilan x Fioul coll . P4 moins aides": 81.71,
+  "Bilan x Fioul coll . aides": 0,
+  "Bilan x Fioul coll . total avec aides": 1372.22,
+  "Bilan x Fioul coll . total sans aides": 1372.22,
+  "env . Installation x Fioul coll x Collectif . Scope 2": 1.83,
+  "env . Installation x Fioul coll x Collectif . Scope 3": 16.38,
+  "env . Installation x Fioul coll x Collectif . Total": 3409.2,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Fioul indiv 1`] = `
+{
+  "Bilan x Fioul indiv . P1Consofroid": 0,
+  "Bilan x Fioul indiv . P1ECS": 0,
+  "Bilan x Fioul indiv . P1abo": 0,
+  "Bilan x Fioul indiv . P1conso": 1158,
+  "Bilan x Fioul indiv . P1prime": 1.73,
+  "Bilan x Fioul indiv . P2": 171.6,
+  "Bilan x Fioul indiv . P3": 84,
+  "Bilan x Fioul indiv . P4": 217.36,
+  "Bilan x Fioul indiv . P4 moins aides": 217.36,
+  "Bilan x Fioul indiv . aides": 0,
+  "Bilan x Fioul indiv . total avec aides": 1632.7,
+  "Bilan x Fioul indiv . total sans aides": 1632.7,
+  "env . Installation x Fioul indiv x Individuel . Scope 2": 0.53,
+  "env . Installation x Fioul indiv x Individuel . Scope 3": 64,
+  "env . Installation x Fioul indiv x Individuel . Total": 3362.61,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Gaz coll avec cond 1`] = `
+{
+  "Bilan x Gaz coll avec cond . P1Consofroid": 0,
+  "Bilan x Gaz coll avec cond . P1ECS": 0,
+  "Bilan x Gaz coll avec cond . P1abo": 73.58,
+  "Bilan x Gaz coll avec cond . P1conso": 953.06,
+  "Bilan x Gaz coll avec cond . P1prime": 5.96,
+  "Bilan x Gaz coll avec cond . P2": 64.41,
+  "Bilan x Gaz coll avec cond . P3": 26.83,
+  "Bilan x Gaz coll avec cond . P4": 70.91,
+  "Bilan x Gaz coll avec cond . P4 moins aides": 70.91,
+  "Bilan x Gaz coll avec cond . aides": 0,
+  "Bilan x Gaz coll avec cond . total avec aides": 1194.74,
+  "Bilan x Gaz coll avec cond . total sans aides": 1194.74,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 2": 1.83,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll avec cond x Collectif . Total": 2310.66,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Gaz coll sans cond 1`] = `
+{
+  "Bilan x Gaz coll sans cond . P1Consofroid": 0,
+  "Bilan x Gaz coll sans cond . P1ECS": 0,
+  "Bilan x Gaz coll sans cond . P1abo": 73.58,
+  "Bilan x Gaz coll sans cond . P1conso": 1057.74,
+  "Bilan x Gaz coll sans cond . P1prime": 5.96,
+  "Bilan x Gaz coll sans cond . P2": 64.41,
+  "Bilan x Gaz coll sans cond . P3": 26.83,
+  "Bilan x Gaz coll sans cond . P4": 70.91,
+  "Bilan x Gaz coll sans cond . P4 moins aides": 70.91,
+  "Bilan x Gaz coll sans cond . aides": 0,
+  "Bilan x Gaz coll sans cond . total avec aides": 1299.43,
+  "Bilan x Gaz coll sans cond . total sans aides": 1299.43,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 2": 1.83,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll sans cond x Collectif . Total": 2563.26,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Gaz indiv avec cond 1`] = `
+{
+  "Bilan x Gaz indiv avec cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv avec cond . P1ECS": 0,
+  "Bilan x Gaz indiv avec cond . P1abo": 275.89,
+  "Bilan x Gaz indiv avec cond . P1conso": 908.41,
+  "Bilan x Gaz indiv avec cond . P1prime": 1.73,
+  "Bilan x Gaz indiv avec cond . P2": 171.6,
+  "Bilan x Gaz indiv avec cond . P3": 84,
+  "Bilan x Gaz indiv avec cond . P4": 244.09,
+  "Bilan x Gaz indiv avec cond . P4 moins aides": 244.09,
+  "Bilan x Gaz indiv avec cond . aides": 0,
+  "Bilan x Gaz indiv avec cond . total avec aides": 1685.73,
+  "Bilan x Gaz indiv avec cond . total sans aides": 1685.73,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 2": 0.53,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 3": 23.29,
+  "env . Installation x Gaz indiv avec cond x Individuel . Total": 2215.83,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Gaz indiv sans cond 1`] = `
+{
+  "Bilan x Gaz indiv sans cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv sans cond . P1ECS": 0,
+  "Bilan x Gaz indiv sans cond . P1abo": 275.89,
+  "Bilan x Gaz indiv sans cond . P1conso": 1029.53,
+  "Bilan x Gaz indiv sans cond . P1prime": 1.73,
+  "Bilan x Gaz indiv sans cond . P2": 171.6,
+  "Bilan x Gaz indiv sans cond . P3": 84,
+  "Bilan x Gaz indiv sans cond . P4": 244.09,
+  "Bilan x Gaz indiv sans cond . P4 moins aides": 244.09,
+  "Bilan x Gaz indiv sans cond . aides": 0,
+  "Bilan x Gaz indiv sans cond . total avec aides": 1806.85,
+  "Bilan x Gaz indiv sans cond . total sans aides": 1806.85,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 2": 0.53,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 3": 37.84,
+  "env . Installation x Gaz indiv sans cond x Individuel . Total": 2522.64,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > PAC air-air coll 1`] = `
+{
+  "Bilan x PAC air-air coll . P1Consofroid": 0,
+  "Bilan x PAC air-air coll . P1ECS": 358.73,
+  "Bilan x PAC air-air coll . P1abo": 56.97,
+  "Bilan x PAC air-air coll . P1conso": 430.44,
+  "Bilan x PAC air-air coll . P1prime": 0,
+  "Bilan x PAC air-air coll . P2": 90.17,
+  "Bilan x PAC air-air coll . P3": 78.04,
+  "Bilan x PAC air-air coll . P4": 261.28,
+  "Bilan x PAC air-air coll . P4 moins aides": 261.28,
+  "Bilan x PAC air-air coll . aides": 0,
+  "Bilan x PAC air-air coll . total avec aides": 1275.63,
+  "Bilan x PAC air-air coll . total sans aides": 1275.63,
+  "env . Installation x PAC air-air x Collectif . Scope 2": 242.03,
+  "env . Installation x PAC air-air x Collectif . Scope 3": 81.88,
+  "env . Installation x PAC air-air x Collectif . Total": 323.91,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > PAC air-air indiv 1`] = `
+{
+  "Bilan x PAC air-air indiv . P1Consofroid": 0,
+  "Bilan x PAC air-air indiv . P1ECS": 358.73,
+  "Bilan x PAC air-air indiv . P1abo": 65.62,
+  "Bilan x PAC air-air indiv . P1conso": 526.09,
+  "Bilan x PAC air-air indiv . P1prime": 0,
+  "Bilan x PAC air-air indiv . P2": 238.8,
+  "Bilan x PAC air-air indiv . P3": 160.8,
+  "Bilan x PAC air-air indiv . P4": 369.97,
+  "Bilan x PAC air-air indiv . P4 moins aides": 369.97,
+  "Bilan x PAC air-air indiv . aides": 0,
+  "Bilan x PAC air-air indiv . total avec aides": 1720.02,
+  "Bilan x PAC air-air indiv . total sans aides": 1720.02,
+  "Bilan x PAC air-air indiv . total sans installation": 1350.05,
+  "env . Installation x PAC air-air x Individuel . Scope 2": 271.37,
+  "env . Installation x PAC air-air x Individuel . Scope 3": 275.03,
+  "env . Installation x PAC air-air x Individuel . Total": 546.4,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > PAC air-eau coll 1`] = `
+{
+  "Bilan x PAC air-eau coll . P1Consofroid": 0,
+  "Bilan x PAC air-eau coll . P1ECS": 0,
+  "Bilan x PAC air-eau coll . P1abo": 56.97,
+  "Bilan x PAC air-eau coll . P1conso": 623.22,
+  "Bilan x PAC air-eau coll . P1prime": 5.96,
+  "Bilan x PAC air-eau coll . P2": 90.17,
+  "Bilan x PAC air-eau coll . P3": 107.86,
+  "Bilan x PAC air-eau coll . P4": 285.05,
+  "Bilan x PAC air-eau coll . P4 moins aides": 185.29,
+  "Bilan x PAC air-eau coll . aides": 99.77,
+  "Bilan x PAC air-eau coll . total avec aides": 1069.47,
+  "Bilan x PAC air-eau coll . total sans aides": 1169.24,
+  "Bilan x PAC air-eau coll . total sans installation": 884.18,
+  "env . Installation x PAC air-eau x Collectif . Scope 2": 192.96,
+  "env . Installation x PAC air-eau x Collectif . Scope 3": 54.91,
+  "env . Installation x PAC air-eau x Collectif . Total": 247.87,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > PAC air-eau indiv 1`] = `
+{
+  "Bilan x PAC air-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC air-eau indiv . P1ECS": 0,
+  "Bilan x PAC air-eau indiv . P1abo": 65.62,
+  "Bilan x PAC air-eau indiv . P1conso": 666.37,
+  "Bilan x PAC air-eau indiv . P1prime": 5.96,
+  "Bilan x PAC air-eau indiv . P2": 238.8,
+  "Bilan x PAC air-eau indiv . P3": 160.8,
+  "Bilan x PAC air-eau indiv . P4": 823.52,
+  "Bilan x PAC air-eau indiv . P4 moins aides": 588.23,
+  "Bilan x PAC air-eau indiv . aides": 235.29,
+  "Bilan x PAC air-eau indiv . total avec aides": 1725.78,
+  "Bilan x PAC air-eau indiv . total sans aides": 1961.07,
+  "Bilan x PAC air-eau indiv . total sans installation": 1137.55,
+  "env . Installation x PAC air-eau x Individuel . Scope 2": 206.2,
+  "env . Installation x PAC air-eau x Individuel . Scope 3": 267.65,
+  "env . Installation x PAC air-eau x Individuel . Total": 473.84,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > PAC eau-eau coll 1`] = `
+{
+  "Bilan x PAC eau-eau coll . P1Consofroid": 0,
+  "Bilan x PAC eau-eau coll . P1ECS": 0,
+  "Bilan x PAC eau-eau coll . P1abo": 56.97,
+  "Bilan x PAC eau-eau coll . P1conso": 455.93,
+  "Bilan x PAC eau-eau coll . P1prime": 5.96,
+  "Bilan x PAC eau-eau coll . P2": 90.17,
+  "Bilan x PAC eau-eau coll . P3": 152.44,
+  "Bilan x PAC eau-eau coll . P4": 708.19,
+  "Bilan x PAC eau-eau coll . P4 moins aides": 502.62,
+  "Bilan x PAC eau-eau coll . aides": 205.57,
+  "Bilan x PAC eau-eau coll . total avec aides": 1264.09,
+  "Bilan x PAC eau-eau coll . total sans aides": 1469.66,
+  "Bilan x PAC eau-eau coll . total sans installation": 761.47,
+  "env . Installation x PAC eau-eau x Collectif . Scope 2": 141.66,
+  "env . Installation x PAC eau-eau x Collectif . Scope 3": 156.05,
+  "env . Installation x PAC eau-eau x Collectif . Total": 297.71,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > PAC eau-eau indiv 1`] = `
+{
+  "Bilan x PAC eau-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC eau-eau indiv . P1ECS": 0,
+  "Bilan x PAC eau-eau indiv . P1abo": 65.62,
+  "Bilan x PAC eau-eau indiv . P1conso": 618.77,
+  "Bilan x PAC eau-eau indiv . P1prime": 5.96,
+  "Bilan x PAC eau-eau indiv . P2": 238.8,
+  "Bilan x PAC eau-eau indiv . P3": 160.8,
+  "Bilan x PAC eau-eau indiv . P4": 1031.3,
+  "Bilan x PAC eau-eau indiv . P4 moins aides": 394.94,
+  "Bilan x PAC eau-eau indiv . aides": 636.36,
+  "Bilan x PAC eau-eau indiv . total avec aides": 1484.89,
+  "Bilan x PAC eau-eau indiv . total sans aides": 2121.25,
+  "Bilan x PAC eau-eau indiv . total sans installation": 1089.95,
+  "env . Installation x PAC eau-eau x Individuel . Scope 2": 191.6,
+  "env . Installation x PAC eau-eau x Individuel . Scope 3": 164.84,
+  "env . Installation x PAC eau-eau x Individuel . Total": 356.44,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Poêle à granulés indiv 1`] = `
+{
+  "Bilan x Poêle à granulés indiv . P1Consofroid": 0,
+  "Bilan x Poêle à granulés indiv . P1ECS": 358.73,
+  "Bilan x Poêle à granulés indiv . P1abo": 0,
+  "Bilan x Poêle à granulés indiv . P1conso": 620.09,
+  "Bilan x Poêle à granulés indiv . P1prime": 0,
+  "Bilan x Poêle à granulés indiv . P2": 264.03,
+  "Bilan x Poêle à granulés indiv . P3": 0,
+  "Bilan x Poêle à granulés indiv . P4": 601.05,
+  "Bilan x Poêle à granulés indiv . P4 moins aides": 507.3,
+  "Bilan x Poêle à granulés indiv . aides": 93.75,
+  "Bilan x Poêle à granulés indiv . total avec aides": 1750.15,
+  "Bilan x Poêle à granulés indiv . total sans aides": 1843.9,
+  "Bilan x Poêle à granulés indiv . total sans installation": 1242.85,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 2": 110.02,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 3": 91.5,
+  "env . Installation x Poêle à granulés indiv x Individuel . Total": 452.97,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Radiateur électrique 1`] = `
+{
+  "Bilan x Radiateur électrique . P1Consofroid": 0,
+  "Bilan x Radiateur électrique . P1ECS": 358.73,
+  "Bilan x Radiateur électrique . P1abo": 65.62,
+  "Bilan x Radiateur électrique . P1conso": 1420.46,
+  "Bilan x Radiateur électrique . P1prime": 0,
+  "Bilan x Radiateur électrique . P2": 0,
+  "Bilan x Radiateur électrique . P3": 0,
+  "Bilan x Radiateur électrique . P4": 158.01,
+  "Bilan x Radiateur électrique . P4 moins aides": 158.01,
+  "Bilan x Radiateur électrique . aides": 0,
+  "Bilan x Radiateur électrique . total avec aides": 2002.82,
+  "Bilan x Radiateur électrique . total sans aides": 2002.82,
+  "env . Installation x Radiateur électrique x Individuel . Scope 2": 545.66,
+  "env . Installation x Radiateur électrique x Individuel . Scope 3": 94.29,
+  "env . Installation x Radiateur électrique x Individuel . Total": 639.96,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > Réseaux de chaleur 1`] = `
+{
+  "Bilan x Réseaux de chaleur . P1Consofroid": 0,
+  "Bilan x Réseaux de chaleur . P1ECS": 0,
+  "Bilan x Réseaux de chaleur . P1abo": 228.1,
+  "Bilan x Réseaux de chaleur . P1conso": 734.96,
+  "Bilan x Réseaux de chaleur . P1prime": 5.96,
+  "Bilan x Réseaux de chaleur . P2": 16.2,
+  "Bilan x Réseaux de chaleur . P3": 8.1,
+  "Bilan x Réseaux de chaleur . P4": 197.45,
+  "Bilan x Réseaux de chaleur . P4 moins aides": 50.97,
+  "Bilan x Réseaux de chaleur . aides": 146.48,
+  "Bilan x Réseaux de chaleur . total avec aides": 1044.29,
+  "Bilan x Réseaux de chaleur . total sans aides": 1190.77,
+  "Bilan x Réseaux de chaleur . total sans installation": 993.32,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 2": 1364.82,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 3": 30.67,
+  "env . Installation x Réseaux de chaleur x Collectif . Total": 1395.49,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > add-ons (solaire, hybride, thermodynamique) 1`] = `
+{
+  "Bilan x Chauffe-eau thermodynamique . total sans installation": 112.26,
+  "Bilan x PAC air-eau coll hybride . total sans aides": 1283.36,
+  "Bilan x PAC air-eau coll hybride . total sans installation": 1008.83,
+  "Bilan x PAC air-eau collective ECS . total sans installation": 112.26,
+  "Bilan x PAC capteurs solaires atmosphériques . total sans installation": 0,
+  "Bilan x Solaire thermique . total sans installation": 69.55,
+  "Bilan x Système solaire combiné . total sans installation": 386.07,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Chaudière à granulés coll 1`] = `
+{
+  "Bilan x Chaudière à granulés coll . P1Consofroid": 0,
+  "Bilan x Chaudière à granulés coll . P1ECS": 143.49,
+  "Bilan x Chaudière à granulés coll . P1abo": 0,
+  "Bilan x Chaudière à granulés coll . P1conso": 604.97,
+  "Bilan x Chaudière à granulés coll . P1prime": 2.84,
+  "Bilan x Chaudière à granulés coll . P2": 202.42,
+  "Bilan x Chaudière à granulés coll . P3": 0,
+  "Bilan x Chaudière à granulés coll . P4": 624.08,
+  "Bilan x Chaudière à granulés coll . P4 moins aides": 527.73,
+  "Bilan x Chaudière à granulés coll . aides": 96.35,
+  "Bilan x Chaudière à granulés coll . total avec aides": 1481.45,
+  "Bilan x Chaudière à granulés coll . total sans aides": 1577.8,
+  "Bilan x Chaudière à granulés coll . total sans installation": 953.72,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 2": 38.02,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 3": 20.82,
+  "env . Installation x Chaudière à granulés coll x Collectif . Total": 265.83,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Fioul coll 1`] = `
+{
+  "Bilan x Fioul coll . P1Consofroid": 0,
+  "Bilan x Fioul coll . P1ECS": 143.49,
+  "Bilan x Fioul coll . P1abo": 0,
+  "Bilan x Fioul coll . P1conso": 976.15,
+  "Bilan x Fioul coll . P1prime": 2.84,
+  "Bilan x Fioul coll . P2": 64.41,
+  "Bilan x Fioul coll . P3": 29.52,
+  "Bilan x Fioul coll . P4": 430.5,
+  "Bilan x Fioul coll . P4 moins aides": 430.5,
+  "Bilan x Fioul coll . aides": 0,
+  "Bilan x Fioul coll . total avec aides": 1646.9,
+  "Bilan x Fioul coll . total sans aides": 1646.9,
+  "env . Installation x Fioul coll x Collectif . Scope 2": 38.02,
+  "env . Installation x Fioul coll x Collectif . Scope 3": 16.38,
+  "env . Installation x Fioul coll x Collectif . Total": 2834.55,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Fioul indiv 1`] = `
+{
+  "Bilan x Fioul indiv . P1Consofroid": 0,
+  "Bilan x Fioul indiv . P1ECS": 143.49,
+  "Bilan x Fioul indiv . P1abo": 0,
+  "Bilan x Fioul indiv . P1conso": 949.4,
+  "Bilan x Fioul indiv . P1prime": 1.42,
+  "Bilan x Fioul indiv . P2": 171.6,
+  "Bilan x Fioul indiv . P3": 84,
+  "Bilan x Fioul indiv . P4": 566.14,
+  "Bilan x Fioul indiv . P4 moins aides": 566.14,
+  "Bilan x Fioul indiv . aides": 0,
+  "Bilan x Fioul indiv . total avec aides": 1916.06,
+  "Bilan x Fioul indiv . total sans aides": 1916.06,
+  "env . Installation x Fioul indiv x Individuel . Scope 2": 37.59,
+  "env . Installation x Fioul indiv x Individuel . Scope 3": 64,
+  "env . Installation x Fioul indiv x Individuel . Total": 2805.56,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Gaz coll avec cond 1`] = `
+{
+  "Bilan x Gaz coll avec cond . P1Consofroid": 0,
+  "Bilan x Gaz coll avec cond . P1ECS": 143.49,
+  "Bilan x Gaz coll avec cond . P1abo": 55.64,
+  "Bilan x Gaz coll avec cond . P1conso": 791.32,
+  "Bilan x Gaz coll avec cond . P1prime": 2.84,
+  "Bilan x Gaz coll avec cond . P2": 64.41,
+  "Bilan x Gaz coll avec cond . P3": 16.1,
+  "Bilan x Gaz coll avec cond . P4": 391.33,
+  "Bilan x Gaz coll avec cond . P4 moins aides": 391.33,
+  "Bilan x Gaz coll avec cond . aides": 0,
+  "Bilan x Gaz coll avec cond . total avec aides": 1465.13,
+  "Bilan x Gaz coll avec cond . total sans aides": 1465.13,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 2": 38.02,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 3": 5.45,
+  "env . Installation x Gaz coll avec cond x Collectif . Total": 1952.94,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Gaz coll sans cond 1`] = `
+{
+  "Bilan x Gaz coll sans cond . P1Consofroid": 0,
+  "Bilan x Gaz coll sans cond . P1ECS": 143.49,
+  "Bilan x Gaz coll sans cond . P1abo": 55.64,
+  "Bilan x Gaz coll sans cond . P1conso": 867.2,
+  "Bilan x Gaz coll sans cond . P1prime": 2.84,
+  "Bilan x Gaz coll sans cond . P2": 64.41,
+  "Bilan x Gaz coll sans cond . P3": 26.83,
+  "Bilan x Gaz coll sans cond . P4": 419.69,
+  "Bilan x Gaz coll sans cond . P4 moins aides": 419.69,
+  "Bilan x Gaz coll sans cond . aides": 0,
+  "Bilan x Gaz coll sans cond . total avec aides": 1580.11,
+  "Bilan x Gaz coll sans cond . total sans aides": 1580.11,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 2": 38.02,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll sans cond x Collectif . Total": 2139.68,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Gaz indiv avec cond 1`] = `
+{
+  "Bilan x Gaz indiv avec cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv avec cond . P1ECS": 143.49,
+  "Bilan x Gaz indiv avec cond . P1abo": 275.89,
+  "Bilan x Gaz indiv avec cond . P1conso": 744.77,
+  "Bilan x Gaz indiv avec cond . P1prime": 1.42,
+  "Bilan x Gaz indiv avec cond . P2": 171.6,
+  "Bilan x Gaz indiv avec cond . P3": 84,
+  "Bilan x Gaz indiv avec cond . P4": 592.88,
+  "Bilan x Gaz indiv avec cond . P4 moins aides": 592.88,
+  "Bilan x Gaz indiv avec cond . aides": 0,
+  "Bilan x Gaz indiv avec cond . total avec aides": 2014.06,
+  "Bilan x Gaz indiv avec cond . total sans aides": 2014.06,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 2": 37.59,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 3": 23.29,
+  "env . Installation x Gaz indiv avec cond x Individuel . Total": 1858.03,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Gaz indiv sans cond 1`] = `
+{
+  "Bilan x Gaz indiv sans cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv sans cond . P1ECS": 143.49,
+  "Bilan x Gaz indiv sans cond . P1abo": 275.89,
+  "Bilan x Gaz indiv sans cond . P1conso": 844.08,
+  "Bilan x Gaz indiv sans cond . P1prime": 1.42,
+  "Bilan x Gaz indiv sans cond . P2": 171.6,
+  "Bilan x Gaz indiv sans cond . P3": 84,
+  "Bilan x Gaz indiv sans cond . P4": 592.88,
+  "Bilan x Gaz indiv sans cond . P4 moins aides": 592.88,
+  "Bilan x Gaz indiv sans cond . aides": 0,
+  "Bilan x Gaz indiv sans cond . total avec aides": 2113.36,
+  "Bilan x Gaz indiv sans cond . total sans aides": 2113.36,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 2": 37.59,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 3": 37.84,
+  "env . Installation x Gaz indiv sans cond x Individuel . Total": 2112.19,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > PAC air-air coll 1`] = `
+{
+  "Bilan x PAC air-air coll . P1Consofroid": 0,
+  "Bilan x PAC air-air coll . P1ECS": 143.49,
+  "Bilan x PAC air-air coll . P1abo": 56.97,
+  "Bilan x PAC air-air coll . P1conso": 430.44,
+  "Bilan x PAC air-air coll . P1prime": 0,
+  "Bilan x PAC air-air coll . P2": 90.17,
+  "Bilan x PAC air-air coll . P3": 78.04,
+  "Bilan x PAC air-air coll . P4": 555.02,
+  "Bilan x PAC air-air coll . P4 moins aides": 555.02,
+  "Bilan x PAC air-air coll . aides": 0,
+  "Bilan x PAC air-air coll . total avec aides": 1354.13,
+  "Bilan x PAC air-air coll . total sans aides": 1354.13,
+  "env . Installation x PAC air-air x Collectif . Scope 2": 169.16,
+  "env . Installation x PAC air-air x Collectif . Scope 3": 81.88,
+  "env . Installation x PAC air-air x Collectif . Total": 251.04,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > PAC air-air indiv 1`] = `
+{
+  "Bilan x PAC air-air indiv . P1Consofroid": 0,
+  "Bilan x PAC air-air indiv . P1ECS": 143.49,
+  "Bilan x PAC air-air indiv . P1abo": 65.62,
+  "Bilan x PAC air-air indiv . P1conso": 526.09,
+  "Bilan x PAC air-air indiv . P1prime": 0,
+  "Bilan x PAC air-air indiv . P2": 238.8,
+  "Bilan x PAC air-air indiv . P3": 160.8,
+  "Bilan x PAC air-air indiv . P4": 663.7,
+  "Bilan x PAC air-air indiv . P4 moins aides": 663.7,
+  "Bilan x PAC air-air indiv . aides": 0,
+  "Bilan x PAC air-air indiv . total avec aides": 1798.51,
+  "Bilan x PAC air-air indiv . total sans aides": 1798.51,
+  "Bilan x PAC air-air indiv . total sans installation": 1134.81,
+  "env . Installation x PAC air-air x Individuel . Scope 2": 198.5,
+  "env . Installation x PAC air-air x Individuel . Scope 3": 275.03,
+  "env . Installation x PAC air-air x Individuel . Total": 473.53,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > PAC air-eau coll 1`] = `
+{
+  "Bilan x PAC air-eau coll . P1Consofroid": 0,
+  "Bilan x PAC air-eau coll . P1ECS": 143.49,
+  "Bilan x PAC air-eau coll . P1abo": 56.97,
+  "Bilan x PAC air-eau coll . P1conso": 510.96,
+  "Bilan x PAC air-eau coll . P1prime": 2.84,
+  "Bilan x PAC air-eau coll . P2": 90.17,
+  "Bilan x PAC air-eau coll . P3": 107.86,
+  "Bilan x PAC air-eau coll . P4": 633.84,
+  "Bilan x PAC air-eau coll . P4 moins aides": 534.07,
+  "Bilan x PAC air-eau coll . aides": 99.77,
+  "Bilan x PAC air-eau coll . total avec aides": 1446.36,
+  "Bilan x PAC air-eau coll . total sans aides": 1546.13,
+  "Bilan x PAC air-eau coll . total sans installation": 912.29,
+  "env . Installation x PAC air-eau x Collectif . Scope 2": 194.73,
+  "env . Installation x PAC air-eau x Collectif . Scope 3": 54.91,
+  "env . Installation x PAC air-eau x Collectif . Total": 249.64,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > PAC air-eau indiv 1`] = `
+{
+  "Bilan x PAC air-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC air-eau indiv . P1ECS": 143.49,
+  "Bilan x PAC air-eau indiv . P1abo": 65.62,
+  "Bilan x PAC air-eau indiv . P1conso": 666.37,
+  "Bilan x PAC air-eau indiv . P1prime": 2.84,
+  "Bilan x PAC air-eau indiv . P2": 238.8,
+  "Bilan x PAC air-eau indiv . P3": 160.8,
+  "Bilan x PAC air-eau indiv . P4": 1172.31,
+  "Bilan x PAC air-eau indiv . P4 moins aides": 937.01,
+  "Bilan x PAC air-eau indiv . aides": 235.29,
+  "Bilan x PAC air-eau indiv . total avec aides": 2214.93,
+  "Bilan x PAC air-eau indiv . total sans aides": 2450.23,
+  "Bilan x PAC air-eau indiv . total sans installation": 1277.92,
+  "env . Installation x PAC air-eau x Individuel . Scope 2": 242.39,
+  "env . Installation x PAC air-eau x Individuel . Scope 3": 267.65,
+  "env . Installation x PAC air-eau x Individuel . Total": 510.04,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > PAC eau-eau coll 1`] = `
+{
+  "Bilan x PAC eau-eau coll . P1Consofroid": 0,
+  "Bilan x PAC eau-eau coll . P1ECS": 143.49,
+  "Bilan x PAC eau-eau coll . P1abo": 56.97,
+  "Bilan x PAC eau-eau coll . P1conso": 373.8,
+  "Bilan x PAC eau-eau coll . P1prime": 2.84,
+  "Bilan x PAC eau-eau coll . P2": 90.17,
+  "Bilan x PAC eau-eau coll . P3": 152.44,
+  "Bilan x PAC eau-eau coll . P4": 1056.97,
+  "Bilan x PAC eau-eau coll . P4 moins aides": 851.41,
+  "Bilan x PAC eau-eau coll . aides": 205.57,
+  "Bilan x PAC eau-eau coll . total avec aides": 1671.12,
+  "Bilan x PAC eau-eau coll . total sans aides": 1876.68,
+  "Bilan x PAC eau-eau coll . total sans installation": 819.71,
+  "env . Installation x PAC eau-eau x Collectif . Scope 2": 152.66,
+  "env . Installation x PAC eau-eau x Collectif . Scope 3": 156.05,
+  "env . Installation x PAC eau-eau x Collectif . Total": 308.72,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > PAC eau-eau indiv 1`] = `
+{
+  "Bilan x PAC eau-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC eau-eau indiv . P1ECS": 143.49,
+  "Bilan x PAC eau-eau indiv . P1abo": 65.62,
+  "Bilan x PAC eau-eau indiv . P1conso": 618.77,
+  "Bilan x PAC eau-eau indiv . P1prime": 2.84,
+  "Bilan x PAC eau-eau indiv . P2": 238.8,
+  "Bilan x PAC eau-eau indiv . P3": 160.8,
+  "Bilan x PAC eau-eau indiv . P4": 1380.09,
+  "Bilan x PAC eau-eau indiv . P4 moins aides": 743.72,
+  "Bilan x PAC eau-eau indiv . aides": 636.36,
+  "Bilan x PAC eau-eau indiv . total avec aides": 1974.05,
+  "Bilan x PAC eau-eau indiv . total sans aides": 2610.41,
+  "Bilan x PAC eau-eau indiv . total sans installation": 1230.32,
+  "env . Installation x PAC eau-eau x Individuel . Scope 2": 227.79,
+  "env . Installation x PAC eau-eau x Individuel . Scope 3": 164.84,
+  "env . Installation x PAC eau-eau x Individuel . Total": 392.63,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Poêle à granulés indiv 1`] = `
+{
+  "Bilan x Poêle à granulés indiv . P1Consofroid": 0,
+  "Bilan x Poêle à granulés indiv . P1ECS": 143.49,
+  "Bilan x Poêle à granulés indiv . P1abo": 0,
+  "Bilan x Poêle à granulés indiv . P1conso": 620.09,
+  "Bilan x Poêle à granulés indiv . P1prime": 0,
+  "Bilan x Poêle à granulés indiv . P2": 264.03,
+  "Bilan x Poêle à granulés indiv . P3": 0,
+  "Bilan x Poêle à granulés indiv . P4": 894.78,
+  "Bilan x Poêle à granulés indiv . P4 moins aides": 801.03,
+  "Bilan x Poêle à granulés indiv . aides": 93.75,
+  "Bilan x Poêle à granulés indiv . total avec aides": 1828.64,
+  "Bilan x Poêle à granulés indiv . total sans aides": 1922.39,
+  "Bilan x Poêle à granulés indiv . total sans installation": 1027.61,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 2": 37.15,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 3": 91.5,
+  "env . Installation x Poêle à granulés indiv x Individuel . Total": 380.1,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Radiateur électrique 1`] = `
+{
+  "Bilan x Radiateur électrique . P1Consofroid": 0,
+  "Bilan x Radiateur électrique . P1ECS": 143.49,
+  "Bilan x Radiateur électrique . P1abo": 65.62,
+  "Bilan x Radiateur électrique . P1conso": 1420.46,
+  "Bilan x Radiateur électrique . P1prime": 0,
+  "Bilan x Radiateur électrique . P2": 0,
+  "Bilan x Radiateur électrique . P3": 0,
+  "Bilan x Radiateur électrique . P4": 451.74,
+  "Bilan x Radiateur électrique . P4 moins aides": 451.74,
+  "Bilan x Radiateur électrique . aides": 0,
+  "Bilan x Radiateur électrique . total avec aides": 2081.31,
+  "Bilan x Radiateur électrique . total sans aides": 2081.31,
+  "env . Installation x Radiateur électrique x Individuel . Scope 2": 472.79,
+  "env . Installation x Radiateur électrique x Individuel . Scope 3": 94.29,
+  "env . Installation x Radiateur électrique x Individuel . Total": 567.09,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > Réseaux de chaleur 1`] = `
+{
+  "Bilan x Réseaux de chaleur . P1Consofroid": 0,
+  "Bilan x Réseaux de chaleur . P1ECS": 143.49,
+  "Bilan x Réseaux de chaleur . P1abo": 189.58,
+  "Bilan x Réseaux de chaleur . P1conso": 610.85,
+  "Bilan x Réseaux de chaleur . P1prime": 2.84,
+  "Bilan x Réseaux de chaleur . P2": 16.2,
+  "Bilan x Réseaux de chaleur . P3": 8.1,
+  "Bilan x Réseaux de chaleur . P4": 546.24,
+  "Bilan x Réseaux de chaleur . P4 moins aides": 399.76,
+  "Bilan x Réseaux de chaleur . aides": 146.48,
+  "Bilan x Réseaux de chaleur . total avec aides": 1370.82,
+  "Bilan x Réseaux de chaleur . total sans aides": 1517.3,
+  "Bilan x Réseaux de chaleur . total sans installation": 971.06,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 2": 1401.97,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 3": 30.67,
+  "env . Installation x Réseaux de chaleur x Collectif . Total": 1432.64,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > add-ons (solaire, hybride, thermodynamique) 1`] = `
+{
+  "Bilan x Chauffe-eau thermodynamique . total sans installation": 112.26,
+  "Bilan x PAC air-eau coll hybride . total sans aides": 1735.63,
+  "Bilan x PAC air-eau coll hybride . total sans installation": 1043.18,
+  "Bilan x PAC air-eau collective ECS . total sans installation": 112.26,
+  "Bilan x PAC capteurs solaires atmosphériques . total sans installation": 143.49,
+  "Bilan x Solaire thermique . total sans installation": 69.55,
+  "Bilan x Système solaire combiné . total sans installation": 386.07,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Chaudière à granulés coll 1`] = `
+{
+  "Bilan x Chaudière à granulés coll . P1Consofroid": 0,
+  "Bilan x Chaudière à granulés coll . P1ECS": 0,
+  "Bilan x Chaudière à granulés coll . P1abo": 0,
+  "Bilan x Chaudière à granulés coll . P1conso": 737.89,
+  "Bilan x Chaudière à granulés coll . P1prime": 3.47,
+  "Bilan x Chaudière à granulés coll . P2": 202.42,
+  "Bilan x Chaudière à granulés coll . P3": 0,
+  "Bilan x Chaudière à granulés coll . P4": 275.29,
+  "Bilan x Chaudière à granulés coll . P4 moins aides": 178.94,
+  "Bilan x Chaudière à granulés coll . aides": 96.35,
+  "Bilan x Chaudière à granulés coll . total avec aides": 1122.72,
+  "Bilan x Chaudière à granulés coll . total sans aides": 1219.07,
+  "Bilan x Chaudière à granulés coll . total sans installation": 943.77,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 2": 1.06,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 3": 20.82,
+  "env . Installation x Chaudière à granulés coll x Collectif . Total": 274.35,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Fioul coll 1`] = `
+{
+  "Bilan x Fioul coll . P1Consofroid": 0,
+  "Bilan x Fioul coll . P1ECS": 0,
+  "Bilan x Fioul coll . P1abo": 0,
+  "Bilan x Fioul coll . P1conso": 1190.62,
+  "Bilan x Fioul coll . P1prime": 5.96,
+  "Bilan x Fioul coll . P2": 64.41,
+  "Bilan x Fioul coll . P3": 29.52,
+  "Bilan x Fioul coll . P4": 81.71,
+  "Bilan x Fioul coll . P4 moins aides": 81.71,
+  "Bilan x Fioul coll . aides": 0,
+  "Bilan x Fioul coll . total avec aides": 1372.22,
+  "Bilan x Fioul coll . total sans aides": 1372.22,
+  "env . Installation x Fioul coll x Collectif . Scope 2": 1.83,
+  "env . Installation x Fioul coll x Collectif . Scope 3": 16.38,
+  "env . Installation x Fioul coll x Collectif . Total": 3409.2,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Fioul indiv 1`] = `
+{
+  "Bilan x Fioul indiv . P1Consofroid": 0,
+  "Bilan x Fioul indiv . P1ECS": 0,
+  "Bilan x Fioul indiv . P1abo": 0,
+  "Bilan x Fioul indiv . P1conso": 1158,
+  "Bilan x Fioul indiv . P1prime": 1.73,
+  "Bilan x Fioul indiv . P2": 171.6,
+  "Bilan x Fioul indiv . P3": 84,
+  "Bilan x Fioul indiv . P4": 217.36,
+  "Bilan x Fioul indiv . P4 moins aides": 217.36,
+  "Bilan x Fioul indiv . aides": 0,
+  "Bilan x Fioul indiv . total avec aides": 1632.7,
+  "Bilan x Fioul indiv . total sans aides": 1632.7,
+  "env . Installation x Fioul indiv x Individuel . Scope 2": 0.53,
+  "env . Installation x Fioul indiv x Individuel . Scope 3": 64,
+  "env . Installation x Fioul indiv x Individuel . Total": 3362.61,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Gaz coll avec cond 1`] = `
+{
+  "Bilan x Gaz coll avec cond . P1Consofroid": 0,
+  "Bilan x Gaz coll avec cond . P1ECS": 0,
+  "Bilan x Gaz coll avec cond . P1abo": 73.58,
+  "Bilan x Gaz coll avec cond . P1conso": 953.06,
+  "Bilan x Gaz coll avec cond . P1prime": 5.96,
+  "Bilan x Gaz coll avec cond . P2": 64.41,
+  "Bilan x Gaz coll avec cond . P3": 26.83,
+  "Bilan x Gaz coll avec cond . P4": 70.91,
+  "Bilan x Gaz coll avec cond . P4 moins aides": 70.91,
+  "Bilan x Gaz coll avec cond . aides": 0,
+  "Bilan x Gaz coll avec cond . total avec aides": 1194.74,
+  "Bilan x Gaz coll avec cond . total sans aides": 1194.74,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 2": 1.83,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll avec cond x Collectif . Total": 2310.66,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Gaz coll sans cond 1`] = `
+{
+  "Bilan x Gaz coll sans cond . P1Consofroid": 0,
+  "Bilan x Gaz coll sans cond . P1ECS": 0,
+  "Bilan x Gaz coll sans cond . P1abo": 73.58,
+  "Bilan x Gaz coll sans cond . P1conso": 1057.74,
+  "Bilan x Gaz coll sans cond . P1prime": 5.96,
+  "Bilan x Gaz coll sans cond . P2": 64.41,
+  "Bilan x Gaz coll sans cond . P3": 26.83,
+  "Bilan x Gaz coll sans cond . P4": 70.91,
+  "Bilan x Gaz coll sans cond . P4 moins aides": 70.91,
+  "Bilan x Gaz coll sans cond . aides": 0,
+  "Bilan x Gaz coll sans cond . total avec aides": 1299.43,
+  "Bilan x Gaz coll sans cond . total sans aides": 1299.43,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 2": 1.83,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll sans cond x Collectif . Total": 2563.26,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Gaz indiv avec cond 1`] = `
+{
+  "Bilan x Gaz indiv avec cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv avec cond . P1ECS": 0,
+  "Bilan x Gaz indiv avec cond . P1abo": 275.89,
+  "Bilan x Gaz indiv avec cond . P1conso": 908.41,
+  "Bilan x Gaz indiv avec cond . P1prime": 1.73,
+  "Bilan x Gaz indiv avec cond . P2": 171.6,
+  "Bilan x Gaz indiv avec cond . P3": 84,
+  "Bilan x Gaz indiv avec cond . P4": 244.09,
+  "Bilan x Gaz indiv avec cond . P4 moins aides": 244.09,
+  "Bilan x Gaz indiv avec cond . aides": 0,
+  "Bilan x Gaz indiv avec cond . total avec aides": 1685.73,
+  "Bilan x Gaz indiv avec cond . total sans aides": 1685.73,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 2": 0.53,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 3": 23.29,
+  "env . Installation x Gaz indiv avec cond x Individuel . Total": 2215.83,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Gaz indiv sans cond 1`] = `
+{
+  "Bilan x Gaz indiv sans cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv sans cond . P1ECS": 0,
+  "Bilan x Gaz indiv sans cond . P1abo": 275.89,
+  "Bilan x Gaz indiv sans cond . P1conso": 1029.53,
+  "Bilan x Gaz indiv sans cond . P1prime": 1.73,
+  "Bilan x Gaz indiv sans cond . P2": 171.6,
+  "Bilan x Gaz indiv sans cond . P3": 84,
+  "Bilan x Gaz indiv sans cond . P4": 244.09,
+  "Bilan x Gaz indiv sans cond . P4 moins aides": 244.09,
+  "Bilan x Gaz indiv sans cond . aides": 0,
+  "Bilan x Gaz indiv sans cond . total avec aides": 1806.85,
+  "Bilan x Gaz indiv sans cond . total sans aides": 1806.85,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 2": 0.53,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 3": 37.84,
+  "env . Installation x Gaz indiv sans cond x Individuel . Total": 2522.64,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > PAC air-air coll 1`] = `
+{
+  "Bilan x PAC air-air coll . P1Consofroid": 0,
+  "Bilan x PAC air-air coll . P1ECS": 358.73,
+  "Bilan x PAC air-air coll . P1abo": 56.97,
+  "Bilan x PAC air-air coll . P1conso": 430.44,
+  "Bilan x PAC air-air coll . P1prime": 0,
+  "Bilan x PAC air-air coll . P2": 90.17,
+  "Bilan x PAC air-air coll . P3": 78.04,
+  "Bilan x PAC air-air coll . P4": 261.28,
+  "Bilan x PAC air-air coll . P4 moins aides": 261.28,
+  "Bilan x PAC air-air coll . aides": 0,
+  "Bilan x PAC air-air coll . total avec aides": 1275.63,
+  "Bilan x PAC air-air coll . total sans aides": 1275.63,
+  "env . Installation x PAC air-air x Collectif . Scope 2": 242.03,
+  "env . Installation x PAC air-air x Collectif . Scope 3": 81.88,
+  "env . Installation x PAC air-air x Collectif . Total": 323.91,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > PAC air-air indiv 1`] = `
+{
+  "Bilan x PAC air-air indiv . P1Consofroid": 0,
+  "Bilan x PAC air-air indiv . P1ECS": 358.73,
+  "Bilan x PAC air-air indiv . P1abo": 65.62,
+  "Bilan x PAC air-air indiv . P1conso": 526.09,
+  "Bilan x PAC air-air indiv . P1prime": 0,
+  "Bilan x PAC air-air indiv . P2": 238.8,
+  "Bilan x PAC air-air indiv . P3": 160.8,
+  "Bilan x PAC air-air indiv . P4": 369.97,
+  "Bilan x PAC air-air indiv . P4 moins aides": 369.97,
+  "Bilan x PAC air-air indiv . aides": 0,
+  "Bilan x PAC air-air indiv . total avec aides": 1720.02,
+  "Bilan x PAC air-air indiv . total sans aides": 1720.02,
+  "Bilan x PAC air-air indiv . total sans installation": 1350.05,
+  "env . Installation x PAC air-air x Individuel . Scope 2": 271.37,
+  "env . Installation x PAC air-air x Individuel . Scope 3": 275.03,
+  "env . Installation x PAC air-air x Individuel . Total": 546.4,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > PAC air-eau coll 1`] = `
+{
+  "Bilan x PAC air-eau coll . P1Consofroid": 0,
+  "Bilan x PAC air-eau coll . P1ECS": 0,
+  "Bilan x PAC air-eau coll . P1abo": 56.97,
+  "Bilan x PAC air-eau coll . P1conso": 623.22,
+  "Bilan x PAC air-eau coll . P1prime": 5.96,
+  "Bilan x PAC air-eau coll . P2": 90.17,
+  "Bilan x PAC air-eau coll . P3": 107.86,
+  "Bilan x PAC air-eau coll . P4": 285.05,
+  "Bilan x PAC air-eau coll . P4 moins aides": 185.29,
+  "Bilan x PAC air-eau coll . aides": 99.77,
+  "Bilan x PAC air-eau coll . total avec aides": 1069.47,
+  "Bilan x PAC air-eau coll . total sans aides": 1169.24,
+  "Bilan x PAC air-eau coll . total sans installation": 884.18,
+  "env . Installation x PAC air-eau x Collectif . Scope 2": 192.96,
+  "env . Installation x PAC air-eau x Collectif . Scope 3": 54.91,
+  "env . Installation x PAC air-eau x Collectif . Total": 247.87,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > PAC air-eau indiv 1`] = `
+{
+  "Bilan x PAC air-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC air-eau indiv . P1ECS": 0,
+  "Bilan x PAC air-eau indiv . P1abo": 65.62,
+  "Bilan x PAC air-eau indiv . P1conso": 666.37,
+  "Bilan x PAC air-eau indiv . P1prime": 5.96,
+  "Bilan x PAC air-eau indiv . P2": 238.8,
+  "Bilan x PAC air-eau indiv . P3": 160.8,
+  "Bilan x PAC air-eau indiv . P4": 823.52,
+  "Bilan x PAC air-eau indiv . P4 moins aides": 529.4,
+  "Bilan x PAC air-eau indiv . aides": 294.12,
+  "Bilan x PAC air-eau indiv . total avec aides": 1666.95,
+  "Bilan x PAC air-eau indiv . total sans aides": 1961.07,
+  "Bilan x PAC air-eau indiv . total sans installation": 1137.55,
+  "env . Installation x PAC air-eau x Individuel . Scope 2": 206.2,
+  "env . Installation x PAC air-eau x Individuel . Scope 3": 267.65,
+  "env . Installation x PAC air-eau x Individuel . Total": 473.84,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > PAC eau-eau coll 1`] = `
+{
+  "Bilan x PAC eau-eau coll . P1Consofroid": 0,
+  "Bilan x PAC eau-eau coll . P1ECS": 0,
+  "Bilan x PAC eau-eau coll . P1abo": 56.97,
+  "Bilan x PAC eau-eau coll . P1conso": 455.93,
+  "Bilan x PAC eau-eau coll . P1prime": 5.96,
+  "Bilan x PAC eau-eau coll . P2": 90.17,
+  "Bilan x PAC eau-eau coll . P3": 152.44,
+  "Bilan x PAC eau-eau coll . P4": 708.19,
+  "Bilan x PAC eau-eau coll . P4 moins aides": 502.62,
+  "Bilan x PAC eau-eau coll . aides": 205.57,
+  "Bilan x PAC eau-eau coll . total avec aides": 1264.09,
+  "Bilan x PAC eau-eau coll . total sans aides": 1469.66,
+  "Bilan x PAC eau-eau coll . total sans installation": 761.47,
+  "env . Installation x PAC eau-eau x Collectif . Scope 2": 141.66,
+  "env . Installation x PAC eau-eau x Collectif . Scope 3": 156.05,
+  "env . Installation x PAC eau-eau x Collectif . Total": 297.71,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > PAC eau-eau indiv 1`] = `
+{
+  "Bilan x PAC eau-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC eau-eau indiv . P1ECS": 0,
+  "Bilan x PAC eau-eau indiv . P1abo": 65.62,
+  "Bilan x PAC eau-eau indiv . P1conso": 618.77,
+  "Bilan x PAC eau-eau indiv . P1prime": 5.96,
+  "Bilan x PAC eau-eau indiv . P2": 238.8,
+  "Bilan x PAC eau-eau indiv . P3": 160.8,
+  "Bilan x PAC eau-eau indiv . P4": 1031.3,
+  "Bilan x PAC eau-eau indiv . P4 moins aides": 304.03,
+  "Bilan x PAC eau-eau indiv . aides": 727.27,
+  "Bilan x PAC eau-eau indiv . total avec aides": 1393.98,
+  "Bilan x PAC eau-eau indiv . total sans aides": 2121.25,
+  "Bilan x PAC eau-eau indiv . total sans installation": 1089.95,
+  "env . Installation x PAC eau-eau x Individuel . Scope 2": 191.6,
+  "env . Installation x PAC eau-eau x Individuel . Scope 3": 164.84,
+  "env . Installation x PAC eau-eau x Individuel . Total": 356.44,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Poêle à granulés indiv 1`] = `
+{
+  "Bilan x Poêle à granulés indiv . P1Consofroid": 0,
+  "Bilan x Poêle à granulés indiv . P1ECS": 358.73,
+  "Bilan x Poêle à granulés indiv . P1abo": 0,
+  "Bilan x Poêle à granulés indiv . P1conso": 620.09,
+  "Bilan x Poêle à granulés indiv . P1prime": 0,
+  "Bilan x Poêle à granulés indiv . P2": 264.03,
+  "Bilan x Poêle à granulés indiv . P3": 0,
+  "Bilan x Poêle à granulés indiv . P4": 601.05,
+  "Bilan x Poêle à granulés indiv . P4 moins aides": 488.55,
+  "Bilan x Poêle à granulés indiv . aides": 112.5,
+  "Bilan x Poêle à granulés indiv . total avec aides": 1731.4,
+  "Bilan x Poêle à granulés indiv . total sans aides": 1843.9,
+  "Bilan x Poêle à granulés indiv . total sans installation": 1242.85,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 2": 110.02,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 3": 91.5,
+  "env . Installation x Poêle à granulés indiv x Individuel . Total": 452.97,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Radiateur électrique 1`] = `
+{
+  "Bilan x Radiateur électrique . P1Consofroid": 0,
+  "Bilan x Radiateur électrique . P1ECS": 358.73,
+  "Bilan x Radiateur électrique . P1abo": 65.62,
+  "Bilan x Radiateur électrique . P1conso": 1420.46,
+  "Bilan x Radiateur électrique . P1prime": 0,
+  "Bilan x Radiateur électrique . P2": 0,
+  "Bilan x Radiateur électrique . P3": 0,
+  "Bilan x Radiateur électrique . P4": 158.01,
+  "Bilan x Radiateur électrique . P4 moins aides": 158.01,
+  "Bilan x Radiateur électrique . aides": 0,
+  "Bilan x Radiateur électrique . total avec aides": 2002.82,
+  "Bilan x Radiateur électrique . total sans aides": 2002.82,
+  "env . Installation x Radiateur électrique x Individuel . Scope 2": 545.66,
+  "env . Installation x Radiateur électrique x Individuel . Scope 3": 94.29,
+  "env . Installation x Radiateur électrique x Individuel . Total": 639.96,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > Réseaux de chaleur 1`] = `
+{
+  "Bilan x Réseaux de chaleur . P1Consofroid": 0,
+  "Bilan x Réseaux de chaleur . P1ECS": 0,
+  "Bilan x Réseaux de chaleur . P1abo": 228.1,
+  "Bilan x Réseaux de chaleur . P1conso": 734.96,
+  "Bilan x Réseaux de chaleur . P1prime": 5.96,
+  "Bilan x Réseaux de chaleur . P2": 16.2,
+  "Bilan x Réseaux de chaleur . P3": 8.1,
+  "Bilan x Réseaux de chaleur . P4": 197.45,
+  "Bilan x Réseaux de chaleur . P4 moins aides": 44.53,
+  "Bilan x Réseaux de chaleur . aides": 152.92,
+  "Bilan x Réseaux de chaleur . total avec aides": 1037.85,
+  "Bilan x Réseaux de chaleur . total sans aides": 1190.77,
+  "Bilan x Réseaux de chaleur . total sans installation": 993.32,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 2": 1364.82,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 3": 30.67,
+  "env . Installation x Réseaux de chaleur x Collectif . Total": 1395.49,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > add-ons (solaire, hybride, thermodynamique) 1`] = `
+{
+  "Bilan x Chauffe-eau thermodynamique . total sans installation": 112.26,
+  "Bilan x PAC air-eau coll hybride . total sans aides": 1283.36,
+  "Bilan x PAC air-eau coll hybride . total sans installation": 1008.83,
+  "Bilan x PAC air-eau collective ECS . total sans installation": 112.26,
+  "Bilan x PAC capteurs solaires atmosphériques . total sans installation": 0,
+  "Bilan x Solaire thermique . total sans installation": 69.55,
+  "Bilan x Système solaire combiné . total sans installation": 386.07,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Chaudière à granulés coll 1`] = `
+{
+  "Bilan x Chaudière à granulés coll . P1Consofroid": 0,
+  "Bilan x Chaudière à granulés coll . P1ECS": 358.73,
+  "Bilan x Chaudière à granulés coll . P1abo": 0,
+  "Bilan x Chaudière à granulés coll . P1conso": 604.97,
+  "Bilan x Chaudière à granulés coll . P1prime": 2.84,
+  "Bilan x Chaudière à granulés coll . P2": 202.42,
+  "Bilan x Chaudière à granulés coll . P3": 0,
+  "Bilan x Chaudière à granulés coll . P4": 330.35,
+  "Bilan x Chaudière à granulés coll . P4 moins aides": 233.99,
+  "Bilan x Chaudière à granulés coll . aides": 96.35,
+  "Bilan x Chaudière à granulés coll . total avec aides": 1402.95,
+  "Bilan x Chaudière à granulés coll . total sans aides": 1499.31,
+  "Bilan x Chaudière à granulés coll . total sans installation": 1168.96,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 2": 110.89,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 3": 20.82,
+  "env . Installation x Chaudière à granulés coll x Collectif . Total": 338.7,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Fioul coll 1`] = `
+{
+  "Bilan x Fioul coll . P1Consofroid": 0,
+  "Bilan x Fioul coll . P1ECS": 358.73,
+  "Bilan x Fioul coll . P1abo": 0,
+  "Bilan x Fioul coll . P1conso": 976.15,
+  "Bilan x Fioul coll . P1prime": 2.84,
+  "Bilan x Fioul coll . P2": 64.41,
+  "Bilan x Fioul coll . P3": 29.52,
+  "Bilan x Fioul coll . P4": 136.77,
+  "Bilan x Fioul coll . P4 moins aides": 136.77,
+  "Bilan x Fioul coll . aides": 0,
+  "Bilan x Fioul coll . total avec aides": 1568.41,
+  "Bilan x Fioul coll . total sans aides": 1568.41,
+  "env . Installation x Fioul coll x Collectif . Scope 2": 110.89,
+  "env . Installation x Fioul coll x Collectif . Scope 3": 16.38,
+  "env . Installation x Fioul coll x Collectif . Total": 2907.42,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Fioul indiv 1`] = `
+{
+  "Bilan x Fioul indiv . P1Consofroid": 0,
+  "Bilan x Fioul indiv . P1ECS": 358.73,
+  "Bilan x Fioul indiv . P1abo": 0,
+  "Bilan x Fioul indiv . P1conso": 949.4,
+  "Bilan x Fioul indiv . P1prime": 1.42,
+  "Bilan x Fioul indiv . P2": 171.6,
+  "Bilan x Fioul indiv . P3": 84,
+  "Bilan x Fioul indiv . P4": 272.41,
+  "Bilan x Fioul indiv . P4 moins aides": 272.41,
+  "Bilan x Fioul indiv . aides": 0,
+  "Bilan x Fioul indiv . total avec aides": 1837.57,
+  "Bilan x Fioul indiv . total sans aides": 1837.57,
+  "env . Installation x Fioul indiv x Individuel . Scope 2": 110.46,
+  "env . Installation x Fioul indiv x Individuel . Scope 3": 64,
+  "env . Installation x Fioul indiv x Individuel . Total": 2878.43,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Gaz coll avec cond 1`] = `
+{
+  "Bilan x Gaz coll avec cond . P1Consofroid": 0,
+  "Bilan x Gaz coll avec cond . P1ECS": 358.73,
+  "Bilan x Gaz coll avec cond . P1abo": 55.64,
+  "Bilan x Gaz coll avec cond . P1conso": 791.32,
+  "Bilan x Gaz coll avec cond . P1prime": 2.84,
+  "Bilan x Gaz coll avec cond . P2": 64.41,
+  "Bilan x Gaz coll avec cond . P3": 16.1,
+  "Bilan x Gaz coll avec cond . P4": 97.6,
+  "Bilan x Gaz coll avec cond . P4 moins aides": 97.6,
+  "Bilan x Gaz coll avec cond . aides": 0,
+  "Bilan x Gaz coll avec cond . total avec aides": 1386.64,
+  "Bilan x Gaz coll avec cond . total sans aides": 1386.64,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 2": 110.89,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 3": 5.45,
+  "env . Installation x Gaz coll avec cond x Collectif . Total": 2025.81,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Gaz coll sans cond 1`] = `
+{
+  "Bilan x Gaz coll sans cond . P1Consofroid": 0,
+  "Bilan x Gaz coll sans cond . P1ECS": 358.73,
+  "Bilan x Gaz coll sans cond . P1abo": 55.64,
+  "Bilan x Gaz coll sans cond . P1conso": 867.2,
+  "Bilan x Gaz coll sans cond . P1prime": 2.84,
+  "Bilan x Gaz coll sans cond . P2": 64.41,
+  "Bilan x Gaz coll sans cond . P3": 26.83,
+  "Bilan x Gaz coll sans cond . P4": 125.96,
+  "Bilan x Gaz coll sans cond . P4 moins aides": 125.96,
+  "Bilan x Gaz coll sans cond . aides": 0,
+  "Bilan x Gaz coll sans cond . total avec aides": 1501.62,
+  "Bilan x Gaz coll sans cond . total sans aides": 1501.62,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 2": 110.89,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 3": 9.09,
+  "env . Installation x Gaz coll sans cond x Collectif . Total": 2212.55,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Gaz indiv avec cond 1`] = `
+{
+  "Bilan x Gaz indiv avec cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv avec cond . P1ECS": 358.73,
+  "Bilan x Gaz indiv avec cond . P1abo": 275.89,
+  "Bilan x Gaz indiv avec cond . P1conso": 744.77,
+  "Bilan x Gaz indiv avec cond . P1prime": 1.42,
+  "Bilan x Gaz indiv avec cond . P2": 171.6,
+  "Bilan x Gaz indiv avec cond . P3": 84,
+  "Bilan x Gaz indiv avec cond . P4": 299.15,
+  "Bilan x Gaz indiv avec cond . P4 moins aides": 299.15,
+  "Bilan x Gaz indiv avec cond . aides": 0,
+  "Bilan x Gaz indiv avec cond . total avec aides": 1935.56,
+  "Bilan x Gaz indiv avec cond . total sans aides": 1935.56,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 2": 110.46,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 3": 23.29,
+  "env . Installation x Gaz indiv avec cond x Individuel . Total": 1930.9,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Gaz indiv sans cond 1`] = `
+{
+  "Bilan x Gaz indiv sans cond . P1Consofroid": 0,
+  "Bilan x Gaz indiv sans cond . P1ECS": 358.73,
+  "Bilan x Gaz indiv sans cond . P1abo": 275.89,
+  "Bilan x Gaz indiv sans cond . P1conso": 844.08,
+  "Bilan x Gaz indiv sans cond . P1prime": 1.42,
+  "Bilan x Gaz indiv sans cond . P2": 171.6,
+  "Bilan x Gaz indiv sans cond . P3": 84,
+  "Bilan x Gaz indiv sans cond . P4": 299.15,
+  "Bilan x Gaz indiv sans cond . P4 moins aides": 299.15,
+  "Bilan x Gaz indiv sans cond . aides": 0,
+  "Bilan x Gaz indiv sans cond . total avec aides": 2034.87,
+  "Bilan x Gaz indiv sans cond . total sans aides": 2034.87,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 2": 110.46,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 3": 37.84,
+  "env . Installation x Gaz indiv sans cond x Individuel . Total": 2185.06,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > PAC air-air coll 1`] = `
+{
+  "Bilan x PAC air-air coll . P1Consofroid": 0,
+  "Bilan x PAC air-air coll . P1ECS": 358.73,
+  "Bilan x PAC air-air coll . P1abo": 56.97,
+  "Bilan x PAC air-air coll . P1conso": 430.44,
+  "Bilan x PAC air-air coll . P1prime": 0,
+  "Bilan x PAC air-air coll . P2": 90.17,
+  "Bilan x PAC air-air coll . P3": 78.04,
+  "Bilan x PAC air-air coll . P4": 261.28,
+  "Bilan x PAC air-air coll . P4 moins aides": 261.28,
+  "Bilan x PAC air-air coll . aides": 0,
+  "Bilan x PAC air-air coll . total avec aides": 1275.63,
+  "Bilan x PAC air-air coll . total sans aides": 1275.63,
+  "env . Installation x PAC air-air x Collectif . Scope 2": 242.03,
+  "env . Installation x PAC air-air x Collectif . Scope 3": 81.88,
+  "env . Installation x PAC air-air x Collectif . Total": 323.91,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > PAC air-air indiv 1`] = `
+{
+  "Bilan x PAC air-air indiv . P1Consofroid": 0,
+  "Bilan x PAC air-air indiv . P1ECS": 358.73,
+  "Bilan x PAC air-air indiv . P1abo": 65.62,
+  "Bilan x PAC air-air indiv . P1conso": 526.09,
+  "Bilan x PAC air-air indiv . P1prime": 0,
+  "Bilan x PAC air-air indiv . P2": 238.8,
+  "Bilan x PAC air-air indiv . P3": 160.8,
+  "Bilan x PAC air-air indiv . P4": 369.97,
+  "Bilan x PAC air-air indiv . P4 moins aides": 369.97,
+  "Bilan x PAC air-air indiv . aides": 0,
+  "Bilan x PAC air-air indiv . total avec aides": 1720.02,
+  "Bilan x PAC air-air indiv . total sans aides": 1720.02,
+  "Bilan x PAC air-air indiv . total sans installation": 1350.05,
+  "env . Installation x PAC air-air x Individuel . Scope 2": 271.37,
+  "env . Installation x PAC air-air x Individuel . Scope 3": 275.03,
+  "env . Installation x PAC air-air x Individuel . Total": 546.4,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > PAC air-eau coll 1`] = `
+{
+  "Bilan x PAC air-eau coll . P1Consofroid": 0,
+  "Bilan x PAC air-eau coll . P1ECS": 358.73,
+  "Bilan x PAC air-eau coll . P1abo": 56.97,
+  "Bilan x PAC air-eau coll . P1conso": 510.96,
+  "Bilan x PAC air-eau coll . P1prime": 2.84,
+  "Bilan x PAC air-eau coll . P2": 90.17,
+  "Bilan x PAC air-eau coll . P3": 107.86,
+  "Bilan x PAC air-eau coll . P4": 340.11,
+  "Bilan x PAC air-eau coll . P4 moins aides": 240.34,
+  "Bilan x PAC air-eau coll . aides": 99.77,
+  "Bilan x PAC air-eau coll . total avec aides": 1367.87,
+  "Bilan x PAC air-eau coll . total sans aides": 1467.64,
+  "Bilan x PAC air-eau coll . total sans installation": 1127.53,
+  "env . Installation x PAC air-eau x Collectif . Scope 2": 267.6,
+  "env . Installation x PAC air-eau x Collectif . Scope 3": 54.91,
+  "env . Installation x PAC air-eau x Collectif . Total": 322.51,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > PAC air-eau indiv 1`] = `
+{
+  "Bilan x PAC air-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC air-eau indiv . P1ECS": 358.73,
+  "Bilan x PAC air-eau indiv . P1abo": 65.62,
+  "Bilan x PAC air-eau indiv . P1conso": 666.37,
+  "Bilan x PAC air-eau indiv . P1prime": 2.84,
+  "Bilan x PAC air-eau indiv . P2": 238.8,
+  "Bilan x PAC air-eau indiv . P3": 160.8,
+  "Bilan x PAC air-eau indiv . P4": 878.57,
+  "Bilan x PAC air-eau indiv . P4 moins aides": 643.28,
+  "Bilan x PAC air-eau indiv . aides": 235.29,
+  "Bilan x PAC air-eau indiv . total avec aides": 2136.44,
+  "Bilan x PAC air-eau indiv . total sans aides": 2371.73,
+  "Bilan x PAC air-eau indiv . total sans installation": 1493.16,
+  "env . Installation x PAC air-eau x Individuel . Scope 2": 315.26,
+  "env . Installation x PAC air-eau x Individuel . Scope 3": 267.65,
+  "env . Installation x PAC air-eau x Individuel . Total": 582.91,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > PAC eau-eau coll 1`] = `
+{
+  "Bilan x PAC eau-eau coll . P1Consofroid": 0,
+  "Bilan x PAC eau-eau coll . P1ECS": 358.73,
+  "Bilan x PAC eau-eau coll . P1abo": 56.97,
+  "Bilan x PAC eau-eau coll . P1conso": 373.8,
+  "Bilan x PAC eau-eau coll . P1prime": 2.84,
+  "Bilan x PAC eau-eau coll . P2": 90.17,
+  "Bilan x PAC eau-eau coll . P3": 152.44,
+  "Bilan x PAC eau-eau coll . P4": 763.24,
+  "Bilan x PAC eau-eau coll . P4 moins aides": 557.67,
+  "Bilan x PAC eau-eau coll . aides": 205.57,
+  "Bilan x PAC eau-eau coll . total avec aides": 1592.62,
+  "Bilan x PAC eau-eau coll . total sans aides": 1798.19,
+  "Bilan x PAC eau-eau coll . total sans installation": 1034.95,
+  "env . Installation x PAC eau-eau x Collectif . Scope 2": 225.53,
+  "env . Installation x PAC eau-eau x Collectif . Scope 3": 156.05,
+  "env . Installation x PAC eau-eau x Collectif . Total": 381.59,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > PAC eau-eau indiv 1`] = `
+{
+  "Bilan x PAC eau-eau indiv . P1Consofroid": 0,
+  "Bilan x PAC eau-eau indiv . P1ECS": 358.73,
+  "Bilan x PAC eau-eau indiv . P1abo": 65.62,
+  "Bilan x PAC eau-eau indiv . P1conso": 618.77,
+  "Bilan x PAC eau-eau indiv . P1prime": 2.84,
+  "Bilan x PAC eau-eau indiv . P2": 238.8,
+  "Bilan x PAC eau-eau indiv . P3": 160.8,
+  "Bilan x PAC eau-eau indiv . P4": 1086.35,
+  "Bilan x PAC eau-eau indiv . P4 moins aides": 449.99,
+  "Bilan x PAC eau-eau indiv . aides": 636.36,
+  "Bilan x PAC eau-eau indiv . total avec aides": 1895.55,
+  "Bilan x PAC eau-eau indiv . total sans aides": 2531.92,
+  "Bilan x PAC eau-eau indiv . total sans installation": 1445.56,
+  "env . Installation x PAC eau-eau x Individuel . Scope 2": 300.66,
+  "env . Installation x PAC eau-eau x Individuel . Scope 3": 164.84,
+  "env . Installation x PAC eau-eau x Individuel . Total": 465.5,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Poêle à granulés indiv 1`] = `
+{
+  "Bilan x Poêle à granulés indiv . P1Consofroid": 0,
+  "Bilan x Poêle à granulés indiv . P1ECS": 358.73,
+  "Bilan x Poêle à granulés indiv . P1abo": 0,
+  "Bilan x Poêle à granulés indiv . P1conso": 620.09,
+  "Bilan x Poêle à granulés indiv . P1prime": 0,
+  "Bilan x Poêle à granulés indiv . P2": 264.03,
+  "Bilan x Poêle à granulés indiv . P3": 0,
+  "Bilan x Poêle à granulés indiv . P4": 601.05,
+  "Bilan x Poêle à granulés indiv . P4 moins aides": 507.3,
+  "Bilan x Poêle à granulés indiv . aides": 93.75,
+  "Bilan x Poêle à granulés indiv . total avec aides": 1750.15,
+  "Bilan x Poêle à granulés indiv . total sans aides": 1843.9,
+  "Bilan x Poêle à granulés indiv . total sans installation": 1242.85,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 2": 110.02,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 3": 91.5,
+  "env . Installation x Poêle à granulés indiv x Individuel . Total": 452.97,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Radiateur électrique 1`] = `
+{
+  "Bilan x Radiateur électrique . P1Consofroid": 0,
+  "Bilan x Radiateur électrique . P1ECS": 358.73,
+  "Bilan x Radiateur électrique . P1abo": 65.62,
+  "Bilan x Radiateur électrique . P1conso": 1420.46,
+  "Bilan x Radiateur électrique . P1prime": 0,
+  "Bilan x Radiateur électrique . P2": 0,
+  "Bilan x Radiateur électrique . P3": 0,
+  "Bilan x Radiateur électrique . P4": 158.01,
+  "Bilan x Radiateur électrique . P4 moins aides": 158.01,
+  "Bilan x Radiateur électrique . aides": 0,
+  "Bilan x Radiateur électrique . total avec aides": 2002.82,
+  "Bilan x Radiateur électrique . total sans aides": 2002.82,
+  "env . Installation x Radiateur électrique x Individuel . Scope 2": 545.66,
+  "env . Installation x Radiateur électrique x Individuel . Scope 3": 94.29,
+  "env . Installation x Radiateur électrique x Individuel . Total": 639.96,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > Réseaux de chaleur 1`] = `
+{
+  "Bilan x Réseaux de chaleur . P1Consofroid": 0,
+  "Bilan x Réseaux de chaleur . P1ECS": 358.73,
+  "Bilan x Réseaux de chaleur . P1abo": 189.58,
+  "Bilan x Réseaux de chaleur . P1conso": 610.85,
+  "Bilan x Réseaux de chaleur . P1prime": 2.84,
+  "Bilan x Réseaux de chaleur . P2": 16.2,
+  "Bilan x Réseaux de chaleur . P3": 8.1,
+  "Bilan x Réseaux de chaleur . P4": 252.5,
+  "Bilan x Réseaux de chaleur . P4 moins aides": 106.02,
+  "Bilan x Réseaux de chaleur . aides": 146.48,
+  "Bilan x Réseaux de chaleur . total avec aides": 1292.33,
+  "Bilan x Réseaux de chaleur . total sans aides": 1438.81,
+  "Bilan x Réseaux de chaleur . total sans installation": 1186.3,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 2": 1474.84,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 3": 30.67,
+  "env . Installation x Réseaux de chaleur x Collectif . Total": 1505.51,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > add-ons (solaire, hybride, thermodynamique) 1`] = `
+{
+  "Bilan x Chauffe-eau thermodynamique . total sans installation": 112.26,
+  "Bilan x PAC air-eau coll hybride . total sans aides": 1641.44,
+  "Bilan x PAC air-eau coll hybride . total sans installation": 1301.47,
+  "Bilan x PAC air-eau collective ECS . total sans installation": 112.26,
+  "Bilan x PAC capteurs solaires atmosphériques . total sans installation": 358.73,
+  "Bilan x Solaire thermique . total sans installation": 69.55,
+  "Bilan x Système solaire combiné . total sans installation": 386.07,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Chaudière à granulés coll 1`] = `
+{
+  "Bilan x Chaudière à granulés coll . P1Consofroid": 3412.94,
+  "Bilan x Chaudière à granulés coll . P1ECS": 0,
+  "Bilan x Chaudière à granulés coll . P1abo": 0,
+  "Bilan x Chaudière à granulés coll . P1conso": 11078.01,
+  "Bilan x Chaudière à granulés coll . P1prime": 52.02,
+  "Bilan x Chaudière à granulés coll . P2": 3891.6,
+  "Bilan x Chaudière à granulés coll . P3": 1.25,
+  "Bilan x Chaudière à granulés coll . P4": 9732.9,
+  "Bilan x Chaudière à granulés coll . P4 moins aides": 7324.07,
+  "Bilan x Chaudière à granulés coll . aides": 2408.82,
+  "Bilan x Chaudière à granulés coll . total avec aides": 25759.89,
+  "Bilan x Chaudière à granulés coll . total sans aides": 28168.71,
+  "Bilan x Chaudière à granulés coll . total sans installation": 18435.82,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 2": 15.95,
+  "env . Installation x Chaudière à granulés coll x Collectif . Scope 3": 520.59,
+  "env . Installation x Chaudière à granulés coll x Collectif . Total": 4326.87,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Fioul coll 1`] = `
+{
+  "Bilan x Fioul coll . P1Consofroid": 3412.94,
+  "Bilan x Fioul coll . P1ECS": 0,
+  "Bilan x Fioul coll . P1abo": 0,
+  "Bilan x Fioul coll . P1conso": 17138.01,
+  "Bilan x Fioul coll . P1prime": 83.66,
+  "Bilan x Fioul coll . P2": 1819.55,
+  "Bilan x Fioul coll . P3": 443.98,
+  "Bilan x Fioul coll . P4": 4076.26,
+  "Bilan x Fioul coll . P4 moins aides": 4076.26,
+  "Bilan x Fioul coll . aides": 0,
+  "Bilan x Fioul coll . total avec aides": 26974.39,
+  "Bilan x Fioul coll . total sans aides": 26974.39,
+  "env . Installation x Fioul coll x Collectif . Scope 2": 25.66,
+  "env . Installation x Fioul coll x Collectif . Scope 3": 245.71,
+  "env . Installation x Fioul coll x Collectif . Total": 51180.78,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Fioul indiv 1`] = `
+{
+  "Bilan x Fioul indiv . P1Consofroid": 3412.94,
+  "Bilan x Fioul indiv . P1ECS": 0,
+  "Bilan x Fioul indiv . P1abo": 0,
+  "Bilan x Fioul indiv . P1conso": 16668.48,
+  "Bilan x Fioul indiv . P1prime": 26.01,
+  "Bilan x Fioul indiv . P2": 1024.2,
+  "Bilan x Fioul indiv . P3": 85.25,
+  "Bilan x Fioul indiv . P4": 3146.35,
+  "Bilan x Fioul indiv . P4 moins aides": 3146.35,
+  "Bilan x Fioul indiv . aides": 0,
+  "Bilan x Fioul indiv . total avec aides": 24363.22,
+  "Bilan x Fioul indiv . total sans aides": 24363.22,
+  "env . Installation x Fioul indiv x Individuel . Scope 2": 7.98,
+  "env . Installation x Fioul indiv x Individuel . Scope 3": 186.67,
+  "env . Installation x Fioul indiv x Individuel . Total": 49709.28,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Gaz coll avec cond 1`] = `
+{
+  "Bilan x Gaz coll avec cond . P1Consofroid": 3412.94,
+  "Bilan x Gaz coll avec cond . P1ECS": 0,
+  "Bilan x Gaz coll avec cond . P1abo": 1391.03,
+  "Bilan x Gaz coll avec cond . P1conso": 14336.81,
+  "Bilan x Gaz coll avec cond . P1prime": 83.66,
+  "Bilan x Gaz coll avec cond . P2": 1819.55,
+  "Bilan x Gaz coll avec cond . P3": 403.73,
+  "Bilan x Gaz coll avec cond . P4": 3914.18,
+  "Bilan x Gaz coll avec cond . P4 moins aides": 3914.18,
+  "Bilan x Gaz coll avec cond . aides": 0,
+  "Bilan x Gaz coll avec cond . total avec aides": 25361.9,
+  "Bilan x Gaz coll avec cond . total sans aides": 25361.9,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 2": 25.66,
+  "env . Installation x Gaz coll avec cond x Collectif . Scope 3": 136.36,
+  "env . Installation x Gaz coll avec cond x Collectif . Total": 34756.93,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Gaz coll sans cond 1`] = `
+{
+  "Bilan x Gaz coll sans cond . P1Consofroid": 3412.94,
+  "Bilan x Gaz coll sans cond . P1ECS": 0,
+  "Bilan x Gaz coll sans cond . P1abo": 1391.03,
+  "Bilan x Gaz coll sans cond . P1conso": 15880,
+  "Bilan x Gaz coll sans cond . P1prime": 83.66,
+  "Bilan x Gaz coll sans cond . P2": 1819.55,
+  "Bilan x Gaz coll sans cond . P3": 403.73,
+  "Bilan x Gaz coll sans cond . P4": 3914.18,
+  "Bilan x Gaz coll sans cond . P4 moins aides": 3914.18,
+  "Bilan x Gaz coll sans cond . aides": 0,
+  "Bilan x Gaz coll sans cond . total avec aides": 26905.09,
+  "Bilan x Gaz coll sans cond . total sans aides": 26905.09,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 2": 25.66,
+  "env . Installation x Gaz coll sans cond x Collectif . Scope 3": 136.36,
+  "env . Installation x Gaz coll sans cond x Collectif . Total": 38480.67,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Gaz indiv avec cond 1`] = `
+{
+  "Bilan x Gaz indiv avec cond . P1Consofroid": 3412.94,
+  "Bilan x Gaz indiv avec cond . P1ECS": 0,
+  "Bilan x Gaz indiv avec cond . P1abo": 275.89,
+  "Bilan x Gaz indiv avec cond . P1conso": 13638.12,
+  "Bilan x Gaz indiv avec cond . P1prime": 26.01,
+  "Bilan x Gaz indiv avec cond . P2": 1024.2,
+  "Bilan x Gaz indiv avec cond . P3": 85.25,
+  "Bilan x Gaz indiv avec cond . P4": 3182.73,
+  "Bilan x Gaz indiv avec cond . P4 moins aides": 3182.73,
+  "Bilan x Gaz indiv avec cond . aides": 0,
+  "Bilan x Gaz indiv avec cond . total avec aides": 21645.14,
+  "Bilan x Gaz indiv avec cond . total sans aides": 21645.14,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 2": 7.98,
+  "env . Installation x Gaz indiv avec cond x Individuel . Scope 3": 67.94,
+  "env . Installation x Gaz indiv avec cond x Individuel . Total": 32984.88,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Gaz indiv sans cond 1`] = `
+{
+  "Bilan x Gaz indiv sans cond . P1Consofroid": 3412.94,
+  "Bilan x Gaz indiv sans cond . P1ECS": 0,
+  "Bilan x Gaz indiv sans cond . P1abo": 275.89,
+  "Bilan x Gaz indiv sans cond . P1conso": 15456.54,
+  "Bilan x Gaz indiv sans cond . P1prime": 26.01,
+  "Bilan x Gaz indiv sans cond . P2": 1024.2,
+  "Bilan x Gaz indiv sans cond . P3": 85.25,
+  "Bilan x Gaz indiv sans cond . P4": 3182.73,
+  "Bilan x Gaz indiv sans cond . P4 moins aides": 3182.73,
+  "Bilan x Gaz indiv sans cond . aides": 0,
+  "Bilan x Gaz indiv sans cond . total avec aides": 23463.56,
+  "Bilan x Gaz indiv sans cond . total sans aides": 23463.56,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 2": 7.98,
+  "env . Installation x Gaz indiv sans cond x Individuel . Scope 3": 110.35,
+  "env . Installation x Gaz indiv sans cond x Individuel . Total": 37415.15,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > PAC air-air coll 1`] = `
+{
+  "Bilan x PAC air-air coll . P1Consofroid": 4095.53,
+  "Bilan x PAC air-air coll . P1ECS": 4545.17,
+  "Bilan x PAC air-air coll . P1abo": 1137.97,
+  "Bilan x PAC air-air coll . P1conso": 6683.87,
+  "Bilan x PAC air-air coll . P1prime": 0,
+  "Bilan x PAC air-air coll . P2": 2206.34,
+  "Bilan x PAC air-air coll . P3": 1170.57,
+  "Bilan x PAC air-air coll . P4": 3165.11,
+  "Bilan x PAC air-air coll . P4 moins aides": 3165.11,
+  "Bilan x PAC air-air coll . aides": 0,
+  "Bilan x PAC air-air coll . total avec aides": 23004.55,
+  "Bilan x PAC air-air coll . total sans aides": 23004.55,
+  "env . Installation x PAC air-air x Collectif . Scope 2": 4500.54,
+  "env . Installation x PAC air-air x Collectif . Scope 3": 1228.13,
+  "env . Installation x PAC air-air x Collectif . Total": 5728.66,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > PAC air-air indiv 1`] = `
+{
+  "Bilan x PAC air-air indiv . P1Consofroid": 4680.6,
+  "Bilan x PAC air-air indiv . P1ECS": 4545.17,
+  "Bilan x PAC air-air indiv . P1abo": 65.62,
+  "Bilan x PAC air-air indiv . P1conso": 8169.18,
+  "Bilan x PAC air-air indiv . P1prime": 0,
+  "Bilan x PAC air-air indiv . P2": 238.8,
+  "Bilan x PAC air-air indiv . P3": 160.8,
+  "Bilan x PAC air-air indiv . P4": 5572.95,
+  "Bilan x PAC air-air indiv . P4 moins aides": 5572.95,
+  "Bilan x PAC air-air indiv . aides": 0,
+  "Bilan x PAC air-air indiv . total avec aides": 23433.12,
+  "Bilan x PAC air-air indiv . total sans aides": 23433.12,
+  "Bilan x PAC air-air indiv . total sans installation": 17860.17,
+  "env . Installation x PAC air-air x Individuel . Scope 2": 5107.03,
+  "env . Installation x PAC air-air x Individuel . Scope 3": 4804.48,
+  "env . Installation x PAC air-air x Individuel . Total": 9911.5,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > PAC air-eau coll 1`] = `
+{
+  "Bilan x PAC air-eau coll . P1Consofroid": 3412.94,
+  "Bilan x PAC air-eau coll . P1ECS": 0,
+  "Bilan x PAC air-eau coll . P1abo": 1137.97,
+  "Bilan x PAC air-eau coll . P1conso": 9356.5,
+  "Bilan x PAC air-eau coll . P1prime": 116.42,
+  "Bilan x PAC air-eau coll . P2": 2206.34,
+  "Bilan x PAC air-eau coll . P3": 2157.29,
+  "Bilan x PAC air-eau coll . P4": 5701.09,
+  "Bilan x PAC air-eau coll . P4 moins aides": 3705.71,
+  "Bilan x PAC air-eau coll . aides": 1995.38,
+  "Bilan x PAC air-eau coll . total avec aides": 22093.16,
+  "Bilan x PAC air-eau coll . total sans aides": 24088.55,
+  "Bilan x PAC air-eau coll . total sans installation": 18387.46,
+  "env . Installation x PAC air-eau x Collectif . Scope 2": 3785.84,
+  "env . Installation x PAC air-eau x Collectif . Scope 3": 1098.18,
+  "env . Installation x PAC air-eau x Collectif . Total": 4884.02,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > PAC air-eau indiv 1`] = `
+{
+  "Bilan x PAC air-eau indiv . P1Consofroid": 4680.6,
+  "Bilan x PAC air-eau indiv . P1ECS": 0,
+  "Bilan x PAC air-eau indiv . P1abo": 65.62,
+  "Bilan x PAC air-eau indiv . P1conso": 10004.26,
+  "Bilan x PAC air-eau indiv . P1prime": 116.42,
+  "Bilan x PAC air-eau indiv . P2": 238.8,
+  "Bilan x PAC air-eau indiv . P3": 160.8,
+  "Bilan x PAC air-eau indiv . P4": 823.52,
+  "Bilan x PAC air-eau indiv . P4 moins aides": 588.23,
+  "Bilan x PAC air-eau indiv . aides": 235.29,
+  "Bilan x PAC air-eau indiv . total avec aides": 15854.73,
+  "Bilan x PAC air-eau indiv . total sans aides": 16090.02,
+  "Bilan x PAC air-eau indiv . total sans installation": 15266.5,
+  "env . Installation x PAC air-eau x Individuel . Scope 2": 4311.57,
+  "env . Installation x PAC air-eau x Individuel . Scope 3": 4550,
+  "env . Installation x PAC air-eau x Individuel . Total": 8861.57,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > PAC eau-eau coll 1`] = `
+{
+  "Bilan x PAC eau-eau coll . P1Consofroid": 3412.94,
+  "Bilan x PAC eau-eau coll . P1ECS": 0,
+  "Bilan x PAC eau-eau coll . P1abo": 1137.97,
+  "Bilan x PAC eau-eau coll . P1conso": 6845.02,
+  "Bilan x PAC eau-eau coll . P1prime": 83.66,
+  "Bilan x PAC eau-eau coll . P2": 3058.94,
+  "Bilan x PAC eau-eau coll . P3": 2541.86,
+  "Bilan x PAC eau-eau coll . P4": 14653.67,
+  "Bilan x PAC eau-eau coll . P4 moins aides": 11227.56,
+  "Bilan x PAC eau-eau coll . aides": 3426.11,
+  "Bilan x PAC eau-eau coll . total avec aides": 28307.94,
+  "Bilan x PAC eau-eau coll . total sans aides": 31734.05,
+  "Bilan x PAC eau-eau coll . total sans installation": 17080.38,
+  "env . Installation x PAC eau-eau x Collectif . Scope 2": 2124.97,
+  "env . Installation x PAC eau-eau x Collectif . Scope 3": 2600.89,
+  "env . Installation x PAC eau-eau x Collectif . Total": 4725.86,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > PAC eau-eau indiv 1`] = `
+{
+  "Bilan x PAC eau-eau indiv . P1Consofroid": 3412.94,
+  "Bilan x PAC eau-eau indiv . P1ECS": 0,
+  "Bilan x PAC eau-eau indiv . P1abo": 65.62,
+  "Bilan x PAC eau-eau indiv . P1conso": 9289.67,
+  "Bilan x PAC eau-eau indiv . P1prime": 83.66,
+  "Bilan x PAC eau-eau indiv . P2": 1091.4,
+  "Bilan x PAC eau-eau indiv . P3": 162.05,
+  "Bilan x PAC eau-eau indiv . P4": 14194.87,
+  "Bilan x PAC eau-eau indiv . P4 moins aides": 13785.77,
+  "Bilan x PAC eau-eau indiv . aides": 409.09,
+  "Bilan x PAC eau-eau indiv . total avec aides": 27891.11,
+  "Bilan x PAC eau-eau indiv . total sans aides": 28300.2,
+  "Bilan x PAC eau-eau indiv . total sans installation": 14105.33,
+  "env . Installation x PAC eau-eau x Individuel . Scope 2": 2874.72,
+  "env . Installation x PAC eau-eau x Individuel . Scope 3": 1813.2,
+  "env . Installation x PAC eau-eau x Individuel . Total": 4687.92,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Poêle à granulés indiv 1`] = `
+{
+  "Bilan x Poêle à granulés indiv . P1Consofroid": 3412.94,
+  "Bilan x Poêle à granulés indiv . P1ECS": 4545.17,
+  "Bilan x Poêle à granulés indiv . P1abo": 0,
+  "Bilan x Poêle à granulés indiv . P1conso": 9628.74,
+  "Bilan x Poêle à granulés indiv . P1prime": 0,
+  "Bilan x Poêle à granulés indiv . P2": 4952.37,
+  "Bilan x Poêle à granulés indiv . P3": 1.25,
+  "Bilan x Poêle à granulés indiv . P4": 3468.17,
+  "Bilan x Poêle à granulés indiv . P4 moins aides": 3374.42,
+  "Bilan x Poêle à granulés indiv . aides": 93.75,
+  "Bilan x Poêle à granulés indiv . total avec aides": 25914.89,
+  "Bilan x Poêle à granulés indiv . total sans aides": 26008.64,
+  "Bilan x Poêle à granulés indiv . total sans installation": 22540.47,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 2": 1393.97,
+  "env . Installation x Poêle à granulés indiv x Individuel . Scope 3": 0,
+  "env . Installation x Poêle à granulés indiv x Individuel . Total": 5298.51,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Radiateur électrique 1`] = `
+{
+  "Bilan x Radiateur électrique . P1Consofroid": 3412.94,
+  "Bilan x Radiateur électrique . P1ECS": 4545.17,
+  "Bilan x Radiateur électrique . P1abo": 65.62,
+  "Bilan x Radiateur électrique . P1conso": 22056.78,
+  "Bilan x Radiateur électrique . P1prime": 0,
+  "Bilan x Radiateur électrique . P2": 852.6,
+  "Bilan x Radiateur électrique . P3": 1.25,
+  "Bilan x Radiateur électrique . P4": 4397.93,
+  "Bilan x Radiateur électrique . P4 moins aides": 4397.93,
+  "Bilan x Radiateur électrique . aides": 0,
+  "Bilan x Radiateur électrique . total avec aides": 35332.29,
+  "Bilan x Radiateur électrique . total sans aides": 35332.29,
+  "env . Installation x Radiateur électrique x Individuel . Scope 2": 8158.59,
+  "env . Installation x Radiateur électrique x Individuel . Scope 3": 1464.2,
+  "env . Installation x Radiateur électrique x Individuel . Total": 9622.8,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > Réseaux de chaleur 1`] = `
+{
+  "Bilan x Réseaux de chaleur . P1Consofroid": 3412.94,
+  "Bilan x Réseaux de chaleur . P1ECS": 0,
+  "Bilan x Réseaux de chaleur . P1abo": 3431.88,
+  "Bilan x Réseaux de chaleur . P1conso": 11057.71,
+  "Bilan x Réseaux de chaleur . P1prime": 83.66,
+  "Bilan x Réseaux de chaleur . P2": 1239.6,
+  "Bilan x Réseaux de chaleur . P3": 194.75,
+  "Bilan x Réseaux de chaleur . P4": 7995.47,
+  "Bilan x Réseaux de chaleur . P4 moins aides": 5757.81,
+  "Bilan x Réseaux de chaleur . aides": 2237.67,
+  "Bilan x Réseaux de chaleur . total avec aides": 25178.34,
+  "Bilan x Réseaux de chaleur . total sans aides": 27416,
+  "Bilan x Réseaux de chaleur . total sans installation": 19420.53,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 2": 20490.23,
+  "env . Installation x Réseaux de chaleur x Collectif . Scope 3": 460.45,
+  "env . Installation x Réseaux de chaleur x Collectif . Total": 20950.68,
+}
+`;
+
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > add-ons (solaire, hybride, thermodynamique) 1`] = `
+{
+  "Bilan x Chauffe-eau thermodynamique . total sans installation": 1422.41,
+  "Bilan x PAC air-eau coll hybride . total sans aides": 26511.8,
+  "Bilan x PAC air-eau coll hybride . total sans installation": 20258.76,
+  "Bilan x PAC air-eau collective ECS . total sans installation": 1422.41,
+  "Bilan x PAC capteurs solaires atmosphériques . total sans installation": 0,
+  "Bilan x Solaire thermique . total sans installation": 881.16,
+  "Bilan x Système solaire combiné . total sans installation": 5796.2,
+}
+`;

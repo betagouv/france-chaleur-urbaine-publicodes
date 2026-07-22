@@ -536,6 +536,50 @@ const clesRatiosEcoInstallation = [
   'ratios économiques . Radiateur électrique x Individuel x investissement total',
 ] satisfies RuleName[];
 
+// --- Module chaleur-renouvelable (heating-modes/catalog.tsx → coutParAnPublicodeKey) ---
+
+const coutParAnModes = [
+  'Réseaux de chaleur',
+  'Chaudière à granulés coll',
+  'PAC air-eau coll',
+  'PAC eau-eau coll',
+  'Poêle à granulés indiv',
+  'PAC air-air indiv',
+  'PAC air-eau indiv',
+  'PAC eau-eau indiv',
+  'PAC air-eau coll hybride',
+  'Solaire thermique',
+  'PAC capteurs solaires atmosphériques',
+  'PAC air-eau collective ECS',
+  'Chauffe-eau thermodynamique',
+  'Système solaire combiné',
+] as const;
+
+const clesChaleurRenouvelable = coutParAnModes.map(
+  (mode) => `Bilan x ${mode} . total sans installation` as const
+) satisfies RuleName[];
+
+// --- Modules simulator / pac (SimulatorFormFields.tsx, constants.ts, simulation-service.ts) ---
+
+const clesSimulateurs = [
+  'type de bâtiment',
+  'méthode résidentiel',
+  'méthode tertiaire 2026',
+  'surface logement type tertiaire',
+  "nombre de logements dans l'immeuble concerné",
+  'ménage . revenu . plafond très modeste',
+  'ménage . revenu . plafond modeste',
+  'ménage . revenu . plafond intermédiaire',
+  'ratios . GNRL Appartement ou maison',
+  'ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière',
+  'ratios économiques x aides . Coup de pouce x PAC air-eau',
+  'Calcul Eco . Montant des aides . Réseaux de chaleur . BAR-TH-137',
+  'Calcul Eco . Montant des aides . Réseaux de chaleur . BAT-TH-127',
+  'Calcul Eco . Montant des aides . Réseaux de chaleur . Coup de pouce',
+  'Calcul Eco . Montant des aides . Réseaux de chaleur . Total',
+  'Calcul Eco . Montant des aides . Réseaux de chaleur . Total montant',
+] satisfies RuleName[];
+
 // --- Tests ---
 
 const assertKeysExist = (keys: RuleName[]) => {
@@ -580,6 +624,12 @@ describe('Clés externes', () => {
   });
   describe('Env - Émissions CO2', () => {
     assertKeysExist(clesEnv);
+  });
+  describe('Module chaleur-renouvelable', () => {
+    assertKeysExist(clesChaleurRenouvelable);
+  });
+  describe('Modules simulator / pac', () => {
+    assertKeysExist(clesSimulateurs);
   });
 
   describe('Params - Clés statiques', () => {
