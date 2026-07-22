@@ -271,7 +271,7 @@ réseau de chaleur . coûts:
     Investissement ballon ECS à accumulation:
       # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
       variations:
-        - si: réseau de chaleur . installation . besoin d'installation supplémentaire pour produire l'ECS
+        - si: installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
@@ -279,7 +279,7 @@ réseau de chaleur . coûts:
       # IF(AND('Calculs techniques'!C71="Oui",Type_ECS="Solaire thermique"),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv),"")
       applicable si:
         toutes ces conditions:
-          - réseau de chaleur . installation . besoin d'installation supplémentaire pour produire l'ECS
+          - installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
@@ -302,35 +302,35 @@ réseau de chaleur . coûts:
             - sinon: 0
         - produit:
             - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement
-            - réseau de chaleur . installation . consommation combustible chaleur
+            - installation . consommation combustible chaleur
       unité: €TTC/an
       note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
     Coût du combustible consommation:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part consommation
-        - réseau de chaleur . installation . consommation combustible chaleur
+        - installation . consommation combustible chaleur
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
     Coût électricité auxiliaire:
       # =IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!F93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!$F115+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115)
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - réseau de chaleur . installation . consommation auxiliaire
+        - installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible pour ballon ECS à accumulation:
       # F45 =IF('Calculs techniques'!H93<>"",IF('Paramètres économiques'!$D$109="Option base",$D$11*'Calculs techniques'!H93,$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!H93+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!$F115),"")
-      applicable si: réseau de chaleur . installation . consommation d'électricité chauffe-eau électrique >= 0
+      applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - réseau de chaleur . installation . consommation d'électricité chauffe-eau électrique
+        - installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
     Coût combustible pour ballon ECS solaire:
-      applicable si: réseau de chaleur . installation . appoint d'électricité chauffe-eau solaire >= 0
+      applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - réseau de chaleur . installation . appoint d'électricité chauffe-eau solaire
+        - installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
     Coût combustible froid:
@@ -344,7 +344,7 @@ réseau de chaleur . coûts:
         - sinon:
             produit:
               - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - réseau de chaleur . installation . consommation Groupe Froid
+              - installation . consommation Groupe Froid
       unité: €TTC/an
 
 ###### Entretien P2 / P3
@@ -457,7 +457,7 @@ réseau de chaleur . aides cumac:
     BAT-TH-127:
       produit:
         - variations:
-            - si: réseau de chaleur . installation . puissance équipement <= 400
+            - si: installation . puissance équipement <= 400
               alors:
                 variations:
                   - si:
@@ -588,10 +588,10 @@ réseau de chaleur . environnement:
       unité: kgCO2e
     ECS solaire thermique:
       # ='Calculs techniques'!I93*'Ratios environnementaux'!$C$26
-      formule: réseau de chaleur . installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+      formule: installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       # ='Calculs techniques'!H93*'Ratios environnementaux'!$C$25
-      formule: réseau de chaleur . installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
     Scope 2:
       # =SUM(E43:G43)
       somme:
@@ -616,30 +616,30 @@ réseau de chaleur . environnement:
 
 réseau de chaleur . bilan:
   avec:
-    P1abo: réseau de chaleur . coûts . Coût du combustible abonnement
-    P1conso: réseau de chaleur . coûts . Coût du combustible consommation
-    P1prime: réseau de chaleur . coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1abo: coûts . Coût du combustible abonnement
+    P1conso: coûts . Coût du combustible consommation
+    P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
     P1ECS:
       le maximum de:
-        - réseau de chaleur . coûts . Coût combustible pour ballon ECS à accumulation
-        - réseau de chaleur . coûts . Coût combustible pour ballon ECS solaire
-    P1Consofroid: réseau de chaleur . coûts . Coût combustible froid
-    P2: réseau de chaleur . entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-    P3: réseau de chaleur . entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        - coûts . Coût combustible pour ballon ECS à accumulation
+        - coûts . Coût combustible pour ballon ECS solaire
+    P1Consofroid: coûts . Coût combustible froid
+    P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
 
     P4 raccordement:
-      formule: réseau de chaleur . coûts . Investissement raccordement par logement type tertiaire * amortissement . facteur RCU renouvellement
+      formule: coûts . Investissement raccordement par logement type tertiaire * amortissement . facteur RCU renouvellement
 
     P4 reseau secondaire:
-      formule: réseau de chaleur . coûts . Investissement reseau secondaire RCU par logement type tertiaire * amortissement . facteur RCU sous station
+      formule: coûts . Investissement reseau secondaire RCU par logement type tertiaire * amortissement . facteur RCU sous station
 
     P4ECS Ballon électrique:
-      formule: réseau de chaleur . coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+      formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
     P4ECS Solaire Thermique:
       variations:
         - si: type de production ECS = 'Solaire thermique'
-          alors: réseau de chaleur . coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+          alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
     P4:
       somme:
@@ -650,7 +650,7 @@ réseau de chaleur . bilan:
         - Calcul Bilan . P4 groupe froid
         - Calcul Bilan . P4 Réseau de froid
     aides spécifiques:
-      formule: réseau de chaleur . aides . Total * amortissement . facteur RCU renouvellement
+      formule: aides . Total * amortissement . facteur RCU renouvellement
 
     aides:
       somme:

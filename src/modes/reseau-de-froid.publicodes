@@ -128,19 +128,19 @@ réseau de froid . coûts:
     Coût du combustible abonnement:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
-        - réseau de froid . installation . consommation combustible froid
+        - installation . consommation combustible froid
       unité: €TTC/an
       note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
     Coût électricité auxiliaire:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - réseau de froid . installation . consommation auxiliaire
+        - installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
     Coût combustible froid:
       produit:
         - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
-        - réseau de froid . installation . consommation combustible froid
+        - installation . consommation combustible froid
       unité: €TTC/an
 
 ###### Entretien P2 / P3
@@ -194,7 +194,7 @@ réseau de froid . aides:
             variations:
               - si: type de bâtiment = 'résidentiel'
                 alors: 0
-              - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * réseau de froid . installation . gamme de puissance existante * Paramètres économiques . Aides . Valeur CEE
+              - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * installation . gamme de puissance existante * Paramètres économiques . Aides . Valeur CEE
         - sinon: 0
       unité: €
     Total:
