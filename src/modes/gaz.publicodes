@@ -254,12 +254,12 @@ gaz indiv avec cond . installation:
           alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ IND COND Rendement chaudière ECS)
         - sinon: 0
       unité: kW
-    puissance équipement:
+    puissance équipement: &inst-puissance-equipement
       somme:
         - puissance nécessaire équipement chauffage
         - puissance nécessaire pour ECS avec équipement
       unité: kW
-    gamme de puissance existante:
+    gamme de puissance existante: &inst-gamme-de-puissance-existante
       # =IF($G$51>'Ratios économiques - Coûts'!$B$85;'Ratios économiques - Coûts'!$B$85;XLOOKUP($G$51;'Ratios économiques - Coûts'!$B$81:$B$85;'Ratios économiques - Coûts'!$B$81:$B$85;;1))
       variations:
         - si: puissance équipement <= 12
@@ -272,11 +272,11 @@ gaz indiv avec cond . installation:
           alors: 30
         - sinon: 35
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS:
+    besoin d'installation supplémentaire pour produire l'ECS: &inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
       toutes ces conditions:
         - Production eau chaude sanitaire
         - puissance nécessaire pour ECS avec équipement <= 0
-    volume du ballon ECS:
+    volume du ballon ECS: &inst-volume-du-ballon-ecs
       variations:
         - si:
             toutes ces conditions:
@@ -285,7 +285,7 @@ gaz indiv avec cond . installation:
           alors: volume du ballon ECS
         - sinon: 50
       unité: L
-    consommation d'électricité chauffe-eau électrique:
+    consommation d'électricité chauffe-eau électrique: &inst-consommation-d-electricite-chauffe-eau-electrique
       variations:
         - si:
             toutes ces conditions:
@@ -294,7 +294,7 @@ gaz indiv avec cond . installation:
           alors: chauffe-eau électrique x consommation d'électricité
         - sinon: 0
       unité: kWh/an
-    appoint d'électricité chauffe-eau solaire:
+    appoint d'électricité chauffe-eau solaire: &inst-appoint-d-electricite-chauffe-eau-solaire
       variations:
         - si:
             toutes ces conditions:
@@ -314,7 +314,7 @@ gaz indiv avec cond . installation:
                   alors: besoins eau chaude sanitaire par appartement / ratios . GAZ IND COND Rendement chaudière ECS
                 - sinon: 0
       unité: Nm3 gaz/an
-    consommation combustible froid:
+    consommation combustible froid: &inst-consommation-combustible-froid
       formule: 0
       unité: Nm3 gaz/an
     consommation auxiliaire:
@@ -331,7 +331,7 @@ gaz indiv avec cond . installation:
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
-    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: &inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
       variations:
         - si: besoin d'installation supplémentaire pour produire l'ECS
           alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
@@ -354,55 +354,12 @@ gaz indiv sans cond . installation:
           alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ IND SCOND Rendement chaudière)
         - sinon: 0
       unité: kW
-    puissance équipement:
-      somme:
-        - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour ECS avec équipement
-      unité: kW
-    gamme de puissance existante:
-      # =IF($G$52>'Ratios économiques - Coûts'!$B$94;'Ratios économiques - Coûts'!$B$94;XLOOKUP($G$52;'Ratios économiques - Coûts'!$B$90:$B$94;'Ratios économiques - Coûts'!$B$90:$B$94;;1))
-      variations:
-        - si: puissance équipement <= 12
-          alors: 12
-        - si: puissance équipement <= 20
-          alors: 20
-        - si: puissance équipement <= 25
-          alors: 25
-        - si: puissance équipement <= 30
-          alors: 30
-        - sinon: 35
-      unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS:
-      toutes ces conditions:
-        - Production eau chaude sanitaire
-        - puissance nécessaire pour ECS avec équipement <= 0
-    volume du ballon ECS:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != "Solaire thermique"
-          alors: volume du ballon ECS
-        - sinon: 50
-      unité: L
-    consommation d'électricité chauffe-eau électrique:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != 'Solaire thermique'
-          alors: chauffe-eau électrique x consommation d'électricité
-        - sinon: 0
-      unité: kWh/an
-    appoint d'électricité chauffe-eau solaire:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS = 'Solaire thermique'
-          alors: chauffe-eau solaire x appoint d'électricité
-        - sinon: 0
-      unité: kWh/an
+    puissance équipement: *inst-puissance-equipement
+    gamme de puissance existante: *inst-gamme-de-puissance-existante
+    besoin d'installation supplémentaire pour produire l'ECS: *inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
+    volume du ballon ECS: *inst-volume-du-ballon-ecs
+    consommation d'électricité chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
+    appoint d'électricité chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
     consommation combustible chaleur:
       # =Conso_comb_GAZ_indiv_scond*(Besoin_cha/Rend_GAZ_indiv_scond +IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GAZ_indiv_scond)
       produit:
@@ -415,9 +372,7 @@ gaz indiv sans cond . installation:
                 - sinon: 0
         - 1 / ratios . GAZ IND SCOND Rendement chaudière
       unité: Nm3 gaz/an
-    consommation combustible froid:
-      formule: 0
-      unité: Nm3 gaz/an
+    consommation combustible froid: *inst-consommation-combustible-froid
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_indiv_scond)*Besoin_cha+(1-Conso_aux_GAZ_indiv_scond_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -432,12 +387,7 @@ gaz indiv sans cond . installation:
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
-    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-      variations:
-        - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
-        - sinon: consommation auxiliaire
-      unité: kWh/an
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
     consommation Groupe Froid: calcul consommation Groupe Froid
 
 gaz coll avec cond . installation:
@@ -455,11 +405,7 @@ gaz coll avec cond . installation:
           alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ COLL COND Rendement chaudière ECS) * nombre de logements dans l'immeuble concerné
         - sinon: 0
       unité: kW
-    puissance équipement:
-      somme:
-        - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour ECS avec équipement
-      unité: kW
+    puissance équipement: *inst-puissance-equipement
     gamme de puissance existante:
       # =IF($G$53<'Ratios économiques - Coûts'!$B$113;XLOOKUP($G$53;'Ratios économiques - Coûts'!$B$99:$B$113;'Ratios économiques - Coûts'!$B$99:$B$113;;1);"Infobulle : La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.")
       variations:
@@ -494,37 +440,10 @@ gaz coll avec cond . installation:
         - sinon: 2000
       unité: kW
       note: La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.
-    besoin d'installation supplémentaire pour produire l'ECS:
-      toutes ces conditions:
-        - Production eau chaude sanitaire
-        - puissance nécessaire pour ECS avec équipement <= 0
-    volume du ballon ECS:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != "Solaire thermique"
-          alors: volume du ballon ECS
-        - sinon: 50
-      unité: L
-    consommation d'électricité chauffe-eau électrique:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != 'Solaire thermique'
-          alors: chauffe-eau électrique x consommation d'électricité
-        - sinon: 0
-      unité: kWh/an
-    appoint d'électricité chauffe-eau solaire:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS = 'Solaire thermique'
-          alors: chauffe-eau solaire x appoint d'électricité
-        - sinon: 0
-      unité: kWh/an
+    besoin d'installation supplémentaire pour produire l'ECS: *inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
+    volume du ballon ECS: *inst-volume-du-ballon-ecs
+    consommation d'électricité chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
+    appoint d'électricité chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
     consommation combustible chaleur:
       # =Conso_comb_GAZ_coll_cond*(Besoin_cha/Rend_GAZ_coll_cond_chauf+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GAZ_coll_cond_ECS)
       produit:
@@ -536,9 +455,7 @@ gaz coll avec cond . installation:
                   alors: besoins eau chaude sanitaire par appartement / ratios . GAZ COLL COND Rendement chaudière ECS
                 - sinon: 0
       unité: Nm3 gaz/an
-    consommation combustible froid:
-      formule: 0
-      unité: Nm3 gaz/an
+    consommation combustible froid: *inst-consommation-combustible-froid
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_coll_cond_chauf)*Besoin_cha+(1-Conso_aux_GAZ_coll_cond_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -553,12 +470,7 @@ gaz coll avec cond . installation:
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
-    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-      variations:
-        - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
-        - sinon: consommation auxiliaire
-      unité: kWh/an
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
     consommation Groupe Froid: calcul consommation Groupe Froid
 
 gaz coll sans cond . installation:
@@ -576,11 +488,7 @@ gaz coll sans cond . installation:
           alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GAZ COLL SCOND Rendement chaudière) * nombre de logements dans l'immeuble concerné
         - sinon: 0
       unité: kW
-    puissance équipement:
-      somme:
-        - puissance nécessaire équipement chauffage
-        - puissance nécessaire pour ECS avec équipement
-      unité: kW
+    puissance équipement: *inst-puissance-equipement
     gamme de puissance existante:
       # =IF($G$54<'Ratios économiques - Coûts'!$B$132;XLOOKUP($G$54;'Ratios économiques - Coûts'!$B$118:$B$132;'Ratios économiques - Coûts'!$B$118:$B$132;;1);"Infobulle : La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.")
       variations:
@@ -614,37 +522,10 @@ gaz coll sans cond . installation:
           alors: 1750
         - sinon: 2000
       unité: kW
-    besoin d'installation supplémentaire pour produire l'ECS:
-      toutes ces conditions:
-        - Production eau chaude sanitaire
-        - puissance nécessaire pour ECS avec équipement <= 0
-    volume du ballon ECS:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != "Solaire thermique"
-          alors: volume du ballon ECS
-        - sinon: 50
-      unité: L
-    consommation d'électricité chauffe-eau électrique:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS != 'Solaire thermique'
-          alors: chauffe-eau électrique x consommation d'électricité
-        - sinon: 0
-      unité: kWh/an
-    appoint d'électricité chauffe-eau solaire:
-      variations:
-        - si:
-            toutes ces conditions:
-              - besoin d'installation supplémentaire pour produire l'ECS
-              - type de production ECS = 'Solaire thermique'
-          alors: chauffe-eau solaire x appoint d'électricité
-        - sinon: 0
-      unité: kWh/an
+    besoin d'installation supplémentaire pour produire l'ECS: *inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
+    volume du ballon ECS: *inst-volume-du-ballon-ecs
+    consommation d'électricité chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
+    appoint d'électricité chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
     consommation combustible chaleur:
       # =Conso_comb_GAZ_coll_scond*(Besoin_cha/Rend_GAZ_coll_scond+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GAZ_coll_scond)
       produit:
@@ -657,9 +538,7 @@ gaz coll sans cond . installation:
                 - sinon: 0
         - 1 / ratios . GAZ COLL SCOND Rendement chaudière
       unité: Nm3 gaz/an
-    consommation combustible froid:
-      formule: 0
-      unité: Nm3 gaz/an
+    consommation combustible froid: *inst-consommation-combustible-froid
     consommation auxiliaire:
       # =(1-Conso_aux_GAZ_coll_scond)*Besoin_cha+(1-Conso_aux_GAZ_coll_scond_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
       somme:
@@ -674,12 +553,7 @@ gaz coll sans cond . installation:
       unité: kWh elec
     consommation combustible hors électricité:
       formule: consommation combustible chaleur
-    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-      variations:
-        - si: besoin d'installation supplémentaire pour produire l'ECS
-          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
-        - sinon: consommation auxiliaire
-      unité: kWh/an
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
     consommation Groupe Froid: calcul consommation Groupe Froid
 
 ###### Calculs économiques
@@ -692,31 +566,31 @@ gaz indiv avec cond . coûts:
         - ratios économiques . Gaz x indiv avec cond
         - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
       unité: €TTC
-    Investissement équipement par logement type tertiaire:
+    Investissement équipement par logement type tertiaire: &couts-investissement-equipement-par-logement-type-tertiaire-indiv
       valeur: Investissement équipement Total
       unité: €TTC
-    Investissement ballon ECS à accumulation:
+    Investissement ballon ECS à accumulation: &couts-investissement-ballon-ecs-a-accumulation
       variations:
         - si: installation . besoin d'installation supplémentaire pour produire l'ECS
           alors: Calcul Eco . Investissement ballon ECS à accumulation
         - sinon: 0
       unité: €TTC
-    Investissement ballon ECS solaire panneau inclus:
+    Investissement ballon ECS solaire panneau inclus: &couts-investissement-ballon-ecs-solaire-panneau-inclus
       applicable si:
         toutes ces conditions:
           - installation . besoin d'installation supplémentaire pour produire l'ECS
           - type de production ECS = "Solaire thermique"
       formule: Calcul Eco . Investissement ballon ECS panneau inclus
       unité: €TTC
-    Total investissement avec ballon ECS à accumulation:
+    Total investissement avec ballon ECS à accumulation: &couts-total-investissement-avec-ballon-ecs-a-accumulation
       valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
       unité: €TTC
-    Total investissement ballon ECS solaire panneaux:
+    Total investissement ballon ECS solaire panneaux: &couts-total-investissement-ballon-ecs-solaire-panneaux
       valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
       unité: €TTC
 
     # P1 - Coût du combustible par lgt type / tertiaire
-    Coût du combustible abonnement:
+    Coût du combustible abonnement: &couts-cout-du-combustible-abonnement-indiv
       somme:
         - variations:
             - si:
@@ -736,27 +610,27 @@ gaz indiv avec cond . coûts:
         - 1 / ratios . GAZ IND COND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
-    Coût électricité auxiliaire:
+    Coût électricité auxiliaire: &couts-cout-electricite-auxiliaire
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
         - installation . consommation auxiliaire
       unité: €TTC/an
       note: "Coût électricité auxiliaire (P1') €TTC/an"
-    Coût combustible pour ballon ECS à accumulation:
+    Coût combustible pour ballon ECS à accumulation: &couts-cout-combustible-pour-ballon-ecs-a-accumulation
       applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
         - installation . consommation d'électricité chauffe-eau électrique
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
-    Coût combustible pour ballon ECS solaire:
+    Coût combustible pour ballon ECS solaire: &couts-cout-combustible-pour-ballon-ecs-solaire
       applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
       produit:
         - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
         - installation . appoint d'électricité chauffe-eau solaire
       unité: €TTC/an
       note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
-    Coût combustible froid:
+    Coût combustible froid: &couts-cout-combustible-froid
       variations:
         - si:
             toutes ces conditions:
@@ -777,42 +651,14 @@ gaz indiv sans cond . coûts:
         - ratios économiques . Gaz x indiv sans cond
         - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
       unité: €TTC
-    Investissement équipement par logement type tertiaire:
-      valeur: Investissement équipement Total
-      unité: €TTC
-    Investissement ballon ECS à accumulation:
-      variations:
-        - si: installation . besoin d'installation supplémentaire pour produire l'ECS
-          alors: Calcul Eco . Investissement ballon ECS à accumulation
-        - sinon: 0
-      unité: €TTC
-    Investissement ballon ECS solaire panneau inclus:
-      applicable si:
-        toutes ces conditions:
-          - installation . besoin d'installation supplémentaire pour produire l'ECS
-          - type de production ECS = "Solaire thermique"
-      formule: Calcul Eco . Investissement ballon ECS panneau inclus
-      unité: €TTC
-    Total investissement avec ballon ECS à accumulation:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
-      unité: €TTC
-    Total investissement ballon ECS solaire panneaux:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
-      unité: €TTC
+    Investissement équipement par logement type tertiaire: *couts-investissement-equipement-par-logement-type-tertiaire-indiv
+    Investissement ballon ECS à accumulation: *couts-investissement-ballon-ecs-a-accumulation
+    Investissement ballon ECS solaire panneau inclus: *couts-investissement-ballon-ecs-solaire-panneau-inclus
+    Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
+    Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
     # P1 - Coût du combustible par lgt type / tertiaire
-    Coût du combustible abonnement:
-      somme:
-        - variations:
-            - si:
-                toutes ces conditions:
-                  - Inclure la climatisation
-                  - type de production de froid = 'Réseau de froid'
-              alors: réseau de froid . coûts . Coût du combustible abonnement
-            - sinon: 0
-        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement
-      unité: €TTC/an
-      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible abonnement: *couts-cout-du-combustible-abonnement-indiv
     Coût du combustible consommation:
       # D50 =($D$13*'Calculs techniques'!$C$98/Conso_comb_GAZ_indiv_scond)
       produit:
@@ -821,38 +667,10 @@ gaz indiv sans cond . coûts:
         - 1 / ratios . GAZ IND SCOND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
-    Coût électricité auxiliaire:
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . consommation auxiliaire
-      unité: €TTC/an
-      note: "Coût électricité auxiliaire (P1') €TTC/an"
-    Coût combustible pour ballon ECS à accumulation:
-      applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . consommation d'électricité chauffe-eau électrique
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
-    Coût combustible pour ballon ECS solaire:
-      applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . appoint d'électricité chauffe-eau solaire
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
-    Coût combustible froid:
-      variations:
-        - si:
-            toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
-          alors: réseau de froid . coûts . Coût combustible froid
-        - sinon:
-            produit:
-              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - installation . consommation Groupe Froid
-      unité: €TTC/an
+    Coût électricité auxiliaire: *couts-cout-electricite-auxiliaire
+    Coût combustible pour ballon ECS à accumulation: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
+    Coût combustible pour ballon ECS solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
+    Coût combustible froid: *couts-cout-combustible-froid
 
 gaz coll avec cond . coûts:
   avec:
@@ -862,31 +680,16 @@ gaz coll avec cond . coûts:
         - ratios économiques . Gaz x coll avec cond
         - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
       unité: €TTC
-    Investissement équipement par logement type tertiaire:
+    Investissement équipement par logement type tertiaire: &couts-investissement-equipement-par-logement-type-tertiaire-coll
       valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
       unité: €TTC
-    Investissement ballon ECS à accumulation:
-      variations:
-        - si: installation . besoin d'installation supplémentaire pour produire l'ECS
-          alors: Calcul Eco . Investissement ballon ECS à accumulation
-        - sinon: 0
-      unité: €TTC
-    Investissement ballon ECS solaire panneau inclus:
-      applicable si:
-        toutes ces conditions:
-          - installation . besoin d'installation supplémentaire pour produire l'ECS
-          - type de production ECS = "Solaire thermique"
-      formule: Calcul Eco . Investissement ballon ECS panneau inclus
-      unité: €TTC
-    Total investissement avec ballon ECS à accumulation:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
-      unité: €TTC
-    Total investissement ballon ECS solaire panneaux:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
-      unité: €TTC
+    Investissement ballon ECS à accumulation: *couts-investissement-ballon-ecs-a-accumulation
+    Investissement ballon ECS solaire panneau inclus: *couts-investissement-ballon-ecs-solaire-panneau-inclus
+    Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
+    Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
     # P1 - Coût du combustible par lgt type / tertiaire
-    Coût du combustible abonnement:
+    Coût du combustible abonnement: &couts-cout-du-combustible-abonnement-coll
       # $B$14+SI(ET(Prod_clim="Oui";Type_clim="Réseau de froid");$C$46;0)
       somme:
         - variations:
@@ -907,38 +710,10 @@ gaz coll avec cond . coûts:
         - 1 / ratios . GAZ COLL COND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
-    Coût électricité auxiliaire:
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . consommation auxiliaire
-      unité: €TTC/an
-      note: "Coût électricité auxiliaire (P1') €TTC/an"
-    Coût combustible pour ballon ECS à accumulation:
-      applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . consommation d'électricité chauffe-eau électrique
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
-    Coût combustible pour ballon ECS solaire:
-      applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . appoint d'électricité chauffe-eau solaire
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
-    Coût combustible froid:
-      variations:
-        - si:
-            toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
-          alors: réseau de froid . coûts . Coût combustible froid
-        - sinon:
-            produit:
-              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - installation . consommation Groupe Froid
-      unité: €TTC/an
+    Coût électricité auxiliaire: *couts-cout-electricite-auxiliaire
+    Coût combustible pour ballon ECS à accumulation: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
+    Coût combustible pour ballon ECS solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
+    Coût combustible froid: *couts-cout-combustible-froid
 
 gaz coll sans cond . coûts:
   avec:
@@ -948,42 +723,14 @@ gaz coll sans cond . coûts:
         - ratios économiques . Gaz x coll sans cond
         - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
       unité: €TTC
-    Investissement équipement par logement type tertiaire:
-      valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
-      unité: €TTC
-    Investissement ballon ECS à accumulation:
-      variations:
-        - si: installation . besoin d'installation supplémentaire pour produire l'ECS
-          alors: Calcul Eco . Investissement ballon ECS à accumulation
-        - sinon: 0
-      unité: €TTC
-    Investissement ballon ECS solaire panneau inclus:
-      applicable si:
-        toutes ces conditions:
-          - installation . besoin d'installation supplémentaire pour produire l'ECS
-          - type de production ECS = "Solaire thermique"
-      formule: Calcul Eco . Investissement ballon ECS panneau inclus
-      unité: €TTC
-    Total investissement avec ballon ECS à accumulation:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
-      unité: €TTC
-    Total investissement ballon ECS solaire panneaux:
-      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
-      unité: €TTC
+    Investissement équipement par logement type tertiaire: *couts-investissement-equipement-par-logement-type-tertiaire-coll
+    Investissement ballon ECS à accumulation: *couts-investissement-ballon-ecs-a-accumulation
+    Investissement ballon ECS solaire panneau inclus: *couts-investissement-ballon-ecs-solaire-panneau-inclus
+    Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
+    Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
     # P1 - Coût du combustible par lgt type / tertiaire
-    Coût du combustible abonnement:
-      somme:
-        - variations:
-            - si:
-                toutes ces conditions:
-                  - Inclure la climatisation
-                  - type de production de froid = 'Réseau de froid'
-              alors: réseau de froid . coûts . Coût du combustible abonnement
-            - sinon: 0
-        - Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement / nombre de logements dans l'immeuble concerné
-      unité: €TTC/an
-      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible abonnement: *couts-cout-du-combustible-abonnement-coll
     Coût du combustible consommation:
       Coût du combustible consommation:
       # D52 =($D$14*'Calculs techniques'!$C$100/Conso_comb_GAZ_coll_scond)
@@ -993,40 +740,10 @@ gaz coll sans cond . coûts:
         - 1 / ratios . GAZ COLL SCOND Conso combustible
       unité: €TTC/an
       note: 'Coût du combustible consommation (P1 conso) €TTC/an'
-    Coût électricité auxiliaire:
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . consommation auxiliaire
-      unité: €TTC/an
-      note: "Coût électricité auxiliaire (P1') €TTC/an"
-    Coût combustible pour ballon ECS à accumulation:
-      applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . consommation d'électricité chauffe-eau électrique
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
-    Coût combustible pour ballon ECS solaire:
-      applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
-      produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
-        - installation . appoint d'électricité chauffe-eau solaire
-      unité: €TTC/an
-      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
-    Coût combustible froid:
-      variations:
-        - si:
-            toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
-          alors: réseau de froid . coûts . Coût combustible froid
-        - sinon:
-            produit:
-              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
-              - installation . consommation Groupe Froid
-      unité: €TTC/an
-
-###### Entretien P2 / P3
+    Coût électricité auxiliaire: *couts-cout-electricite-auxiliaire
+    Coût combustible pour ballon ECS à accumulation: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
+    Coût combustible pour ballon ECS solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
+    Coût combustible froid: *couts-cout-combustible-froid
 
 gaz indiv avec cond . entretien:
   avec:
@@ -1094,20 +811,20 @@ gaz coll sans cond . entretien:
 
 gaz indiv avec cond . aides:
   avec:
-    Ma prime renov':
+    Ma prime renov': &aides-ma-prime-renov
       applicable si:
         est défini: Ma prime renov'
       formule: Ma prime renov'
       unité: €
-    Coup de pouce:
+    Coup de pouce: &aides-coup-de-pouce
       applicable si:
         est défini: Coup de pouce
       formule: Coup de pouce
       unité: €
-    CEE:
+    CEE: &aides-cee
       formule: 0
       unité: €
-    Total:
+    Total: &aides-total
       variations:
         - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
           alors: Ma prime renov' + Coup de pouce + CEE
@@ -1116,71 +833,24 @@ gaz indiv avec cond . aides:
 
 gaz indiv sans cond . aides:
   avec:
-    Ma prime renov':
-      applicable si:
-        est défini: Ma prime renov'
-      formule: Ma prime renov'
-      unité: €
-    Coup de pouce:
-      applicable si:
-        est défini: Coup de pouce
-      formule: Coup de pouce
-      unité: €
-    CEE:
-      formule: 0
-      unité: €
-    Total:
-      variations:
-        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: Ma prime renov' + Coup de pouce + CEE
-        - sinon: 0
-      unité: €
+    Ma prime renov': *aides-ma-prime-renov
+    Coup de pouce: *aides-coup-de-pouce
+    CEE: *aides-cee
+    Total: *aides-total
 
 gaz coll avec cond . aides:
   avec:
-    Ma prime renov':
-      applicable si:
-        est défini: Ma prime renov'
-      formule: Ma prime renov'
-      unité: €
-    Coup de pouce:
-      applicable si:
-        est défini: Coup de pouce
-      formule: Coup de pouce
-      unité: €
-    CEE:
-      formule: 0
-      unité: €
-    Total:
-      variations:
-        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: Ma prime renov' + Coup de pouce + CEE
-        - sinon: 0
-      unité: €
+    Ma prime renov': *aides-ma-prime-renov
+    Coup de pouce: *aides-coup-de-pouce
+    CEE: *aides-cee
+    Total: *aides-total
 
 gaz coll sans cond . aides:
   avec:
-    Ma prime renov':
-      applicable si:
-        est défini: Ma prime renov'
-      formule: Ma prime renov'
-      unité: €
-    Coup de pouce:
-      applicable si:
-        est défini: Coup de pouce
-      formule: Coup de pouce
-      unité: €
-    CEE:
-      formule: 0
-      unité: €
-    Total:
-      variations:
-        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-          alors: Ma prime renov' + Coup de pouce + CEE
-        - sinon: 0
-      unité: €
-
-###### Émissions de CO2
+    Ma prime renov': *aides-ma-prime-renov
+    Coup de pouce: *aides-coup-de-pouce
+    CEE: *aides-cee
+    Total: *aides-total
 
 gaz indiv avec cond . environnement:
   avec:
@@ -1189,14 +859,14 @@ gaz indiv avec cond . environnement:
       formule: installation . consommation combustible chaleur / ratios . GAZ IND COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
-    auxiliaires et combustible électrique:
+    auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
       formule: installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
       unité: kgCO2e
     ECS solaire thermique:
       formule: installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Scope 2:
+    Scope 2: &env-scope-2
       somme:
         - auxiliaires et combustible électrique
         - ECS solaire thermique
@@ -1204,7 +874,7 @@ gaz indiv avec cond . environnement:
     Scope 3:
       # =(XLOOKUP(A47,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B24/Durée_vie_GAZ_indiv_cond
       formule: ratios environnementaux . CO2 INS Gaz indiv avec cond * installation . gamme de puissance existante / ratios . GAZ IND COND Durée de vie
-    Total:
+    Total: &env-total
       somme:
         - Scope 1
         - Scope 2
@@ -1218,27 +888,16 @@ gaz indiv sans cond . environnement:
       formule: installation . consommation combustible chaleur / ratios . GAZ IND SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
-    auxiliaires et combustible électrique:
-      formule: installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-      unité: kgCO2e
+    auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
     ECS solaire thermique:
       formule: installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Scope 2:
-      somme:
-        - auxiliaires et combustible électrique
-        - ECS solaire thermique
-        - ECS avec ballon électrique
+    Scope 2: *env-scope-2
     Scope 3:
       # =(XLOOKUP(A48,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B25/Durée_vie_GAZ_indiv_scond
       formule: ratios environnementaux . CO2 INS Gaz indiv sans cond * installation . gamme de puissance existante / ratios . GAZ IND SCOND Durée de vie
-    Total:
-      somme:
-        - Scope 1
-        - Scope 2
-        - Scope 3
-      unité: kgCO2e/an
+    Total: *env-total
 
 gaz coll avec cond . environnement:
   avec:
@@ -1247,27 +906,16 @@ gaz coll avec cond . environnement:
       formule: installation . consommation combustible chaleur / ratios . GAZ COLL COND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
-    auxiliaires et combustible électrique:
-      formule: installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-      unité: kgCO2e
+    auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
     ECS solaire thermique:
       formule: installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Scope 2:
-      somme:
-        - auxiliaires et combustible électrique
-        - ECS solaire thermique
-        - ECS avec ballon électrique
+    Scope 2: *env-scope-2
     Scope 3:
       # =(XLOOKUP(A49,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B26/Durée_vie_GAZ_coll_cond/Nb_lgt
       formule: ratios environnementaux . CO2 INS Gaz coll avec cond * installation . gamme de puissance existante / ratios . GAZ COLL COND Durée de vie / nombre de logements dans l'immeuble concerné
-    Total:
-      somme:
-        - Scope 1
-        - Scope 2
-        - Scope 3
-      unité: kgCO2e/an
+    Total: *env-total
 
 gaz coll sans cond . environnement:
   avec:
@@ -1276,36 +924,23 @@ gaz coll sans cond . environnement:
       formule: installation . consommation combustible chaleur / ratios . GAZ COLL SCOND Conso combustible * ratios environnementaux . Emission spé Gaz chaudière
       unité: kgCO2e
     Scope 1: besoins de chauffage et ECS si même équipement
-    auxiliaires et combustible électrique:
-      formule: installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-      unité: kgCO2e
+    auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
     ECS solaire thermique:
       formule: installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
     ECS avec ballon électrique:
       formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-    Scope 2:
-      somme:
-        - auxiliaires et combustible électrique
-        - ECS solaire thermique
-        - ECS avec ballon électrique
+    Scope 2: *env-scope-2
     Scope 3:
       # =(XLOOKUP(A50,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B27/Durée_vie_GAZ_coll_scond/Nb_lgt
       formule: ratios environnementaux . CO2 INS Gaz coll sans cond * installation . gamme de puissance existante / ratios . GAZ COLL SCOND Durée de vie / nombre de logements dans l'immeuble concerné
-    Total:
-      somme:
-        - Scope 1
-        - Scope 2
-        - Scope 3
-      unité: kgCO2e/an
-
-###### Bilan annuel
+    Total: *env-total
 
 gaz indiv avec cond . bilan:
   avec:
     P1abo: coûts . Coût du combustible abonnement
     P1conso: coûts . Coût du combustible consommation
     P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
-    P1ECS:
+    P1ECS: &bilan-p1ecs
       le maximum de:
         - coûts . Coût combustible pour ballon ECS à accumulation
         - coûts . Coût combustible pour ballon ECS solaire
@@ -1318,13 +953,13 @@ gaz indiv avec cond . bilan:
     P4ECS Ballon électrique:
       formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
-    P4ECS Solaire Thermique:
+    P4ECS Solaire Thermique: &bilan-p4ecs-solaire-thermique
       variations:
         - si: type de production ECS = 'Solaire thermique'
           alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
         - sinon: 0
 
-    P4:
+    P4: &bilan-p4
       somme:
         - P4spec
         - P4ECS Ballon électrique
@@ -1334,15 +969,15 @@ gaz indiv avec cond . bilan:
     aides spécifiques:
       formule: aides . Total * amortissement . facteur GAZ IND COND
 
-    aides:
+    aides: &bilan-aides
       somme:
         - aides spécifiques
         - Calcul Bilan . aides réseau de froid
-    P4 moins aides:
+    P4 moins aides: &bilan-p4-moins-aides
       le maximum de:
         - P4 - aides
         - 0
-    total sans aides:
+    total sans aides: &bilan-total-sans-aides
       somme:
         - P1abo
         - P1conso
@@ -1352,7 +987,7 @@ gaz indiv avec cond . bilan:
         - P2
         - P3
         - P4
-    total avec aides:
+    total avec aides: &bilan-total-avec-aides
       somme:
         - total sans aides
         - (- aides)
@@ -1362,10 +997,7 @@ gaz indiv sans cond . bilan:
     P1abo: coûts . Coût du combustible abonnement
     P1conso: coûts . Coût du combustible consommation
     P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
-    P1ECS:
-      le maximum de:
-        - coûts . Coût combustible pour ballon ECS à accumulation
-        - coûts . Coût combustible pour ballon ECS solaire
+    P1ECS: *bilan-p1ecs
     P1Consofroid: coûts . Coût combustible froid
     P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
@@ -1375,54 +1007,23 @@ gaz indiv sans cond . bilan:
     P4ECS Ballon électrique:
       formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
-    P4ECS Solaire Thermique:
-      variations:
-        - si: type de production ECS = 'Solaire thermique'
-          alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
-        - sinon: 0
+    P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
-    P4:
-      somme:
-        - P4spec
-        - P4ECS Ballon électrique
-        - P4ECS Solaire Thermique
-        - Calcul Bilan . P4 groupe froid
-        - Calcul Bilan . P4 Réseau de froid
+    P4: *bilan-p4
     aides spécifiques:
       formule: aides . Total * amortissement . facteur GAZ IND SCOND
 
-    aides:
-      somme:
-        - aides spécifiques
-        - Calcul Bilan . aides réseau de froid
-    P4 moins aides:
-      le maximum de:
-        - P4 - aides
-        - 0
-    total sans aides:
-      somme:
-        - P1abo
-        - P1conso
-        - P1prime
-        - P1ECS
-        - P1Consofroid
-        - P2
-        - P3
-        - P4
-    total avec aides:
-      somme:
-        - total sans aides
-        - (- aides)
+    aides: *bilan-aides
+    P4 moins aides: *bilan-p4-moins-aides
+    total sans aides: *bilan-total-sans-aides
+    total avec aides: *bilan-total-avec-aides
 
 gaz coll avec cond . bilan:
   avec:
     P1abo: coûts . Coût du combustible abonnement
     P1conso: coûts . Coût du combustible consommation
     P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
-    P1ECS:
-      le maximum de:
-        - coûts . Coût combustible pour ballon ECS à accumulation
-        - coûts . Coût combustible pour ballon ECS solaire
+    P1ECS: *bilan-p1ecs
     P1Consofroid: coûts . Coût combustible froid
     P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
@@ -1432,54 +1033,23 @@ gaz coll avec cond . bilan:
     P4ECS Ballon électrique:
       formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
-    P4ECS Solaire Thermique:
-      variations:
-        - si: type de production ECS = 'Solaire thermique'
-          alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
-        - sinon: 0
+    P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
-    P4:
-      somme:
-        - P4spec
-        - P4ECS Ballon électrique
-        - P4ECS Solaire Thermique
-        - Calcul Bilan . P4 groupe froid
-        - Calcul Bilan . P4 Réseau de froid
+    P4: *bilan-p4
     aides spécifiques:
       formule: aides . Total * amortissement . facteur GAZ COLL COND
 
-    aides:
-      somme:
-        - aides spécifiques
-        - Calcul Bilan . aides réseau de froid
-    P4 moins aides:
-      le maximum de:
-        - P4 - aides
-        - 0
-    total sans aides:
-      somme:
-        - P1abo
-        - P1conso
-        - P1prime
-        - P1ECS
-        - P1Consofroid
-        - P2
-        - P3
-        - P4
-    total avec aides:
-      somme:
-        - total sans aides
-        - (- aides)
+    aides: *bilan-aides
+    P4 moins aides: *bilan-p4-moins-aides
+    total sans aides: *bilan-total-sans-aides
+    total avec aides: *bilan-total-avec-aides
 
 gaz coll sans cond . bilan:
   avec:
     P1abo: coûts . Coût du combustible abonnement
     P1conso: coûts . Coût du combustible consommation
     P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
-    P1ECS:
-      le maximum de:
-        - coûts . Coût combustible pour ballon ECS à accumulation
-        - coûts . Coût combustible pour ballon ECS solaire
+    P1ECS: *bilan-p1ecs
     P1Consofroid: coûts . Coût combustible froid
     P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
     P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
@@ -1489,41 +1059,14 @@ gaz coll sans cond . bilan:
     P4ECS Ballon électrique:
       formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
 
-    P4ECS Solaire Thermique:
-      variations:
-        - si: type de production ECS = 'Solaire thermique'
-          alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
-        - sinon: 0
+    P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
-    P4:
-      somme:
-        - P4spec
-        - P4ECS Ballon électrique
-        - P4ECS Solaire Thermique
-        - Calcul Bilan . P4 groupe froid
-        - Calcul Bilan . P4 Réseau de froid
+    P4: *bilan-p4
     aides spécifiques:
       formule: aides . Total * amortissement . facteur GAZ COLL COND
 
-    aides:
-      somme:
-        - aides spécifiques
-        - Calcul Bilan . aides réseau de froid
-    P4 moins aides:
-      le maximum de:
-        - P4 - aides
-        - 0
-    total sans aides:
-      somme:
-        - P1abo
-        - P1conso
-        - P1prime
-        - P1ECS
-        - P1Consofroid
-        - P2
-        - P3
-        - P4
-    total avec aides:
-      somme:
-        - total sans aides
-        - (- aides)
+    aides: *bilan-aides
+    P4 moins aides: *bilan-p4-moins-aides
+    total sans aides: *bilan-total-sans-aides
+    total avec aides: *bilan-total-avec-aides
+
