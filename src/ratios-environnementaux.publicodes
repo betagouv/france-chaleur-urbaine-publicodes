@@ -89,26 +89,6 @@ ratios environnementaux:
       formule: 88.5
       unité: kgCO2e/kW
       note: 'Source: INIES 2022'
-    CO2 INS Gaz indiv avec cond:
-      # Ratios environnementaux'!$C$37
-      formule: 33
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS Gaz indiv sans cond:
-      # Ratios environnementaux'!$C$38
-      formule: 53.6
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS Gaz coll avec cond:
-      # Ratios environnementaux'!$C$39
-      formule: 25
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS Gaz coll sans cond:
-      # Ratios environnementaux'!$C$40
-      formule: 25
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
     CO2 INS Fioul indiv:
       # Ratios environnementaux'!$C$41
       formule: 112
