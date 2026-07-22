@@ -26,16 +26,6 @@ Puissance installation x Capacité chauffe eau solaire:
 
 ###### Investissement
 
-Investissement x frais de raccordement au réseaux x RCU:
-  par défaut:
-    produit:
-      - variations:
-          - si: type de bâtiment = 'résidentiel'
-            alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logements dans l'immeuble concerné
-          - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
-      - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-
 Investissement x frais de raccordement au réseaux x RFU:
   par défaut:
     variations:

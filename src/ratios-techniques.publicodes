@@ -1706,34 +1706,6 @@ ratios:
       remplace: puissance coefficient d'intermittence
       valeur: 90%
       unité: '%'
-    RCU Rendement sous station chauffage:
-      valeur: 86%
-      unité: '%'
-    RCU Rendement sous station ECS:
-      valeur: 93%
-      unité: '%'
-    RCU Conso auxiliaire chauffage:
-      valeur: 99.8%
-      unité: '%'
-    RCU Conso auxiliaire ECS:
-      valeur: 99%
-      unité: '%'
-    RCU Durée avant renouvellement:
-      valeur: 30
-      unité: an
-      note : durée d'amortissement du raccordement de la sous-station au bâtiment
-    RCU Durée sous station:
-      valeur : 22
-      unité : an
-    RFU Rendement sous station:
-      valeur: 93%
-      unité: '%'
-    RFU Conso auxiliaire:
-      valeur: 99.8%
-      unité: '%'
-    RFU Durée de vie:
-      valeur: 30
-      unité: an
     PAC GNRL A:
       valeur: 3.60
     PAC GNRL Aplus:
@@ -1785,15 +1757,6 @@ ratios:
       applicable si: Température émetteurs = "Radiateur"
       remplace: Température émetteurs delta
       valeur: -1.2
-    RAD ELEC INDIV Rendement:
-      valeur: 96%
-      unité: '%'
-    RAD ELEC INDIV Conso combustible:
-      valeur: 100%
-      unité: '%'
-    RAD ELEC INDIV Durée de vie:
-      valeur: 25
-      unité: an
     CHAUF EAU ELEC Rendement stockage ballon:
       valeur: 87%
       unité: '%'

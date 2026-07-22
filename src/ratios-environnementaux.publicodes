@@ -71,14 +71,6 @@ ratios environnementaux:
       unité: kgCO2e/kWh
       note: 'Source: FEDENE 2021'
 
-    CO2 INS RCU:
-      # Ratios environnementaux'!$C$33
-      formule: 0.004
-      unité: kgCO2e/kWh
-    CO2 INS RFU:
-      # Ratios environnementaux'!$C$34
-      formule: 0.004
-      unité: kgCO2e/kWh
     CO2 INS Solaire thermique:
       # Ratios environnementaux'!$C$43
       formule: 9
@@ -88,9 +80,4 @@ ratios environnementaux:
       # Ratios environnementaux'!$C$44
       formule: 6
       unité: kgCO2e/L
-      note: 'Source: INIES 2022'
-    CO2 INS Radiateur électrique:
-      # Ratios environnementaux'!$C$52
-      formule: 0.015
-      unité: kgCO2e/kWh
       note: 'Source: INIES 2022'

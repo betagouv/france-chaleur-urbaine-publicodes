@@ -1,0 +1,344 @@
+# Radiateurs électriques (individuel)
+# Regroupe ratios, dimensionnement, calculs économiques,
+# aides, émissions et bilan pour ce mode de chauffage.
+
+###### Ratios techniques
+
+ratios . RAD ELEC INDIV Rendement:
+  valeur: 96%
+  unité: '%'
+
+ratios . RAD ELEC INDIV Conso combustible:
+  valeur: 100%
+  unité: '%'
+
+ratios . RAD ELEC INDIV Durée de vie:
+  valeur: 25
+  unité: an
+
+###### Ratios économiques (investissement)
+
+ratios économiques . radiateur électrique x puissance de l'installation:
+  valeur: 2
+  unité: kW
+
+ratios économiques . Radiateur électrique:
+  avec:
+    Coût investissement Puissance 2kW:
+      valeur: 550
+      unité: €HT
+      note: 'Source: Atlantic 2023'
+
+# pas un ratio
+ratios économiques . Radiateur électrique x Individuel x investissement total:
+  # Param eco B78 =$D$79*'Ratios économiques - Coûts'!$C$189*(1+$D$50)
+  par défaut:
+    produit:
+      - Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires
+      - Radiateur électrique . Coût investissement Puissance 2kW
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
+
+# pas un ratio
+ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires:
+  # Param eco B79 =QUOTIENT('Calculs techniques'!$H$64,'Ratios économiques - Coûts'!$B$189)
+  par défaut: Installation x Radiateur électrique x Individuel . gamme de puissance existante // 2
+
+###### Ratios environnementaux
+
+ratios environnementaux . CO2 INS Radiateur électrique:
+  # Ratios environnementaux'!$C$52
+  formule: 0.015
+  unité: kgCO2e/kWh
+  note: 'Source: INIES 2022'
+
+###### Installation (dimensionnement et consommations)
+
+Installation x Radiateur électrique x Individuel:
+  avec:
+    production eau chaude sanitaire: non
+    puissance nécessaire équipement chauffage:
+      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . RAD ELEC INDIV Rendement)
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      formule: 0
+      unité: kW
+    puissance équipement:
+      somme:
+        - puissance nécessaire équipement chauffage
+      unité: kW
+    gamme de puissance existante:
+      # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
+      produit:
+        - somme:
+            - valeur: puissance équipement // ratios économiques . radiateur électrique x puissance de l'installation
+            - 1
+        - ratios économiques . radiateur électrique x puissance de l'installation
+      unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
+    volume du ballon ECS:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != "Solaire thermique"
+          alors: volume du ballon ECS
+        - sinon: 50
+      unité: L
+    consommation d'électricité chauffe-eau électrique:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != 'Solaire thermique'
+          alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
+    consommation combustible chaleur:
+      formule: ratios . RAD ELEC INDIV Conso combustible * besoins chauffage par appartement
+      unité: kWh elec
+    consommation combustible froid:
+      formule: 0
+      unité: kWh elec
+    consommation auxiliaire:
+      formule: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      valeur: 0
+      unité: kWh elec
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation combustible chaleur + consommation d'électricité chauffe-eau électrique
+        - sinon: consommation combustible chaleur
+      unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
+
+###### Calculs économiques
+
+Calcul Eco . Radiateur électrique:
+  avec:
+    # P4 - Investissement total (sans aide) €TTC
+    Investissement équipement Total:
+      # C63
+      produit:
+        - ratios économiques . Radiateur électrique x Individuel x investissement total
+        - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+      unité: €TTC
+    Investissement équipement par logement type tertiaire:
+      valeur: Investissement équipement Total
+      unité: €TTC
+    Investissement ballon ECS à accumulation:
+      variations:
+        - si: Installation x Radiateur électrique x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          alors: Calcul Eco . Investissement ballon ECS à accumulation
+        - sinon: 0
+      unité: €TTC
+    Investissement ballon ECS solaire panneau inclus:
+      applicable si:
+        toutes ces conditions:
+          - Installation x Radiateur électrique x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          - type de production ECS = "Solaire thermique"
+      formule: Calcul Eco . Investissement ballon ECS panneau inclus
+      unité: €TTC
+    Total investissement avec ballon ECS à accumulation:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+      unité: €TTC
+    Total investissement ballon ECS solaire panneaux:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+      unité: €TTC
+
+    # P1 - Coût du combustible par lgt type / tertiaire
+    Coût du combustible abonnement:
+      somme:
+        - variations:
+            - si:
+                toutes ces conditions:
+                  - Inclure la climatisation
+                  - type de production de froid = 'Réseau de froid'
+              alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+            - sinon: 0
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+      unité: €TTC/an
+      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible consommation:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Radiateur électrique x Individuel . consommation combustible chaleur
+      unité: €TTC/an
+      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+    Coût électricité auxiliaire:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Radiateur électrique x Individuel . consommation auxiliaire
+      unité: €TTC/an
+      note: "Coût électricité auxiliaire (P1') €TTC/an"
+    Coût combustible pour ballon ECS à accumulation:
+      applicable si: Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
+    Coût combustible pour ballon ECS solaire:
+      applicable si: Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
+    Coût combustible froid:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+        - sinon:
+            produit:
+              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+              - Installation x Radiateur électrique x Individuel . consommation Groupe Froid
+      unité: €TTC/an
+
+###### Entretien P2 / P3
+
+Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique:
+  avec:
+    petit entretien P2:
+      produit:
+        - Paramètres économiques . Petit entretien P2 . Radiateur électrique
+        - Calcul Eco . Radiateur électrique . Investissement équipement Total
+      unité: €TTC/an
+    gros entretien P3:
+      produit:
+        - Paramètres économiques . Gros entretien P3 . Radiateur électrique
+        - Calcul Eco . Radiateur électrique . Investissement équipement Total
+      unité: €TTC/an
+    petit entretien P2 par logement tertiaire: petit entretien P2
+    gros entretien P3 par logement tertiaire: gros entretien P3
+
+###### Aides
+
+Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique:
+  avec:
+    Ma prime renov':
+      applicable si:
+        est défini: Ma prime renov'
+      formule: Ma prime renov'
+      unité: €
+    Coup de pouce:
+      applicable si:
+        est défini: Coup de pouce
+      formule: Coup de pouce
+      unité: €
+    CEE:
+      formule: 0
+      unité: €
+    Total:
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: Ma prime renov' + Coup de pouce + CEE
+        - sinon: 0
+      unité: €
+
+###### Émissions de CO2
+
+env . Installation x Radiateur électrique x Individuel:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      valeur: 0
+      unité: kgCO2e
+    Scope 1: besoins de chauffage et ECS si même équipement
+    auxiliaires et combustible électrique:
+      # =XLOOKUP(A60;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
+      formule: Installation x Radiateur électrique x Individuel . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      unité: kgCO2e
+    ECS solaire thermique:
+      formule: Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+    ECS avec ballon électrique:
+      formule: Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
+    Scope 3:
+      # =B14*'Ratios environnementaux'!$C$52
+      formule: besoins chauffage par appartement * ratios environnementaux . CO2 INS Radiateur électrique
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2e/an
+
+###### Bilan annuel
+
+Bilan x Radiateur électrique:
+  avec:
+    P1abo: Calcul Eco . Radiateur électrique . Coût du combustible abonnement
+    P1conso: Calcul Eco . Radiateur électrique . Coût du combustible consommation
+    P1prime: Calcul Eco . Radiateur électrique . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1ECS:
+      le maximum de:
+        - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation
+        - Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS solaire
+    P1Consofroid: Calcul Eco . Radiateur électrique . Coût combustible froid
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+    P4spec:
+      formule: Calcul Eco . Radiateur électrique . Investissement équipement par logement type tertiaire * amortissement . facteur RAD ELEC INDIV
+
+    P4ECS Ballon électrique:
+      formule: Calcul Eco . Radiateur électrique . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+
+    P4ECS Solaire Thermique:
+      variations:
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Radiateur électrique . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+        - sinon: 0
+
+    P4:
+      somme:
+        - P4spec
+        - P4ECS Ballon électrique
+        - P4ECS Solaire Thermique
+        - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
+    aides spécifiques:
+      formule: Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Total * amortissement . facteur RAD ELEC INDIV
+
+    aides:
+      somme:
+        - aides spécifiques
+        - Calcul Bilan . aides réseau de froid
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
+    total sans aides:
+      somme:
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
+        - P4
+    total avec aides:
+      somme:
+        - total sans aides
+        - (- aides)
