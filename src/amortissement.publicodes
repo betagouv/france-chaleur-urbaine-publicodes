@@ -1,0 +1,93 @@
+# Annuité constante d'un investissement — reproduction de la fonction Excel PMT.
+#
+# Remplace l'ancien anchor YAML `&pmt` de bilan-1an.publicodes : la formule est
+# définie une seule fois ici, déclinée en un « facteur d'annuité » par durée de
+# vie (annuité pour 1 € de capital). Un amortissement s'écrit alors simplement :
+#
+#   P4spec: <montant de l'investissement> * amortissement . facteur <DURÉE>
+#
+# Chaque facteur n'est calculé qu'une fois par situation (cache du moteur).
+x-facteur: &facteur
+  - si: ratios économiques . Amortissement x Taux actualisation != 0
+    alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée - 1)
+  - sinon: 1 / durée
+
+amortissement:
+  description: Facteurs d'annuité (PMT pour 1 € de capital) par durée de vie
+  avec:
+    facteur RCU renouvellement:
+      variations: *facteur
+      avec:
+        durée: ratios . RCU Durée avant renouvellement
+    facteur RCU sous station:
+      variations: *facteur
+      avec:
+        durée: ratios . RCU Durée sous station
+    facteur RFU:
+      variations: *facteur
+      avec:
+        durée: ratios . RFU Durée de vie
+    facteur GRA POELE:
+      variations: *facteur
+      avec:
+        durée: ratios . GRA POELE Durée de vie
+    facteur GRA CHAUD:
+      variations: *facteur
+      avec:
+        durée: ratios . GRA CHAUD Durée de vie
+    facteur GAZ IND COND:
+      variations: *facteur
+      avec:
+        durée: ratios . GAZ IND COND Durée de vie
+    facteur GAZ IND SCOND:
+      variations: *facteur
+      avec:
+        durée: ratios . GAZ IND SCOND Durée de vie
+    facteur GAZ COLL COND:
+      variations: *facteur
+      avec:
+        durée: ratios . GAZ COLL COND Durée de vie
+    facteur FIOUL IND:
+      variations: *facteur
+      avec:
+        durée: ratios . FIOUL IND Durée de vie
+    facteur FIOUL COLL:
+      variations: *facteur
+      avec:
+        durée: ratios . FIOUL COLL Durée de vie
+    facteur PAC AIR AIR indiv:
+      variations: *facteur
+      avec:
+        durée: ratios . PAC AIR AIR Durée de vie indiv
+    facteur PAC AIR AIR coll:
+      variations: *facteur
+      avec:
+        durée: ratios . PAC AIR AIR Durée de vie coll
+    facteur PAC AIR EAU indiv:
+      variations: *facteur
+      avec:
+        durée: ratios . PAC AIR EAU Durée de vie indiv
+    facteur PAC AIR EAU coll:
+      variations: *facteur
+      avec:
+        durée: ratios . PAC AIR EAU Durée de vie coll
+    facteur PAC EAU EAU:
+      variations: *facteur
+      avec:
+        durée: ratios . PAC EAU EAU Durée de vie
+    facteur PAC EAU EAU puits:
+      variations: *facteur
+      avec:
+        durée: ratios . PAC EAU EAU Durée de vie puits géothermiques
+    facteur RAD ELEC INDIV:
+      variations: *facteur
+      avec:
+        durée: ratios . RAD ELEC INDIV Durée de vie
+    facteur CHAUF EAU ELEC:
+      variations: *facteur
+      avec:
+        durée: ratios . CHAUF EAU ELEC Durée de vie
+    facteur CHAUF EAU SOLAIRE:
+      variations: *facteur
+      avec:
+        durée: ratios . CHAUF EAU SOLAIRE Durée de vie
