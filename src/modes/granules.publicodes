@@ -1,0 +1,762 @@
+# Granulés : poêle individuel et chaudière collective
+# Regroupe ratios, dimensionnement, calculs économiques,
+# aides, émissions et bilan pour ce mode de chauffage.
+
+###### Ratios techniques
+
+ratios . GRA POELE Rendement poêle chauffage:
+  valeur: 80%
+  unité: '%'
+
+ratios . GRA POELE Conso combustible:
+  valeur: 0.217391304
+  unité: kg granulés/an/kWh
+
+ratios . GRA POELE Durée de vie:
+  valeur: 16
+  unité: an
+
+ratios . GRA CHAUD Rendement chaudière chauffage:
+  valeur: 82%
+  unité: '%'
+
+ratios . GRA CHAUD Conso combustible:
+  valeur: 0.217391304
+  unité: kg granulés/an/kWh
+
+ratios . GRA CHAUD Conso auxiliaire:
+  valeur: 99.8%
+  unité: '%'
+
+ratios . GRA CHAUD Durée de vie:
+  valeur: 17
+  unité: an
+
+###### Ratios économiques (investissement)
+
+ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel:
+  avec:
+    Coût investissement Puissance 12 kW:
+      valeur: 5600
+      unité: €HT
+  note: 'Source: Invicta 2024'
+
+ratios économiques . Granulés x Chaudière à granulés collective:
+  variations:
+    - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante < 25
+      alors: 750 * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
+    - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante = 25
+      alors: 20000
+    - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 30
+      alors: 26250
+    - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 40
+      alors: 29750
+    - si: Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante <= 50
+      alors: 37500
+    - sinon: 750 * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante
+  note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
+
+###### Ratios environnementaux
+
+ratios environnementaux . CO2 INS Poêle à granulés indiv:
+  # Ratios environnementaux'!$C$35
+  formule: 122
+  unité: kgCO2e/kW
+  note: 'Source: INIES 2022'
+
+ratios environnementaux . CO2 INS Chaudière à granulés coll:
+  # Ratios environnementaux'!$C$36
+  formule: 88.5
+  unité: kgCO2e/kW
+  note: 'Source: INIES 2022'
+
+###### Investissement
+
+Investissement x Poêle à granulés indiv:
+  # ='Ratios économiques - Coûts'!$C$65*(1+$D$50)
+  par défaut:
+    produit:
+      - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
+
+Investissement x Chaudière à granulés coll:
+  par défaut:
+    produit:
+      - ratios économiques . Granulés x Chaudière à granulés collective
+      - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
+
+###### Installation (dimensionnement et consommations)
+
+Installation x Poêle à granulés indiv x Individuel:
+  avec:
+    production eau chaude sanitaire: non
+    puissance nécessaire équipement chauffage:
+      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . GRA POELE Rendement poêle chauffage)
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      formule: 0
+      unité: kW
+    puissance équipement:
+      somme:
+        - puissance nécessaire équipement chauffage
+      unité: kW
+    gamme de puissance existante:
+      # =IF($G$49<'Ratios économiques - Coûts'!$B$65;'Ratios économiques - Coûts'!$B$65;$F$538)
+      variations:
+        - si: puissance équipement < 12
+          alors: 12
+        - sinon: 0 # Apparement non applicable . Calculs techniques H49 référence une cellule non existante $F$548
+      unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
+    volume du ballon ECS:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != "Solaire thermique"
+          alors: volume du ballon ECS
+        - sinon: 50
+      unité: L
+    consommation d'électricité chauffe-eau électrique:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != 'Solaire thermique'
+          alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
+    consommation combustible chaleur:
+      formule: ratios . GRA POELE Conso combustible * (besoins chauffage par appartement / ratios . GRA POELE Rendement poêle chauffage)
+      unité: kg granulés/an
+    consommation combustible froid:
+      formule: 0
+      unité: kg granulés/an
+    consommation auxiliaire:
+      formule: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
+        - sinon: 0
+      unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
+
+Installation x Chaudière à granulés coll x Collectif:
+  avec:
+    production eau chaude sanitaire: Production eau chaude sanitaire
+    puissance nécessaire équipement chauffage:
+      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . GRA CHAUD Rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      variations:
+        - si:
+            toutes ces conditions:
+              - production eau chaude sanitaire
+              - type de production ECS = 'Avec équipement chauffage'
+          alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . GRA CHAUD Rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné
+        - sinon: 0
+      unité: kW
+    puissance équipement:
+      somme:
+        - puissance nécessaire équipement chauffage
+        - puissance nécessaire pour ECS avec équipement
+      unité: kW
+    gamme de puissance existante:
+      #=MROUND(G50;50)
+      variations:
+        - si: puissance équipement < 75
+          alors: 50
+        - si: puissance équipement < 125
+          alors: 100
+        - si: puissance équipement < 175
+          alors: 150
+        - si: puissance équipement < 225
+          alors: 200
+        - si: puissance équipement < 275
+          alors: 250
+        - si: puissance équipement < 325
+          alors: 300
+        - si: puissance équipement < 375
+          alors: 350
+        - si: puissance équipement < 425
+          alors: 400
+        - si: puissance équipement < 475
+          alors: 450
+        - si: puissance équipement < 525
+          alors: 500
+        - si: puissance équipement < 575
+          alors: 550
+        - si: puissance équipement < 625
+          alors: 600
+        - si: puissance équipement < 675
+          alors: 650
+        - si: puissance équipement < 725
+          alors: 700
+        - si: puissance équipement < 775
+          alors: 750
+        - si: puissance équipement < 825
+          alors: 800
+        - si: puissance équipement < 875
+          alors: 850
+        - si: puissance équipement < 925
+          alors: 900
+        - si: puissance équipement < 975
+          alors: 950
+        - si: puissance équipement < 1025
+          alors: 1000
+        - si: puissance équipement < 1075
+          alors: 1050
+        - si: puissance équipement < 1125
+          alors: 1100
+        - si: puissance équipement < 1175
+          alors: 1150
+        - si: puissance équipement < 1225
+          alors: 1200
+        - si: puissance équipement < 1275
+          alors: 1250
+        - si: puissance équipement < 1325
+          alors: 1300
+        - si: puissance équipement < 1375
+          alors: 1350
+        - si: puissance équipement < 1425
+          alors: 1400
+        - si: puissance équipement < 1475
+          alors: 1450
+        - si: puissance équipement < 1525
+          alors: 1500
+        - si: puissance équipement < 1575
+          alors: 1550
+        - si: puissance équipement < 1625
+          alors: 1600
+        - si: puissance équipement < 1675
+          alors: 1650
+        - si: puissance équipement < 1725
+          alors: 1700
+        - si: puissance équipement < 1775
+          alors: 1750
+        - si: puissance équipement < 1825
+          alors: 1800
+        - si: puissance équipement < 1875
+          alors: 1850
+        - si: puissance équipement < 1925
+          alors: 1900
+        - si: puissance équipement < 1975
+          alors: 1950
+        - sinon: 2000
+      unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
+    volume du ballon ECS:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != "Solaire thermique"
+          alors: volume du ballon ECS
+        - sinon: 50
+      unité: L
+    consommation d'électricité chauffe-eau électrique:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != 'Solaire thermique'
+          alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
+    consommation combustible chaleur:
+      # =Conso_comb_GRA_Chaud*(Besoin_cha/Rend_GRA_Chaud+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GRA_Chaud)
+      # formule: ratios . GRA CHAUD Conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . GRA CHAUD Rendement chaudière chauffage
+      produit:
+        - ratios . GRA CHAUD Conso combustible
+        - somme:
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
+        - 1 / ratios . GRA CHAUD Rendement chaudière chauffage
+      unité: kg granulés/an
+    consommation combustible froid:
+      formule: 0
+      unité: kg granulés/an
+    consommation auxiliaire:
+      # =(1-Conso_aux_GRA_Chaud)*Besoin_cha+(1-Conso_aux_GRA_Chaud)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
+      somme:
+        - (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins chauffage par appartement
+        - variations:
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . GRA CHAUD Conso auxiliaire) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
+        - sinon: consommation auxiliaire
+      unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
+
+###### Calculs économiques
+
+Calcul Eco . Poêle à granulés indiv:
+  avec:
+    # P4 - Investissement total (sans aide) €TTC
+    Investissement équipement Total:
+      produit:
+        - Investissement x Poêle à granulés indiv
+        - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+      unité: €TTC
+    Investissement équipement par logement type tertiaire:
+      valeur: Investissement équipement Total
+      unité: €TTC
+    Investissement ballon ECS à accumulation:
+      variations:
+        - si: Installation x Poêle à granulés indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          alors: Calcul Eco . Investissement ballon ECS à accumulation
+        - sinon: 0
+      unité: €TTC
+    Investissement ballon ECS solaire panneau inclus:
+      applicable si:
+        toutes ces conditions:
+          - Installation x Poêle à granulés indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          - type de production ECS = "Solaire thermique"
+      formule: Calcul Eco . Investissement ballon ECS panneau inclus
+      unité: €TTC
+    Total investissement avec ballon ECS à accumulation:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+      unité: €TTC
+    Total investissement ballon ECS solaire panneaux:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+      unité: €TTC
+
+    # P1 - Coût du combustible par lgt type / tertiaire
+    Coût du combustible abonnement:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+        - sinon: 0
+      unité: €TTC/an
+      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible consommation:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation
+        - Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur
+      unité: €TTC/an
+      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+    Coût électricité auxiliaire:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire
+      unité: €TTC/an
+      note: "Coût électricité auxiliaire (P1') €TTC/an"
+    Coût combustible pour ballon ECS à accumulation:
+      applicable si: Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
+    Coût combustible pour ballon ECS solaire:
+      applicable si: Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
+    Coût combustible froid:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+        - sinon:
+            produit:
+              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+              - Installation x Poêle à granulés indiv x Individuel . consommation Groupe Froid
+      unité: €TTC/an
+
+Calcul Eco . Chaudière à granulés coll:
+  avec:
+    # P4 - Investissement total (sans aide) €TTC
+    Investissement équipement Total:
+      # C26
+      produit:
+        - Investissement x Chaudière à granulés coll
+        - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+      unité: €TTC
+    Investissement équipement par logement type tertiaire:
+      valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
+      unité: €TTC
+    Investissement ballon ECS à accumulation:
+      variations:
+        - si: Installation x Chaudière à granulés coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          alors: Calcul Eco . Investissement ballon ECS à accumulation
+        - sinon: 0
+      unité: €TTC
+    Investissement ballon ECS solaire panneau inclus:
+      applicable si:
+        toutes ces conditions:
+          - Installation x Chaudière à granulés coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          - type de production ECS = "Solaire thermique"
+      formule: Calcul Eco . Investissement ballon ECS panneau inclus
+      unité: €TTC
+    Total investissement avec ballon ECS à accumulation:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+      unité: €TTC
+    Total investissement ballon ECS solaire panneaux:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+      unité: €TTC
+
+    # P1 - Coût du combustible par lgt type / tertiaire
+    Coût du combustible abonnement:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+        - sinon: 0
+      unité: €TTC/an
+      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible consommation:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation
+        - Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur
+      unité: €TTC/an
+      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+    Coût électricité auxiliaire:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire
+      unité: €TTC/an
+      note: "Coût électricité auxiliaire (P1') €TTC/an"
+    Coût combustible pour ballon ECS à accumulation:
+      applicable si: Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
+    Coût combustible pour ballon ECS solaire:
+      applicable si: Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
+    Coût combustible froid:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+        - sinon:
+            produit:
+              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+              - Installation x Chaudière à granulés coll x Collectif . consommation Groupe Froid
+      unité: €TTC/an
+
+###### Entretien P2 / P3
+
+Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv:
+  avec:
+    petit entretien P2:
+      produit:
+        - Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv
+        - besoins chauffage par appartement / 1000
+      unité: €TTC/an
+    gros entretien P3:
+      produit:
+        - Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv
+        - Calcul Eco . Poêle à granulés indiv . Investissement équipement Total
+      unité: €TTC/an
+    petit entretien P2 par logement tertiaire: petit entretien P2
+    gros entretien P3 par logement tertiaire: gros entretien P3
+
+Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll:
+  avec:
+    petit entretien P2:
+      produit:
+        - Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll
+        - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+        - nombre de logements dans l'immeuble concerné / 1000
+      unité: €TTC/an
+    gros entretien P3:
+      produit:
+        - Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll
+        - Calcul Eco . Chaudière à granulés coll . Investissement équipement Total
+      unité: €TTC/an
+    petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+    gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+
+###### Aides
+
+Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv:
+  avec:
+    Ma prime renov':
+      applicable si:
+        est défini: Ma prime renov'
+      formule: Ma prime renov'
+      unité: €
+    Coup de pouce:
+      applicable si:
+        est défini: Coup de pouce
+      formule: Coup de pouce
+      unité: €
+    CEE:
+      formule: 0
+      unité: €
+    Total:
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: Ma prime renov' + Coup de pouce + CEE
+        - sinon: 0
+      unité: €
+
+Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll:
+  avec:
+    Ma prime renov':
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: 35 / 100 * Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire
+        - sinon: 0
+      unité: €
+    Coup de pouce:
+      applicable si:
+        est défini: Coup de pouce
+      formule: Coup de pouce
+      unité: €
+    CEE:
+      formule: 0
+      unité: €
+    Total:
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: Ma prime renov' + Coup de pouce + CEE
+        - sinon: 0
+      unité: €
+
+###### Émissions de CO2
+
+env . Installation x Poêle à granulés indiv x Individuel:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      # ='Calculs techniques'!C95/Conso_comb_GRA_Poele*(XLOOKUP(C45,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: (Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur / ratios . GRA POELE Conso combustible) * ratios environnementaux . Emission spé Granulé poêle à bois
+      unité: kgCO2e
+    Scope 1: besoins de chauffage et ECS si même équipement
+    auxiliaires et combustible électrique:
+      valeur: 0
+      unité: kgCO2e
+    ECS solaire thermique:
+      formule: Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+    ECS avec ballon électrique:
+      formule: Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
+    Scope 3:
+      # =(XLOOKUP(A45,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B22/Durée_vie_GRA_Poele
+      formule: ratios environnementaux . CO2 INS Poêle à granulés indiv * Installation x Poêle à granulés indiv x Individuel . gamme de puissance existante / ratios . GRA POELE Durée de vie
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2e/an
+
+env . Installation x Chaudière à granulés coll x Collectif:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      # ='Calculs techniques'!C96/Conso_comb_GRA_Chaud*(XLOOKUP(C46,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur / ratios . GRA CHAUD Conso combustible * ratios environnementaux . Emission spé Granulé chaudière
+      unité: kgCO2e
+    Scope 1: besoins de chauffage et ECS si même équipement
+    auxiliaires et combustible électrique:
+      # ='Calculs techniques'!F96*'Ratios environnementaux'!$C$25
+      formule: Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      unité: kgCO2e
+    ECS solaire thermique:
+      formule: Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+    ECS avec ballon électrique:
+      formule: Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
+    Scope 3:
+      # =(XLOOKUP(A46,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B23/Durée_vie_GRA_Chaud/Nb_lgt
+      formule: ratios environnementaux . CO2 INS Chaudière à granulés coll * Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante / ratios . GRA CHAUD Durée de vie / nombre de logements dans l'immeuble concerné
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2e/an
+
+###### Bilan annuel
+
+Bilan x Poêle à granulés indiv:
+  avec:
+    P1abo: Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement
+    P1conso: Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation
+    P1prime: Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1ECS:
+      le maximum de:
+        - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation
+        - Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS solaire
+    P1Consofroid: Calcul Eco . Poêle à granulés indiv . Coût combustible froid
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+    P4spec:
+      formule: Calcul Eco . Poêle à granulés indiv . Investissement équipement par logement type tertiaire * amortissement . facteur GRA POELE
+
+    P4ECS Ballon électrique:
+      formule: Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+
+    P4ECS Solaire Thermique:
+      variations:
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+        - sinon: 0
+
+    P4:
+      somme:
+        - P4spec
+        - P4ECS Ballon électrique
+        - P4ECS Solaire Thermique
+        - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
+    aides spécifiques:
+      formule: Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Total * amortissement . facteur GRA POELE
+
+    aides:
+      somme:
+        - aides spécifiques
+        - Calcul Bilan . aides réseau de froid
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
+    total sans aides:
+      somme:
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
+        - P4
+    total avec aides:
+      somme:
+        - total sans aides
+        - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)
+
+Bilan x Chaudière à granulés coll:
+  avec:
+    P1abo: Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement
+    P1conso: Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation
+    P1prime: Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1ECS:
+      le maximum de:
+        - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation
+        - Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS solaire
+    P1Consofroid: Calcul Eco . Chaudière à granulés coll . Coût combustible froid
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+    P4spec:
+      formule: Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire * amortissement . facteur GRA CHAUD
+
+    P4ECS Ballon électrique:
+      formule: Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+
+    P4ECS Solaire Thermique:
+      variations:
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+        - sinon: 0
+
+    P4:
+      somme:
+        - P4spec
+        - P4ECS Ballon électrique
+        - P4ECS Solaire Thermique
+        - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
+    aides spécifiques:
+      formule: Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Total * amortissement . facteur GRA CHAUD
+
+    aides:
+      somme:
+        - aides spécifiques
+        - Calcul Bilan . aides réseau de froid
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
+    total sans aides:
+      somme:
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
+        - P4
+    total avec aides:
+      somme:
+        - total sans aides
+        - (- aides)
+    total sans installation:
+      somme:
+        - total sans aides
+        - (- P4)

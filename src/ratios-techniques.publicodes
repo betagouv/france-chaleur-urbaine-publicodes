@@ -1734,60 +1734,6 @@ ratios:
     RFU Durée de vie:
       valeur: 30
       unité: an
-    GRA POELE Rendement poêle chauffage:
-      valeur: 80%
-      unité: '%'
-    GRA POELE Conso combustible:
-      valeur: 0.217391304
-      unité: kg granulés/an/kWh
-    GRA POELE Durée de vie:
-      valeur: 16
-      unité: an
-    GRA CHAUD Rendement chaudière chauffage:
-      valeur: 82%
-      unité: '%'
-    GRA CHAUD Conso combustible:
-      valeur: 0.217391304
-      unité: kg granulés/an/kWh
-    GRA CHAUD Conso auxiliaire:
-      valeur: 99.8%
-      unité: '%'
-    GRA CHAUD Durée de vie:
-      valeur: 17
-      unité: an
-    FIOUL IND Rendement chaudière:
-      valeur: 73%
-      unité: '%'
-    FIOUL IND Conso combustible:
-      valeur: 0.0947
-      unité: L/kWh PCI
-    FIOUL IND Conso auxiliaire chauffage:
-      valeur: 99.9%
-      unité: '%'
-    FIOUL IND Conso auxiliaire ECS:
-      valeur: 99.9%
-      unité: '%'
-    FIOUL IND Durée de vie:
-      valeur: 21
-      unité: an
-    FIOUL COLL Rendement chaudière chauffage:
-      valeur: 71%
-      unité: '%'
-    FIOUL COLL Rendement chaudière ECS:
-      valeur: 71%
-      unité: '%'
-    FIOUL COLL Conso combustible:
-      valeur: 0.0947
-      unité: L/kWh PCI
-    FIOUL COLL Conso auxiliaire chauffage:
-      valeur: 99.8%
-      unité: '%'
-    FIOUL COLL Conso auxiliaire ECS:
-      valeur: 99%
-      unité: '%'
-    FIOUL COLL Durée de vie:
-      valeur: 21
-      unité: an
     PAC GNRL A:
       valeur: 3.60
     PAC GNRL Aplus:
@@ -1802,75 +1748,6 @@ ratios:
       valeur: 99%
     PAC GNRL SCOP mini:
       valeur: 1.8
-    PAC AIR AIR SCOP indiv:
-      valeur: 2.7
-    PAC AIR AIR SCOP coll:
-      valeur: 3.3
-    PAC AIR AIR SEER indiv:
-      valeur: 3.5
-    PAC AIR AIR SEER coll:
-      valeur: 4
-    PAC AIR AIR Puissance unitaire réversible indiv:
-      valeur: 2.5
-      unité: kW
-    PAC AIR AIR Puissance unitaire réversible coll:
-      valeur: 22
-      unité: kW
-    PAC AIR AIR Puissance unitaire groupe froid indiv:
-      valeur: 2.5
-      unité: kW
-    PAC AIR AIR Classe énergétique:
-      valeur: "'A+'"
-    PAC AIR AIR Durée de vie indiv:
-      valeur: 17
-      unité: an
-    PAC AIR AIR Durée de vie coll:
-      valeur: 22
-      unité: an
-    PAC EAU EAU SCOP indiv capteurs horizontaux:
-      somme:
-        - 4
-        - Température émetteurs delta
-    PAC EAU EAU SCOP coll champ de sondes:
-      somme:
-        - 5
-        - Température émetteurs delta
-    PAC EAU EAU Puissance unitaire indiv:
-      valeur: 8
-    PAC EAU EAU Puissance unitaire coll:
-      valeur: 46.52
-    PAC EAU EAU Classe énergétique:
-      valeur: "'A+'"
-    PAC EAU EAU Durée de vie:
-      valeur: 22
-      unité: an
-    PAC EAU EAU Durée de vie puits géothermiques:
-      valeur: 50
-      unité: an
-    PAC AIR EAU SCOP indiv:
-      somme:
-        - 3.8
-        - Température émetteurs delta
-    PAC AIR EAU SCOP coll:
-      somme:
-        - 3.98
-        - Température émetteurs delta
-    PAC AIR EAU SEER indiv:
-      valeur: 3.5
-    PAC AIR EAU SEER coll:
-      valeur: 4.8
-    PAC AIR EAU Puissance unitaire réversible indiv:
-      valeur: 2.5
-    PAC AIR EAU Puissance unitaire réversible coll:
-      valeur: 20
-    PAC AIR EAU Classe énergétique:
-      valeur: "'A+'"
-    PAC AIR EAU Durée de vie indiv:
-      valeur: 17
-      unité: an
-    PAC AIR EAU Durée de vie coll:
-      valeur: 22
-      unité: an
     PAC AB SCOP coll:
       valeur: 1.23
     PAC AB Classe énergétique:

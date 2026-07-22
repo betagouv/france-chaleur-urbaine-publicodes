@@ -1,0 +1,759 @@
+# Chaudières fioul (indiv/coll)
+# Regroupe ratios, dimensionnement, calculs économiques,
+# aides, émissions et bilan pour ce mode de chauffage.
+
+###### Ratios techniques
+
+ratios . FIOUL IND Rendement chaudière:
+  valeur: 73%
+  unité: '%'
+
+ratios . FIOUL IND Conso combustible:
+  valeur: 0.0947
+  unité: L/kWh PCI
+
+ratios . FIOUL IND Conso auxiliaire chauffage:
+  valeur: 99.9%
+  unité: '%'
+
+ratios . FIOUL IND Conso auxiliaire ECS:
+  valeur: 99.9%
+  unité: '%'
+
+ratios . FIOUL IND Durée de vie:
+  valeur: 21
+  unité: an
+
+ratios . FIOUL COLL Rendement chaudière chauffage:
+  valeur: 71%
+  unité: '%'
+
+ratios . FIOUL COLL Rendement chaudière ECS:
+  valeur: 71%
+  unité: '%'
+
+ratios . FIOUL COLL Conso combustible:
+  valeur: 0.0947
+  unité: L/kWh PCI
+
+ratios . FIOUL COLL Conso auxiliaire chauffage:
+  valeur: 99.8%
+  unité: '%'
+
+ratios . FIOUL COLL Conso auxiliaire ECS:
+  valeur: 99%
+  unité: '%'
+
+ratios . FIOUL COLL Durée de vie:
+  valeur: 21
+  unité: an
+
+###### Ratios économiques (investissement)
+
+ratios économiques . Fioul x indiv:
+  produit:
+    - variations:
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 12
+          alors: 2926
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 20
+          alors: 3091
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 25
+          alors: 3212
+        - si: Installation x Fioul indiv x Individuel . gamme de puissance existante <= 30
+          alors: 3542
+        - sinon: 3982
+    - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
+
+ratios économiques . Fioul x collectif:
+  produit:
+    - variations:
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 35
+          alors: 5280
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 120
+          alors: 16500
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 200
+          alors: 27500
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 300
+          alors: 41250
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 400
+          alors: 44000
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 500
+          alors: 49500
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 600
+          alors: 57569
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 700
+          alors: 67163
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 800
+          alors: 76758
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 900
+          alors: 86353
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1000
+          alors: 95948
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1250
+          alors: 119934
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1500
+          alors: 143921
+        - si: Installation x Fioul coll x Collectif . gamme de puissance existante <= 1750
+          alors: 167908
+        - sinon: 191895
+    - 1 + ratios économiques . Investissement x TVA
+  unité: €TTC
+
+###### Ratios environnementaux
+
+ratios environnementaux . CO2 INS Fioul indiv:
+  # Ratios environnementaux'!$C$41
+  formule: 112
+  unité: kgCO2e/kW
+  note: 'Source: INIES 2022'
+
+ratios environnementaux . CO2 INS Fioul coll:
+  # Ratios environnementaux'!$C$42
+  formule: 43
+  unité: kgCO2e/kW
+  note: 'Source: INIES 2022'
+
+###### Installation (dimensionnement et consommations)
+
+Installation x Fioul indiv x Individuel:
+  avec:
+    production eau chaude sanitaire: Production eau chaude sanitaire
+    puissance nécessaire équipement chauffage:
+      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . FIOUL IND Rendement chaudière)
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      variations:
+        - si:
+            toutes ces conditions:
+              - production eau chaude sanitaire
+              - type de production ECS = 'Avec équipement chauffage'
+          alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . FIOUL IND Rendement chaudière)
+        - sinon: 0
+      unité: kW
+    puissance équipement:
+      somme:
+        - puissance nécessaire équipement chauffage
+        - puissance nécessaire pour ECS avec équipement
+      unité: kW
+    gamme de puissance existante:
+      # =IF($G$55<'Ratios économiques - Coûts'!$B$142;XLOOKUP($G$55;'Ratios économiques - Coûts'!$B$138:$B$142;'Ratios économiques - Coûts'!$B$138:$B$142;;1);35)
+      variations:
+        - si: puissance équipement <= 12
+          alors: 12
+        - si: puissance équipement <= 20
+          alors: 20
+        - si: puissance équipement <= 25
+          alors: 25
+        - si: puissance équipement <= 30
+          alors: 30
+        - sinon: 35
+      unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
+    volume du ballon ECS:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != "Solaire thermique"
+          alors: volume du ballon ECS
+        - sinon: 50
+      unité: L
+    consommation d'électricité chauffe-eau électrique:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != 'Solaire thermique'
+          alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
+    consommation combustible chaleur:
+      # =Conso_comb_FIOUL_indiv*(Besoin_cha/Rend_FIOUL_indiv+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_FIOUL_indiv)
+      produit:
+        - ratios . FIOUL IND Conso combustible
+        - somme:
+            - besoins chauffage par appartement
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement
+                - sinon: 0
+        - 1 / ratios . FIOUL IND Rendement chaudière
+      unité: L/an
+    consommation combustible froid:
+      formule: 0
+      unité: L/an
+    consommation auxiliaire:
+      # =(1-Conso_aux_FIOUL_indiv)*Besoin_cha+(1-Conso_aux_FIOUL_indiv_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
+      somme:
+        - (1 - ratios . FIOUL IND Conso auxiliaire chauffage) * besoins chauffage par appartement
+        - variations:
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . FIOUL IND Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
+        - sinon: consommation auxiliaire
+      unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
+
+Installation x Fioul coll x Collectif:
+  avec:
+    production eau chaude sanitaire: Production eau chaude sanitaire
+    puissance nécessaire équipement chauffage:
+      formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . FIOUL COLL Rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+      unité: kW
+    puissance nécessaire pour ECS avec équipement:
+      variations:
+        - si:
+            toutes ces conditions:
+              - production eau chaude sanitaire
+              - type de production ECS = 'Avec équipement chauffage'
+          alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . FIOUL COLL Rendement chaudière ECS) * nombre de logements dans l'immeuble concerné
+        - sinon: 0
+      unité: kW
+    puissance équipement:
+      somme:
+        - puissance nécessaire équipement chauffage
+        - puissance nécessaire pour ECS avec équipement
+      unité: kW
+    gamme de puissance existante:
+      # =XLOOKUP($G$56;'Ratios économiques - Coûts'!$B$147:$B$161;'Ratios économiques - Coûts'!$B$147:$B$161;;1)
+      variations:
+        - si: puissance équipement <= 35
+          alors: 35
+        - si: puissance équipement <= 120
+          alors: 120
+        - si: puissance équipement <= 200
+          alors: 200
+        - si: puissance équipement <= 300
+          alors: 300
+        - si: puissance équipement <= 400
+          alors: 400
+        - si: puissance équipement <= 500
+          alors: 500
+        - si: puissance équipement <= 600
+          alors: 600
+        - si: puissance équipement <= 700
+          alors: 700
+        - si: puissance équipement <= 800
+          alors: 800
+        - si: puissance équipement <= 900
+          alors: 900
+        - si: puissance équipement <= 1000
+          alors: 1000
+        - si: puissance équipement <= 1250
+          alors: 1250
+        - si: puissance équipement <= 1500
+          alors: 1500
+        - si: puissance équipement <= 1750
+          alors: 1750
+        - sinon: 2000
+      unité: kW
+    besoin d'installation supplémentaire pour produire l'ECS:
+      toutes ces conditions:
+        - Production eau chaude sanitaire
+        - puissance nécessaire pour ECS avec équipement <= 0
+    volume du ballon ECS:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != "Solaire thermique"
+          alors: volume du ballon ECS
+        - sinon: 50
+      unité: L
+    consommation d'électricité chauffe-eau électrique:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS != 'Solaire thermique'
+          alors: chauffe-eau électrique x consommation d'électricité
+        - sinon: 0
+      unité: kWh/an
+    appoint d'électricité chauffe-eau solaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - besoin d'installation supplémentaire pour produire l'ECS
+              - type de production ECS = 'Solaire thermique'
+          alors: chauffe-eau solaire x appoint d'électricité
+        - sinon: 0
+      unité: kWh/an
+    consommation combustible chaleur:
+      # =Conso_comb_FIOUL_coll*(Besoin_cha/Rend_FIOUL_coll_chauf+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_FIOUL_coll_ECS)
+      produit:
+        - ratios . FIOUL COLL Conso combustible
+        - somme:
+            - besoins chauffage par appartement / ratios . FIOUL COLL Rendement chaudière chauffage
+            - variations:
+                - si: type de production ECS = 'Avec équipement chauffage'
+                  alors: besoins eau chaude sanitaire par appartement / ratios . FIOUL COLL Rendement chaudière ECS
+                - sinon: 0
+      unité: L/an
+    consommation combustible froid:
+      formule: 0
+      unité: L/an
+    consommation auxiliaire:
+      # =(1-Conso_aux_FIOUL_coll_chauf)*Besoin_cha+(1-Conso_aux_FIOUL_coll_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
+      somme:
+        - (1 - ratios . FIOUL COLL Conso auxiliaire chauffage) * besoins chauffage par appartement
+        - variations:
+            - si:
+                toutes ces conditions:
+                  - type de production ECS = 'Avec équipement chauffage'
+                  - Production eau chaude sanitaire
+              alors: (1 - ratios . FIOUL COLL Conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+            - sinon: 0
+      unité: kWh elec
+    consommation combustible hors électricité:
+      formule: consommation combustible chaleur
+    consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+      variations:
+        - si: besoin d'installation supplémentaire pour produire l'ECS
+          alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
+        - sinon: consommation auxiliaire
+      unité: kWh/an
+    consommation Groupe Froid: calcul consommation Groupe Froid
+
+###### Calculs économiques
+
+Calcul Eco . Fioul indiv:
+  avec:
+    # P4 - Investissement total (sans aide) €TTC
+    Investissement équipement Total:
+      produit:
+        - ratios économiques . Fioul x indiv
+        - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+      unité: €TTC
+    Investissement équipement par logement type tertiaire:
+      valeur: Investissement équipement Total
+      unité: €TTC
+    Investissement ballon ECS à accumulation:
+      variations:
+        - si: Installation x Fioul indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          alors: Calcul Eco . Investissement ballon ECS à accumulation
+        - sinon: 0
+      unité: €TTC
+    Investissement ballon ECS solaire panneau inclus:
+      applicable si:
+        toutes ces conditions:
+          - Installation x Fioul indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS
+          - type de production ECS = "Solaire thermique"
+      formule: Calcul Eco . Investissement ballon ECS panneau inclus
+      unité: €TTC
+    Total investissement avec ballon ECS à accumulation:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+      unité: €TTC
+    Total investissement ballon ECS solaire panneaux:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+      unité: €TTC
+
+    # P1 - Coût du combustible par lgt type / tertiaire
+    Coût du combustible abonnement:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+        - sinon: 0
+      unité: €TTC/an
+      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible consommation:
+      # D54 =$D$16*'Calculs techniques'!$C$101
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation
+        - Installation x Fioul indiv x Individuel . consommation combustible chaleur
+      unité: €TTC/an
+      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+    Coût électricité auxiliaire:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Fioul indiv x Individuel . consommation auxiliaire
+      unité: €TTC/an
+      note: "Coût électricité auxiliaire (P1') €TTC/an"
+    Coût combustible pour ballon ECS à accumulation:
+      applicable si: Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
+    Coût combustible pour ballon ECS solaire:
+      applicable si: Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
+    Coût combustible froid:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+        - sinon:
+            produit:
+              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+              - Installation x Fioul indiv x Individuel . consommation Groupe Froid
+      unité: €TTC/an
+
+Calcul Eco . Fioul coll:
+  avec:
+    # P4 - Investissement total (sans aide) €TTC
+    Investissement équipement Total:
+      produit:
+        - ratios économiques . Fioul x collectif
+        - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+      unité: €TTC
+    Investissement équipement par logement type tertiaire:
+      valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
+      unité: €TTC
+    Investissement ballon ECS à accumulation:
+      variations:
+        - si: Installation x Fioul coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          alors: Calcul Eco . Investissement ballon ECS à accumulation
+        - sinon: 0
+      unité: €TTC
+    Investissement ballon ECS solaire panneau inclus:
+      applicable si:
+        toutes ces conditions:
+          - Installation x Fioul coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS
+          - type de production ECS = "Solaire thermique"
+      formule: Calcul Eco . Investissement ballon ECS panneau inclus
+      unité: €TTC
+    Total investissement avec ballon ECS à accumulation:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS à accumulation
+      unité: €TTC
+    Total investissement ballon ECS solaire panneaux:
+      valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+      unité: €TTC
+
+    # P1 - Coût du combustible par lgt type / tertiaire
+    Coût du combustible abonnement:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût du combustible abonnement
+        - sinon: 0
+      unité: €TTC/an
+      note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
+    Coût du combustible consommation:
+      # D55 =$D$16*'Calculs techniques'!$C$102
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation
+        - Installation x Fioul coll x Collectif . consommation combustible chaleur
+      unité: €TTC/an
+      note: 'Coût du combustible consommation (P1 conso) €TTC/an'
+    Coût électricité auxiliaire:
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Fioul coll x Collectif . consommation auxiliaire
+      unité: €TTC/an
+      note: "Coût électricité auxiliaire (P1') €TTC/an"
+    Coût combustible pour ballon ECS à accumulation:
+      applicable si: Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
+    Coût combustible pour ballon ECS solaire:
+      applicable si: Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire >= 0
+      produit:
+        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire
+      unité: €TTC/an
+      note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
+    Coût combustible froid:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût combustible froid
+        - sinon:
+            produit:
+              - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+              - Installation x Fioul coll x Collectif . consommation Groupe Froid
+      unité: €TTC/an
+
+###### Entretien P2 / P3
+
+Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv:
+  avec:
+    petit entretien P2:
+      produit:
+        - Paramètres économiques . Petit entretien P2 . Fioul indiv
+        - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+      unité: €TTC/an
+    gros entretien P3:
+      produit:
+        - Paramètres économiques . Gros entretien P3 . Fioul indiv
+        - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+      unité: €TTC/an
+    petit entretien P2 par logement tertiaire: petit entretien P2
+    gros entretien P3 par logement tertiaire: gros entretien P3
+
+Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll:
+  avec:
+    petit entretien P2:
+      produit:
+        - Paramètres économiques . Petit entretien P2 . Fioul coll
+        - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+        - nombre de logements dans l'immeuble concerné / 1000
+      unité: €TTC/an
+    gros entretien P3:
+      produit:
+        - Paramètres économiques . Gros entretien P3 . Fioul coll
+        - Calcul Eco . Fioul coll . Investissement équipement Total
+      unité: €TTC/an
+    petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
+    gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+
+###### Aides
+
+Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv:
+  avec:
+    Ma prime renov':
+      applicable si:
+        est défini: Ma prime renov'
+      formule: Ma prime renov'
+      unité: €
+    Coup de pouce:
+      applicable si:
+        est défini: Coup de pouce
+      formule: Coup de pouce
+      unité: €
+    CEE:
+      formule: 0
+      unité: €
+    Total:
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: Ma prime renov' + Coup de pouce + CEE
+        - sinon: 0
+      unité: €
+
+Calcul Eco . Montant des aides par logement tertiaire . Fioul coll:
+  avec:
+    Ma prime renov':
+      applicable si:
+        est défini: Ma prime renov'
+      formule: Ma prime renov'
+      unité: €
+    Coup de pouce:
+      applicable si:
+        est défini: Coup de pouce
+      formule: Coup de pouce
+      unité: €
+    CEE:
+      formule: 0
+      unité: €
+    Total:
+      variations:
+        - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+          alors: Ma prime renov' + Coup de pouce + CEE
+        - sinon: 0
+      unité: €
+
+###### Émissions de CO2
+
+env . Installation x Fioul indiv x Individuel:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      # ='Calculs techniques'!C101/Conso_comb_FIOUL_indiv*(XLOOKUP(C51,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Fioul indiv x Individuel . consommation combustible chaleur / ratios . FIOUL IND Conso combustible * ratios environnementaux . Emission spé Fioul chaudière
+      unité: kgCO2e
+    Scope 1: besoins de chauffage et ECS si même équipement
+    auxiliaires et combustible électrique:
+      formule: Installation x Fioul indiv x Individuel . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      unité: kgCO2e
+    ECS solaire thermique:
+      formule: Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+    ECS avec ballon électrique:
+      formule: Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
+    Scope 3:
+      # =(XLOOKUP(A51,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B28/Durée_vie_FIOUL_indiv
+      formule: ratios environnementaux . CO2 INS Fioul indiv * Installation x Fioul indiv x Individuel . gamme de puissance existante / ratios . FIOUL IND Durée de vie
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2e/an
+
+env . Installation x Fioul coll x Collectif:
+  avec:
+    besoins de chauffage et ECS si même équipement:
+      # ='Calculs techniques'!C102/Conso_comb_FIOUL_coll*(XLOOKUP(C52,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
+      formule: Installation x Fioul coll x Collectif . consommation combustible chaleur / ratios . FIOUL COLL Conso combustible * ratios environnementaux . Emission spé Fioul chaudière
+      unité: kgCO2e
+    Scope 1: besoins de chauffage et ECS si même équipement
+    auxiliaires et combustible électrique:
+      formule: Installation x Fioul coll x Collectif . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+      unité: kgCO2e
+    ECS solaire thermique:
+      formule: Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+    ECS avec ballon électrique:
+      formule: Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+    Scope 2:
+      somme:
+        - auxiliaires et combustible électrique
+        - ECS solaire thermique
+        - ECS avec ballon électrique
+    Scope 3:
+      # =(XLOOKUP(A52,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B29/Durée_vie_FIOUL_coll/Nb_lgt
+      formule: ratios environnementaux . CO2 INS Fioul coll * Installation x Fioul coll x Collectif . gamme de puissance existante / ratios . FIOUL COLL Durée de vie / nombre de logements dans l'immeuble concerné
+    Total:
+      somme:
+        - Scope 1
+        - Scope 2
+        - Scope 3
+      unité: kgCO2e/an
+
+###### Bilan annuel
+
+Bilan x Fioul indiv:
+  avec:
+    P1abo: Calcul Eco . Fioul indiv . Coût du combustible abonnement
+    P1conso: Calcul Eco . Fioul indiv . Coût du combustible consommation
+    P1prime: Calcul Eco . Fioul indiv . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1ECS:
+      le maximum de:
+        - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation
+        - Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS solaire
+    P1Consofroid: Calcul Eco . Fioul indiv . Coût combustible froid
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+    P4spec:
+      formule: Calcul Eco . Fioul indiv . Investissement équipement par logement type tertiaire * amortissement . facteur FIOUL IND
+
+    P4ECS Ballon électrique:
+      formule: Calcul Eco . Fioul indiv . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+
+    P4ECS Solaire Thermique:
+      variations:
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Fioul indiv . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+        - sinon: 0
+
+    P4:
+      somme:
+        - P4spec
+        - P4ECS Ballon électrique
+        - P4ECS Solaire Thermique
+        - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
+    aides spécifiques:
+      formule: Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . Total * amortissement . facteur FIOUL IND
+
+    aides:
+      somme:
+        - aides spécifiques
+        - Calcul Bilan . aides réseau de froid
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
+    total sans aides:
+      somme:
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
+        - P4
+    total avec aides:
+      somme:
+        - total sans aides
+        - (- aides)
+
+Bilan x Fioul coll:
+  avec:
+    P1abo: Calcul Eco . Fioul coll . Coût du combustible abonnement
+    P1conso: Calcul Eco . Fioul coll . Coût du combustible consommation
+    P1prime: Calcul Eco . Fioul coll . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+    P1ECS:
+      le maximum de:
+        - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation
+        - Calcul Eco . Fioul coll . Coût combustible pour ballon ECS solaire
+    P1Consofroid: Calcul Eco . Fioul coll . Coût combustible froid
+    P2: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+    P3: Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+    P4spec:
+      formule: Calcul Eco . Fioul coll . Investissement équipement par logement type tertiaire * amortissement . facteur FIOUL COLL
+
+    P4ECS Ballon électrique:
+      formule: Calcul Eco . Fioul coll . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+
+    P4ECS Solaire Thermique:
+      variations:
+        - si: type de production ECS = 'Solaire thermique'
+          alors: Calcul Eco . Fioul coll . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+        - sinon: 0
+
+    P4:
+      somme:
+        - P4spec
+        - P4ECS Ballon électrique
+        - P4ECS Solaire Thermique
+        - Calcul Bilan . P4 groupe froid
+        - Calcul Bilan . P4 Réseau de froid
+    aides spécifiques:
+      formule: Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Total * amortissement . facteur FIOUL COLL
+
+    aides:
+      somme:
+        - aides spécifiques
+        - Calcul Bilan . aides réseau de froid
+    P4 moins aides:
+      le maximum de:
+        - P4 - aides
+        - 0
+    total sans aides:
+      somme:
+        - P1abo
+        - P1conso
+        - P1prime
+        - P1ECS
+        - P1Consofroid
+        - P2
+        - P3
+        - P4
+    total avec aides:
+      somme:
+        - total sans aides
+        - (- aides)

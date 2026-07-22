@@ -79,26 +79,6 @@ ratios environnementaux:
       # Ratios environnementaux'!$C$34
       formule: 0.004
       unité: kgCO2e/kWh
-    CO2 INS Poêle à granulés indiv:
-      # Ratios environnementaux'!$C$35
-      formule: 122
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS Chaudière à granulés coll:
-      # Ratios environnementaux'!$C$36
-      formule: 88.5
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS Fioul indiv:
-      # Ratios environnementaux'!$C$41
-      formule: 112
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS Fioul coll:
-      # Ratios environnementaux'!$C$42
-      formule: 43
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
     CO2 INS Solaire thermique:
       # Ratios environnementaux'!$C$43
       formule: 9
@@ -108,36 +88,6 @@ ratios environnementaux:
       # Ratios environnementaux'!$C$44
       formule: 6
       unité: kgCO2e/L
-      note: 'Source: INIES 2022'
-    CO2 INS PAC air-air indiv:
-      # Ratios environnementaux'!$C$45
-      formule: 1000
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS PAC eau-eau indiv:
-      # Ratios environnementaux'!$C$46
-      formule: 453.3
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS PAC air-eau indiv:
-      # Ratios environnementaux'!$C$47
-      formule: 910
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS PAC air-air collectif-tertiaire:
-      # Ratios environnementaux'!$C$48
-      formule: 409.375
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS PAC eau-eau collectif-tertiaire:
-      # Ratios environnementaux'!$C$49
-      formule: 615
-      unité: kgCO2e/kW
-      note: 'Source: INIES 2022'
-    CO2 INS PAC air-eau collectif-tertiaire:
-      # Ratios environnementaux'!$C$50
-      formule: 302
-      unité: kgCO2e/kW
       note: 'Source: INIES 2022'
     CO2 INS Radiateur électrique:
       # Ratios environnementaux'!$C$52
