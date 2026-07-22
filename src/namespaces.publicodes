@@ -1,0 +1,13 @@
+# Racines des namespaces historiques.
+# Les règles enfants vivent dans src/modes/ et src/commun/ ; ces racines vides
+# disparaîtront avec le renommage des clés (étape suivante de la refonte).
+
+env: # useless
+
+Calcul Eco:
+
+Calcul Eco . P2 P3 Coût de l'entretien:
+
+Calcul Eco . Montant des aides:
+
+Calcul Eco . Montant des aides par logement tertiaire:
