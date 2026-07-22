@@ -115,20 +115,6 @@ Calcul Eco . Coût d'achat du combustible:
       valeur: Paramètres économiques . Fioul . Prix livraison incluse
       unité: €TTC/L
 
-Calcul Eco . Investissement ballon ECS à accumulation:
-  # 'Calculs économiques'!E23
-  # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
-  produit:
-    - ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement
-    - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-
-Calcul Eco . Investissement ballon ECS panneau inclus:
-  # 'Calculs économiques'!F23
-  # =IF(AND('Calculs techniques'!C71="Oui",Type_ECS="Solaire thermique"),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv),"")
-  produit:
-    - ratios économiques . Chauffe-eau x solaire x coût investissement + ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement
-    - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
-
 Calcul Eco:
   avec:
     Réseaux de chaleur:
@@ -2450,16 +2436,3 @@ Calcul Eco . Montant des aides par logement tertiaire:
             - sinon: 0
           unité: €
     # Chauffe-eau électrique à accumulation:
-
-calcul total investissement groupe froid résidentiel:
-  # I23 ='Paramètres économiques'!$D$82*(1+surcout_inv)
-  produit:
-    - Investissement x Groupe froid x résidentiel
-    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
-
-calcul total investissement groupe eau glacée tertiaire:
-  # J23 ='Paramètres économiques'!$D$84*(1+surcout_inv)/Nb_lgt
-  produit:
-    - Investissement x Groupe eau glacée x tertiaire
-    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
-    - 1 / nombre de logements dans l'immeuble concerné

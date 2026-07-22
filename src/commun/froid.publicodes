@@ -1,0 +1,148 @@
+# Production de froid : groupe froid résidentiel, groupe d'eau glacée
+# tertiaire et surcoûts communs du réseau de froid (bloc Calcul Bilan).
+# Valeurs communes à tous les modes de chauffage.
+
+puissance équipement par appartement Groupe froid x résidentiel:
+  # I47 =IF(Type_bat="Résidentiel";(QUOTIENT(P_clim/SEER_PAC_AA_indiv;'Ratios techniques'!$C$340)+1)*'Ratios techniques'!$C$340;0)*IF('Paramètres techniques'!$C$31="Non";0;1)
+  variations:
+    - si:
+        toutes ces conditions:
+          - Inclure la climatisation
+          - type de bâtiment = 'résidentiel'
+          - type de production de froid = 'Groupe froid'
+      alors:
+        produit:
+          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
+          - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
+    - sinon: 0
+  unité: kW
+
+puissance groupe d'eau glacée x tertiaire:
+  # I48 =IF(Type_bat="Résidentiel";0;(QUOTIENT(P_clim/SEER_PAC_AE_coll;'Ratios techniques'!$C$362)+1)*'Ratios techniques'!$C$362)*IF('Paramètres techniques'!$C$31="Non";0;1)
+  variations:
+    - si:
+        toutes ces conditions:
+          - Inclure la climatisation
+          - type de bâtiment = 'tertiaire'
+          - type de production de froid = 'Groupe froid'
+      alors:
+        produit:
+          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER coll) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
+          - ratios . PAC AIR EAU Puissance unitaire réversible coll
+    - sinon: 0
+  unité: kW
+
+calcul consommation Groupe Froid:
+  # Excel L299-300
+  variations:
+    - si:
+        toutes ces conditions:
+          - Inclure la climatisation
+          - type de production de froid = 'Groupe froid'
+      alors:
+        variations:
+          - si: type de bâtiment = 'résidentiel'
+            alors: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
+          - sinon: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
+    - sinon: 0
+
+calcul total investissement groupe froid résidentiel:
+  # I23 ='Paramètres économiques'!$D$82*(1+surcout_inv)
+  produit:
+    - Investissement x Groupe froid x résidentiel
+    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+
+calcul total investissement groupe eau glacée tertiaire:
+  # J23 ='Paramètres économiques'!$D$84*(1+surcout_inv)/Nb_lgt
+  produit:
+    - Investissement x Groupe eau glacée x tertiaire
+    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+    - 1 / nombre de logements dans l'immeuble concerné
+
+Calcul Bilan:
+  avec:
+    Surcout Réseau de froid P2:
+      variations:
+        - si: Inclure la climatisation
+          alors:
+            variations:
+              - si: type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . petit entretien P2 par logement tertiaire
+              - sinon:
+                  variations:
+                    - si: type de bâtiment = 'résidentiel'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . petit entretien P2 par logement tertiaire
+                    - si: type de bâtiment = 'tertiaire'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . petit entretien P2 par logement tertiaire
+        - sinon: 0
+
+    Surcout Réseau de froid P3:
+      variations:
+        - si: Inclure la climatisation
+          alors:
+            variations:
+              - si: type de production de froid = 'Réseau de froid'
+                alors: Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de froid . gros entretien P3 par logement tertiaire
+              - sinon:
+                  variations:
+                    - si: type de bâtiment = 'résidentiel'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . gros entretien P3 par logement tertiaire
+                    - si: type de bâtiment = 'tertiaire'
+                      alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . gros entretien P3 par logement tertiaire
+        - sinon: 0
+
+    Surcout Réseau de froid P1prime:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Coût électricité auxiliaire
+        - sinon: 0
+
+    # P4 groupe froid
+    # +MAX(
+    #     -IFERROR(
+    #         PMT(
+    #             'Paramètres économiques'!$D$200;
+    #             Durée_vie_PAC_AA;
+    #             'Calculs économiques'!I23
+    #         );
+    #         0
+    #     );
+    #     -IFERROR(
+    #         PMT(
+    #             'Paramètres économiques'!$D$200;
+    #             Durée_vie_PAC_AE_Coll;
+    #             'Calculs économiques'!J23
+    #         );
+    #         0
+    #     )
+    # )
+    P4 groupe froid:
+      variations:
+        - si: type de bâtiment = 'résidentiel'
+          alors: calcul total investissement groupe froid résidentiel * amortissement . facteur PAC AIR AIR indiv
+        - sinon: calcul total investissement groupe eau glacée tertiaire * amortissement . facteur PAC AIR EAU coll
+    P4 Réseau de froid:
+      # J10 = ...-IF(AND(Prod_clim="Oui";Type_clim="Réseau de froid");IFERROR(PMT('Paramètres économiques'!$D$200;Durée_vie_RFU;P4_RFU);0))
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Calcul Eco . Réseaux de froid . Investissement équipement par logement type tertiaire * amortissement . facteur RFU
+        - sinon: 0
+
+    Amortissement aides réseau de froid:
+      formule: Calcul Eco . Montant des aides par logement tertiaire . Réseaux de froid . Total * amortissement . facteur RFU
+
+    aides réseau de froid:
+      # IF(AND(Prod_clim="Oui";Type_clim="Réseau de froid");IF(IFERROR(-PMT('Paramètres économiques'!$D$200;Durée_vie_RFU;P4_RFU-'Calculs économiques'!$F$100);0)<0;0;IFERROR(-PMT('Paramètres économiques'!$D$200;Durée_vie_RFU;P4_RFU-'Calculs économiques'!$F$100);0));0)
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Réseau de froid'
+          alors: Amortissement aides réseau de froid
+        - sinon: 0

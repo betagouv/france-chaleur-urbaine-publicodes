@@ -1,0 +1,66 @@
+# Production d'ECS additionnelle (ballon électrique / chauffe-eau solaire)
+# quand l'équipement de chauffage ne produit pas l'eau chaude sanitaire.
+# Valeurs communes à tous les modes de chauffage.
+
+###### Production différenciée d'ECS par lgt / tertiaire
+
+# valeurs communes parmi tous les types d'installation
+
+volume du ballon ECS:
+  # =(Besoin_ECS*'Ratios techniques'!$C$72)/365
+  variations:
+    - si: type de production ECS = 'Solaire thermique'
+      alors: 50
+    - sinon: (besoins eau chaude sanitaire par appartement * ratios . ECS Quantité d'ECS produite par kWh) / 365
+  unité: L
+
+chauffe-eau électrique x consommation d'électricité:
+  formule: besoins eau chaude sanitaire par appartement / ratios . CHAUF EAU ELEC Rendement stockage ballon
+  # unité: kWh/an
+  unité: kWh # corrigé pour faire fonctionner la division
+
+durée avant renouvellement elec:
+  formule: ratios . CHAUF EAU ELEC Durée de vie
+  unité: an
+
+surface de panneau nécessaire:
+  #   IF(
+  #     $D$71<'Ratios techniques'!$B$353,
+  #     XLOOKUP($D$71,'Ratios techniques'!$B$350:$B$353, 'Ratios techniques'!$C$350:$C$353,,1),
+  #     'Ratios techniques'!$C$353
+  #   )
+  variations:
+    - si: volume du ballon ECS <= 250
+      alors: 2.5m2
+    - si: volume du ballon ECS <= 400
+      alors: 4m2
+    - si: volume du ballon ECS <= 550
+      alors: 5.5m2
+    - si: volume du ballon ECS <= 650
+      alors: 6m2
+    - sinon: 6m2
+  unité: m2
+
+chauffe-eau solaire x appoint d'électricité:
+  # Besoin_ECS*(1-'Paramètres techniques'!$D$197)/'Paramètres techniques'!$D$195
+  formule: besoins eau chaude sanitaire par appartement * (1 - ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS) / ratios . CHAUF EAU SOLAIRE Rendement stockage ballon
+  # unité: kWh/an
+  unité: kWh # corrigé pour faire fonctionner la division
+
+durée avant renouvellement solaire:
+  formule: ratios . CHAUF EAU SOLAIRE Durée de vie
+  unité: an
+
+Calcul Eco . Investissement ballon ECS à accumulation:
+  # 'Calculs économiques'!E23
+  # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
+  produit:
+    - ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement
+    - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+
+Calcul Eco . Investissement ballon ECS panneau inclus:
+  # 'Calculs économiques'!F23
+  # =IF(AND('Calculs techniques'!C71="Oui",Type_ECS="Solaire thermique"),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv),"")
+  produit:
+    - ratios économiques . Chauffe-eau x solaire x coût investissement + ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement
+    - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
