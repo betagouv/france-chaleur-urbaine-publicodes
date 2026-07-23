@@ -215,12 +215,23 @@ une ligne au lieu d'être noyé).
 
 ## Les mécanismes introduits
 
-1. **Facteurs d'annuité** (`commun/amortissement.publicodes`) : la fonction
-   Excel PMT, avant dupliquée par anchor dans 70 instanciations, est déclinée
-   en 19 facteurs (un par durée de vie). Un amortissement = `capital × facteur`.
+1. **Facteurs d'annuité par mode** : la fonction Excel PMT, avant dupliquée
+   par anchor dans 70 instanciations de bilan-1an, est un enfant
+   `facteur d'annuité` de chaque mode (annuité pour 1 € investi sur
+   `ratios . durée de vie`, résolu en relatif — corps partagé par anchor
+   entre variantes d'un fichier). Un amortissement = `capital × facteur
+   d'annuité`. Cas nommés : raccordement/sous-station (réseau de chaleur),
+   puits géothermiques (PAC eau-eau coll), chauffe-eau (commun/ecs).
    L'alternative `contexte:` de publicodes a été testée et **écartée** :
    évaluation 3,7× plus lente. Les facteurs sont au contraire légèrement plus
    rapides que `dev` (mis en cache une fois par situation).
+1bis. **`remplace` → `variations`** : les ~205 règles à mécanisme `remplace`
+   (matrices CHAF/RAF/CI/ECS/dérogation PAC, barèmes MaPrimeRénov'/Coup de
+   pouce/CEE) sont converties en tables `variations:` directement dans leur
+   règle cible — `consommation spécifique chauffage` et consorts vivent avec
+   leur table complète dans commun/, les barèmes d'aides dans la section
+   `aides` de chaque mode concerné. Plus lisible et idiomatique ; seul
+   `departements.publicodes` (données générées) utilise encore `remplace`.
 2. **Références relatives** : dans un mode, `coûts . X` suffit — publicodes
    remonte les namespaces. C'est ce qui rend les corps identiques entre
    variantes, donc factorisables.
