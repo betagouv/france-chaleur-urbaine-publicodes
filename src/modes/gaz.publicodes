@@ -63,7 +63,7 @@ gaz indiv avec cond:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement chaudière chauffage)
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière chauffage)
           unité: kW
         puissance ECS:
           variations:
@@ -71,7 +71,7 @@ gaz indiv avec cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement chaudière ECS)
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS)
             - sinon: 0
           unité: kW
         puissance équipement: &inst-puissance-equipement
@@ -110,7 +110,7 @@ gaz indiv avec cond:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - type de production ECS != 'Solaire thermique'
-              alors: chauffe-eau électrique x consommation d'électricité
+              alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
         appoint chauffe-eau solaire: &inst-appoint-d-electricite-chauffe-eau-solaire
@@ -119,7 +119,7 @@ gaz indiv avec cond:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - type de production ECS = 'Solaire thermique'
-              alors: chauffe-eau solaire x appoint d'électricité
+              alors: ecs additionnelle . appoint chauffe-eau solaire
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
@@ -154,7 +154,7 @@ gaz indiv avec cond:
               alors: consommation auxiliaire + consommation chauffe-eau électrique
             - sinon: consommation auxiliaire
           unité: kWh/an
-        consommation Groupe Froid: calcul consommation Groupe Froid
+        consommation Groupe Froid: froid . consommation groupe froid
     coûts:
       avec:
         investissement équipement: &couts-investissement-equipement-total
@@ -168,7 +168,7 @@ gaz indiv avec cond:
         investissement ballon ECS: &couts-investissement-ballon-ecs-a-accumulation
           variations:
             - si: installation . ECS additionnelle nécessaire
-              alors: Calcul Eco . investissement ballon ECS
+              alors: ecs additionnelle . investissement ballon ECS
             - sinon: 0
           unité: €TTC
         investissement chauffe-eau solaire: &couts-investissement-ballon-ecs-solaire-panneau-inclus
@@ -176,7 +176,7 @@ gaz indiv avec cond:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
               - type de production ECS = "Solaire thermique"
-          formule: Calcul Eco . Investissement ballon ECS panneau inclus
+          formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
         investissement total avec ballon ECS: &couts-total-investissement-avec-ballon-ecs-a-accumulation
           valeur: investissement par logement + investissement ballon ECS
@@ -294,24 +294,24 @@ gaz indiv avec cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + Calcul Bilan . Surcout Réseau de froid P1prime
+        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
         P1ECS: &bilan-p1ecs
           le maximum de:
             - coûts . P1 ballon ECS
             - coûts . P1 chauffe-eau solaire
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-        P3: coûts . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * facteur d'annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: &bilan-p4ecs-solaire-thermique
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . investissement chauffe-eau solaire * facteur d'annuité chauffe-eau solaire
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
             - sinon: 0
 
         P4: &bilan-p4
@@ -319,15 +319,15 @@ gaz indiv avec cond:
             - P4 équipement
             - P4 ballon ECS
             - P4 chauffe-eau solaire
-            - Calcul Bilan . P4 groupe froid
-            - Calcul Bilan . P4 Réseau de froid
+            - froid . P4 groupe froid
+            - froid . P4 réseau de froid
         aides spécifiques:
           formule: aides . Total * facteur d'annuité
 
         aides: &bilan-aides
           somme:
             - aides spécifiques
-            - Calcul Bilan . aides réseau de froid
+            - froid . aides réseau de froid
         P4 moins aides: &bilan-p4-moins-aides
           le maximum de:
             - P4 - aides
@@ -397,7 +397,7 @@ gaz indiv sans cond:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement chaudière)
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière)
           unité: kW
         puissance ECS:
           variations:
@@ -405,7 +405,7 @@ gaz indiv sans cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement chaudière)
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière)
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
@@ -430,7 +430,7 @@ gaz indiv sans cond:
         consommation hors électricité:
           formule: consommation combustible chaleur
         consommation électricité: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
-        consommation Groupe Froid: calcul consommation Groupe Froid
+        consommation Groupe Froid: froid . consommation groupe froid
     coûts:
       avec:
         investissement équipement: *couts-investissement-equipement-total
@@ -472,16 +472,16 @@ gaz indiv sans cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + Calcul Bilan . Surcout Réseau de froid P1prime
+        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
         P1ECS: *bilan-p1ecs
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-        P3: coûts . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * facteur d'annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: *bilan-p4ecs-solaire-thermique
 
@@ -567,7 +567,7 @@ gaz coll avec cond:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
@@ -575,7 +575,7 @@ gaz coll avec cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement chaudière ECS) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
@@ -631,7 +631,7 @@ gaz coll avec cond:
         consommation hors électricité:
           formule: consommation combustible chaleur
         consommation électricité: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
-        consommation Groupe Froid: calcul consommation Groupe Froid
+        consommation Groupe Froid: froid . consommation groupe froid
     coûts:
       avec:
         investissement équipement: *couts-investissement-equipement-total
@@ -700,16 +700,16 @@ gaz coll avec cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + Calcul Bilan . Surcout Réseau de froid P1prime
+        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
         P1ECS: *bilan-p1ecs
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-        P3: coûts . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * facteur d'annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: *bilan-p4ecs-solaire-thermique
 
@@ -792,7 +792,7 @@ gaz coll sans cond:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement chaudière) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
@@ -800,7 +800,7 @@ gaz coll sans cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement chaudière) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
@@ -846,7 +846,7 @@ gaz coll sans cond:
         consommation hors électricité:
           formule: consommation combustible chaleur
         consommation électricité: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
-        consommation Groupe Froid: calcul consommation Groupe Froid
+        consommation Groupe Froid: froid . consommation groupe froid
     coûts:
       avec:
         investissement équipement: *couts-investissement-equipement-total
@@ -894,16 +894,16 @@ gaz coll sans cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + Calcul Bilan . Surcout Réseau de froid P1prime
+        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
         P1ECS: *bilan-p1ecs
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-        P3: coûts . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * gaz coll avec cond . facteur d'annuité  # bug figé : durée de vie de la variante avec condensation
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: *bilan-p4ecs-solaire-thermique
 

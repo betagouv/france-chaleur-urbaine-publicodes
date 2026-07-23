@@ -35,7 +35,7 @@ réseau de froid:
       avec:
         production eau chaude sanitaire: non
         puissance refroidissement:
-          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . rendement sous station * nombre de logements dans l'immeuble concerné
+          formule: dimensionnement . puissance refroidissement appelée / ratios . rendement sous station * nombre de logements dans l'immeuble concerné
           # unité: kW # corrigé pour faire fonctionner la division
           # QUESTION : Quelle est l'unité ? Peut-on changer l'unité pour kW ?
           unité: kW

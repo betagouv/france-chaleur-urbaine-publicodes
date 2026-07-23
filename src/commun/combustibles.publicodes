@@ -502,7 +502,7 @@ combustibles . électricité . puissance souscrite collectif:
     puissance totale:
       par défaut:
         produit:
-          - Calcul . Chauffage Puissance chauffage appelée
+          - dimensionnement . puissance chauffage appelée
           - nombre de logements dans l'immeuble concerné
           - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
 

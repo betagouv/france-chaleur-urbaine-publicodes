@@ -2,6 +2,9 @@
 # quand l'équipement de chauffage ne produit pas l'eau chaude sanitaire.
 # Valeurs communes à tous les modes de chauffage.
 
+ecs additionnelle:
+  description: Production d'ECS additionnelle quand l'équipement de chauffage ne la produit pas
+
 consommation spécifique ECS:
   note: Besoin_ECS
   variations:
@@ -178,15 +181,15 @@ volume du ballon ECS:
   variations:
     - si: type de production ECS = 'Solaire thermique'
       alors: 50
-    - sinon: (besoins eau chaude sanitaire par appartement * ratios . ECS Quantité d'ECS produite par kWh) / 365
+    - sinon: (besoins eau chaude sanitaire par appartement * ecs additionnelle . quantité d'ECS produite par kWh) / 365
   unité: L
 
-chauffe-eau électrique x consommation d'électricité:
-  formule: besoins eau chaude sanitaire par appartement / ratios . CHAUF EAU ELEC Rendement stockage ballon
+ecs additionnelle . consommation chauffe-eau électrique:
+  formule: besoins eau chaude sanitaire par appartement / ecs additionnelle . rendement stockage ballon électrique
   # unité: kWh/an
   unité: kWh # corrigé pour faire fonctionner la division
 
-surface de panneau nécessaire:
+ecs additionnelle . surface de panneaux:
   variations:
     - si: volume du ballon ECS <= 250
       alors: 2.5m2
@@ -199,75 +202,75 @@ surface de panneau nécessaire:
     - sinon: 6m2
   unité: m2
 
-chauffe-eau solaire x appoint d'électricité:
-  formule: besoins eau chaude sanitaire par appartement * (1 - ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS) / ratios . CHAUF EAU SOLAIRE Rendement stockage ballon
+ecs additionnelle . appoint chauffe-eau solaire:
+  formule: besoins eau chaude sanitaire par appartement * (1 - ecs additionnelle . part du solaire dans la production) / ecs additionnelle . rendement stockage ballon solaire
   # unité: kWh/an
   unité: kWh # corrigé pour faire fonctionner la division
 
-Calcul Eco . investissement ballon ECS:
+ecs additionnelle . investissement ballon ECS:
   produit:
-    - ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement
+    - ecs additionnelle . coût du chauffe-eau électrique
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
 
-Calcul Eco . Investissement ballon ECS panneau inclus:
+ecs additionnelle . investissement chauffe-eau solaire:
   produit:
-    - ratios économiques . Chauffe-eau x solaire x coût investissement + ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement
+    - ecs additionnelle . coût du chauffe-eau solaire + ecs additionnelle . coût des panneaux solaires
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
 
 ###### Ratios techniques
 
-ratios . CHAUF EAU ELEC Rendement stockage ballon:
+ecs additionnelle . rendement stockage ballon électrique:
   valeur: 87%
   unité: '%'
 
-ratios . CHAUF EAU ELEC Durée de vie:
+ecs additionnelle . durée de vie chauffe-eau électrique:
   valeur: 20
   unité: an
 
-ratios . CHAUF EAU SOLAIRE Rendement stockage ballon:
+ecs additionnelle . rendement stockage ballon solaire:
   valeur: 87%
   unité: '%'
 
-ratios . CHAUF EAU SOLAIRE Durée de vie:
+ecs additionnelle . durée de vie chauffe-eau solaire:
   valeur: 20
   unité: an
 
-ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS:
+ecs additionnelle . part du solaire dans la production:
   valeur: 60%
   unité: '%'
 
 ###### Ratios économiques (investissement)
 
-ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement:
+ecs additionnelle . coût du chauffe-eau électrique:
   produit:
     - variations:
-        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 50
+        - si: ecs additionnelle . capacité du ballon électrique <= 50
           alors: 610.8
-        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 100
+        - si: ecs additionnelle . capacité du ballon électrique <= 100
           alors: 705.8
-        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 150
+        - si: ecs additionnelle . capacité du ballon électrique <= 150
           alors: 802.5
-        - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 200
+        - si: ecs additionnelle . capacité du ballon électrique <= 200
           alors: 918.3
         - sinon: 918.3
     - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
   note: 'Source: Thermor 2024'
 
-ratios économiques . Chauffe-eau x solaire x coût investissement:
-  valeur: ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement
+ecs additionnelle . coût du chauffe-eau solaire:
+  valeur: ecs additionnelle . coût du chauffe-eau électrique
   unité: €TTC
 
-ratios économiques . Chauffe-eau x solaire prix panneaux:
+ecs additionnelle . prix des panneaux:
   valeur: 1300
   unité: €HT/m2
   note: 'Source: ADEME 2023'
 
 # pas un ratio
-ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement:
+ecs additionnelle . coût des panneaux solaires:
   produit:
-    - surface de panneau nécessaire
-    - Chauffe-eau x solaire prix panneaux
+    - ecs additionnelle . surface de panneaux
+    - ecs additionnelle . prix des panneaux
     - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
 
@@ -277,7 +280,7 @@ ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investiss
 
 ###### Aides
 
-Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS:
+ecs additionnelle . aides panneau solaire:
   avec:
     Ma prime renov':
       variations:
@@ -321,9 +324,9 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
                   toutes ces conditions:
                     - type de bâtiment = 'résidentiel'
                     - type de production ECS = 'Solaire thermique'
-                alors: besoins eau chaude sanitaire par appartement * ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS * ratios économiques x aides . CEE x Chauffe-eau solaire collectif x Ratio * Paramètres économiques . Aides . Valeur CEE * nombre de logements dans l'immeuble concerné
+                alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * ratios économiques x aides . CEE x Chauffe-eau solaire collectif x Ratio * Paramètres économiques . Aides . Valeur CEE * nombre de logements dans l'immeuble concerné
               - si: type de bâtiment = 'tertiaire'
-                alors: besoins eau chaude sanitaire par appartement * ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS * ratios économiques x aides . Tertiaire . CEE x Chauffe-eau solaire x Ratio
+                alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * ratios économiques x aides . Tertiaire . CEE x Chauffe-eau solaire x Ratio
         - sinon: 0
       unité: €
     Total:
@@ -335,21 +338,39 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
 
 ###### Ratios de besoins ECS
 
-ratios . ECS Quantité d'ECS produite par kWh:
+ecs additionnelle . quantité d'ECS produite par kWh:
   valeur: 19.1
   unité: L/kWh
 
-facteur d'annuité chauffe-eau électrique:
+ecs additionnelle . facteur d'annuité chauffe-eau électrique:
   description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau électrique (fonction Excel PMT)
   variations: &facteur-chauffe-eau
     - si: ratios économiques . Amortissement x Taux actualisation != 0
       alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée - 1)
     - sinon: 1 / durée
   avec:
-    durée: ratios . CHAUF EAU ELEC Durée de vie
+    durée: ecs additionnelle . durée de vie chauffe-eau électrique
 
-facteur d'annuité chauffe-eau solaire:
+ecs additionnelle . facteur d'annuité chauffe-eau solaire:
   description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau solaire (fonction Excel PMT)
   variations: *facteur-chauffe-eau
   avec:
-    durée: ratios . CHAUF EAU SOLAIRE Durée de vie
+    durée: ecs additionnelle . durée de vie chauffe-eau solaire
+
+###### Entretien des chauffe-eau
+
+ecs additionnelle . petit entretien P2 chauffe-eau électrique:
+  par défaut: 0.00 / 100
+  unité: €HT/€d'investissment # %
+
+ecs additionnelle . petit entretien P2 chauffe-eau solaire:
+  par défaut: 0.00
+  unité: €HT/€d'investissment # %
+
+ecs additionnelle . gros entretien P3 chauffe-eau électrique:
+  par défaut: 0.00 / 100
+  unité: €HT/€d'investissment # %
+
+ecs additionnelle . gros entretien P3 chauffe-eau solaire:
+  par défaut: 0.00 / 100
+  unité: €HT/€d'investissment # %

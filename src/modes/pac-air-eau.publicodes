@@ -45,7 +45,7 @@ PAC air-eau indiv:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance chauffage:
-          formule: Calcul . Chauffage Puissance chauffage appelée
+          formule: dimensionnement . puissance chauffage appelée
           unité: kW
         puissance ECS:
           variations:
@@ -53,11 +53,11 @@ PAC air-eau indiv:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . SCOP)
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . SCOP)
             - sinon: 0
           unité: kW
         puissance refroidissement:
-          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . SEER
+          formule: dimensionnement . puissance refroidissement appelée / ratios . SEER
           unité: kW
         puissance équipement: &inst-puissance-equipement
           le maximum de:
@@ -92,7 +92,7 @@ PAC air-eau indiv:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - type de production ECS != 'Solaire thermique'
-              alors: chauffe-eau électrique x consommation d'électricité
+              alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
         appoint chauffe-eau solaire: &inst-appoint-d-electricite-chauffe-eau-solaire
@@ -101,7 +101,7 @@ PAC air-eau indiv:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - type de production ECS = 'Solaire thermique'
-              alors: chauffe-eau solaire x appoint d'électricité
+              alors: ecs additionnelle . appoint chauffe-eau solaire
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
@@ -141,7 +141,7 @@ PAC air-eau indiv:
         investissement ballon ECS: &couts-investissement-ballon-ecs-a-accumulation
           variations:
             - si: installation . ECS additionnelle nécessaire
-              alors: Calcul Eco . investissement ballon ECS
+              alors: ecs additionnelle . investissement ballon ECS
             - sinon: 0
           unité: €TTC
         investissement chauffe-eau solaire: &couts-investissement-ballon-ecs-solaire-panneau-inclus
@@ -149,7 +149,7 @@ PAC air-eau indiv:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
               - type de production ECS = "Solaire thermique"
-          formule: Calcul Eco . Investissement ballon ECS panneau inclus
+          formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
         investissement total avec ballon ECS: &couts-total-investissement-avec-ballon-ecs-a-accumulation
           valeur: investissement par logement + investissement ballon ECS
@@ -287,12 +287,12 @@ PAC air-eau indiv:
           formule: coûts . investissement par logement * facteur d'annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: &bilan-p4ecs-solaire-thermique
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . investissement chauffe-eau solaire * facteur d'annuité chauffe-eau solaire
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
             - sinon: 0
 
         P4: &bilan-p4
@@ -358,7 +358,7 @@ PAC air-eau coll:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance chauffage:
-          formule: Calcul . Chauffage Puissance chauffage appelée * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: dimensionnement . puissance chauffage appelée * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
@@ -366,11 +366,11 @@ PAC air-eau coll:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . SCOP) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . SCOP) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance refroidissement:
-          formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . SEER * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: dimensionnement . puissance refroidissement appelée / ratios . SEER * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance équipement: *inst-puissance-equipement
         puissance retenue: *inst-gamme-de-puissance-existante
@@ -487,7 +487,7 @@ PAC air-eau coll:
           formule: coûts . investissement par logement * facteur d'annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: *bilan-p4ecs-solaire-thermique
 

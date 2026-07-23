@@ -2524,3 +2524,41 @@ ratios économiques . Coût des combustibles x Electricité:
 
 ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse:
   valeur: combustibles . électricité . tarifs . Heure pleine x Heure creuse
+
+# --- ECS additionnelle : anciennes clés (table de migration UI) ---
+
+ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement:
+  valeur: ecs additionnelle . coût du chauffe-eau électrique
+
+ratios économiques . Chauffe-eau x solaire x coût investissement:
+  valeur: ecs additionnelle . coût du chauffe-eau solaire
+
+ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement:
+  valeur: ecs additionnelle . coût des panneaux solaires
+
+Paramètres économiques . Petit entretien P2 . Chauffe-eau électrique à accumulation:
+  valeur: ecs additionnelle . petit entretien P2 chauffe-eau électrique
+
+Paramètres économiques . Petit entretien P2 . Chauffe-eau solaire:
+  valeur: ecs additionnelle . petit entretien P2 chauffe-eau solaire
+
+Paramètres économiques . Gros entretien P3 . Chauffe-eau électrique à accumulation:
+  valeur: ecs additionnelle . gros entretien P3 chauffe-eau électrique
+
+Paramètres économiques . Gros entretien P3 . Chauffe-eau solaire:
+  valeur: ecs additionnelle . gros entretien P3 chauffe-eau solaire
+
+Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS:
+  valeur: ecs additionnelle . aides panneau solaire
+
+Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . CEE:
+  valeur: ecs additionnelle . aides panneau solaire . CEE
+
+Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . Coup de pouce:
+  valeur: ecs additionnelle . aides panneau solaire . Coup de pouce
+
+Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . Ma prime renov':
+  valeur: ecs additionnelle . aides panneau solaire . Ma prime renov'
+
+Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . Total:
+  valeur: ecs additionnelle . aides panneau solaire . Total

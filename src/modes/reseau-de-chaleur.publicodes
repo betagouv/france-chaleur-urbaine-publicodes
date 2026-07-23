@@ -54,7 +54,7 @@ réseau de chaleur:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
         puissance chauffage:
-          formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement sous station chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement sous station chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
@@ -62,7 +62,7 @@ réseau de chaleur:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (Calcul . ECS Puissance ECS appelée / ratios . rendement sous station ECS) * nombre de logements dans l'immeuble concerné
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement sous station ECS) * nombre de logements dans l'immeuble concerné
             - sinon: 0
           unité: kW
         puissance équipement:
@@ -94,7 +94,7 @@ réseau de chaleur:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - type de production ECS != 'Solaire thermique'
-              alors: chauffe-eau électrique x consommation d'électricité
+              alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
         appoint chauffe-eau solaire:
@@ -104,7 +104,7 @@ réseau de chaleur:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - type de production ECS = 'Solaire thermique'
-              alors: chauffe-eau solaire x appoint d'électricité
+              alors: ecs additionnelle . appoint chauffe-eau solaire
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
@@ -137,10 +137,10 @@ réseau de chaleur:
         consommation électricité:
           variations:
             - si: ECS additionnelle nécessaire
-              alors: consommation auxiliaire + consommation chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
+              alors: consommation auxiliaire + consommation chauffe-eau électrique + ecs additionnelle . appoint chauffe-eau solaire
             - sinon: consommation auxiliaire
           unité: kWh/an
-        consommation Groupe Froid: calcul consommation Groupe Froid
+        consommation Groupe Froid: froid . consommation groupe froid
     coûts:
       avec:
         investissement raccordement:
@@ -164,7 +164,7 @@ réseau de chaleur:
         investissement ballon ECS:
           variations:
             - si: installation . ECS additionnelle nécessaire
-              alors: Calcul Eco . investissement ballon ECS
+              alors: ecs additionnelle . investissement ballon ECS
             - sinon: 0
           unité: €TTC
         investissement chauffe-eau solaire:
@@ -172,7 +172,7 @@ réseau de chaleur:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
               - type de production ECS = "Solaire thermique"
-          formule: Calcul Eco . Investissement ballon ECS panneau inclus
+          formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
         investissement total avec ballon ECS:
           valeur: investissement raccordement par logement + investissement ballon ECS
@@ -494,14 +494,14 @@ réseau de chaleur:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + Calcul Bilan . Surcout Réseau de froid P1prime
+        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
         P1ECS:
           le maximum de:
             - coûts . P1 ballon ECS
             - coûts . P1 chauffe-eau solaire
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-        P3: coûts . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
 
         P4 raccordement:
           formule: coûts . investissement raccordement par logement * facteur d'annuité raccordement
@@ -510,12 +510,12 @@ réseau de chaleur:
           formule: coûts . investissement réseau secondaire par logement * facteur d'annuité sous station
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire:
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . investissement chauffe-eau solaire * facteur d'annuité chauffe-eau solaire
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
             - sinon: 0
         P4:
           somme:
@@ -523,15 +523,15 @@ réseau de chaleur:
             - P4 réseau secondaire
             - P4 ballon ECS
             - P4 chauffe-eau solaire
-            - Calcul Bilan . P4 groupe froid
-            - Calcul Bilan . P4 Réseau de froid
+            - froid . P4 groupe froid
+            - froid . P4 réseau de froid
         aides spécifiques:
           formule: aides . Total * facteur d'annuité raccordement
 
         aides:
           somme:
             - aides spécifiques
-            - Calcul Bilan . aides réseau de froid
+            - froid . aides réseau de froid
 
         P4 moins aides:
           le maximum de:

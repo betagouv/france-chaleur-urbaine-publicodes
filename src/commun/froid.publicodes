@@ -2,7 +2,7 @@
 # tertiaire et surcoûts communs du réseau de froid (bloc Calcul Bilan).
 # Valeurs communes à tous les modes de chauffage.
 
-puissance équipement par appartement Groupe froid x résidentiel:
+froid . puissance groupe froid résidentiel:
   variations:
     - si:
         toutes ces conditions:
@@ -11,12 +11,12 @@ puissance équipement par appartement Groupe froid x résidentiel:
           - type de production de froid = 'Groupe froid'
       alors:
         produit:
-          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / PAC air-air indiv . ratios . SEER) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
+          - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-air indiv . ratios . SEER) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
           - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
     - sinon: 0
   unité: kW
 
-puissance groupe d'eau glacée x tertiaire:
+froid . puissance groupe eau glacée tertiaire:
   variations:
     - si:
         toutes ces conditions:
@@ -25,12 +25,12 @@ puissance groupe d'eau glacée x tertiaire:
           - type de production de froid = 'Groupe froid'
       alors:
         produit:
-          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / PAC air-eau coll . ratios . SEER) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
+          - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-eau coll . ratios . SEER) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
           - ratios . PAC AIR EAU Puissance unitaire réversible coll
     - sinon: 0
   unité: kW
 
-calcul consommation Groupe Froid:
+froid . consommation groupe froid:
   variations:
     - si:
         toutes ces conditions:
@@ -43,20 +43,21 @@ calcul consommation Groupe Froid:
           - sinon: besoins en climatisation par appartement / PAC air-eau coll . ratios . SEER
     - sinon: 0
 
-calcul total investissement groupe froid résidentiel:
+froid . investissement groupe froid résidentiel:
   produit:
     - Investissement x Groupe froid x résidentiel
     - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
 
-calcul total investissement groupe eau glacée tertiaire:
+froid . investissement groupe eau glacée tertiaire:
   produit:
     - Investissement x Groupe eau glacée x tertiaire
     - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
     - 1 / nombre de logements dans l'immeuble concerné
 
-Calcul Bilan:
+froid:
+  description: Production de froid — surcoûts communs à tous les modes
   avec:
-    Surcout Réseau de froid P2:
+    surcoût P2:
       variations:
         - si: Inclure la climatisation
           alors:
@@ -71,7 +72,7 @@ Calcul Bilan:
                       alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . petit entretien P2 par logement tertiaire
         - sinon: 0
 
-    Surcout Réseau de froid P3:
+    surcoût P3:
       variations:
         - si: Inclure la climatisation
           alors:
@@ -86,7 +87,7 @@ Calcul Bilan:
                       alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . gros entretien P3 par logement tertiaire
         - sinon: 0
 
-    Surcout Réseau de froid P1prime:
+    surcoût P1 auxiliaires:
       variations:
         - si:
             toutes ces conditions:
@@ -98,9 +99,9 @@ Calcul Bilan:
     P4 groupe froid:
       variations:
         - si: type de bâtiment = 'résidentiel'
-          alors: calcul total investissement groupe froid résidentiel * PAC air-air indiv . facteur d'annuité
-        - sinon: calcul total investissement groupe eau glacée tertiaire * PAC air-eau coll . facteur d'annuité
-    P4 Réseau de froid:
+          alors: froid . investissement groupe froid résidentiel * PAC air-air indiv . facteur d'annuité
+        - sinon: froid . investissement groupe eau glacée tertiaire * PAC air-eau coll . facteur d'annuité
+    P4 réseau de froid:
       variations:
         - si:
             toutes ces conditions:
@@ -109,7 +110,7 @@ Calcul Bilan:
           alors: réseau de froid . coûts . investissement par logement * réseau de froid . facteur d'annuité
         - sinon: 0
 
-    Amortissement aides réseau de froid:
+    aides réseau de froid amorties:
       formule: réseau de froid . aides . Total * réseau de froid . facteur d'annuité
 
     aides réseau de froid:
@@ -118,7 +119,7 @@ Calcul Bilan:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: Amortissement aides réseau de froid
+          alors: aides réseau de froid amorties
         - sinon: 0
 
 ###### Investissement
@@ -127,7 +128,7 @@ Investissement x Groupe froid x résidentiel:
   par défaut:
     produit:
       - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
-      - puissance équipement par appartement Groupe froid x résidentiel
+      - froid . puissance groupe froid résidentiel
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
 
@@ -135,7 +136,7 @@ Investissement x Groupe eau glacée x tertiaire:
   par défaut:
     produit:
       - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
-      - puissance groupe d'eau glacée x tertiaire
+      - froid . puissance groupe eau glacée tertiaire
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
 

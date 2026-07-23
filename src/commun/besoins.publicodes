@@ -1,35 +1,36 @@
-Calcul: # useless
+dimensionnement:
+  description: Puissances appelées et heures de fonctionnement
 
 ###### Calcul puissances
 
-Calcul . Chauffage Nb heure fonctionnement pleine puissance chauffage continu:
+dimensionnement . heures pleine puissance chauffage continu:
   formule: degré jours unifié spécifique chaud * 24 / (ratios . PUIS Température de non chauffage - température de référence chaud)
   unité: h
 
-Calcul . Chauffage Nb heure fonctionnement pleine puissance:
+dimensionnement . heures pleine puissance chauffage:
   produit:
-    - Calcul . Chauffage Nb heure fonctionnement pleine puissance chauffage continu
+    - dimensionnement . heures pleine puissance chauffage continu
     - puissance coefficient d'intermittence
   unité: h
 
-Calcul . Chauffage Puissance chauffage appelée:
-  formule: (besoins chauffage par appartement / Calcul . Chauffage Nb heure fonctionnement pleine puissance) * (1 + ratios . PUIS Facteur de surpuissance)
+dimensionnement . puissance chauffage appelée:
+  formule: (besoins chauffage par appartement / dimensionnement . heures pleine puissance chauffage) * (1 + ratios . PUIS Facteur de surpuissance)
   unité: kW
 
-Calcul . ECS Puissance ECS appelée:
+dimensionnement . puissance ECS appelée:
   formule: (besoins eau chaude sanitaire par appartement / ratios . PUIS Nombre heure de fonctionnement non climatique ECS) * (1 + ratios . PUIS Facteur de surpuissance)
   unité: kW
 
-Calcul . Climatisation Nb heure fonctionnement pleine puissance:
+dimensionnement . heures pleine puissance climatisation:
   produit:
     - degré jours unifié spécifique froid
     - 24
     - puissance coefficient d'intermittence
   unité: h
 
-Calcul . Climatisation Puissance refroidissement appelée:
-  applicable si: Calcul . Climatisation Nb heure fonctionnement pleine puissance > 0
-  formule: besoins en climatisation par appartement / Calcul . Climatisation Nb heure fonctionnement pleine puissance * (1 + ratios . PUIS Facteur de surpuissance)
+dimensionnement . puissance refroidissement appelée:
+  applicable si: dimensionnement . heures pleine puissance climatisation > 0
+  formule: besoins en climatisation par appartement / dimensionnement . heures pleine puissance climatisation * (1 + ratios . PUIS Facteur de surpuissance)
   unité: kW
 
 ###### Ratios généraux et de dimensionnement

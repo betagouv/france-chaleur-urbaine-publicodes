@@ -6,7 +6,7 @@
 
 # Pas besoin car calculé dans calculs techniques avec le variable "gamme de puissance existante" sauf pour chauffe eau
 
-Puissance installation x Capacité chauffe eau électrique à accumulation:
+ecs additionnelle . capacité du ballon électrique:
   variations:
     - si: volume du ballon ECS <= 50
       alors: 50
@@ -43,13 +43,6 @@ Paramètres économiques:
         TVA:
           par défaut: 20%
           unité: '%'
-        Chauffe-eau électrique à accumulation:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
-        Chauffe-eau solaire:
-          par défaut: 0.00
-          unité: €HT/€d'investissment # %
-
     Gros entretien P3:
       avec:
         TVA:
@@ -59,13 +52,6 @@ Paramètres économiques:
         PAC air-eau coll:
           par défaut: 1.72 / 100
           unité: €HT/€d'investissment
-        Chauffe-eau électrique à accumulation:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
-        Chauffe-eau solaire:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
-
     Aides:
       avec:
         Éligibilité x Prise en compte des aides:
