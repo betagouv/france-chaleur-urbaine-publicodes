@@ -8,15 +8,27 @@ réseau de chaleur:
   description: Raccordement à un réseau de chaleur urbain
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation: ratios environnementaux . CO2 INS RCU
-        conso auxiliaire ECS: ratios . RCU Conso auxiliaire ECS
-        conso auxiliaire chauffage: ratios . RCU Conso auxiliaire chauffage
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . RCU
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . RCU
-        rendement sous station ECS: ratios . RCU Rendement sous station ECS
-        rendement sous station chauffage: ratios . RCU Rendement sous station chauffage
+        conso auxiliaire ECS:
+          valeur: 99%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.8%
+          unité: '%'
+        gros entretien P3:
+          par défaut: 0.75 / 100
+          unité: €HT/€d'investissment # %
+        petit entretien P2:
+          par défaut: 1.5 / 100
+          unité: €HT/€d'investissment
+        rendement sous station ECS:
+          valeur: 93%
+          unité: '%'
+        rendement sous station chauffage:
+          valeur: 86%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -220,18 +232,18 @@ réseau de chaleur:
     entretien:
       avec:
         petit entretien P2:
-          # C67 ='Paramètres économiques'!D159*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
-          produit:
-            - ratios . petit entretien P2
-            - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-            - ratios économiques . Réseaux x Coût Investissement SST RCU
-          unité: €TTC/an
+            # C67 ='Paramètres économiques'!D159*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$19;'Ratios économiques - Coûts'!$B$363:$C$382;2;TRUE)
+            produit:
+              - ratios . petit entretien P2
+              - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+              - ratios économiques . Réseaux x Coût Investissement SST RCU
+            unité: €TTC/an
         gros entretien P3:
-          produit:
-            - ratios . gros entretien P3
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-            - ratios économiques . Réseaux x Coût Investissement SST RCU
-          unité: €TTC/an
+            produit:
+              - ratios . gros entretien P3
+              - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+              - ratios économiques . Réseaux x Coût Investissement SST RCU
+            unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
@@ -536,22 +548,6 @@ réseau de chaleur:
             - total sans aides
             - (- P4)
 
-ratios . RCU Rendement sous station chauffage:
-  valeur: 86%
-  unité: '%'
-
-ratios . RCU Rendement sous station ECS:
-  valeur: 93%
-  unité: '%'
-
-ratios . RCU Conso auxiliaire chauffage:
-  valeur: 99.8%
-  unité: '%'
-
-ratios . RCU Conso auxiliaire ECS:
-  valeur: 99%
-  unité: '%'
-
 ratios . RCU Durée avant renouvellement:
   valeur: 30
   unité: an
@@ -666,18 +662,4 @@ Investissement x frais de raccordement au réseaux x RCU:
           - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
       - 1 + ratios économiques . Investissement x TVA
   unité: €TTC
-
-###### Installation (dimensionnement et consommations)
-
-###### Calculs économiques
-
-###### Entretien P2 / P3
-
-###### Aides
-
-###### Aides (calcul en kWh cumac)
-
-###### Émissions de CO2
-
-###### Bilan annuel
 

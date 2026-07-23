@@ -8,12 +8,20 @@ réseau de froid:
   description: Raccordement à un réseau de froid urbain
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
-        conso auxiliaire: ratios . RFU Conso auxiliaire
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . RFU
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . RFU
-        rendement sous station: ratios . RFU Rendement sous station
+        conso auxiliaire:
+          valeur: 99.8%
+          unité: '%'
+        gros entretien P3:
+          par défaut: 0.75 / 100
+          unité: €HT/€d'investissment # %
+        petit entretien P2:
+          par défaut: 1.5 / 100
+          unité: €HT/€d'investissment # %
+        rendement sous station:
+          valeur: 93%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -67,27 +75,27 @@ réseau de froid:
     entretien:
       avec:
         petit entretien P2:
-          # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
-          variations:
-            - si: Inclure la climatisation
-              alors:
-                produit:
-                  - ratios . petit entretien P2
-                  - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-                  - ratios économiques . Réseaux x Coût Investissement SST RFU
-                unité: €TTC/an
-            - sinon: 0
-          unité: €TTC/an
+            # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
+            variations:
+              - si: Inclure la climatisation
+                alors:
+                  produit:
+                    - ratios . petit entretien P2
+                    - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+                    - ratios économiques . Réseaux x Coût Investissement SST RFU
+                  unité: €TTC/an
+              - sinon: 0
+            unité: €TTC/an
         gros entretien P3:
-          variations:
-            - si: Inclure la climatisation
-              alors:
-                produit:
-                  - ratios . gros entretien P3
-                  - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-                  - ratios économiques . Réseaux x Coût Investissement SST RFU
-            - sinon: 0
-          unité: €TTC/an
+            variations:
+              - si: Inclure la climatisation
+                alors:
+                  produit:
+                    - ratios . gros entretien P3
+                    - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+                    - ratios économiques . Réseaux x Coût Investissement SST RFU
+              - sinon: 0
+            unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
@@ -119,14 +127,6 @@ réseau de froid:
               alors: Ma prime renov' + Coup de pouce + CEE
             - sinon: 0
           unité: €
-
-ratios . RFU Rendement sous station:
-  valeur: 93%
-  unité: '%'
-
-ratios . RFU Conso auxiliaire:
-  valeur: 99.8%
-  unité: '%'
 
 ratios . RFU Durée de vie:
   valeur: 30
@@ -196,14 +196,4 @@ ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire:
     - sinon: 227764
   unité: €HT
   note: 'Source: ELCIMAI'
-
-###### Ratios environnementaux
-
-###### Installation (dimensionnement et consommations)
-
-###### Calculs économiques
-
-###### Entretien P2 / P3
-
-###### Aides
 

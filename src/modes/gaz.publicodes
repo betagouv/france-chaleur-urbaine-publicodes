@@ -8,22 +8,53 @@ gaz indiv avec cond:
   description: Chaudière gaz individuelle à condensation
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$37
           formule: 33
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso auxiliaire ECS: ratios . GAZ IND COND Conso auxiliaire ECS
-        conso auxiliaire chauffage: ratios . GAZ IND COND Conso auxiliaire chauffage
-        conso combustible: ratios . GAZ IND COND Conso combustible
-        durée de vie: ratios . GAZ IND COND Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Gaz indiv avec cond
-        investissement équipement: ratios économiques . Gaz x indiv avec cond
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Gaz indiv avec cond
-        rendement chaudière ECS: ratios . GAZ IND COND Rendement chaudière ECS
-        rendement chaudière chauffage: ratios . GAZ IND COND Rendement chaudière chauffage
+        conso auxiliaire ECS:
+          valeur: 99.9%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.9%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 17
+          unité: an
+        gros entretien P3:
+          par défaut: 70
+          unité: €HT
+        investissement équipement:
+          # B59 =XLOOKUP($D$27,'Ratios économiques - Coûts'!$B$81:$B$85,'Ratios économiques - Coûts'!$C$81:$C$85,,1)*(1+$D$50)
+          produit:
+            - variations:
+                - si: gaz indiv avec cond . installation . gamme de puissance existante <= 12
+                  alors: 2660
+                - si: gaz indiv avec cond . installation . gamme de puissance existante <= 20
+                  alors: 2810
+                - si: gaz indiv avec cond . installation . gamme de puissance existante <= 25
+                  alors: 2920
+                - si: gaz indiv avec cond . installation . gamme de puissance existante <= 30
+                  alors: 3220
+                - sinon: 3620
+            - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+          note: 'Source: Atlantic 2023'
+        petit entretien P2:
+          par défaut: 143
+          unité: €HT/an
+        rendement chaudière ECS:
+          valeur: 85%
+          unité: '%'
+        rendement chaudière chauffage:
+          valeur: 85%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -330,21 +361,49 @@ gaz indiv sans cond:
   description: Chaudière gaz individuelle sans condensation
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$38
           formule: 53.6
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso auxiliaire ECS: ratios . GAZ IND SCOND Conso auxiliaire ECS
-        conso auxiliaire chauffage: ratios . GAZ IND SCOND Conso auxiliaire chauffage
-        conso combustible: ratios . GAZ IND SCOND Conso combustible
-        durée de vie: ratios . GAZ IND SCOND Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Gaz indiv sans cond
-        investissement équipement: ratios économiques . Gaz x indiv sans cond
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Gaz indiv sans cond
-        rendement chaudière: ratios . GAZ IND SCOND Rendement chaudière
+        conso auxiliaire ECS:
+          valeur: 99.9%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.9%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 17
+          unité: an
+        gros entretien P3:
+          par défaut: 70
+          unité: €HT
+        investissement équipement:
+          produit:
+            - variations:
+                - si: gaz indiv sans cond . installation . gamme de puissance existante <= 12
+                  alors: 2660
+                - si: gaz indiv sans cond . installation . gamme de puissance existante <= 20
+                  alors: 2810
+                - si: gaz indiv sans cond . installation . gamme de puissance existante <= 25
+                  alors: 2920
+                - si: gaz indiv sans cond . installation . gamme de puissance existante <= 30
+                  alors: 3220
+                - sinon: 3620
+            - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+          note: 'Source: ELCIMAI 2024'
+        petit entretien P2:
+          par défaut: 143
+          unité: €HT/an
+        rendement chaudière:
+          valeur: 75%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -454,22 +513,73 @@ gaz coll avec cond:
   description: Chaudière gaz collective à condensation
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$39
           formule: 25
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso auxiliaire ECS: ratios . GAZ COLL COND Conso auxiliaire ECS
-        conso auxiliaire chauffage: ratios . GAZ COLL COND Conso auxiliaire chauffage
-        conso combustible: ratios . GAZ COLL COND Conso combustible
-        durée de vie: ratios . GAZ COLL COND Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Gaz coll avec cond
-        investissement équipement: ratios économiques . Gaz x coll avec cond
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Gaz coll avec cond
-        rendement chaudière ECS: ratios . GAZ COLL COND Rendement chaudière ECS
-        rendement chaudière chauffage: ratios . GAZ COLL COND Rendement chaudière chauffage
+        conso auxiliaire ECS:
+          valeur: 99%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.8%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 22
+          unité: an
+        gros entretien P3:
+          par défaut: 1.72 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          produit:
+            - variations:
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 35
+                  alors: 4800
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 120
+                  alors: 15000
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 200
+                  alors: 25000
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 300
+                  alors: 37500
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 400
+                  alors: 40000
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 500
+                  alors: 45000
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 600
+                  alors: 52335
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 700
+                  alors: 61058
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 800
+                  alors: 69780
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 900
+                  alors: 78503
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 1000
+                  alors: 87225
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 1250
+                  alors: 109031
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 1500
+                  alors: 130838
+                - si: gaz coll avec cond . installation . gamme de puissance existante <= 1750
+                  alors: 152644
+                - sinon: 174450
+            - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+          note: 'Source: ELCIMAI 2024 et Atlantic 2024'
+        petit entretien P2:
+          # B165 ='Ratios économiques - Coûts'!C329*(1+TVA_P2)
+          par défaut: 7.00 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          unité: €TTC/MWh
+        rendement chaudière ECS:
+          valeur: 86%
+          unité: '%'
+        rendement chaudière chauffage:
+          valeur: 80%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -643,21 +753,70 @@ gaz coll sans cond:
   description: Chaudière gaz collective sans condensation
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$40
           formule: 25
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso auxiliaire ECS: ratios . GAZ COLL SCOND Conso auxiliaire ECS
-        conso auxiliaire chauffage: ratios . GAZ COLL SCOND Conso auxiliaire chauffage
-        conso combustible: ratios . GAZ COLL SCOND Conso combustible
-        durée de vie: ratios . GAZ COLL SCOND Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Gaz coll sans cond
-        investissement équipement: ratios économiques . Gaz x coll sans cond
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Gaz coll sans cond
-        rendement chaudière: ratios . GAZ COLL SCOND Rendement chaudière
+        conso auxiliaire ECS:
+          valeur: 99%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.8%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 22
+          unité: an
+        gros entretien P3:
+          par défaut: 1.72 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          produit:
+            - variations:
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 35
+                  alors: 4800
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 120
+                  alors: 15000
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 200
+                  alors: 25000
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 300
+                  alors: 37500
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 400
+                  alors: 40000
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 500
+                  alors: 45000
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 600
+                  alors: 52335
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 700
+                  alors: 61058
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 800
+                  alors: 69780
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 900
+                  alors: 78503
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 1000
+                  alors: 87225
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 1250
+                  alors: 109031
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 1500
+                  alors: 130838
+                - si: gaz coll sans cond . installation . gamme de puissance existante <= 1750
+                  alors: 152644
+                - sinon: 174450
+            - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+          note: 'Source: ELCIMAI 2024'
+        petit entretien P2:
+          # B166 ='Ratios économiques - Coûts'!C330*(1+TVA_P2)
+          par défaut: 7.00 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          unité: €TTC/MWh
+        rendement chaudière:
+          valeur: 73%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -792,207 +951,4 @@ gaz coll sans cond:
         P4 moins aides: *bilan-p4-moins-aides
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
-
-ratios . GAZ IND COND Rendement chaudière chauffage:
-  valeur: 85%
-  unité: '%'
-
-ratios . GAZ IND COND Rendement chaudière ECS:
-  valeur: 85%
-  unité: '%'
-
-ratios . GAZ IND COND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-
-ratios . GAZ IND COND Conso auxiliaire chauffage:
-  valeur: 99.9%
-  unité: '%'
-
-ratios . GAZ IND COND Conso auxiliaire ECS:
-  valeur: 99.9%
-  unité: '%'
-
-ratios . GAZ IND COND Durée de vie:
-  valeur: 17
-  unité: an
-
-ratios . GAZ IND SCOND Rendement chaudière:
-  valeur: 75%
-  unité: '%'
-
-ratios . GAZ IND SCOND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-
-ratios . GAZ IND SCOND Conso auxiliaire chauffage:
-  valeur: 99.9%
-  unité: '%'
-
-ratios . GAZ IND SCOND Conso auxiliaire ECS:
-  valeur: 99.9%
-  unité: '%'
-
-ratios . GAZ IND SCOND Durée de vie:
-  valeur: 17
-  unité: an
-
-ratios . GAZ COLL COND Rendement chaudière chauffage:
-  valeur: 80%
-  unité: '%'
-
-ratios . GAZ COLL COND Rendement chaudière ECS:
-  valeur: 86%
-  unité: '%'
-
-ratios . GAZ COLL COND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-
-ratios . GAZ COLL COND Conso auxiliaire chauffage:
-  valeur: 99.8%
-  unité: '%'
-
-ratios . GAZ COLL COND Conso auxiliaire ECS:
-  valeur: 99%
-  unité: '%'
-
-ratios . GAZ COLL COND Durée de vie:
-  valeur: 22
-  unité: an
-
-ratios . GAZ COLL SCOND Rendement chaudière:
-  valeur: 73%
-  unité: '%'
-
-ratios . GAZ COLL SCOND Conso combustible:
-  valeur: 0.0970
-  unité: Nm3/kWh PCI
-
-ratios . GAZ COLL SCOND Conso auxiliaire chauffage:
-  valeur: 99.8%
-  unité: '%'
-
-ratios . GAZ COLL SCOND Conso auxiliaire ECS:
-  valeur: 99%
-  unité: '%'
-
-ratios . GAZ COLL SCOND Durée de vie:
-  valeur: 22
-  unité: an
-
-###### Ratios économiques (investissement)
-
-ratios économiques . Gaz x indiv avec cond:
-  # B59 =XLOOKUP($D$27,'Ratios économiques - Coûts'!$B$81:$B$85,'Ratios économiques - Coûts'!$C$81:$C$85,,1)*(1+$D$50)
-  produit:
-    - variations:
-        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 12
-          alors: 2660
-        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 20
-          alors: 2810
-        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 25
-          alors: 2920
-        - si: gaz indiv avec cond . installation . gamme de puissance existante <= 30
-          alors: 3220
-        - sinon: 3620
-    - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-  note: 'Source: Atlantic 2023'
-
-ratios économiques . Gaz x indiv sans cond:
-  produit:
-    - variations:
-        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 12
-          alors: 2660
-        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 20
-          alors: 2810
-        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 25
-          alors: 2920
-        - si: gaz indiv sans cond . installation . gamme de puissance existante <= 30
-          alors: 3220
-        - sinon: 3620
-    - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-  note: 'Source: ELCIMAI 2024'
-
-ratios économiques . Gaz x coll avec cond:
-  produit:
-    - variations:
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 35
-          alors: 4800
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 120
-          alors: 15000
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 200
-          alors: 25000
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 300
-          alors: 37500
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 400
-          alors: 40000
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 500
-          alors: 45000
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 600
-          alors: 52335
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 700
-          alors: 61058
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 800
-          alors: 69780
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 900
-          alors: 78503
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1000
-          alors: 87225
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1250
-          alors: 109031
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1500
-          alors: 130838
-        - si: gaz coll avec cond . installation . gamme de puissance existante <= 1750
-          alors: 152644
-        - sinon: 174450
-    - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-  note: 'Source: ELCIMAI 2024 et Atlantic 2024'
-
-ratios économiques . Gaz x coll sans cond:
-  produit:
-    - variations:
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 35
-          alors: 4800
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 120
-          alors: 15000
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 200
-          alors: 25000
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 300
-          alors: 37500
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 400
-          alors: 40000
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 500
-          alors: 45000
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 600
-          alors: 52335
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 700
-          alors: 61058
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 800
-          alors: 69780
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 900
-          alors: 78503
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1000
-          alors: 87225
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1250
-          alors: 109031
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1500
-          alors: 130838
-        - si: gaz coll sans cond . installation . gamme de puissance existante <= 1750
-          alors: 152644
-        - sinon: 174450
-    - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-  note: 'Source: ELCIMAI 2024'
-
-###### Ratios environnementaux
-
-###### Installation (dimensionnement et consommations)
-
-###### Calculs économiques
-
-###### Aides
 

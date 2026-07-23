@@ -30,55 +30,55 @@ amortissement:
     facteur GRA POELE:
       variations: *facteur
       avec:
-        durée: ratios . GRA POELE Durée de vie
+        durée: poêle à granulés . ratios . durée de vie
     facteur GRA CHAUD:
       variations: *facteur
       avec:
-        durée: ratios . GRA CHAUD Durée de vie
+        durée: chaudière à granulés . ratios . durée de vie
     facteur GAZ IND COND:
       variations: *facteur
       avec:
-        durée: ratios . GAZ IND COND Durée de vie
+        durée: gaz indiv avec cond . ratios . durée de vie
     facteur GAZ IND SCOND:
       variations: *facteur
       avec:
-        durée: ratios . GAZ IND SCOND Durée de vie
+        durée: gaz indiv sans cond . ratios . durée de vie
     facteur GAZ COLL COND:
       variations: *facteur
       avec:
-        durée: ratios . GAZ COLL COND Durée de vie
+        durée: gaz coll avec cond . ratios . durée de vie
     facteur FIOUL IND:
       variations: *facteur
       avec:
-        durée: ratios . FIOUL IND Durée de vie
+        durée: fioul indiv . ratios . durée de vie
     facteur FIOUL COLL:
       variations: *facteur
       avec:
-        durée: ratios . FIOUL COLL Durée de vie
+        durée: fioul coll . ratios . durée de vie
     facteur PAC AIR AIR indiv:
       variations: *facteur
       avec:
-        durée: ratios . PAC AIR AIR Durée de vie indiv
+        durée: PAC air-air indiv . ratios . durée de vie
     facteur PAC AIR AIR coll:
       variations: *facteur
       avec:
-        durée: ratios . PAC AIR AIR Durée de vie coll
+        durée: PAC air-air coll . ratios . durée de vie
     facteur PAC AIR EAU indiv:
       variations: *facteur
       avec:
-        durée: ratios . PAC AIR EAU Durée de vie indiv
+        durée: PAC air-eau indiv . ratios . durée de vie
     facteur PAC AIR EAU coll:
       variations: *facteur
       avec:
-        durée: ratios . PAC AIR EAU Durée de vie coll
+        durée: PAC air-eau coll . ratios . durée de vie
     facteur PAC EAU EAU:
       variations: *facteur
       avec:
-        durée: ratios . PAC EAU EAU Durée de vie
+        durée: PAC eau-eau indiv . ratios . durée de vie
     facteur PAC EAU EAU puits:
       variations: *facteur
       avec:
-        durée: ratios . PAC EAU EAU Durée de vie puits géothermiques
+        durée: PAC eau-eau indiv . ratios . durée de vie puits géothermiques
     facteur RAD ELEC INDIV:
       variations: *facteur
       avec:

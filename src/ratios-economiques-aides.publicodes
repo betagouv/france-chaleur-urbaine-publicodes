@@ -235,7 +235,7 @@ ratios économiques x aides:
               - sinon: 109200
       unité: kWh cumac
     CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière:
-      par défaut: ratios . PAC AIR EAU SCOP indiv / 2.5
+      par défaut: PAC air-eau indiv . ratios . SCOP / 2.5
       unité: '%'
     CEE x PAC air-eau indiv x BAR-TH-171 . facteur correctif selon la surface chauffée:
       variations:

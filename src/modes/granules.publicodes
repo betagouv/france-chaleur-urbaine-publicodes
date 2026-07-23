@@ -8,19 +8,36 @@ poêle à granulés:
   description: Poêle à granulés individuel
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$35
           formule: 122
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso combustible: ratios . GRA POELE Conso combustible
-        durée de vie: ratios . GRA POELE Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv
-        investissement équipement: Investissement x Poêle à granulés indiv
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv
-        rendement poêle chauffage: ratios . GRA POELE Rendement poêle chauffage
+        conso combustible:
+          valeur: 0.217391304
+          unité: kg granulés/an/kWh
+        durée de vie:
+          valeur: 16
+          unité: an
+        gros entretien P3:
+          par défaut: 0.00 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          # ='Ratios économiques - Coûts'!$C$65*(1+$D$50)
+          par défaut:
+            produit:
+              - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+              - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+        petit entretien P2:
+          # B161 ='Ratios économiques - Coûts'!C325*(1+TVA_P2)
+          par défaut: 35 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          unité: €TTC/MWh
+        rendement poêle chauffage:
+          valeur: 80%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -173,10 +190,10 @@ poêle à granulés:
     entretien:
       avec:
         petit entretien P2:
-          produit:
-            - ratios . petit entretien P2
-            - besoins chauffage par appartement / 1000
-          unité: €TTC/an
+            produit:
+              - ratios . petit entretien P2
+              - besoins chauffage par appartement / 1000
+            unité: €TTC/an
         gros entretien P3: &entretien-gros-entretien-p3
           produit:
             - ratios . gros entretien P3
@@ -297,20 +314,38 @@ chaudière à granulés:
   description: Chaudière à granulés collective
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$36
           formule: 88.5
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso auxiliaire: ratios . GRA CHAUD Conso auxiliaire
-        conso combustible: ratios . GRA CHAUD Conso combustible
-        durée de vie: ratios . GRA CHAUD Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll
-        investissement équipement: Investissement x Chaudière à granulés coll
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll
-        rendement chaudière chauffage: ratios . GRA CHAUD Rendement chaudière chauffage
+        conso auxiliaire:
+          valeur: 99.8%
+          unité: '%'
+        conso combustible:
+          valeur: 0.217391304
+          unité: kg granulés/an/kWh
+        durée de vie:
+          valeur: 17
+          unité: an
+        gros entretien P3:
+          par défaut: 0.00 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          par défaut:
+            produit:
+              - ratios économiques . Granulés x Chaudière à granulés collective
+              - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+        petit entretien P2:
+          # B162 ='Ratios économiques - Coûts'!C326*(1+TVA_P2)
+          par défaut: 22.000 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          unité: €TTC/MWh
+        rendement chaudière chauffage:
+          valeur: 82%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -475,11 +510,11 @@ chaudière à granulés:
     entretien:
       avec:
         petit entretien P2:
-          produit:
-            - ratios . petit entretien P2
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-            - nombre de logements dans l'immeuble concerné / 1000
-          unité: €TTC/an
+            produit:
+              - ratios . petit entretien P2
+              - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+              - nombre de logements dans l'immeuble concerné / 1000
+            unité: €TTC/an
         gros entretien P3: *entretien-gros-entretien-p3
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -541,34 +576,6 @@ chaudière à granulés:
         total avec aides: *bilan-total-avec-aides
         total sans installation: *bilan-total-sans-installation
 
-ratios . GRA POELE Rendement poêle chauffage:
-  valeur: 80%
-  unité: '%'
-
-ratios . GRA POELE Conso combustible:
-  valeur: 0.217391304
-  unité: kg granulés/an/kWh
-
-ratios . GRA POELE Durée de vie:
-  valeur: 16
-  unité: an
-
-ratios . GRA CHAUD Rendement chaudière chauffage:
-  valeur: 82%
-  unité: '%'
-
-ratios . GRA CHAUD Conso combustible:
-  valeur: 0.217391304
-  unité: kg granulés/an/kWh
-
-ratios . GRA CHAUD Conso auxiliaire:
-  valeur: 99.8%
-  unité: '%'
-
-ratios . GRA CHAUD Durée de vie:
-  valeur: 17
-  unité: an
-
 ###### Ratios économiques (investissement)
 
 ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel:
@@ -592,29 +599,4 @@ ratios économiques . Granulés x Chaudière à granulés collective:
       alors: 37500
     - sinon: 750 * chaudière à granulés . installation . gamme de puissance existante
   note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
-
-###### Ratios environnementaux
-
-###### Investissement
-
-Investissement x Poêle à granulés indiv:
-  # ='Ratios économiques - Coûts'!$C$65*(1+$D$50)
-  par défaut:
-    produit:
-      - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
-      - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-
-Investissement x Chaudière à granulés coll:
-  par défaut:
-    produit:
-      - ratios économiques . Granulés x Chaudière à granulés collective
-      - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-
-###### Installation (dimensionnement et consommations)
-
-###### Calculs économiques
-
-###### Aides
 

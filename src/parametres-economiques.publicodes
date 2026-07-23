@@ -313,61 +313,6 @@ Paramètres économiques:
         TVA:
           par défaut: 20%
           unité: '%'
-        RCU:
-          par défaut: 1.5 / 100
-          unité: €HT/€d'investissment
-        RFU:
-          par défaut: 1.5 / 100
-          unité: €HT/€d'investissment # %
-        Poêle à granulés indiv:
-          # B161 ='Ratios économiques - Coûts'!C325*(1+TVA_P2)
-          par défaut: 35 * (1 + TVA)
-          unité: €TTC/MWh
-        Chaudière à granulés coll:
-          # B162 ='Ratios économiques - Coûts'!C326*(1+TVA_P2)
-          par défaut: 22.000 * (1 + TVA)
-          unité: €TTC/MWh
-        Gaz indiv avec cond:
-          par défaut: 143
-          unité: €HT/an
-        Gaz indiv sans cond:
-          par défaut: 143
-          unité: €HT/an
-        Gaz coll avec cond:
-          # B165 ='Ratios économiques - Coûts'!C329*(1+TVA_P2)
-          par défaut: 7.00 * (1 + TVA)
-          unité: €TTC/MWh
-        Gaz coll sans cond:
-          # B166 ='Ratios économiques - Coûts'!C330*(1+TVA_P2)
-          par défaut: 7.00 * (1 + TVA)
-          unité: €TTC/MWh
-        Fioul indiv:
-          par défaut: 143
-          unité: €HT
-        Fioul coll:
-          par défaut: 7.00 * (1 + TVA)
-          unité: €TTC/MWh
-        PAC air-air indiv:
-          par défaut: 199 * (1 + TVA)
-          unité: €TTC/MWh
-        PAC air-air coll:
-          par défaut: 9.8 * (1 + TVA)
-          unité: €TTC/MWh
-        PAC eau-eau indiv:
-          par défaut: 199 * (1 + TVA)
-          unité: €TTC/MWh
-        PAC eau-eau coll:
-          par défaut: 9.8 *  (1 + TVA)
-          unité: €TTC/MWh
-        PAC air-eau indiv:
-          par défaut: 199 * (1 + TVA)
-          unité: €TTC/MWh
-        PAC air-eau coll:
-          par défaut: 9.8 *  (1 + TVA)
-          unité: €TTC/MWh
-        Radiateur électrique:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment
         Chauffe-eau électrique à accumulation:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
@@ -380,59 +325,10 @@ Paramètres économiques:
         TVA:
           par défaut: 20%
           unité: '%'
-        RCU:
-          par défaut: 0.75 / 100
-          unité: €HT/€d'investissment # %
-        RFU:
-          par défaut: 0.75 / 100
-          unité: €HT/€d'investissment # %
         # non présent dans excel
-        Poêle à granulés indiv:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
-        Chaudière à granulés coll:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
-        Gaz indiv avec cond:
-          par défaut: 70
-          unité: €HT
-        Gaz indiv sans cond:
-          par défaut: 70
-          unité: €HT
-        Gaz coll avec cond:
-          par défaut: 1.72 / 100
-          unité: €HT/€d'investissment # %
-        Gaz coll sans cond:
-          par défaut: 1.72 / 100
-          unité: €HT/€d'investissment # %
-        Fioul indiv:
-          par défaut: 70
-          unité: €HT
-        Fioul coll:
-          par défaut: 1.72 / 100
-          unité: €HT/€d'investissment # %
-        PAC air-air coll:
-          par défaut: 1.72 / 100
-          unité: €HT/€d'investissment
-        PAC air-air indiv:
-          par défaut: 134 * (1 + TVA)
-          unité: €TTC/MWh
-        PAC eau-eau coll:
-          par défaut: 1.72 / 100
-          unité: €HT/€d'investissment
-        PAC eau-eau indiv:
-          par défaut: 134 * (1 + TVA)
-          unité: €TTC/MWh
         PAC air-eau coll:
           par défaut: 1.72 / 100
           unité: €HT/€d'investissment
-        PAC air-eau indiv:
-          par défaut: 134 * (1 + TVA)
-          unité: €TTC/MWh
-
-        Radiateur électrique:
-          par défaut: 0.00 / 100
-          unité: €HT/€d'investissment # %
         Chauffe-eau électrique à accumulation:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %

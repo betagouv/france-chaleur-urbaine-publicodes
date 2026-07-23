@@ -1995,3 +1995,340 @@ Bilan x Fioul coll . total avec aides:
   valeur: fioul coll . bilan . total avec aides
 Bilan x Fioul coll . total sans aides:
   valeur: fioul coll . bilan . total sans aides
+
+# --- Clés de ratios/paramètres historiques (table de migration UI) ---
+# La valeur de référence vit dans la section « ratios » du mode ; la clé
+# historique n'est plus qu'une référence de lecture. ATTENTION : les
+# ÉCRITURES du front (page paramètres) sur ces clés ne se propagent plus —
+# la page paramètres doit migrer vers les nouvelles clés (colonne de
+# droite) lors de l’intégration de cette version.
+
+Investissement x Chaudière à granulés coll:
+  valeur: chaudière à granulés . ratios . investissement équipement
+
+Investissement x Poêle à granulés indiv:
+  valeur: poêle à granulés . ratios . investissement équipement
+
+Paramètres économiques . Gros entretien P3 . Chaudière à granulés coll:
+  valeur: chaudière à granulés . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Fioul coll:
+  valeur: fioul coll . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Fioul indiv:
+  valeur: fioul indiv . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Gaz coll avec cond:
+  valeur: gaz coll avec cond . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Gaz coll sans cond:
+  valeur: gaz coll sans cond . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Gaz indiv avec cond:
+  valeur: gaz indiv avec cond . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Gaz indiv sans cond:
+  valeur: gaz indiv sans cond . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . PAC air-air coll:
+  valeur: PAC air-air coll . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . PAC air-air indiv:
+  valeur: PAC air-air indiv . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . PAC air-eau indiv:
+  valeur: PAC air-eau indiv . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . PAC eau-eau coll:
+  valeur: PAC eau-eau coll . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . PAC eau-eau indiv:
+  valeur: PAC eau-eau indiv . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Poêle à granulés indiv:
+  valeur: poêle à granulés . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . RCU:
+  valeur: réseau de chaleur . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . RFU:
+  valeur: réseau de froid . ratios . gros entretien P3
+
+Paramètres économiques . Gros entretien P3 . Radiateur électrique:
+  valeur: radiateur électrique . ratios . gros entretien P3
+
+Paramètres économiques . Petit entretien P2 . Chaudière à granulés coll:
+  valeur: chaudière à granulés . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Fioul coll:
+  valeur: fioul coll . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Fioul indiv:
+  valeur: fioul indiv . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Gaz coll avec cond:
+  valeur: gaz coll avec cond . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Gaz coll sans cond:
+  valeur: gaz coll sans cond . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Gaz indiv avec cond:
+  valeur: gaz indiv avec cond . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Gaz indiv sans cond:
+  valeur: gaz indiv sans cond . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . PAC air-air coll:
+  valeur: PAC air-air coll . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . PAC air-air indiv:
+  valeur: PAC air-air indiv . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . PAC air-eau coll:
+  valeur: PAC air-eau coll . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . PAC air-eau indiv:
+  valeur: PAC air-eau indiv . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . PAC eau-eau coll:
+  valeur: PAC eau-eau coll . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . PAC eau-eau indiv:
+  valeur: PAC eau-eau indiv . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Poêle à granulés indiv:
+  valeur: poêle à granulés . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . RCU:
+  valeur: réseau de chaleur . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . RFU:
+  valeur: réseau de froid . ratios . petit entretien P2
+
+Paramètres économiques . Petit entretien P2 . Radiateur électrique:
+  valeur: radiateur électrique . ratios . petit entretien P2
+
+ratios . FIOUL COLL Conso auxiliaire ECS:
+  valeur: fioul coll . ratios . conso auxiliaire ECS
+
+ratios . FIOUL COLL Conso auxiliaire chauffage:
+  valeur: fioul coll . ratios . conso auxiliaire chauffage
+
+ratios . FIOUL COLL Conso combustible:
+  valeur: fioul coll . ratios . conso combustible
+
+ratios . FIOUL COLL Durée de vie:
+  valeur: fioul coll . ratios . durée de vie
+
+ratios . FIOUL COLL Rendement chaudière ECS:
+  valeur: fioul coll . ratios . rendement chaudière ECS
+
+ratios . FIOUL COLL Rendement chaudière chauffage:
+  valeur: fioul coll . ratios . rendement chaudière chauffage
+
+ratios . FIOUL IND Conso auxiliaire ECS:
+  valeur: fioul indiv . ratios . conso auxiliaire ECS
+
+ratios . FIOUL IND Conso auxiliaire chauffage:
+  valeur: fioul indiv . ratios . conso auxiliaire chauffage
+
+ratios . FIOUL IND Conso combustible:
+  valeur: fioul indiv . ratios . conso combustible
+
+ratios . FIOUL IND Durée de vie:
+  valeur: fioul indiv . ratios . durée de vie
+
+ratios . FIOUL IND Rendement chaudière:
+  valeur: fioul indiv . ratios . rendement chaudière
+
+ratios . GAZ COLL COND Conso auxiliaire ECS:
+  valeur: gaz coll avec cond . ratios . conso auxiliaire ECS
+
+ratios . GAZ COLL COND Conso auxiliaire chauffage:
+  valeur: gaz coll avec cond . ratios . conso auxiliaire chauffage
+
+ratios . GAZ COLL COND Conso combustible:
+  valeur: gaz coll avec cond . ratios . conso combustible
+
+ratios . GAZ COLL COND Durée de vie:
+  valeur: gaz coll avec cond . ratios . durée de vie
+
+ratios . GAZ COLL COND Rendement chaudière ECS:
+  valeur: gaz coll avec cond . ratios . rendement chaudière ECS
+
+ratios . GAZ COLL COND Rendement chaudière chauffage:
+  valeur: gaz coll avec cond . ratios . rendement chaudière chauffage
+
+ratios . GAZ COLL SCOND Conso auxiliaire ECS:
+  valeur: gaz coll sans cond . ratios . conso auxiliaire ECS
+
+ratios . GAZ COLL SCOND Conso auxiliaire chauffage:
+  valeur: gaz coll sans cond . ratios . conso auxiliaire chauffage
+
+ratios . GAZ COLL SCOND Conso combustible:
+  valeur: gaz coll sans cond . ratios . conso combustible
+
+ratios . GAZ COLL SCOND Durée de vie:
+  valeur: gaz coll sans cond . ratios . durée de vie
+
+ratios . GAZ COLL SCOND Rendement chaudière:
+  valeur: gaz coll sans cond . ratios . rendement chaudière
+
+ratios . GAZ IND COND Conso auxiliaire ECS:
+  valeur: gaz indiv avec cond . ratios . conso auxiliaire ECS
+
+ratios . GAZ IND COND Conso auxiliaire chauffage:
+  valeur: gaz indiv avec cond . ratios . conso auxiliaire chauffage
+
+ratios . GAZ IND COND Conso combustible:
+  valeur: gaz indiv avec cond . ratios . conso combustible
+
+ratios . GAZ IND COND Durée de vie:
+  valeur: gaz indiv avec cond . ratios . durée de vie
+
+ratios . GAZ IND COND Rendement chaudière ECS:
+  valeur: gaz indiv avec cond . ratios . rendement chaudière ECS
+
+ratios . GAZ IND COND Rendement chaudière chauffage:
+  valeur: gaz indiv avec cond . ratios . rendement chaudière chauffage
+
+ratios . GAZ IND SCOND Conso auxiliaire ECS:
+  valeur: gaz indiv sans cond . ratios . conso auxiliaire ECS
+
+ratios . GAZ IND SCOND Conso auxiliaire chauffage:
+  valeur: gaz indiv sans cond . ratios . conso auxiliaire chauffage
+
+ratios . GAZ IND SCOND Conso combustible:
+  valeur: gaz indiv sans cond . ratios . conso combustible
+
+ratios . GAZ IND SCOND Durée de vie:
+  valeur: gaz indiv sans cond . ratios . durée de vie
+
+ratios . GAZ IND SCOND Rendement chaudière:
+  valeur: gaz indiv sans cond . ratios . rendement chaudière
+
+ratios . GRA CHAUD Conso auxiliaire:
+  valeur: chaudière à granulés . ratios . conso auxiliaire
+
+ratios . GRA CHAUD Conso combustible:
+  valeur: chaudière à granulés . ratios . conso combustible
+
+ratios . GRA CHAUD Durée de vie:
+  valeur: chaudière à granulés . ratios . durée de vie
+
+ratios . GRA CHAUD Rendement chaudière chauffage:
+  valeur: chaudière à granulés . ratios . rendement chaudière chauffage
+
+ratios . GRA POELE Conso combustible:
+  valeur: poêle à granulés . ratios . conso combustible
+
+ratios . GRA POELE Durée de vie:
+  valeur: poêle à granulés . ratios . durée de vie
+
+ratios . GRA POELE Rendement poêle chauffage:
+  valeur: poêle à granulés . ratios . rendement poêle chauffage
+
+ratios . PAC AIR AIR Durée de vie coll:
+  valeur: PAC air-air coll . ratios . durée de vie
+
+ratios . PAC AIR AIR Durée de vie indiv:
+  valeur: PAC air-air indiv . ratios . durée de vie
+
+ratios . PAC AIR AIR SCOP coll:
+  valeur: PAC air-air coll . ratios . SCOP
+
+ratios . PAC AIR AIR SCOP indiv:
+  valeur: PAC air-air indiv . ratios . SCOP
+
+ratios . PAC AIR AIR SEER coll:
+  valeur: PAC air-air coll . ratios . SEER
+
+ratios . PAC AIR AIR SEER indiv:
+  valeur: PAC air-air indiv . ratios . SEER
+
+ratios . PAC AIR EAU Durée de vie coll:
+  valeur: PAC air-eau coll . ratios . durée de vie
+
+ratios . PAC AIR EAU Durée de vie indiv:
+  valeur: PAC air-eau indiv . ratios . durée de vie
+
+ratios . PAC AIR EAU SCOP coll:
+  valeur: PAC air-eau coll . ratios . SCOP
+
+ratios . PAC AIR EAU SCOP indiv:
+  valeur: PAC air-eau indiv . ratios . SCOP
+
+ratios . PAC AIR EAU SEER coll:
+  valeur: PAC air-eau coll . ratios . SEER
+
+ratios . PAC AIR EAU SEER indiv:
+  valeur: PAC air-eau indiv . ratios . SEER
+
+ratios . PAC EAU EAU Durée de vie:
+  valeur: PAC eau-eau indiv . ratios . durée de vie
+
+ratios . PAC EAU EAU SCOP coll champ de sondes:
+  valeur: PAC eau-eau coll . ratios . SCOP champ de sondes
+
+ratios . PAC EAU EAU SCOP indiv capteurs horizontaux:
+  valeur: PAC eau-eau indiv . ratios . SCOP capteurs horizontaux
+
+ratios . RAD ELEC INDIV Conso combustible:
+  valeur: radiateur électrique . ratios . conso combustible
+
+ratios . RAD ELEC INDIV Rendement:
+  valeur: radiateur électrique . ratios . rendement
+
+ratios . RCU Conso auxiliaire ECS:
+  valeur: réseau de chaleur . ratios . conso auxiliaire ECS
+
+ratios . RCU Conso auxiliaire chauffage:
+  valeur: réseau de chaleur . ratios . conso auxiliaire chauffage
+
+ratios . RCU Rendement sous station ECS:
+  valeur: réseau de chaleur . ratios . rendement sous station ECS
+
+ratios . RCU Rendement sous station chauffage:
+  valeur: réseau de chaleur . ratios . rendement sous station chauffage
+
+ratios . RFU Conso auxiliaire:
+  valeur: réseau de froid . ratios . conso auxiliaire
+
+ratios . RFU Rendement sous station:
+  valeur: réseau de froid . ratios . rendement sous station
+
+ratios économiques . Fioul x collectif:
+  valeur: fioul coll . ratios . investissement équipement
+
+ratios économiques . Fioul x indiv:
+  valeur: fioul indiv . ratios . investissement équipement
+
+ratios économiques . Gaz x coll avec cond:
+  valeur: gaz coll avec cond . ratios . investissement équipement
+
+ratios économiques . Gaz x coll sans cond:
+  valeur: gaz coll sans cond . ratios . investissement équipement
+
+ratios économiques . Gaz x indiv avec cond:
+  valeur: gaz indiv avec cond . ratios . investissement équipement
+
+ratios économiques . Gaz x indiv sans cond:
+  valeur: gaz indiv sans cond . ratios . investissement équipement
+
+ratios économiques . PAC x air-air réversible x Collectif:
+  valeur: PAC air-air coll . ratios . investissement équipement
+
+ratios économiques . PAC x air-air réversible x Individuel:
+  valeur: PAC air-air indiv . ratios . investissement équipement
+
+ratios économiques . PAC x air-eau réversible x Collectif:
+  valeur: PAC air-eau coll . ratios . investissement équipement
+
+ratios économiques . PAC x air-eau réversible x Individuel:
+  valeur: PAC air-eau indiv . ratios . investissement équipement
+
+ratios économiques . PAC x eau-eau non réversible x Individuel:
+  valeur: PAC eau-eau indiv . ratios . investissement équipement
+
+ratios économiques . Radiateur électrique x Individuel x investissement total:
+  valeur: radiateur électrique . ratios . investissement équipement

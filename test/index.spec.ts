@@ -130,11 +130,41 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		});
 	});
 
-	describe("écritures front sur les clés historiques de ratios", () => {
-		// Les sections `<mode> . ratios` sont des alias vers les clés plates
-		// historiques que le front écrit (page paramètres). Ce test garantit
-		// qu'une écriture sur la clé historique se propage bien aux calculs.
-		it("se propagent aux calculs via les alias locaux des modes", () => {
+	describe("paramétrage des modes (sections ratios)", () => {
+		// Les valeurs de référence vivent dans `<mode> . ratios . <nom>` ;
+		// les clés plates historiques ne sont plus que des références de
+		// lecture dans compat.publicodes (table de migration UI).
+		it("les écritures sur les nouvelles clés se propagent aux calculs", () => {
+			const base = new Engine(rules, options);
+			base.setSituation(commonSituation);
+			const p4 = base.evaluate("gaz indiv avec cond . bilan . P4").nodeValue;
+
+			const modifie = new Engine(rules, options);
+			modifie.setSituation({
+				...commonSituation,
+				"gaz indiv avec cond . ratios . durée de vie": 10,
+				"gaz indiv avec cond . ratios . investissement équipement": 9999,
+			});
+			expect(
+				modifie.evaluate("gaz indiv avec cond . bilan . P4").nodeValue,
+			).not.toBe(p4);
+		});
+
+		it("les clés historiques restent lisibles (compat) et reflètent la valeur de référence", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				...commonSituation,
+				"gaz indiv avec cond . ratios . durée de vie": 10,
+			});
+			expect(
+				engine.evaluate("ratios . GAZ IND COND Durée de vie").nodeValue,
+			).toBe(10);
+		});
+
+		it("les écritures sur les clés historiques sont inertes (migration UI requise)", () => {
+			// Comportement assumé de la couche de compat « référence seule » :
+			// tant que la page paramètres du front n'a pas migré vers les
+			// nouvelles clés, ses écritures ne modifient plus les calculs.
 			const base = new Engine(rules, options);
 			base.setSituation(commonSituation);
 			const p4 = base.evaluate("gaz indiv avec cond . bilan . P4").nodeValue;
@@ -147,7 +177,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			});
 			expect(
 				modifie.evaluate("gaz indiv avec cond . bilan . P4").nodeValue,
-			).not.toBe(p4);
+			).toBe(p4);
 		});
 	});
 

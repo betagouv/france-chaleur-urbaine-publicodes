@@ -8,18 +8,33 @@ radiateur électrique:
   description: Radiateurs électriques (individuel)
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$52
           formule: 0.015
           unité: kgCO2e/kWh
           note: 'Source: INIES 2022'
-        conso combustible: ratios . RAD ELEC INDIV Conso combustible
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Radiateur électrique
-        investissement équipement: ratios économiques . Radiateur électrique x Individuel x investissement total
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Radiateur électrique
-        rendement: ratios . RAD ELEC INDIV Rendement
+        conso combustible:
+          valeur: 100%
+          unité: '%'
+        gros entretien P3:
+          par défaut: 0.00 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          # Param eco B78 =$D$79*'Ratios économiques - Coûts'!$C$189*(1+$D$50)
+          par défaut:
+            produit:
+              - ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires
+              - ratios économiques . Radiateur électrique . Coût investissement Puissance 2kW
+              - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+        petit entretien P2:
+          par défaut: 0.00 / 100
+          unité: €HT/€d'investissment
+        rendement:
+          valeur: 96%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -177,15 +192,15 @@ radiateur électrique:
     entretien:
       avec:
         petit entretien P2:
-          produit:
-            - ratios . petit entretien P2
-            - coûts . Investissement équipement Total
-          unité: €TTC/an
+            produit:
+              - ratios . petit entretien P2
+              - coûts . Investissement équipement Total
+            unité: €TTC/an
         gros entretien P3:
-          produit:
-            - ratios . gros entretien P3
-            - coûts . Investissement équipement Total
-          unité: €TTC/an
+            produit:
+              - ratios . gros entretien P3
+              - coûts . Investissement équipement Total
+            unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     aides:
@@ -294,14 +309,6 @@ radiateur électrique:
             - total sans aides
             - (- aides)
 
-ratios . RAD ELEC INDIV Rendement:
-  valeur: 96%
-  unité: '%'
-
-ratios . RAD ELEC INDIV Conso combustible:
-  valeur: 100%
-  unité: '%'
-
 ratios . RAD ELEC INDIV Durée de vie:
   valeur: 25
   unité: an
@@ -320,31 +327,7 @@ ratios économiques . Radiateur électrique:
       note: 'Source: Atlantic 2023'
 
 # pas un ratio
-ratios économiques . Radiateur électrique x Individuel x investissement total:
-  # Param eco B78 =$D$79*'Ratios économiques - Coûts'!$C$189*(1+$D$50)
-  par défaut:
-    produit:
-      - Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires
-      - Radiateur électrique . Coût investissement Puissance 2kW
-      - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-
-# pas un ratio
 ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires:
   # Param eco B79 =QUOTIENT('Calculs techniques'!$H$64,'Ratios économiques - Coûts'!$B$189)
   par défaut: radiateur électrique . installation . gamme de puissance existante // 2
-
-###### Ratios environnementaux
-
-###### Installation (dimensionnement et consommations)
-
-###### Calculs économiques
-
-###### Entretien P2 / P3
-
-###### Aides
-
-###### Émissions de CO2
-
-###### Bilan annuel
 

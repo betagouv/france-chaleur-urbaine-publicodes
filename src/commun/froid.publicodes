@@ -12,7 +12,7 @@ puissance équipement par appartement Groupe froid x résidentiel:
           - type de production de froid = 'Groupe froid'
       alors:
         produit:
-          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR AIR SEER indiv) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
+          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / PAC air-air indiv . ratios . SEER) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
           - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
     - sinon: 0
   unité: kW
@@ -27,7 +27,7 @@ puissance groupe d'eau glacée x tertiaire:
           - type de production de froid = 'Groupe froid'
       alors:
         produit:
-          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / ratios . PAC AIR EAU SEER coll) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
+          - 1 + ((Calcul . Climatisation Puissance refroidissement appelée / PAC air-eau coll . ratios . SEER) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
           - ratios . PAC AIR EAU Puissance unitaire réversible coll
     - sinon: 0
   unité: kW
@@ -42,8 +42,8 @@ calcul consommation Groupe Froid:
       alors:
         variations:
           - si: type de bâtiment = 'résidentiel'
-            alors: besoins en climatisation par appartement / ratios . PAC AIR AIR SEER indiv
-          - sinon: besoins en climatisation par appartement / ratios . PAC AIR EAU SEER coll
+            alors: besoins en climatisation par appartement / PAC air-air indiv . ratios . SEER
+          - sinon: besoins en climatisation par appartement / PAC air-eau coll . ratios . SEER
     - sinon: 0
 
 calcul total investissement groupe froid résidentiel:
@@ -182,7 +182,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel:
               - type de bâtiment = 'résidentiel'
           alors:
             produit:
-              - Paramètres économiques . Petit entretien P2 . PAC air-eau coll
+              - PAC air-eau coll . ratios . petit entretien P2
               - besoins en climatisation par appartement
               - nombre de logements dans l'immeuble concerné
               - 1 / 1000
@@ -218,7 +218,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire:
               - type de bâtiment = 'tertiaire'
           alors:
             produit:
-              - Paramètres économiques . Petit entretien P2 . PAC air-eau coll
+              - PAC air-eau coll . ratios . petit entretien P2
               - besoins en climatisation par appartement
               - 1 / 1000
         - sinon: 0

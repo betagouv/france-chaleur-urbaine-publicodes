@@ -231,22 +231,24 @@ une ligne au lieu d'être noyé).
 4. **Alias de compat** (`compat.publicodes`, généré) : 947 anciennes clés
    lues par le front → nouvelles clés. Coût transitoire : parsing +20 %,
    évaluation via les anciennes clés +23 % ; disparaît avec la migration front.
-5. **Sections `ratios` par mode** : le paramétrage de chaque mode est une
-   section explicite aux noms courts (`rendement chaudière chauffage`,
-   `durée de vie`, `investissement équipement`…). Les formules du mode les
-   référencent en relatif (`ratios . durée de vie`), ce qui a neutralisé les
-   corps d'entretien/environnement entre variantes et permis une seconde
-   passe de factorisation (+22 anchors). Trois catégories de valeurs :
-   - **écrites par le front** (111 : rendements, SCOP, durées, P2/P3…) —
-     alias vers la clé plate historique, qui reste canonique tant que le
-     front écrit dessus (propagation des écritures testée dans
-     index.spec.ts) ; à la migration front, inverser le sens de l'alias et
-     porter la valeur ici ;
-   - **partagées** (durée de vie PAC eau-eau indiv/coll, socle PAC GNRL…) —
-     une référence est le bon outil : une seule source de vérité ;
-   - **propres au mode et non écrites** (19 : contenus CO2 d'installation,
-     puissances unitaires PAC) — **valeur portée directement dans la
-     section**, clé plate supprimée.
+5. **Sections `ratios` par mode — les valeurs de référence** : le paramétrage
+   de chaque mode est une section explicite aux noms courts, qui **porte
+   directement les valeurs** (avec unité/note/source) :
+   `rendement chaudière chauffage: 85%`, `durée de vie: 17 an`,
+   `investissement équipement`, `petit entretien P2`, `CO2 installation`…
+   Les formules du mode (et tout le modèle interne : facteurs d'annuité,
+   froid, aides) référencent uniquement ces nouvelles clés. Les valeurs
+   réellement partagées (durée de vie PAC eau-eau indiv/coll, socle
+   PAC GNRL, matrices CHAF/RAF) restent des références vers une source
+   unique. Les clés plates historiques (`ratios . GAZ IND COND …`,
+   `Paramètres économiques . Petit entretien P2 . …`) ne sont plus que des
+   **références de lecture** dans `compat.publicodes`, qui sert aussi de
+   table de migration pour l'UI. Sémantique testée dans index.spec.ts :
+   écrire une nouvelle clé se propage ; les clés historiques restent
+   lisibles ; **écrire une clé historique est inerte** — la page paramètres
+   du front doit migrer vers les nouvelles clés lors de l'intégration
+   (le mécanisme `remplace`, qui aurait maintenu les écritures historiques,
+   a été envisagé puis écarté).
 
 ## Élagage réalisé
 

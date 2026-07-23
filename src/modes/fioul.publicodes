@@ -8,21 +8,48 @@ fioul indiv:
   description: Chaudière fioul individuelle
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$41
           formule: 112
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso auxiliaire ECS: ratios . FIOUL IND Conso auxiliaire ECS
-        conso auxiliaire chauffage: ratios . FIOUL IND Conso auxiliaire chauffage
-        conso combustible: ratios . FIOUL IND Conso combustible
-        durée de vie: ratios . FIOUL IND Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Fioul indiv
-        investissement équipement: ratios économiques . Fioul x indiv
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Fioul indiv
-        rendement chaudière: ratios . FIOUL IND Rendement chaudière
+        conso auxiliaire ECS:
+          valeur: 99.9%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.9%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0947
+          unité: L/kWh PCI
+        durée de vie:
+          valeur: 21
+          unité: an
+        gros entretien P3:
+          par défaut: 70
+          unité: €HT
+        investissement équipement:
+          produit:
+            - variations:
+                - si: fioul indiv . installation . gamme de puissance existante <= 12
+                  alors: 2926
+                - si: fioul indiv . installation . gamme de puissance existante <= 20
+                  alors: 3091
+                - si: fioul indiv . installation . gamme de puissance existante <= 25
+                  alors: 3212
+                - si: fioul indiv . installation . gamme de puissance existante <= 30
+                  alors: 3542
+                - sinon: 3982
+            - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+        petit entretien P2:
+          par défaut: 143
+          unité: €HT
+        rendement chaudière:
+          valeur: 73%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -207,15 +234,15 @@ fioul indiv:
     entretien:
       avec:
         petit entretien P2:
-          produit:
-            - ratios . petit entretien P2
-            - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-          unité: €TTC/an
+            produit:
+              - ratios . petit entretien P2
+              - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+            unité: €TTC/an
         gros entretien P3:
-          produit:
-            - ratios . gros entretien P3
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-          unité: €TTC/an
+            produit:
+              - ratios . gros entretien P3
+              - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+            unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     aides:
@@ -327,22 +354,71 @@ fioul coll:
   description: Chaudière fioul collective
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$42
           formule: 43
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        conso auxiliaire ECS: ratios . FIOUL COLL Conso auxiliaire ECS
-        conso auxiliaire chauffage: ratios . FIOUL COLL Conso auxiliaire chauffage
-        conso combustible: ratios . FIOUL COLL Conso combustible
-        durée de vie: ratios . FIOUL COLL Durée de vie
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . Fioul coll
-        investissement équipement: ratios économiques . Fioul x collectif
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . Fioul coll
-        rendement chaudière ECS: ratios . FIOUL COLL Rendement chaudière ECS
-        rendement chaudière chauffage: ratios . FIOUL COLL Rendement chaudière chauffage
+        conso auxiliaire ECS:
+          valeur: 99%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.8%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0947
+          unité: L/kWh PCI
+        durée de vie:
+          valeur: 21
+          unité: an
+        gros entretien P3:
+          par défaut: 1.72 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          produit:
+            - variations:
+                - si: fioul coll . installation . gamme de puissance existante <= 35
+                  alors: 5280
+                - si: fioul coll . installation . gamme de puissance existante <= 120
+                  alors: 16500
+                - si: fioul coll . installation . gamme de puissance existante <= 200
+                  alors: 27500
+                - si: fioul coll . installation . gamme de puissance existante <= 300
+                  alors: 41250
+                - si: fioul coll . installation . gamme de puissance existante <= 400
+                  alors: 44000
+                - si: fioul coll . installation . gamme de puissance existante <= 500
+                  alors: 49500
+                - si: fioul coll . installation . gamme de puissance existante <= 600
+                  alors: 57569
+                - si: fioul coll . installation . gamme de puissance existante <= 700
+                  alors: 67163
+                - si: fioul coll . installation . gamme de puissance existante <= 800
+                  alors: 76758
+                - si: fioul coll . installation . gamme de puissance existante <= 900
+                  alors: 86353
+                - si: fioul coll . installation . gamme de puissance existante <= 1000
+                  alors: 95948
+                - si: fioul coll . installation . gamme de puissance existante <= 1250
+                  alors: 119934
+                - si: fioul coll . installation . gamme de puissance existante <= 1500
+                  alors: 143921
+                - si: fioul coll . installation . gamme de puissance existante <= 1750
+                  alors: 167908
+                - sinon: 191895
+            - 1 + ratios économiques . Investissement x TVA
+          unité: €TTC
+        petit entretien P2:
+          par défaut: 7.00 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          unité: €TTC/MWh
+        rendement chaudière ECS:
+          valeur: 71%
+          unité: '%'
+        rendement chaudière chauffage:
+          valeur: 71%
+          unité: '%'
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -435,16 +511,16 @@ fioul coll:
     entretien:
       avec:
         petit entretien P2:
-          produit:
-            - ratios . petit entretien P2
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-            - nombre de logements dans l'immeuble concerné / 1000
-          unité: €TTC/an
+            produit:
+              - ratios . petit entretien P2
+              - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+              - nombre de logements dans l'immeuble concerné / 1000
+            unité: €TTC/an
         gros entretien P3:
-          produit:
-            - ratios . gros entretien P3
-            - coûts . Investissement équipement Total
-          unité: €TTC/an
+            produit:
+              - ratios . gros entretien P3
+              - coûts . Investissement équipement Total
+            unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
@@ -492,108 +568,4 @@ fioul coll:
         P4 moins aides: *bilan-p4-moins-aides
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
-
-ratios . FIOUL IND Rendement chaudière:
-  valeur: 73%
-  unité: '%'
-
-ratios . FIOUL IND Conso combustible:
-  valeur: 0.0947
-  unité: L/kWh PCI
-
-ratios . FIOUL IND Conso auxiliaire chauffage:
-  valeur: 99.9%
-  unité: '%'
-
-ratios . FIOUL IND Conso auxiliaire ECS:
-  valeur: 99.9%
-  unité: '%'
-
-ratios . FIOUL IND Durée de vie:
-  valeur: 21
-  unité: an
-
-ratios . FIOUL COLL Rendement chaudière chauffage:
-  valeur: 71%
-  unité: '%'
-
-ratios . FIOUL COLL Rendement chaudière ECS:
-  valeur: 71%
-  unité: '%'
-
-ratios . FIOUL COLL Conso combustible:
-  valeur: 0.0947
-  unité: L/kWh PCI
-
-ratios . FIOUL COLL Conso auxiliaire chauffage:
-  valeur: 99.8%
-  unité: '%'
-
-ratios . FIOUL COLL Conso auxiliaire ECS:
-  valeur: 99%
-  unité: '%'
-
-ratios . FIOUL COLL Durée de vie:
-  valeur: 21
-  unité: an
-
-###### Ratios économiques (investissement)
-
-ratios économiques . Fioul x indiv:
-  produit:
-    - variations:
-        - si: fioul indiv . installation . gamme de puissance existante <= 12
-          alors: 2926
-        - si: fioul indiv . installation . gamme de puissance existante <= 20
-          alors: 3091
-        - si: fioul indiv . installation . gamme de puissance existante <= 25
-          alors: 3212
-        - si: fioul indiv . installation . gamme de puissance existante <= 30
-          alors: 3542
-        - sinon: 3982
-    - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-
-ratios économiques . Fioul x collectif:
-  produit:
-    - variations:
-        - si: fioul coll . installation . gamme de puissance existante <= 35
-          alors: 5280
-        - si: fioul coll . installation . gamme de puissance existante <= 120
-          alors: 16500
-        - si: fioul coll . installation . gamme de puissance existante <= 200
-          alors: 27500
-        - si: fioul coll . installation . gamme de puissance existante <= 300
-          alors: 41250
-        - si: fioul coll . installation . gamme de puissance existante <= 400
-          alors: 44000
-        - si: fioul coll . installation . gamme de puissance existante <= 500
-          alors: 49500
-        - si: fioul coll . installation . gamme de puissance existante <= 600
-          alors: 57569
-        - si: fioul coll . installation . gamme de puissance existante <= 700
-          alors: 67163
-        - si: fioul coll . installation . gamme de puissance existante <= 800
-          alors: 76758
-        - si: fioul coll . installation . gamme de puissance existante <= 900
-          alors: 86353
-        - si: fioul coll . installation . gamme de puissance existante <= 1000
-          alors: 95948
-        - si: fioul coll . installation . gamme de puissance existante <= 1250
-          alors: 119934
-        - si: fioul coll . installation . gamme de puissance existante <= 1500
-          alors: 143921
-        - si: fioul coll . installation . gamme de puissance existante <= 1750
-          alors: 167908
-        - sinon: 191895
-    - 1 + ratios économiques . Investissement x TVA
-  unité: €TTC
-
-###### Ratios environnementaux
-
-###### Installation (dimensionnement et consommations)
-
-###### Calculs économiques
-
-###### Aides
 

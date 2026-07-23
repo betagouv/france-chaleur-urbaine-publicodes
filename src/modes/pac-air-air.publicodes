@@ -8,19 +8,32 @@ PAC air-air indiv:
   description: Pompe à chaleur air-air individuelle (réversible)
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$45
           formule: 1000
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        SCOP: ratios . PAC AIR AIR SCOP indiv
-        SEER: ratios . PAC AIR AIR SEER indiv
-        durée de vie: ratios . PAC AIR AIR Durée de vie indiv
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC air-air indiv
-        investissement équipement: ratios économiques . PAC x air-air réversible x Individuel
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC air-air indiv
+        SCOP:
+          valeur: 2.7
+        SEER:
+          valeur: 3.5
+        durée de vie:
+          valeur: 17
+          unité: an
+        gros entretien P3:
+          par défaut: 134 * (1 + Paramètres économiques . Gros entretien P3 . TVA)
+          unité: €TTC/MWh
+        investissement équipement:
+          # param éco D68 ='Ratios économiques - Coûts'!C166*'Calculs techniques'!H57*(1+TVA_inv)
+          produit:
+            - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
+            - PAC air-air indiv . installation . gamme de puissance existante
+            - 1 + ratios économiques . Investissement x TVA
+        petit entretien P2:
+          par défaut: 199 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          unité: €TTC/MWh
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -174,11 +187,11 @@ PAC air-air indiv:
     entretien:
       avec:
         petit entretien P2:
-          valeur: ratios . petit entretien P2
-          unité: €TTC/an
+            valeur: ratios . petit entretien P2
+            unité: €TTC/an
         gros entretien P3:
-          valeur: ratios . gros entretien P3
-          unité: €TTC/an
+            valeur: ratios . gros entretien P3
+            unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
     aides:
@@ -290,19 +303,32 @@ PAC air-air coll:
   description: Pompe à chaleur air-air collective (réversible)
   avec:
     ratios:
-      description: Paramétrage du mode (alias vers les clés historiques, modifiables par le front)
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
           # Ratios environnementaux'!$C$48
           formule: 409.375
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
-        SCOP: ratios . PAC AIR AIR SCOP coll
-        SEER: ratios . PAC AIR AIR SEER coll
-        durée de vie: ratios . PAC AIR AIR Durée de vie coll
-        gros entretien P3: Paramètres économiques . Gros entretien P3 . PAC air-air coll
-        investissement équipement: ratios économiques . PAC x air-air réversible x Collectif
-        petit entretien P2: Paramètres économiques . Petit entretien P2 . PAC air-air coll
+        SCOP:
+          valeur: 3.3
+        SEER:
+          valeur: 4
+        durée de vie:
+          valeur: 22
+          unité: an
+        gros entretien P3:
+          par défaut: 1.72 / 100
+          unité: €HT/€d'investissment
+        investissement équipement:
+          # param éco D69 ='Calculs techniques'!H58*'Ratios économiques - Coûts'!C171*(1+TVA_inv)
+          produit:
+            - ratios économiques . PAC x air-air réversible . Coût investissement Collectif
+            - PAC air-air coll . installation . gamme de puissance existante
+            - 1 + ratios économiques . Investissement x TVA
+        petit entretien P2:
+          par défaut: 9.8 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          unité: €TTC/MWh
         puissance unitaire réversible:
           valeur: 22
           unité: kW
@@ -377,16 +403,16 @@ PAC air-air coll:
     entretien:
       avec:
         petit entretien P2:
-          produit:
-            - ratios . petit entretien P2
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
-            - nombre de logements dans l'immeuble concerné / 1000
-          unité: €TTC/an
+            produit:
+              - ratios . petit entretien P2
+              - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
+              - nombre de logements dans l'immeuble concerné / 1000
+            unité: €TTC/an
         gros entretien P3:
-          produit:
-            - ratios . gros entretien P3
-            - coûts . Investissement équipement Total
-          unité: €TTC/an
+            produit:
+              - ratios . gros entretien P3
+              - coûts . Investissement équipement Total
+            unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
@@ -434,29 +460,9 @@ PAC air-air coll:
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
 
-ratios . PAC AIR AIR SCOP indiv:
-  valeur: 2.7
-
-ratios . PAC AIR AIR SCOP coll:
-  valeur: 3.3
-
-ratios . PAC AIR AIR SEER indiv:
-  valeur: 3.5
-
-ratios . PAC AIR AIR SEER coll:
-  valeur: 4
-
 ratios . PAC AIR AIR Puissance unitaire groupe froid indiv:
   valeur: 2.5
   unité: kW
-
-ratios . PAC AIR AIR Durée de vie indiv:
-  valeur: 17
-  unité: an
-
-ratios . PAC AIR AIR Durée de vie coll:
-  valeur: 22
-  unité: an
 
 ###### Ratios économiques (investissement)
 
@@ -470,26 +476,4 @@ ratios économiques . PAC x air-air réversible:
       valeur: 661
       unité: €HT/kW
       note: 'Source: ELCIMAI 2024'
-
-# pas un ratio
-ratios économiques . PAC x air-air réversible x Individuel:
-  # param éco D68 ='Ratios économiques - Coûts'!C166*'Calculs techniques'!H57*(1+TVA_inv)
-  produit:
-    - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
-    - PAC air-air indiv . installation . gamme de puissance existante
-    - 1 + ratios économiques . Investissement x TVA
-
-# pas un ratio
-ratios économiques . PAC x air-air réversible x Collectif:
-  # param éco D69 ='Calculs techniques'!H58*'Ratios économiques - Coûts'!C171*(1+TVA_inv)
-  produit:
-    - ratios économiques . PAC x air-air réversible . Coût investissement Collectif
-    - PAC air-air coll . installation . gamme de puissance existante
-    - 1 + ratios économiques . Investissement x TVA
-
-###### Ratios environnementaux
-
-###### Installation (dimensionnement et consommations)
-
-###### Aides
 
