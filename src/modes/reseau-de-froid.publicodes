@@ -34,16 +34,16 @@ réseau de froid:
     installation:
       avec:
         production eau chaude sanitaire: non
-        puissance nécessaire pour refroidissement équipement:
+        puissance refroidissement:
           formule: Calcul . Climatisation Puissance refroidissement appelée / ratios . rendement sous station * nombre de logements dans l'immeuble concerné
           # unité: kW # corrigé pour faire fonctionner la division
           # QUESTION : Quelle est l'unité ? Peut-on changer l'unité pour kW ?
           unité: kW
         puissance équipement:
           somme:
-            - puissance nécessaire pour refroidissement équipement
+            - puissance refroidissement
           unité: kW
-        gamme de puissance existante:
+        puissance retenue:
           formule: puissance équipement
           unité: kW
         consommation combustible froid:
@@ -54,31 +54,27 @@ réseau de froid:
           unité: kWh elec
     coûts:
       avec:
-        Investissement équipement Total:
+        investissement équipement:
           formule: Investissement x frais de raccordement au réseaux x RFU
           unité: €TTC
-        Investissement équipement par logement type tertiaire:
-          valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
+        investissement par logement:
+          valeur: investissement équipement / nombre de logements dans l'immeuble concerné
           unité: €TTC
-        Coût du combustible abonnement:
+        P1 abonnement:
           produit:
             - combustibles . réseau de froid . abonnement
             - installation . consommation combustible froid
           unité: €TTC/an
-          note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
-        Coût électricité auxiliaire:
+        P1 auxiliaires:
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
-          unité: €TTC/an
-          note: "Coût électricité auxiliaire (P1') €TTC/an"
-        Coût combustible froid:
+          unité: €TTC/an) €TTC/an"
+        P1 froid:
           produit:
             - combustibles . réseau de froid . consommation
             - installation . consommation combustible froid
           unité: €TTC/an
-    entretien:
-      avec:
         petit entretien P2:
             variations:
               - si: Inclure la climatisation
@@ -135,7 +131,7 @@ réseau de froid:
                 variations:
                   - si: type de bâtiment = 'résidentiel'
                     alors: 0
-                  - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * installation . gamme de puissance existante * Paramètres économiques . Aides . Valeur CEE
+                  - sinon: ratios économiques x aides . Tertiaire . CEE x RFU x montant * ratios économiques x aides . Tertiaire . CEE x RFU x facteur correctif * installation . puissance retenue * Paramètres économiques . Aides . Valeur CEE
             - sinon: 0
           unité: €
         Total:
@@ -149,21 +145,21 @@ réseau de froid:
 
 ratios économiques . Réseaux x Coût Investissement SST RFU:
   variations:
-    - si: réseau de froid . installation . gamme de puissance existante < 100
+    - si: réseau de froid . installation . puissance retenue < 100
       alors: 28000
-    - si: réseau de froid . installation . gamme de puissance existante < 150
+    - si: réseau de froid . installation . puissance retenue < 150
       alors: 29500
-    - si: réseau de froid . installation . gamme de puissance existante < 200
+    - si: réseau de froid . installation . puissance retenue < 200
       alors: 30500
-    - si: réseau de froid . installation . gamme de puissance existante < 250
+    - si: réseau de froid . installation . puissance retenue < 250
       alors: 32000
-    - si: réseau de froid . installation . gamme de puissance existante < 300
+    - si: réseau de froid . installation . puissance retenue < 300
       alors: 33000
-    - si: réseau de froid . installation . gamme de puissance existante < 350
+    - si: réseau de froid . installation . puissance retenue < 350
       alors: 34000
-    - si: réseau de froid . installation . gamme de puissance existante < 400
+    - si: réseau de froid . installation . puissance retenue < 400
       alors: 35000
-    - si: réseau de froid . installation . gamme de puissance existante < 500
+    - si: réseau de froid . installation . puissance retenue < 500
       alors: 36500
     - sinon: 39000
   unité: €HT

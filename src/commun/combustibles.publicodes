@@ -18,7 +18,7 @@ combustibles . réseau de chaleur . abonnement:
       alors:
         produit:
           - combustibles . réseau de chaleur . Tarification R2 x Part fixe
-          - réseau de chaleur . installation . gamme de puissance existante
+          - réseau de chaleur . installation . puissance retenue
           - 1 / ( réseau de chaleur . installation . consommation combustible chaleur * nombre de logements dans l'immeuble concerné )
     - sinon: combustibles . réseau de chaleur . Coût * combustibles . réseau de chaleur . Part fixe
   unité: €TTC/kWh
@@ -383,7 +383,7 @@ combustibles . gaz . taxes . TICGN:
   unité: €/kWh
 
 combustibles . gaz . puissance souscrite collectif ou tertiaire:
-  par défaut: gaz coll avec cond . installation . gamme de puissance existante
+  par défaut: gaz coll avec cond . installation . puissance retenue
   unité: kW
 
 combustibles . gaz . abonnement part fixe individuel . coûts commerciaux hors CEE HT:

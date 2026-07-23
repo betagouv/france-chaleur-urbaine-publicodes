@@ -204,7 +204,7 @@ chauffe-eau solaire x appoint d'électricité:
   # unité: kWh/an
   unité: kWh # corrigé pour faire fonctionner la division
 
-Calcul Eco . Investissement ballon ECS à accumulation:
+Calcul Eco . investissement ballon ECS:
   produit:
     - ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )

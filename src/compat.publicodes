@@ -181,92 +181,92 @@ Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Total:
   valeur: fioul coll . aides . Total
 
 Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll:
-  valeur: chaudière à granulés . entretien
+  valeur: chaudière à granulés . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3:
-  valeur: chaudière à granulés . entretien . gros entretien P3
+  valeur: chaudière à granulés . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . gros entretien P3 par logement tertiaire:
-  valeur: chaudière à granulés . entretien . gros entretien P3 par logement tertiaire
+  valeur: chaudière à granulés . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2:
-  valeur: chaudière à granulés . entretien . petit entretien P2
+  valeur: chaudière à granulés . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll . petit entretien P2 par logement tertiaire:
-  valeur: chaudière à granulés . entretien . petit entretien P2 par logement tertiaire
+  valeur: chaudière à granulés . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv:
-  valeur: poêle à granulés . entretien
+  valeur: poêle à granulés . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3:
-  valeur: poêle à granulés . entretien . gros entretien P3
+  valeur: poêle à granulés . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . gros entretien P3 par logement tertiaire:
-  valeur: poêle à granulés . entretien . gros entretien P3 par logement tertiaire
+  valeur: poêle à granulés . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2:
-  valeur: poêle à granulés . entretien . petit entretien P2
+  valeur: poêle à granulés . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Poêle à granulés indiv . petit entretien P2 par logement tertiaire:
-  valeur: poêle à granulés . entretien . petit entretien P2 par logement tertiaire
+  valeur: poêle à granulés . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique:
-  valeur: radiateur électrique . entretien
+  valeur: radiateur électrique . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3:
-  valeur: radiateur électrique . entretien . gros entretien P3
+  valeur: radiateur électrique . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . gros entretien P3 par logement tertiaire:
-  valeur: radiateur électrique . entretien . gros entretien P3 par logement tertiaire
+  valeur: radiateur électrique . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2:
-  valeur: radiateur électrique . entretien . petit entretien P2
+  valeur: radiateur électrique . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Radiateur électrique . petit entretien P2 par logement tertiaire:
-  valeur: radiateur électrique . entretien . petit entretien P2 par logement tertiaire
+  valeur: radiateur électrique . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond:
-  valeur: gaz indiv avec cond . entretien
+  valeur: gaz indiv avec cond . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3:
-  valeur: gaz indiv avec cond . entretien . gros entretien P3
+  valeur: gaz indiv avec cond . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . gros entretien P3 par logement tertiaire:
-  valeur: gaz indiv avec cond . entretien . gros entretien P3 par logement tertiaire
+  valeur: gaz indiv avec cond . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2:
-  valeur: gaz indiv avec cond . entretien . petit entretien P2
+  valeur: gaz indiv avec cond . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv avec cond . petit entretien P2 par logement tertiaire:
-  valeur: gaz indiv avec cond . entretien . petit entretien P2 par logement tertiaire
+  valeur: gaz indiv avec cond . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond:
-  valeur: gaz indiv sans cond . entretien
+  valeur: gaz indiv sans cond . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3:
-  valeur: gaz indiv sans cond . entretien . gros entretien P3
+  valeur: gaz indiv sans cond . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . gros entretien P3 par logement tertiaire:
-  valeur: gaz indiv sans cond . entretien . gros entretien P3 par logement tertiaire
+  valeur: gaz indiv sans cond . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2:
-  valeur: gaz indiv sans cond . entretien . petit entretien P2
+  valeur: gaz indiv sans cond . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz indiv sans cond . petit entretien P2 par logement tertiaire:
-  valeur: gaz indiv sans cond . entretien . petit entretien P2 par logement tertiaire
+  valeur: gaz indiv sans cond . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond:
-  valeur: gaz coll avec cond . entretien
+  valeur: gaz coll avec cond . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3:
-  valeur: gaz coll avec cond . entretien . gros entretien P3
+  valeur: gaz coll avec cond . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . gros entretien P3 par logement tertiaire:
-  valeur: gaz coll avec cond . entretien . gros entretien P3 par logement tertiaire
+  valeur: gaz coll avec cond . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2:
-  valeur: gaz coll avec cond . entretien . petit entretien P2
+  valeur: gaz coll avec cond . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll avec cond . petit entretien P2 par logement tertiaire:
-  valeur: gaz coll avec cond . entretien . petit entretien P2 par logement tertiaire
+  valeur: gaz coll avec cond . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond:
-  valeur: gaz coll sans cond . entretien
+  valeur: gaz coll sans cond . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3:
-  valeur: gaz coll sans cond . entretien . gros entretien P3
+  valeur: gaz coll sans cond . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . gros entretien P3 par logement tertiaire:
-  valeur: gaz coll sans cond . entretien . gros entretien P3 par logement tertiaire
+  valeur: gaz coll sans cond . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2:
-  valeur: gaz coll sans cond . entretien . petit entretien P2
+  valeur: gaz coll sans cond . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Gaz coll sans cond . petit entretien P2 par logement tertiaire:
-  valeur: gaz coll sans cond . entretien . petit entretien P2 par logement tertiaire
+  valeur: gaz coll sans cond . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur:
-  valeur: réseau de chaleur . entretien
+  valeur: réseau de chaleur . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3:
-  valeur: réseau de chaleur . entretien . gros entretien P3
+  valeur: réseau de chaleur . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . gros entretien P3 par logement tertiaire:
-  valeur: réseau de chaleur . entretien . gros entretien P3 par logement tertiaire
+  valeur: réseau de chaleur . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2:
-  valeur: réseau de chaleur . entretien . petit entretien P2
+  valeur: réseau de chaleur . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien P2 par logement tertiaire:
-  valeur: réseau de chaleur . entretien . petit entretien P2 par logement tertiaire
+  valeur: réseau de chaleur . coûts . petit entretien P2 par logement tertiaire
 
 env . Installation x Chaudière à granulés coll x Collectif:
   valeur: chaudière à granulés . environnement
@@ -286,70 +286,70 @@ env . Installation x Chaudière à granulés coll x Collectif . besoins de chauf
   valeur: chaudière à granulés . environnement . besoins de chauffage et ECS si même équipement
 
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv:
-  valeur: PAC air-air indiv . entretien
+  valeur: PAC air-air indiv . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3:
-  valeur: PAC air-air indiv . entretien . gros entretien P3
+  valeur: PAC air-air indiv . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . gros entretien P3 par logement tertiaire:
-  valeur: PAC air-air indiv . entretien . gros entretien P3 par logement tertiaire
+  valeur: PAC air-air indiv . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2:
-  valeur: PAC air-air indiv . entretien . petit entretien P2
+  valeur: PAC air-air indiv . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air indiv . petit entretien P2 par logement tertiaire:
-  valeur: PAC air-air indiv . entretien . petit entretien P2 par logement tertiaire
+  valeur: PAC air-air indiv . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv:
-  valeur: PAC air-eau indiv . entretien
+  valeur: PAC air-eau indiv . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3:
-  valeur: PAC air-eau indiv . entretien . gros entretien P3
+  valeur: PAC air-eau indiv . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . gros entretien P3 par logement tertiaire:
-  valeur: PAC air-eau indiv . entretien . gros entretien P3 par logement tertiaire
+  valeur: PAC air-eau indiv . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2:
-  valeur: PAC air-eau indiv . entretien . petit entretien P2
+  valeur: PAC air-eau indiv . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau indiv . petit entretien P2 par logement tertiaire:
-  valeur: PAC air-eau indiv . entretien . petit entretien P2 par logement tertiaire
+  valeur: PAC air-eau indiv . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv:
-  valeur: PAC eau-eau indiv . entretien
+  valeur: PAC eau-eau indiv . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3:
-  valeur: PAC eau-eau indiv . entretien . gros entretien P3
+  valeur: PAC eau-eau indiv . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . gros entretien P3 par logement tertiaire:
-  valeur: PAC eau-eau indiv . entretien . gros entretien P3 par logement tertiaire
+  valeur: PAC eau-eau indiv . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2:
-  valeur: PAC eau-eau indiv . entretien . petit entretien P2
+  valeur: PAC eau-eau indiv . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau indiv . petit entretien P2 par logement tertiaire:
-  valeur: PAC eau-eau indiv . entretien . petit entretien P2 par logement tertiaire
+  valeur: PAC eau-eau indiv . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll:
-  valeur: PAC air-air coll . entretien
+  valeur: PAC air-air coll . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3:
-  valeur: PAC air-air coll . entretien . gros entretien P3
+  valeur: PAC air-air coll . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . gros entretien P3 par logement tertiaire:
-  valeur: PAC air-air coll . entretien . gros entretien P3 par logement tertiaire
+  valeur: PAC air-air coll . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2:
-  valeur: PAC air-air coll . entretien . petit entretien P2
+  valeur: PAC air-air coll . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-air coll . petit entretien P2 par logement tertiaire:
-  valeur: PAC air-air coll . entretien . petit entretien P2 par logement tertiaire
+  valeur: PAC air-air coll . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll:
-  valeur: PAC air-eau coll . entretien
+  valeur: PAC air-eau coll . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3:
-  valeur: PAC air-eau coll . entretien . gros entretien P3
+  valeur: PAC air-eau coll . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . gros entretien P3 par logement tertiaire:
-  valeur: PAC air-eau coll . entretien . gros entretien P3 par logement tertiaire
+  valeur: PAC air-eau coll . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2:
-  valeur: PAC air-eau coll . entretien . petit entretien P2
+  valeur: PAC air-eau coll . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . PAC air-eau coll . petit entretien P2 par logement tertiaire:
-  valeur: PAC air-eau coll . entretien . petit entretien P2 par logement tertiaire
+  valeur: PAC air-eau coll . coûts . petit entretien P2 par logement tertiaire
 
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll:
-  valeur: PAC eau-eau coll . entretien
+  valeur: PAC eau-eau coll . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3:
-  valeur: PAC eau-eau coll . entretien . gros entretien P3
+  valeur: PAC eau-eau coll . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . gros entretien P3 par logement tertiaire:
-  valeur: PAC eau-eau coll . entretien . gros entretien P3 par logement tertiaire
+  valeur: PAC eau-eau coll . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2:
-  valeur: PAC eau-eau coll . entretien . petit entretien P2
+  valeur: PAC eau-eau coll . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 par logement tertiaire:
-  valeur: PAC eau-eau coll . entretien . petit entretien P2 par logement tertiaire
+  valeur: PAC eau-eau coll . coûts . petit entretien P2 par logement tertiaire
 
 env . Installation x Poêle à granulés indiv x Individuel:
   valeur: poêle à granulés . environnement
@@ -420,22 +420,22 @@ env . Installation x Gaz indiv sans cond x Individuel . besoins de chauffage et 
   valeur: gaz indiv sans cond . environnement . besoins de chauffage et ECS si même équipement
 
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv:
-  valeur: fioul indiv . entretien
+  valeur: fioul indiv . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3:
-  valeur: fioul indiv . entretien . gros entretien P3
+  valeur: fioul indiv . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . gros entretien P3 par logement tertiaire:
-  valeur: fioul indiv . entretien . gros entretien P3 par logement tertiaire
+  valeur: fioul indiv . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2:
-  valeur: fioul indiv . entretien . petit entretien P2
+  valeur: fioul indiv . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul indiv . petit entretien P2 par logement tertiaire:
-  valeur: fioul indiv . entretien . petit entretien P2 par logement tertiaire
+  valeur: fioul indiv . coûts . petit entretien P2 par logement tertiaire
 
 Installation x Chaudière à granulés coll x Collectif:
   valeur: chaudière à granulés . installation
 Installation x Chaudière à granulés coll x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: chaudière à granulés . installation . appoint d'électricité chauffe-eau solaire
+  valeur: chaudière à granulés . installation . appoint chauffe-eau solaire
 Installation x Chaudière à granulés coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: chaudière à granulés . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: chaudière à granulés . installation . ECS additionnelle nécessaire
 Installation x Chaudière à granulés coll x Collectif . consommation auxiliaire:
   valeur: chaudière à granulés . installation . consommation auxiliaire
 Installation x Chaudière à granulés coll x Collectif . consommation combustible chaleur:
@@ -443,19 +443,19 @@ Installation x Chaudière à granulés coll x Collectif . consommation combustib
 Installation x Chaudière à granulés coll x Collectif . consommation combustible froid:
   valeur: chaudière à granulés . installation . consommation combustible froid
 Installation x Chaudière à granulés coll x Collectif . consommation combustible hors électricité:
-  valeur: chaudière à granulés . installation . consommation combustible hors électricité
+  valeur: chaudière à granulés . installation . consommation hors électricité
 Installation x Chaudière à granulés coll x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: chaudière à granulés . installation . consommation d'électricité chauffe-eau électrique
+  valeur: chaudière à granulés . installation . consommation chauffe-eau électrique
 Installation x Chaudière à granulés coll x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: chaudière à granulés . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: chaudière à granulés . installation . consommation électricité
 Installation x Chaudière à granulés coll x Collectif . gamme de puissance existante:
-  valeur: chaudière à granulés . installation . gamme de puissance existante
+  valeur: chaudière à granulés . installation . puissance retenue
 Installation x Chaudière à granulés coll x Collectif . production eau chaude sanitaire:
   valeur: chaudière à granulés . installation . production eau chaude sanitaire
 Installation x Chaudière à granulés coll x Collectif . puissance nécessaire pour ECS avec équipement:
-  valeur: chaudière à granulés . installation . puissance nécessaire pour ECS avec équipement
+  valeur: chaudière à granulés . installation . puissance ECS
 Installation x Chaudière à granulés coll x Collectif . puissance nécessaire équipement chauffage:
-  valeur: chaudière à granulés . installation . puissance nécessaire équipement chauffage
+  valeur: chaudière à granulés . installation . puissance chauffage
 Installation x Chaudière à granulés coll x Collectif . puissance équipement:
   valeur: chaudière à granulés . installation . puissance équipement
 Installation x Chaudière à granulés coll x Collectif . volume du ballon ECS:
@@ -496,15 +496,15 @@ env . Installation x Gaz coll sans cond x Collectif . besoins de chauffage et EC
   valeur: gaz coll sans cond . environnement . besoins de chauffage et ECS si même équipement
 
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll:
-  valeur: fioul coll . entretien
+  valeur: fioul coll . coûts
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3:
-  valeur: fioul coll . entretien . gros entretien P3
+  valeur: fioul coll . coûts . gros entretien P3
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . gros entretien P3 par logement tertiaire:
-  valeur: fioul coll . entretien . gros entretien P3 par logement tertiaire
+  valeur: fioul coll . coûts . gros entretien P3 par logement tertiaire
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2:
-  valeur: fioul coll . entretien . petit entretien P2
+  valeur: fioul coll . coûts . petit entretien P2
 Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par logement tertiaire:
-  valeur: fioul coll . entretien . petit entretien P2 par logement tertiaire
+  valeur: fioul coll . coûts . petit entretien P2 par logement tertiaire
 
 env . Installation x Réseaux de chaleur x Collectif:
   valeur: réseau de chaleur . environnement
@@ -539,9 +539,9 @@ Calcul Eco . Montant des aides . Réseaux de chaleur . Total montant:
 Installation x Poêle à granulés indiv x Individuel:
   valeur: poêle à granulés . installation
 Installation x Poêle à granulés indiv x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: poêle à granulés . installation . appoint d'électricité chauffe-eau solaire
+  valeur: poêle à granulés . installation . appoint chauffe-eau solaire
 Installation x Poêle à granulés indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: poêle à granulés . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: poêle à granulés . installation . ECS additionnelle nécessaire
 Installation x Poêle à granulés indiv x Individuel . consommation auxiliaire:
   valeur: poêle à granulés . installation . consommation auxiliaire
 Installation x Poêle à granulés indiv x Individuel . consommation combustible chaleur:
@@ -549,17 +549,17 @@ Installation x Poêle à granulés indiv x Individuel . consommation combustible
 Installation x Poêle à granulés indiv x Individuel . consommation combustible froid:
   valeur: poêle à granulés . installation . consommation combustible froid
 Installation x Poêle à granulés indiv x Individuel . consommation combustible hors électricité:
-  valeur: poêle à granulés . installation . consommation combustible hors électricité
+  valeur: poêle à granulés . installation . consommation hors électricité
 Installation x Poêle à granulés indiv x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: poêle à granulés . installation . consommation d'électricité chauffe-eau électrique
+  valeur: poêle à granulés . installation . consommation chauffe-eau électrique
 Installation x Poêle à granulés indiv x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: poêle à granulés . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: poêle à granulés . installation . consommation électricité
 Installation x Poêle à granulés indiv x Individuel . gamme de puissance existante:
-  valeur: poêle à granulés . installation . gamme de puissance existante
+  valeur: poêle à granulés . installation . puissance retenue
 Installation x Poêle à granulés indiv x Individuel . production eau chaude sanitaire:
   valeur: poêle à granulés . installation . production eau chaude sanitaire
 Installation x Poêle à granulés indiv x Individuel . puissance nécessaire équipement chauffage:
-  valeur: poêle à granulés . installation . puissance nécessaire équipement chauffage
+  valeur: poêle à granulés . installation . puissance chauffage
 Installation x Poêle à granulés indiv x Individuel . puissance équipement:
   valeur: poêle à granulés . installation . puissance équipement
 Installation x Poêle à granulés indiv x Individuel . volume du ballon ECS:
@@ -568,9 +568,9 @@ Installation x Poêle à granulés indiv x Individuel . volume du ballon ECS:
 Installation x Radiateur électrique x Individuel:
   valeur: radiateur électrique . installation
 Installation x Radiateur électrique x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: radiateur électrique . installation . appoint d'électricité chauffe-eau solaire
+  valeur: radiateur électrique . installation . appoint chauffe-eau solaire
 Installation x Radiateur électrique x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: radiateur électrique . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: radiateur électrique . installation . ECS additionnelle nécessaire
 Installation x Radiateur électrique x Individuel . consommation auxiliaire:
   valeur: radiateur électrique . installation . consommation auxiliaire
 Installation x Radiateur électrique x Individuel . consommation combustible chaleur:
@@ -578,17 +578,17 @@ Installation x Radiateur électrique x Individuel . consommation combustible cha
 Installation x Radiateur électrique x Individuel . consommation combustible froid:
   valeur: radiateur électrique . installation . consommation combustible froid
 Installation x Radiateur électrique x Individuel . consommation combustible hors électricité:
-  valeur: radiateur électrique . installation . consommation combustible hors électricité
+  valeur: radiateur électrique . installation . consommation hors électricité
 Installation x Radiateur électrique x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: radiateur électrique . installation . consommation d'électricité chauffe-eau électrique
+  valeur: radiateur électrique . installation . consommation chauffe-eau électrique
 Installation x Radiateur électrique x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: radiateur électrique . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: radiateur électrique . installation . consommation électricité
 Installation x Radiateur électrique x Individuel . gamme de puissance existante:
-  valeur: radiateur électrique . installation . gamme de puissance existante
+  valeur: radiateur électrique . installation . puissance retenue
 Installation x Radiateur électrique x Individuel . production eau chaude sanitaire:
   valeur: radiateur électrique . installation . production eau chaude sanitaire
 Installation x Radiateur électrique x Individuel . puissance nécessaire équipement chauffage:
-  valeur: radiateur électrique . installation . puissance nécessaire équipement chauffage
+  valeur: radiateur électrique . installation . puissance chauffage
 Installation x Radiateur électrique x Individuel . puissance équipement:
   valeur: radiateur électrique . installation . puissance équipement
 Installation x Radiateur électrique x Individuel . volume du ballon ECS:
@@ -597,9 +597,9 @@ Installation x Radiateur électrique x Individuel . volume du ballon ECS:
 Installation x Gaz indiv avec cond x Individuel:
   valeur: gaz indiv avec cond . installation
 Installation x Gaz indiv avec cond x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: gaz indiv avec cond . installation . appoint d'électricité chauffe-eau solaire
+  valeur: gaz indiv avec cond . installation . appoint chauffe-eau solaire
 Installation x Gaz indiv avec cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: gaz indiv avec cond . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: gaz indiv avec cond . installation . ECS additionnelle nécessaire
 Installation x Gaz indiv avec cond x Individuel . consommation auxiliaire:
   valeur: gaz indiv avec cond . installation . consommation auxiliaire
 Installation x Gaz indiv avec cond x Individuel . consommation combustible chaleur:
@@ -607,19 +607,19 @@ Installation x Gaz indiv avec cond x Individuel . consommation combustible chale
 Installation x Gaz indiv avec cond x Individuel . consommation combustible froid:
   valeur: gaz indiv avec cond . installation . consommation combustible froid
 Installation x Gaz indiv avec cond x Individuel . consommation combustible hors électricité:
-  valeur: gaz indiv avec cond . installation . consommation combustible hors électricité
+  valeur: gaz indiv avec cond . installation . consommation hors électricité
 Installation x Gaz indiv avec cond x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: gaz indiv avec cond . installation . consommation d'électricité chauffe-eau électrique
+  valeur: gaz indiv avec cond . installation . consommation chauffe-eau électrique
 Installation x Gaz indiv avec cond x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: gaz indiv avec cond . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: gaz indiv avec cond . installation . consommation électricité
 Installation x Gaz indiv avec cond x Individuel . gamme de puissance existante:
-  valeur: gaz indiv avec cond . installation . gamme de puissance existante
+  valeur: gaz indiv avec cond . installation . puissance retenue
 Installation x Gaz indiv avec cond x Individuel . production eau chaude sanitaire:
   valeur: gaz indiv avec cond . installation . production eau chaude sanitaire
 Installation x Gaz indiv avec cond x Individuel . puissance nécessaire pour ECS avec équipement:
-  valeur: gaz indiv avec cond . installation . puissance nécessaire pour ECS avec équipement
+  valeur: gaz indiv avec cond . installation . puissance ECS
 Installation x Gaz indiv avec cond x Individuel . puissance nécessaire équipement chauffage:
-  valeur: gaz indiv avec cond . installation . puissance nécessaire équipement chauffage
+  valeur: gaz indiv avec cond . installation . puissance chauffage
 Installation x Gaz indiv avec cond x Individuel . puissance équipement:
   valeur: gaz indiv avec cond . installation . puissance équipement
 Installation x Gaz indiv avec cond x Individuel . volume du ballon ECS:
@@ -628,9 +628,9 @@ Installation x Gaz indiv avec cond x Individuel . volume du ballon ECS:
 Installation x Gaz indiv sans cond x Individuel:
   valeur: gaz indiv sans cond . installation
 Installation x Gaz indiv sans cond x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: gaz indiv sans cond . installation . appoint d'électricité chauffe-eau solaire
+  valeur: gaz indiv sans cond . installation . appoint chauffe-eau solaire
 Installation x Gaz indiv sans cond x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: gaz indiv sans cond . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: gaz indiv sans cond . installation . ECS additionnelle nécessaire
 Installation x Gaz indiv sans cond x Individuel . consommation auxiliaire:
   valeur: gaz indiv sans cond . installation . consommation auxiliaire
 Installation x Gaz indiv sans cond x Individuel . consommation combustible chaleur:
@@ -638,19 +638,19 @@ Installation x Gaz indiv sans cond x Individuel . consommation combustible chale
 Installation x Gaz indiv sans cond x Individuel . consommation combustible froid:
   valeur: gaz indiv sans cond . installation . consommation combustible froid
 Installation x Gaz indiv sans cond x Individuel . consommation combustible hors électricité:
-  valeur: gaz indiv sans cond . installation . consommation combustible hors électricité
+  valeur: gaz indiv sans cond . installation . consommation hors électricité
 Installation x Gaz indiv sans cond x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: gaz indiv sans cond . installation . consommation d'électricité chauffe-eau électrique
+  valeur: gaz indiv sans cond . installation . consommation chauffe-eau électrique
 Installation x Gaz indiv sans cond x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: gaz indiv sans cond . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: gaz indiv sans cond . installation . consommation électricité
 Installation x Gaz indiv sans cond x Individuel . gamme de puissance existante:
-  valeur: gaz indiv sans cond . installation . gamme de puissance existante
+  valeur: gaz indiv sans cond . installation . puissance retenue
 Installation x Gaz indiv sans cond x Individuel . production eau chaude sanitaire:
   valeur: gaz indiv sans cond . installation . production eau chaude sanitaire
 Installation x Gaz indiv sans cond x Individuel . puissance nécessaire pour ECS avec équipement:
-  valeur: gaz indiv sans cond . installation . puissance nécessaire pour ECS avec équipement
+  valeur: gaz indiv sans cond . installation . puissance ECS
 Installation x Gaz indiv sans cond x Individuel . puissance nécessaire équipement chauffage:
-  valeur: gaz indiv sans cond . installation . puissance nécessaire équipement chauffage
+  valeur: gaz indiv sans cond . installation . puissance chauffage
 Installation x Gaz indiv sans cond x Individuel . puissance équipement:
   valeur: gaz indiv sans cond . installation . puissance équipement
 Installation x Gaz indiv sans cond x Individuel . volume du ballon ECS:
@@ -659,9 +659,9 @@ Installation x Gaz indiv sans cond x Individuel . volume du ballon ECS:
 Installation x Gaz coll avec cond x Collectif:
   valeur: gaz coll avec cond . installation
 Installation x Gaz coll avec cond x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: gaz coll avec cond . installation . appoint d'électricité chauffe-eau solaire
+  valeur: gaz coll avec cond . installation . appoint chauffe-eau solaire
 Installation x Gaz coll avec cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: gaz coll avec cond . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: gaz coll avec cond . installation . ECS additionnelle nécessaire
 Installation x Gaz coll avec cond x Collectif . consommation auxiliaire:
   valeur: gaz coll avec cond . installation . consommation auxiliaire
 Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur:
@@ -669,19 +669,19 @@ Installation x Gaz coll avec cond x Collectif . consommation combustible chaleur
 Installation x Gaz coll avec cond x Collectif . consommation combustible froid:
   valeur: gaz coll avec cond . installation . consommation combustible froid
 Installation x Gaz coll avec cond x Collectif . consommation combustible hors électricité:
-  valeur: gaz coll avec cond . installation . consommation combustible hors électricité
+  valeur: gaz coll avec cond . installation . consommation hors électricité
 Installation x Gaz coll avec cond x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: gaz coll avec cond . installation . consommation d'électricité chauffe-eau électrique
+  valeur: gaz coll avec cond . installation . consommation chauffe-eau électrique
 Installation x Gaz coll avec cond x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: gaz coll avec cond . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: gaz coll avec cond . installation . consommation électricité
 Installation x Gaz coll avec cond x Collectif . gamme de puissance existante:
-  valeur: gaz coll avec cond . installation . gamme de puissance existante
+  valeur: gaz coll avec cond . installation . puissance retenue
 Installation x Gaz coll avec cond x Collectif . production eau chaude sanitaire:
   valeur: gaz coll avec cond . installation . production eau chaude sanitaire
 Installation x Gaz coll avec cond x Collectif . puissance nécessaire pour ECS avec équipement:
-  valeur: gaz coll avec cond . installation . puissance nécessaire pour ECS avec équipement
+  valeur: gaz coll avec cond . installation . puissance ECS
 Installation x Gaz coll avec cond x Collectif . puissance nécessaire équipement chauffage:
-  valeur: gaz coll avec cond . installation . puissance nécessaire équipement chauffage
+  valeur: gaz coll avec cond . installation . puissance chauffage
 Installation x Gaz coll avec cond x Collectif . puissance équipement:
   valeur: gaz coll avec cond . installation . puissance équipement
 Installation x Gaz coll avec cond x Collectif . volume du ballon ECS:
@@ -690,9 +690,9 @@ Installation x Gaz coll avec cond x Collectif . volume du ballon ECS:
 Installation x Gaz coll sans cond x Collectif:
   valeur: gaz coll sans cond . installation
 Installation x Gaz coll sans cond x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: gaz coll sans cond . installation . appoint d'électricité chauffe-eau solaire
+  valeur: gaz coll sans cond . installation . appoint chauffe-eau solaire
 Installation x Gaz coll sans cond x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: gaz coll sans cond . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: gaz coll sans cond . installation . ECS additionnelle nécessaire
 Installation x Gaz coll sans cond x Collectif . consommation auxiliaire:
   valeur: gaz coll sans cond . installation . consommation auxiliaire
 Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur:
@@ -700,19 +700,19 @@ Installation x Gaz coll sans cond x Collectif . consommation combustible chaleur
 Installation x Gaz coll sans cond x Collectif . consommation combustible froid:
   valeur: gaz coll sans cond . installation . consommation combustible froid
 Installation x Gaz coll sans cond x Collectif . consommation combustible hors électricité:
-  valeur: gaz coll sans cond . installation . consommation combustible hors électricité
+  valeur: gaz coll sans cond . installation . consommation hors électricité
 Installation x Gaz coll sans cond x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: gaz coll sans cond . installation . consommation d'électricité chauffe-eau électrique
+  valeur: gaz coll sans cond . installation . consommation chauffe-eau électrique
 Installation x Gaz coll sans cond x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: gaz coll sans cond . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: gaz coll sans cond . installation . consommation électricité
 Installation x Gaz coll sans cond x Collectif . gamme de puissance existante:
-  valeur: gaz coll sans cond . installation . gamme de puissance existante
+  valeur: gaz coll sans cond . installation . puissance retenue
 Installation x Gaz coll sans cond x Collectif . production eau chaude sanitaire:
   valeur: gaz coll sans cond . installation . production eau chaude sanitaire
 Installation x Gaz coll sans cond x Collectif . puissance nécessaire pour ECS avec équipement:
-  valeur: gaz coll sans cond . installation . puissance nécessaire pour ECS avec équipement
+  valeur: gaz coll sans cond . installation . puissance ECS
 Installation x Gaz coll sans cond x Collectif . puissance nécessaire équipement chauffage:
-  valeur: gaz coll sans cond . installation . puissance nécessaire équipement chauffage
+  valeur: gaz coll sans cond . installation . puissance chauffage
 Installation x Gaz coll sans cond x Collectif . puissance équipement:
   valeur: gaz coll sans cond . installation . puissance équipement
 Installation x Gaz coll sans cond x Collectif . volume du ballon ECS:
@@ -789,9 +789,9 @@ env . Installation x PAC eau-eau x Individuel . besoins de chauffage et ECS si m
 Installation x Réseaux de chaleur x Collectif:
   valeur: réseau de chaleur . installation
 Installation x Réseaux de chaleur x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: réseau de chaleur . installation . appoint d'électricité chauffe-eau solaire
+  valeur: réseau de chaleur . installation . appoint chauffe-eau solaire
 Installation x Réseaux de chaleur x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: réseau de chaleur . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: réseau de chaleur . installation . ECS additionnelle nécessaire
 Installation x Réseaux de chaleur x Collectif . consommation auxiliaire:
   valeur: réseau de chaleur . installation . consommation auxiliaire
 Installation x Réseaux de chaleur x Collectif . consommation combustible chaleur:
@@ -799,19 +799,19 @@ Installation x Réseaux de chaleur x Collectif . consommation combustible chaleu
 Installation x Réseaux de chaleur x Collectif . consommation combustible froid:
   valeur: réseau de chaleur . installation . consommation combustible froid
 Installation x Réseaux de chaleur x Collectif . consommation combustible hors électricité:
-  valeur: réseau de chaleur . installation . consommation combustible hors électricité
+  valeur: réseau de chaleur . installation . consommation hors électricité
 Installation x Réseaux de chaleur x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: réseau de chaleur . installation . consommation d'électricité chauffe-eau électrique
+  valeur: réseau de chaleur . installation . consommation chauffe-eau électrique
 Installation x Réseaux de chaleur x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: réseau de chaleur . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: réseau de chaleur . installation . consommation électricité
 Installation x Réseaux de chaleur x Collectif . gamme de puissance existante:
-  valeur: réseau de chaleur . installation . gamme de puissance existante
+  valeur: réseau de chaleur . installation . puissance retenue
 Installation x Réseaux de chaleur x Collectif . production eau chaude sanitaire:
   valeur: réseau de chaleur . installation . production eau chaude sanitaire
 Installation x Réseaux de chaleur x Collectif . puissance nécessaire pour ECS avec équipement:
-  valeur: réseau de chaleur . installation . puissance nécessaire pour ECS avec équipement
+  valeur: réseau de chaleur . installation . puissance ECS
 Installation x Réseaux de chaleur x Collectif . puissance nécessaire équipement chauffage:
-  valeur: réseau de chaleur . installation . puissance nécessaire équipement chauffage
+  valeur: réseau de chaleur . installation . puissance chauffage
 Installation x Réseaux de chaleur x Collectif . puissance équipement:
   valeur: réseau de chaleur . installation . puissance équipement
 Installation x Réseaux de chaleur x Collectif . volume du ballon ECS:
@@ -888,20 +888,20 @@ env . Installation x Fioul coll x Collectif . besoins de chauffage et ECS si mê
 Installation x Réseaux de froid x Collectif:
   valeur: réseau de froid . installation
 Installation x Réseaux de froid x Collectif . gamme de puissance existante:
-  valeur: réseau de froid . installation . gamme de puissance existante
+  valeur: réseau de froid . installation . puissance retenue
 Installation x Réseaux de froid x Collectif . production eau chaude sanitaire:
   valeur: réseau de froid . installation . production eau chaude sanitaire
 Installation x Réseaux de froid x Collectif . puissance nécessaire pour refroidissement équipement:
-  valeur: réseau de froid . installation . puissance nécessaire pour refroidissement équipement
+  valeur: réseau de froid . installation . puissance refroidissement
 Installation x Réseaux de froid x Collectif . puissance équipement:
   valeur: réseau de froid . installation . puissance équipement
 
 Installation x Fioul indiv x Individuel:
   valeur: fioul indiv . installation
 Installation x Fioul indiv x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: fioul indiv . installation . appoint d'électricité chauffe-eau solaire
+  valeur: fioul indiv . installation . appoint chauffe-eau solaire
 Installation x Fioul indiv x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: fioul indiv . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: fioul indiv . installation . ECS additionnelle nécessaire
 Installation x Fioul indiv x Individuel . consommation auxiliaire:
   valeur: fioul indiv . installation . consommation auxiliaire
 Installation x Fioul indiv x Individuel . consommation combustible chaleur:
@@ -909,19 +909,19 @@ Installation x Fioul indiv x Individuel . consommation combustible chaleur:
 Installation x Fioul indiv x Individuel . consommation combustible froid:
   valeur: fioul indiv . installation . consommation combustible froid
 Installation x Fioul indiv x Individuel . consommation combustible hors électricité:
-  valeur: fioul indiv . installation . consommation combustible hors électricité
+  valeur: fioul indiv . installation . consommation hors électricité
 Installation x Fioul indiv x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: fioul indiv . installation . consommation d'électricité chauffe-eau électrique
+  valeur: fioul indiv . installation . consommation chauffe-eau électrique
 Installation x Fioul indiv x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: fioul indiv . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: fioul indiv . installation . consommation électricité
 Installation x Fioul indiv x Individuel . gamme de puissance existante:
-  valeur: fioul indiv . installation . gamme de puissance existante
+  valeur: fioul indiv . installation . puissance retenue
 Installation x Fioul indiv x Individuel . production eau chaude sanitaire:
   valeur: fioul indiv . installation . production eau chaude sanitaire
 Installation x Fioul indiv x Individuel . puissance nécessaire pour ECS avec équipement:
-  valeur: fioul indiv . installation . puissance nécessaire pour ECS avec équipement
+  valeur: fioul indiv . installation . puissance ECS
 Installation x Fioul indiv x Individuel . puissance nécessaire équipement chauffage:
-  valeur: fioul indiv . installation . puissance nécessaire équipement chauffage
+  valeur: fioul indiv . installation . puissance chauffage
 Installation x Fioul indiv x Individuel . puissance équipement:
   valeur: fioul indiv . installation . puissance équipement
 Installation x Fioul indiv x Individuel . volume du ballon ECS:
@@ -930,9 +930,9 @@ Installation x Fioul indiv x Individuel . volume du ballon ECS:
 Installation x PAC air-air x Individuel:
   valeur: PAC air-air indiv . installation
 Installation x PAC air-air x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: PAC air-air indiv . installation . appoint d'électricité chauffe-eau solaire
+  valeur: PAC air-air indiv . installation . appoint chauffe-eau solaire
 Installation x PAC air-air x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: PAC air-air indiv . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: PAC air-air indiv . installation . ECS additionnelle nécessaire
 Installation x PAC air-air x Individuel . consommation auxiliaire:
   valeur: PAC air-air indiv . installation . consommation auxiliaire
 Installation x PAC air-air x Individuel . consommation combustible chaleur:
@@ -940,19 +940,19 @@ Installation x PAC air-air x Individuel . consommation combustible chaleur:
 Installation x PAC air-air x Individuel . consommation combustible froid:
   valeur: PAC air-air indiv . installation . consommation combustible froid
 Installation x PAC air-air x Individuel . consommation combustible hors électricité:
-  valeur: PAC air-air indiv . installation . consommation combustible hors électricité
+  valeur: PAC air-air indiv . installation . consommation hors électricité
 Installation x PAC air-air x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: PAC air-air indiv . installation . consommation d'électricité chauffe-eau électrique
+  valeur: PAC air-air indiv . installation . consommation chauffe-eau électrique
 Installation x PAC air-air x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: PAC air-air indiv . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: PAC air-air indiv . installation . consommation électricité
 Installation x PAC air-air x Individuel . gamme de puissance existante:
-  valeur: PAC air-air indiv . installation . gamme de puissance existante
+  valeur: PAC air-air indiv . installation . puissance retenue
 Installation x PAC air-air x Individuel . production eau chaude sanitaire:
   valeur: PAC air-air indiv . installation . production eau chaude sanitaire
 Installation x PAC air-air x Individuel . puissance nécessaire pour refroidissement équipement:
-  valeur: PAC air-air indiv . installation . puissance nécessaire pour refroidissement équipement
+  valeur: PAC air-air indiv . installation . puissance refroidissement
 Installation x PAC air-air x Individuel . puissance nécessaire équipement chauffage:
-  valeur: PAC air-air indiv . installation . puissance nécessaire équipement chauffage
+  valeur: PAC air-air indiv . installation . puissance chauffage
 Installation x PAC air-air x Individuel . puissance équipement:
   valeur: PAC air-air indiv . installation . puissance équipement
 Installation x PAC air-air x Individuel . volume du ballon ECS:
@@ -961,9 +961,9 @@ Installation x PAC air-air x Individuel . volume du ballon ECS:
 Installation x PAC air-eau x Individuel:
   valeur: PAC air-eau indiv . installation
 Installation x PAC air-eau x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: PAC air-eau indiv . installation . appoint d'électricité chauffe-eau solaire
+  valeur: PAC air-eau indiv . installation . appoint chauffe-eau solaire
 Installation x PAC air-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: PAC air-eau indiv . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: PAC air-eau indiv . installation . ECS additionnelle nécessaire
 Installation x PAC air-eau x Individuel . consommation auxiliaire:
   valeur: PAC air-eau indiv . installation . consommation auxiliaire
 Installation x PAC air-eau x Individuel . consommation combustible chaleur:
@@ -971,21 +971,21 @@ Installation x PAC air-eau x Individuel . consommation combustible chaleur:
 Installation x PAC air-eau x Individuel . consommation combustible froid:
   valeur: PAC air-eau indiv . installation . consommation combustible froid
 Installation x PAC air-eau x Individuel . consommation combustible hors électricité:
-  valeur: PAC air-eau indiv . installation . consommation combustible hors électricité
+  valeur: PAC air-eau indiv . installation . consommation hors électricité
 Installation x PAC air-eau x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: PAC air-eau indiv . installation . consommation d'électricité chauffe-eau électrique
+  valeur: PAC air-eau indiv . installation . consommation chauffe-eau électrique
 Installation x PAC air-eau x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: PAC air-eau indiv . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: PAC air-eau indiv . installation . consommation électricité
 Installation x PAC air-eau x Individuel . gamme de puissance existante:
-  valeur: PAC air-eau indiv . installation . gamme de puissance existante
+  valeur: PAC air-eau indiv . installation . puissance retenue
 Installation x PAC air-eau x Individuel . production eau chaude sanitaire:
   valeur: PAC air-eau indiv . installation . production eau chaude sanitaire
 Installation x PAC air-eau x Individuel . puissance nécessaire pour ECS avec équipement:
-  valeur: PAC air-eau indiv . installation . puissance nécessaire pour ECS avec équipement
+  valeur: PAC air-eau indiv . installation . puissance ECS
 Installation x PAC air-eau x Individuel . puissance nécessaire pour refroidissement équipement:
-  valeur: PAC air-eau indiv . installation . puissance nécessaire pour refroidissement équipement
+  valeur: PAC air-eau indiv . installation . puissance refroidissement
 Installation x PAC air-eau x Individuel . puissance nécessaire équipement chauffage:
-  valeur: PAC air-eau indiv . installation . puissance nécessaire équipement chauffage
+  valeur: PAC air-eau indiv . installation . puissance chauffage
 Installation x PAC air-eau x Individuel . puissance équipement:
   valeur: PAC air-eau indiv . installation . puissance équipement
 Installation x PAC air-eau x Individuel . volume du ballon ECS:
@@ -994,9 +994,9 @@ Installation x PAC air-eau x Individuel . volume du ballon ECS:
 Installation x PAC eau-eau x Individuel:
   valeur: PAC eau-eau indiv . installation
 Installation x PAC eau-eau x Individuel . appoint d'électricité chauffe-eau solaire:
-  valeur: PAC eau-eau indiv . installation . appoint d'électricité chauffe-eau solaire
+  valeur: PAC eau-eau indiv . installation . appoint chauffe-eau solaire
 Installation x PAC eau-eau x Individuel . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: PAC eau-eau indiv . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: PAC eau-eau indiv . installation . ECS additionnelle nécessaire
 Installation x PAC eau-eau x Individuel . consommation auxiliaire:
   valeur: PAC eau-eau indiv . installation . consommation auxiliaire
 Installation x PAC eau-eau x Individuel . consommation combustible chaleur:
@@ -1004,19 +1004,19 @@ Installation x PAC eau-eau x Individuel . consommation combustible chaleur:
 Installation x PAC eau-eau x Individuel . consommation combustible froid:
   valeur: PAC eau-eau indiv . installation . consommation combustible froid
 Installation x PAC eau-eau x Individuel . consommation combustible hors électricité:
-  valeur: PAC eau-eau indiv . installation . consommation combustible hors électricité
+  valeur: PAC eau-eau indiv . installation . consommation hors électricité
 Installation x PAC eau-eau x Individuel . consommation d'électricité chauffe-eau électrique:
-  valeur: PAC eau-eau indiv . installation . consommation d'électricité chauffe-eau électrique
+  valeur: PAC eau-eau indiv . installation . consommation chauffe-eau électrique
 Installation x PAC eau-eau x Individuel . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: PAC eau-eau indiv . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: PAC eau-eau indiv . installation . consommation électricité
 Installation x PAC eau-eau x Individuel . gamme de puissance existante:
-  valeur: PAC eau-eau indiv . installation . gamme de puissance existante
+  valeur: PAC eau-eau indiv . installation . puissance retenue
 Installation x PAC eau-eau x Individuel . production eau chaude sanitaire:
   valeur: PAC eau-eau indiv . installation . production eau chaude sanitaire
 Installation x PAC eau-eau x Individuel . puissance nécessaire pour ECS avec équipement:
-  valeur: PAC eau-eau indiv . installation . puissance nécessaire pour ECS avec équipement
+  valeur: PAC eau-eau indiv . installation . puissance ECS
 Installation x PAC eau-eau x Individuel . puissance nécessaire équipement chauffage:
-  valeur: PAC eau-eau indiv . installation . puissance nécessaire équipement chauffage
+  valeur: PAC eau-eau indiv . installation . puissance chauffage
 Installation x PAC eau-eau x Individuel . puissance équipement:
   valeur: PAC eau-eau indiv . installation . puissance équipement
 Installation x PAC eau-eau x Individuel . volume du ballon ECS:
@@ -1025,34 +1025,34 @@ Installation x PAC eau-eau x Individuel . volume du ballon ECS:
 Calcul Eco . Chaudière à granulés coll:
   valeur: chaudière à granulés . coûts
 Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS solaire:
-  valeur: chaudière à granulés . coûts . Coût combustible pour ballon ECS solaire
+  valeur: chaudière à granulés . coûts . P1 chauffe-eau solaire
 Calcul Eco . Chaudière à granulés coll . Coût combustible pour ballon ECS à accumulation:
-  valeur: chaudière à granulés . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: chaudière à granulés . coûts . P1 ballon ECS
 Calcul Eco . Chaudière à granulés coll . Coût du combustible abonnement:
-  valeur: chaudière à granulés . coûts . Coût du combustible abonnement
+  valeur: chaudière à granulés . coûts . P1 abonnement
 Calcul Eco . Chaudière à granulés coll . Coût du combustible consommation:
-  valeur: chaudière à granulés . coûts . Coût du combustible consommation
+  valeur: chaudière à granulés . coûts . P1 consommation
 Calcul Eco . Chaudière à granulés coll . Coût électricité auxiliaire:
-  valeur: chaudière à granulés . coûts . Coût électricité auxiliaire
+  valeur: chaudière à granulés . coûts . P1 auxiliaires
 Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS solaire panneau inclus:
-  valeur: chaudière à granulés . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: chaudière à granulés . coûts . investissement chauffe-eau solaire
 Calcul Eco . Chaudière à granulés coll . Investissement ballon ECS à accumulation:
-  valeur: chaudière à granulés . coûts . Investissement ballon ECS à accumulation
+  valeur: chaudière à granulés . coûts . investissement ballon ECS
 Calcul Eco . Chaudière à granulés coll . Investissement équipement Total:
-  valeur: chaudière à granulés . coûts . Investissement équipement Total
+  valeur: chaudière à granulés . coûts . investissement équipement
 Calcul Eco . Chaudière à granulés coll . Investissement équipement par logement type tertiaire:
-  valeur: chaudière à granulés . coûts . Investissement équipement par logement type tertiaire
+  valeur: chaudière à granulés . coûts . investissement par logement
 Calcul Eco . Chaudière à granulés coll . Total investissement avec ballon ECS à accumulation:
-  valeur: chaudière à granulés . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: chaudière à granulés . coûts . investissement total avec ballon ECS
 Calcul Eco . Chaudière à granulés coll . Total investissement ballon ECS solaire panneaux:
-  valeur: chaudière à granulés . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: chaudière à granulés . coûts . investissement total avec chauffe-eau solaire
 
 Installation x PAC air-air x Collectif:
   valeur: PAC air-air coll . installation
 Installation x PAC air-air x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: PAC air-air coll . installation . appoint d'électricité chauffe-eau solaire
+  valeur: PAC air-air coll . installation . appoint chauffe-eau solaire
 Installation x PAC air-air x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: PAC air-air coll . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: PAC air-air coll . installation . ECS additionnelle nécessaire
 Installation x PAC air-air x Collectif . consommation auxiliaire:
   valeur: PAC air-air coll . installation . consommation auxiliaire
 Installation x PAC air-air x Collectif . consommation combustible chaleur:
@@ -1060,19 +1060,19 @@ Installation x PAC air-air x Collectif . consommation combustible chaleur:
 Installation x PAC air-air x Collectif . consommation combustible froid:
   valeur: PAC air-air coll . installation . consommation combustible froid
 Installation x PAC air-air x Collectif . consommation combustible hors électricité:
-  valeur: PAC air-air coll . installation . consommation combustible hors électricité
+  valeur: PAC air-air coll . installation . consommation hors électricité
 Installation x PAC air-air x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: PAC air-air coll . installation . consommation d'électricité chauffe-eau électrique
+  valeur: PAC air-air coll . installation . consommation chauffe-eau électrique
 Installation x PAC air-air x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: PAC air-air coll . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: PAC air-air coll . installation . consommation électricité
 Installation x PAC air-air x Collectif . gamme de puissance existante:
-  valeur: PAC air-air coll . installation . gamme de puissance existante
+  valeur: PAC air-air coll . installation . puissance retenue
 Installation x PAC air-air x Collectif . production eau chaude sanitaire:
   valeur: PAC air-air coll . installation . production eau chaude sanitaire
 Installation x PAC air-air x Collectif . puissance nécessaire pour refroidissement équipement:
-  valeur: PAC air-air coll . installation . puissance nécessaire pour refroidissement équipement
+  valeur: PAC air-air coll . installation . puissance refroidissement
 Installation x PAC air-air x Collectif . puissance nécessaire équipement chauffage:
-  valeur: PAC air-air coll . installation . puissance nécessaire équipement chauffage
+  valeur: PAC air-air coll . installation . puissance chauffage
 Installation x PAC air-air x Collectif . puissance équipement:
   valeur: PAC air-air coll . installation . puissance équipement
 Installation x PAC air-air x Collectif . volume du ballon ECS:
@@ -1081,9 +1081,9 @@ Installation x PAC air-air x Collectif . volume du ballon ECS:
 Installation x PAC air-eau x Collectif:
   valeur: PAC air-eau coll . installation
 Installation x PAC air-eau x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: PAC air-eau coll . installation . appoint d'électricité chauffe-eau solaire
+  valeur: PAC air-eau coll . installation . appoint chauffe-eau solaire
 Installation x PAC air-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: PAC air-eau coll . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: PAC air-eau coll . installation . ECS additionnelle nécessaire
 Installation x PAC air-eau x Collectif . consommation auxiliaire:
   valeur: PAC air-eau coll . installation . consommation auxiliaire
 Installation x PAC air-eau x Collectif . consommation combustible chaleur:
@@ -1091,21 +1091,21 @@ Installation x PAC air-eau x Collectif . consommation combustible chaleur:
 Installation x PAC air-eau x Collectif . consommation combustible froid:
   valeur: PAC air-eau coll . installation . consommation combustible froid
 Installation x PAC air-eau x Collectif . consommation combustible hors électricité:
-  valeur: PAC air-eau coll . installation . consommation combustible hors électricité
+  valeur: PAC air-eau coll . installation . consommation hors électricité
 Installation x PAC air-eau x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: PAC air-eau coll . installation . consommation d'électricité chauffe-eau électrique
+  valeur: PAC air-eau coll . installation . consommation chauffe-eau électrique
 Installation x PAC air-eau x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: PAC air-eau coll . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: PAC air-eau coll . installation . consommation électricité
 Installation x PAC air-eau x Collectif . gamme de puissance existante:
-  valeur: PAC air-eau coll . installation . gamme de puissance existante
+  valeur: PAC air-eau coll . installation . puissance retenue
 Installation x PAC air-eau x Collectif . production eau chaude sanitaire:
   valeur: PAC air-eau coll . installation . production eau chaude sanitaire
 Installation x PAC air-eau x Collectif . puissance nécessaire pour ECS avec équipement:
-  valeur: PAC air-eau coll . installation . puissance nécessaire pour ECS avec équipement
+  valeur: PAC air-eau coll . installation . puissance ECS
 Installation x PAC air-eau x Collectif . puissance nécessaire pour refroidissement équipement:
-  valeur: PAC air-eau coll . installation . puissance nécessaire pour refroidissement équipement
+  valeur: PAC air-eau coll . installation . puissance refroidissement
 Installation x PAC air-eau x Collectif . puissance nécessaire équipement chauffage:
-  valeur: PAC air-eau coll . installation . puissance nécessaire équipement chauffage
+  valeur: PAC air-eau coll . installation . puissance chauffage
 Installation x PAC air-eau x Collectif . puissance équipement:
   valeur: PAC air-eau coll . installation . puissance équipement
 Installation x PAC air-eau x Collectif . volume du ballon ECS:
@@ -1114,9 +1114,9 @@ Installation x PAC air-eau x Collectif . volume du ballon ECS:
 Installation x PAC eau-eau x Collectif:
   valeur: PAC eau-eau coll . installation
 Installation x PAC eau-eau x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: PAC eau-eau coll . installation . appoint d'électricité chauffe-eau solaire
+  valeur: PAC eau-eau coll . installation . appoint chauffe-eau solaire
 Installation x PAC eau-eau x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: PAC eau-eau coll . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: PAC eau-eau coll . installation . ECS additionnelle nécessaire
 Installation x PAC eau-eau x Collectif . consommation auxiliaire:
   valeur: PAC eau-eau coll . installation . consommation auxiliaire
 Installation x PAC eau-eau x Collectif . consommation combustible chaleur:
@@ -1124,19 +1124,19 @@ Installation x PAC eau-eau x Collectif . consommation combustible chaleur:
 Installation x PAC eau-eau x Collectif . consommation combustible froid:
   valeur: PAC eau-eau coll . installation . consommation combustible froid
 Installation x PAC eau-eau x Collectif . consommation combustible hors électricité:
-  valeur: PAC eau-eau coll . installation . consommation combustible hors électricité
+  valeur: PAC eau-eau coll . installation . consommation hors électricité
 Installation x PAC eau-eau x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: PAC eau-eau coll . installation . consommation d'électricité chauffe-eau électrique
+  valeur: PAC eau-eau coll . installation . consommation chauffe-eau électrique
 Installation x PAC eau-eau x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: PAC eau-eau coll . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: PAC eau-eau coll . installation . consommation électricité
 Installation x PAC eau-eau x Collectif . gamme de puissance existante:
-  valeur: PAC eau-eau coll . installation . gamme de puissance existante
+  valeur: PAC eau-eau coll . installation . puissance retenue
 Installation x PAC eau-eau x Collectif . production eau chaude sanitaire:
   valeur: PAC eau-eau coll . installation . production eau chaude sanitaire
 Installation x PAC eau-eau x Collectif . puissance nécessaire pour ECS avec équipement:
-  valeur: PAC eau-eau coll . installation . puissance nécessaire pour ECS avec équipement
+  valeur: PAC eau-eau coll . installation . puissance ECS
 Installation x PAC eau-eau x Collectif . puissance nécessaire équipement chauffage:
-  valeur: PAC eau-eau coll . installation . puissance nécessaire équipement chauffage
+  valeur: PAC eau-eau coll . installation . puissance chauffage
 Installation x PAC eau-eau x Collectif . puissance équipement:
   valeur: PAC eau-eau coll . installation . puissance équipement
 Installation x PAC eau-eau x Collectif . volume du ballon ECS:
@@ -1145,9 +1145,9 @@ Installation x PAC eau-eau x Collectif . volume du ballon ECS:
 Installation x Fioul coll x Collectif:
   valeur: fioul coll . installation
 Installation x Fioul coll x Collectif . appoint d'électricité chauffe-eau solaire:
-  valeur: fioul coll . installation . appoint d'électricité chauffe-eau solaire
+  valeur: fioul coll . installation . appoint chauffe-eau solaire
 Installation x Fioul coll x Collectif . besoin d'installation supplémentaire pour produire l'ECS:
-  valeur: fioul coll . installation . besoin d'installation supplémentaire pour produire l'ECS
+  valeur: fioul coll . installation . ECS additionnelle nécessaire
 Installation x Fioul coll x Collectif . consommation auxiliaire:
   valeur: fioul coll . installation . consommation auxiliaire
 Installation x Fioul coll x Collectif . consommation combustible chaleur:
@@ -1155,19 +1155,19 @@ Installation x Fioul coll x Collectif . consommation combustible chaleur:
 Installation x Fioul coll x Collectif . consommation combustible froid:
   valeur: fioul coll . installation . consommation combustible froid
 Installation x Fioul coll x Collectif . consommation combustible hors électricité:
-  valeur: fioul coll . installation . consommation combustible hors électricité
+  valeur: fioul coll . installation . consommation hors électricité
 Installation x Fioul coll x Collectif . consommation d'électricité chauffe-eau électrique:
-  valeur: fioul coll . installation . consommation d'électricité chauffe-eau électrique
+  valeur: fioul coll . installation . consommation chauffe-eau électrique
 Installation x Fioul coll x Collectif . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
-  valeur: fioul coll . installation . consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS
+  valeur: fioul coll . installation . consommation électricité
 Installation x Fioul coll x Collectif . gamme de puissance existante:
-  valeur: fioul coll . installation . gamme de puissance existante
+  valeur: fioul coll . installation . puissance retenue
 Installation x Fioul coll x Collectif . production eau chaude sanitaire:
   valeur: fioul coll . installation . production eau chaude sanitaire
 Installation x Fioul coll x Collectif . puissance nécessaire pour ECS avec équipement:
-  valeur: fioul coll . installation . puissance nécessaire pour ECS avec équipement
+  valeur: fioul coll . installation . puissance ECS
 Installation x Fioul coll x Collectif . puissance nécessaire équipement chauffage:
-  valeur: fioul coll . installation . puissance nécessaire équipement chauffage
+  valeur: fioul coll . installation . puissance chauffage
 Installation x Fioul coll x Collectif . puissance équipement:
   valeur: fioul coll . installation . puissance équipement
 Installation x Fioul coll x Collectif . volume du ballon ECS:
@@ -1176,27 +1176,27 @@ Installation x Fioul coll x Collectif . volume du ballon ECS:
 Calcul Eco . Poêle à granulés indiv:
   valeur: poêle à granulés . coûts
 Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS solaire:
-  valeur: poêle à granulés . coûts . Coût combustible pour ballon ECS solaire
+  valeur: poêle à granulés . coûts . P1 chauffe-eau solaire
 Calcul Eco . Poêle à granulés indiv . Coût combustible pour ballon ECS à accumulation:
-  valeur: poêle à granulés . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: poêle à granulés . coûts . P1 ballon ECS
 Calcul Eco . Poêle à granulés indiv . Coût du combustible abonnement:
-  valeur: poêle à granulés . coûts . Coût du combustible abonnement
+  valeur: poêle à granulés . coûts . P1 abonnement
 Calcul Eco . Poêle à granulés indiv . Coût du combustible consommation:
-  valeur: poêle à granulés . coûts . Coût du combustible consommation
+  valeur: poêle à granulés . coûts . P1 consommation
 Calcul Eco . Poêle à granulés indiv . Coût électricité auxiliaire:
-  valeur: poêle à granulés . coûts . Coût électricité auxiliaire
+  valeur: poêle à granulés . coûts . P1 auxiliaires
 Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS solaire panneau inclus:
-  valeur: poêle à granulés . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: poêle à granulés . coûts . investissement chauffe-eau solaire
 Calcul Eco . Poêle à granulés indiv . Investissement ballon ECS à accumulation:
-  valeur: poêle à granulés . coûts . Investissement ballon ECS à accumulation
+  valeur: poêle à granulés . coûts . investissement ballon ECS
 Calcul Eco . Poêle à granulés indiv . Investissement équipement Total:
-  valeur: poêle à granulés . coûts . Investissement équipement Total
+  valeur: poêle à granulés . coûts . investissement équipement
 Calcul Eco . Poêle à granulés indiv . Investissement équipement par logement type tertiaire:
-  valeur: poêle à granulés . coûts . Investissement équipement par logement type tertiaire
+  valeur: poêle à granulés . coûts . investissement par logement
 Calcul Eco . Poêle à granulés indiv . Total investissement avec ballon ECS à accumulation:
-  valeur: poêle à granulés . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: poêle à granulés . coûts . investissement total avec ballon ECS
 Calcul Eco . Poêle à granulés indiv . Total investissement ballon ECS solaire panneaux:
-  valeur: poêle à granulés . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: poêle à granulés . coûts . investissement total avec chauffe-eau solaire
 
 Bilan x Chaudière à granulés coll:
   valeur: chaudière à granulés . bilan
@@ -1230,152 +1230,152 @@ Bilan x Chaudière à granulés coll . total sans installation:
 Calcul Eco . Radiateur électrique:
   valeur: radiateur électrique . coûts
 Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS solaire:
-  valeur: radiateur électrique . coûts . Coût combustible pour ballon ECS solaire
+  valeur: radiateur électrique . coûts . P1 chauffe-eau solaire
 Calcul Eco . Radiateur électrique . Coût combustible pour ballon ECS à accumulation:
-  valeur: radiateur électrique . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: radiateur électrique . coûts . P1 ballon ECS
 Calcul Eco . Radiateur électrique . Coût du combustible abonnement:
-  valeur: radiateur électrique . coûts . Coût du combustible abonnement
+  valeur: radiateur électrique . coûts . P1 abonnement
 Calcul Eco . Radiateur électrique . Coût du combustible consommation:
-  valeur: radiateur électrique . coûts . Coût du combustible consommation
+  valeur: radiateur électrique . coûts . P1 consommation
 Calcul Eco . Radiateur électrique . Coût électricité auxiliaire:
-  valeur: radiateur électrique . coûts . Coût électricité auxiliaire
+  valeur: radiateur électrique . coûts . P1 auxiliaires
 Calcul Eco . Radiateur électrique . Investissement ballon ECS solaire panneau inclus:
-  valeur: radiateur électrique . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: radiateur électrique . coûts . investissement chauffe-eau solaire
 Calcul Eco . Radiateur électrique . Investissement ballon ECS à accumulation:
-  valeur: radiateur électrique . coûts . Investissement ballon ECS à accumulation
+  valeur: radiateur électrique . coûts . investissement ballon ECS
 Calcul Eco . Radiateur électrique . Investissement équipement Total:
-  valeur: radiateur électrique . coûts . Investissement équipement Total
+  valeur: radiateur électrique . coûts . investissement équipement
 Calcul Eco . Radiateur électrique . Investissement équipement par logement type tertiaire:
-  valeur: radiateur électrique . coûts . Investissement équipement par logement type tertiaire
+  valeur: radiateur électrique . coûts . investissement par logement
 Calcul Eco . Radiateur électrique . Total investissement avec ballon ECS à accumulation:
-  valeur: radiateur électrique . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: radiateur électrique . coûts . investissement total avec ballon ECS
 Calcul Eco . Radiateur électrique . Total investissement ballon ECS solaire panneaux:
-  valeur: radiateur électrique . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: radiateur électrique . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . Gaz indiv avec cond:
   valeur: gaz indiv avec cond . coûts
 Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS solaire:
-  valeur: gaz indiv avec cond . coûts . Coût combustible pour ballon ECS solaire
+  valeur: gaz indiv avec cond . coûts . P1 chauffe-eau solaire
 Calcul Eco . Gaz indiv avec cond . Coût combustible pour ballon ECS à accumulation:
-  valeur: gaz indiv avec cond . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: gaz indiv avec cond . coûts . P1 ballon ECS
 Calcul Eco . Gaz indiv avec cond . Coût du combustible abonnement:
-  valeur: gaz indiv avec cond . coûts . Coût du combustible abonnement
+  valeur: gaz indiv avec cond . coûts . P1 abonnement
 Calcul Eco . Gaz indiv avec cond . Coût du combustible consommation:
-  valeur: gaz indiv avec cond . coûts . Coût du combustible consommation
+  valeur: gaz indiv avec cond . coûts . P1 consommation
 Calcul Eco . Gaz indiv avec cond . Coût électricité auxiliaire:
-  valeur: gaz indiv avec cond . coûts . Coût électricité auxiliaire
+  valeur: gaz indiv avec cond . coûts . P1 auxiliaires
 Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS solaire panneau inclus:
-  valeur: gaz indiv avec cond . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: gaz indiv avec cond . coûts . investissement chauffe-eau solaire
 Calcul Eco . Gaz indiv avec cond . Investissement ballon ECS à accumulation:
-  valeur: gaz indiv avec cond . coûts . Investissement ballon ECS à accumulation
+  valeur: gaz indiv avec cond . coûts . investissement ballon ECS
 Calcul Eco . Gaz indiv avec cond . Investissement équipement Total:
-  valeur: gaz indiv avec cond . coûts . Investissement équipement Total
+  valeur: gaz indiv avec cond . coûts . investissement équipement
 Calcul Eco . Gaz indiv avec cond . Investissement équipement par logement type tertiaire:
-  valeur: gaz indiv avec cond . coûts . Investissement équipement par logement type tertiaire
+  valeur: gaz indiv avec cond . coûts . investissement par logement
 Calcul Eco . Gaz indiv avec cond . Total investissement avec ballon ECS à accumulation:
-  valeur: gaz indiv avec cond . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: gaz indiv avec cond . coûts . investissement total avec ballon ECS
 Calcul Eco . Gaz indiv avec cond . Total investissement ballon ECS solaire panneaux:
-  valeur: gaz indiv avec cond . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: gaz indiv avec cond . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . Gaz indiv sans cond:
   valeur: gaz indiv sans cond . coûts
 Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS solaire:
-  valeur: gaz indiv sans cond . coûts . Coût combustible pour ballon ECS solaire
+  valeur: gaz indiv sans cond . coûts . P1 chauffe-eau solaire
 Calcul Eco . Gaz indiv sans cond . Coût combustible pour ballon ECS à accumulation:
-  valeur: gaz indiv sans cond . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: gaz indiv sans cond . coûts . P1 ballon ECS
 Calcul Eco . Gaz indiv sans cond . Coût du combustible abonnement:
-  valeur: gaz indiv sans cond . coûts . Coût du combustible abonnement
+  valeur: gaz indiv sans cond . coûts . P1 abonnement
 Calcul Eco . Gaz indiv sans cond . Coût du combustible consommation:
-  valeur: gaz indiv sans cond . coûts . Coût du combustible consommation
+  valeur: gaz indiv sans cond . coûts . P1 consommation
 Calcul Eco . Gaz indiv sans cond . Coût électricité auxiliaire:
-  valeur: gaz indiv sans cond . coûts . Coût électricité auxiliaire
+  valeur: gaz indiv sans cond . coûts . P1 auxiliaires
 Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS solaire panneau inclus:
-  valeur: gaz indiv sans cond . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: gaz indiv sans cond . coûts . investissement chauffe-eau solaire
 Calcul Eco . Gaz indiv sans cond . Investissement ballon ECS à accumulation:
-  valeur: gaz indiv sans cond . coûts . Investissement ballon ECS à accumulation
+  valeur: gaz indiv sans cond . coûts . investissement ballon ECS
 Calcul Eco . Gaz indiv sans cond . Investissement équipement Total:
-  valeur: gaz indiv sans cond . coûts . Investissement équipement Total
+  valeur: gaz indiv sans cond . coûts . investissement équipement
 Calcul Eco . Gaz indiv sans cond . Investissement équipement par logement type tertiaire:
-  valeur: gaz indiv sans cond . coûts . Investissement équipement par logement type tertiaire
+  valeur: gaz indiv sans cond . coûts . investissement par logement
 Calcul Eco . Gaz indiv sans cond . Total investissement avec ballon ECS à accumulation:
-  valeur: gaz indiv sans cond . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: gaz indiv sans cond . coûts . investissement total avec ballon ECS
 Calcul Eco . Gaz indiv sans cond . Total investissement ballon ECS solaire panneaux:
-  valeur: gaz indiv sans cond . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: gaz indiv sans cond . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . Gaz coll avec cond:
   valeur: gaz coll avec cond . coûts
 Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS solaire:
-  valeur: gaz coll avec cond . coûts . Coût combustible pour ballon ECS solaire
+  valeur: gaz coll avec cond . coûts . P1 chauffe-eau solaire
 Calcul Eco . Gaz coll avec cond . Coût combustible pour ballon ECS à accumulation:
-  valeur: gaz coll avec cond . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: gaz coll avec cond . coûts . P1 ballon ECS
 Calcul Eco . Gaz coll avec cond . Coût du combustible abonnement:
-  valeur: gaz coll avec cond . coûts . Coût du combustible abonnement
+  valeur: gaz coll avec cond . coûts . P1 abonnement
 Calcul Eco . Gaz coll avec cond . Coût du combustible consommation:
-  valeur: gaz coll avec cond . coûts . Coût du combustible consommation
+  valeur: gaz coll avec cond . coûts . P1 consommation
 Calcul Eco . Gaz coll avec cond . Coût électricité auxiliaire:
-  valeur: gaz coll avec cond . coûts . Coût électricité auxiliaire
+  valeur: gaz coll avec cond . coûts . P1 auxiliaires
 Calcul Eco . Gaz coll avec cond . Investissement ballon ECS solaire panneau inclus:
-  valeur: gaz coll avec cond . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: gaz coll avec cond . coûts . investissement chauffe-eau solaire
 Calcul Eco . Gaz coll avec cond . Investissement ballon ECS à accumulation:
-  valeur: gaz coll avec cond . coûts . Investissement ballon ECS à accumulation
+  valeur: gaz coll avec cond . coûts . investissement ballon ECS
 Calcul Eco . Gaz coll avec cond . Investissement équipement Total:
-  valeur: gaz coll avec cond . coûts . Investissement équipement Total
+  valeur: gaz coll avec cond . coûts . investissement équipement
 Calcul Eco . Gaz coll avec cond . Investissement équipement par logement type tertiaire:
-  valeur: gaz coll avec cond . coûts . Investissement équipement par logement type tertiaire
+  valeur: gaz coll avec cond . coûts . investissement par logement
 Calcul Eco . Gaz coll avec cond . Total investissement avec ballon ECS à accumulation:
-  valeur: gaz coll avec cond . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: gaz coll avec cond . coûts . investissement total avec ballon ECS
 Calcul Eco . Gaz coll avec cond . Total investissement ballon ECS solaire panneaux:
-  valeur: gaz coll avec cond . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: gaz coll avec cond . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . Gaz coll sans cond:
   valeur: gaz coll sans cond . coûts
 Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS solaire:
-  valeur: gaz coll sans cond . coûts . Coût combustible pour ballon ECS solaire
+  valeur: gaz coll sans cond . coûts . P1 chauffe-eau solaire
 Calcul Eco . Gaz coll sans cond . Coût combustible pour ballon ECS à accumulation:
-  valeur: gaz coll sans cond . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: gaz coll sans cond . coûts . P1 ballon ECS
 Calcul Eco . Gaz coll sans cond . Coût du combustible abonnement:
-  valeur: gaz coll sans cond . coûts . Coût du combustible abonnement
+  valeur: gaz coll sans cond . coûts . P1 abonnement
 Calcul Eco . Gaz coll sans cond . Coût du combustible consommation:
-  valeur: gaz coll sans cond . coûts . Coût du combustible consommation
+  valeur: gaz coll sans cond . coûts . P1 consommation
 Calcul Eco . Gaz coll sans cond . Coût électricité auxiliaire:
-  valeur: gaz coll sans cond . coûts . Coût électricité auxiliaire
+  valeur: gaz coll sans cond . coûts . P1 auxiliaires
 Calcul Eco . Gaz coll sans cond . Investissement ballon ECS solaire panneau inclus:
-  valeur: gaz coll sans cond . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: gaz coll sans cond . coûts . investissement chauffe-eau solaire
 Calcul Eco . Gaz coll sans cond . Investissement ballon ECS à accumulation:
-  valeur: gaz coll sans cond . coûts . Investissement ballon ECS à accumulation
+  valeur: gaz coll sans cond . coûts . investissement ballon ECS
 Calcul Eco . Gaz coll sans cond . Investissement équipement Total:
-  valeur: gaz coll sans cond . coûts . Investissement équipement Total
+  valeur: gaz coll sans cond . coûts . investissement équipement
 Calcul Eco . Gaz coll sans cond . Investissement équipement par logement type tertiaire:
-  valeur: gaz coll sans cond . coûts . Investissement équipement par logement type tertiaire
+  valeur: gaz coll sans cond . coûts . investissement par logement
 Calcul Eco . Gaz coll sans cond . Total investissement avec ballon ECS à accumulation:
-  valeur: gaz coll sans cond . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: gaz coll sans cond . coûts . investissement total avec ballon ECS
 Calcul Eco . Gaz coll sans cond . Total investissement ballon ECS solaire panneaux:
-  valeur: gaz coll sans cond . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: gaz coll sans cond . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . Réseaux de chaleur:
   valeur: réseau de chaleur . coûts
 Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS solaire:
-  valeur: réseau de chaleur . coûts . Coût combustible pour ballon ECS solaire
+  valeur: réseau de chaleur . coûts . P1 chauffe-eau solaire
 Calcul Eco . Réseaux de chaleur . Coût combustible pour ballon ECS à accumulation:
-  valeur: réseau de chaleur . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: réseau de chaleur . coûts . P1 ballon ECS
 Calcul Eco . Réseaux de chaleur . Coût du combustible abonnement:
-  valeur: réseau de chaleur . coûts . Coût du combustible abonnement
+  valeur: réseau de chaleur . coûts . P1 abonnement
 Calcul Eco . Réseaux de chaleur . Coût du combustible consommation:
-  valeur: réseau de chaleur . coûts . Coût du combustible consommation
+  valeur: réseau de chaleur . coûts . P1 consommation
 Calcul Eco . Réseaux de chaleur . Coût électricité auxiliaire:
-  valeur: réseau de chaleur . coûts . Coût électricité auxiliaire
+  valeur: réseau de chaleur . coûts . P1 auxiliaires
 Calcul Eco . Réseaux de chaleur . Investissement ballon ECS solaire panneau inclus:
-  valeur: réseau de chaleur . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: réseau de chaleur . coûts . investissement chauffe-eau solaire
 Calcul Eco . Réseaux de chaleur . Investissement ballon ECS à accumulation:
-  valeur: réseau de chaleur . coûts . Investissement ballon ECS à accumulation
+  valeur: réseau de chaleur . coûts . investissement ballon ECS
 Calcul Eco . Réseaux de chaleur . Investissement équipement Total:
-  valeur: réseau de chaleur . coûts . Investissement équipement Total
+  valeur: réseau de chaleur . coûts . investissement équipement
 Calcul Eco . Réseaux de chaleur . Investissement équipement par logement type tertiaire:
-  valeur: réseau de chaleur . coûts . Investissement équipement par logement type tertiaire
+  valeur: réseau de chaleur . coûts . investissement par logement
 Calcul Eco . Réseaux de chaleur . Total investissement avec ballon ECS à accumulation:
-  valeur: réseau de chaleur . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: réseau de chaleur . coûts . investissement total avec ballon ECS
 Calcul Eco . Réseaux de chaleur . Total investissement ballon ECS solaire panneaux:
-  valeur: réseau de chaleur . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: réseau de chaleur . coûts . investissement total avec chauffe-eau solaire
 
 Bilan x Poêle à granulés indiv:
   valeur: poêle à granulés . bilan
@@ -1409,152 +1409,152 @@ Bilan x Poêle à granulés indiv . total sans installation:
 Calcul Eco . PAC air-air indiv:
   valeur: PAC air-air indiv . coûts
 Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS solaire:
-  valeur: PAC air-air indiv . coûts . Coût combustible pour ballon ECS solaire
+  valeur: PAC air-air indiv . coûts . P1 chauffe-eau solaire
 Calcul Eco . PAC air-air indiv . Coût combustible pour ballon ECS à accumulation:
-  valeur: PAC air-air indiv . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: PAC air-air indiv . coûts . P1 ballon ECS
 Calcul Eco . PAC air-air indiv . Coût du combustible abonnement:
-  valeur: PAC air-air indiv . coûts . Coût du combustible abonnement
+  valeur: PAC air-air indiv . coûts . P1 abonnement
 Calcul Eco . PAC air-air indiv . Coût du combustible consommation:
-  valeur: PAC air-air indiv . coûts . Coût du combustible consommation
+  valeur: PAC air-air indiv . coûts . P1 consommation
 Calcul Eco . PAC air-air indiv . Coût électricité auxiliaire:
-  valeur: PAC air-air indiv . coûts . Coût électricité auxiliaire
+  valeur: PAC air-air indiv . coûts . P1 auxiliaires
 Calcul Eco . PAC air-air indiv . Investissement ballon ECS solaire panneau inclus:
-  valeur: PAC air-air indiv . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: PAC air-air indiv . coûts . investissement chauffe-eau solaire
 Calcul Eco . PAC air-air indiv . Investissement ballon ECS à accumulation:
-  valeur: PAC air-air indiv . coûts . Investissement ballon ECS à accumulation
+  valeur: PAC air-air indiv . coûts . investissement ballon ECS
 Calcul Eco . PAC air-air indiv . Investissement équipement Total:
-  valeur: PAC air-air indiv . coûts . Investissement équipement Total
+  valeur: PAC air-air indiv . coûts . investissement équipement
 Calcul Eco . PAC air-air indiv . Investissement équipement par logement type tertiaire:
-  valeur: PAC air-air indiv . coûts . Investissement équipement par logement type tertiaire
+  valeur: PAC air-air indiv . coûts . investissement par logement
 Calcul Eco . PAC air-air indiv . Total investissement avec ballon ECS à accumulation:
-  valeur: PAC air-air indiv . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: PAC air-air indiv . coûts . investissement total avec ballon ECS
 Calcul Eco . PAC air-air indiv . Total investissement ballon ECS solaire panneaux:
-  valeur: PAC air-air indiv . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: PAC air-air indiv . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . PAC air-eau indiv:
   valeur: PAC air-eau indiv . coûts
 Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS solaire:
-  valeur: PAC air-eau indiv . coûts . Coût combustible pour ballon ECS solaire
+  valeur: PAC air-eau indiv . coûts . P1 chauffe-eau solaire
 Calcul Eco . PAC air-eau indiv . Coût combustible pour ballon ECS à accumulation:
-  valeur: PAC air-eau indiv . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: PAC air-eau indiv . coûts . P1 ballon ECS
 Calcul Eco . PAC air-eau indiv . Coût du combustible abonnement:
-  valeur: PAC air-eau indiv . coûts . Coût du combustible abonnement
+  valeur: PAC air-eau indiv . coûts . P1 abonnement
 Calcul Eco . PAC air-eau indiv . Coût du combustible consommation:
-  valeur: PAC air-eau indiv . coûts . Coût du combustible consommation
+  valeur: PAC air-eau indiv . coûts . P1 consommation
 Calcul Eco . PAC air-eau indiv . Coût électricité auxiliaire:
-  valeur: PAC air-eau indiv . coûts . Coût électricité auxiliaire
+  valeur: PAC air-eau indiv . coûts . P1 auxiliaires
 Calcul Eco . PAC air-eau indiv . Investissement ballon ECS solaire panneau inclus:
-  valeur: PAC air-eau indiv . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: PAC air-eau indiv . coûts . investissement chauffe-eau solaire
 Calcul Eco . PAC air-eau indiv . Investissement ballon ECS à accumulation:
-  valeur: PAC air-eau indiv . coûts . Investissement ballon ECS à accumulation
+  valeur: PAC air-eau indiv . coûts . investissement ballon ECS
 Calcul Eco . PAC air-eau indiv . Investissement équipement Total:
-  valeur: PAC air-eau indiv . coûts . Investissement équipement Total
+  valeur: PAC air-eau indiv . coûts . investissement équipement
 Calcul Eco . PAC air-eau indiv . Investissement équipement par logement type tertiaire:
-  valeur: PAC air-eau indiv . coûts . Investissement équipement par logement type tertiaire
+  valeur: PAC air-eau indiv . coûts . investissement par logement
 Calcul Eco . PAC air-eau indiv . Total investissement avec ballon ECS à accumulation:
-  valeur: PAC air-eau indiv . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: PAC air-eau indiv . coûts . investissement total avec ballon ECS
 Calcul Eco . PAC air-eau indiv . Total investissement ballon ECS solaire panneaux:
-  valeur: PAC air-eau indiv . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: PAC air-eau indiv . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . PAC eau-eau indiv:
   valeur: PAC eau-eau indiv . coûts
 Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS solaire:
-  valeur: PAC eau-eau indiv . coûts . Coût combustible pour ballon ECS solaire
+  valeur: PAC eau-eau indiv . coûts . P1 chauffe-eau solaire
 Calcul Eco . PAC eau-eau indiv . Coût combustible pour ballon ECS à accumulation:
-  valeur: PAC eau-eau indiv . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: PAC eau-eau indiv . coûts . P1 ballon ECS
 Calcul Eco . PAC eau-eau indiv . Coût du combustible abonnement:
-  valeur: PAC eau-eau indiv . coûts . Coût du combustible abonnement
+  valeur: PAC eau-eau indiv . coûts . P1 abonnement
 Calcul Eco . PAC eau-eau indiv . Coût du combustible consommation:
-  valeur: PAC eau-eau indiv . coûts . Coût du combustible consommation
+  valeur: PAC eau-eau indiv . coûts . P1 consommation
 Calcul Eco . PAC eau-eau indiv . Coût électricité auxiliaire:
-  valeur: PAC eau-eau indiv . coûts . Coût électricité auxiliaire
+  valeur: PAC eau-eau indiv . coûts . P1 auxiliaires
 Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS solaire panneau inclus:
-  valeur: PAC eau-eau indiv . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: PAC eau-eau indiv . coûts . investissement chauffe-eau solaire
 Calcul Eco . PAC eau-eau indiv . Investissement ballon ECS à accumulation:
-  valeur: PAC eau-eau indiv . coûts . Investissement ballon ECS à accumulation
+  valeur: PAC eau-eau indiv . coûts . investissement ballon ECS
 Calcul Eco . PAC eau-eau indiv . Investissement équipement Total:
-  valeur: PAC eau-eau indiv . coûts . Investissement équipement Total
+  valeur: PAC eau-eau indiv . coûts . investissement équipement
 Calcul Eco . PAC eau-eau indiv . Investissement équipement par logement type tertiaire:
-  valeur: PAC eau-eau indiv . coûts . Investissement équipement par logement type tertiaire
+  valeur: PAC eau-eau indiv . coûts . investissement par logement
 Calcul Eco . PAC eau-eau indiv . Total investissement avec ballon ECS à accumulation:
-  valeur: PAC eau-eau indiv . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: PAC eau-eau indiv . coûts . investissement total avec ballon ECS
 Calcul Eco . PAC eau-eau indiv . Total investissement ballon ECS solaire panneaux:
-  valeur: PAC eau-eau indiv . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: PAC eau-eau indiv . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . PAC air-air coll:
   valeur: PAC air-air coll . coûts
 Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS solaire:
-  valeur: PAC air-air coll . coûts . Coût combustible pour ballon ECS solaire
+  valeur: PAC air-air coll . coûts . P1 chauffe-eau solaire
 Calcul Eco . PAC air-air coll . Coût combustible pour ballon ECS à accumulation:
-  valeur: PAC air-air coll . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: PAC air-air coll . coûts . P1 ballon ECS
 Calcul Eco . PAC air-air coll . Coût du combustible abonnement:
-  valeur: PAC air-air coll . coûts . Coût du combustible abonnement
+  valeur: PAC air-air coll . coûts . P1 abonnement
 Calcul Eco . PAC air-air coll . Coût du combustible consommation:
-  valeur: PAC air-air coll . coûts . Coût du combustible consommation
+  valeur: PAC air-air coll . coûts . P1 consommation
 Calcul Eco . PAC air-air coll . Coût électricité auxiliaire:
-  valeur: PAC air-air coll . coûts . Coût électricité auxiliaire
+  valeur: PAC air-air coll . coûts . P1 auxiliaires
 Calcul Eco . PAC air-air coll . Investissement ballon ECS solaire panneau inclus:
-  valeur: PAC air-air coll . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: PAC air-air coll . coûts . investissement chauffe-eau solaire
 Calcul Eco . PAC air-air coll . Investissement ballon ECS à accumulation:
-  valeur: PAC air-air coll . coûts . Investissement ballon ECS à accumulation
+  valeur: PAC air-air coll . coûts . investissement ballon ECS
 Calcul Eco . PAC air-air coll . Investissement équipement Total:
-  valeur: PAC air-air coll . coûts . Investissement équipement Total
+  valeur: PAC air-air coll . coûts . investissement équipement
 Calcul Eco . PAC air-air coll . Investissement équipement par logement type tertiaire:
-  valeur: PAC air-air coll . coûts . Investissement équipement par logement type tertiaire
+  valeur: PAC air-air coll . coûts . investissement par logement
 Calcul Eco . PAC air-air coll . Total investissement avec ballon ECS à accumulation:
-  valeur: PAC air-air coll . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: PAC air-air coll . coûts . investissement total avec ballon ECS
 Calcul Eco . PAC air-air coll . Total investissement ballon ECS solaire panneaux:
-  valeur: PAC air-air coll . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: PAC air-air coll . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . PAC air-eau coll:
   valeur: PAC air-eau coll . coûts
 Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS solaire:
-  valeur: PAC air-eau coll . coûts . Coût combustible pour ballon ECS solaire
+  valeur: PAC air-eau coll . coûts . P1 chauffe-eau solaire
 Calcul Eco . PAC air-eau coll . Coût combustible pour ballon ECS à accumulation:
-  valeur: PAC air-eau coll . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: PAC air-eau coll . coûts . P1 ballon ECS
 Calcul Eco . PAC air-eau coll . Coût du combustible abonnement:
-  valeur: PAC air-eau coll . coûts . Coût du combustible abonnement
+  valeur: PAC air-eau coll . coûts . P1 abonnement
 Calcul Eco . PAC air-eau coll . Coût du combustible consommation:
-  valeur: PAC air-eau coll . coûts . Coût du combustible consommation
+  valeur: PAC air-eau coll . coûts . P1 consommation
 Calcul Eco . PAC air-eau coll . Coût électricité auxiliaire:
-  valeur: PAC air-eau coll . coûts . Coût électricité auxiliaire
+  valeur: PAC air-eau coll . coûts . P1 auxiliaires
 Calcul Eco . PAC air-eau coll . Investissement ballon ECS solaire panneau inclus:
-  valeur: PAC air-eau coll . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: PAC air-eau coll . coûts . investissement chauffe-eau solaire
 Calcul Eco . PAC air-eau coll . Investissement ballon ECS à accumulation:
-  valeur: PAC air-eau coll . coûts . Investissement ballon ECS à accumulation
+  valeur: PAC air-eau coll . coûts . investissement ballon ECS
 Calcul Eco . PAC air-eau coll . Investissement équipement Total:
-  valeur: PAC air-eau coll . coûts . Investissement équipement Total
+  valeur: PAC air-eau coll . coûts . investissement équipement
 Calcul Eco . PAC air-eau coll . Investissement équipement par logement type tertiaire:
-  valeur: PAC air-eau coll . coûts . Investissement équipement par logement type tertiaire
+  valeur: PAC air-eau coll . coûts . investissement par logement
 Calcul Eco . PAC air-eau coll . Total investissement avec ballon ECS à accumulation:
-  valeur: PAC air-eau coll . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: PAC air-eau coll . coûts . investissement total avec ballon ECS
 Calcul Eco . PAC air-eau coll . Total investissement ballon ECS solaire panneaux:
-  valeur: PAC air-eau coll . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: PAC air-eau coll . coûts . investissement total avec chauffe-eau solaire
 
 Calcul Eco . PAC eau-eau coll:
   valeur: PAC eau-eau coll . coûts
 Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS solaire:
-  valeur: PAC eau-eau coll . coûts . Coût combustible pour ballon ECS solaire
+  valeur: PAC eau-eau coll . coûts . P1 chauffe-eau solaire
 Calcul Eco . PAC eau-eau coll . Coût combustible pour ballon ECS à accumulation:
-  valeur: PAC eau-eau coll . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: PAC eau-eau coll . coûts . P1 ballon ECS
 Calcul Eco . PAC eau-eau coll . Coût du combustible abonnement:
-  valeur: PAC eau-eau coll . coûts . Coût du combustible abonnement
+  valeur: PAC eau-eau coll . coûts . P1 abonnement
 Calcul Eco . PAC eau-eau coll . Coût du combustible consommation:
-  valeur: PAC eau-eau coll . coûts . Coût du combustible consommation
+  valeur: PAC eau-eau coll . coûts . P1 consommation
 Calcul Eco . PAC eau-eau coll . Coût électricité auxiliaire:
-  valeur: PAC eau-eau coll . coûts . Coût électricité auxiliaire
+  valeur: PAC eau-eau coll . coûts . P1 auxiliaires
 Calcul Eco . PAC eau-eau coll . Investissement ballon ECS solaire panneau inclus:
-  valeur: PAC eau-eau coll . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: PAC eau-eau coll . coûts . investissement chauffe-eau solaire
 Calcul Eco . PAC eau-eau coll . Investissement ballon ECS à accumulation:
-  valeur: PAC eau-eau coll . coûts . Investissement ballon ECS à accumulation
+  valeur: PAC eau-eau coll . coûts . investissement ballon ECS
 Calcul Eco . PAC eau-eau coll . Investissement équipement Total:
-  valeur: PAC eau-eau coll . coûts . Investissement équipement Total
+  valeur: PAC eau-eau coll . coûts . investissement équipement
 Calcul Eco . PAC eau-eau coll . Investissement équipement par logement type tertiaire:
-  valeur: PAC eau-eau coll . coûts . Investissement équipement par logement type tertiaire
+  valeur: PAC eau-eau coll . coûts . investissement par logement
 Calcul Eco . PAC eau-eau coll . Total investissement avec ballon ECS à accumulation:
-  valeur: PAC eau-eau coll . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: PAC eau-eau coll . coûts . investissement total avec ballon ECS
 Calcul Eco . PAC eau-eau coll . Total investissement ballon ECS solaire panneaux:
-  valeur: PAC eau-eau coll . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: PAC eau-eau coll . coûts . investissement total avec chauffe-eau solaire
 
 Bilan x Radiateur électrique:
   valeur: radiateur électrique . bilan
@@ -1810,27 +1810,27 @@ Bilan x PAC eau-eau indiv . total sans installation:
 Calcul Eco . Fioul indiv:
   valeur: fioul indiv . coûts
 Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS solaire:
-  valeur: fioul indiv . coûts . Coût combustible pour ballon ECS solaire
+  valeur: fioul indiv . coûts . P1 chauffe-eau solaire
 Calcul Eco . Fioul indiv . Coût combustible pour ballon ECS à accumulation:
-  valeur: fioul indiv . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: fioul indiv . coûts . P1 ballon ECS
 Calcul Eco . Fioul indiv . Coût du combustible abonnement:
-  valeur: fioul indiv . coûts . Coût du combustible abonnement
+  valeur: fioul indiv . coûts . P1 abonnement
 Calcul Eco . Fioul indiv . Coût du combustible consommation:
-  valeur: fioul indiv . coûts . Coût du combustible consommation
+  valeur: fioul indiv . coûts . P1 consommation
 Calcul Eco . Fioul indiv . Coût électricité auxiliaire:
-  valeur: fioul indiv . coûts . Coût électricité auxiliaire
+  valeur: fioul indiv . coûts . P1 auxiliaires
 Calcul Eco . Fioul indiv . Investissement ballon ECS solaire panneau inclus:
-  valeur: fioul indiv . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: fioul indiv . coûts . investissement chauffe-eau solaire
 Calcul Eco . Fioul indiv . Investissement ballon ECS à accumulation:
-  valeur: fioul indiv . coûts . Investissement ballon ECS à accumulation
+  valeur: fioul indiv . coûts . investissement ballon ECS
 Calcul Eco . Fioul indiv . Investissement équipement Total:
-  valeur: fioul indiv . coûts . Investissement équipement Total
+  valeur: fioul indiv . coûts . investissement équipement
 Calcul Eco . Fioul indiv . Investissement équipement par logement type tertiaire:
-  valeur: fioul indiv . coûts . Investissement équipement par logement type tertiaire
+  valeur: fioul indiv . coûts . investissement par logement
 Calcul Eco . Fioul indiv . Total investissement avec ballon ECS à accumulation:
-  valeur: fioul indiv . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: fioul indiv . coûts . investissement total avec ballon ECS
 Calcul Eco . Fioul indiv . Total investissement ballon ECS solaire panneaux:
-  valeur: fioul indiv . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: fioul indiv . coûts . investissement total avec chauffe-eau solaire
 
 Bilan x PAC air-air coll:
   valeur: PAC air-air coll . bilan
@@ -1920,27 +1920,27 @@ Bilan x PAC eau-eau coll . total sans installation:
 Calcul Eco . Fioul coll:
   valeur: fioul coll . coûts
 Calcul Eco . Fioul coll . Coût combustible pour ballon ECS solaire:
-  valeur: fioul coll . coûts . Coût combustible pour ballon ECS solaire
+  valeur: fioul coll . coûts . P1 chauffe-eau solaire
 Calcul Eco . Fioul coll . Coût combustible pour ballon ECS à accumulation:
-  valeur: fioul coll . coûts . Coût combustible pour ballon ECS à accumulation
+  valeur: fioul coll . coûts . P1 ballon ECS
 Calcul Eco . Fioul coll . Coût du combustible abonnement:
-  valeur: fioul coll . coûts . Coût du combustible abonnement
+  valeur: fioul coll . coûts . P1 abonnement
 Calcul Eco . Fioul coll . Coût du combustible consommation:
-  valeur: fioul coll . coûts . Coût du combustible consommation
+  valeur: fioul coll . coûts . P1 consommation
 Calcul Eco . Fioul coll . Coût électricité auxiliaire:
-  valeur: fioul coll . coûts . Coût électricité auxiliaire
+  valeur: fioul coll . coûts . P1 auxiliaires
 Calcul Eco . Fioul coll . Investissement ballon ECS solaire panneau inclus:
-  valeur: fioul coll . coûts . Investissement ballon ECS solaire panneau inclus
+  valeur: fioul coll . coûts . investissement chauffe-eau solaire
 Calcul Eco . Fioul coll . Investissement ballon ECS à accumulation:
-  valeur: fioul coll . coûts . Investissement ballon ECS à accumulation
+  valeur: fioul coll . coûts . investissement ballon ECS
 Calcul Eco . Fioul coll . Investissement équipement Total:
-  valeur: fioul coll . coûts . Investissement équipement Total
+  valeur: fioul coll . coûts . investissement équipement
 Calcul Eco . Fioul coll . Investissement équipement par logement type tertiaire:
-  valeur: fioul coll . coûts . Investissement équipement par logement type tertiaire
+  valeur: fioul coll . coûts . investissement par logement
 Calcul Eco . Fioul coll . Total investissement avec ballon ECS à accumulation:
-  valeur: fioul coll . coûts . Total investissement avec ballon ECS à accumulation
+  valeur: fioul coll . coûts . investissement total avec ballon ECS
 Calcul Eco . Fioul coll . Total investissement ballon ECS solaire panneaux:
-  valeur: fioul coll . coûts . Total investissement ballon ECS solaire panneaux
+  valeur: fioul coll . coûts . investissement total avec chauffe-eau solaire
 
 Bilan x Fioul indiv:
   valeur: fioul indiv . bilan

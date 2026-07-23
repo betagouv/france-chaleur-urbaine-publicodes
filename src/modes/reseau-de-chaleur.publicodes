@@ -53,10 +53,10 @@ réseau de chaleur:
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
-        puissance nécessaire équipement chauffage:
+        puissance chauffage:
           formule: (Calcul . Chauffage Puissance chauffage appelée / ratios . rendement sous station chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
-        puissance nécessaire pour ECS avec équipement:
+        puissance ECS:
           variations:
             - si:
                 toutes ces conditions:
@@ -67,42 +67,42 @@ réseau de chaleur:
           unité: kW
         puissance équipement:
           somme:
-            - puissance nécessaire équipement chauffage
-            - puissance nécessaire pour ECS avec équipement
+            - puissance chauffage
+            - puissance ECS
           unité: kW
-        gamme de puissance existante:
+        puissance retenue:
           formule: puissance équipement
           unité: kW
-        besoin d'installation supplémentaire pour produire l'ECS:
+        ECS additionnelle nécessaire:
           # valeur commune à tous les types d'installations
           toutes ces conditions:
             - Production eau chaude sanitaire
-            - puissance nécessaire pour ECS avec équipement <= 0
+            - puissance ECS <= 0
         volume du ballon ECS:
           variations:
             - si:
                 toutes ces conditions:
-                  - besoin d'installation supplémentaire pour produire l'ECS
+                  - ECS additionnelle nécessaire
                   - type de production ECS != "Solaire thermique"
               alors: volume du ballon ECS
             - sinon: 50
           unité: L
-        consommation d'électricité chauffe-eau électrique:
+        consommation chauffe-eau électrique:
           # valeur commune à tous les types d'installations
           variations:
             - si:
                 toutes ces conditions:
-                  - besoin d'installation supplémentaire pour produire l'ECS
+                  - ECS additionnelle nécessaire
                   - type de production ECS != 'Solaire thermique'
               alors: chauffe-eau électrique x consommation d'électricité
             - sinon: 0
           unité: kWh/an
-        appoint d'électricité chauffe-eau solaire:
+        appoint chauffe-eau solaire:
           # valeur commune à tous les types d'installations
           variations:
             - si:
                 toutes ces conditions:
-                  - besoin d'installation supplémentaire pour produire l'ECS
+                  - ECS additionnelle nécessaire
                   - type de production ECS = 'Solaire thermique'
               alors: chauffe-eau solaire x appoint d'électricité
             - sinon: 0
@@ -132,109 +132,102 @@ réseau de chaleur:
                   alors: (1 - ratios . conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
                 - sinon: 0
           unité: kWh elec
-        consommation combustible hors électricité:
+        consommation hors électricité:
           formule: consommation combustible chaleur
-        consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS:
+        consommation électricité:
           variations:
-            - si: besoin d'installation supplémentaire pour produire l'ECS
-              alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
+            - si: ECS additionnelle nécessaire
+              alors: consommation auxiliaire + consommation chauffe-eau électrique + chauffe-eau solaire x appoint d'électricité
             - sinon: consommation auxiliaire
           unité: kWh/an
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        Investissement raccordement:
+        investissement raccordement:
           valeur: Investissement x frais de raccordement au réseaux x RCU
           unité: €TTC
-        Investissement raccordement par logement type tertiaire:
-          valeur: Investissement raccordement / nombre de logements dans l'immeuble concerné
+        investissement raccordement par logement:
+          valeur: investissement raccordement / nombre de logements dans l'immeuble concerné
           unité: €TTC
-        Investissement reseau secondaire RCU:
+        investissement réseau secondaire:
           produit:
             - ratios économiques . Réseaux x Coût Investissement SST RCU
             - 1 + ratios économiques . Investissement x TVA
-        Investissement reseau secondaire RCU par logement type tertiaire:
-          valeur: Investissement reseau secondaire RCU / nombre de logements dans l'immeuble concerné
+        investissement réseau secondaire par logement:
+          valeur: investissement réseau secondaire / nombre de logements dans l'immeuble concerné
           unité: €TTC
-        Investissement équipement Total:
-          valeur: Investissement raccordement + Investissement reseau secondaire RCU
-        Investissement équipement par logement type tertiaire:
-          valeur : Investissement raccordement par logement type tertiaire + Investissement reseau secondaire RCU par logement type tertiaire
+        investissement équipement:
+          valeur: investissement raccordement + investissement réseau secondaire
+        investissement par logement:
+          valeur : investissement raccordement par logement + investissement réseau secondaire par logement
           unité: €TTC
-        Investissement ballon ECS à accumulation:
+        investissement ballon ECS:
           variations:
-            - si: installation . besoin d'installation supplémentaire pour produire l'ECS
-              alors: Calcul Eco . Investissement ballon ECS à accumulation
+            - si: installation . ECS additionnelle nécessaire
+              alors: Calcul Eco . investissement ballon ECS
             - sinon: 0
           unité: €TTC
-        Investissement ballon ECS solaire panneau inclus:
+        investissement chauffe-eau solaire:
           applicable si:
             toutes ces conditions:
-              - installation . besoin d'installation supplémentaire pour produire l'ECS
+              - installation . ECS additionnelle nécessaire
               - type de production ECS = "Solaire thermique"
           formule: Calcul Eco . Investissement ballon ECS panneau inclus
           unité: €TTC
-        Total investissement avec ballon ECS à accumulation:
-          valeur: Investissement raccordement par logement type tertiaire + Investissement ballon ECS à accumulation
+        investissement total avec ballon ECS:
+          valeur: investissement raccordement par logement + investissement ballon ECS
           unité: €TTC
-        Total investissement ballon ECS solaire panneaux:
-          valeur: Investissement raccordement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
+        investissement total avec chauffe-eau solaire:
+          valeur: investissement raccordement par logement + investissement chauffe-eau solaire
           unité: €TTC
 
-        Coût du combustible abonnement:
+        P1 abonnement:
           somme:
             - variations:
                 - si:
                     toutes ces conditions:
                       - Inclure la climatisation
                       - type de production de froid = 'Réseau de froid'
-                  alors: réseau de froid . coûts . Coût du combustible abonnement
+                  alors: réseau de froid . coûts . P1 abonnement
                 - sinon: 0
             - produit:
                 - combustibles . réseau de chaleur . abonnement
                 - installation . consommation combustible chaleur
           unité: €TTC/an
-          note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
-        Coût du combustible consommation:
+        P1 consommation:
           produit:
             - combustibles . réseau de chaleur . consommation
             - installation . consommation combustible chaleur
           unité: €TTC/an
-          note: 'Coût du combustible consommation (P1 conso) €TTC/an'
-        Coût électricité auxiliaire:
+        P1 auxiliaires:
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
-          unité: €TTC/an
-          note: "Coût électricité auxiliaire (P1') €TTC/an"
-        Coût combustible pour ballon ECS à accumulation:
-          applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
+          unité: €TTC/an) €TTC/an"
+        P1 ballon ECS:
+          applicable si: installation . consommation chauffe-eau électrique >= 0
           produit:
             - combustibles . électricité . consommation individuel
-            - installation . consommation d'électricité chauffe-eau électrique
+            - installation . consommation chauffe-eau électrique
           unité: €TTC/an
-          note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
-        Coût combustible pour ballon ECS solaire:
-          applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
+        P1 chauffe-eau solaire:
+          applicable si: installation . appoint chauffe-eau solaire >= 0
           produit:
             - combustibles . électricité . consommation individuel
-            - installation . appoint d'électricité chauffe-eau solaire
+            - installation . appoint chauffe-eau solaire
           unité: €TTC/an
-          note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
-        Coût combustible froid:
+        P1 froid:
           variations:
             - si:
                 toutes ces conditions:
                   - Inclure la climatisation
                   - type de production de froid = 'Réseau de froid'
-              alors: réseau de froid . coûts . Coût combustible froid
+              alors: réseau de froid . coûts . P1 froid
             - sinon:
                 produit:
                   - combustibles . électricité . consommation collectif
                   - installation . consommation Groupe Froid
           unité: €TTC/an
-    entretien:
-      avec:
         petit entretien P2:
             produit:
               - ratios . petit entretien P2
@@ -477,9 +470,9 @@ réseau de chaleur:
               - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
           unité: kgCO2e
         ECS solaire thermique:
-          formule: installation . appoint d'électricité chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+          formule: installation . appoint chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
         ECS avec ballon électrique:
-          formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+          formule: installation . consommation chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         Scope 2:
           somme:
             - auxiliaires et combustible électrique
@@ -499,37 +492,37 @@ réseau de chaleur:
           unité: kgCO2e/an
     bilan:
       avec:
-        P1abo: coûts . Coût du combustible abonnement
-        P1conso: coûts . Coût du combustible consommation
-        P1prime: coûts . Coût électricité auxiliaire + Calcul Bilan . Surcout Réseau de froid P1prime
+        P1abo: coûts . P1 abonnement
+        P1conso: coûts . P1 consommation
+        P1prime: coûts . P1 auxiliaires + Calcul Bilan . Surcout Réseau de froid P1prime
         P1ECS:
           le maximum de:
-            - coûts . Coût combustible pour ballon ECS à accumulation
-            - coûts . Coût combustible pour ballon ECS solaire
-        P1Consofroid: coûts . Coût combustible froid
-        P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
-        P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
+            - coûts . P1 ballon ECS
+            - coûts . P1 chauffe-eau solaire
+        P1Consofroid: coûts . P1 froid
+        P2: coûts . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
+        P3: coûts . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
 
         P4 raccordement:
-          formule: coûts . Investissement raccordement par logement type tertiaire * facteur d'annuité raccordement
+          formule: coûts . investissement raccordement par logement * facteur d'annuité raccordement
 
-        P4 reseau secondaire:
-          formule: coûts . Investissement reseau secondaire RCU par logement type tertiaire * facteur d'annuité sous station
+        P4 réseau secondaire:
+          formule: coûts . investissement réseau secondaire par logement * facteur d'annuité sous station
 
-        P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
+        P4 ballon ECS:
+          formule: coûts . investissement ballon ECS * facteur d'annuité chauffe-eau électrique
 
-        P4ECS Solaire Thermique:
+        P4 chauffe-eau solaire:
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . Investissement ballon ECS solaire panneau inclus * facteur d'annuité chauffe-eau solaire
+              alors: coûts . investissement chauffe-eau solaire * facteur d'annuité chauffe-eau solaire
             - sinon: 0
         P4:
           somme:
             - P4 raccordement
-            - P4 reseau secondaire
-            - P4ECS Ballon électrique
-            - P4ECS Solaire Thermique
+            - P4 réseau secondaire
+            - P4 ballon ECS
+            - P4 chauffe-eau solaire
             - Calcul Bilan . P4 groupe froid
             - Calcul Bilan . P4 Réseau de froid
         aides spécifiques:
@@ -589,43 +582,43 @@ ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel:
 
 ratios économiques . Réseaux x Coût Investissement SST RCU:
   variations:
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 100
+    - si: réseau de chaleur . installation . puissance retenue <= 100
       alors: 21500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 150
+    - si: réseau de chaleur . installation . puissance retenue <= 150
       alors: 22500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 200
+    - si: réseau de chaleur . installation . puissance retenue <= 200
       alors: 23500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 250
+    - si: réseau de chaleur . installation . puissance retenue <= 250
       alors: 24500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 300
+    - si: réseau de chaleur . installation . puissance retenue <= 300
       alors: 25500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 350
+    - si: réseau de chaleur . installation . puissance retenue <= 350
       alors: 26000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 400
+    - si: réseau de chaleur . installation . puissance retenue <= 400
       alors: 27000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 500
+    - si: réseau de chaleur . installation . puissance retenue <= 500
       alors: 28000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 600
+    - si: réseau de chaleur . installation . puissance retenue <= 600
       alors: 30000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 700
+    - si: réseau de chaleur . installation . puissance retenue <= 700
       alors: 32000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 800
+    - si: réseau de chaleur . installation . puissance retenue <= 800
       alors: 33500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 900
+    - si: réseau de chaleur . installation . puissance retenue <= 900
       alors: 35500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 1000
+    - si: réseau de chaleur . installation . puissance retenue <= 1000
       alors: 37500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 1500
+    - si: réseau de chaleur . installation . puissance retenue <= 1500
       alors: 39000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 2000
+    - si: réseau de chaleur . installation . puissance retenue <= 2000
       alors: 48500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 2500
+    - si: réseau de chaleur . installation . puissance retenue <= 2500
       alors: 57500
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 3000
+    - si: réseau de chaleur . installation . puissance retenue <= 3000
       alors: 67000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 4500
+    - si: réseau de chaleur . installation . puissance retenue <= 4500
       alors: 76000
-    - si: réseau de chaleur . installation . gamme de puissance existante <= 6000
+    - si: réseau de chaleur . installation . puissance retenue <= 6000
       alors: 104000
     - sinon: 132000
   unité: €HT

@@ -62,7 +62,7 @@ Calcul Bilan:
           alors:
             variations:
               - si: type de production de froid = 'Réseau de froid'
-                alors: réseau de froid . entretien . petit entretien P2 par logement tertiaire
+                alors: réseau de froid . coûts . petit entretien P2 par logement tertiaire
               - sinon:
                   variations:
                     - si: type de bâtiment = 'résidentiel'
@@ -77,7 +77,7 @@ Calcul Bilan:
           alors:
             variations:
               - si: type de production de froid = 'Réseau de froid'
-                alors: réseau de froid . entretien . gros entretien P3 par logement tertiaire
+                alors: réseau de froid . coûts . gros entretien P3 par logement tertiaire
               - sinon:
                   variations:
                     - si: type de bâtiment = 'résidentiel'
@@ -92,7 +92,7 @@ Calcul Bilan:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: réseau de froid . coûts . Coût électricité auxiliaire
+          alors: réseau de froid . coûts . P1 auxiliaires
         - sinon: 0
 
     P4 groupe froid:
@@ -106,7 +106,7 @@ Calcul Bilan:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: réseau de froid . coûts . Investissement équipement par logement type tertiaire * réseau de froid . facteur d'annuité
+          alors: réseau de froid . coûts . investissement par logement * réseau de froid . facteur d'annuité
         - sinon: 0
 
     Amortissement aides réseau de froid:
