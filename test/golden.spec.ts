@@ -1,4 +1,4 @@
-import Engine, { type Situation } from "publicodes";
+import Engine, { serializeUnit, type Situation } from "publicodes";
 import { describe, expect, it } from "vitest";
 import rules from "../publicodes-build/france-chaleur-urbaine-publicodes.model.json" with {
 	type: "json",
@@ -92,6 +92,63 @@ const situations: Record<string, Situation<RuleName>> = {
 		"Production eau chaude sanitaire": "oui",
 		"type de production ECS": "'Avec équipement chauffage'",
 	},
+	// --- situations représentatives des embranchements majeurs ---
+	"maison DPE F hors IdF - HP/HC - avec aides modeste": {
+		...commonSituation,
+		"code département": "'69'",
+		"ratios . GNRL Appartement ou maison": "'Maison'",
+		DPE: "'F'",
+		"combustibles . électricité . option tarifaire": "'Heure pleine/Heure creuse'",
+		"surface logement type tertiaire": 80,
+		"Inclure la climatisation": "non",
+		"Production eau chaude sanitaire": "oui",
+		"type de production ECS": "'Avec équipement chauffage'",
+		"Paramètres économiques . Aides . Éligibilité x Prise en compte des aides":
+			"oui",
+		"Paramètres économiques . Aides . Éligibilité x Je suis un particulier":
+			"oui",
+		"Paramètres économiques . Aides . Éligibilité x Ressources du ménage":
+			"'Modeste'",
+		"Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul":
+			"oui",
+	},
+	"immeuble avant 1974 - Marseille - 60 logements - réseau de froid": {
+		...commonSituation,
+		"code département": "'13'",
+		"méthode résidentiel": "'Normes thermiques et âge du bâtiment'",
+		"normes thermiques et âge du bâtiment": "'avant 1974'",
+		"nombre de logements dans l'immeuble concerné": 60,
+		"Inclure la climatisation": "oui",
+		"type de production de froid": "'Réseau de froid'",
+		"Production eau chaude sanitaire": "oui",
+		"type de production ECS": "'Avec équipement chauffage'",
+	},
+	"petit collectif RE2020 - sans ECS ni clim": {
+		...commonSituation,
+		"méthode résidentiel": "'Normes thermiques et âge du bâtiment'",
+		"normes thermiques et âge du bâtiment": "'RE2020 - Après 2020'",
+		"nombre de logements dans l'immeuble concerné": 10,
+		"Inclure la climatisation": "non",
+		"Production eau chaude sanitaire": "non",
+	},
+	"tertiaire commerces RT2012 - 2000 m2 - groupe froid": {
+		...commonSituation,
+		"type de bâtiment": "'tertiaire'",
+		"méthode tertiaire": "'Commerces'",
+		"normes thermiques tertiaire": "'RT2012'",
+		"ratios . GNRL Surface de référence tertiaire": 2000,
+		"Inclure la climatisation": "oui",
+		"type de production de froid": "'Groupe froid'",
+		"Production eau chaude sanitaire": "oui",
+		"type de production ECS": "'Avec équipement chauffage'",
+	},
+	"parc social moyen - besoins de chauffage imposés": {
+		...commonSituation,
+		"besoins chauffage par appartement": 7320,
+		"Inclure la climatisation": "non",
+		"Production eau chaude sanitaire": "oui",
+		"type de production ECS": "'Avec équipement chauffage'",
+	},
 };
 
 // [nom Bilan / Calcul Eco, nom env . Installation x …]
@@ -144,15 +201,23 @@ const addOnKeys = [
 	"Bilan x Système solaire combiné . total sans installation",
 ] satisfies RuleName[];
 
-// Arrondi à 2 décimales pour neutraliser le bruit flottant sans masquer les écarts réels
-const round = (value: unknown) =>
-	typeof value === "number" ? Math.round(value * 100) / 100 : value;
+// Arrondi à 2 décimales pour neutraliser le bruit flottant sans masquer les écarts réels.
+// L'unité est snapshotée avec la valeur : un changement d'unité est une régression
+// au même titre qu'un changement de valeur.
+const format = (node: { nodeValue: unknown; unit?: Parameters<typeof serializeUnit>[0] }) => {
+	const value =
+		typeof node.nodeValue === "number"
+			? Math.round(node.nodeValue * 100) / 100
+			: node.nodeValue;
+	const unit = node.unit ? serializeUnit(node.unit) : undefined;
+	return unit ? `${value} ${unit}` : value;
+};
 
 const evaluateKeys = (engine: Engine, keys: string[]) =>
 	Object.fromEntries(
 		keys
 			.filter((key) => key in rules)
-			.map((key) => [key, round(engine.evaluate(key as RuleName).nodeValue)]),
+			.map((key) => [key, format(engine.evaluate(key as RuleName))]),
 	);
 
 describe("Golden master — valeurs finales par mode de chauffage", () => {
