@@ -167,38 +167,38 @@ PAC air-eau indiv:
                       - type de production de froid = 'Réseau de froid'
                   alors: réseau de froid . coûts . Coût du combustible abonnement
                 - sinon: 0
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement
+            - combustibles . électricité . abonnement individuel
           unité: €TTC/an
           note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
         Coût du combustible consommation:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . consommation combustible chaleur
           unité: €TTC/an
           note: 'Coût du combustible consommation (P1 conso) €TTC/an'
         Coût électricité auxiliaire:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation: &couts-cout-combustible-pour-ballon-ecs-a-accumulation
           applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . consommation d'électricité chauffe-eau électrique
           unité: €TTC/an
           note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
         Coût combustible pour ballon ECS solaire: &couts-cout-combustible-pour-ballon-ecs-solaire
           applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
         Coût combustible froid: &couts-cout-combustible-froid
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - combustibles . électricité . consommation collectif
             - installation . consommation combustible froid
           unité: €TTC/an
     entretien:
@@ -423,18 +423,18 @@ PAC air-eau coll:
                       - type de production de froid = 'Réseau de froid'
                   alors: réseau de froid . coûts . Coût du combustible abonnement
                 - sinon: 0
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement / nombre de logements dans l'immeuble concerné
+            - combustibles . électricité . abonnement collectif / nombre de logements dans l'immeuble concerné
           unité: €TTC/an
           note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
         Coût du combustible consommation:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - combustibles . électricité . consommation collectif
             - installation . consommation combustible chaleur
           unité: €TTC/an
           note: 'Coût du combustible consommation (P1 conso) €TTC/an'
         Coût électricité auxiliaire:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+            - combustibles . électricité . consommation collectif
             - installation . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"

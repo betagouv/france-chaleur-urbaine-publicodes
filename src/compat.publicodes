@@ -2341,3 +2341,186 @@ ratios . RCU Durée avant renouvellement:
 
 ratios . RFU Durée de vie:
   valeur: réseau de froid . ratios . durée de vie
+
+# --- Combustibles : anciennes clés par type de calcul (table de migration UI) ---
+
+Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part abonnement:
+  valeur: combustibles . réseau de chaleur . abonnement
+
+Calcul Eco . Coût d'achat du combustible . Chaleur RCU x Part consommation:
+  valeur: combustibles . réseau de chaleur . consommation
+
+Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement:
+  valeur: combustibles . réseau de froid . abonnement
+
+Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation:
+  valeur: combustibles . réseau de froid . consommation
+
+Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part abonnement:
+  valeur: combustibles . électricité . abonnement individuel
+
+Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HP:
+  valeur: combustibles . électricité . consommation individuel HP
+
+Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC:
+  valeur: combustibles . électricité . consommation individuel HC
+
+Calcul Eco . Coût d'achat du combustible . Electricité coll x Part abonnement:
+  valeur: combustibles . électricité . abonnement collectif
+
+Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation:
+  valeur: combustibles . électricité . consommation collectif
+
+Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part abonnement:
+  valeur: combustibles . gaz . abonnement individuel
+
+Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation:
+  valeur: combustibles . gaz . consommation individuel
+
+Calcul Eco . Coût d'achat du combustible . Gaz coll x Part abonnement:
+  valeur: combustibles . gaz . abonnement collectif
+
+Calcul Eco . Coût d'achat du combustible . Gaz coll x Part consommation:
+  valeur: combustibles . gaz . consommation collectif
+
+Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation:
+  valeur: combustibles . granulés . consommation
+
+Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation:
+  valeur: combustibles . fioul . consommation
+
+Paramètres économiques . Electricité x Option tarifaire:
+  valeur: combustibles . électricité . option tarifaire
+
+Paramètres économiques . Electricité x Puissance souscrite indiv:
+  valeur: combustibles . électricité . puissance souscrite individuel
+
+Paramètres économiques . Electricité x Puissance souscrite coll:
+  valeur: combustibles . électricité . puissance souscrite collectif
+
+Paramètres économiques . Electricité x Abonnement Part Fixe indiv:
+  valeur: combustibles . électricité . abonnement part fixe individuel
+
+Paramètres économiques . Electricité x Abonnement Part Fixe coll:
+  valeur: combustibles . électricité . abonnement part fixe collectif
+
+Paramètres économiques . Electricité x Consommation Part variable en heure pleine:
+  valeur: combustibles . électricité . part variable heure pleine
+
+Paramètres économiques . Electricité x Consommation Part variable en heure creuse:
+  valeur: combustibles . électricité . part variable heure creuse
+
+Paramètres économiques . Electricité x Taxe . Part Fixe x TVA:
+  valeur: combustibles . électricité . taxes . Part Fixe x TVA
+
+Paramètres économiques . Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE:
+  valeur: combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+
+Paramètres économiques . Electricité x Taxe . Part Variable x TVA:
+  valeur: combustibles . électricité . taxes . Part Variable x TVA
+
+Paramètres économiques . Gaz x Puissance souscrite pour calcul installation collective ou tertiaire:
+  valeur: combustibles . gaz . puissance souscrite collectif ou tertiaire
+
+Paramètres économiques . Gaz x Abonnement x Part Fixe TTC collectif ou tertiaire:
+  valeur: combustibles . gaz . abonnement part fixe collectif ou tertiaire
+
+Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT:
+  valeur: combustibles . gaz . abonnement part fixe individuel . coût distribution HT
+
+Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT:
+  valeur: combustibles . gaz . abonnement part fixe individuel . coûts commerciaux hors CEE HT
+
+Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel:
+  valeur: combustibles . gaz . abonnement part fixe individuel
+
+Paramètres économiques . Gaz x Consommation x Part Variable TTC:
+  valeur: combustibles . gaz . consommation part variable TTC
+
+Paramètres économiques . Gaz x Coût de la molécule HT:
+  valeur: combustibles . gaz . coût de la molécule HT
+
+Paramètres économiques . Gaz x Coût de transport HT:
+  valeur: combustibles . gaz . coût de transport HT
+
+Paramètres économiques . Gaz x Coût distribution HT:
+  valeur: combustibles . gaz . coût distribution HT
+
+Paramètres économiques . Gaz x Coût des CEE HT:
+  valeur: combustibles . gaz . coût des CEE HT
+
+Paramètres économiques . Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA:
+  valeur: combustibles . gaz . taxes . CTA
+
+Paramètres économiques . Gaz x Taxe x Part fixe x TVA:
+  valeur: combustibles . gaz . taxes . TVA part fixe
+
+Paramètres économiques . Gaz x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN:
+  valeur: combustibles . gaz . taxes . TICGN
+
+Paramètres économiques . Gaz x Taxe x Part variable x TVA:
+  valeur: combustibles . gaz . taxes . TVA part variable
+
+Paramètres économiques . Granulés . Prix pour les granulés:
+  valeur: combustibles . granulés . Prix pour les granulés
+
+Paramètres économiques . Granulés . TVA:
+  valeur: combustibles . granulés . TVA
+
+Paramètres économiques . Granulés . Type de conditionnement:
+  valeur: combustibles . granulés . Type de conditionnement
+
+Paramètres économiques . Fioul . Prix livraison incluse:
+  valeur: combustibles . fioul . Prix livraison incluse
+
+Paramètres économiques . Fioul . TICPE:
+  valeur: combustibles . fioul . TICPE
+
+Paramètres économiques . Fioul . TVA:
+  valeur: combustibles . fioul . TVA
+
+Paramètres économiques . Réseaux chaleur . Coût:
+  valeur: combustibles . réseau de chaleur . Coût
+
+Paramètres économiques . Réseaux chaleur . Part fixe:
+  valeur: combustibles . réseau de chaleur . Part fixe
+
+Paramètres économiques . Réseaux chaleur . Part variable:
+  valeur: combustibles . réseau de chaleur . Part variable
+
+Paramètres économiques . Réseaux froid . Coût:
+  valeur: combustibles . réseau de froid . Coût
+
+Paramètres économiques . Réseaux froid . Part fixe:
+  valeur: combustibles . réseau de froid . Part fixe
+
+Paramètres économiques . Réseaux froid . Part variable:
+  valeur: combustibles . réseau de froid . Part variable
+
+ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC:
+  valeur: combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HC
+
+ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP:
+  valeur: combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HP
+
+# parents des chaînes d'alias ci-dessus
+Paramètres économiques . Electricité x Taxe:
+  valeur: combustibles . électricité . taxes
+
+Paramètres économiques . Granulés:
+  valeur: combustibles . granulés
+
+Paramètres économiques . Fioul:
+  valeur: combustibles . fioul
+
+Paramètres économiques . Réseaux chaleur:
+  valeur: combustibles . réseau de chaleur
+
+Paramètres économiques . Réseaux froid:
+  valeur: combustibles . réseau de froid
+
+ratios économiques . Coût des combustibles x Electricité:
+  valeur: combustibles . électricité . tarifs
+
+ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse:
+  valeur: combustibles . électricité . tarifs . Heure pleine x Heure creuse

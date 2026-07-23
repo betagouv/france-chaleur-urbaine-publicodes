@@ -62,19 +62,19 @@ réseau de froid:
           unité: €TTC
         Coût du combustible abonnement:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
+            - combustibles . réseau de froid . abonnement
             - installation . consommation combustible froid
           unité: €TTC/an
           note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
         Coût électricité auxiliaire:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible froid:
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part consommation
+            - combustibles . réseau de froid . consommation
             - installation . consommation combustible froid
           unité: €TTC/an
     entretien:

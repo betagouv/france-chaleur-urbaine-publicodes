@@ -29,7 +29,7 @@ Bilan x Solaire thermique:
     total sans installation:
       produit:
         - besoins eau chaude sanitaire par appartement
-        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation # prix du gaz €/kWh
+        - combustibles . gaz . consommation individuel # prix du gaz €/kWh
         - 50 % # taux de couverture solaire
 
 Bilan x PAC capteurs solaires atmosphériques:
@@ -40,14 +40,14 @@ Bilan x PAC air-eau collective ECS:
   avec:
     total sans installation:
       produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+        - combustibles . électricité . consommation collectif
         - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
 
 Bilan x Chauffe-eau thermodynamique:
   avec:
     total sans installation:
       produit:
-        - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+        - combustibles . électricité . consommation individuel
         - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
 
 Bilan x Système solaire combiné:
@@ -55,5 +55,5 @@ Bilan x Système solaire combiné:
     total sans installation:
       produit:
         - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-        - Calcul Eco . Coût d'achat du combustible . Gaz indiv x Part consommation # prix du gaz €/kWh
+        - combustibles . gaz . consommation individuel # prix du gaz €/kWh
         - 50 % # taux de couverture solaire

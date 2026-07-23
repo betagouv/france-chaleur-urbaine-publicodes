@@ -151,27 +151,27 @@ poêle à granulés:
           note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
         Coût du combustible consommation: &couts-cout-du-combustible-consommation
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Granulés x Part consommation
+            - combustibles . granulés . consommation
             - installation . consommation combustible chaleur
           unité: €TTC/an
           note: 'Coût du combustible consommation (P1 conso) €TTC/an'
         Coût électricité auxiliaire: &couts-cout-electricite-auxiliaire
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
           unité: €TTC/an
           note: "Coût électricité auxiliaire (P1') €TTC/an"
         Coût combustible pour ballon ECS à accumulation: &couts-cout-combustible-pour-ballon-ecs-a-accumulation
           applicable si: installation . consommation d'électricité chauffe-eau électrique >= 0
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . consommation d'électricité chauffe-eau électrique
           unité: €TTC/an
           note: 'Coût combustible pour ballon ECS à accumulation (P1 ECS) €TTC/an'
         Coût combustible pour ballon ECS solaire: &couts-cout-combustible-pour-ballon-ecs-solaire
           applicable si: installation . appoint d'électricité chauffe-eau solaire >= 0
           produit:
-            - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
+            - combustibles . électricité . consommation individuel
             - installation . appoint d'électricité chauffe-eau solaire
           unité: €TTC/an
           note: 'Coût combustible pour ballon ECS solaire (P1 ECS)€TTC/an'
@@ -184,7 +184,7 @@ poêle à granulés:
               alors: réseau de froid . coûts . Coût combustible froid
             - sinon:
                 produit:
-                  - Calcul Eco . Coût d'achat du combustible . Electricité coll x Part consommation
+                  - combustibles . électricité . consommation collectif
                   - installation . consommation Groupe Froid
           unité: €TTC/an
     entretien:
