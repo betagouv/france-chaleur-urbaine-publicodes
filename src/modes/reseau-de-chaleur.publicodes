@@ -41,14 +41,14 @@ réseau de chaleur:
     facteur d'annuité raccordement:
       description: Annuité pour 1 € investi sur la durée de renouvellement du raccordement (fonction Excel PMT)
       variations:
-        - si: ratios économiques . Amortissement x Taux actualisation != 0
-          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée avant renouvellement) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée avant renouvellement - 1)
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée avant renouvellement) / ((1 + amortissement . taux d'actualisation) ** ratios . durée avant renouvellement - 1)
         - sinon: 1 / ratios . durée avant renouvellement
     facteur d'annuité sous station:
       description: Annuité pour 1 € investi sur la durée de vie de la sous-station (fonction Excel PMT)
       variations:
-        - si: ratios économiques . Amortissement x Taux actualisation != 0
-          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée sous station) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée sous station - 1)
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée sous station) / ((1 + amortissement . taux d'actualisation) ** ratios . durée sous station - 1)
         - sinon: 1 / ratios . durée sous station
     installation:
       avec:
@@ -152,7 +152,7 @@ réseau de chaleur:
         investissement réseau secondaire:
           produit:
             - ratios économiques . Réseaux x Coût Investissement SST RCU
-            - 1 + ratios économiques . Investissement x TVA
+            - 1 + investissement . TVA
         investissement réseau secondaire par logement:
           valeur: investissement réseau secondaire / nombre de logements dans l'immeuble concerné
           unité: €TTC
@@ -248,18 +248,18 @@ réseau de chaleur:
           variations:
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 1200 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 800 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 400 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -267,13 +267,13 @@ réseau de chaleur:
           variations:
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = 'Modeste'
+                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . ressources du ménage = 'Modeste'
               alors: 700 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
+                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 450 €
           unité: €
           note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
@@ -284,20 +284,20 @@ réseau de chaleur:
                   alors:
                     variations:
                       - si: nombre de logements dans l'immeuble concerné <= 125
-                        alors: ratios économiques x aides . CEE x FCU x Résidentiel inf 125 appt
-                      - sinon: ratios économiques x aides . CEE x FCU x Résidentiel sup 125 variable * nombre de logements dans l'immeuble concerné + ratios économiques x aides . CEE x FCU x Résidentiel sup 125 fixe
+                        alors: aides . CEE x FCU x Résidentiel inf 125 appt
+                      - sinon: aides . CEE x FCU x Résidentiel sup 125 variable * nombre de logements dans l'immeuble concerné + aides . CEE x FCU x Résidentiel sup 125 fixe
                 - sinon:
                     variations:
                       - si: surface logement type tertiaire <= 7500
-                        alors: ratios économiques x aides . CEE x FCU x Tertiaire inf 7500 appt
-                      - sinon: ratios économiques x aides . CEE x FCU x Tertiaire sup 7500 variable * surface logement type tertiaire + ratios économiques x aides . CEE x FCU x Tertiaire sup 7500 fixe
-            - Paramètres économiques . Aides . Valeur CEE
-            - ratios économiques x aides . CEE x RCU x facteur correctif
+                        alors: aides . CEE x FCU x Tertiaire inf 7500 appt
+                      - sinon: aides . CEE x FCU x Tertiaire sup 7500 variable * surface logement type tertiaire + aides . CEE x FCU x Tertiaire sup 7500 fixe
+            - aides . valeur CEE
+            - aides . CEE x RCU x facteur correctif
             - 1 / nombre de logements dans l'immeuble concerné
           unité: €
         Total:
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: Ma prime renov' + Coup de pouce + CEE
             - sinon: 0
           unité: €
@@ -443,7 +443,7 @@ réseau de chaleur:
           note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAT-TH-127%20vA79-5%20%C3%A0%20compter%20du%2001-01-2026_0.pdf
         Total:
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors:
                 variations:
                   - si: caractéristique réseau de chaleur . taux EnRR > 50 %
@@ -454,7 +454,7 @@ réseau de chaleur:
         Total montant:
           produit:
             - Total
-            - Paramètres économiques . Aides . Valeur CEE
+            - aides . valeur CEE
           unité: €
     environnement:
       avec:
@@ -653,6 +653,6 @@ Investissement x frais de raccordement au réseaux x RCU:
           - si: type de bâtiment = 'résidentiel'
             alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logements dans l'immeuble concerné
           - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
-      - 1 + ratios économiques . Investissement x TVA
+      - 1 + investissement . TVA
   unité: €TTC
 

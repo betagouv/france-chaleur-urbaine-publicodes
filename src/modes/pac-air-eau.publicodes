@@ -29,7 +29,7 @@ PAC air-eau indiv:
         investissement équipement:
           produit:
             - ratios économiques . PAC x air-eau réversible . Coût investissement Individuel
-            - 1 + ratios économiques . Investissement x TVA réduite
+            - 1 + investissement . TVA réduite
         petit entretien P2:
           par défaut: 199 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
@@ -38,8 +38,8 @@ PAC air-eau indiv:
     facteur d'annuité: &facteur-annuite-pac-air-eau
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
-        - si: ratios économiques . Amortissement x Taux actualisation != 0
-          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie - 1)
         - sinon: 1 / ratios . durée de vie
     installation:
       avec:
@@ -210,36 +210,36 @@ PAC air-eau indiv:
           variations:
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 5000 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 4000 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 3000 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
         Coup de pouce:
           variations:
-            - si: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-              alors: ratios économiques x aides . Coup de pouce x PAC air-eau
+            - si: aides . éligibilité . éligible Coup de pouce
+              alors: aides . Coup de pouce x PAC air-eau
             - sinon: 0 €
           unité: €
         CEE:
           variations:
-            - si: Paramètres économiques . Aides . Aides x Éligible CEE
-              alors: ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 * Paramètres économiques . Aides . Valeur CEE
+            - si: aides . éligibilité . éligible CEE
+              alors: aides . CEE x PAC air-eau indiv x BAR-TH-171 * aides . valeur CEE
             - sinon: 0 €
           unité: €
         Total: &aides-total
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: Ma prime renov' + Coup de pouce + CEE
             - sinon: 0
           unité: €
@@ -348,7 +348,7 @@ PAC air-eau coll:
           produit:
             - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
             - PAC air-eau coll . installation . puissance retenue
-            - 1 + ratios économiques . Investissement x TVA
+            - 1 + investissement . TVA
         petit entretien P2:
           par défaut: 9.8 *  (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
@@ -397,7 +397,7 @@ PAC air-eau coll:
         investissement équipement:
           produit:
             - ratios . investissement équipement
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ( 1 + investissement . pose et mise en place )
           unité: €TTC
         investissement par logement:
           valeur: investissement équipement / nombre de logements dans l'immeuble concerné
@@ -448,7 +448,7 @@ PAC air-eau coll:
       avec:
         Ma prime renov':
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: 35 / 100 * coûts . investissement par logement
             - sinon: 0
           unité: €

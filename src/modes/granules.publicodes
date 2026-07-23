@@ -27,7 +27,7 @@ poêle à granulés:
           par défaut:
             produit:
               - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
-              - 1 + ratios économiques . Investissement x TVA
+              - 1 + investissement . TVA
           unité: €TTC
         petit entretien P2:
           par défaut: 35 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
@@ -38,8 +38,8 @@ poêle à granulés:
     facteur d'annuité: &facteur-annuite-granules
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
-        - si: ratios économiques . Amortissement x Taux actualisation != 0
-          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie - 1)
         - sinon: 1 / ratios . durée de vie
     installation:
       avec:
@@ -114,7 +114,7 @@ poêle à granulés:
         investissement équipement: &couts-investissement-equipement-total
           produit:
             - ratios . investissement équipement
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ( 1 + investissement . pose et mise en place )
           unité: €TTC
         investissement par logement:
           valeur: investissement équipement
@@ -200,18 +200,18 @@ poêle à granulés:
           variations:
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 1800 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 1500 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 1000 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -225,7 +225,7 @@ poêle à granulés:
           unité: €
         Total: &aides-total
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: Ma prime renov' + Coup de pouce + CEE
             - sinon: 0
           unité: €
@@ -341,7 +341,7 @@ chaudière à granulés:
           par défaut:
             produit:
               - ratios économiques . Granulés x Chaudière à granulés collective
-              - 1 + ratios économiques . Investissement x TVA
+              - 1 + investissement . TVA
           unité: €TTC
         petit entretien P2:
           par défaut: 22.000 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
@@ -519,7 +519,7 @@ chaudière à granulés:
       avec:
         Ma prime renov':
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: 35 / 100 * coûts . investissement par logement
             - sinon: 0
           unité: €

@@ -41,7 +41,7 @@ fioul indiv:
                 - si: fioul indiv . installation . puissance retenue <= 30
                   alors: 3542
                 - sinon: 3982
-            - 1 + ratios économiques . Investissement x TVA
+            - 1 + investissement . TVA
           unité: €TTC
         petit entretien P2:
           par défaut: 143
@@ -52,8 +52,8 @@ fioul indiv:
     facteur d'annuité: &facteur-annuite-fioul
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
-        - si: ratios économiques . Amortissement x Taux actualisation != 0
-          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie - 1)
         - sinon: 1 / ratios . durée de vie
     installation:
       avec:
@@ -157,7 +157,7 @@ fioul indiv:
         investissement équipement: &couts-investissement-equipement-total
           produit:
             - ratios . investissement équipement
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ( 1 + investissement . pose et mise en place )
           unité: €TTC
         investissement par logement:
           valeur: investissement équipement
@@ -254,7 +254,7 @@ fioul indiv:
           unité: €
         Total: &aides-total
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: Ma prime renov' + Coup de pouce + CEE
             - sinon: 0
           unité: €
@@ -397,7 +397,7 @@ fioul coll:
                 - si: fioul coll . installation . puissance retenue <= 1750
                   alors: 167908
                 - sinon: 191895
-            - 1 + ratios économiques . Investissement x TVA
+            - 1 + investissement . TVA
           unité: €TTC
         petit entretien P2:
           par défaut: 7.00 * (1 + Paramètres économiques . Petit entretien P2 . TVA)

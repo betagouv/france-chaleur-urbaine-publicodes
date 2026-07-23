@@ -2562,3 +2562,33 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
 
 Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . Total:
   valeur: ecs additionnelle . aides panneau solaire . Total
+
+# --- Aides / investissement : anciennes clés (table de migration UI) ---
+
+
+
+
+
+
+
+
+
+
+ratios économiques x aides:
+  valeur: aides
+
+ratios économiques x aides . Coup de pouce x PAC air-eau:
+  valeur: aides . Coup de pouce x PAC air-eau
+
+ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171:
+  valeur: aides . CEE x PAC air-eau indiv x BAR-TH-171
+
+
+ratios économiques . Investissement x Pose et mise en place de l'installation:
+  valeur: investissement . pose et mise en place
+
+ratios économiques . Investissement x TVA:
+  valeur: investissement . TVA
+
+ratios économiques . Amortissement x Taux actualisation:
+  valeur: amortissement . taux d'actualisation

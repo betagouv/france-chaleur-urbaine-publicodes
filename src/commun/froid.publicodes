@@ -46,12 +46,12 @@ froid . consommation groupe froid:
 froid . investissement groupe froid résidentiel:
   produit:
     - Investissement x Groupe froid x résidentiel
-    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+    - 1 + investissement . pose et mise en place
 
 froid . investissement groupe eau glacée tertiaire:
   produit:
     - Investissement x Groupe eau glacée x tertiaire
-    - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+    - 1 + investissement . pose et mise en place
     - 1 / nombre de logements dans l'immeuble concerné
 
 froid:
@@ -129,7 +129,7 @@ Investissement x Groupe froid x résidentiel:
     produit:
       - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
       - froid . puissance groupe froid résidentiel
-      - 1 + ratios économiques . Investissement x TVA
+      - 1 + investissement . TVA
   unité: €TTC
 
 Investissement x Groupe eau glacée x tertiaire:
@@ -137,7 +137,7 @@ Investissement x Groupe eau glacée x tertiaire:
     produit:
       - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
       - froid . puissance groupe eau glacée tertiaire
-      - 1 + ratios économiques . Investissement x TVA
+      - 1 + investissement . TVA
   unité: €TTC
 
 ###### Installation

@@ -28,7 +28,7 @@ PAC eau-eau indiv:
           produit:
             - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
             - PAC eau-eau indiv . installation . puissance retenue
-            - 1 + ratios économiques . Investissement x TVA
+            - 1 + investissement . TVA
         petit entretien P2:
           par défaut: 199 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
@@ -37,8 +37,8 @@ PAC eau-eau indiv:
     facteur d'annuité: &facteur-annuite-pac-eau-eau
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
-        - si: ratios économiques . Amortissement x Taux actualisation != 0
-          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie - 1)
         - sinon: 1 / ratios . durée de vie
     installation:
       avec:
@@ -131,7 +131,7 @@ PAC eau-eau indiv:
         investissement équipement:
           produit:
             - ratios . investissement équipement
-            - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
+            - ( 1 + investissement . pose et mise en place )
           unité: €TTC
         investissement par logement:
           valeur: investissement équipement
@@ -215,18 +215,18 @@ PAC eau-eau indiv:
           variations:
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 11000 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 9000 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 6000 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
@@ -234,13 +234,13 @@ PAC eau-eau indiv:
           variations:
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = 'Modeste'
+                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . ressources du ménage = 'Modeste'
               alors: 5000 €
             - si:
                 toutes ces conditions:
-                  - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
+                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 5000 €
           unité: €
           note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
@@ -249,7 +249,7 @@ PAC eau-eau indiv:
           unité: €
         Total:
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: Ma prime renov' + Coup de pouce + CEE
             - sinon: 0
           unité: €
@@ -371,8 +371,8 @@ PAC eau-eau coll:
     facteur d'annuité puits:
       description: Annuité pour 1 € investi sur la durée de vie des puits géothermiques (fonction Excel PMT)
       variations:
-        - si: ratios économiques . Amortissement x Taux actualisation != 0
-          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie puits géothermiques) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie puits géothermiques - 1)
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie puits géothermiques) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie puits géothermiques - 1)
         - sinon: 1 / ratios . durée de vie puits géothermiques
     installation:
       avec:
@@ -475,12 +475,12 @@ PAC eau-eau coll:
       avec:
         Ma prime renov'forage:
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: 35 / 100 * coûts . investissement par logement forages
             - sinon: 0
         Ma prime renov'PAC:
           variations:
-            - si: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+            - si: aides . éligibilité . prise en compte des aides
               alors: 35 / 100 * coûts . investissement par logement PAC
             - sinon: 0
         Ma prime renov':
@@ -556,7 +556,7 @@ PAC eau-eau coll:
         P4 PAC:
           produit:
             - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol * facteur d'annuité
-            - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
+            - 1 + investissement . pose et mise en place
             - 1 / nombre de logements dans l'immeuble concerné
         P4 équipement:
           somme:
@@ -616,7 +616,7 @@ ratios économiques . PAC x eau-eau non réversible:
             - si: PAC eau-eau coll . installation . puissance retenue < 250
               alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW Coût investissement hors captage sous-sol coll
             - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
-        - 1 + ratios économiques . Investissement x TVA
+        - 1 + investissement . TVA
     Coûts captage sous-sol champs sur sonde:
       produit:
         - PAC eau-eau coll . installation . puissance retenue
@@ -624,7 +624,7 @@ ratios économiques . PAC x eau-eau non réversible:
             - si: PAC eau-eau coll . installation . puissance retenue < 250
               alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW coût captage sous-sol coll
             - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW coût captage sous-sol coll
-        - 1 + ratios économiques . Investissement x TVA
+        - 1 + investissement . TVA
 
 ratios économiques . PAC x eau-eau non réversible x Collectif:
   somme:
