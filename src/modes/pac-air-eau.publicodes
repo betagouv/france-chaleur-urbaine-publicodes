@@ -348,6 +348,9 @@ PAC air-eau coll:
         durée de vie:
           valeur: 22
           unité: an
+        gros entretien P3:
+          par défaut: 1.72 / 100
+          unité: €HT/€d'investissment
         investissement équipement:
           produit:
             - PAC air-eau coll . ratios . coût équipement au kW
@@ -448,7 +451,7 @@ PAC air-eau coll:
             unité: €TTC/an
         gros entretien P3:
             produit:
-              - PAC air-air coll . ratios . gros entretien P3
+              - ratios . gros entretien P3
               - coûts . investissement équipement
             unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné

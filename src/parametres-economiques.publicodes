@@ -14,7 +14,3 @@ Paramètres économiques:
         TVA:
           par défaut: 20%
           unité: '%'
-        # non présent dans excel
-        PAC air-eau coll:
-          par défaut: 1.72 / 100
-          unité: €HT/€d'investissment

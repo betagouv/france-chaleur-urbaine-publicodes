@@ -183,9 +183,10 @@ external-keys correspondants.
 - **Renommer une règle lue par le front** : renommer partout + ajouter
   l'entrée `ancienne: nouvelle` dans compat ; external-keys doit rester vert
   sans modification.
-- **Bugs connus figés** : liste en [§3](#3-bugs-connus-figés) (ex.
-  `gaz coll sans cond` référence `gaz coll avec cond . annuité`, commenté
-  dans le code). Les corriger = PR dédiée avec mise à jour golden expliquée.
+- **Bugs connus figés** : liste en [§3](#3-bugs-connus-figés). Les corriger
+  = PR dédiée avec mise à jour golden expliquée (sauf s'ils sont sans
+  incidence numérique : golden inchangé = preuve, cf. les deux déjà
+  corrigés).
 
 ---
 
@@ -380,9 +381,9 @@ gaz indiv sans cond:
 
 Avant, ce même contenu occupait ~85 lignes intégralement recopiées — c'est ce
 copier-coller qui avait produit les bugs du type « gaz coll sans cond amorti
-sur la durée de vie de *avec cond* » (bug d'ailleurs toujours en place,
-volontairement : figé par le golden, visible en une ligne commentée au lieu
-d'être noyé).
+sur la durée de vie de *avec cond* » (resté longtemps invisible car noyé ;
+rendu visible en une ligne par la refonte, puis corrigé — cf.
+[§3](#3-bugs-connus-figés)).
 
 ### Garanties de non-régression
 
@@ -401,27 +402,34 @@ d'être noyé).
 
 **Décision (22/07/2026)** : ces bugs sont notés mais laissés de côté — le
 golden master fige le comportement actuel tel quel ; les corriger = une PR
-dédiée avec mise à jour explicite des snapshots et revue métier (premier vrai
-changement de valeurs depuis le début du chantier). Références de lignes :
-fichiers de `dev` (les emplacements actuels sont commentés dans le code).
+dédiée avec mise à jour explicite des snapshots et revue métier. Références
+de lignes : fichiers de `dev`.
 
-1. `gaz coll sans cond` : P4 et aides utilisent la durée de vie de la
-   variante **avec** condensation (aujourd'hui : référence explicite
-   `gaz coll avec cond . annuité`, commentée `# bug figé` dans
-   modes/gaz.publicodes ; à l'origine bilan-1an.publicodes:587-591, 623).
-2. Le gros entretien P3 de **PAC air-eau coll** référence le paramètre de
-   **PAC air-air coll** — calculs-economiques.publicodes:1716. Corollaire :
-   `Paramètres économiques . Gros entretien P3 . PAC air-eau coll` est défini
-   mais plus référencé (orphelin).
-3. PAC air-eau/eau-eau **indiv** : besoins ECS ajoutés inconditionnellement
+### Corrigés sur la branche (sans incidence numérique — golden inchangé)
+
+- ~~`gaz coll sans cond` : P4 et aides utilisaient la durée de vie de la
+  variante **avec** condensation~~ (bilan-1an.publicodes:587-591, 623).
+  Corrigé : le bilan référence l'`annuité` de la variante elle-même. Sans
+  incidence : les deux variantes gaz coll ont la même durée de vie (22 an).
+- ~~Le gros entretien P3 de **PAC air-eau coll** référençait le paramètre de
+  **PAC air-air coll**~~ (calculs-economiques.publicodes:1716). Corrigé :
+  `PAC air-eau coll . ratios . gros entretien P3` porte sa propre valeur ;
+  `froid` (groupe froid/eau glacée) la référence, et l'ex-orphelin
+  `Paramètres économiques . Gros entretien P3 . PAC air-eau coll` est un
+  alias de compat. Sans incidence : même valeur et même unité (1.72/100
+  €HT/€ d'investissement) des deux côtés.
+
+### Restants
+
+1. PAC air-eau/eau-eau **indiv** : besoins ECS ajoutés inconditionnellement
    dans `consommation combustible chaleur`, alors que les variantes coll (et
    tous les autres modes) conditionnent à
    `type de production ECS = 'Avec équipement chauffage'` —
    calculs-techniques.publicodes:1224, 1316 vs 1480, 1580.
-4. `gamme de puissance existante` de gaz coll avec cond mélange `<=` et `<`
+2. `gamme de puissance existante` de gaz coll avec cond mélange `<=` et `<`
    là où sans cond et fioul coll utilisent uniformément `<=` —
    calculs-techniques.publicodes:649-678.
-5. `chauffe-eau thermodynamique` et `PAC air-eau collective ECS` divisent
+3. `chauffe-eau thermodynamique` et `PAC air-eau collective ECS` divisent
    tous deux par le SCOP collectif (douteux pour le thermodynamique) —
    bilan-1an.publicodes:1295, 1302.
 
@@ -479,8 +487,9 @@ fichiers de `dev` (les emplacements actuels sont commentés dans le code).
 - ❓ **Intermédiaires triviaux encore contractuels** (alias « par logement
   tertiaire », `CEE: 0`, `scope 1`…) : à inliner une fois le DebugDrawer
   nettoyé côté front.
-- 🔜 **Les 5 bugs figés** ([§3](#3-bugs-connus-figés)) : PR dédiée avec mise
-  à jour golden documentée et revue métier.
+- 🔜 **Les 3 bugs figés restants** ([§3](#3-bugs-connus-figés)) : PR dédiée
+  avec mise à jour golden documentée et revue métier (les 2 bugs sans
+  incidence numérique ont déjà été corrigés sur la branche).
 
 ### Documentation
 

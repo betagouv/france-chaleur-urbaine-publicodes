@@ -170,7 +170,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel:
               - type de bâtiment = 'résidentiel'
           alors:
             produit:
-              - Paramètres économiques . Gros entretien P3 . PAC air-eau coll
+              - PAC air-eau coll . ratios . gros entretien P3
               - besoins en climatisation par appartement
               - nombre de logements dans l'immeuble concerné
               - 1 / 1000
@@ -202,7 +202,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire:
               - type de bâtiment = 'tertiaire'
           alors:
             produit:
-              - Paramètres économiques . Gros entretien P3 . PAC air-eau coll
+              - PAC air-eau coll . ratios . gros entretien P3
               - besoins en climatisation par appartement
               - 1 / 1000
         - sinon: 0
