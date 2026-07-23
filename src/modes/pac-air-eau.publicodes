@@ -28,13 +28,20 @@ PAC air-eau indiv:
           unité: €TTC/MWh
         investissement équipement:
           produit:
-            - ratios économiques . PAC x air-eau réversible . Coût investissement Individuel
+            - PAC air-eau indiv . ratios . coût équipement
             - 1 + investissement . TVA réduite
         petit entretien P2:
           par défaut: 199 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
         puissance unitaire réversible:
           valeur: 2.5
+
+        ###### Ratios économiques (investissement)
+
+        coût équipement:
+          valeur: 13270
+          unité: €HT
+          note: 'Source: SDES 2023'
     facteur d'annuité: &facteur-annuite-pac-air-eau
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -325,6 +332,7 @@ PAC air-eau indiv:
           somme:
             - total sans aides
             - (- P4)
+
 PAC air-eau coll:
   description: Pompe à chaleur air-eau collective (réversible)
   avec:
@@ -346,13 +354,18 @@ PAC air-eau coll:
           unité: an
         investissement équipement:
           produit:
-            - ratios économiques . PAC x air-eau réversible . Coût investissement Collectif
+            - PAC air-eau coll . ratios . coût équipement au kW
             - PAC air-eau coll . installation . puissance retenue
             - 1 + investissement . TVA
         petit entretien P2:
           par défaut: 9.8 *  (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
-        puissance unitaire réversible: ratios . PAC AIR EAU Puissance unitaire réversible coll
+        puissance unitaire réversible:
+          valeur: 20
+
+        coût équipement au kW:
+          valeur: 1005
+          unité: €HT/kW
     facteur d'annuité: *facteur-annuite-pac-air-eau
     installation:
       avec:
@@ -499,20 +512,4 @@ PAC air-eau coll:
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
         total sans installation: *bilan-total-sans-installation
-
-ratios . PAC AIR EAU Puissance unitaire réversible coll:
-  valeur: 20
-
-###### Ratios économiques (investissement)
-
-ratios économiques . PAC x air-eau réversible:
-  avec:
-    Coût investissement Individuel:
-      valeur: 13270
-      unité: €HT
-      note: 'Source: SDES 2023'
-    Coût investissement Collectif:
-      valeur: 1005
-      unité: €HT/kW
-      note: 'Source: ELCIMAI 2024'
 

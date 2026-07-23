@@ -25,6 +25,84 @@ réseau de froid:
         rendement sous station:
           valeur: 93%
           unité: '%'
+
+        ###### Ratios économiques (investissement)
+
+        coût raccordement résidentiel:
+          variations:
+            - si: nombre de logements dans l'immeuble concerné <= 25
+              alors: 4822 * 25 / nombre de logements dans l'immeuble concerné
+            - si: nombre de logements dans l'immeuble concerné <= 42
+              alors: 4822
+            - si: nombre de logements dans l'immeuble concerné <= 58
+              alors: 3074
+            - si: nombre de logements dans l'immeuble concerné <= 83
+              alors: 2402
+            - si: nombre de logements dans l'immeuble concerné <= 125
+              alors: 1811
+            - si: nombre de logements dans l'immeuble concerné <= 167
+              alors: 1335
+            - si: nombre de logements dans l'immeuble concerné <= 250
+              alors: 1114
+            - si: nombre de logements dans l'immeuble concerné <= 333
+              alors: 911
+            - sinon: 790
+          unité: €HT/logement
+          note: 'source: ELCIMAI'
+
+        coût raccordement tertiaire:
+          variations:
+            - si: surface logement type tertiaire < 2500
+              alors: 120543
+            - si: surface logement type tertiaire < 3500
+              alors: 129097
+            - si: surface logement type tertiaire < 5000
+              alors: 139290
+            - si: surface logement type tertiaire < 7500
+              alors: 150307
+            - si: surface logement type tertiaire < 10000
+              alors: 166917
+            - si: surface logement type tertiaire < 15000
+              alors: 185994
+            - sinon: 227764
+          unité: €HT
+          note: 'Source: ELCIMAI'
+
+        coût sous-station:
+          variations:
+            - si: réseau de froid . installation . puissance retenue < 100
+              alors: 28000
+            - si: réseau de froid . installation . puissance retenue < 150
+              alors: 29500
+            - si: réseau de froid . installation . puissance retenue < 200
+              alors: 30500
+            - si: réseau de froid . installation . puissance retenue < 250
+              alors: 32000
+            - si: réseau de froid . installation . puissance retenue < 300
+              alors: 33000
+            - si: réseau de froid . installation . puissance retenue < 350
+              alors: 34000
+            - si: réseau de froid . installation . puissance retenue < 400
+              alors: 35000
+            - si: réseau de froid . installation . puissance retenue < 500
+              alors: 36500
+            - sinon: 39000
+          unité: €HT
+          note: 'ELCIMAI'
+
+        frais de raccordement:
+          par défaut:
+            variations:
+              - si: Inclure la climatisation
+                alors:
+                  produit:
+                    - variations:
+                        - si: type de bâtiment = 'résidentiel'
+                          alors: réseau de froid . ratios . coût raccordement résidentiel * nombre de logements dans l'immeuble concerné
+                        - sinon: réseau de froid . ratios . coût raccordement tertiaire
+                    - 1 + investissement . TVA
+              - sinon: 0
+          unité: €TTC
     facteur d'annuité:
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -55,7 +133,7 @@ réseau de froid:
     coûts:
       avec:
         investissement équipement:
-          formule: Investissement x frais de raccordement au réseaux x RFU
+          formule: réseau de froid . ratios . frais de raccordement
           unité: €TTC
         investissement par logement:
           valeur: investissement équipement / nombre de logements dans l'immeuble concerné
@@ -82,7 +160,7 @@ réseau de froid:
                   produit:
                     - ratios . petit entretien P2
                     - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-                    - ratios économiques . Réseaux x Coût Investissement SST RFU
+                    - réseau de froid . ratios . coût sous-station
                   unité: €TTC/an
               - sinon: 0
             unité: €TTC/an
@@ -93,7 +171,7 @@ réseau de froid:
                   produit:
                     - ratios . gros entretien P3
                     - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-                    - ratios économiques . Réseaux x Coût Investissement SST RFU
+                    - réseau de froid . ratios . coût sous-station
               - sinon: 0
             unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
@@ -141,80 +219,3 @@ réseau de froid:
             - sinon: 0
           unité: €
 
-###### Ratios économiques (investissement)
-
-ratios économiques . Réseaux x Coût Investissement SST RFU:
-  variations:
-    - si: réseau de froid . installation . puissance retenue < 100
-      alors: 28000
-    - si: réseau de froid . installation . puissance retenue < 150
-      alors: 29500
-    - si: réseau de froid . installation . puissance retenue < 200
-      alors: 30500
-    - si: réseau de froid . installation . puissance retenue < 250
-      alors: 32000
-    - si: réseau de froid . installation . puissance retenue < 300
-      alors: 33000
-    - si: réseau de froid . installation . puissance retenue < 350
-      alors: 34000
-    - si: réseau de froid . installation . puissance retenue < 400
-      alors: 35000
-    - si: réseau de froid . installation . puissance retenue < 500
-      alors: 36500
-    - sinon: 39000
-  unité: €HT
-  note: 'ELCIMAI'
-
-ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel:
-  variations:
-    - si: nombre de logements dans l'immeuble concerné <= 25
-      alors: 4822 * 25 / nombre de logements dans l'immeuble concerné
-    - si: nombre de logements dans l'immeuble concerné <= 42
-      alors: 4822
-    - si: nombre de logements dans l'immeuble concerné <= 58
-      alors: 3074
-    - si: nombre de logements dans l'immeuble concerné <= 83
-      alors: 2402
-    - si: nombre de logements dans l'immeuble concerné <= 125
-      alors: 1811
-    - si: nombre de logements dans l'immeuble concerné <= 167
-      alors: 1335
-    - si: nombre de logements dans l'immeuble concerné <= 250
-      alors: 1114
-    - si: nombre de logements dans l'immeuble concerné <= 333
-      alors: 911
-    - sinon: 790
-  unité: €HT/logement
-  note: 'source: ELCIMAI'
-
-ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire:
-  variations:
-    - si: surface logement type tertiaire < 2500
-      alors: 120543
-    - si: surface logement type tertiaire < 3500
-      alors: 129097
-    - si: surface logement type tertiaire < 5000
-      alors: 139290
-    - si: surface logement type tertiaire < 7500
-      alors: 150307
-    - si: surface logement type tertiaire < 10000
-      alors: 166917
-    - si: surface logement type tertiaire < 15000
-      alors: 185994
-    - sinon: 227764
-  unité: €HT
-  note: 'Source: ELCIMAI'
-
-Investissement x frais de raccordement au réseaux x RFU:
-  par défaut:
-    variations:
-      - si: Inclure la climatisation
-        alors:
-          produit:
-            - variations:
-                - si: type de bâtiment = 'résidentiel'
-                  alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logements dans l'immeuble concerné
-                - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
-            - 1 + investissement . TVA
-      - sinon: 0
-  unité: €TTC

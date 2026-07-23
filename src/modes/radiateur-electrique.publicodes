@@ -26,8 +26,8 @@ radiateur électrique:
         investissement équipement:
           par défaut:
             produit:
-              - ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires
-              - ratios économiques . Radiateur électrique . Coût investissement Puissance 2kW
+              - radiateur électrique . installation . nombre de radiateurs
+              - radiateur électrique . ratios . coût du radiateur
               - 1 + investissement . TVA
           unité: €TTC
         petit entretien P2:
@@ -36,6 +36,17 @@ radiateur électrique:
         rendement:
           valeur: 96%
           unité: '%'
+
+        ###### Ratios économiques (investissement)
+
+        puissance du radiateur:
+          valeur: 2
+          unité: kW
+
+        coût du radiateur:
+          valeur: 550
+          unité: €HT
+          note: 'Source: Atlantic 2023'
     facteur d'annuité:
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -58,9 +69,9 @@ radiateur électrique:
         puissance retenue:
           produit:
             - somme:
-                - valeur: puissance équipement // ratios économiques . radiateur électrique x puissance de l'installation
+                - valeur: puissance équipement // radiateur électrique . ratios . puissance du radiateur
                 - 1
-            - ratios économiques . radiateur électrique x puissance de l'installation
+            - radiateur électrique . ratios . puissance du radiateur
           unité: kW
         ECS additionnelle nécessaire:
           toutes ces conditions:
@@ -112,6 +123,9 @@ radiateur électrique:
             - sinon: consommation combustible chaleur
           unité: kWh/an
         consommation Groupe Froid: froid . consommation groupe froid
+
+        nombre de radiateurs:
+          par défaut: radiateur électrique . installation . puissance retenue // 2
     coûts:
       avec:
         investissement équipement:
@@ -162,7 +176,7 @@ radiateur électrique:
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
-          unité: €TTC/an) €TTC/an"
+          unité: €TTC/an
         P1 ballon ECS:
           applicable si: installation . consommation chauffe-eau électrique >= 0
           produit:
@@ -302,21 +316,4 @@ radiateur électrique:
           somme:
             - total sans aides
             - (- aides)
-
-###### Ratios économiques (investissement)
-
-ratios économiques . radiateur électrique x puissance de l'installation:
-  valeur: 2
-  unité: kW
-
-ratios économiques . Radiateur électrique:
-  avec:
-    Coût investissement Puissance 2kW:
-      valeur: 550
-      unité: €HT
-      note: 'Source: Atlantic 2023'
-
-# pas un ratio
-ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires:
-  par défaut: radiateur électrique . installation . puissance retenue // 2
 

@@ -26,7 +26,7 @@ PAC eau-eau indiv:
           unité: €TTC/MWh
         investissement équipement:
           produit:
-            - ratios économiques . PAC x eau-eau non réversible . Coût investissement dont terrassement ind
+            - PAC eau-eau indiv . ratios . coût équipement au kW
             - PAC eau-eau indiv . installation . puissance retenue
             - 1 + investissement . TVA
         petit entretien P2:
@@ -34,6 +34,13 @@ PAC eau-eau indiv:
           unité: €TTC/MWh
         puissance unitaire:
           valeur: 8
+
+        ###### Ratios économiques (investissement)
+
+        coût équipement au kW:
+            valeur: 1818
+            unité: €HT/kW
+            note: 'ADEME Coûts EnR 2022 2020'
     facteur d'annuité: &facteur-annuite-pac-eau-eau
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -341,6 +348,7 @@ PAC eau-eau indiv:
           somme:
             - total sans aides
             - (- P4)
+
 PAC eau-eau coll:
   description: Pompe à chaleur eau-eau collective (géothermie, champ de sondes)
   avec:
@@ -367,6 +375,44 @@ PAC eau-eau coll:
           unité: €TTC/MWh
         puissance unitaire:
           valeur: 46.52
+
+        coût au kW hors captage:
+            valeur: 1323
+            unité: €HT/kW
+            note: 'ADEME Coûts EnR 2022 2020'
+
+        coût au kW captage champ de sondes:
+            valeur: 1377
+            unité: €HT/kW
+            note: 'ADEME Coûts EnR 2022 2020'
+
+        investissement hors captage:
+            produit:
+              - PAC eau-eau coll . installation . puissance retenue
+              - variations:
+                  - si: PAC eau-eau coll . installation . puissance retenue < 250
+                    alors: PAC eau-eau coll . ratios . coût au kW hors captage
+                  - sinon: PAC eau-eau coll . ratios . coût au kW hors captage gamme 250
+              - 1 + investissement . TVA
+
+        investissement captage champ de sondes:
+            produit:
+              - PAC eau-eau coll . installation . puissance retenue
+              - variations:
+                  - si: PAC eau-eau coll . installation . puissance retenue < 250
+                    alors: PAC eau-eau coll . ratios . coût au kW captage champ de sondes
+                  - sinon: PAC eau-eau coll . ratios . coût au kW captage champ de sondes gamme 250
+              - 1 + investissement . TVA
+
+        coût au kW hors captage gamme 250:
+          valeur: 504
+          unité: €HT/kW
+          note: 'ADEME Coûts EnR 2022 2020'
+
+        coût au kW captage champ de sondes gamme 250:
+          valeur: 1121
+          unité: €HT/kW
+          note: 'ADEME Coûts EnR 2022 2020'
     facteur d'annuité: *facteur-annuite-pac-eau-eau
     facteur d'annuité puits:
       description: Annuité pour 1 € investi sur la durée de vie des puits géothermiques (fonction Excel PMT)
@@ -414,10 +460,10 @@ PAC eau-eau coll:
     coûts:
       avec:
         investissement forages:
-          valeur: ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
+          valeur: PAC eau-eau coll . ratios . investissement captage champ de sondes
           unité: €TTC
         investissement PAC:
-          valeur: ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
+          valeur: PAC eau-eau coll . ratios . investissement hors captage
           unité: €TTC
         investissement équipement:
           valeur: investissement forages + investissement PAC
@@ -467,7 +513,7 @@ PAC eau-eau coll:
         gros entretien P3:
             produit:
               - ratios . gros entretien P3
-              - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
+              - PAC eau-eau coll . ratios . investissement hors captage
             unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -551,11 +597,11 @@ PAC eau-eau coll:
         P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
         P4 forages:
           produit:
-            - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde * facteur d'annuité puits
+            - PAC eau-eau coll . ratios . investissement captage champ de sondes * facteur d'annuité puits
             - 1 / nombre de logements dans l'immeuble concerné
         P4 PAC:
           produit:
-            - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol * facteur d'annuité
+            - PAC eau-eau coll . ratios . investissement hors captage * facteur d'annuité
             - 1 + investissement . pose et mise en place
             - 1 / nombre de logements dans l'immeuble concerné
         P4 équipement:
@@ -584,50 +630,4 @@ PAC eau-eau coll:
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
         total sans installation: *bilan-total-sans-installation
-
-###### Ratios économiques (investissement)
-
-ratios économiques . PAC x eau-eau non réversible:
-  avec:
-    Coût investissement dont terrassement ind:
-      valeur: 1818
-      unité: €HT/kW
-      note: 'ADEME Coûts EnR 2022 2020'
-    Gamme 40 130kW Coût investissement hors captage sous-sol coll:
-      valeur: 1323
-      unité: €HT/kW
-      note: 'ADEME Coûts EnR 2022 2020'
-    Gamme 40 130kW coût captage sous-sol coll:
-      valeur: 1377
-      unité: €HT/kW
-      note: 'ADEME Coûts EnR 2022 2020'
-    Gamme 250kW Coût investissement hors captage sous-sol coll:
-      valeur: 504
-      unité: €HT/kW
-      note: 'ADEME Coûts EnR 2022 2020'
-    Gamme 250kW coût captage sous-sol coll:
-      valeur: 1121
-      unité: €HT/kW
-      note: 'ADEME Coûts EnR 2022 2020'
-    Coûts hors captage sous-sol:
-      produit:
-        - PAC eau-eau coll . installation . puissance retenue
-        - variations:
-            - si: PAC eau-eau coll . installation . puissance retenue < 250
-              alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW Coût investissement hors captage sous-sol coll
-            - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
-        - 1 + investissement . TVA
-    Coûts captage sous-sol champs sur sonde:
-      produit:
-        - PAC eau-eau coll . installation . puissance retenue
-        - variations:
-            - si: PAC eau-eau coll . installation . puissance retenue < 250
-              alors: ratios économiques . PAC x eau-eau non réversible . Gamme 40 130kW coût captage sous-sol coll
-            - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW coût captage sous-sol coll
-        - 1 + investissement . TVA
-
-ratios économiques . PAC x eau-eau non réversible x Collectif:
-  somme:
-    - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
-    - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
 

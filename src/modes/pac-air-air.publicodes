@@ -26,12 +26,19 @@ PAC air-air indiv:
           unité: €TTC/MWh
         investissement équipement:
           produit:
-            - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
+            - PAC air-air indiv . ratios . coût équipement au kW
             - PAC air-air indiv . installation . puissance retenue
             - 1 + investissement . TVA
         petit entretien P2:
           par défaut: 199 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
+
+        ###### Ratios économiques (investissement)
+
+        coût équipement au kW:
+          valeur: 734
+          unité: €HT/kW
+          note: 'Source: ADEME Coûts EnR 2022 2020'
     facteur d'annuité: &facteur-annuite-pac-air-air
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -288,6 +295,7 @@ PAC air-air indiv:
           somme:
             - total sans aides
             - (- P4)
+
 PAC air-air coll:
   description: Pompe à chaleur air-air collective (réversible)
   avec:
@@ -310,7 +318,7 @@ PAC air-air coll:
           unité: €HT/€d'investissment
         investissement équipement:
           produit:
-            - ratios économiques . PAC x air-air réversible . Coût investissement Collectif
+            - PAC air-air coll . ratios . coût équipement au kW
             - PAC air-air coll . installation . puissance retenue
             - 1 + investissement . TVA
         petit entretien P2:
@@ -319,6 +327,11 @@ PAC air-air coll:
         puissance unitaire réversible:
           valeur: 22
           unité: kW
+
+        coût équipement au kW:
+          valeur: 661
+          unité: €HT/kW
+          note: 'Source: ELCIMAI 2024'
     facteur d'annuité: *facteur-annuite-pac-air-air
     installation:
       avec:
@@ -438,21 +451,4 @@ PAC air-air coll:
         P4 moins aides: *bilan-p4-moins-aides
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
-
-ratios . PAC AIR AIR Puissance unitaire groupe froid indiv:
-  valeur: 2.5
-  unité: kW
-
-###### Ratios économiques (investissement)
-
-ratios économiques . PAC x air-air réversible:
-  avec:
-    Coût investissement Individuel:
-      valeur: 734
-      unité: €HT/kW
-      note: 'Source: ADEME Coûts EnR 2022 2020'
-    Coût investissement Collectif:
-      valeur: 661
-      unité: €HT/kW
-      note: 'Source: ELCIMAI 2024'
 

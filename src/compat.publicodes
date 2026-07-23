@@ -2565,15 +2565,6 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
 
 # --- Aides / investissement : anciennes clés (table de migration UI) ---
 
-
-
-
-
-
-
-
-
-
 ratios économiques x aides:
   valeur: aides
 
@@ -2583,7 +2574,6 @@ ratios économiques x aides . Coup de pouce x PAC air-eau:
 ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171:
   valeur: aides . CEE x PAC air-eau indiv x BAR-TH-171
 
-
 ratios économiques . Investissement x Pose et mise en place de l'installation:
   valeur: investissement . pose et mise en place
 
@@ -2592,3 +2582,64 @@ ratios économiques . Investissement x TVA:
 
 ratios économiques . Amortissement x Taux actualisation:
   valeur: amortissement . taux d'actualisation
+
+# --- Derniers ratios historiques par mode (table de migration UI) ---
+
+ratios économiques . PAC x eau-eau non réversible:
+  valeur: PAC eau-eau coll . ratios . investissement hors captage
+
+ratios économiques . PAC x eau-eau non réversible x Collectif:
+  valeur: PAC eau-eau coll . ratios . investissement hors captage + PAC eau-eau coll . ratios . investissement captage champ de sondes
+
+ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol:
+  valeur: PAC eau-eau coll . ratios . investissement hors captage
+
+ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde:
+  valeur: PAC eau-eau coll . ratios . investissement captage champ de sondes
+
+Investissement x frais de raccordement au réseaux x RCU:
+  valeur: réseau de chaleur . ratios . frais de raccordement
+
+Investissement x frais de raccordement au réseaux x RFU:
+  valeur: réseau de froid . ratios . frais de raccordement
+
+# --- Pseudo-modes solaires/hybride (lus par le module chaleur renouvelable) ---
+
+Bilan x PAC air-eau coll hybride:
+  valeur: PAC air-eau coll hybride . bilan
+
+Bilan x PAC air-eau coll hybride . total sans installation:
+  valeur: PAC air-eau coll hybride . bilan . total sans installation
+
+Bilan x PAC air-eau coll hybride . total sans aides:
+  valeur: PAC air-eau coll hybride . bilan . total sans aides
+
+Bilan x Solaire thermique:
+  valeur: Solaire thermique . bilan
+
+Bilan x Solaire thermique . total sans installation:
+  valeur: Solaire thermique . bilan . total sans installation
+
+Bilan x PAC capteurs solaires atmosphériques:
+  valeur: PAC capteurs solaires atmosphériques . bilan
+
+Bilan x PAC capteurs solaires atmosphériques . total sans installation:
+  valeur: PAC capteurs solaires atmosphériques . bilan . total sans installation
+
+Bilan x PAC air-eau collective ECS:
+  valeur: PAC air-eau collective ECS . bilan
+
+Bilan x PAC air-eau collective ECS . total sans installation:
+  valeur: PAC air-eau collective ECS . bilan . total sans installation
+
+Bilan x Chauffe-eau thermodynamique:
+  valeur: Chauffe-eau thermodynamique . bilan
+
+Bilan x Chauffe-eau thermodynamique . total sans installation:
+  valeur: Chauffe-eau thermodynamique . bilan . total sans installation
+
+Bilan x Système solaire combiné:
+  valeur: Système solaire combiné . bilan
+
+Bilan x Système solaire combiné . total sans installation:
+  valeur: Système solaire combiné . bilan . total sans installation

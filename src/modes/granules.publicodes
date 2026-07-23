@@ -26,7 +26,7 @@ poêle à granulés:
         investissement équipement:
           par défaut:
             produit:
-              - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
+              - poêle à granulés . ratios . coût équipement 12 kW
               - 1 + investissement . TVA
           unité: €TTC
         petit entretien P2:
@@ -35,6 +35,13 @@ poêle à granulés:
         rendement poêle chauffage:
           valeur: 80%
           unité: '%'
+
+        ###### Ratios économiques (investissement)
+
+        coût équipement 12 kW:
+          valeur: 5600
+          unité: €HT
+          note: 'Source: Invicta 2024'
     facteur d'annuité: &facteur-annuite-granules
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -315,6 +322,7 @@ poêle à granulés:
           somme:
             - total sans aides
             - (- P4)
+
 chaudière à granulés:
   description: Chaudière à granulés collective
   avec:
@@ -340,7 +348,7 @@ chaudière à granulés:
         investissement équipement:
           par défaut:
             produit:
-              - ratios économiques . Granulés x Chaudière à granulés collective
+              - chaudière à granulés . ratios . coût équipement
               - 1 + investissement . TVA
           unité: €TTC
         petit entretien P2:
@@ -349,6 +357,21 @@ chaudière à granulés:
         rendement chaudière chauffage:
           valeur: 82%
           unité: '%'
+
+        coût équipement:
+          variations:
+            - si: chaudière à granulés . installation . puissance retenue < 25
+              alors: 750 * chaudière à granulés . installation . puissance retenue
+            - si: chaudière à granulés . installation . puissance retenue = 25
+              alors: 20000
+            - si: chaudière à granulés . installation . puissance retenue <= 30
+              alors: 26250
+            - si: chaudière à granulés . installation . puissance retenue <= 40
+              alors: 29750
+            - si: chaudière à granulés . installation . puissance retenue <= 50
+              alors: 37500
+            - sinon: 750 * chaudière à granulés . installation . puissance retenue
+          note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
     facteur d'annuité: *facteur-annuite-granules
     installation:
       avec:
@@ -569,28 +592,4 @@ chaudière à granulés:
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
         total sans installation: *bilan-total-sans-installation
-
-###### Ratios économiques (investissement)
-
-ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel:
-  avec:
-    Coût investissement Puissance 12 kW:
-      valeur: 5600
-      unité: €HT
-  note: 'Source: Invicta 2024'
-
-ratios économiques . Granulés x Chaudière à granulés collective:
-  variations:
-    - si: chaudière à granulés . installation . puissance retenue < 25
-      alors: 750 * chaudière à granulés . installation . puissance retenue
-    - si: chaudière à granulés . installation . puissance retenue = 25
-      alors: 20000
-    - si: chaudière à granulés . installation . puissance retenue <= 30
-      alors: 26250
-    - si: chaudière à granulés . installation . puissance retenue <= 40
-      alors: 29750
-    - si: chaudière à granulés . installation . puissance retenue <= 50
-      alors: 37500
-    - sinon: 750 * chaudière à granulés . installation . puissance retenue
-  note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
 

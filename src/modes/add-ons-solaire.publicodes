@@ -1,59 +1,78 @@
 # Pseudo-modes partiels lus par le module « chaleur renouvelable » du front :
 
-# coûts d'exploitation isolés (total sans installation) combinés côté front à
-
-# un mode principal. Pas d'installation propre ni de bilan complet.
-
-Bilan x PAC air-eau coll hybride:
+PAC air-eau coll hybride:
   avec:
-    total sans aides:
-      produit:
-        - PAC air-eau coll . bilan . total avec aides
-        - 120 %
-    total sans installation:
-      somme:
-        - PAC air-eau coll . bilan . P1abo
-        - PAC air-eau coll . bilan . P1prime
-        - PAC air-eau coll . bilan . P1Consofroid
-        - produit:
-          - 120%
-          - PAC air-eau coll . bilan . P1ECS
-        - produit:
-          - 120%
-          - PAC air-eau coll . bilan . P1conso
-        - PAC air-eau coll . bilan . P2
-        - PAC air-eau coll . bilan . P3
 
-Bilan x Solaire thermique:
-  avec:
-    total sans installation:
-      produit:
-        - besoins eau chaude sanitaire par appartement
-        - combustibles . gaz . consommation individuel # prix du gaz €/kWh
-        - 50 % # taux de couverture solaire
+    # coûts d'exploitation isolés (total sans installation) combinés côté front à
 
-Bilan x PAC capteurs solaires atmosphériques:
-  avec:
-    total sans installation: PAC air-eau coll . bilan . P1ECS
+    # un mode principal. Pas d'installation propre ni de bilan complet.
 
-Bilan x PAC air-eau collective ECS:
-  avec:
-    total sans installation:
-      produit:
-        - combustibles . électricité . consommation collectif
-        - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
+    bilan:
+      avec:
+        total sans aides:
+          produit:
+            - PAC air-eau coll . bilan . total avec aides
+            - 120 %
+        total sans installation:
+          somme:
+            - PAC air-eau coll . bilan . P1abo
+            - PAC air-eau coll . bilan . P1prime
+            - PAC air-eau coll . bilan . P1Consofroid
+            - produit:
+              - 120%
+              - PAC air-eau coll . bilan . P1ECS
+            - produit:
+              - 120%
+              - PAC air-eau coll . bilan . P1conso
+            - PAC air-eau coll . bilan . P2
+            - PAC air-eau coll . bilan . P3
 
-Bilan x Chauffe-eau thermodynamique:
+Solaire thermique:
   avec:
-    total sans installation:
-      produit:
-        - combustibles . électricité . consommation individuel
-        - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
 
-Bilan x Système solaire combiné:
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - besoins eau chaude sanitaire par appartement
+            - combustibles . gaz . consommation individuel # prix du gaz €/kWh
+            - 50 % # taux de couverture solaire
+
+PAC capteurs solaires atmosphériques:
   avec:
-    total sans installation:
-      produit:
-        - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-        - combustibles . gaz . consommation individuel # prix du gaz €/kWh
-        - 50 % # taux de couverture solaire
+
+    bilan:
+      avec:
+        total sans installation: PAC air-eau coll . bilan . P1ECS
+
+PAC air-eau collective ECS:
+  avec:
+
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - combustibles . électricité . consommation collectif
+            - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
+
+Chauffe-eau thermodynamique:
+  avec:
+
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - combustibles . électricité . consommation individuel
+            - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
+
+Système solaire combiné:
+  avec:
+
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+            - combustibles . gaz . consommation individuel # prix du gaz €/kWh
+            - 50 % # taux de couverture solaire
+

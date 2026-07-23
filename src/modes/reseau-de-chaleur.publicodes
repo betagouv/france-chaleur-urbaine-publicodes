@@ -38,6 +38,106 @@ réseau de chaleur:
         rendement sous station chauffage:
           valeur: 86%
           unité: '%'
+
+        ###### Ratios économiques (investissement)
+
+        ###### Ratios environnementaux
+
+        ###### Investissement
+
+        coût raccordement résidentiel:
+          variations:
+            - si: nombre de logements dans l'immeuble concerné < 25
+              alors: 3709 * 25 / nombre de logements dans l'immeuble concerné
+            - si: nombre de logements dans l'immeuble concerné < 42
+              alors: 3709
+            - si: nombre de logements dans l'immeuble concerné < 58
+              alors: 2364
+            - si: nombre de logements dans l'immeuble concerné < 83
+              alors: 1847
+            - si: nombre de logements dans l'immeuble concerné < 125
+              alors: 1393
+            - si: nombre de logements dans l'immeuble concerné < 167
+              alors: 1027
+            - si: nombre de logements dans l'immeuble concerné < 250
+              alors: 857
+            - si: nombre de logements dans l'immeuble concerné < 333
+              alors: 701
+            - sinon: 608
+          unité: €HT/logement
+          note: 'source: FEDENE 2024'
+
+        coût raccordement tertiaire:
+          variations:
+            - si: surface logement type tertiaire < 2500
+              alors: 92725
+            - si: surface logement type tertiaire < 3500
+              alors: 99305
+            - si: surface logement type tertiaire < 5000
+              alors: 107146
+            - si: surface logement type tertiaire < 7500
+              alors: 115621
+            - si: surface logement type tertiaire < 10000
+              alors: 128398
+            - si: surface logement type tertiaire < 15000
+              alors: 143072
+            - sinon: 175203
+          unité: €HT
+          note: 'source: FEDENE 2024'
+
+        coût sous-station:
+          variations:
+            - si: réseau de chaleur . installation . puissance retenue <= 100
+              alors: 21500
+            - si: réseau de chaleur . installation . puissance retenue <= 150
+              alors: 22500
+            - si: réseau de chaleur . installation . puissance retenue <= 200
+              alors: 23500
+            - si: réseau de chaleur . installation . puissance retenue <= 250
+              alors: 24500
+            - si: réseau de chaleur . installation . puissance retenue <= 300
+              alors: 25500
+            - si: réseau de chaleur . installation . puissance retenue <= 350
+              alors: 26000
+            - si: réseau de chaleur . installation . puissance retenue <= 400
+              alors: 27000
+            - si: réseau de chaleur . installation . puissance retenue <= 500
+              alors: 28000
+            - si: réseau de chaleur . installation . puissance retenue <= 600
+              alors: 30000
+            - si: réseau de chaleur . installation . puissance retenue <= 700
+              alors: 32000
+            - si: réseau de chaleur . installation . puissance retenue <= 800
+              alors: 33500
+            - si: réseau de chaleur . installation . puissance retenue <= 900
+              alors: 35500
+            - si: réseau de chaleur . installation . puissance retenue <= 1000
+              alors: 37500
+            - si: réseau de chaleur . installation . puissance retenue <= 1500
+              alors: 39000
+            - si: réseau de chaleur . installation . puissance retenue <= 2000
+              alors: 48500
+            - si: réseau de chaleur . installation . puissance retenue <= 2500
+              alors: 57500
+            - si: réseau de chaleur . installation . puissance retenue <= 3000
+              alors: 67000
+            - si: réseau de chaleur . installation . puissance retenue <= 4500
+              alors: 76000
+            - si: réseau de chaleur . installation . puissance retenue <= 6000
+              alors: 104000
+            - sinon: 132000
+          unité: €HT
+          note: 'ELCIMAI'
+
+        frais de raccordement:
+          par défaut:
+            produit:
+              - variations:
+                  - si: type de bâtiment = 'résidentiel'
+                    alors: réseau de chaleur . ratios . coût raccordement résidentiel * nombre de logements dans l'immeuble concerné
+                  - sinon: réseau de chaleur . ratios . coût raccordement tertiaire
+              - 1 + investissement . TVA
+          unité: €TTC
     facteur d'annuité raccordement:
       description: Annuité pour 1 € investi sur la durée de renouvellement du raccordement (fonction Excel PMT)
       variations:
@@ -144,14 +244,14 @@ réseau de chaleur:
     coûts:
       avec:
         investissement raccordement:
-          valeur: Investissement x frais de raccordement au réseaux x RCU
+          valeur: réseau de chaleur . ratios . frais de raccordement
           unité: €TTC
         investissement raccordement par logement:
           valeur: investissement raccordement / nombre de logements dans l'immeuble concerné
           unité: €TTC
         investissement réseau secondaire:
           produit:
-            - ratios économiques . Réseaux x Coût Investissement SST RCU
+            - réseau de chaleur . ratios . coût sous-station
             - 1 + investissement . TVA
         investissement réseau secondaire par logement:
           valeur: investissement réseau secondaire / nombre de logements dans l'immeuble concerné
@@ -232,13 +332,13 @@ réseau de chaleur:
             produit:
               - ratios . petit entretien P2
               - (1 + Paramètres économiques . Petit entretien P2 . TVA)
-              - ratios économiques . Réseaux x Coût Investissement SST RCU
+              - réseau de chaleur . ratios . coût sous-station
             unité: €TTC/an
         gros entretien P3:
             produit:
               - ratios . gros entretien P3
               - (1 + Paramètres économiques . Gros entretien P3 . TVA)
-              - ratios économiques . Réseaux x Coût Investissement SST RCU
+              - réseau de chaleur . ratios . coût sous-station
             unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
@@ -555,104 +655,4 @@ réseau de chaleur:
           somme:
             - total sans aides
             - (- P4)
-
-###### Ratios économiques (investissement)
-
-ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel:
-  variations:
-    - si: nombre de logements dans l'immeuble concerné < 25
-      alors: 3709 * 25 / nombre de logements dans l'immeuble concerné
-    - si: nombre de logements dans l'immeuble concerné < 42
-      alors: 3709
-    - si: nombre de logements dans l'immeuble concerné < 58
-      alors: 2364
-    - si: nombre de logements dans l'immeuble concerné < 83
-      alors: 1847
-    - si: nombre de logements dans l'immeuble concerné < 125
-      alors: 1393
-    - si: nombre de logements dans l'immeuble concerné < 167
-      alors: 1027
-    - si: nombre de logements dans l'immeuble concerné < 250
-      alors: 857
-    - si: nombre de logements dans l'immeuble concerné < 333
-      alors: 701
-    - sinon: 608
-  unité: €HT/logement
-  note: 'source: FEDENE 2024'
-
-ratios économiques . Réseaux x Coût Investissement SST RCU:
-  variations:
-    - si: réseau de chaleur . installation . puissance retenue <= 100
-      alors: 21500
-    - si: réseau de chaleur . installation . puissance retenue <= 150
-      alors: 22500
-    - si: réseau de chaleur . installation . puissance retenue <= 200
-      alors: 23500
-    - si: réseau de chaleur . installation . puissance retenue <= 250
-      alors: 24500
-    - si: réseau de chaleur . installation . puissance retenue <= 300
-      alors: 25500
-    - si: réseau de chaleur . installation . puissance retenue <= 350
-      alors: 26000
-    - si: réseau de chaleur . installation . puissance retenue <= 400
-      alors: 27000
-    - si: réseau de chaleur . installation . puissance retenue <= 500
-      alors: 28000
-    - si: réseau de chaleur . installation . puissance retenue <= 600
-      alors: 30000
-    - si: réseau de chaleur . installation . puissance retenue <= 700
-      alors: 32000
-    - si: réseau de chaleur . installation . puissance retenue <= 800
-      alors: 33500
-    - si: réseau de chaleur . installation . puissance retenue <= 900
-      alors: 35500
-    - si: réseau de chaleur . installation . puissance retenue <= 1000
-      alors: 37500
-    - si: réseau de chaleur . installation . puissance retenue <= 1500
-      alors: 39000
-    - si: réseau de chaleur . installation . puissance retenue <= 2000
-      alors: 48500
-    - si: réseau de chaleur . installation . puissance retenue <= 2500
-      alors: 57500
-    - si: réseau de chaleur . installation . puissance retenue <= 3000
-      alors: 67000
-    - si: réseau de chaleur . installation . puissance retenue <= 4500
-      alors: 76000
-    - si: réseau de chaleur . installation . puissance retenue <= 6000
-      alors: 104000
-    - sinon: 132000
-  unité: €HT
-  note: 'ELCIMAI'
-
-ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire:
-  variations:
-    - si: surface logement type tertiaire < 2500
-      alors: 92725
-    - si: surface logement type tertiaire < 3500
-      alors: 99305
-    - si: surface logement type tertiaire < 5000
-      alors: 107146
-    - si: surface logement type tertiaire < 7500
-      alors: 115621
-    - si: surface logement type tertiaire < 10000
-      alors: 128398
-    - si: surface logement type tertiaire < 15000
-      alors: 143072
-    - sinon: 175203
-  unité: €HT
-  note: 'source: FEDENE 2024'
-
-###### Ratios environnementaux
-
-###### Investissement
-
-Investissement x frais de raccordement au réseaux x RCU:
-  par défaut:
-    produit:
-      - variations:
-          - si: type de bâtiment = 'résidentiel'
-            alors: ratios économiques . Réseaux x Coût raccordement RCU SST x Résidentiel * nombre de logements dans l'immeuble concerné
-          - sinon: ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire
-      - 1 + investissement . TVA
-  unité: €TTC
 
