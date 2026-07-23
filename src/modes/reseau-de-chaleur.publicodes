@@ -303,7 +303,7 @@ réseau de chaleur:
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
-          unité: €TTC/an) €TTC/an"
+          unité: €TTC/an
         P1 ballon ECS:
           applicable si: installation . consommation chauffe-eau électrique >= 0
           produit:

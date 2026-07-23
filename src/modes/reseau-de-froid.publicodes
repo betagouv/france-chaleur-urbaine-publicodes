@@ -147,7 +147,7 @@ réseau de froid:
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
-          unité: €TTC/an) €TTC/an"
+          unité: €TTC/an
         P1 froid:
           produit:
             - combustibles . réseau de froid . consommation

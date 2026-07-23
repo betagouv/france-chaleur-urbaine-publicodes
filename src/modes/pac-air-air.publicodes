@@ -166,7 +166,7 @@ PAC air-air indiv:
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
-          unité: €TTC/an) €TTC/an"
+          unité: €TTC/an
         P1 ballon ECS: &couts-cout-combustible-pour-ballon-ecs-a-accumulation
           applicable si: installation . consommation chauffe-eau électrique >= 0
           produit:
@@ -391,7 +391,7 @@ PAC air-air coll:
           produit:
             - combustibles . électricité . consommation collectif
             - installation . consommation auxiliaire
-          unité: €TTC/an) €TTC/an"
+          unité: €TTC/an
         P1 ballon ECS: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
         P1 chauffe-eau solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
         P1 froid: *couts-cout-combustible-froid

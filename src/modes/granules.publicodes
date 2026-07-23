@@ -164,7 +164,7 @@ poêle à granulés:
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
-          unité: €TTC/an) €TTC/an"
+          unité: €TTC/an
         P1 ballon ECS: &couts-cout-combustible-pour-ballon-ecs-a-accumulation
           applicable si: installation . consommation chauffe-eau électrique >= 0
           produit:
