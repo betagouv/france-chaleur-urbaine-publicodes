@@ -30,7 +30,7 @@ solaire thermique:
       avec:
         total sans installation:
           produit:
-            - besoins eau chaude sanitaire par appartement
+            - besoins . ECS par logement
             - combustibles . gaz . consommation individuel # prix du gaz €/kWh
             - 50 % # taux de couverture solaire
 
@@ -47,7 +47,7 @@ PAC air-eau collective ECS:
         total sans installation:
           produit:
             - combustibles . électricité . consommation collectif
-            - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
+            - besoins . ECS par logement / PAC air-eau coll . ratios . SCOP
 
 chauffe-eau thermodynamique:
   avec:
@@ -56,7 +56,7 @@ chauffe-eau thermodynamique:
         total sans installation:
           produit:
             - combustibles . électricité . consommation individuel
-            - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
+            - besoins . ECS par logement / PAC air-eau coll . ratios . SCOP
 
 système solaire combiné:
   avec:
@@ -64,7 +64,7 @@ système solaire combiné:
       avec:
         total sans installation:
           produit:
-            - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
+            - (besoins . chauffage par logement + besoins . ECS par logement)
             - combustibles . gaz . consommation individuel # prix du gaz €/kWh
             - 50 % # taux de couverture solaire
 

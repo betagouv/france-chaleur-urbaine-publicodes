@@ -71,14 +71,14 @@ radiateur électrique:
           unité: kW
         ECS additionnelle nécessaire:
           toutes ces conditions:
-            - Production eau chaude sanitaire
+            - ecs . production
             - puissance ECS <= 0
         volume du ballon ECS:
           variations:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS != "Solaire thermique"
+                  - ecs . type de production != "Solaire thermique"
               alors: volume du ballon ECS
             - sinon: 50
           unité: L
@@ -87,7 +87,7 @@ radiateur électrique:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS != 'Solaire thermique'
+                  - ecs . type de production != 'Solaire thermique'
               alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
@@ -96,12 +96,12 @@ radiateur électrique:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS = 'Solaire thermique'
+                  - ecs . type de production = 'Solaire thermique'
               alors: ecs additionnelle . appoint chauffe-eau solaire
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
-          formule: ratios . conso combustible * besoins chauffage par appartement
+          formule: ratios . conso combustible * besoins . chauffage par logement
           unité: kWh elec
         consommation combustible froid:
           formule: 0
@@ -142,7 +142,7 @@ radiateur électrique:
           applicable si:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
-              - type de production ECS = "Solaire thermique"
+              - ecs . type de production = "Solaire thermique"
           formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
         investissement total avec ballon ECS:
@@ -157,8 +157,8 @@ radiateur électrique:
             - variations:
                 - si:
                     toutes ces conditions:
-                      - Inclure la climatisation
-                      - type de production de froid = 'Réseau de froid'
+                      - climatisation . incluse
+                      - climatisation . type de production = 'Réseau de froid'
                   alors: réseau de froid . coûts . P1 abonnement
                 - sinon: 0
             - combustibles . électricité . abonnement individuel
@@ -189,8 +189,8 @@ radiateur électrique:
           variations:
             - si:
                 toutes ces conditions:
-                  - Inclure la climatisation
-                  - type de production de froid = 'Réseau de froid'
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Réseau de froid'
               alors: réseau de froid . coûts . P1 froid
             - sinon:
                 produit:
@@ -249,7 +249,7 @@ radiateur électrique:
             - ECS solaire thermique
             - ECS avec ballon électrique
         scope 3:
-          formule: besoins chauffage par appartement * ratios . CO2 installation
+          formule: besoins . chauffage par logement * ratios . CO2 installation
         total:
           somme:
             - scope 1
@@ -276,7 +276,7 @@ radiateur électrique:
 
         P4 chauffe-eau solaire:
           variations:
-            - si: type de production ECS = 'Solaire thermique'
+            - si: ecs . type de production = 'Solaire thermique'
               alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
             - sinon: 0
 

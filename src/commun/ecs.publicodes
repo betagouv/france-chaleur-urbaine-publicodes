@@ -6,7 +6,7 @@ ecs additionnelle:
   description: Production d'ECS additionnelle quand l'équipement de chauffage ne la produit pas
   avec:
     consommation chauffe-eau électrique:
-      formule: besoins eau chaude sanitaire par appartement / ecs additionnelle . rendement stockage ballon électrique
+      formule: besoins . ECS par logement / ecs additionnelle . rendement stockage ballon électrique
       # unité: kWh/an
       unité: kWh # corrigé pour faire fonctionner la division
 
@@ -24,7 +24,7 @@ ecs additionnelle:
       unité: m2
 
     appoint chauffe-eau solaire:
-      formule: besoins eau chaude sanitaire par appartement * (1 - ecs additionnelle . part du solaire dans la production) / ecs additionnelle . rendement stockage ballon solaire
+      formule: besoins . ECS par logement * (1 - ecs additionnelle . part du solaire dans la production) / ecs additionnelle . rendement stockage ballon solaire
       # unité: kWh/an
       unité: kWh # corrigé pour faire fonctionner la division
 
@@ -137,11 +137,11 @@ ecs additionnelle:
                 variations:
                   - si:
                       toutes ces conditions:
-                        - type de bâtiment = 'résidentiel'
-                        - type de production ECS = 'Solaire thermique'
-                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . CEE . ratio chauffe-eau solaire collectif * aides . valeur CEE * nombre de logements dans l'immeuble concerné
-                  - si: type de bâtiment = 'tertiaire'
-                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . tertiaire . ratio CEE chauffe-eau solaire
+                        - bâtiment . type = 'résidentiel'
+                        - ecs . type de production = 'Solaire thermique'
+                    alors: besoins . ECS par logement * ecs additionnelle . part du solaire dans la production * aides . CEE . ratio chauffe-eau solaire collectif * aides . valeur CEE * bâtiment . nombre de logements
+                  - si: bâtiment . type = 'tertiaire'
+                    alors: besoins . ECS par logement * ecs additionnelle . part du solaire dans la production * aides . tertiaire . ratio CEE chauffe-eau solaire
             - sinon: 0
           unité: €
         total:
@@ -208,175 +208,175 @@ ecs additionnelle:
 consommation spécifique ECS:
   note: Besoin_ECS
   variations:
-    - si: type de bâtiment = "résidentiel"
+    - si: bâtiment . type = "résidentiel"
       alors: 360 kWh/habitant
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Bureaux"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 7 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Bureaux"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 7 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Bureaux"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 7 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Enseignement secondaire"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 5 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Enseignement secondaire"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 5 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Enseignement secondaire"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 5 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Commerces"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 0 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Commerces"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 0 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Commerces"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 0 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Café, restaurant"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 15 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Café, restaurant"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 15 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Café, restaurant"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 15 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Hôtel"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 40 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Hôtel"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 40 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Hôtel"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 40 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Enseignement primaire"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 12.5 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Enseignement primaire"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 12.5 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Enseignement primaire"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 12.5 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Sport"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 10 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Sport"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 10 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Sport"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 10 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Santé"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 20 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Santé"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 20 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "Santé"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 20 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "EHPAD"
-          - normes thermiques tertiaire = "RE2020"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
       alors: 30 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "EHPAD"
-          - normes thermiques tertiaire = "RT2012"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
       alors: 30 kWhef/m2.an
     - si:
         toutes ces conditions:
-          - type de bâtiment = "tertiaire"
-          - méthode tertiaire = "EHPAD"
-          - normes thermiques tertiaire = "Moyenne française 2021"
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
       alors: 30 kWhef/m2.an
 
 volume du ballon ECS:
   variations:
-    - si: type de production ECS = 'Solaire thermique'
+    - si: ecs . type de production = 'Solaire thermique'
       alors: 50
-    - sinon: (besoins eau chaude sanitaire par appartement * ecs additionnelle . quantité ECS produite par kWh) / 365
+    - sinon: (besoins . ECS par logement * ecs additionnelle . quantité ECS produite par kWh) / 365
   unité: L
 

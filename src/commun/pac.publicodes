@@ -4,17 +4,17 @@
 
 température émetteurs delta:
   variations:
-    - si: Température émetteurs = "35"
+    - si: bâtiment . température émetteurs = "35"
       alors: 0
-    - si: Température émetteurs = "45"
+    - si: bâtiment . température émetteurs = "45"
       alors: -0.6
-    - si: Température émetteurs = "55"
+    - si: bâtiment . température émetteurs = "55"
       alors: -1.2
-    - si: Température émetteurs = "65"
+    - si: bâtiment . température émetteurs = "65"
       alors: -1.6
-    - si: Température émetteurs = "Plancher"
+    - si: bâtiment . température émetteurs = "Plancher"
       alors: 0
-    - si: Température émetteurs = "Radiateur"
+    - si: bâtiment . température émetteurs = "Radiateur"
       alors: -1.2
 
 ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air:

@@ -10,9 +10,9 @@ froid:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de bâtiment = 'résidentiel'
-              - type de production de froid = 'Groupe froid'
+              - climatisation . incluse
+              - bâtiment . type = 'résidentiel'
+              - climatisation . type de production = 'Groupe froid'
           alors:
             produit:
               - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-air indiv . ratios . SEER) // froid . puissance unitaire groupe froid)
@@ -24,9 +24,9 @@ froid:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de bâtiment = 'tertiaire'
-              - type de production de froid = 'Groupe froid'
+              - climatisation . incluse
+              - bâtiment . type = 'tertiaire'
+              - climatisation . type de production = 'Groupe froid'
           alors:
             produit:
               - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-eau coll . ratios . SEER) // PAC air-eau coll . ratios . puissance unitaire réversible)
@@ -38,13 +38,13 @@ froid:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Groupe froid'
+              - climatisation . incluse
+              - climatisation . type de production = 'Groupe froid'
           alors:
             variations:
-              - si: type de bâtiment = 'résidentiel'
-                alors: besoins en climatisation par appartement / PAC air-air indiv . ratios . SEER
-              - sinon: besoins en climatisation par appartement / PAC air-eau coll . ratios . SEER
+              - si: bâtiment . type = 'résidentiel'
+                alors: besoins . climatisation par logement / PAC air-air indiv . ratios . SEER
+              - sinon: besoins . climatisation par logement / PAC air-eau coll . ratios . SEER
         - sinon: 0
 
     investissement groupe froid résidentiel:
@@ -56,34 +56,34 @@ froid:
       produit:
         - Investissement x Groupe eau glacée x tertiaire
         - 1 + investissement . pose et mise en place
-        - 1 / nombre de logements dans l'immeuble concerné
+        - 1 / bâtiment . nombre de logements
     surcoût P2:
       variations:
-        - si: Inclure la climatisation
+        - si: climatisation . incluse
           alors:
             variations:
-              - si: type de production de froid = 'Réseau de froid'
+              - si: climatisation . type de production = 'Réseau de froid'
                 alors: réseau de froid . coûts . petit entretien P2 par logement tertiaire
               - sinon:
                   variations:
-                    - si: type de bâtiment = 'résidentiel'
+                    - si: bâtiment . type = 'résidentiel'
                       alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . petit entretien P2 par logement tertiaire
-                    - si: type de bâtiment = 'tertiaire'
+                    - si: bâtiment . type = 'tertiaire'
                       alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . petit entretien P2 par logement tertiaire
         - sinon: 0
 
     surcoût P3:
       variations:
-        - si: Inclure la climatisation
+        - si: climatisation . incluse
           alors:
             variations:
-              - si: type de production de froid = 'Réseau de froid'
+              - si: climatisation . type de production = 'Réseau de froid'
                 alors: réseau de froid . coûts . gros entretien P3 par logement tertiaire
               - sinon:
                   variations:
-                    - si: type de bâtiment = 'résidentiel'
+                    - si: bâtiment . type = 'résidentiel'
                       alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel . gros entretien P3 par logement tertiaire
-                    - si: type de bâtiment = 'tertiaire'
+                    - si: bâtiment . type = 'tertiaire'
                       alors: Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire . gros entretien P3 par logement tertiaire
         - sinon: 0
 
@@ -91,22 +91,22 @@ froid:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
+              - climatisation . incluse
+              - climatisation . type de production = 'Réseau de froid'
           alors: réseau de froid . coûts . P1 auxiliaires
         - sinon: 0
 
     P4 groupe froid:
       variations:
-        - si: type de bâtiment = 'résidentiel'
+        - si: bâtiment . type = 'résidentiel'
           alors: froid . investissement groupe froid résidentiel * PAC air-air indiv . annuité
         - sinon: froid . investissement groupe eau glacée tertiaire * PAC air-eau coll . annuité
     P4 réseau de froid:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
+              - climatisation . incluse
+              - climatisation . type de production = 'Réseau de froid'
           alors: réseau de froid . coûts . investissement par logement * réseau de froid . annuité
         - sinon: 0
 
@@ -117,8 +117,8 @@ froid:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Réseau de froid'
+              - climatisation . incluse
+              - climatisation . type de production = 'Réseau de froid'
           alors: aides réseau de froid amorties
         - sinon: 0
 
@@ -150,14 +150,14 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Groupe froid'
-              - type de bâtiment = 'résidentiel'
+              - climatisation . incluse
+              - climatisation . type de production = 'Groupe froid'
+              - bâtiment . type = 'résidentiel'
           alors:
             produit:
               - PAC air-eau coll . ratios . petit entretien P2
-              - besoins en climatisation par appartement
-              - nombre de logements dans l'immeuble concerné
+              - besoins . climatisation par logement
+              - bâtiment . nombre de logements
               - 1 / 1000
         - sinon: 0
 
@@ -165,18 +165,18 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Groupe froid'
-              - type de bâtiment = 'résidentiel'
+              - climatisation . incluse
+              - climatisation . type de production = 'Groupe froid'
+              - bâtiment . type = 'résidentiel'
           alors:
             produit:
               - PAC air-eau coll . ratios . gros entretien P3
-              - besoins en climatisation par appartement
-              - nombre de logements dans l'immeuble concerné
+              - besoins . climatisation par logement
+              - bâtiment . nombre de logements
               - 1 / 1000
         - sinon: 0
-    petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
-    gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+    petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+    gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
 
 Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire:
   avec:
@@ -184,28 +184,28 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Groupe froid'
-              - type de bâtiment = 'tertiaire'
+              - climatisation . incluse
+              - climatisation . type de production = 'Groupe froid'
+              - bâtiment . type = 'tertiaire'
           alors:
             produit:
               - PAC air-eau coll . ratios . petit entretien P2
-              - besoins en climatisation par appartement
+              - besoins . climatisation par logement
               - 1 / 1000
         - sinon: 0
     gros entretien P3:
       variations:
         - si:
             toutes ces conditions:
-              - Inclure la climatisation
-              - type de production de froid = 'Groupe froid'
-              - type de bâtiment = 'tertiaire'
+              - climatisation . incluse
+              - climatisation . type de production = 'Groupe froid'
+              - bâtiment . type = 'tertiaire'
           alors:
             produit:
               - PAC air-eau coll . ratios . gros entretien P3
-              - besoins en climatisation par appartement
+              - besoins . climatisation par logement
               - 1 / 1000
         - sinon: 0
-    petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
-    gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+    petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+    gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
 

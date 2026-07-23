@@ -46,7 +46,7 @@ src/
 │   ├── consommations-specifiques-chauffage.publicodes      # table CHAF
 │   ├── consommations-specifiques-climatisation.publicodes  # table RAF
 │   └── coefficients-intermittence.publicodes               # table CI
-├── parametres-techniques.publicodes   # entrées utilisateur (bâtiment, méthode, DPE…)
+├── parametres-techniques.publicodes   # entrées utilisateur + vue organisée (bâtiment, climat, besoins, ecs, climatisation)
 ├── parametres-economiques.publicodes  # reliquat : TVA d'entretien (clés historiques)
 ├── bareme-revenu-mpr.publicodes       # ménage . revenu (plafonds MaPrimeRénov')
 ├── departements.publicodes            # données par département (généré, remplace)
@@ -91,6 +91,20 @@ gardent leur casse (CEE, SCOP, TVA, PAC, P1…P4, CO2, DPE…) : `annuité`,
 de la migration du front : les clés que le front **écrit**
 (parametres-techniques, clés ` x ` canoniques, cf. couche de compatibilité)
 et les suffixes historiques du bilan (P1abo…).
+
+#### Entrées utilisateur : namespaces de lecture
+
+Les clés que le front **écrit** (entrées du simulateur) restent canoniques
+sous leur nom historique, mais chacune a un nouveau nom organisé qui la
+référence : `bâtiment .` (type, DPE, méthode, normes, logements…),
+`climat .` (département, zone, DJU…), `besoins .` (par logement,
+consommations spécifiques), `ecs .` / `climatisation .` (choix de
+production), `réseau de chaleur/froid . caractéristiques .` (données du
+réseau injectées via l'adresse). **La direction est inverse de celle des
+ratios de modes** : ici l'historique est canonique (les écritures du front
+continuent de fonctionner) et le nouveau nom n'est qu'une vue de lecture —
+le modèle interne référence les nouveaux noms, et la migration du front
+inversera la direction. Sémantique testée dans index.spec.ts.
 
 #### Références relatives
 
@@ -144,10 +158,12 @@ Régime des clés que le front **écrit** (deux cas, à connaître absolument) :
    valeur de référence vit dans le mode ; écrire l'ancienne clé est **inerte**
    (choix assumé, testé dans index.spec.ts). La page paramètres devra écrire
    les nouvelles clés lors de l'intégration.
-2. **Clés de l'UX principale** (éligibilité aides
-   `Paramètres économiques . Aides . …`, efficacité BAR-TH-171, TVA
-   d'entretien) : la clé **historique reste canonique** (writable), les
-   nouveaux noms la référencent. À inverser seulement à la migration du front.
+2. **Clés de l'UX principale** (entrées du simulateur → namespaces
+   `bâtiment`/`climat`/`besoins`/`ecs`/`climatisation`/`… caractéristiques`,
+   éligibilité aides → `aides . éligibilité`, valeur CEE, efficacité
+   BAR-TH-171, TVA d'entretien) : la clé **historique reste canonique**
+   (writable), les nouveaux noms la référencent. À inverser seulement à la
+   migration du front.
 
 À la migration du front (version majeure) : basculer les écritures, supprimer
 compat.publicodes, les racines de `namespaces.publicodes` et les tests
@@ -264,6 +280,12 @@ indépendants du mode et calculés une seule fois dans `commun/`.
 8. **Convention de nommage** (sans apostrophe, lowercase hors acronymes),
    nettoyage des séparateurs ` x `, des en-têtes et de la mise en forme,
    aplatissement de compat en une ligne par alias.
+9. **Vue organisée des entrées utilisateur** : les ~45 clés écrites par le
+   simulateur principal gardent leur nom historique canonique mais sont
+   exposées sous `bâtiment`/`climat`/`besoins`/`ecs`/`climatisation` et
+   `réseau de chaleur/froid . caractéristiques` ; ~1 040 références internes
+   migrées sur ces nouveaux noms. L'audit des écritures réelles du front
+   (233 clés) a aussi permis de rebrancher 9 clés cassées par l'élagage.
 
 Volume : ~11 000 lignes de règles (hors départements) sur `dev` →
 **~9 650 lignes** (hors départements et compat), sans changer un seul

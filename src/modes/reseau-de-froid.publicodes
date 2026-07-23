@@ -5,6 +5,15 @@
 réseau de froid:
   description: Raccordement à un réseau de froid urbain
   avec:
+    caractéristiques:
+      description: Données du réseau sélectionné, injectées par le front via l'adresse
+      avec:
+        contenu CO2: caractéristique réseau de froid . contenu CO2
+        contenu CO2 ACV: caractéristique réseau de froid . contenu CO2 ACV
+        livraisons totales: caractéristique réseau de froid . livraisons totales
+        production totale: caractéristique réseau de froid . production totale
+        prix moyen: caractéristique réseau de froid . prix moyen
+        part fixe: caractéristique réseau de froid . part fixe
     ratios:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
@@ -26,21 +35,21 @@ réseau de froid:
 
         coût raccordement résidentiel:
           variations:
-            - si: nombre de logements dans l'immeuble concerné <= 25
-              alors: 4822 * 25 / nombre de logements dans l'immeuble concerné
-            - si: nombre de logements dans l'immeuble concerné <= 42
+            - si: bâtiment . nombre de logements <= 25
+              alors: 4822 * 25 / bâtiment . nombre de logements
+            - si: bâtiment . nombre de logements <= 42
               alors: 4822
-            - si: nombre de logements dans l'immeuble concerné <= 58
+            - si: bâtiment . nombre de logements <= 58
               alors: 3074
-            - si: nombre de logements dans l'immeuble concerné <= 83
+            - si: bâtiment . nombre de logements <= 83
               alors: 2402
-            - si: nombre de logements dans l'immeuble concerné <= 125
+            - si: bâtiment . nombre de logements <= 125
               alors: 1811
-            - si: nombre de logements dans l'immeuble concerné <= 167
+            - si: bâtiment . nombre de logements <= 167
               alors: 1335
-            - si: nombre de logements dans l'immeuble concerné <= 250
+            - si: bâtiment . nombre de logements <= 250
               alors: 1114
-            - si: nombre de logements dans l'immeuble concerné <= 333
+            - si: bâtiment . nombre de logements <= 333
               alors: 911
             - sinon: 790
           unité: €HT/logement
@@ -48,17 +57,17 @@ réseau de froid:
 
         coût raccordement tertiaire:
           variations:
-            - si: surface logement type tertiaire < 2500
+            - si: bâtiment . surface tertiaire < 2500
               alors: 120543
-            - si: surface logement type tertiaire < 3500
+            - si: bâtiment . surface tertiaire < 3500
               alors: 129097
-            - si: surface logement type tertiaire < 5000
+            - si: bâtiment . surface tertiaire < 5000
               alors: 139290
-            - si: surface logement type tertiaire < 7500
+            - si: bâtiment . surface tertiaire < 7500
               alors: 150307
-            - si: surface logement type tertiaire < 10000
+            - si: bâtiment . surface tertiaire < 10000
               alors: 166917
-            - si: surface logement type tertiaire < 15000
+            - si: bâtiment . surface tertiaire < 15000
               alors: 185994
             - sinon: 227764
           unité: €HT
@@ -89,12 +98,12 @@ réseau de froid:
         frais de raccordement:
           par défaut:
             variations:
-              - si: Inclure la climatisation
+              - si: climatisation . incluse
                 alors:
                   produit:
                     - variations:
-                        - si: type de bâtiment = 'résidentiel'
-                          alors: réseau de froid . ratios . coût raccordement résidentiel * nombre de logements dans l'immeuble concerné
+                        - si: bâtiment . type = 'résidentiel'
+                          alors: réseau de froid . ratios . coût raccordement résidentiel * bâtiment . nombre de logements
                         - sinon: réseau de froid . ratios . coût raccordement tertiaire
                     - 1 + investissement . TVA
               - sinon: 0
@@ -109,7 +118,7 @@ réseau de froid:
       avec:
         production eau chaude sanitaire: non
         puissance refroidissement:
-          formule: dimensionnement . puissance refroidissement appelée / ratios . rendement sous station * nombre de logements dans l'immeuble concerné
+          formule: dimensionnement . puissance refroidissement appelée / ratios . rendement sous station * bâtiment . nombre de logements
           # unité: kW # corrigé pour faire fonctionner la division
           # QUESTION : Quelle est l'unité ? Peut-on changer l'unité pour kW ?
           unité: kW
@@ -121,10 +130,10 @@ réseau de froid:
           formule: puissance équipement
           unité: kW
         consommation combustible froid:
-          formule: besoins en climatisation par appartement / ratios . rendement sous station
+          formule: besoins . climatisation par logement / ratios . rendement sous station
           unité: kWh
         consommation auxiliaire:
-          formule: (1 - ratios . conso auxiliaire) * besoins en climatisation par appartement
+          formule: (1 - ratios . conso auxiliaire) * besoins . climatisation par logement
           unité: kWh elec
     coûts:
       avec:
@@ -132,7 +141,7 @@ réseau de froid:
           formule: réseau de froid . ratios . frais de raccordement
           unité: €TTC
         investissement par logement:
-          valeur: investissement équipement / nombre de logements dans l'immeuble concerné
+          valeur: investissement équipement / bâtiment . nombre de logements
           unité: €TTC
         P1 abonnement:
           produit:
@@ -151,7 +160,7 @@ réseau de froid:
           unité: €TTC/an
         petit entretien P2:
             variations:
-              - si: Inclure la climatisation
+              - si: climatisation . incluse
                 alors:
                   produit:
                     - ratios . petit entretien P2
@@ -162,7 +171,7 @@ réseau de froid:
             unité: €TTC/an
         gros entretien P3:
             variations:
-              - si: Inclure la climatisation
+              - si: climatisation . incluse
                 alors:
                   produit:
                     - ratios . gros entretien P3
@@ -170,8 +179,8 @@ réseau de froid:
                     - réseau de froid . ratios . coût sous-station
               - sinon: 0
             unité: €TTC/an
-        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
-        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
     aides:
       avec:
         ma prime rénov:
@@ -203,7 +212,7 @@ réseau de froid:
             - si: aides . éligibilité . éligible CEE
               alors:
                 variations:
-                  - si: type de bâtiment = 'résidentiel'
+                  - si: bâtiment . type = 'résidentiel'
                     alors: 0
                   - sinon: aides . tertiaire . CEE RFU montant * aides . tertiaire . CEE RFU facteur correctif * installation . puissance retenue * aides . valeur CEE
             - sinon: 0

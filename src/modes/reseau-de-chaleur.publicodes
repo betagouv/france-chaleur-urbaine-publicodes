@@ -5,6 +5,17 @@
 réseau de chaleur:
   description: Raccordement à un réseau de chaleur urbain
   avec:
+    caractéristiques:
+      description: Données du réseau sélectionné, injectées par le front via l'adresse
+      avec:
+        contenu CO2: caractéristique réseau de chaleur . contenu CO2
+        contenu CO2 ACV: caractéristique réseau de chaleur . contenu CO2 ACV
+        taux EnRR: caractéristique réseau de chaleur . taux EnRR
+        livraisons totales: caractéristique réseau de chaleur . livraisons totales
+        production totale: caractéristique réseau de chaleur . production totale
+        prix moyen: caractéristique réseau de chaleur . prix moyen
+        part fixe: caractéristique réseau de chaleur . part fixe
+        part variable: caractéristique réseau de chaleur . part variable
     ratios:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
@@ -39,21 +50,21 @@ réseau de chaleur:
 
         coût raccordement résidentiel:
           variations:
-            - si: nombre de logements dans l'immeuble concerné < 25
-              alors: 3709 * 25 / nombre de logements dans l'immeuble concerné
-            - si: nombre de logements dans l'immeuble concerné < 42
+            - si: bâtiment . nombre de logements < 25
+              alors: 3709 * 25 / bâtiment . nombre de logements
+            - si: bâtiment . nombre de logements < 42
               alors: 3709
-            - si: nombre de logements dans l'immeuble concerné < 58
+            - si: bâtiment . nombre de logements < 58
               alors: 2364
-            - si: nombre de logements dans l'immeuble concerné < 83
+            - si: bâtiment . nombre de logements < 83
               alors: 1847
-            - si: nombre de logements dans l'immeuble concerné < 125
+            - si: bâtiment . nombre de logements < 125
               alors: 1393
-            - si: nombre de logements dans l'immeuble concerné < 167
+            - si: bâtiment . nombre de logements < 167
               alors: 1027
-            - si: nombre de logements dans l'immeuble concerné < 250
+            - si: bâtiment . nombre de logements < 250
               alors: 857
-            - si: nombre de logements dans l'immeuble concerné < 333
+            - si: bâtiment . nombre de logements < 333
               alors: 701
             - sinon: 608
           unité: €HT/logement
@@ -61,17 +72,17 @@ réseau de chaleur:
 
         coût raccordement tertiaire:
           variations:
-            - si: surface logement type tertiaire < 2500
+            - si: bâtiment . surface tertiaire < 2500
               alors: 92725
-            - si: surface logement type tertiaire < 3500
+            - si: bâtiment . surface tertiaire < 3500
               alors: 99305
-            - si: surface logement type tertiaire < 5000
+            - si: bâtiment . surface tertiaire < 5000
               alors: 107146
-            - si: surface logement type tertiaire < 7500
+            - si: bâtiment . surface tertiaire < 7500
               alors: 115621
-            - si: surface logement type tertiaire < 10000
+            - si: bâtiment . surface tertiaire < 10000
               alors: 128398
-            - si: surface logement type tertiaire < 15000
+            - si: bâtiment . surface tertiaire < 15000
               alors: 143072
             - sinon: 175203
           unité: €HT
@@ -125,8 +136,8 @@ réseau de chaleur:
           par défaut:
             produit:
               - variations:
-                  - si: type de bâtiment = 'résidentiel'
-                    alors: réseau de chaleur . ratios . coût raccordement résidentiel * nombre de logements dans l'immeuble concerné
+                  - si: bâtiment . type = 'résidentiel'
+                    alors: réseau de chaleur . ratios . coût raccordement résidentiel * bâtiment . nombre de logements
                   - sinon: réseau de chaleur . ratios . coût raccordement tertiaire
               - 1 + investissement . TVA
           unité: €TTC
@@ -144,17 +155,17 @@ réseau de chaleur:
         - sinon: 1 / ratios . durée sous station
     installation:
       avec:
-        production eau chaude sanitaire: Production eau chaude sanitaire
+        production eau chaude sanitaire: ecs . production
         puissance chauffage:
-          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement sous station chauffage) * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement sous station chauffage) * bâtiment . nombre de logements * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
             - si:
                 toutes ces conditions:
                   - production eau chaude sanitaire
-                  - type de production ECS = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement sous station ECS) * nombre de logements dans l'immeuble concerné
+                  - ecs . type de production = 'Avec équipement chauffage'
+              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement sous station ECS) * bâtiment . nombre de logements
             - sinon: 0
           unité: kW
         puissance équipement:
@@ -168,14 +179,14 @@ réseau de chaleur:
         ECS additionnelle nécessaire:
           # valeur commune à tous les types d'installations
           toutes ces conditions:
-            - Production eau chaude sanitaire
+            - ecs . production
             - puissance ECS <= 0
         volume du ballon ECS:
           variations:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS != "Solaire thermique"
+                  - ecs . type de production != "Solaire thermique"
               alors: volume du ballon ECS
             - sinon: 50
           unité: L
@@ -185,7 +196,7 @@ réseau de chaleur:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS != 'Solaire thermique'
+                  - ecs . type de production != 'Solaire thermique'
               alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
@@ -195,19 +206,19 @@ réseau de chaleur:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS = 'Solaire thermique'
+                  - ecs . type de production = 'Solaire thermique'
               alors: ecs additionnelle . appoint chauffe-eau solaire
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
           somme:
-            - besoins chauffage par appartement / ratios . rendement sous station chauffage
+            - besoins . chauffage par logement / ratios . rendement sous station chauffage
             - variations:
                 - si:
                     toutes ces conditions:
-                      - type de production ECS = 'Avec équipement chauffage'
-                      - Production eau chaude sanitaire
-                  alors: besoins eau chaude sanitaire par appartement / ratios . rendement sous station ECS
+                      - ecs . type de production = 'Avec équipement chauffage'
+                      - ecs . production
+                  alors: besoins . ECS par logement / ratios . rendement sous station ECS
                 - sinon: 0
           unité: kWh
         consommation combustible froid:
@@ -215,13 +226,13 @@ réseau de chaleur:
           unité: kWh
         consommation auxiliaire:
           somme:
-            - (1 - ratios . conso auxiliaire chauffage) * besoins chauffage par appartement
+            - (1 - ratios . conso auxiliaire chauffage) * besoins . chauffage par logement
             - variations:
                 - si:
                     toutes ces conditions:
-                      - type de production ECS = 'Avec équipement chauffage'
-                      - Production eau chaude sanitaire
-                  alors: (1 - ratios . conso auxiliaire ECS) * besoins eau chaude sanitaire par appartement
+                      - ecs . type de production = 'Avec équipement chauffage'
+                      - ecs . production
+                  alors: (1 - ratios . conso auxiliaire ECS) * besoins . ECS par logement
                 - sinon: 0
           unité: kWh elec
         consommation hors électricité:
@@ -239,14 +250,14 @@ réseau de chaleur:
           valeur: réseau de chaleur . ratios . frais de raccordement
           unité: €TTC
         investissement raccordement par logement:
-          valeur: investissement raccordement / nombre de logements dans l'immeuble concerné
+          valeur: investissement raccordement / bâtiment . nombre de logements
           unité: €TTC
         investissement réseau secondaire:
           produit:
             - réseau de chaleur . ratios . coût sous-station
             - 1 + investissement . TVA
         investissement réseau secondaire par logement:
-          valeur: investissement réseau secondaire / nombre de logements dans l'immeuble concerné
+          valeur: investissement réseau secondaire / bâtiment . nombre de logements
           unité: €TTC
         investissement équipement:
           valeur: investissement raccordement + investissement réseau secondaire
@@ -263,7 +274,7 @@ réseau de chaleur:
           applicable si:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
-              - type de production ECS = "Solaire thermique"
+              - ecs . type de production = "Solaire thermique"
           formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
         investissement total avec ballon ECS:
@@ -278,8 +289,8 @@ réseau de chaleur:
             - variations:
                 - si:
                     toutes ces conditions:
-                      - Inclure la climatisation
-                      - type de production de froid = 'Réseau de froid'
+                      - climatisation . incluse
+                      - climatisation . type de production = 'Réseau de froid'
                   alors: réseau de froid . coûts . P1 abonnement
                 - sinon: 0
             - produit:
@@ -312,8 +323,8 @@ réseau de chaleur:
           variations:
             - si:
                 toutes ces conditions:
-                  - Inclure la climatisation
-                  - type de production de froid = 'Réseau de froid'
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Réseau de froid'
               alors: réseau de froid . coûts . P1 froid
             - sinon:
                 produit:
@@ -332,8 +343,8 @@ réseau de chaleur:
               - (1 + Paramètres économiques . Gros entretien P3 . TVA)
               - réseau de chaleur . ratios . coût sous-station
             unité: €TTC/an
-        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
-        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
     aides:
       avec:
         ma prime rénov:
@@ -372,20 +383,20 @@ réseau de chaleur:
         CEE:
           produit:
             - variations:
-                - si: type de bâtiment = 'résidentiel'
+                - si: bâtiment . type = 'résidentiel'
                   alors:
                     variations:
-                      - si: nombre de logements dans l'immeuble concerné <= 125
+                      - si: bâtiment . nombre de logements <= 125
                         alors: aides . CEE . barème FCU résidentiel inf 125
-                      - sinon: aides . CEE . barème FCU résidentiel sup 125 variable * nombre de logements dans l'immeuble concerné + aides . CEE . barème FCU résidentiel sup 125 fixe
+                      - sinon: aides . CEE . barème FCU résidentiel sup 125 variable * bâtiment . nombre de logements + aides . CEE . barème FCU résidentiel sup 125 fixe
                 - sinon:
                     variations:
-                      - si: surface logement type tertiaire <= 7500
+                      - si: bâtiment . surface tertiaire <= 7500
                         alors: aides . CEE . barème FCU tertiaire inf 7500
-                      - sinon: aides . CEE . barème FCU tertiaire sup 7500 variable * surface logement type tertiaire + aides . CEE . barème FCU tertiaire sup 7500 fixe
+                      - sinon: aides . CEE . barème FCU tertiaire sup 7500 variable * bâtiment . surface tertiaire + aides . CEE . barème FCU tertiaire sup 7500 fixe
             - aides . valeur CEE
             - aides . CEE . facteur correctif RCU
-            - 1 / nombre de logements dans l'immeuble concerné
+            - 1 / bâtiment . nombre de logements
           unité: €
         total:
           variations:
@@ -398,39 +409,39 @@ réseau de chaleur:
         coup de pouce:
           produit:
             - variations:
-              - si: type de bâtiment = 'résidentiel'
+              - si: bâtiment . type = 'résidentiel'
                 alors:
                   variations:
-                    - si: nombre de logements dans l'immeuble concerné <= 125
-                      alors: 24000 * nombre de logements dans l'immeuble concerné + 9000000
-                    - sinon: 54000 * nombre de logements dans l'immeuble concerné + 5200000
-              - si: type de bâtiment = 'tertiaire'
+                    - si: bâtiment . nombre de logements <= 125
+                      alors: 24000 * bâtiment . nombre de logements + 9000000
+                    - sinon: 54000 * bâtiment . nombre de logements + 5200000
+              - si: bâtiment . type = 'tertiaire'
                 alors:
                   variations:
-                    - si: surface logement type tertiaire <= 7500
-                      alors: 200 * surface logement type tertiaire + 9500000
-                    - sinon: 800 * surface logement type tertiaire + 5000000
+                    - si: bâtiment . surface tertiaire <= 7500
+                      alors: 200 * bâtiment . surface tertiaire + 9500000
+                    - sinon: 800 * bâtiment . surface tertiaire + 5000000
               - sinon: 0
           unité: kWh cumac
           note: https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires
         CEE:
           produit:
             - variations:
-              - si: type de bâtiment = 'résidentiel'
+              - si: bâtiment . type = 'résidentiel'
                 alors: BAR-TH-137
-              - si: type de bâtiment = 'tertiaire'
+              - si: bâtiment . type = 'tertiaire'
                 alors: BAT-TH-127
           unité: kWh cumac
         BAR-TH-137:
           produit:
             - variations:
-                - si: zone climatique = 'H1'
+                - si: climat . zone = 'H1'
                   alors: 47700
-                - si: zone climatique = 'H2'
+                - si: climat . zone = 'H2'
                   alors: 39500
-                - si: zone climatique = 'H3'
+                - si: climat . zone = 'H3'
                   alors: 30800
-            - nombre de logements dans l'immeuble concerné
+            - bâtiment . nombre de logements
           note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAR-TH-137%20vA79-4%20%C3%A0%20compter%20du%2001-01-2026.pdf
         BAT-TH-127:
           produit:
@@ -440,105 +451,105 @@ réseau de chaleur:
                     variations:
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Bureaux'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Bureaux'
+                            - ecs . production
                         alors: 510
-                      - si: méthode tertiaire 2026 = 'Bureaux'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Bureaux'
                         alors: 480
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Enseignement'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Enseignement'
+                            - ecs . production
                         alors: 360
-                      - si: méthode tertiaire 2026 = 'Enseignement'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Enseignement'
                         alors: 310
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Santé'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Santé'
+                            - ecs . production
                         alors: 540
-                      - si: méthode tertiaire 2026 = 'Santé'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Santé'
                         alors: 400
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Commerces'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Commerces'
+                            - ecs . production
                         alors: 420
-                      - si: méthode tertiaire 2026 = 'Commerces'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Commerces'
                         alors: 370
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Hôtellerie/Restauration'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Hôtellerie/Restauration'
+                            - ecs . production
                         alors: 680
-                      - si: méthode tertiaire 2026 = 'Hôtellerie/Restauration'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Hôtellerie/Restauration'
                         alors: 540
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Autres'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Autres'
+                            - ecs . production
                         alors: 330
-                      - si: méthode tertiaire 2026 = 'Autres'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Autres'
                         alors: 310
                 - sinon:
                     variations:
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Bureaux'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Bureaux'
+                            - ecs . production
                         alors: 390
-                      - si: méthode tertiaire 2026 = 'Bureaux'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Bureaux'
                         alors: 370
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Enseignement'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Enseignement'
+                            - ecs . production
                         alors: 270
-                      - si: méthode tertiaire 2026 = 'Enseignement'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Enseignement'
                         alors: 240
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Santé'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Santé'
+                            - ecs . production
                         alors: 410
-                      - si: méthode tertiaire 2026 = 'Santé'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Santé'
                         alors: 310
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Commerces'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Commerces'
+                            - ecs . production
                         alors: 320
-                      - si: méthode tertiaire 2026 = 'Commerces'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Commerces'
                         alors: 280
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Hôtellerie/Restauration'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Hôtellerie/Restauration'
+                            - ecs . production
                         alors: 520
-                      - si: méthode tertiaire 2026 = 'Hôtellerie/Restauration'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Hôtellerie/Restauration'
                         alors: 410
                       - si:
                           toutes ces conditions:
-                            - méthode tertiaire 2026 = 'Autres'
-                            - Production eau chaude sanitaire
+                            - bâtiment . méthode tertiaire 2026 = 'Autres'
+                            - ecs . production
                         alors: 260
-                      - si: méthode tertiaire 2026 = 'Autres'
+                      - si: bâtiment . méthode tertiaire 2026 = 'Autres'
                         alors: 240
             - variations:
-                - si: zone climatique = 'H1'
+                - si: climat . zone = 'H1'
                   alors: 1.1
-                - si: zone climatique = 'H2'
+                - si: climat . zone = 'H2'
                   alors: 0.9
-                - si: zone climatique = 'H3'
+                - si: climat . zone = 'H3'
                   alors: 0.6
-            - surface logement type tertiaire
+            - bâtiment . surface tertiaire
           note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAT-TH-127%20vA79-5%20%C3%A0%20compter%20du%2001-01-2026_0.pdf
         total:
           variations:
             - si: aides . éligibilité . prise en compte des aides
               alors:
                 variations:
-                  - si: caractéristique réseau de chaleur . taux EnRR > 50 %
+                  - si: réseau de chaleur . caractéristiques . taux EnRR > 50 %
                     alors: coup de pouce
                   - sinon: CEE
             - sinon: 0
@@ -557,9 +568,9 @@ réseau de chaleur:
         auxiliaires et combustible électrique:
           formule:
             variations:
-              - si: Production eau chaude sanitaire
-                alors: contenu CO2 réseau de chaleur * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-              - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
+              - si: ecs . production
+                alors: contenu CO2 réseau de chaleur * (besoins . chauffage par logement + besoins . ECS par logement)
+              - sinon: contenu CO2 réseau de chaleur * besoins . chauffage par logement
           unité: kgCO2e
         ECS solaire thermique:
           formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
@@ -573,9 +584,9 @@ réseau de chaleur:
         scope 3:
           # QUESTION déjà posée: ça s'appelle vraiment scope 3 ?
           variations:
-            - si: Production eau chaude sanitaire
-              alors: ratios . CO2 installation * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
-            - sinon: ratios . CO2 installation * besoins chauffage par appartement
+            - si: ecs . production
+              alors: ratios . CO2 installation * (besoins . chauffage par logement + besoins . ECS par logement)
+            - sinon: ratios . CO2 installation * besoins . chauffage par logement
         total:
           somme:
             - scope 1
@@ -606,7 +617,7 @@ réseau de chaleur:
 
         P4 chauffe-eau solaire:
           variations:
-            - si: type de production ECS = 'Solaire thermique'
+            - si: ecs . type de production = 'Solaire thermique'
               alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
             - sinon: 0
         P4:

@@ -65,14 +65,14 @@ PAC air-air indiv:
           unité: kW
         ECS additionnelle nécessaire: &inst-ecs-additionnelle-necessaire
           toutes ces conditions:
-            - Production eau chaude sanitaire
+            - ecs . production
             - puissance ECS <= 0
         volume du ballon ECS: &inst-volume-du-ballon-ecs
           variations:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS != "Solaire thermique"
+                  - ecs . type de production != "Solaire thermique"
               alors: volume du ballon ECS
             - sinon: 50
           unité: L
@@ -81,7 +81,7 @@ PAC air-air indiv:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS != 'Solaire thermique'
+                  - ecs . type de production != 'Solaire thermique'
               alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
@@ -90,15 +90,15 @@ PAC air-air indiv:
             - si:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
-                  - type de production ECS = 'Solaire thermique'
+                  - ecs . type de production = 'Solaire thermique'
               alors: ecs additionnelle . appoint chauffe-eau solaire
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur: &inst-consommation-combustible-chaleur
-          formule: besoins chauffage par appartement / ratios . SCOP
+          formule: besoins . chauffage par logement / ratios . SCOP
           unité: kWh elec
         consommation combustible froid: &inst-consommation-combustible-froid
-          formule: besoins en climatisation par appartement / ratios . SEER
+          formule: besoins . climatisation par logement / ratios . SEER
           unité: kWh elec
         consommation auxiliaire: &inst-consommation-auxiliaire
           valeur: 0
@@ -132,7 +132,7 @@ PAC air-air indiv:
           applicable si:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
-              - type de production ECS = "Solaire thermique"
+              - ecs . type de production = "Solaire thermique"
           formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
         investissement total avec ballon ECS: &couts-investissement-total-avec-ballon-ecs
@@ -147,8 +147,8 @@ PAC air-air indiv:
             - variations:
                 - si:
                     toutes ces conditions:
-                      - Inclure la climatisation
-                      - type de production de froid = 'Réseau de froid'
+                      - climatisation . incluse
+                      - climatisation . type de production = 'Réseau de froid'
                   alors: réseau de froid . coûts . P1 abonnement
                 - sinon: 0
             - combustibles . électricité . abonnement individuel
@@ -257,7 +257,7 @@ PAC air-air indiv:
 
         P4 chauffe-eau solaire: &bilan-p4-chauffe-eau-solaire
           variations:
-            - si: type de production ECS = 'Solaire thermique'
+            - si: ecs . type de production = 'Solaire thermique'
               alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
             - sinon: 0
 
@@ -333,11 +333,11 @@ PAC air-air coll:
       avec:
         production eau chaude sanitaire: non
         puissance chauffage:
-          formule: dimensionnement . puissance chauffage appelée * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: dimensionnement . puissance chauffage appelée * bâtiment . nombre de logements * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS: *inst-puissance-ecs
         puissance refroidissement:
-          formule: dimensionnement . puissance refroidissement appelée / ratios . SEER * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: dimensionnement . puissance refroidissement appelée / ratios . SEER * bâtiment . nombre de logements * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
         puissance équipement: *inst-puissance-equipement
         puissance retenue:
@@ -360,7 +360,7 @@ PAC air-air coll:
       avec:
         investissement équipement: *couts-investissement-equipement
         investissement par logement:
-          valeur: investissement équipement / nombre de logements dans l'immeuble concerné
+          valeur: investissement équipement / bâtiment . nombre de logements
           unité: €TTC
         investissement ballon ECS: *couts-investissement-ballon-ecs
         investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
@@ -372,11 +372,11 @@ PAC air-air coll:
             - variations:
                 - si:
                     toutes ces conditions:
-                      - Inclure la climatisation
-                      - type de production de froid = 'Réseau de froid'
+                      - climatisation . incluse
+                      - climatisation . type de production = 'Réseau de froid'
                   alors: réseau de froid . coûts . P1 abonnement
                 - sinon: 0
-            - combustibles . électricité . abonnement collectif / nombre de logements dans l'immeuble concerné
+            - combustibles . électricité . abonnement collectif / bâtiment . nombre de logements
           unité: €TTC/an
         P1 consommation:
           produit:
@@ -394,16 +394,16 @@ PAC air-air coll:
         petit entretien P2:
             produit:
               - ratios . petit entretien P2
-              - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement + besoins en climatisation par appartement)
-              - nombre de logements dans l'immeuble concerné / 1000
+              - (besoins . chauffage par logement + besoins . ECS par logement + besoins . climatisation par logement)
+              - bâtiment . nombre de logements / 1000
             unité: €TTC/an
         gros entretien P3:
             produit:
               - ratios . gros entretien P3
               - coûts . investissement équipement
             unité: €TTC/an
-        petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
-        gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
     aides:
       avec:
         ma prime rénov: *aides-ma-prime-renov
@@ -421,7 +421,7 @@ PAC air-air coll:
           formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
         scope 2: *env-scope-2
         scope 3:
-          formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie / nombre de logements dans l'immeuble concerné
+          formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie / bâtiment . nombre de logements
         total: *env-total
     bilan:
       avec:

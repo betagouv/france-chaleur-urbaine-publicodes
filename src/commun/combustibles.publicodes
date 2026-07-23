@@ -500,7 +500,7 @@ combustibles:
               par défaut:
                 produit:
                   - dimensionnement . puissance chauffage appelée
-                  - nombre de logements dans l'immeuble concerné
+                  - bâtiment . nombre de logements
                   - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
 
         option tarifaire:
@@ -529,7 +529,7 @@ combustibles:
                 produit:
                   - combustibles . réseau de chaleur . Tarification R2 x Part fixe
                   - réseau de chaleur . installation . puissance retenue
-                  - 1 / ( réseau de chaleur . installation . consommation combustible chaleur * nombre de logements dans l'immeuble concerné )
+                  - 1 / ( réseau de chaleur . installation . consommation combustible chaleur * bâtiment . nombre de logements )
             - sinon: combustibles . réseau de chaleur . coût * combustibles . réseau de chaleur . part fixe
           unité: €TTC/kWh
 
@@ -549,10 +549,10 @@ combustibles:
         Tarification R1 x Part variable:
           unité: €/kWh
         coût:
-          par défaut: caractéristique réseau de chaleur . prix moyen / 1000
+          par défaut: réseau de chaleur . caractéristiques . prix moyen / 1000
           unité: €/kWh
         part fixe:
-          par défaut: caractéristique réseau de chaleur . part fixe
+          par défaut: réseau de chaleur . caractéristiques . part fixe
           unité: '%'
         part variable:
           formule: 100% - part fixe
@@ -569,10 +569,10 @@ combustibles:
           valeur: combustibles . réseau de froid . coût * combustibles . réseau de froid . part variable
           unité: €TTC/kWh
         coût:
-          par défaut: caractéristique réseau de froid . prix moyen / 1000
+          par défaut: réseau de froid . caractéristiques . prix moyen / 1000
           unité: €/kWh
         part fixe:
-          par défaut: caractéristique réseau de froid . part fixe
+          par défaut: réseau de froid . caractéristiques . part fixe
           unité: '%'
         part variable:
           formule: 100% - part fixe
@@ -614,7 +614,7 @@ combustibles:
             somme:
               - produit:
                   - variations:
-                      - si: type de bâtiment = 'résidentiel'
+                      - si: bâtiment . type = 'résidentiel'
                         alors: 0.84
                       - sinon: 0.80
                   - 1 + TVA

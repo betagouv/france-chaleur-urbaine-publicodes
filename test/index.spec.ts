@@ -181,6 +181,46 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		});
 	});
 
+	describe("entrées utilisateur (namespaces de lecture)", () => {
+		// Direction inverse des ratios de modes : le front ÉCRIT les clés
+		// historiques (canoniques), les namespaces bâtiment/climat/besoins/
+		// ecs/climatisation/réseau . caractéristiques n'en sont que la vue de
+		// lecture organisée — cible de renommage à la migration du front.
+		it("les écritures sur les clés historiques sont visibles via les nouveaux noms", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				...commonSituation,
+				DPE: "'F'",
+				"type de bâtiment": "'tertiaire'",
+				"ratios . GNRL Appartement ou maison": "'Maison'",
+				"nombre de logements dans l'immeuble concerné": 42,
+				"besoins chauffage par appartement": 7320,
+				"type de production ECS": "'Chauffe-eau électrique'",
+				"Inclure la climatisation": "oui",
+				"caractéristique réseau de chaleur . prix moyen": 99.5,
+			});
+			expect(engine.evaluate("bâtiment . DPE").nodeValue).toBe("F");
+			expect(engine.evaluate("bâtiment . type").nodeValue).toBe("tertiaire");
+			expect(engine.evaluate("bâtiment . appartement ou maison").nodeValue).toBe(
+				"Maison",
+			);
+			expect(engine.evaluate("bâtiment . nombre de logements").nodeValue).toBe(
+				42,
+			);
+			expect(
+				engine.evaluate("besoins . chauffage par logement").nodeValue,
+			).toBe(7320);
+			expect(engine.evaluate("ecs . type de production").nodeValue).toBe(
+				"Chauffe-eau électrique",
+			);
+			expect(engine.evaluate("climatisation . incluse").nodeValue).toBe(true);
+			expect(
+				engine.evaluate("réseau de chaleur . caractéristiques . prix moyen")
+					.nodeValue,
+			).toBe(99.5);
+		});
+	});
+
 	describe("CEE BAR-TH-171 PAC air-eau individuelle", () => {
 		it("calcule le montant CEE pour une maison individuelle H1 avec Etas entre 111% et 140%", () => {
 			const engine = new Engine(rules, options);
