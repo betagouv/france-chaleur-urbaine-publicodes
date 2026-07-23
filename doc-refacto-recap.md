@@ -53,10 +53,28 @@ Un mode = un namespace, avec les mêmes sections partout :
 | `env . Installation x Gaz coll avec cond x Collectif . Total` | `gaz coll avec cond . environnement . Total` |
 | `Bilan x Gaz coll avec cond . P4` | `gaz coll avec cond . bilan . P4` |
 
+Les enfants de sections ont ensuite été renommés (1 252 occurrences :
+`puissance chauffage`, `puissance retenue`, `investissement équipement`,
+`P1 abonnement`, `P4 équipement`…), la section `entretien` a été fusionnée
+dans `coûts`, et les transverses regroupés sous des namespaces propres :
+
+| Namespace | Contenu (ex-conventions) |
+|---|---|
+| `combustibles . <énergie>` | prix, paramètres et taxes de chaque énergie (ex `Coût d'achat du combustible . Gaz indiv x…`, `Paramètres économiques . Gaz x…`, `ratios économiques . Coût des combustibles x…`) |
+| `dimensionnement` | puissances appelées, heures de fonctionnement (ex `Calcul . …`) |
+| `froid` | groupe froid, surcoûts réseau de froid (ex `Calcul Bilan . …`) |
+| `ecs additionnelle` | ballon, chauffe-eau, panneaux, leurs coûts/entretiens/aides |
+| `aides` (+ `aides . éligibilité`) | barèmes CEE/MPR/CdP et conditions d'éligibilité |
+| `investissement`, `amortissement` | TVA, pose, taux d'actualisation |
+| `facteurs d'émission` | facteurs CO2 par combustible |
+
 Les anciennes clés restent lisibles via `compat.publicodes` (alias) tant que le
-front n'a pas migré. **Les clés que le front écrit (ratios, paramètres) n'ont
-volontairement pas été renommées** : un alias ne propage pas les écritures ;
-elles migreront en même temps que le front, en version majeure.
+front n'a pas migré. **Régime des clés que le front écrit** : les ratios de la
+page paramètres ont leur valeur canonique dans les modes (écritures
+historiques inertes, choix assumé) ; en revanche les clés écrites par l'UX
+principale (éligibilité aides, efficacité BAR-TH-171) restent canoniques sous
+leur nom historique — les nouveaux noms les référencent — jusqu'à la
+migration du front, en version majeure.
 
 ## Exemple concret : le P4 de « Gaz coll avec cond »
 
