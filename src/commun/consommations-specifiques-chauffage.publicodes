@@ -1,6 +1,5 @@
-# Consommations spécifiques de chauffage (matrices remplace sur
-# « consommation spécifique chauffage ») : DPE et périodes constructives
-# résidentiel, types tertiaires x normes thermiques.
+# Consommation spécifique de chauffage : table par DPE et périodes
+# constructives (résidentiel), et par type tertiaire x normes thermiques.
 
 consommation spécifique chauffage:
   variations:

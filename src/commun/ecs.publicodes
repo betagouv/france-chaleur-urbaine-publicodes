@@ -280,14 +280,35 @@ ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investiss
 Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS:
   avec:
     Ma prime renov':
-      applicable si:
-        est défini: Ma prime renov'
-      formule: Ma prime renov'
+      variations:
+        - si:
+            toutes ces conditions:
+              - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+              - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+          alors: 4000 €
+        - si:
+            toutes ces conditions:
+              - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+              - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
+          alors: 3000 €
+        - si:
+            toutes ces conditions:
+              - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+              - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
+          alors: 2000 €
       unité: €
     Coup de pouce:
-      applicable si:
-        est défini: Coup de pouce
-      formule: Coup de pouce
+      variations:
+        - si:
+            toutes ces conditions:
+              - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
+              - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = 'Modeste'
+          alors: 5000 €
+        - si:
+            toutes ces conditions:
+              - Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
+              - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
+          alors: 5000 €
       unité: €
     CEE:
       variations:

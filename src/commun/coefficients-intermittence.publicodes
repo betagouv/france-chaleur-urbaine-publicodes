@@ -1,5 +1,5 @@
-# Coefficients d'intermittence pour le calcul de puissance (matrices
-# remplace sur « puissance coefficient d'intermittence »).
+# Coefficient d'intermittence pour le calcul de puissance : table par
+# DPE (résidentiel) et méthode tertiaire.
 
 puissance coefficient d'intermittence:
   variations:

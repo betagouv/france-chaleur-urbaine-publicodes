@@ -105,9 +105,22 @@ réseau de froid:
     aides:
       avec:
         Ma prime renov':
-          applicable si:
-            est défini: Ma prime renov'
-          formule: Ma prime renov'
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+              alors: 1200 €
+            - si:
+                toutes ces conditions:
+                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
+              alors: 800 €
+            - si:
+                toutes ces conditions:
+                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
+              alors: 400 €
           unité: €
         Coup de pouce:
           applicable si:

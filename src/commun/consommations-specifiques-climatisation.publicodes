@@ -1,6 +1,5 @@
-# Consommations spécifiques de climatisation (matrices remplace sur
-# « consommation spécifique climatisation ») : types tertiaires x sous-zones
-# climatiques.
+# Consommation spécifique de climatisation : table par type tertiaire
+# x sous-zones climatiques.
 
 consommation spécifique climatisation:
   variations:

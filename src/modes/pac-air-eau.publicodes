@@ -214,15 +214,34 @@ PAC air-eau indiv:
     aides:
       avec:
         Ma prime renov':
-          applicable si:
-            est défini: Ma prime renov'
-          formule: Ma prime renov'
+          variations:
+            - si:
+                toutes ces conditions:
+                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+              alors: 5000 €
+            - si:
+                toutes ces conditions:
+                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Modeste"
+              alors: 4000 €
+            - si:
+                toutes ces conditions:
+                  - Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+                  - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
+              alors: 3000 €
           unité: €
         Coup de pouce:
-          formule: 0
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
+              alors: ratios économiques x aides . Coup de pouce x PAC air-eau
+            - sinon: 0 €
           unité: €
-        CEE: &aides-cee
-          formule: 0
+        CEE:
+          variations:
+            - si: Paramètres économiques . Aides . Aides x Éligible CEE
+              alors: ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 * Paramètres économiques . Aides . Valeur CEE
+            - sinon: 0 €
           unité: €
         Total: &aides-total
           variations:
@@ -449,7 +468,9 @@ PAC air-eau coll:
             est défini: Coup de pouce
           formule: Coup de pouce
           unité: €
-        CEE: *aides-cee
+        CEE:
+          formule: 0
+          unité: €
         Total: *aides-total
     environnement:
       avec:
