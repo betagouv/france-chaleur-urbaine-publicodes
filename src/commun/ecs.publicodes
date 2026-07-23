@@ -5,7 +5,6 @@
 ecs additionnelle:
   description: Production d'ECS additionnelle quand l'équipement de chauffage ne la produit pas
   avec:
-
     consommation chauffe-eau électrique:
       formule: besoins eau chaude sanitaire par appartement / ecs additionnelle . rendement stockage ballon électrique
       # unité: kWh/an
@@ -39,7 +38,7 @@ ecs additionnelle:
         - ecs additionnelle . coût du chauffe-eau solaire + ecs additionnelle . coût des panneaux solaires
         - ( 1 + investissement . pose et mise en place )
 
-    ###### Ratios techniques
+    # --- Ratios techniques ---
 
     rendement stockage ballon électrique:
       valeur: 87%
@@ -61,7 +60,7 @@ ecs additionnelle:
       valeur: 60%
       unité: '%'
 
-    ###### Ratios économiques (investissement)
+    # --- Ratios économiques (investissement) ---
 
     coût du chauffe-eau électrique:
       produit:
@@ -95,12 +94,6 @@ ecs additionnelle:
         - ecs additionnelle . prix des panneaux
         - 1 + investissement . TVA
       unité: €TTC
-
-    ###### Ratios environnementaux
-
-    ###### Entretien P2 / P3
-
-    ###### Aides
 
     aides panneau solaire:
       avec:
@@ -158,11 +151,13 @@ ecs additionnelle:
             - sinon: 0
           unité: €
 
-    ###### Ratios de besoins ECS
+    # --- Ratios de besoins ECS ---
 
     quantité d'ECS produite par kWh:
       valeur: 19.1
       unité: L/kWh
+
+    # --- Facteurs d'annuité des chauffe-eau ---
 
     facteur d'annuité chauffe-eau électrique:
       description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau électrique (fonction Excel PMT)
@@ -179,7 +174,7 @@ ecs additionnelle:
       avec:
         durée: ecs additionnelle . durée de vie chauffe-eau solaire
 
-    ###### Entretien des chauffe-eau
+    # --- Entretien des chauffe-eau ---
 
     petit entretien P2 chauffe-eau électrique:
       par défaut: 0.00 / 100
@@ -377,10 +372,6 @@ consommation spécifique ECS:
           - méthode tertiaire = "EHPAD"
           - normes thermiques tertiaire = "Moyenne française 2021"
       alors: 30 kWhef/m2.an
-
-###### Production différenciée d'ECS par lgt / tertiaire
-
-# valeurs communes parmi tous les types d'installation
 
 volume du ballon ECS:
   variations:

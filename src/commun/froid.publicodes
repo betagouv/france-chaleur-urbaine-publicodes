@@ -126,8 +126,6 @@ froid:
       valeur: 2.5
       unité: kW
 
-###### Investissement
-
 Investissement x Groupe froid x résidentiel:
   par défaut:
     produit:
@@ -144,9 +142,7 @@ Investissement x Groupe eau glacée x tertiaire:
       - 1 + investissement . TVA
   unité: €TTC
 
-###### Installation
-
-###### Entretien P2 / P3
+# --- Entretien P2 / P3 (clés historiques de la page paramètres) ---
 
 Calcul Eco . P2 P3 Coût de l'entretien . Groupe froid résidentiel:
   avec:

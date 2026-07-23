@@ -2,11 +2,8 @@
 
 PAC air-eau coll hybride:
   avec:
-
     # coûts d'exploitation isolés (total sans installation) combinés côté front à
-
     # un mode principal. Pas d'installation propre ni de bilan complet.
-
     bilan:
       avec:
         total sans aides:
@@ -19,17 +16,16 @@ PAC air-eau coll hybride:
             - PAC air-eau coll . bilan . P1prime
             - PAC air-eau coll . bilan . P1Consofroid
             - produit:
-              - 120%
-              - PAC air-eau coll . bilan . P1ECS
+                - 120%
+                - PAC air-eau coll . bilan . P1ECS
             - produit:
-              - 120%
-              - PAC air-eau coll . bilan . P1conso
+                - 120%
+                - PAC air-eau coll . bilan . P1conso
             - PAC air-eau coll . bilan . P2
             - PAC air-eau coll . bilan . P3
 
 Solaire thermique:
   avec:
-
     bilan:
       avec:
         total sans installation:
@@ -40,14 +36,12 @@ Solaire thermique:
 
 PAC capteurs solaires atmosphériques:
   avec:
-
     bilan:
       avec:
         total sans installation: PAC air-eau coll . bilan . P1ECS
 
 PAC air-eau collective ECS:
   avec:
-
     bilan:
       avec:
         total sans installation:
@@ -57,7 +51,6 @@ PAC air-eau collective ECS:
 
 Chauffe-eau thermodynamique:
   avec:
-
     bilan:
       avec:
         total sans installation:
@@ -67,7 +60,6 @@ Chauffe-eau thermodynamique:
 
 Système solaire combiné:
   avec:
-
     bilan:
       avec:
         total sans installation:

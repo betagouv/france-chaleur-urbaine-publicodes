@@ -4,15 +4,10 @@
 combustibles:
   description: Prix, paramètres et taxes de chaque énergie
   avec:
-
     gaz:
       avec:
-
         taxes:
           avec:
-
-            ###### Paramètres par énergie (ex-Paramètres économiques)
-
             TICGN:
               par défaut: 0.01637
               unité: €/kWh
@@ -59,7 +54,6 @@ combustibles:
               - 1 + combustibles . gaz . taxes . TVA part fixe
           unité: €/an
           avec:
-
             coûts commerciaux hors CEE HT:
               par défaut: 79
               unité: €/an
@@ -107,7 +101,6 @@ combustibles:
 
     électricité:
       avec:
-
         abonnement individuel:
           formule: combustibles . électricité . abonnement part fixe individuel
           unité: €TTC/an
@@ -529,7 +522,6 @@ combustibles:
 
     réseau de chaleur:
       avec:
-
         abonnement:
           variations:
             - si: combustibles . réseau de chaleur . Tarification connue = 'oui'
@@ -568,7 +560,6 @@ combustibles:
 
     réseau de froid:
       avec:
-
         abonnement:
           formule: combustibles . réseau de froid . Coût * combustibles . réseau de froid . Part fixe
           # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
@@ -589,7 +580,6 @@ combustibles:
 
     granulés:
       avec:
-
         consommation:
           valeur: (combustibles . granulés . Prix pour les granulés / 1000)
           unité: €TTC/kg
@@ -616,7 +606,6 @@ combustibles:
 
     fioul:
       avec:
-
         consommation:
           valeur: combustibles . fioul . Prix livraison incluse
           unité: €TTC/L

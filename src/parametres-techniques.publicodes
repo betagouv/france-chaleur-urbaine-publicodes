@@ -1,4 +1,4 @@
-###### Généraux
+# --- Généraux ---
 
 code département:
   # fourni via l'adresse
@@ -43,11 +43,14 @@ sous zone climatique:
     - "'H2d'"
     - "'H3'"
 
-###### Réseaux de chaleur et de froid
+# --- Réseaux de chaleur et de froid ---
+
 contenu CO2 réseau de chaleur:
   par défaut: caractéristique réseau de chaleur . contenu CO2 ACV - réseau de chaleur . ratios . CO2 installation
   note: Contenu_CO2_RCU
-###### Choix du bâtiment
+
+# --- Choix du bâtiment ---
+
 type de bâtiment:
   par défaut: "'résidentiel'"
   une possibilité:
@@ -111,7 +114,7 @@ Température émetteurs:
     - "'65'"
     - "'Plancher'"
     - "'Radiateur'"
-###### Besoins calculés
+# --- Besoins calculés ---
 
 méthode de calcul pour les besoins en chauffage et refroidissement:
   par défaut:

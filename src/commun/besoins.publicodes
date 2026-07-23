@@ -1,9 +1,6 @@
 dimensionnement:
   description: Puissances appelées et heures de fonctionnement
   avec:
-
-    ###### Calcul puissances
-
     heures pleine puissance chauffage continu:
       formule: degré jours unifié spécifique chaud * 24 / (ratios . PUIS Température de non chauffage - température de référence chaud)
       unité: h
@@ -34,7 +31,7 @@ dimensionnement:
       formule: besoins en climatisation par appartement / dimensionnement . heures pleine puissance climatisation * (1 + ratios . PUIS Facteur de surpuissance)
       unité: kW
 
-###### Ratios généraux et de dimensionnement
+# --- Ratios généraux et de dimensionnement (clés historiques de la page paramètres) ---
 
 ratios . GNRL Surface de référence appartement:
   valeur: 70

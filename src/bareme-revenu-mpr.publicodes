@@ -1,11 +1,9 @@
 ménage:
   avec:
-
     revenu:
       question: Revenu fiscal de référence du ménage
       unité: €
       avec:
-
         plafond très modeste:
           unité: €
           formule:

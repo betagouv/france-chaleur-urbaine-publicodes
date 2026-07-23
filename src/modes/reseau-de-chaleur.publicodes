@@ -37,8 +37,6 @@ réseau de chaleur:
           valeur: 86%
           unité: '%'
 
-
-
         coût raccordement résidentiel:
           variations:
             - si: nombre de logements dans l'immeuble concerné < 25
