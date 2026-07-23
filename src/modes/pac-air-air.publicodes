@@ -214,13 +214,13 @@ PAC air-air indiv:
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
           somme:
-            - (installation . consommation combustible chaleur + installation . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
-            - installation . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
+            - (installation . consommation combustible chaleur + installation . consommation auxiliaire) * facteurs d'émission . électricité chauffage
+            - installation . consommation combustible froid * facteurs d'émission . électricité froid
           unité: kgCO2e
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
         Scope 2: &env-scope-2
           somme:
             - auxiliaires et combustible électrique
@@ -407,9 +407,9 @@ PAC air-air coll:
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
         Scope 2: *env-scope-2
         Scope 3:
           formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie / nombre de logements dans l'immeuble concerné

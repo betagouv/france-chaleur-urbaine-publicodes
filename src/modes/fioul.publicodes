@@ -261,16 +261,16 @@ fioul indiv:
     environnement:
       avec:
         besoins de chauffage et ECS si même équipement: &env-besoins-de-chauffage-et-ecs-si-meme-equipement
-          formule: installation . consommation combustible chaleur / ratios . conso combustible * ratios environnementaux . Emission spé Fioul chaudière
+          formule: installation . consommation combustible chaleur / ratios . conso combustible * facteurs d'émission . fioul chaudière
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
-          formule: installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+          formule: installation . consommation auxiliaire * facteurs d'émission . électricité chauffage
           unité: kgCO2e
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
         Scope 2: &env-scope-2
           somme:
             - auxiliaires et combustible électrique
@@ -519,9 +519,9 @@ fioul coll:
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
         Scope 2: *env-scope-2
         Scope 3:
           formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie / nombre de logements dans l'immeuble concerné

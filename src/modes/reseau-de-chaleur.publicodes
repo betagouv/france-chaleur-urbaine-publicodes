@@ -470,9 +470,9 @@ réseau de chaleur:
               - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
           unité: kgCO2e
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * ratios environnementaux . Emission moy Parc électrique francais moyenne ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
+          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
         Scope 2:
           somme:
             - auxiliaires et combustible électrique
