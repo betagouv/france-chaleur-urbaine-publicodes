@@ -1,37 +1,30 @@
 ratios environnementaux:
   avec:
     Emission spé Granulé poêle à bois:
-      # Ratios environnementaux'!$C$14
       formule: 0.032
       unité: kgCO2e/kWh PCI
       note: 'Source: Base Empreinte 2023'
     Emission spé Granulé chaudière:
-      # Ratios environnementaux'!$C$15
       formule: 0.027
       unité: kgCO2e/kWh PCI
       note: 'Source: Base Empreinte 2023'
     Emission spé Gaz chaudière:
-      # Ratios environnementaux'!$C$18
       formule: 0.243
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2023'
     Emission spé Fioul chaudière:
-      # Ratios environnementaux'!$C$19
       formule: 0.314
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2023'
     Emission moy Parc électrique francais moyenne chauffage:
-      # Ratios environnementaux'!$C$25
       formule: 0.0693
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2020'
     Emission moy Parc électrique francais moyenne ECS:
-      # Ratios environnementaux'!$C$26
       formule: 0.0585
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2020'
     Emission moy Parc électrique francais moyenne froid:
-      # Ratios environnementaux'!$C$27
       formule: 0.0583
       unité: kgCO2e/kWh
       note: 'Source: Base Empreinte 2020'

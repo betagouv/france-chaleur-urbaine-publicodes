@@ -7,7 +7,6 @@
 # valeurs communes parmi tous les types d'installation
 
 volume du ballon ECS:
-  # =(Besoin_ECS*'Ratios techniques'!$C$72)/365
   variations:
     - si: type de production ECS = 'Solaire thermique'
       alors: 50
@@ -20,11 +19,6 @@ chauffe-eau électrique x consommation d'électricité:
   unité: kWh # corrigé pour faire fonctionner la division
 
 surface de panneau nécessaire:
-  #   IF(
-  #     $D$71<'Ratios techniques'!$B$353,
-  #     XLOOKUP($D$71,'Ratios techniques'!$B$350:$B$353, 'Ratios techniques'!$C$350:$C$353,,1),
-  #     'Ratios techniques'!$C$353
-  #   )
   variations:
     - si: volume du ballon ECS <= 250
       alors: 2.5m2
@@ -38,21 +32,16 @@ surface de panneau nécessaire:
   unité: m2
 
 chauffe-eau solaire x appoint d'électricité:
-  # Besoin_ECS*(1-'Paramètres techniques'!$D$197)/'Paramètres techniques'!$D$195
   formule: besoins eau chaude sanitaire par appartement * (1 - ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS) / ratios . CHAUF EAU SOLAIRE Rendement stockage ballon
   # unité: kWh/an
   unité: kWh # corrigé pour faire fonctionner la division
 
 Calcul Eco . Investissement ballon ECS à accumulation:
-  # 'Calculs économiques'!E23
-  # =IF('Calculs techniques'!C71="Oui",chauffe_eau_elec_inv*(1+surcout_inv),"")
   produit:
     - ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
 
 Calcul Eco . Investissement ballon ECS panneau inclus:
-  # 'Calculs économiques'!F23
-  # =IF(AND('Calculs techniques'!C71="Oui",Type_ECS="Solaire thermique"),(chauffe_eau_sol_inv+panneau_sol_inv)*(1+surcout_inv),"")
   produit:
     - ratios économiques . Chauffe-eau x solaire x coût investissement + ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement
     - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -82,7 +71,6 @@ ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS:
 ###### Ratios économiques (investissement)
 
 ratios économiques . Chauffe-eau x électrique à accumulation x coût investissement:
-  # =IF(affichage="Technicien",XLOOKUP($D$42,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$C$195:$C$198,,1),XLOOKUP($D$42,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$C$195:$C$198,,1)*(1+$D$50))
   produit:
     - variations:
         - si: Puissance installation x Capacité chauffe eau électrique à accumulation <= 50
@@ -109,7 +97,6 @@ ratios économiques . Chauffe-eau x solaire prix panneaux:
 
 # pas un ratio
 ratios économiques . Chauffe-eau x panneaux solaire thermique x coût investissement:
-  # Param éco B83 =$D$44*'Ratios économiques - Coûts'!$C$207*(1+$D$50)
   produit:
     - surface de panneau nécessaire
     - Chauffe-eau x solaire prix panneaux
@@ -135,10 +122,6 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
       formule: Coup de pouce
       unité: €
     CEE:
-      # =IF($B$93="Eligible",
-      # IFS(AND('Paramètres économiques'!$C$7="Résidentiel",'Paramètres économiques'!$C$8="Solaire Thermique"),Besoin_ECS*'Paramètres techniques'!$D$197*'Ratios économiques - Aides'!$C$261*$B$94*Nb_lgt,
-      # 'Paramètres économiques'!$C$7="Tertiaire",Besoin_ECS*'Paramètres techniques'!$D$197*'Ratios économiques - Aides'!$C$447*$B$94
-      # ),0)
       variations:
         - si: Paramètres économiques . Aides . Aides x Éligible CEE
           alors:

@@ -7,17 +7,14 @@ code département:
 département:
 département . degré jours unifié spécifique chaud: département . degré jours unifié spécifique chaud # se fait remplacer par les données département
 degré jours unifié spécifique chaud:
-  # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$C$6:$C$101,'Ratios techniques'!$C$10,0)
   par défaut: département . degré jours unifié spécifique chaud
   unité: °C
 département . degré jours unifié spécifique froid: département . degré jours unifié spécifique froid # se fait remplacer par les données département
 degré jours unifié spécifique froid:
-  # =XLOOKUP($C$7,Départements!$A$6:$A$101,Départements!$D$6:$D$101,"",0)
   par défaut: département . degré jours unifié spécifique froid
   unité: °C
 
 température de référence chaud commune:
-  # =XLOOKUP(commune,Communes!$C$6:$C$36618,Communes!$G$6:$G$36618,,0)
   # défini en externe via la commune
   unité: °C
 température de référence chaud:
@@ -48,7 +45,6 @@ sous zone climatique:
 
 ###### Réseaux de chaleur et de froid
 contenu CO2 réseau de chaleur:
-  # =XLOOKUP(C16,'Liste RFU_RCU'!$B:$B,'Liste RFU_RCU'!$E:$E,,0)
   par défaut: caractéristique réseau de chaleur . contenu CO2 ACV - ratios environnementaux . CO2 INS RCU
   note: Contenu_CO2_RCU
 ###### Choix du bâtiment
@@ -59,7 +55,6 @@ type de bâtiment:
     - "'tertiaire'"
 
 nombre de logements dans l'immeuble concerné:
-  # =IF(Type_bat="Tertiaire",1,'Ratios techniques'!$C$18)
   par défaut:
     variations:
       - si: type de bâtiment = 'tertiaire'
@@ -67,17 +62,14 @@ nombre de logements dans l'immeuble concerné:
       - sinon: ratios . GNRL Nombre de logement dans l'immeuble concerné
 
 surface logement type tertiaire:
-  # =IF(Type_bat="Résidentiel",'Ratios techniques'!$C$7,'Ratios tech niques'!$C$8)
   par défaut:
     variations:
       - si: type de bâtiment = 'résidentiel'
         alors: ratios . GNRL Surface de référence appartement
       - sinon: ratios . GNRL Surface de référence tertiaire
 Nombre d'habitants moyen par appartement:
-  # ='Ratios techniques'!$C$12
   par défaut: ratios . GNRL Nombre habitant par logement
 Production eau chaude sanitaire:
-  # ='Ratios techniques'!$C$15
   par défaut: ratios . GNRL Production ECS
   #une possibilité:
   #  - "'oui'"
@@ -92,21 +84,18 @@ Inclure la climatisation:
   #  - "'non'"
 
 type de production de froid:
-  # L32
   par défaut: "'Groupe froid'"
   une possibilité:
     - "'Groupe froid'"
     - "'Réseau de froid'"
 
 type de production ECS:
-  # C29 alias Paramètres économiques C8 (Type de résidentiel)
   par défaut: "'Avec équipement chauffage'"
   une possibilité:
     - "'Avec équipement chauffage'"
     - "'Chauffe-eau électrique'"
     - "'Solaire thermique'"
 Part de la surface à climatiser:
-  # =IF(Type_bat="Résidentiel",'Ratios techniques'!$C$19,'Ratios techniques'!$C$20)
   par défaut:
     variations:
       - si: type de bâtiment = 'résidentiel'
@@ -196,10 +185,8 @@ normes thermiques tertiaire:
 
 consommation spécifique chauffage:
   consommation spécifique chauffage # maj depuis les ratios techniques
-  # =XLOOKUP(1,('Ratios techniques'!A:A="CHAF")*('Ratios techniques'!B:B=$C$38),'Ratios techniques'!C:C,"Non trouvé")
 besoins chauffage par appartement:
   note: Besoin_cha
-  # =IFERROR(IF(Choix_methode<>"Normes thermiques et âge du bâtiment",Conso_spé*Surface*_DJU_spe/DJU_ref,Conso_spé*24*_DJU_spe*Surface*Hauteur/1000),"Veuillez choisir le/la "&$A$38)*(1+0.09*D12)
   par défaut:
     produit:
       - variations:
@@ -211,10 +198,8 @@ besoins chauffage par appartement:
 consommation spécifique ECS:
   note: Besoin_ECS
   par défaut: consommation spécifique ECS # maj depuis les ratios techniques
-  # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="ECS")*('Ratios techniques'!B:B=$C$38),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="ECS")*('Ratios techniques'!B:B=Type_bat),'Ratios techniques'!C:C,"Non trouvé"))
 besoins eau chaude sanitaire par appartement:
   note: Besoin_raf
-  # =IF(Prod_ECS="Oui",IF(Type_bat="Résidentiel",Conso_ECS_spé*NB_pers_foyer,Conso_ECS_spé*Surface),0)
   par défaut:
     variations:
       - si: Production eau chaude sanitaire
@@ -227,9 +212,7 @@ besoins eau chaude sanitaire par appartement:
   unité: kWh
 consommation spécifique climatisation:
   consommation spécifique climatisation # maj depuis les ratios techniques
-  # =IF(Type_bat="Tertiaire",XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=$C$35&XLOOKUP(commune,Communes!C:C,Communes!I:I,,0)),'Ratios techniques'!C:C,"Non trouvé"),XLOOKUP(1,('Ratios techniques'!A:A="RAF")*('Ratios techniques'!B:B=Type_bat&XLOOKUP(commune,Communes!C:C,Communes!I:I,,0)),'Ratios techniques'!C:C,"Non trouvé"))
 besoins en climatisation par appartement:
-  # B43 =IF($C$31="Oui";Conso_spé_raf*Surface*Surf_clim;0)
   par défaut:
     variations:
       - si: Inclure la climatisation

@@ -7,7 +7,6 @@
 # Pas besoin car calculé dans calculs techniques avec le variable "gamme de puissance existante" sauf pour chauffe eau
 
 Puissance installation x Capacité chauffe eau électrique à accumulation:
-  # =IF('Calculs techniques'!$D$71>'Ratios économiques - Coûts'!$B$198,'Ratios économiques - Coûts'!$B$198,XLOOKUP('Calculs techniques'!$D$71,'Ratios économiques - Coûts'!$B$195:$B$198,'Ratios économiques - Coûts'!$B$195:$B$198,,1))
   variations:
     - si: volume du ballon ECS <= 50
       alors: 50
@@ -40,18 +39,15 @@ Investissement x frais de raccordement au réseaux x RFU:
 Paramètres économiques:
   avec:
     Electricité x Option tarifaire:
-      # B109
       une possibilité:
         - "'Option base'"
         - "'Heure pleine/Heure creuse'"
       par défaut: "'Option base'"
     Electricité x Puissance souscrite indiv:
-      # B111
       par défaut: 9
       unité: kVA
       note: 'Source: ELCIMAI 2024'
     Electricité x Puissance souscrite coll:
-      # B111 =XLOOKUP(P_CHAUF*Nb_lgt*CF_ch/'Ratios techniques'!$C$329,'Ratios économiques - Coûts'!$B$247:$B$267,'Ratios économiques - Coûts'!$B$247:$B$267,36,1)
       unité: kVA
       par défaut:
         variations:
@@ -106,29 +102,24 @@ Paramètres économiques:
               - nombre de logements dans l'immeuble concerné
               - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
     Electricité x Abonnement Part Fixe indiv:
-      # B114 =(XLOOKUP(1,('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112),'Ratios économiques - Coûts'!C:C,"Non trouvé"))*(1+'Paramètres économiques'!$D$122)
       par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel individuel * ( 1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA )
       unité: €/an
     Electricité x Abonnement Part Fixe coll:
-      # B115 =(XLOOKUP(1,('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$113),'Ratios économiques - Coûts'!C:C,"Non trouvé"))*(1+'Paramètres économiques'!D122)
       par défaut: ratios économiques . Coût des combustibles x Electricité . Abonnement annuel collectif * ( 1 + Paramètres économiques . Electricité x Taxe . Part Fixe x TVA )
       unité: €/an
     Electricité x Consommation Part variable en option de base:
-      # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D126)+D125
       par défaut:
         somme:
           - ratios économiques . Coût des combustibles x Electricité . Option Base . Prix de l'énergie * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
           - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
       unité: €/kWh
     Electricité x Consommation Part variable en heure pleine:
-      # B116 =XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!D:D;"Non trouvé")*(1+D125)+D124
       par défaut:
         somme:
           - ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HP * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
           - Electricité x Taxe . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
       unité: €/kWh
     Electricité x Consommation Part variable en heure creuse:
-      # B117 =IF($D$111="Heure pleine/Heure creuse";XLOOKUP(1;('Ratios économiques - Coûts'!A:A=$D$111)*('Ratios économiques - Coûts'!B:B=$D$112);'Ratios économiques - Coûts'!E:E;"Non trouvé")*(1+D125)+D124;"")
       par défaut:
         somme:
           - ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Prix de l'énergie HC * ( 1 + Paramètres économiques . Electricité x Taxe . Part Variable x TVA )
@@ -147,11 +138,9 @@ Paramètres économiques:
           unité: '%'
 
     Gaz x Puissance souscrite pour calcul installation collective ou tertiaire:
-      # B89 ='Calculs techniques'!$H$53
       par défaut: gaz coll avec cond . installation . gamme de puissance existante
       unité: kW
     Gaz x Abonnement x Part Fixe TTC collectif ou tertiaire:
-      # B90 =(XLOOKUP($D$89,'Calcul tarif gaz tertitaire'!$A$24:$A$69,'Calcul tarif gaz tertitaire'!$B$24:$B$69,,1)+'Ratios économiques - Coûts'!$C$226)*(1+'Ratios économiques - Coûts'!$C$227)
       par défaut:
         produit:
           - somme:
@@ -160,7 +149,6 @@ Paramètres économiques:
           - 1 + Gaz x Taxe x Part fixe x TVA
       unité: €/an
     Gaz x Abonnement x Part Fixe TTC individuel:
-      # B91 =SUM($D$92:$D$93,$D$101)*(1+$D$102)
       par défaut:
         produit:
           - somme:
@@ -170,15 +158,12 @@ Paramètres économiques:
           - 1 + Gaz x Taxe x Part fixe x TVA
       unité: €/an
     Gaz x Abonnement x Part Fixe TTC individuel x Coût distribution HT:
-      # B92 ='Ratios économiques - Coûts'!$C$216
       par défaut: 139
       unité: €/an
     Gaz x Abonnement x Part Fixe TTC individuel x Coût commerciaux hors CEE HT:
-      # B93 ='Ratios économiques - Coûts'!$C$217
       par défaut: 79
       unité: €/an
     Gaz x Consommation x Part Variable TTC:
-      # B94 =SUM($D$95:$D$98,$D$104)*(1+$D$105)
       par défaut:
         produit:
           - somme:
@@ -190,35 +175,27 @@ Paramètres économiques:
           - 1 + Gaz x Taxe x Part variable x TVA
       unité: €/kWh
     Gaz x Coût de la molécule HT:
-      # B95 ='Ratios économiques - Coûts'!$C$220
       par défaut: 0.043
       unité: €/kWh
     Gaz x Coût de transport HT:
-      # B96 ='Ratios économiques - Coûts'!$C$221
       par défaut: 0.00977
       unité: €/kWh
     Gaz x Coût distribution HT:
-      # B97 ='Ratios économiques - Coûts'!$C$222
       par défaut: 0.00893
       unité: €/kWh
     Gaz x Coût des CEE HT:
-      # B98 ='Ratios économiques - Coûts'!$C$223
       par défaut: 0.00585
       unité: €/kWh
     Gaz x Taxe x Part fixe x Contribution tarifaire d'acheminement CTA:
-      # B101 ='Ratios économiques - Coûts'!$C$226
       par défaut: 43.51
       unité: €/an
     Gaz x Taxe x Part fixe x TVA:
-      # B102 ='Ratios économiques - Coûts'!$C$227
       par défaut: 5.5
       unité: '%'
     Gaz x Taxe x Part variable x Taxe intérieure de consommation sur le gaz naturel TICGN:
-      # B104 ='Ratios économiques - Coûts'!$C$229
       par défaut: 0.01637
       unité: €/kWh
     Gaz x Taxe x Part variable x TVA:
-      # B105 ='Ratios économiques - Coûts'!$C$230
       par défaut: 20
       unité: '%'
 
@@ -231,7 +208,6 @@ Paramètres économiques:
             - "'Conditionné en vrac'"
           note: 'Source: ELCIMAI 2024'
         Prix pour les granulés:
-          # =XLOOKUP(D$129,'Ratios économiques - Coûts'!$B$308:$B$309,'Ratios économiques - Coûts'!$C$308:$C$309)*(1+$D$132)
           par défaut:
             produit:
               - variations:
@@ -249,7 +225,6 @@ Paramètres économiques:
     Fioul:
       avec:
         Prix livraison incluse:
-          # =XLOOKUP($C$7,'Ratios économiques - Coûts'!$A$315:$A$316,'Ratios économiques - Coûts'!$C$315:$C$316,"Non trouvé")*(1+$D$138)+$D$139
           par défaut:
             somme:
               - produit:
@@ -281,30 +256,24 @@ Paramètres économiques:
         Tarification R1 x Part variable:
           unité: €/kWh
         Coût:
-          # B142 =IF($C$7="Résidentiel",XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$14,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
           par défaut: caractéristique réseau de chaleur . prix moyen / 1000
           unité: €/kWh
         Part fixe:
-          # B143 =XLOOKUP($C$14,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
           par défaut: caractéristique réseau de chaleur . part fixe
           unité: '%'
         Part variable:
-          # B144 =XLOOKUP($C$14,Tableau36[Nom],Tableau36[Part Variable (%)],"Non trouvé",0)
           formule: 100% - Part fixe
           unité: '%'
 
     Réseaux froid:
       avec:
         Coût:
-          # B148 =IF($C$7="Résidentiel",XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût residentiel €TTC/MWh],"Non trouvé",0)/1000,XLOOKUP($C$15,Tableau36[Nom],Tableau36[Coût tertiaire €TTC/MWh],"Non trouvé",0)/1000)
           par défaut: caractéristique réseau de froid . prix moyen / 1000
           unité: €/kWh
         Part fixe:
-          # B149 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Fixe (%)],"Non trouvé",0)
           par défaut: caractéristique réseau de froid . part fixe
           unité: '%'
         Part variable:
-          # B150 =XLOOKUP($C$15,Tableau36[Nom],Tableau36[Part Variable (%)],"Non trouvé",0)
           formule: 100% - Part fixe
           unité: '%'
 
@@ -345,13 +314,11 @@ Paramètres économiques:
           #  - "'oui'"
           #  - "'non'"
         Éligibilité x Je suis un particulier:
-          # ='Ratios économiques - Aides'!$C$7
           par défaut: oui
           #une possibilité:
           #  - "'oui'"
           #  - "'non'"
         Éligibilité x Ressources du ménage:
-          # ='Ratios économiques - Aides'!$C$8
           par défaut:
             variations:
               - si:
@@ -367,13 +334,11 @@ Paramètres économiques:
             - "'Intermédiaire'"
             - "'Supérieur'"
         Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul:
-          # ='Ratios économiques - Aides'!$C$265
           par défaut: oui
           #une possibilité:
           #  - "'oui'"
           #  - "'non'"
         Aides x Éligible Ma prime renov':
-          # =IF(AND($D$212="Oui",$D$213<>"Supérieur"),"Eligible","Non éligible")
           # alias Calculs économiques B91
           par défaut:
             toutes ces conditions:
@@ -383,7 +348,6 @@ Paramètres économiques:
           #  - "'oui'"
           #  - "'non'"
         Aides x Éligible Coup de pouce chauffage:
-          # =IF(AND($D$212="Oui",$D$214="Oui",$C$7="Résidentiel"),"Eligible","Non éligible")
           # alias Calculs économiques B92
           par défaut:
             toutes ces conditions:
@@ -400,7 +364,6 @@ Paramètres économiques:
           #  - "'oui'"
           #  - "'non'"
         Valeur CEE:
-          # =IF(D213="Très modeste", 'Ratios économiques - Aides'!$C$31,'Ratios économiques - Aides'!$C$32)
           # alias Calculs économiques B94
           par défaut:
             variations:

@@ -11,7 +11,6 @@ PAC air-eau indiv:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$47
           formule: 910
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -106,7 +105,6 @@ PAC air-eau indiv:
           formule: besoins en climatisation par appartement / ratios . SEER
           unité: kWh elec
         consommation auxiliaire: &inst-consommation-auxiliaire
-          # =(1-'Ratios techniques'!$C$327)*(Besoin_cha+Besoin_raf)+(1-'Ratios techniques'!$C$328)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
           somme:
             - (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air) * (besoins chauffage par appartement + besoins en climatisation par appartement)
             - variations:
@@ -128,7 +126,6 @@ PAC air-eau indiv:
           unité: kWh/an
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           valeur: ratios . investissement équipement
           unité: €TTC
@@ -155,7 +152,6 @@ PAC air-eau indiv:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           somme:
             - variations:
@@ -235,7 +231,6 @@ PAC air-eau indiv:
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
-          # =('Calculs techniques'!C105+'Calculs techniques'!F104)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D105*'Ratios environnementaux'!$C$27
           somme:
             - (installation . consommation combustible chaleur + installation . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
             - installation . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
@@ -250,7 +245,6 @@ PAC air-eau indiv:
             - ECS solaire thermique
             - ECS avec ballon électrique
         Scope 3:
-          # ='Ratios environnementaux'!C48*B32/Durée_vie_PAC_AE
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
@@ -319,7 +313,6 @@ PAC air-eau coll:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$50
           formule: 302
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -381,7 +374,6 @@ PAC air-eau coll:
         consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ratios . investissement équipement
@@ -395,7 +387,6 @@ PAC air-eau coll:
         Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
         Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           somme:
             - variations:
@@ -464,7 +455,6 @@ PAC air-eau coll:
           formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         Scope 2: *env-scope-2
         Scope 3:
-          # ='Ratios environnementaux'!C51*B35/Durée_vie_PAC_AE_Coll/Nb_lgt
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:

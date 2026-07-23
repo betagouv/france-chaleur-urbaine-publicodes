@@ -11,7 +11,6 @@ PAC air-air indiv:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$45
           formule: 1000
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -26,7 +25,6 @@ PAC air-air indiv:
           par défaut: 134 * (1 + Paramètres économiques . Gros entretien P3 . TVA)
           unité: €TTC/MWh
         investissement équipement:
-          # param éco D68 ='Ratios économiques - Coûts'!C166*'Calculs techniques'!H57*(1+TVA_inv)
           produit:
             - ratios économiques . PAC x air-air réversible . Coût investissement Individuel
             - PAC air-air indiv . installation . gamme de puissance existante
@@ -52,7 +50,6 @@ PAC air-air indiv:
             - puissance nécessaire pour refroidissement équipement
           unité: kW
         gamme de puissance existante:
-          # =(QUOTIENT(G57;'Ratios techniques'!$C$285)+1)*'Ratios techniques'!$C$285
           le maximum de:
             - puissance équipement
             - 2
@@ -101,7 +98,6 @@ PAC air-air indiv:
           valeur: 0
           unité: kWh elec
         consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: &inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
-          # =IF(C80="Non",F103+C103+D103,F103+H103+I103)
           variations:
             - si: besoin d'installation supplémentaire pour produire l'ECS
               alors: consommation auxiliaire + consommation d'électricité chauffe-eau électrique
@@ -109,9 +105,7 @@ PAC air-air indiv:
           unité: kWh/an
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total: &couts-investissement-equipement-total
-          # ='Paramètres économiques'!$D$68*(1+surcout_inv)
           produit:
             - ratios . investissement équipement
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -139,7 +133,6 @@ PAC air-air indiv:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           somme:
             - variations:
@@ -153,7 +146,6 @@ PAC air-air indiv:
           unité: €TTC/an
           note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
         Coût du combustible consommation:
-          # D56 =IF('Paramètres économiques'!$D$109="Option base";$D$11*'Calculs techniques'!C103;$D$11*'Paramètres économiques'!$D$116*'Calculs techniques'!C103+$F$11*'Paramètres économiques'!$D$117*'Calculs techniques'!C103)
           produit:
             - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation
             - installation . consommation combustible chaleur
@@ -222,7 +214,6 @@ PAC air-air indiv:
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
-          # =('Calculs techniques'!C103+'Calculs techniques'!F102)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D103*'Ratios environnementaux'!$C$27
           somme:
             - (installation . consommation combustible chaleur + installation . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
             - installation . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
@@ -237,7 +228,6 @@ PAC air-air indiv:
             - ECS solaire thermique
             - ECS avec ballon électrique
         Scope 3:
-          # ='Ratios environnementaux'!C46*B30/Durée_vie_PAC_AA
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
@@ -306,7 +296,6 @@ PAC air-air coll:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$48
           formule: 409.375
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -321,7 +310,6 @@ PAC air-air coll:
           par défaut: 1.72 / 100
           unité: €HT/€d'investissment
         investissement équipement:
-          # param éco D69 ='Calculs techniques'!H58*'Ratios économiques - Coûts'!C171*(1+TVA_inv)
           produit:
             - ratios économiques . PAC x air-air réversible . Coût investissement Collectif
             - PAC air-air coll . installation . gamme de puissance existante
@@ -344,7 +332,6 @@ PAC air-air coll:
           unité: kW
         puissance équipement: *inst-puissance-equipement
         gamme de puissance existante:
-          # H60 =(QUOTIENT(G60;'Ratios techniques'!C286)+1)*'Ratios techniques'!C286
           produit:
             - somme:
                 - valeur: puissance équipement // ratios . puissance unitaire réversible
@@ -362,7 +349,6 @@ PAC air-air coll:
         consommation d'électricité lié au chauffage-refroidissement et à la production d'ECS: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total: *couts-investissement-equipement-total
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -372,7 +358,6 @@ PAC air-air coll:
         Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
         Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           somme:
             - variations:
@@ -432,7 +417,6 @@ PAC air-air coll:
           formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         Scope 2: *env-scope-2
         Scope 3:
-          # ='Ratios environnementaux'!C49*B33/Durée_vie_PAC_AA_Coll/Nb_lgt
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:

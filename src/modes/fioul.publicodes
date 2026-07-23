@@ -11,7 +11,6 @@ fioul indiv:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$41
           formule: 112
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -71,7 +70,6 @@ fioul indiv:
             - puissance nécessaire pour ECS avec équipement
           unité: kW
         gamme de puissance existante:
-          # =IF($G$55<'Ratios économiques - Coûts'!$B$142;XLOOKUP($G$55;'Ratios économiques - Coûts'!$B$138:$B$142;'Ratios économiques - Coûts'!$B$138:$B$142;;1);35)
           variations:
             - si: puissance équipement <= 12
               alors: 12
@@ -115,7 +113,6 @@ fioul indiv:
             - sinon: 0
           unité: kWh/an
         consommation combustible chaleur:
-          # =Conso_comb_FIOUL_indiv*(Besoin_cha/Rend_FIOUL_indiv+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_FIOUL_indiv)
           produit:
             - ratios . conso combustible
             - somme:
@@ -130,7 +127,6 @@ fioul indiv:
           formule: 0
           unité: L/an
         consommation auxiliaire: &inst-consommation-auxiliaire
-          # =(1-Conso_aux_FIOUL_indiv)*Besoin_cha+(1-Conso_aux_FIOUL_indiv_ECS)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
           somme:
             - (1 - ratios . conso auxiliaire chauffage) * besoins chauffage par appartement
             - variations:
@@ -152,7 +148,6 @@ fioul indiv:
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total: &couts-investissement-equipement-total
           produit:
             - ratios . investissement équipement
@@ -181,7 +176,6 @@ fioul indiv:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement: &couts-cout-du-combustible-abonnement
           variations:
             - si:
@@ -193,7 +187,6 @@ fioul indiv:
           unité: €TTC/an
           note: 'Coût du combustible abonnement (P1 abo) €TTC/an'
         Coût du combustible consommation: &couts-cout-du-combustible-consommation
-          # D54 =$D$16*'Calculs techniques'!$C$101
           produit:
             - Calcul Eco . Coût d'achat du combustible . Fioul x Part consommation
             - installation . consommation combustible chaleur
@@ -269,7 +262,6 @@ fioul indiv:
     environnement:
       avec:
         besoins de chauffage et ECS si même équipement: &env-besoins-de-chauffage-et-ecs-si-meme-equipement
-          # ='Calculs techniques'!C101/Conso_comb_FIOUL_indiv*(XLOOKUP(C51,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
           formule: installation . consommation combustible chaleur / ratios . conso combustible * ratios environnementaux . Emission spé Fioul chaudière
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
@@ -286,7 +278,6 @@ fioul indiv:
             - ECS solaire thermique
             - ECS avec ballon électrique
         Scope 3:
-          # =(XLOOKUP(A51,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B28/Durée_vie_FIOUL_indiv
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
@@ -357,7 +348,6 @@ fioul coll:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$42
           formule: 43
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -436,7 +426,6 @@ fioul coll:
           unité: kW
         puissance équipement: *inst-puissance-equipement
         gamme de puissance existante:
-          # =XLOOKUP($G$56;'Ratios économiques - Coûts'!$B$147:$B$161;'Ratios économiques - Coûts'!$B$147:$B$161;;1)
           variations:
             - si: puissance équipement <= 35
               alors: 35
@@ -473,7 +462,6 @@ fioul coll:
         consommation d'électricité chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
         appoint d'électricité chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
         consommation combustible chaleur:
-          # =Conso_comb_FIOUL_coll*(Besoin_cha/Rend_FIOUL_coll_chauf+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_FIOUL_coll_ECS)
           produit:
             - ratios . conso combustible
             - somme:
@@ -491,7 +479,6 @@ fioul coll:
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total: *couts-investissement-equipement-total
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -501,7 +488,6 @@ fioul coll:
         Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
         Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement: *couts-cout-du-combustible-abonnement
         Coût du combustible consommation: *couts-cout-du-combustible-consommation
         Coût électricité auxiliaire: *couts-cout-electricite-auxiliaire
@@ -540,7 +526,6 @@ fioul coll:
           formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         Scope 2: *env-scope-2
         Scope 3:
-          # =(XLOOKUP(A52,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B29/Durée_vie_FIOUL_coll/Nb_lgt
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:

@@ -38,23 +38,19 @@ réseau de froid:
           formule: puissance équipement
           unité: kW
         consommation combustible froid:
-          # =Besoin_raf/Rend_RFU
           formule: besoins en climatisation par appartement / ratios . rendement sous station
           unité: kWh
         consommation auxiliaire:
-          # =(1-Conso_aux_RFU)*Besoin_raf
           formule: (1 - ratios . conso auxiliaire) * besoins en climatisation par appartement
           unité: kWh elec
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           formule: Investissement x frais de raccordement au réseaux x RFU
           unité: €TTC
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
           unité: €TTC
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           produit:
             - Calcul Eco . Coût d'achat du combustible . Froid RFU x Part abonnement
@@ -75,7 +71,6 @@ réseau de froid:
     entretien:
       avec:
         petit entretien P2:
-            # C68 ='Paramètres économiques'!D160*(1+TVA_P2)*VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;VRAI)
             variations:
               - si: Inclure la climatisation
                 alors:
@@ -111,7 +106,6 @@ réseau de froid:
           formule: Coup de pouce
           unité: €
         CEE:
-          # =IF($B$93="Eligible",IF('Paramètres économiques'!$C$7="Résidentiel",0,XLOOKUP('Paramètres économiques'!$C$11,'Ratios économiques - Aides'!$B$334:$B$342,'Ratios économiques - Aides'!$C$334:$C$342)*XLOOKUP('Paramètres économiques'!$C$13,'Ratios économiques - Aides'!$B$331:$B$333,'Ratios économiques - Aides'!$C$331:$C$333)*'Paramètres économiques'!$C$21*$B$94),0)
           variations:
             - si: Paramètres économiques . Aides . Aides x Éligible CEE
               alors:
@@ -135,7 +129,6 @@ ratios . RFU Durée de vie:
 ###### Ratios économiques (investissement)
 
 ratios économiques . Réseaux x Coût Investissement SST RFU:
-  # =VLOOKUP('Paramètres économiques'!$D$20;'Ratios économiques - Coûts'!$B$386:$C$394;2;TRUE)
   variations:
     - si: réseau de froid . installation . gamme de puissance existante < 100
       alors: 28000

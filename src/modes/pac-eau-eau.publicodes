@@ -11,7 +11,6 @@ PAC eau-eau indiv:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$46
           formule: 453.3
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -101,7 +100,6 @@ PAC eau-eau indiv:
           formule: 0
           unité: kWh elec
         consommation auxiliaire: &inst-consommation-auxiliaire
-          # =(1-'Ratios techniques'!$C$327)*(Besoin_cha)+(1-'Ratios techniques'!$C$328)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
           somme:
             - (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air) * besoins chauffage par appartement
             - variations:
@@ -124,7 +122,6 @@ PAC eau-eau indiv:
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
           produit:
             - ratios . investissement équipement
@@ -153,7 +150,6 @@ PAC eau-eau indiv:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           somme:
             - variations:
@@ -242,7 +238,6 @@ PAC eau-eau indiv:
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
-          # =('Calculs techniques'!C104+'Calculs techniques'!F103)*'Ratios environnementaux'!$C$25+'Calculs techniques'!D104*'Ratios environnementaux'!$C$27
           somme:
             - (installation . consommation combustible chaleur + installation . consommation auxiliaire) * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
             - installation . consommation combustible froid * ratios environnementaux . Emission moy Parc électrique francais moyenne froid
@@ -257,7 +252,6 @@ PAC eau-eau indiv:
             - ECS solaire thermique
             - ECS avec ballon électrique
         Scope 3:
-          # ='Ratios environnementaux'!C47*B31/Durée_vie_PAC_EE
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
@@ -332,7 +326,6 @@ PAC eau-eau coll:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$49
           formule: 615
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -388,7 +381,6 @@ PAC eau-eau coll:
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement forage:
           valeur: ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde
           unité: €TTC
@@ -410,7 +402,6 @@ PAC eau-eau coll:
         Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
         Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           somme:
             - variations:
@@ -520,7 +511,6 @@ PAC eau-eau coll:
           formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         Scope 2: *env-scope-2
         Scope 3:
-          # ='Ratios environnementaux'!C50*B34/Durée_vie_PAC_EE/Nb_lgt
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:
@@ -577,33 +567,26 @@ PAC eau-eau indiv . ratios . durée de vie puits géothermiques:
 ratios économiques . PAC x eau-eau non réversible:
   avec:
     Coût investissement dont terrassement ind:
-      # 'Ratios économiques - Coûts'!C171
       valeur: 1818
       unité: €HT/kW
       note: 'ADEME Coûts EnR 2022 2020'
     Gamme 40 130kW Coût investissement hors captage sous-sol coll:
-      # 'Ratios économiques - Coûts'!C172
       valeur: 1323
       unité: €HT/kW
       note: 'ADEME Coûts EnR 2022 2020'
     Gamme 40 130kW coût captage sous-sol coll:
-      # 'Ratios économiques - Coûts'!C173
       valeur: 1377
       unité: €HT/kW
       note: 'ADEME Coûts EnR 2022 2020'
     Gamme 250kW Coût investissement hors captage sous-sol coll:
-      # 'Ratios économiques - Coûts'!C174
       valeur: 504
       unité: €HT/kW
       note: 'ADEME Coûts EnR 2022 2020'
     Gamme 250kW coût captage sous-sol coll:
-      # 'Ratios économiques - Coûts'!C175
       valeur: 1121
       unité: €HT/kW
       note: 'ADEME Coûts EnR 2022 2020'
     Coûts hors captage sous-sol:
-      # 'Paramètres économiques'!B74
-      # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C172,'Ratios économiques - Coûts'!C174)*(1+TVA_inv)
       produit:
         - PAC eau-eau coll . installation . gamme de puissance existante
         - variations:
@@ -612,8 +595,6 @@ ratios économiques . PAC x eau-eau non réversible:
             - sinon: ratios économiques . PAC x eau-eau non réversible . Gamme 250kW Coût investissement hors captage sous-sol coll
         - 1 + ratios économiques . Investissement x TVA
     Coûts captage sous-sol champs sur sonde:
-      # 'Paramètres économiques'!B75
-      # ='Calculs techniques'!H61*IF('Calculs techniques'!H61<250,'Ratios économiques - Coûts'!C173,'Ratios économiques - Coûts'!C175)*(1+TVA_inv)
       produit:
         - PAC eau-eau coll . installation . gamme de puissance existante
         - variations:
@@ -623,7 +604,6 @@ ratios économiques . PAC x eau-eau non réversible:
         - 1 + ratios économiques . Investissement x TVA
 
 ratios économiques . PAC x eau-eau non réversible x Collectif:
-  # 'Paramètres économiques'!B73 =B74+B75
   somme:
     - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol
     - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde

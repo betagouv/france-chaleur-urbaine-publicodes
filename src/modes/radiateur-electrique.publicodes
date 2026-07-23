@@ -11,7 +11,6 @@ radiateur électrique:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$52
           formule: 0.015
           unité: kgCO2e/kWh
           note: 'Source: INIES 2022'
@@ -22,7 +21,6 @@ radiateur électrique:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
         investissement équipement:
-          # Param eco B78 =$D$79*'Ratios économiques - Coûts'!$C$189*(1+$D$50)
           par défaut:
             produit:
               - ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires
@@ -49,7 +47,6 @@ radiateur électrique:
             - puissance nécessaire équipement chauffage
           unité: kW
         gamme de puissance existante:
-          # =(QUOTIENT(G64;'Ratios économiques - Coûts'!$B$189)+1)*'Ratios économiques - Coûts'!$B$189
           produit:
             - somme:
                 - valeur: puissance équipement // ratios économiques . radiateur électrique x puissance de l'installation
@@ -108,9 +105,7 @@ radiateur électrique:
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total:
-          # C63
           produit:
             - ratios . investissement équipement
             - ( 1 + ratios économiques . Investissement x Pose et mise en place de l'installation )
@@ -138,7 +133,6 @@ radiateur électrique:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement:
           somme:
             - variations:
@@ -231,7 +225,6 @@ radiateur électrique:
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique:
-          # =XLOOKUP(A60;'Calculs techniques'!$A$106:$A$110;'Calculs techniques'!$C$106:$C$110)*'Ratios environnementaux'!$C$26
           formule: installation . consommation combustible chaleur * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
           unité: kgCO2e
         ECS solaire thermique:
@@ -244,7 +237,6 @@ radiateur électrique:
             - ECS solaire thermique
             - ECS avec ballon électrique
         Scope 3:
-          # =B14*'Ratios environnementaux'!$C$52
           formule: besoins chauffage par appartement * ratios . CO2 installation
         Total:
           somme:
@@ -328,6 +320,5 @@ ratios économiques . Radiateur électrique:
 
 # pas un ratio
 ratios économiques . Radiateur électrique x Individuel x nombre de radiateurs électriques nécessaires:
-  # Param eco B79 =QUOTIENT('Calculs techniques'!$H$64,'Ratios économiques - Coûts'!$B$189)
   par défaut: radiateur électrique . installation . gamme de puissance existante // 2
 

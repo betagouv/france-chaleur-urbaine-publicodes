@@ -11,7 +11,6 @@ poêle à granulés:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$35
           formule: 122
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -25,14 +24,12 @@ poêle à granulés:
           par défaut: 0.00 / 100
           unité: €HT/€d'investissment # %
         investissement équipement:
-          # ='Ratios économiques - Coûts'!$C$65*(1+$D$50)
           par défaut:
             produit:
               - ratios économiques . Granulés x Poêle à granulés indiv x Résidentiel individuel . Coût investissement Puissance 12 kW
               - 1 + ratios économiques . Investissement x TVA
           unité: €TTC
         petit entretien P2:
-          # B161 ='Ratios économiques - Coûts'!C325*(1+TVA_P2)
           par défaut: 35 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
         rendement poêle chauffage:
@@ -52,7 +49,6 @@ poêle à granulés:
             - puissance nécessaire équipement chauffage
           unité: kW
         gamme de puissance existante:
-          # =IF($G$49<'Ratios économiques - Coûts'!$B$65;'Ratios économiques - Coûts'!$B$65;$F$538)
           variations:
             - si: puissance équipement < 12
               alors: 12
@@ -109,7 +105,6 @@ poêle à granulés:
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total: &couts-investissement-equipement-total
           produit:
             - ratios . investissement équipement
@@ -138,7 +133,6 @@ poêle à granulés:
           valeur: Investissement équipement par logement type tertiaire + Investissement ballon ECS solaire panneau inclus
           unité: €TTC
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement: &couts-cout-du-combustible-abonnement
           variations:
             - si:
@@ -225,7 +219,6 @@ poêle à granulés:
     environnement:
       avec:
         besoins de chauffage et ECS si même équipement:
-          # ='Calculs techniques'!C95/Conso_comb_GRA_Poele*(XLOOKUP(C45,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
           formule: (installation . consommation combustible chaleur / ratios . conso combustible) * ratios environnementaux . Emission spé Granulé poêle à bois
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
@@ -242,7 +235,6 @@ poêle à granulés:
             - ECS solaire thermique
             - ECS avec ballon électrique
         Scope 3:
-          # =(XLOOKUP(A45,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B22/Durée_vie_GRA_Poele
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie
         Total: &env-total
           somme:
@@ -317,7 +309,6 @@ chaudière à granulés:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
         CO2 installation:
-          # Ratios environnementaux'!$C$36
           formule: 88.5
           unité: kgCO2e/kW
           note: 'Source: INIES 2022'
@@ -340,7 +331,6 @@ chaudière à granulés:
               - 1 + ratios économiques . Investissement x TVA
           unité: €TTC
         petit entretien P2:
-          # B162 ='Ratios économiques - Coûts'!C326*(1+TVA_P2)
           par défaut: 22.000 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
         rendement chaudière chauffage:
@@ -367,7 +357,6 @@ chaudière à granulés:
             - puissance nécessaire pour ECS avec équipement
           unité: kW
         gamme de puissance existante:
-          #=MROUND(G50;50)
           variations:
             - si: puissance équipement < 75
               alors: 50
@@ -454,7 +443,6 @@ chaudière à granulés:
         consommation d'électricité chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
         appoint d'électricité chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
         consommation combustible chaleur:
-          # =Conso_comb_GRA_Chaud*(Besoin_cha/Rend_GRA_Chaud+IF(LEFT(Type_ECS,4)="Avec",1,0)*Besoin_ECS/Rend_GRA_Chaud)
           # formule: ratios . conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . rendement chaudière chauffage
           produit:
             - ratios . conso combustible
@@ -468,7 +456,6 @@ chaudière à granulés:
           unité: kg granulés/an
         consommation combustible froid: *inst-consommation-combustible-froid
         consommation auxiliaire:
-          # =(1-Conso_aux_GRA_Chaud)*Besoin_cha+(1-Conso_aux_GRA_Chaud)*Besoin_ECS*IF((LEFT(Type_ECS,4)="Avec")*(Prod_ECS="Oui")=1,1,0)
           somme:
             - (1 - ratios . conso auxiliaire) * besoins chauffage par appartement
             - variations:
@@ -490,7 +477,6 @@ chaudière à granulés:
         consommation Groupe Froid: calcul consommation Groupe Froid
     coûts:
       avec:
-        # P4 - Investissement total (sans aide) €TTC
         Investissement équipement Total: *couts-investissement-equipement-total
         Investissement équipement par logement type tertiaire:
           valeur: Investissement équipement Total / nombre de logements dans l'immeuble concerné
@@ -500,7 +486,6 @@ chaudière à granulés:
         Total investissement avec ballon ECS à accumulation: *couts-total-investissement-avec-ballon-ecs-a-accumulation
         Total investissement ballon ECS solaire panneaux: *couts-total-investissement-ballon-ecs-solaire-panneaux
 
-        # P1 - Coût du combustible par lgt type / tertiaire
         Coût du combustible abonnement: *couts-cout-du-combustible-abonnement
         Coût du combustible consommation: *couts-cout-du-combustible-consommation
         Coût électricité auxiliaire: *couts-cout-electricite-auxiliaire
@@ -532,12 +517,10 @@ chaudière à granulés:
     environnement:
       avec:
         besoins de chauffage et ECS si même équipement:
-          # ='Calculs techniques'!C96/Conso_comb_GRA_Chaud*(XLOOKUP(C46,'Ratios environnementaux'!$B$14:$B$20,'Ratios environnementaux'!$C$14:$C$20))
           formule: installation . consommation combustible chaleur / ratios . conso combustible * ratios environnementaux . Emission spé Granulé chaudière
           unité: kgCO2e
         Scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique:
-          # ='Calculs techniques'!F96*'Ratios environnementaux'!$C$25
           formule: installation . consommation auxiliaire * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
           unité: kgCO2e
         ECS solaire thermique:
@@ -546,7 +529,6 @@ chaudière à granulés:
           formule: installation . consommation d'électricité chauffe-eau électrique * ratios environnementaux . Emission moy Parc électrique francais moyenne chauffage
         Scope 2: *env-scope-2
         Scope 3:
-          # =(XLOOKUP(A46,'Ratios environnementaux'!$B$36:$B$51,'Ratios environnementaux'!$C$36:$C$51))*B23/Durée_vie_GRA_Chaud/Nb_lgt
           formule: ratios . CO2 installation * installation . gamme de puissance existante / ratios . durée de vie / nombre de logements dans l'immeuble concerné
         Total: *env-total
     bilan:

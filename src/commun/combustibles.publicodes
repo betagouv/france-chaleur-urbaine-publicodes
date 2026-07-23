@@ -4,7 +4,6 @@
 Calcul Eco . Coût d'achat du combustible:
   avec:
     Chaleur RCU x Part abonnement:
-      # D8 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$143
       variations:
         - si: Paramètres économiques . Réseaux chaleur . Tarification connue = 'oui'
           alors:
@@ -15,8 +14,6 @@ Calcul Eco . Coût d'achat du combustible:
         - sinon: Paramètres économiques . Réseaux chaleur . Coût * Paramètres économiques . Réseaux chaleur . Part fixe
       unité: €TTC/kWh
     Chaleur RCU x Part consommation:
-      # D9 ='Paramètres économiques'!$D$142*'Paramètres économiques'!$D$144
-      # SI('Paramètres économiques'!$D$142="Oui";'Paramètres économiques'!$D$147;'Paramètres économiques'!$D$143*'Paramètres économiques'!$D$145)
       variations:
         - si: Paramètres économiques . Réseaux chaleur . Tarification connue = 'oui'
           alors: Paramètres économiques . Réseaux chaleur . Tarification R1 x Part variable
@@ -24,31 +21,25 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
 
     Froid RFU x Part abonnement:
-      # D10 ='Paramètres économiques'!$D$148*'Paramètres économiques'!$D$149
       formule: Paramètres économiques . Réseaux froid . Coût * Paramètres économiques . Réseaux froid . Part fixe
       # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
       unité: €TTC/kWh
     Froid RFU x Part consommation:
-      # D10 ='Paramètres économiques'!$D$148*'Paramètres économiques'!D150
       valeur: Paramètres économiques . Réseaux froid . Coût * Paramètres économiques . Réseaux froid . Part variable
       unité: €TTC/kWh
 
     Electricité indiv x Part abonnement:
-      # B11 ='Paramètres économiques'!$D$114
       formule: Paramètres économiques . Electricité x Abonnement Part Fixe indiv
       unité: €TTC/an
     Electricité indiv x Part consommation Option Base:
       applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Option base'
-      # D11 ='Paramètres économiques'!$D$114
       formule: Paramètres économiques . Electricité x Consommation Part variable en option de base
       unité: €TTC/kWh
     Electricité indiv x Part consommation HP:
       applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
-      # D11 ='Paramètres économiques'!$D$114
       formule: Paramètres économiques . Electricité x Consommation Part variable en heure pleine
       unité: €TTC/kWh
     Electricité indiv x Part consommation HC:
-      # F11 =IF('Paramètres économiques'!C109="Option base","",'Paramètres économiques'!$D$115)
       applicable si: Paramètres économiques . Electricité x Option tarifaire = 'Heure pleine/Heure creuse'
       formule: Paramètres économiques . Electricité x Consommation Part variable en heure creuse
       unité: €TTC/kWh
@@ -63,20 +54,16 @@ Calcul Eco . Coût d'achat du combustible:
               - Calcul Eco . Coût d'achat du combustible . Electricité indiv x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC
 
     Electricité coll x Part abonnement:
-      # B12 ='Paramètres économiques'!D115
       formule: Paramètres économiques . Electricité x Abonnement Part Fixe coll
       unité: €TTC/an
 
     Electricité coll x Part consommation Option Base:
-      # D12 ='Paramètres économiques'!$D$116
       formule: Paramètres économiques . Electricité x Consommation Part variable en option de base
       unité: €TTC/kWh
     Electricité coll x Part consommation HP:
-      # D12 ='Paramètres économiques'!$D$116
       formule: Paramètres économiques . Electricité x Consommation Part variable en heure pleine
       unité: €TTC/kWh
     Electricité coll x Part consommation HC:
-      # F12 =IF('Paramètres économiques'!C111="Option base";"";'Paramètres économiques'!$D$117)
       formule: Paramètres économiques . Electricité x Consommation Part variable en heure creuse
       unité: €TTC/kWh
     Electricité coll x Part consommation:
@@ -90,7 +77,6 @@ Calcul Eco . Coût d'achat du combustible:
               - Electricité coll x Part consommation HC * ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC
 
     Gaz indiv x Part abonnement:
-      # B13 ='Paramètres économiques'!$D$91
       valeur: Paramètres économiques . Gaz x Abonnement x Part Fixe TTC individuel
       unité: €TTC/an
     Gaz indiv x Part consommation:
@@ -98,21 +84,17 @@ Calcul Eco . Coût d'achat du combustible:
       unité: €TTC/kWh
 
     Gaz coll x Part abonnement:
-      # B14 ='Paramètres économiques'!$D$90
       valeur: Paramètres économiques . Gaz x Abonnement x Part Fixe TTC collectif ou tertiaire
       unité: €TTC/an
     Gaz coll x Part consommation:
-      # D14 ='Paramètres économiques'!$D$94
       valeur: Paramètres économiques . Gaz x Consommation x Part Variable TTC
       unité: €TTC/kWh
 
     Granulés x Part consommation:
-      # D15 ='Paramètres économiques'!$D$130/1000
       valeur: (Paramètres économiques . Granulés . Prix pour les granulés / 1000)
       unité: €TTC/kg
 
     Fioul x Part consommation:
-      # D16 ='Paramètres économiques'!$D$136
       valeur: Paramètres économiques . Fioul . Prix livraison incluse
       unité: €TTC/L
 
@@ -121,35 +103,28 @@ ratios économiques . Coût des combustibles x Electricité:
     Option Base:
       avec:
         Prix de l'énergie:
-          # D247:D267
           valeur: 0.1708
           unité: €HT/kWh
           note: 'Source: AMORCE 2024'
     Heure pleine x Heure creuse:
       avec:
         Part de la consommation en HP:
-          # C238
           valeur: 20
           unité: '%'
           note: 'Source: AMORCE 2024'
         Part de la consommation en HC:
-          # C239
           valeur: 100% - Part de la consommation en HP
           unité: '%'
           note: 'Source: AMORCE 2024'
         Prix de l'énergie HP:
-          # D273:D292
           valeur: 0.2040
           unité: €HT/kWh
           note: 'Source: ELCIMAI + TRV 2024'
         Prix de l'énergie HC:
-          # E273:E292
           valeur: 0.1513
           unité: €HT/kWh
           note: 'Source: ELCIMAI + TRV 2024'
     Abonnement annuel individuel:
-      # B247:B267 et C247:C267
-      # B273:B292 et C273:C292
       variations:
         - si: Paramètres économiques . Electricité x Puissance souscrite indiv <= 3
           alors:
@@ -301,8 +276,6 @@ ratios économiques . Coût des combustibles x Electricité:
       unité: €/an
       note: 'Source: ELCIMAI + TRV 2024'
     Abonnement annuel collectif:
-      # B247:B267 et C247:C267
-      # B273:B292 et C273:C292
       # C'est ici en fait le surcout à l'abonnement annuel
       variations:
         - si: Paramètres économiques . Electricité x Puissance souscrite coll <= 6
