@@ -205,3 +205,16 @@ ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire:
   unité: €HT
   note: 'Source: ELCIMAI'
 
+Investissement x frais de raccordement au réseaux x RFU:
+  par défaut:
+    variations:
+      - si: Inclure la climatisation
+        alors:
+          produit:
+            - variations:
+                - si: type de bâtiment = 'résidentiel'
+                  alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logements dans l'immeuble concerné
+                - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
+            - 1 + investissement . TVA
+      - sinon: 0
+  unité: €TTC

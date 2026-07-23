@@ -1,40 +1,6 @@
-###### Rappels généraux
-
-# Pas besoin du reste
-
-###### Puissance totale des installations
+# Paramètres d'entretien restants (TVA P2/P3) — clés historiques écrites par le front.
 
 # Pas besoin car calculé dans calculs techniques avec le variable "gamme de puissance existante" sauf pour chauffe eau
-
-ecs additionnelle . capacité du ballon électrique:
-  variations:
-    - si: volume du ballon ECS <= 50
-      alors: 50
-    - si: volume du ballon ECS <= 100
-      alors: 100
-    - si: volume du ballon ECS <= 150
-      alors: 150
-    - si: volume du ballon ECS <= 200
-      alors: 200
-    - sinon: 200
-  unité: L
-###### Investissement
-
-Investissement x frais de raccordement au réseaux x RFU:
-  par défaut:
-    variations:
-      - si: Inclure la climatisation
-        alors:
-          produit:
-            - variations:
-                - si: type de bâtiment = 'résidentiel'
-                  alors: ratios économiques . Réseaux x Coût raccordement RFU x Résidentiel * nombre de logements dans l'immeuble concerné
-                - sinon: ratios économiques . Réseaux x Coût raccordement RFU x Tertiaire
-            - 1 + investissement . TVA
-      - sinon: 0
-  unité: €TTC
-
-###### Combustibles P1
 
 Paramètres économiques:
   avec:
