@@ -4,6 +4,211 @@
 
 ecs additionnelle:
   description: Production d'ECS additionnelle quand l'équipement de chauffage ne la produit pas
+  avec:
+
+    consommation chauffe-eau électrique:
+      formule: besoins eau chaude sanitaire par appartement / ecs additionnelle . rendement stockage ballon électrique
+      # unité: kWh/an
+      unité: kWh # corrigé pour faire fonctionner la division
+
+    surface de panneaux:
+      variations:
+        - si: volume du ballon ECS <= 250
+          alors: 2.5m2
+        - si: volume du ballon ECS <= 400
+          alors: 4m2
+        - si: volume du ballon ECS <= 550
+          alors: 5.5m2
+        - si: volume du ballon ECS <= 650
+          alors: 6m2
+        - sinon: 6m2
+      unité: m2
+
+    appoint chauffe-eau solaire:
+      formule: besoins eau chaude sanitaire par appartement * (1 - ecs additionnelle . part du solaire dans la production) / ecs additionnelle . rendement stockage ballon solaire
+      # unité: kWh/an
+      unité: kWh # corrigé pour faire fonctionner la division
+
+    investissement ballon ECS:
+      produit:
+        - ecs additionnelle . coût du chauffe-eau électrique
+        - ( 1 + investissement . pose et mise en place )
+
+    investissement chauffe-eau solaire:
+      produit:
+        - ecs additionnelle . coût du chauffe-eau solaire + ecs additionnelle . coût des panneaux solaires
+        - ( 1 + investissement . pose et mise en place )
+
+    ###### Ratios techniques
+
+    rendement stockage ballon électrique:
+      valeur: 87%
+      unité: '%'
+
+    durée de vie chauffe-eau électrique:
+      valeur: 20
+      unité: an
+
+    rendement stockage ballon solaire:
+      valeur: 87%
+      unité: '%'
+
+    durée de vie chauffe-eau solaire:
+      valeur: 20
+      unité: an
+
+    part du solaire dans la production:
+      valeur: 60%
+      unité: '%'
+
+    ###### Ratios économiques (investissement)
+
+    coût du chauffe-eau électrique:
+      produit:
+        - variations:
+            - si: ecs additionnelle . capacité du ballon électrique <= 50
+              alors: 610.8
+            - si: ecs additionnelle . capacité du ballon électrique <= 100
+              alors: 705.8
+            - si: ecs additionnelle . capacité du ballon électrique <= 150
+              alors: 802.5
+            - si: ecs additionnelle . capacité du ballon électrique <= 200
+              alors: 918.3
+            - sinon: 918.3
+        - 1 + investissement . TVA
+      unité: €TTC
+      note: 'Source: Thermor 2024'
+
+    coût du chauffe-eau solaire:
+      valeur: ecs additionnelle . coût du chauffe-eau électrique
+      unité: €TTC
+
+    prix des panneaux:
+      valeur: 1300
+      unité: €HT/m2
+      note: 'Source: ADEME 2023'
+
+    # pas un ratio
+    coût des panneaux solaires:
+      produit:
+        - ecs additionnelle . surface de panneaux
+        - ecs additionnelle . prix des panneaux
+        - 1 + investissement . TVA
+      unité: €TTC
+
+    ###### Ratios environnementaux
+
+    ###### Entretien P2 / P3
+
+    ###### Aides
+
+    aides panneau solaire:
+      avec:
+        Ma prime renov':
+          variations:
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Très modeste"
+              alors: 4000 €
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Modeste"
+              alors: 3000 €
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . ressources du ménage = "Intermédiaire"
+              alors: 2000 €
+          unité: €
+          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
+        Coup de pouce:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . ressources du ménage = 'Modeste'
+              alors: 5000 €
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . ressources du ménage != 'Modeste'
+              alors: 5000 €
+          unité: €
+          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
+        CEE:
+          variations:
+            - si: aides . éligibilité . éligible CEE
+              alors:
+                variations:
+                  - si:
+                      toutes ces conditions:
+                        - type de bâtiment = 'résidentiel'
+                        - type de production ECS = 'Solaire thermique'
+                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . CEE x Chauffe-eau solaire collectif x Ratio * aides . valeur CEE * nombre de logements dans l'immeuble concerné
+                  - si: type de bâtiment = 'tertiaire'
+                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . Tertiaire . CEE x Chauffe-eau solaire x Ratio
+            - sinon: 0
+          unité: €
+        Total:
+          variations:
+            - si: aides . éligibilité . prise en compte des aides
+              alors: Ma prime renov' + Coup de pouce + CEE
+            - sinon: 0
+          unité: €
+
+    ###### Ratios de besoins ECS
+
+    quantité d'ECS produite par kWh:
+      valeur: 19.1
+      unité: L/kWh
+
+    facteur d'annuité chauffe-eau électrique:
+      description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau électrique (fonction Excel PMT)
+      variations: &facteur-chauffe-eau
+        - si: amortissement . taux d'actualisation != 0
+          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** durée) / ((1 + amortissement . taux d'actualisation) ** durée - 1)
+        - sinon: 1 / durée
+      avec:
+        durée: ecs additionnelle . durée de vie chauffe-eau électrique
+
+    facteur d'annuité chauffe-eau solaire:
+      description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau solaire (fonction Excel PMT)
+      variations: *facteur-chauffe-eau
+      avec:
+        durée: ecs additionnelle . durée de vie chauffe-eau solaire
+
+    ###### Entretien des chauffe-eau
+
+    petit entretien P2 chauffe-eau électrique:
+      par défaut: 0.00 / 100
+      unité: €HT/€d'investissment # %
+
+    petit entretien P2 chauffe-eau solaire:
+      par défaut: 0.00
+      unité: €HT/€d'investissment # %
+
+    gros entretien P3 chauffe-eau électrique:
+      par défaut: 0.00 / 100
+      unité: €HT/€d'investissment # %
+
+    gros entretien P3 chauffe-eau solaire:
+      par défaut: 0.00 / 100
+      unité: €HT/€d'investissment # %
+
+    capacité du ballon électrique:
+      variations:
+        - si: volume du ballon ECS <= 50
+          alors: 50
+        - si: volume du ballon ECS <= 100
+          alors: 100
+        - si: volume du ballon ECS <= 150
+          alors: 150
+        - si: volume du ballon ECS <= 200
+          alors: 200
+        - sinon: 200
+      unité: L
 
 consommation spécifique ECS:
   note: Besoin_ECS
@@ -184,206 +389,3 @@ volume du ballon ECS:
     - sinon: (besoins eau chaude sanitaire par appartement * ecs additionnelle . quantité d'ECS produite par kWh) / 365
   unité: L
 
-ecs additionnelle . consommation chauffe-eau électrique:
-  formule: besoins eau chaude sanitaire par appartement / ecs additionnelle . rendement stockage ballon électrique
-  # unité: kWh/an
-  unité: kWh # corrigé pour faire fonctionner la division
-
-ecs additionnelle . surface de panneaux:
-  variations:
-    - si: volume du ballon ECS <= 250
-      alors: 2.5m2
-    - si: volume du ballon ECS <= 400
-      alors: 4m2
-    - si: volume du ballon ECS <= 550
-      alors: 5.5m2
-    - si: volume du ballon ECS <= 650
-      alors: 6m2
-    - sinon: 6m2
-  unité: m2
-
-ecs additionnelle . appoint chauffe-eau solaire:
-  formule: besoins eau chaude sanitaire par appartement * (1 - ecs additionnelle . part du solaire dans la production) / ecs additionnelle . rendement stockage ballon solaire
-  # unité: kWh/an
-  unité: kWh # corrigé pour faire fonctionner la division
-
-ecs additionnelle . investissement ballon ECS:
-  produit:
-    - ecs additionnelle . coût du chauffe-eau électrique
-    - ( 1 + investissement . pose et mise en place )
-
-ecs additionnelle . investissement chauffe-eau solaire:
-  produit:
-    - ecs additionnelle . coût du chauffe-eau solaire + ecs additionnelle . coût des panneaux solaires
-    - ( 1 + investissement . pose et mise en place )
-
-###### Ratios techniques
-
-ecs additionnelle . rendement stockage ballon électrique:
-  valeur: 87%
-  unité: '%'
-
-ecs additionnelle . durée de vie chauffe-eau électrique:
-  valeur: 20
-  unité: an
-
-ecs additionnelle . rendement stockage ballon solaire:
-  valeur: 87%
-  unité: '%'
-
-ecs additionnelle . durée de vie chauffe-eau solaire:
-  valeur: 20
-  unité: an
-
-ecs additionnelle . part du solaire dans la production:
-  valeur: 60%
-  unité: '%'
-
-###### Ratios économiques (investissement)
-
-ecs additionnelle . coût du chauffe-eau électrique:
-  produit:
-    - variations:
-        - si: ecs additionnelle . capacité du ballon électrique <= 50
-          alors: 610.8
-        - si: ecs additionnelle . capacité du ballon électrique <= 100
-          alors: 705.8
-        - si: ecs additionnelle . capacité du ballon électrique <= 150
-          alors: 802.5
-        - si: ecs additionnelle . capacité du ballon électrique <= 200
-          alors: 918.3
-        - sinon: 918.3
-    - 1 + investissement . TVA
-  unité: €TTC
-  note: 'Source: Thermor 2024'
-
-ecs additionnelle . coût du chauffe-eau solaire:
-  valeur: ecs additionnelle . coût du chauffe-eau électrique
-  unité: €TTC
-
-ecs additionnelle . prix des panneaux:
-  valeur: 1300
-  unité: €HT/m2
-  note: 'Source: ADEME 2023'
-
-# pas un ratio
-ecs additionnelle . coût des panneaux solaires:
-  produit:
-    - ecs additionnelle . surface de panneaux
-    - ecs additionnelle . prix des panneaux
-    - 1 + investissement . TVA
-  unité: €TTC
-
-###### Ratios environnementaux
-
-###### Entretien P2 / P3
-
-###### Aides
-
-ecs additionnelle . aides panneau solaire:
-  avec:
-    Ma prime renov':
-      variations:
-        - si:
-            toutes ces conditions:
-              - aides . éligibilité . éligible Ma prime renov'
-              - aides . éligibilité . ressources du ménage = "Très modeste"
-          alors: 4000 €
-        - si:
-            toutes ces conditions:
-              - aides . éligibilité . éligible Ma prime renov'
-              - aides . éligibilité . ressources du ménage = "Modeste"
-          alors: 3000 €
-        - si:
-            toutes ces conditions:
-              - aides . éligibilité . éligible Ma prime renov'
-              - aides . éligibilité . ressources du ménage = "Intermédiaire"
-          alors: 2000 €
-      unité: €
-      note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
-    Coup de pouce:
-      variations:
-        - si:
-            toutes ces conditions:
-              - aides . éligibilité . éligible Coup de pouce
-              - aides . éligibilité . ressources du ménage = 'Modeste'
-          alors: 5000 €
-        - si:
-            toutes ces conditions:
-              - aides . éligibilité . éligible Coup de pouce
-              - aides . éligibilité . ressources du ménage != 'Modeste'
-          alors: 5000 €
-      unité: €
-      note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
-    CEE:
-      variations:
-        - si: aides . éligibilité . éligible CEE
-          alors:
-            variations:
-              - si:
-                  toutes ces conditions:
-                    - type de bâtiment = 'résidentiel'
-                    - type de production ECS = 'Solaire thermique'
-                alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . CEE x Chauffe-eau solaire collectif x Ratio * aides . valeur CEE * nombre de logements dans l'immeuble concerné
-              - si: type de bâtiment = 'tertiaire'
-                alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . Tertiaire . CEE x Chauffe-eau solaire x Ratio
-        - sinon: 0
-      unité: €
-    Total:
-      variations:
-        - si: aides . éligibilité . prise en compte des aides
-          alors: Ma prime renov' + Coup de pouce + CEE
-        - sinon: 0
-      unité: €
-
-###### Ratios de besoins ECS
-
-ecs additionnelle . quantité d'ECS produite par kWh:
-  valeur: 19.1
-  unité: L/kWh
-
-ecs additionnelle . facteur d'annuité chauffe-eau électrique:
-  description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau électrique (fonction Excel PMT)
-  variations: &facteur-chauffe-eau
-    - si: amortissement . taux d'actualisation != 0
-      alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** durée) / ((1 + amortissement . taux d'actualisation) ** durée - 1)
-    - sinon: 1 / durée
-  avec:
-    durée: ecs additionnelle . durée de vie chauffe-eau électrique
-
-ecs additionnelle . facteur d'annuité chauffe-eau solaire:
-  description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau solaire (fonction Excel PMT)
-  variations: *facteur-chauffe-eau
-  avec:
-    durée: ecs additionnelle . durée de vie chauffe-eau solaire
-
-###### Entretien des chauffe-eau
-
-ecs additionnelle . petit entretien P2 chauffe-eau électrique:
-  par défaut: 0.00 / 100
-  unité: €HT/€d'investissment # %
-
-ecs additionnelle . petit entretien P2 chauffe-eau solaire:
-  par défaut: 0.00
-  unité: €HT/€d'investissment # %
-
-ecs additionnelle . gros entretien P3 chauffe-eau électrique:
-  par défaut: 0.00 / 100
-  unité: €HT/€d'investissment # %
-
-ecs additionnelle . gros entretien P3 chauffe-eau solaire:
-  par défaut: 0.00 / 100
-  unité: €HT/€d'investissment # %
-
-ecs additionnelle . capacité du ballon électrique:
-  variations:
-    - si: volume du ballon ECS <= 50
-      alors: 50
-    - si: volume du ballon ECS <= 100
-      alors: 100
-    - si: volume du ballon ECS <= 150
-      alors: 150
-    - si: volume du ballon ECS <= 200
-      alors: 200
-    - sinon: 200
-  unité: L

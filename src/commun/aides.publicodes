@@ -60,31 +60,20 @@ Paramètres économiques . Aides:
       #  - "'oui'"
       #  - "'non'"
 
-
-aides . éligibilité:
-  avec:
-    prise en compte des aides: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-    particulier: Paramètres économiques . Aides . Éligibilité x Je suis un particulier
-    ressources du ménage: Paramètres économiques . Aides . Éligibilité x Ressources du ménage
-    chaudière gaz ou fioul actuelle: Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
-    éligible Ma prime renov': Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-    éligible Coup de pouce: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-    éligible CEE: Paramètres économiques . Aides . Aides x Éligible CEE
-
-aides . valeur CEE: Paramètres économiques . Aides . Valeur CEE
-
-Paramètres économiques . Aides . Valeur CEE:
-  # alias Calculs économiques B94
-  par défaut:
-    variations:
-      - si: Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
-        alors: aides . CEE x Prix moyen du CEE ménage précaire
-      - sinon: aides . CEE x Prix moyen du CEE autre ménage
-  unité: €/kWh cumac
-  note: "source : Registre National des Certificats d'Economie d'Energie"
-
 aides:
   avec:
+
+    éligibilité:
+      avec:
+        prise en compte des aides: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
+        particulier: Paramètres économiques . Aides . Éligibilité x Je suis un particulier
+        ressources du ménage: Paramètres économiques . Aides . Éligibilité x Ressources du ménage
+        chaudière gaz ou fioul actuelle: Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
+        éligible Ma prime renov': Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+        éligible Coup de pouce: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
+        éligible CEE: Paramètres économiques . Aides . Aides x Éligible CEE
+
+    valeur CEE: Paramètres économiques . Aides . Valeur CEE
     # Résidentiel
     # Ma prime rénov' x Supérieur x Non éligible:
     #   applicable si:
@@ -245,7 +234,18 @@ aides:
           # QUESTION déjà posée: quelle différence entre ratios éco - aides > C261 et C447 ?
           valeur: 0.196
 
+Paramètres économiques . Aides . Valeur CEE:
+  # alias Calculs économiques B94
+  par défaut:
+    variations:
+      - si: Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+        alors: aides . CEE x Prix moyen du CEE ménage précaire
+      - sinon: aides . CEE x Prix moyen du CEE autre ménage
+  unité: €/kWh cumac
+  note: "source : Registre National des Certificats d'Economie d'Energie"
+
 # clé historique canonique (écrite par le front : simulateur PAC)
 ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière:
   par défaut: PAC air-eau indiv . ratios . SCOP / 2.5
   unité: '%'
+

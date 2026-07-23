@@ -1,62 +1,62 @@
-# Production de froid : groupe froid résidentiel, groupe d'eau glacée
-# tertiaire et surcoûts communs du réseau de froid (bloc Calcul Bilan).
-# Valeurs communes à tous les modes de chauffage.
-
-froid . puissance groupe froid résidentiel:
-  variations:
-    - si:
-        toutes ces conditions:
-          - Inclure la climatisation
-          - type de bâtiment = 'résidentiel'
-          - type de production de froid = 'Groupe froid'
-      alors:
-        produit:
-          - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-air indiv . ratios . SEER) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
-          - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
-    - sinon: 0
-  unité: kW
-
-froid . puissance groupe eau glacée tertiaire:
-  variations:
-    - si:
-        toutes ces conditions:
-          - Inclure la climatisation
-          - type de bâtiment = 'tertiaire'
-          - type de production de froid = 'Groupe froid'
-      alors:
-        produit:
-          - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-eau coll . ratios . SEER) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
-          - ratios . PAC AIR EAU Puissance unitaire réversible coll
-    - sinon: 0
-  unité: kW
-
-froid . consommation groupe froid:
-  variations:
-    - si:
-        toutes ces conditions:
-          - Inclure la climatisation
-          - type de production de froid = 'Groupe froid'
-      alors:
-        variations:
-          - si: type de bâtiment = 'résidentiel'
-            alors: besoins en climatisation par appartement / PAC air-air indiv . ratios . SEER
-          - sinon: besoins en climatisation par appartement / PAC air-eau coll . ratios . SEER
-    - sinon: 0
-
-froid . investissement groupe froid résidentiel:
-  produit:
-    - Investissement x Groupe froid x résidentiel
-    - 1 + investissement . pose et mise en place
-
-froid . investissement groupe eau glacée tertiaire:
-  produit:
-    - Investissement x Groupe eau glacée x tertiaire
-    - 1 + investissement . pose et mise en place
-    - 1 / nombre de logements dans l'immeuble concerné
 
 froid:
   description: Production de froid — surcoûts communs à tous les modes
   avec:
+    # Production de froid : groupe froid résidentiel, groupe d'eau glacée
+    # tertiaire et surcoûts communs du réseau de froid (bloc Calcul Bilan).
+    # Valeurs communes à tous les modes de chauffage.
+
+    puissance groupe froid résidentiel:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de bâtiment = 'résidentiel'
+              - type de production de froid = 'Groupe froid'
+          alors:
+            produit:
+              - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-air indiv . ratios . SEER) // ratios . PAC AIR AIR Puissance unitaire groupe froid indiv)
+              - ratios . PAC AIR AIR Puissance unitaire groupe froid indiv
+        - sinon: 0
+      unité: kW
+
+    puissance groupe eau glacée tertiaire:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de bâtiment = 'tertiaire'
+              - type de production de froid = 'Groupe froid'
+          alors:
+            produit:
+              - 1 + ((dimensionnement . puissance refroidissement appelée / PAC air-eau coll . ratios . SEER) // ratios . PAC AIR EAU Puissance unitaire réversible coll)
+              - ratios . PAC AIR EAU Puissance unitaire réversible coll
+        - sinon: 0
+      unité: kW
+
+    consommation groupe froid:
+      variations:
+        - si:
+            toutes ces conditions:
+              - Inclure la climatisation
+              - type de production de froid = 'Groupe froid'
+          alors:
+            variations:
+              - si: type de bâtiment = 'résidentiel'
+                alors: besoins en climatisation par appartement / PAC air-air indiv . ratios . SEER
+              - sinon: besoins en climatisation par appartement / PAC air-eau coll . ratios . SEER
+        - sinon: 0
+
+    investissement groupe froid résidentiel:
+      produit:
+        - Investissement x Groupe froid x résidentiel
+        - 1 + investissement . pose et mise en place
+
+    investissement groupe eau glacée tertiaire:
+      produit:
+        - Investissement x Groupe eau glacée x tertiaire
+        - 1 + investissement . pose et mise en place
+        - 1 / nombre de logements dans l'immeuble concerné
     surcoût P2:
       variations:
         - si: Inclure la climatisation
@@ -208,3 +208,4 @@ Calcul Eco . P2 P3 Coût de l'entretien . Groupe eau glacée tertiaire:
         - sinon: 0
     petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
     gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
+

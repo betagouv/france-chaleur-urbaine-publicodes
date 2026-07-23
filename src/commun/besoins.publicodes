@@ -1,37 +1,38 @@
 dimensionnement:
   description: Puissances appelées et heures de fonctionnement
+  avec:
 
-###### Calcul puissances
+    ###### Calcul puissances
 
-dimensionnement . heures pleine puissance chauffage continu:
-  formule: degré jours unifié spécifique chaud * 24 / (ratios . PUIS Température de non chauffage - température de référence chaud)
-  unité: h
+    heures pleine puissance chauffage continu:
+      formule: degré jours unifié spécifique chaud * 24 / (ratios . PUIS Température de non chauffage - température de référence chaud)
+      unité: h
 
-dimensionnement . heures pleine puissance chauffage:
-  produit:
-    - dimensionnement . heures pleine puissance chauffage continu
-    - puissance coefficient d'intermittence
-  unité: h
+    heures pleine puissance chauffage:
+      produit:
+        - dimensionnement . heures pleine puissance chauffage continu
+        - puissance coefficient d'intermittence
+      unité: h
 
-dimensionnement . puissance chauffage appelée:
-  formule: (besoins chauffage par appartement / dimensionnement . heures pleine puissance chauffage) * (1 + ratios . PUIS Facteur de surpuissance)
-  unité: kW
+    puissance chauffage appelée:
+      formule: (besoins chauffage par appartement / dimensionnement . heures pleine puissance chauffage) * (1 + ratios . PUIS Facteur de surpuissance)
+      unité: kW
 
-dimensionnement . puissance ECS appelée:
-  formule: (besoins eau chaude sanitaire par appartement / ratios . PUIS Nombre heure de fonctionnement non climatique ECS) * (1 + ratios . PUIS Facteur de surpuissance)
-  unité: kW
+    puissance ECS appelée:
+      formule: (besoins eau chaude sanitaire par appartement / ratios . PUIS Nombre heure de fonctionnement non climatique ECS) * (1 + ratios . PUIS Facteur de surpuissance)
+      unité: kW
 
-dimensionnement . heures pleine puissance climatisation:
-  produit:
-    - degré jours unifié spécifique froid
-    - 24
-    - puissance coefficient d'intermittence
-  unité: h
+    heures pleine puissance climatisation:
+      produit:
+        - degré jours unifié spécifique froid
+        - 24
+        - puissance coefficient d'intermittence
+      unité: h
 
-dimensionnement . puissance refroidissement appelée:
-  applicable si: dimensionnement . heures pleine puissance climatisation > 0
-  formule: besoins en climatisation par appartement / dimensionnement . heures pleine puissance climatisation * (1 + ratios . PUIS Facteur de surpuissance)
-  unité: kW
+    puissance refroidissement appelée:
+      applicable si: dimensionnement . heures pleine puissance climatisation > 0
+      formule: besoins en climatisation par appartement / dimensionnement . heures pleine puissance climatisation * (1 + ratios . PUIS Facteur de surpuissance)
+      unité: kW
 
 ###### Ratios généraux et de dimensionnement
 
@@ -114,3 +115,4 @@ ratios . PUIS Coefficient de foisonnement ECS:
 ratios . PUIS Coefficient de foisonnement chauffage collectif:
   valeur: 80%
   unité: '%'
+

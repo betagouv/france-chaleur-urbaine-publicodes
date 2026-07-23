@@ -1,20 +1,24 @@
 # Constantes transverses d'investissement et d'amortissement.
 
 investissement:
-amortissement:
+  avec:
 
-investissement . pose et mise en place:
-  formule: 30
-  unité: '%'
-  note: 'Source: ELCIMAI 2024'
-investissement . TVA:
-  valeur: 20
-  unité: '%'
-  note: 'source: ELCIMAI 2024'
-investissement . TVA réduite:
-  valeur: 5.5
-  unité: '%'
-amortissement . taux d'actualisation:
-  valeur: 0
-  unité: '%'
-  note: 'source: AMORCE'
+    pose et mise en place:
+      formule: 30
+      unité: '%'
+      note: 'Source: ELCIMAI 2024'
+    TVA:
+      valeur: 20
+      unité: '%'
+      note: 'source: ELCIMAI 2024'
+    TVA réduite:
+      valeur: 5.5
+      unité: '%'
+
+amortissement:
+  avec:
+    taux d'actualisation:
+      valeur: 0
+      unité: '%'
+      note: 'source: AMORCE'
+
