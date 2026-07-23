@@ -146,9 +146,9 @@ ecs additionnelle:
                       toutes ces conditions:
                         - type de bâtiment = 'résidentiel'
                         - type de production ECS = 'Solaire thermique'
-                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . CEE x Chauffe-eau solaire collectif x Ratio * aides . valeur CEE * nombre de logements dans l'immeuble concerné
+                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . CEE . ratio chauffe-eau solaire collectif * aides . valeur CEE * nombre de logements dans l'immeuble concerné
                   - si: type de bâtiment = 'tertiaire'
-                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . Tertiaire . CEE x Chauffe-eau solaire x Ratio
+                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . Tertiaire . ratio CEE chauffe-eau solaire
             - sinon: 0
           unité: €
         Total:

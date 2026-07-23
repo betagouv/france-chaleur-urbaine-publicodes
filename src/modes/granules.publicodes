@@ -2,8 +2,6 @@
 # Regroupe ratios, dimensionnement, calculs économiques,
 # aides, émissions et bilan pour ce mode de chauffage.
 
-###### Ratios techniques
-
 poêle à granulés:
   description: Poêle à granulés individuel
   avec:
@@ -36,8 +34,6 @@ poêle à granulés:
           valeur: 80%
           unité: '%'
 
-        ###### Ratios économiques (investissement)
-
         coût équipement 12 kW:
           valeur: 5600
           unité: €HT
@@ -67,7 +63,7 @@ poêle à granulés:
               alors: 12
             - sinon: 0 # Apparement non applicable . Calculs techniques H49 référence une cellule non existante $F$548
           unité: kW
-        ECS additionnelle nécessaire: &inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
+        ECS additionnelle nécessaire: &inst-ecs-additionnelle-necessaire
           toutes ces conditions:
             - Production eau chaude sanitaire
             - puissance ECS <= 0
@@ -80,7 +76,7 @@ poêle à granulés:
               alors: volume du ballon ECS
             - sinon: 50
           unité: L
-        consommation chauffe-eau électrique: &inst-consommation-d-electricite-chauffe-eau-electrique
+        consommation chauffe-eau électrique: &inst-consommation-chauffe-eau-electrique
           variations:
             - si:
                 toutes ces conditions:
@@ -89,7 +85,7 @@ poêle à granulés:
               alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
-        appoint chauffe-eau solaire: &inst-appoint-d-electricite-chauffe-eau-solaire
+        appoint chauffe-eau solaire: &inst-appoint-chauffe-eau-solaire
           variations:
             - si:
                 toutes ces conditions:
@@ -115,10 +111,10 @@ poêle à granulés:
               alors: consommation auxiliaire + consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
-        consommation Groupe Froid: froid . consommation groupe froid
+        consommation groupe froid: froid . consommation groupe froid
     coûts:
       avec:
-        investissement équipement: &couts-investissement-equipement-total
+        investissement équipement: &couts-investissement-equipement
           produit:
             - ratios . investissement équipement
             - ( 1 + investissement . pose et mise en place )
@@ -126,27 +122,27 @@ poêle à granulés:
         investissement par logement:
           valeur: investissement équipement
           unité: €TTC
-        investissement ballon ECS: &couts-investissement-ballon-ecs-a-accumulation
+        investissement ballon ECS: &couts-investissement-ballon-ecs
           variations:
             - si: installation . ECS additionnelle nécessaire
               alors: ecs additionnelle . investissement ballon ECS
             - sinon: 0
           unité: €TTC
-        investissement chauffe-eau solaire: &couts-investissement-ballon-ecs-solaire-panneau-inclus
+        investissement chauffe-eau solaire: &couts-investissement-chauffe-eau-solaire
           applicable si:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
               - type de production ECS = "Solaire thermique"
           formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
-        investissement total avec ballon ECS: &couts-total-investissement-avec-ballon-ecs-a-accumulation
+        investissement total avec ballon ECS: &couts-investissement-total-avec-ballon-ecs
           valeur: investissement par logement + investissement ballon ECS
           unité: €TTC
-        investissement total avec chauffe-eau solaire: &couts-total-investissement-ballon-ecs-solaire-panneaux
+        investissement total avec chauffe-eau solaire: &couts-investissement-total-avec-chauffe-eau-solaire
           valeur: investissement par logement + investissement chauffe-eau solaire
           unité: €TTC
 
-        P1 abonnement: &couts-cout-du-combustible-abonnement
+        P1 abonnement: &couts-p1-abonnement
           variations:
             - si:
                 toutes ces conditions:
@@ -155,29 +151,29 @@ poêle à granulés:
               alors: réseau de froid . coûts . P1 abonnement
             - sinon: 0
           unité: €TTC/an
-        P1 consommation: &couts-cout-du-combustible-consommation
+        P1 consommation: &couts-p1-consommation
           produit:
             - combustibles . granulés . consommation
             - installation . consommation combustible chaleur
           unité: €TTC/an
-        P1 auxiliaires: &couts-cout-electricite-auxiliaire
+        P1 auxiliaires: &couts-p1-auxiliaires
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
           unité: €TTC/an
-        P1 ballon ECS: &couts-cout-combustible-pour-ballon-ecs-a-accumulation
+        P1 ballon ECS: &couts-p1-ballon-ecs
           applicable si: installation . consommation chauffe-eau électrique >= 0
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation chauffe-eau électrique
           unité: €TTC/an
-        P1 chauffe-eau solaire: &couts-cout-combustible-pour-ballon-ecs-solaire
+        P1 chauffe-eau solaire: &couts-p1-chauffe-eau-solaire
           applicable si: installation . appoint chauffe-eau solaire >= 0
           produit:
             - combustibles . électricité . consommation individuel
             - installation . appoint chauffe-eau solaire
           unité: €TTC/an
-        P1 froid: &couts-cout-combustible-froid
+        P1 froid: &couts-p1-froid
           variations:
             - si:
                 toutes ces conditions:
@@ -187,14 +183,14 @@ poêle à granulés:
             - sinon:
                 produit:
                   - combustibles . électricité . consommation collectif
-                  - installation . consommation Groupe Froid
+                  - installation . consommation groupe froid
           unité: €TTC/an
         petit entretien P2:
             produit:
               - ratios . petit entretien P2
               - besoins chauffage par appartement / 1000
             unité: €TTC/an
-        gros entretien P3: &entretien-gros-entretien-p3
+        gros entretien P3: &couts-gros-entretien-p3
           produit:
             - ratios . gros entretien P3
             - coûts . investissement équipement
@@ -280,7 +276,7 @@ poêle à granulés:
         P4 ballon ECS:
           formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
-        P4 chauffe-eau solaire: &bilan-p4ecs-solaire-thermique
+        P4 chauffe-eau solaire: &bilan-p4-chauffe-eau-solaire
           variations:
             - si: type de production ECS = 'Solaire thermique'
               alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
@@ -475,10 +471,10 @@ chaudière à granulés:
               alors: 1950
             - sinon: 2000
           unité: kW
-        ECS additionnelle nécessaire: *inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
+        ECS additionnelle nécessaire: *inst-ecs-additionnelle-necessaire
         volume du ballon ECS: *inst-volume-du-ballon-ecs
-        consommation chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
-        appoint chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
+        consommation chauffe-eau électrique: *inst-consommation-chauffe-eau-electrique
+        appoint chauffe-eau solaire: *inst-appoint-chauffe-eau-solaire
         consommation combustible chaleur:
           # formule: ratios . conso combustible * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement) / ratios . rendement chaudière chauffage
           produit:
@@ -511,31 +507,31 @@ chaudière à granulés:
               alors: consommation auxiliaire + consommation chauffe-eau électrique
             - sinon: consommation auxiliaire
           unité: kWh/an
-        consommation Groupe Froid: froid . consommation groupe froid
+        consommation groupe froid: froid . consommation groupe froid
     coûts:
       avec:
-        investissement équipement: *couts-investissement-equipement-total
+        investissement équipement: *couts-investissement-equipement
         investissement par logement:
           valeur: investissement équipement / nombre de logements dans l'immeuble concerné
           unité: €TTC
-        investissement ballon ECS: *couts-investissement-ballon-ecs-a-accumulation
-        investissement chauffe-eau solaire: *couts-investissement-ballon-ecs-solaire-panneau-inclus
-        investissement total avec ballon ECS: *couts-total-investissement-avec-ballon-ecs-a-accumulation
-        investissement total avec chauffe-eau solaire: *couts-total-investissement-ballon-ecs-solaire-panneaux
+        investissement ballon ECS: *couts-investissement-ballon-ecs
+        investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
+        investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
+        investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
 
-        P1 abonnement: *couts-cout-du-combustible-abonnement
-        P1 consommation: *couts-cout-du-combustible-consommation
-        P1 auxiliaires: *couts-cout-electricite-auxiliaire
-        P1 ballon ECS: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
-        P1 chauffe-eau solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
-        P1 froid: *couts-cout-combustible-froid
+        P1 abonnement: *couts-p1-abonnement
+        P1 consommation: *couts-p1-consommation
+        P1 auxiliaires: *couts-p1-auxiliaires
+        P1 ballon ECS: *couts-p1-ballon-ecs
+        P1 chauffe-eau solaire: *couts-p1-chauffe-eau-solaire
+        P1 froid: *couts-p1-froid
         petit entretien P2:
             produit:
               - ratios . petit entretien P2
               - (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
               - nombre de logements dans l'immeuble concerné / 1000
             unité: €TTC/an
-        gros entretien P3: *entretien-gros-entretien-p3
+        gros entretien P3: *couts-gros-entretien-p3
         petit entretien P2 par logement tertiaire: petit entretien P2 / nombre de logements dans l'immeuble concerné
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
@@ -581,7 +577,7 @@ chaudière à granulés:
         P4 ballon ECS:
           formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
-        P4 chauffe-eau solaire: *bilan-p4ecs-solaire-thermique
+        P4 chauffe-eau solaire: *bilan-p4-chauffe-eau-solaire
 
         P4: *bilan-p4
         aides spécifiques:

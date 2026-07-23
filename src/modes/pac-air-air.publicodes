@@ -2,8 +2,6 @@
 # Regroupe ratios, dimensionnement, calculs économiques,
 # aides, émissions et bilan pour ce mode de chauffage.
 
-###### Ratios techniques
-
 PAC air-air indiv:
   description: Pompe à chaleur air-air individuelle (réversible)
   avec:
@@ -33,8 +31,6 @@ PAC air-air indiv:
           par défaut: 199 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
 
-        ###### Ratios économiques (investissement)
-
         coût équipement au kW:
           valeur: 734
           unité: €HT/kW
@@ -51,7 +47,7 @@ PAC air-air indiv:
         puissance chauffage:
           formule: dimensionnement . puissance chauffage appelée
           unité: kW
-        puissance ECS: &inst-puissance-necessaire-pour-ecs-avec-equipement
+        puissance ECS: &inst-puissance-ecs
           formule: 0
           unité: kW
         puissance refroidissement:
@@ -67,7 +63,7 @@ PAC air-air indiv:
             - puissance équipement
             - 2
           unité: kW
-        ECS additionnelle nécessaire: &inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
+        ECS additionnelle nécessaire: &inst-ecs-additionnelle-necessaire
           toutes ces conditions:
             - Production eau chaude sanitaire
             - puissance ECS <= 0
@@ -80,7 +76,7 @@ PAC air-air indiv:
               alors: volume du ballon ECS
             - sinon: 50
           unité: L
-        consommation chauffe-eau électrique: &inst-consommation-d-electricite-chauffe-eau-electrique
+        consommation chauffe-eau électrique: &inst-consommation-chauffe-eau-electrique
           variations:
             - si:
                 toutes ces conditions:
@@ -89,7 +85,7 @@ PAC air-air indiv:
               alors: ecs additionnelle . consommation chauffe-eau électrique
             - sinon: 0
           unité: kWh/an
-        appoint chauffe-eau solaire: &inst-appoint-d-electricite-chauffe-eau-solaire
+        appoint chauffe-eau solaire: &inst-appoint-chauffe-eau-solaire
           variations:
             - si:
                 toutes ces conditions:
@@ -107,10 +103,10 @@ PAC air-air indiv:
         consommation auxiliaire: &inst-consommation-auxiliaire
           valeur: 0
           unité: kWh elec
-        consommation hors électricité: &inst-consommation-combustible-hors-electricite
+        consommation hors électricité: &inst-consommation-hors-electricite
           valeur: 0
           unité: kWh elec
-        consommation électricité: &inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
+        consommation électricité: &inst-consommation-electricite
           variations:
             - si: ECS additionnelle nécessaire
               alors: consommation auxiliaire + consommation chauffe-eau électrique
@@ -118,7 +114,7 @@ PAC air-air indiv:
           unité: kWh/an
     coûts:
       avec:
-        investissement équipement: &couts-investissement-equipement-total
+        investissement équipement: &couts-investissement-equipement
           produit:
             - ratios . investissement équipement
             - ( 1 + investissement . pose et mise en place )
@@ -126,23 +122,23 @@ PAC air-air indiv:
         investissement par logement:
           valeur: investissement équipement
           unité: €TTC
-        investissement ballon ECS: &couts-investissement-ballon-ecs-a-accumulation
+        investissement ballon ECS: &couts-investissement-ballon-ecs
           variations:
             - si: installation . ECS additionnelle nécessaire
               alors: ecs additionnelle . investissement ballon ECS
             - sinon: 0
           unité: €TTC
-        investissement chauffe-eau solaire: &couts-investissement-ballon-ecs-solaire-panneau-inclus
+        investissement chauffe-eau solaire: &couts-investissement-chauffe-eau-solaire
           applicable si:
             toutes ces conditions:
               - installation . ECS additionnelle nécessaire
               - type de production ECS = "Solaire thermique"
           formule: ecs additionnelle . investissement chauffe-eau solaire
           unité: €TTC
-        investissement total avec ballon ECS: &couts-total-investissement-avec-ballon-ecs-a-accumulation
+        investissement total avec ballon ECS: &couts-investissement-total-avec-ballon-ecs
           valeur: investissement par logement + investissement ballon ECS
           unité: €TTC
-        investissement total avec chauffe-eau solaire: &couts-total-investissement-ballon-ecs-solaire-panneaux
+        investissement total avec chauffe-eau solaire: &couts-investissement-total-avec-chauffe-eau-solaire
           valeur: investissement par logement + investissement chauffe-eau solaire
           unité: €TTC
 
@@ -167,19 +163,19 @@ PAC air-air indiv:
             - combustibles . électricité . consommation individuel
             - installation . consommation auxiliaire
           unité: €TTC/an
-        P1 ballon ECS: &couts-cout-combustible-pour-ballon-ecs-a-accumulation
+        P1 ballon ECS: &couts-p1-ballon-ecs
           applicable si: installation . consommation chauffe-eau électrique >= 0
           produit:
             - combustibles . électricité . consommation individuel
             - installation . consommation chauffe-eau électrique
           unité: €TTC/an
-        P1 chauffe-eau solaire: &couts-cout-combustible-pour-ballon-ecs-solaire
+        P1 chauffe-eau solaire: &couts-p1-chauffe-eau-solaire
           applicable si: installation . appoint chauffe-eau solaire >= 0
           produit:
             - combustibles . électricité . consommation individuel
             - installation . appoint chauffe-eau solaire
           unité: €TTC/an
-        P1 froid: &couts-cout-combustible-froid
+        P1 froid: &couts-p1-froid
           produit:
             - combustibles . électricité . consommation collectif
             - installation . consommation combustible froid
@@ -259,7 +255,7 @@ PAC air-air indiv:
         P4 ballon ECS:
           formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
-        P4 chauffe-eau solaire: &bilan-p4ecs-solaire-thermique
+        P4 chauffe-eau solaire: &bilan-p4-chauffe-eau-solaire
           variations:
             - si: type de production ECS = 'Solaire thermique'
               alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
@@ -339,7 +335,7 @@ PAC air-air coll:
         puissance chauffage:
           formule: dimensionnement . puissance chauffage appelée * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
-        puissance ECS: *inst-puissance-necessaire-pour-ecs-avec-equipement
+        puissance ECS: *inst-puissance-ecs
         puissance refroidissement:
           formule: dimensionnement . puissance refroidissement appelée / ratios . SEER * nombre de logements dans l'immeuble concerné * ratios . PUIS Coefficient de foisonnement chauffage collectif
           unité: kW
@@ -351,25 +347,25 @@ PAC air-air coll:
                 - 1
             - ratios . puissance unitaire réversible
           unité: kW
-        ECS additionnelle nécessaire: *inst-besoin-d-installation-supplementaire-pour-produire-l-ecs
+        ECS additionnelle nécessaire: *inst-ecs-additionnelle-necessaire
         volume du ballon ECS: *inst-volume-du-ballon-ecs
-        consommation chauffe-eau électrique: *inst-consommation-d-electricite-chauffe-eau-electrique
-        appoint chauffe-eau solaire: *inst-appoint-d-electricite-chauffe-eau-solaire
+        consommation chauffe-eau électrique: *inst-consommation-chauffe-eau-electrique
+        appoint chauffe-eau solaire: *inst-appoint-chauffe-eau-solaire
         consommation combustible chaleur: *inst-consommation-combustible-chaleur
         consommation combustible froid: *inst-consommation-combustible-froid
         consommation auxiliaire: *inst-consommation-auxiliaire
-        consommation hors électricité: *inst-consommation-combustible-hors-electricite
-        consommation électricité: *inst-consommation-d-electricite-lie-au-chauffage-refroidissement-et-a-la-production-d-ecs
+        consommation hors électricité: *inst-consommation-hors-electricite
+        consommation électricité: *inst-consommation-electricite
     coûts:
       avec:
-        investissement équipement: *couts-investissement-equipement-total
+        investissement équipement: *couts-investissement-equipement
         investissement par logement:
           valeur: investissement équipement / nombre de logements dans l'immeuble concerné
           unité: €TTC
-        investissement ballon ECS: *couts-investissement-ballon-ecs-a-accumulation
-        investissement chauffe-eau solaire: *couts-investissement-ballon-ecs-solaire-panneau-inclus
-        investissement total avec ballon ECS: *couts-total-investissement-avec-ballon-ecs-a-accumulation
-        investissement total avec chauffe-eau solaire: *couts-total-investissement-ballon-ecs-solaire-panneaux
+        investissement ballon ECS: *couts-investissement-ballon-ecs
+        investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
+        investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
+        investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
 
         P1 abonnement:
           somme:
@@ -392,9 +388,9 @@ PAC air-air coll:
             - combustibles . électricité . consommation collectif
             - installation . consommation auxiliaire
           unité: €TTC/an
-        P1 ballon ECS: *couts-cout-combustible-pour-ballon-ecs-a-accumulation
-        P1 chauffe-eau solaire: *couts-cout-combustible-pour-ballon-ecs-solaire
-        P1 froid: *couts-cout-combustible-froid
+        P1 ballon ECS: *couts-p1-ballon-ecs
+        P1 chauffe-eau solaire: *couts-p1-chauffe-eau-solaire
+        P1 froid: *couts-p1-froid
         petit entretien P2:
             produit:
               - ratios . petit entretien P2
@@ -442,7 +438,7 @@ PAC air-air coll:
         P4 ballon ECS:
           formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
 
-        P4 chauffe-eau solaire: *bilan-p4ecs-solaire-thermique
+        P4 chauffe-eau solaire: *bilan-p4-chauffe-eau-solaire
 
         P4: *bilan-p4
         aides spécifiques:

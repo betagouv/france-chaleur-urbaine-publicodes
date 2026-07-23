@@ -2,8 +2,6 @@
 # Regroupe ratios, dimensionnement, calculs économiques,
 # aides, émissions et bilan pour ce mode de chauffage.
 
-###### Ratios techniques
-
 réseau de chaleur:
   description: Raccordement à un réseau de chaleur urbain
   avec:
@@ -39,11 +37,7 @@ réseau de chaleur:
           valeur: 86%
           unité: '%'
 
-        ###### Ratios économiques (investissement)
 
-        ###### Ratios environnementaux
-
-        ###### Investissement
 
         coût raccordement résidentiel:
           variations:
@@ -240,7 +234,7 @@ réseau de chaleur:
               alors: consommation auxiliaire + consommation chauffe-eau électrique + ecs additionnelle . appoint chauffe-eau solaire
             - sinon: consommation auxiliaire
           unité: kWh/an
-        consommation Groupe Froid: froid . consommation groupe froid
+        consommation groupe froid: froid . consommation groupe froid
     coûts:
       avec:
         investissement raccordement:
@@ -326,7 +320,7 @@ réseau de chaleur:
             - sinon:
                 produit:
                   - combustibles . électricité . consommation collectif
-                  - installation . consommation Groupe Froid
+                  - installation . consommation groupe froid
           unité: €TTC/an
         petit entretien P2:
             produit:
@@ -384,15 +378,15 @@ réseau de chaleur:
                   alors:
                     variations:
                       - si: nombre de logements dans l'immeuble concerné <= 125
-                        alors: aides . CEE x FCU x Résidentiel inf 125 appt
-                      - sinon: aides . CEE x FCU x Résidentiel sup 125 variable * nombre de logements dans l'immeuble concerné + aides . CEE x FCU x Résidentiel sup 125 fixe
+                        alors: aides . CEE . barème FCU résidentiel inf 125
+                      - sinon: aides . CEE . barème FCU résidentiel sup 125 variable * nombre de logements dans l'immeuble concerné + aides . CEE . barème FCU résidentiel sup 125 fixe
                 - sinon:
                     variations:
                       - si: surface logement type tertiaire <= 7500
-                        alors: aides . CEE x FCU x Tertiaire inf 7500 appt
-                      - sinon: aides . CEE x FCU x Tertiaire sup 7500 variable * surface logement type tertiaire + aides . CEE x FCU x Tertiaire sup 7500 fixe
+                        alors: aides . CEE . barème FCU tertiaire inf 7500
+                      - sinon: aides . CEE . barème FCU tertiaire sup 7500 variable * surface logement type tertiaire + aides . CEE . barème FCU tertiaire sup 7500 fixe
             - aides . valeur CEE
-            - aides . CEE x RCU x facteur correctif
+            - aides . CEE . facteur correctif RCU
             - 1 / nombre de logements dans l'immeuble concerné
           unité: €
         Total:

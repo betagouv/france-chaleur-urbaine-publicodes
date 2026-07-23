@@ -72,7 +72,7 @@ combustibles:
           par défaut:
             produit:
               - somme:
-                  - tarif gaz tertiaire x estimation part fixe
+                  - combustibles . gaz . estimation abonnement tertiaire
                   - combustibles . gaz . taxes . CTA
               - 1 + combustibles . gaz . taxes . TVA part fixe
           unité: €/an

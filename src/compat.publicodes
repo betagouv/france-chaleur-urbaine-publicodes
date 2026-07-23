@@ -2569,10 +2569,10 @@ ratios économiques x aides:
   valeur: aides
 
 ratios économiques x aides . Coup de pouce x PAC air-eau:
-  valeur: aides . Coup de pouce x PAC air-eau
+  valeur: aides . Coup de pouce PAC air-eau
 
 ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171:
-  valeur: aides . CEE x PAC air-eau indiv x BAR-TH-171
+  valeur: aides . CEE . BAR-TH-171 PAC air-eau
 
 ratios économiques . Investissement x Pose et mise en place de l'installation:
   valeur: investissement . pose et mise en place

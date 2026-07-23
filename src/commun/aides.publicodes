@@ -75,57 +75,51 @@ aides:
 
     valeur CEE: Paramètres économiques . Aides . Valeur CEE
     # Résidentiel
-    # Ma prime rénov' x Supérieur x Non éligible:
-    #   applicable si:
-    #     toutes ces conditions:
-    #       - aides . éligibilité . éligible Ma prime renov'
-    #       - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Supérieur"
-    #   remplace: Calcul Eco . Montant des aides par logement tertiaire . Non éligible . Ma prime renov'
-    #   valeur: 0
-    #   unité: €
 
-    CEE x Prix moyen du CEE ménage précaire:
+    CEE:
+
+    CEE . prix moyen ménage précaire:
       valeur: 0.00816
       unité: €/kWh cumac
-    CEE x Prix moyen du CEE autre ménage:
+    CEE . prix moyen autre ménage:
       valeur: 0.00804
       unité: €/kWh cumac
 
-    CEE x FCU x Résidentiel inf 125 appt:
+    CEE . barème FCU résidentiel inf 125:
       valeur: 12000000
       unité: kWh cumac
       note: 'Source : Gouvernement 2024'
-    CEE x FCU x Résidentiel sup 125 variable:
+    CEE . barème FCU résidentiel sup 125 variable:
       valeur: 77000
       # QUESTION : est-ce appartement = logement ? pour harmoniser les unités vers logement
       unité: kWh cumac/logement
       note: 'Source : Gouvernement 2024'
-    CEE x FCU x Résidentiel sup 125 fixe:
+    CEE . barème FCU résidentiel sup 125 fixe:
       valeur: 2300000
       unité: kWh cumac
       note: 'Source : Gouvernement 2024'
-    CEE x RCU x facteur correctif:
+    CEE . facteur correctif RCU:
       valeur: 75
       unité: '%'
       note: 'Source : FCU'
-    CEE x FCU x Tertiaire inf 7500 appt:
+    CEE . barème FCU tertiaire inf 7500:
       valeur: 11000000
       unité: kWh cumac/m2
-    CEE x FCU x Tertiaire sup 7500 variable:
+    CEE . barème FCU tertiaire sup 7500 variable:
       valeur: 1070
       unité: kWh cumac/m2
-    CEE x FCU x Tertiaire sup 7500 fixe:
+    CEE . barème FCU tertiaire sup 7500 fixe:
       valeur: 2300000
       unité: kWh cumac
 
-    CEE x PAC air-eau indiv x BAR-TH-171:
+    CEE . BAR-TH-171 PAC air-eau:
       produit:
         - montant
         - facteur correctif selon la surface chauffée
         - facteur correctif selon la zone géographique
       unité: kWh cumac
       note: BAR-TH-171 - Pompe à chaleur de type air/eau
-    CEE x PAC air-eau indiv x BAR-TH-171 . montant:
+    CEE . BAR-TH-171 PAC air-eau . montant:
       variations:
         - si: efficacité énergétique saisonnière < 111%
           alors: 0
@@ -141,8 +135,8 @@ aides:
                 alors: 90900
               - sinon: 109200
       unité: kWh cumac
-    CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière: ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière
-    CEE x PAC air-eau indiv x BAR-TH-171 . facteur correctif selon la surface chauffée:
+    CEE . BAR-TH-171 PAC air-eau . efficacité énergétique saisonnière: ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière
+    CEE . BAR-TH-171 PAC air-eau . facteur correctif selon la surface chauffée:
       variations:
         - si: ratios . GNRL Appartement ou maison = 'Appartement'
           alors:
@@ -159,7 +153,7 @@ aides:
               - si: surface logement type tertiaire < 90
                 alors: 0.7
               - sinon: 1
-    CEE x PAC air-eau indiv x BAR-TH-171 . facteur correctif selon la zone géographique:
+    CEE . BAR-TH-171 PAC air-eau . facteur correctif selon la zone géographique:
       variations:
         - si: zone climatique = 'H1'
           alors: 1.2
@@ -168,37 +162,17 @@ aides:
         - si: zone climatique = 'H3'
           alors: 0.7
 
-    Coup de pouce x PAC air-eau:
+    Coup de pouce PAC air-eau:
       applicable si: aides . éligibilité . éligible Coup de pouce
       valeur: PAC air-eau indiv . aides . CEE * 5
       unité: €
 
-    # N'existe pas dans les types d'installations retenus
-    # Coup de pouce x Modeste x Chaudière biomasse:
-    #   applicable si:
-    #     toutes ces conditions:
-    #       - aides . éligibilité . éligible Coup de pouce
-    #       - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = 'Modeste'
-    #   remplace: Calcul Eco . Montant des aides par logement tertiaire . Chaudière biomasse . Coup de pouce
-    #   valeur: 4000
-    #   unité: €
-    #   note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
-    # N'existe pas dans les types d'installations retenus
-    # Coup de pouce x Autre revenu x Chaudière biomasse:
-    #   applicable si:
-    #     toutes ces conditions:
-    #       - aides . éligibilité . éligible Coup de pouce
-    #       - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
-    #   remplace: Calcul Eco . Montant des aides par logement tertiaire . Chaudière biomasse . Coup de pouce
-    #   valeur: 2500
-    #   unité: €
-    #   note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
-    CEE x Chauffe-eau solaire collectif x Ratio:
+    CEE . ratio chauffe-eau solaire collectif:
       valeur: 0.196
 
     Tertiaire:
       avec:
-        CEE x RFU x montant:
+        CEE RFU montant:
           variations:
             - si: zone climatique = 'H1'
               alors: 1
@@ -208,7 +182,7 @@ aides:
               alors: 1.8
           unité: kWh cumac/m2
           note: 'Source : ADEME 2024'
-        CEE x RFU x facteur correctif:
+        CEE RFU facteur correctif:
           variations:
             - si: méthode tertiaire = 'Bureaux'
               alors: 7800
@@ -230,7 +204,7 @@ aides:
               alors: 19800
           unité: kWh cumac/kW
           note: 'Source : ADEME 2024'
-        CEE x Chauffe-eau solaire x Ratio:
+        ratio CEE chauffe-eau solaire:
           # QUESTION déjà posée: quelle différence entre ratios éco - aides > C261 et C447 ?
           valeur: 0.196
 
@@ -239,8 +213,8 @@ Paramètres économiques . Aides . Valeur CEE:
   par défaut:
     variations:
       - si: Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
-        alors: aides . CEE x Prix moyen du CEE ménage précaire
-      - sinon: aides . CEE x Prix moyen du CEE autre ménage
+        alors: aides . CEE . prix moyen ménage précaire
+      - sinon: aides . CEE . prix moyen autre ménage
   unité: €/kWh cumac
   note: "source : Registre National des Certificats d'Economie d'Energie"
 

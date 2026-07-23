@@ -2,8 +2,6 @@
 # Regroupe ratios, dimensionnement, calculs économiques,
 # aides, émissions et bilan pour ce mode de chauffage.
 
-###### Ratios techniques
-
 radiateur électrique:
   description: Radiateurs électriques (individuel)
   avec:
@@ -36,8 +34,6 @@ radiateur électrique:
         rendement:
           valeur: 96%
           unité: '%'
-
-        ###### Ratios économiques (investissement)
 
         puissance du radiateur:
           valeur: 2
@@ -122,7 +118,7 @@ radiateur électrique:
               alors: consommation combustible chaleur + consommation chauffe-eau électrique
             - sinon: consommation combustible chaleur
           unité: kWh/an
-        consommation Groupe Froid: froid . consommation groupe froid
+        consommation groupe froid: froid . consommation groupe froid
 
         nombre de radiateurs:
           par défaut: radiateur électrique . installation . puissance retenue // 2
@@ -199,7 +195,7 @@ radiateur électrique:
             - sinon:
                 produit:
                   - combustibles . électricité . consommation collectif
-                  - installation . consommation Groupe Froid
+                  - installation . consommation groupe froid
           unité: €TTC/an
         petit entretien P2:
             produit:

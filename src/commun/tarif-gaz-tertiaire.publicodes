@@ -1,4 +1,4 @@
-tarif gaz tertiaire x estimation part fixe:
+combustibles . gaz . estimation abonnement tertiaire:
   # QUESTION déjà posée: on fait bien <= plutôt que = ? Car les seuils du excel n'ont pas les mêmes points (par exemple 120 kW vs 150 kW)
   variations:
     - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 4
