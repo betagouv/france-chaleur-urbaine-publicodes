@@ -106,9 +106,9 @@ Le mécanisme `remplace` n'est plus utilisé que par `departements.publicodes`
 
 Le front lit encore les clés historiques (`Bilan x Gaz coll avec cond . P4`,
 `ratios . GAZ IND COND Rendement chaudière chauffage`…). `compat.publicodes`
-les expose comme références vers les nouvelles clés :
-`ancienne clé: valeur: nouvelle clé`. **C'est aussi la table de migration de
-l'UI** : chaque entrée dit quoi renommer côté front.
+les expose comme références vers les nouvelles clés, une entrée par ligne :
+`ancienne clé: nouvelle clé`. **C'est aussi la table de migration de l'UI** :
+chaque entrée dit quoi renommer côté front.
 
 Régime des clés que le front **écrit** (deux cas, à connaître absolument) :
 
