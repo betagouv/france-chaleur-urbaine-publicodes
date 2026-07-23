@@ -1495,3 +1495,15 @@ Solaire thermique: solaire thermique
 Chauffe-eau thermodynamique: chauffe-eau thermodynamique
 Système solaire combiné: système solaire combiné
 puissance coefficient d'intermittence: coefficient intermittence
+
+# Clés écrites par la page paramètres du front (Configuration.tsx) — supprimées
+# ou renommées par erreur pendant l'élagage, rebranchées sur leurs équivalents
+ratios . CHAUF EAU ELEC Durée de vie: ecs additionnelle . durée de vie chauffe-eau électrique
+ratios . CHAUF EAU ELEC Rendement stockage ballon: ecs additionnelle . rendement stockage ballon électrique
+ratios . CHAUF EAU SOLAIRE Durée de vie: ecs additionnelle . durée de vie chauffe-eau solaire
+ratios . CHAUF EAU SOLAIRE Rendement stockage ballon: ecs additionnelle . rendement stockage ballon solaire
+ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS: ecs additionnelle . part du solaire dans la production
+ratios . PAC EAU EAU Durée de vie puits géothermiques: PAC eau-eau coll . ratios . durée de vie puits géothermiques
+surface de panneau nécessaire: ecs additionnelle . surface de panneaux
+Puissance installation x Capacité chauffe eau électrique à accumulation: ecs additionnelle . capacité du ballon électrique
+Puissance installation x Capacité chauffe eau solaire: ecs additionnelle . capacité du ballon électrique

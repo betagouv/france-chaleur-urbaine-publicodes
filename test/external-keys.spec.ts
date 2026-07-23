@@ -443,6 +443,16 @@ const clesParamsAides = [
 ] satisfies RuleName[];
 
 const clesRatiosTechniques = [
+  // clés écrites par la page paramètres (Configuration.tsx)
+  'ratios . CHAUF EAU ELEC Durée de vie',
+  'ratios . CHAUF EAU ELEC Rendement stockage ballon',
+  'ratios . CHAUF EAU SOLAIRE Durée de vie',
+  'ratios . CHAUF EAU SOLAIRE Rendement stockage ballon',
+  "ratios . CHAUF EAU SOLAIRE Part du solaire dans la production d'ECS",
+  'ratios . PAC EAU EAU Durée de vie puits géothermiques',
+  'surface de panneau nécessaire',
+  'Puissance installation x Capacité chauffe eau électrique à accumulation',
+  'Puissance installation x Capacité chauffe eau solaire',
   'ratios . RCU Rendement sous station chauffage',
   'ratios . RCU Rendement sous station ECS',
   'ratios . RCU Conso auxiliaire chauffage',
