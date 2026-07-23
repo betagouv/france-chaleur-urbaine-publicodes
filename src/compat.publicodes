@@ -9,176 +9,176 @@ Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés 
 Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . CEE:
   valeur: chaudière à granulés . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Coup de pouce:
-  valeur: chaudière à granulés . aides . Coup de pouce
+  valeur: chaudière à granulés . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Ma prime renov':
-  valeur: chaudière à granulés . aides . Ma prime renov'
+  valeur: chaudière à granulés . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . Total:
-  valeur: chaudière à granulés . aides . Total
+  valeur: chaudière à granulés . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv:
   valeur: poêle à granulés . aides
 Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . CEE:
   valeur: poêle à granulés . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Coup de pouce:
-  valeur: poêle à granulés . aides . Coup de pouce
+  valeur: poêle à granulés . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Ma prime renov':
-  valeur: poêle à granulés . aides . Ma prime renov'
+  valeur: poêle à granulés . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Poêle à granulés indiv . Total:
-  valeur: poêle à granulés . aides . Total
+  valeur: poêle à granulés . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique:
   valeur: radiateur électrique . aides
 Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . CEE:
   valeur: radiateur électrique . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Coup de pouce:
-  valeur: radiateur électrique . aides . Coup de pouce
+  valeur: radiateur électrique . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Ma prime renov':
-  valeur: radiateur électrique . aides . Ma prime renov'
+  valeur: radiateur électrique . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Radiateur électrique . Total:
-  valeur: radiateur électrique . aides . Total
+  valeur: radiateur électrique . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond:
   valeur: gaz indiv avec cond . aides
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . CEE:
   valeur: gaz indiv avec cond . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . Coup de pouce:
-  valeur: gaz indiv avec cond . aides . Coup de pouce
+  valeur: gaz indiv avec cond . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . Ma prime renov':
-  valeur: gaz indiv avec cond . aides . Ma prime renov'
+  valeur: gaz indiv avec cond . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv avec cond . Total:
-  valeur: gaz indiv avec cond . aides . Total
+  valeur: gaz indiv avec cond . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond:
   valeur: gaz indiv sans cond . aides
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . CEE:
   valeur: gaz indiv sans cond . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . Coup de pouce:
-  valeur: gaz indiv sans cond . aides . Coup de pouce
+  valeur: gaz indiv sans cond . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . Ma prime renov':
-  valeur: gaz indiv sans cond . aides . Ma prime renov'
+  valeur: gaz indiv sans cond . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Gaz indiv sans cond . Total:
-  valeur: gaz indiv sans cond . aides . Total
+  valeur: gaz indiv sans cond . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond:
   valeur: gaz coll avec cond . aides
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . CEE:
   valeur: gaz coll avec cond . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . Coup de pouce:
-  valeur: gaz coll avec cond . aides . Coup de pouce
+  valeur: gaz coll avec cond . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . Ma prime renov':
-  valeur: gaz coll avec cond . aides . Ma prime renov'
+  valeur: gaz coll avec cond . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll avec cond . Total:
-  valeur: gaz coll avec cond . aides . Total
+  valeur: gaz coll avec cond . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond:
   valeur: gaz coll sans cond . aides
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . CEE:
   valeur: gaz coll sans cond . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . Coup de pouce:
-  valeur: gaz coll sans cond . aides . Coup de pouce
+  valeur: gaz coll sans cond . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . Ma prime renov':
-  valeur: gaz coll sans cond . aides . Ma prime renov'
+  valeur: gaz coll sans cond . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Gaz coll sans cond . Total:
-  valeur: gaz coll sans cond . aides . Total
+  valeur: gaz coll sans cond . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur:
   valeur: réseau de chaleur . aides
 Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . CEE:
   valeur: réseau de chaleur . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Coup de pouce:
-  valeur: réseau de chaleur . aides . Coup de pouce
+  valeur: réseau de chaleur . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Ma prime renov':
-  valeur: réseau de chaleur . aides . Ma prime renov'
+  valeur: réseau de chaleur . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Réseaux de chaleur . Total:
-  valeur: réseau de chaleur . aides . Total
+  valeur: réseau de chaleur . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv:
   valeur: PAC air-air indiv . aides
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . CEE:
   valeur: PAC air-air indiv . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . Coup de pouce:
-  valeur: PAC air-air indiv . aides . Coup de pouce
+  valeur: PAC air-air indiv . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . Ma prime renov':
-  valeur: PAC air-air indiv . aides . Ma prime renov'
+  valeur: PAC air-air indiv . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air indiv . Total:
-  valeur: PAC air-air indiv . aides . Total
+  valeur: PAC air-air indiv . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv:
   valeur: PAC air-eau indiv . aides
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . CEE:
   valeur: PAC air-eau indiv . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce:
-  valeur: PAC air-eau indiv . aides . Coup de pouce
+  valeur: PAC air-eau indiv . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Ma prime renov':
-  valeur: PAC air-eau indiv . aides . Ma prime renov'
+  valeur: PAC air-eau indiv . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Total:
-  valeur: PAC air-eau indiv . aides . Total
+  valeur: PAC air-eau indiv . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv:
   valeur: PAC eau-eau indiv . aides
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . CEE:
   valeur: PAC eau-eau indiv . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Coup de pouce:
-  valeur: PAC eau-eau indiv . aides . Coup de pouce
+  valeur: PAC eau-eau indiv . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Ma prime renov':
-  valeur: PAC eau-eau indiv . aides . Ma prime renov'
+  valeur: PAC eau-eau indiv . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau indiv . Total:
-  valeur: PAC eau-eau indiv . aides . Total
+  valeur: PAC eau-eau indiv . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air coll:
   valeur: PAC air-air coll . aides
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air coll . CEE:
   valeur: PAC air-air coll . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air coll . Coup de pouce:
-  valeur: PAC air-air coll . aides . Coup de pouce
+  valeur: PAC air-air coll . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air coll . Ma prime renov':
-  valeur: PAC air-air coll . aides . Ma prime renov'
+  valeur: PAC air-air coll . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-air coll . Total:
-  valeur: PAC air-air coll . aides . Total
+  valeur: PAC air-air coll . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll:
   valeur: PAC air-eau coll . aides
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . CEE:
   valeur: PAC air-eau coll . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . Coup de pouce:
-  valeur: PAC air-eau coll . aides . Coup de pouce
+  valeur: PAC air-eau coll . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . Ma prime renov':
-  valeur: PAC air-eau coll . aides . Ma prime renov'
+  valeur: PAC air-eau coll . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau coll . Total:
-  valeur: PAC air-eau coll . aides . Total
+  valeur: PAC air-eau coll . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll:
   valeur: PAC eau-eau coll . aides
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . CEE:
   valeur: PAC eau-eau coll . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Coup de pouce:
-  valeur: PAC eau-eau coll . aides . Coup de pouce
+  valeur: PAC eau-eau coll . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Ma prime renov':
-  valeur: PAC eau-eau coll . aides . Ma prime renov'
+  valeur: PAC eau-eau coll . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . PAC eau-eau coll . Total:
-  valeur: PAC eau-eau coll . aides . Total
+  valeur: PAC eau-eau coll . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv:
   valeur: fioul indiv . aides
 Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . CEE:
   valeur: fioul indiv . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . Coup de pouce:
-  valeur: fioul indiv . aides . Coup de pouce
+  valeur: fioul indiv . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . Ma prime renov':
-  valeur: fioul indiv . aides . Ma prime renov'
+  valeur: fioul indiv . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Fioul indiv . Total:
-  valeur: fioul indiv . aides . Total
+  valeur: fioul indiv . aides . total
 
 Calcul Eco . Montant des aides par logement tertiaire . Fioul coll:
   valeur: fioul coll . aides
 Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . CEE:
   valeur: fioul coll . aides . CEE
 Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Coup de pouce:
-  valeur: fioul coll . aides . Coup de pouce
+  valeur: fioul coll . aides . coup de pouce
 Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Ma prime renov':
-  valeur: fioul coll . aides . Ma prime renov'
+  valeur: fioul coll . aides . ma prime rénov
 Calcul Eco . Montant des aides par logement tertiaire . Fioul coll . Total:
-  valeur: fioul coll . aides . Total
+  valeur: fioul coll . aides . total
 
 Calcul Eco . P2 P3 Coût de l'entretien . Chaudière à granulés coll:
   valeur: chaudière à granulés . coûts
@@ -275,11 +275,11 @@ env . Installation x Chaudière à granulés coll x Collectif . ECS avec ballon 
 env . Installation x Chaudière à granulés coll x Collectif . ECS solaire thermique:
   valeur: chaudière à granulés . environnement . ECS solaire thermique
 env . Installation x Chaudière à granulés coll x Collectif . Scope 2:
-  valeur: chaudière à granulés . environnement . Scope 2
+  valeur: chaudière à granulés . environnement . scope 2
 env . Installation x Chaudière à granulés coll x Collectif . Scope 3:
-  valeur: chaudière à granulés . environnement . Scope 3
+  valeur: chaudière à granulés . environnement . scope 3
 env . Installation x Chaudière à granulés coll x Collectif . Total:
-  valeur: chaudière à granulés . environnement . Total
+  valeur: chaudière à granulés . environnement . total
 env . Installation x Chaudière à granulés coll x Collectif . auxiliaires et combustible électrique:
   valeur: chaudière à granulés . environnement . auxiliaires et combustible électrique
 env . Installation x Chaudière à granulés coll x Collectif . besoins de chauffage et ECS si même équipement:
@@ -358,11 +358,11 @@ env . Installation x Poêle à granulés indiv x Individuel . ECS avec ballon é
 env . Installation x Poêle à granulés indiv x Individuel . ECS solaire thermique:
   valeur: poêle à granulés . environnement . ECS solaire thermique
 env . Installation x Poêle à granulés indiv x Individuel . Scope 2:
-  valeur: poêle à granulés . environnement . Scope 2
+  valeur: poêle à granulés . environnement . scope 2
 env . Installation x Poêle à granulés indiv x Individuel . Scope 3:
-  valeur: poêle à granulés . environnement . Scope 3
+  valeur: poêle à granulés . environnement . scope 3
 env . Installation x Poêle à granulés indiv x Individuel . Total:
-  valeur: poêle à granulés . environnement . Total
+  valeur: poêle à granulés . environnement . total
 env . Installation x Poêle à granulés indiv x Individuel . auxiliaires et combustible électrique:
   valeur: poêle à granulés . environnement . auxiliaires et combustible électrique
 env . Installation x Poêle à granulés indiv x Individuel . besoins de chauffage et ECS si même équipement:
@@ -375,11 +375,11 @@ env . Installation x Radiateur électrique x Individuel . ECS avec ballon élect
 env . Installation x Radiateur électrique x Individuel . ECS solaire thermique:
   valeur: radiateur électrique . environnement . ECS solaire thermique
 env . Installation x Radiateur électrique x Individuel . Scope 2:
-  valeur: radiateur électrique . environnement . Scope 2
+  valeur: radiateur électrique . environnement . scope 2
 env . Installation x Radiateur électrique x Individuel . Scope 3:
-  valeur: radiateur électrique . environnement . Scope 3
+  valeur: radiateur électrique . environnement . scope 3
 env . Installation x Radiateur électrique x Individuel . Total:
-  valeur: radiateur électrique . environnement . Total
+  valeur: radiateur électrique . environnement . total
 env . Installation x Radiateur électrique x Individuel . auxiliaires et combustible électrique:
   valeur: radiateur électrique . environnement . auxiliaires et combustible électrique
 env . Installation x Radiateur électrique x Individuel . besoins de chauffage et ECS si même équipement:
@@ -392,11 +392,11 @@ env . Installation x Gaz indiv avec cond x Individuel . ECS avec ballon électri
 env . Installation x Gaz indiv avec cond x Individuel . ECS solaire thermique:
   valeur: gaz indiv avec cond . environnement . ECS solaire thermique
 env . Installation x Gaz indiv avec cond x Individuel . Scope 2:
-  valeur: gaz indiv avec cond . environnement . Scope 2
+  valeur: gaz indiv avec cond . environnement . scope 2
 env . Installation x Gaz indiv avec cond x Individuel . Scope 3:
-  valeur: gaz indiv avec cond . environnement . Scope 3
+  valeur: gaz indiv avec cond . environnement . scope 3
 env . Installation x Gaz indiv avec cond x Individuel . Total:
-  valeur: gaz indiv avec cond . environnement . Total
+  valeur: gaz indiv avec cond . environnement . total
 env . Installation x Gaz indiv avec cond x Individuel . auxiliaires et combustible électrique:
   valeur: gaz indiv avec cond . environnement . auxiliaires et combustible électrique
 env . Installation x Gaz indiv avec cond x Individuel . besoins de chauffage et ECS si même équipement:
@@ -409,11 +409,11 @@ env . Installation x Gaz indiv sans cond x Individuel . ECS avec ballon électri
 env . Installation x Gaz indiv sans cond x Individuel . ECS solaire thermique:
   valeur: gaz indiv sans cond . environnement . ECS solaire thermique
 env . Installation x Gaz indiv sans cond x Individuel . Scope 2:
-  valeur: gaz indiv sans cond . environnement . Scope 2
+  valeur: gaz indiv sans cond . environnement . scope 2
 env . Installation x Gaz indiv sans cond x Individuel . Scope 3:
-  valeur: gaz indiv sans cond . environnement . Scope 3
+  valeur: gaz indiv sans cond . environnement . scope 3
 env . Installation x Gaz indiv sans cond x Individuel . Total:
-  valeur: gaz indiv sans cond . environnement . Total
+  valeur: gaz indiv sans cond . environnement . total
 env . Installation x Gaz indiv sans cond x Individuel . auxiliaires et combustible électrique:
   valeur: gaz indiv sans cond . environnement . auxiliaires et combustible électrique
 env . Installation x Gaz indiv sans cond x Individuel . besoins de chauffage et ECS si même équipement:
@@ -468,11 +468,11 @@ env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électriqu
 env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique:
   valeur: gaz coll avec cond . environnement . ECS solaire thermique
 env . Installation x Gaz coll avec cond x Collectif . Scope 2:
-  valeur: gaz coll avec cond . environnement . Scope 2
+  valeur: gaz coll avec cond . environnement . scope 2
 env . Installation x Gaz coll avec cond x Collectif . Scope 3:
-  valeur: gaz coll avec cond . environnement . Scope 3
+  valeur: gaz coll avec cond . environnement . scope 3
 env . Installation x Gaz coll avec cond x Collectif . Total:
-  valeur: gaz coll avec cond . environnement . Total
+  valeur: gaz coll avec cond . environnement . total
 env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique:
   valeur: gaz coll avec cond . environnement . auxiliaires et combustible électrique
 env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement:
@@ -485,11 +485,11 @@ env . Installation x Gaz coll sans cond x Collectif . ECS avec ballon électriqu
 env . Installation x Gaz coll sans cond x Collectif . ECS solaire thermique:
   valeur: gaz coll sans cond . environnement . ECS solaire thermique
 env . Installation x Gaz coll sans cond x Collectif . Scope 2:
-  valeur: gaz coll sans cond . environnement . Scope 2
+  valeur: gaz coll sans cond . environnement . scope 2
 env . Installation x Gaz coll sans cond x Collectif . Scope 3:
-  valeur: gaz coll sans cond . environnement . Scope 3
+  valeur: gaz coll sans cond . environnement . scope 3
 env . Installation x Gaz coll sans cond x Collectif . Total:
-  valeur: gaz coll sans cond . environnement . Total
+  valeur: gaz coll sans cond . environnement . total
 env . Installation x Gaz coll sans cond x Collectif . auxiliaires et combustible électrique:
   valeur: gaz coll sans cond . environnement . auxiliaires et combustible électrique
 env . Installation x Gaz coll sans cond x Collectif . besoins de chauffage et ECS si même équipement:
@@ -513,11 +513,11 @@ env . Installation x Réseaux de chaleur x Collectif . ECS avec ballon électriq
 env . Installation x Réseaux de chaleur x Collectif . ECS solaire thermique:
   valeur: réseau de chaleur . environnement . ECS solaire thermique
 env . Installation x Réseaux de chaleur x Collectif . Scope 2:
-  valeur: réseau de chaleur . environnement . Scope 2
+  valeur: réseau de chaleur . environnement . scope 2
 env . Installation x Réseaux de chaleur x Collectif . Scope 3:
-  valeur: réseau de chaleur . environnement . Scope 3
+  valeur: réseau de chaleur . environnement . scope 3
 env . Installation x Réseaux de chaleur x Collectif . Total:
-  valeur: réseau de chaleur . environnement . Total
+  valeur: réseau de chaleur . environnement . total
 env . Installation x Réseaux de chaleur x Collectif . auxiliaires et combustible électrique:
   valeur: réseau de chaleur . environnement . auxiliaires et combustible électrique
 env . Installation x Réseaux de chaleur x Collectif . besoins de chauffage et ECS si même équipement:
@@ -530,11 +530,11 @@ Calcul Eco . Montant des aides . Réseaux de chaleur . BAR-TH-137:
 Calcul Eco . Montant des aides . Réseaux de chaleur . BAT-TH-127:
   valeur: réseau de chaleur . aides cumac . BAT-TH-127
 Calcul Eco . Montant des aides . Réseaux de chaleur . Coup de pouce:
-  valeur: réseau de chaleur . aides cumac . Coup de pouce
+  valeur: réseau de chaleur . aides cumac . coup de pouce
 Calcul Eco . Montant des aides . Réseaux de chaleur . Total:
-  valeur: réseau de chaleur . aides cumac . Total
+  valeur: réseau de chaleur . aides cumac . total
 Calcul Eco . Montant des aides . Réseaux de chaleur . Total montant:
-  valeur: réseau de chaleur . aides cumac . Total montant
+  valeur: réseau de chaleur . aides cumac . total montant
 
 Installation x Poêle à granulés indiv x Individuel:
   valeur: poêle à granulés . installation
@@ -725,11 +725,11 @@ env . Installation x Fioul indiv x Individuel . ECS avec ballon électrique:
 env . Installation x Fioul indiv x Individuel . ECS solaire thermique:
   valeur: fioul indiv . environnement . ECS solaire thermique
 env . Installation x Fioul indiv x Individuel . Scope 2:
-  valeur: fioul indiv . environnement . Scope 2
+  valeur: fioul indiv . environnement . scope 2
 env . Installation x Fioul indiv x Individuel . Scope 3:
-  valeur: fioul indiv . environnement . Scope 3
+  valeur: fioul indiv . environnement . scope 3
 env . Installation x Fioul indiv x Individuel . Total:
-  valeur: fioul indiv . environnement . Total
+  valeur: fioul indiv . environnement . total
 env . Installation x Fioul indiv x Individuel . auxiliaires et combustible électrique:
   valeur: fioul indiv . environnement . auxiliaires et combustible électrique
 env . Installation x Fioul indiv x Individuel . besoins de chauffage et ECS si même équipement:
@@ -742,11 +742,11 @@ env . Installation x PAC air-air x Individuel . ECS avec ballon électrique:
 env . Installation x PAC air-air x Individuel . ECS solaire thermique:
   valeur: PAC air-air indiv . environnement . ECS solaire thermique
 env . Installation x PAC air-air x Individuel . Scope 2:
-  valeur: PAC air-air indiv . environnement . Scope 2
+  valeur: PAC air-air indiv . environnement . scope 2
 env . Installation x PAC air-air x Individuel . Scope 3:
-  valeur: PAC air-air indiv . environnement . Scope 3
+  valeur: PAC air-air indiv . environnement . scope 3
 env . Installation x PAC air-air x Individuel . Total:
-  valeur: PAC air-air indiv . environnement . Total
+  valeur: PAC air-air indiv . environnement . total
 env . Installation x PAC air-air x Individuel . auxiliaires et combustible électrique:
   valeur: PAC air-air indiv . environnement . auxiliaires et combustible électrique
 env . Installation x PAC air-air x Individuel . besoins de chauffage et ECS si même équipement:
@@ -759,11 +759,11 @@ env . Installation x PAC air-eau x Individuel . ECS avec ballon électrique:
 env . Installation x PAC air-eau x Individuel . ECS solaire thermique:
   valeur: PAC air-eau indiv . environnement . ECS solaire thermique
 env . Installation x PAC air-eau x Individuel . Scope 2:
-  valeur: PAC air-eau indiv . environnement . Scope 2
+  valeur: PAC air-eau indiv . environnement . scope 2
 env . Installation x PAC air-eau x Individuel . Scope 3:
-  valeur: PAC air-eau indiv . environnement . Scope 3
+  valeur: PAC air-eau indiv . environnement . scope 3
 env . Installation x PAC air-eau x Individuel . Total:
-  valeur: PAC air-eau indiv . environnement . Total
+  valeur: PAC air-eau indiv . environnement . total
 env . Installation x PAC air-eau x Individuel . auxiliaires et combustible électrique:
   valeur: PAC air-eau indiv . environnement . auxiliaires et combustible électrique
 env . Installation x PAC air-eau x Individuel . besoins de chauffage et ECS si même équipement:
@@ -776,11 +776,11 @@ env . Installation x PAC eau-eau x Individuel . ECS avec ballon électrique:
 env . Installation x PAC eau-eau x Individuel . ECS solaire thermique:
   valeur: PAC eau-eau indiv . environnement . ECS solaire thermique
 env . Installation x PAC eau-eau x Individuel . Scope 2:
-  valeur: PAC eau-eau indiv . environnement . Scope 2
+  valeur: PAC eau-eau indiv . environnement . scope 2
 env . Installation x PAC eau-eau x Individuel . Scope 3:
-  valeur: PAC eau-eau indiv . environnement . Scope 3
+  valeur: PAC eau-eau indiv . environnement . scope 3
 env . Installation x PAC eau-eau x Individuel . Total:
-  valeur: PAC eau-eau indiv . environnement . Total
+  valeur: PAC eau-eau indiv . environnement . total
 env . Installation x PAC eau-eau x Individuel . auxiliaires et combustible électrique:
   valeur: PAC eau-eau indiv . environnement . auxiliaires et combustible électrique
 env . Installation x PAC eau-eau x Individuel . besoins de chauffage et ECS si même équipement:
@@ -824,11 +824,11 @@ env . Installation x PAC air-air x Collectif . ECS avec ballon électrique:
 env . Installation x PAC air-air x Collectif . ECS solaire thermique:
   valeur: PAC air-air coll . environnement . ECS solaire thermique
 env . Installation x PAC air-air x Collectif . Scope 2:
-  valeur: PAC air-air coll . environnement . Scope 2
+  valeur: PAC air-air coll . environnement . scope 2
 env . Installation x PAC air-air x Collectif . Scope 3:
-  valeur: PAC air-air coll . environnement . Scope 3
+  valeur: PAC air-air coll . environnement . scope 3
 env . Installation x PAC air-air x Collectif . Total:
-  valeur: PAC air-air coll . environnement . Total
+  valeur: PAC air-air coll . environnement . total
 env . Installation x PAC air-air x Collectif . auxiliaires et combustible électrique:
   valeur: PAC air-air coll . environnement . auxiliaires et combustible électrique
 env . Installation x PAC air-air x Collectif . besoins de chauffage et ECS si même équipement:
@@ -841,11 +841,11 @@ env . Installation x PAC air-eau x Collectif . ECS avec ballon électrique:
 env . Installation x PAC air-eau x Collectif . ECS solaire thermique:
   valeur: PAC air-eau coll . environnement . ECS solaire thermique
 env . Installation x PAC air-eau x Collectif . Scope 2:
-  valeur: PAC air-eau coll . environnement . Scope 2
+  valeur: PAC air-eau coll . environnement . scope 2
 env . Installation x PAC air-eau x Collectif . Scope 3:
-  valeur: PAC air-eau coll . environnement . Scope 3
+  valeur: PAC air-eau coll . environnement . scope 3
 env . Installation x PAC air-eau x Collectif . Total:
-  valeur: PAC air-eau coll . environnement . Total
+  valeur: PAC air-eau coll . environnement . total
 env . Installation x PAC air-eau x Collectif . auxiliaires et combustible électrique:
   valeur: PAC air-eau coll . environnement . auxiliaires et combustible électrique
 env . Installation x PAC air-eau x Collectif . besoins de chauffage et ECS si même équipement:
@@ -858,11 +858,11 @@ env . Installation x PAC eau-eau x Collectif . ECS avec ballon électrique:
 env . Installation x PAC eau-eau x Collectif . ECS solaire thermique:
   valeur: PAC eau-eau coll . environnement . ECS solaire thermique
 env . Installation x PAC eau-eau x Collectif . Scope 2:
-  valeur: PAC eau-eau coll . environnement . Scope 2
+  valeur: PAC eau-eau coll . environnement . scope 2
 env . Installation x PAC eau-eau x Collectif . Scope 3:
-  valeur: PAC eau-eau coll . environnement . Scope 3
+  valeur: PAC eau-eau coll . environnement . scope 3
 env . Installation x PAC eau-eau x Collectif . Total:
-  valeur: PAC eau-eau coll . environnement . Total
+  valeur: PAC eau-eau coll . environnement . total
 env . Installation x PAC eau-eau x Collectif . auxiliaires et combustible électrique:
   valeur: PAC eau-eau coll . environnement . auxiliaires et combustible électrique
 env . Installation x PAC eau-eau x Collectif . besoins de chauffage et ECS si même équipement:
@@ -875,11 +875,11 @@ env . Installation x Fioul coll x Collectif . ECS avec ballon électrique:
 env . Installation x Fioul coll x Collectif . ECS solaire thermique:
   valeur: fioul coll . environnement . ECS solaire thermique
 env . Installation x Fioul coll x Collectif . Scope 2:
-  valeur: fioul coll . environnement . Scope 2
+  valeur: fioul coll . environnement . scope 2
 env . Installation x Fioul coll x Collectif . Scope 3:
-  valeur: fioul coll . environnement . Scope 3
+  valeur: fioul coll . environnement . scope 3
 env . Installation x Fioul coll x Collectif . Total:
-  valeur: fioul coll . environnement . Total
+  valeur: fioul coll . environnement . total
 env . Installation x Fioul coll x Collectif . auxiliaires et combustible électrique:
   valeur: fioul coll . environnement . auxiliaires et combustible électrique
 env . Installation x Fioul coll x Collectif . besoins de chauffage et ECS si même équipement:
@@ -2462,16 +2462,16 @@ Paramètres économiques . Gaz x Taxe x Part variable x TVA:
   valeur: combustibles . gaz . taxes . TVA part variable
 
 Paramètres économiques . Granulés . Prix pour les granulés:
-  valeur: combustibles . granulés . Prix pour les granulés
+  valeur: combustibles . granulés . prix pour les granulés
 
 Paramètres économiques . Granulés . TVA:
   valeur: combustibles . granulés . TVA
 
 Paramètres économiques . Granulés . Type de conditionnement:
-  valeur: combustibles . granulés . Type de conditionnement
+  valeur: combustibles . granulés . type de conditionnement
 
 Paramètres économiques . Fioul . Prix livraison incluse:
-  valeur: combustibles . fioul . Prix livraison incluse
+  valeur: combustibles . fioul . prix livraison incluse
 
 Paramètres économiques . Fioul . TICPE:
   valeur: combustibles . fioul . TICPE
@@ -2480,28 +2480,28 @@ Paramètres économiques . Fioul . TVA:
   valeur: combustibles . fioul . TVA
 
 Paramètres économiques . Réseaux chaleur . Coût:
-  valeur: combustibles . réseau de chaleur . Coût
+  valeur: combustibles . réseau de chaleur . coût
 
 Paramètres économiques . Réseaux chaleur . Part fixe:
-  valeur: combustibles . réseau de chaleur . Part fixe
+  valeur: combustibles . réseau de chaleur . part fixe
 
 Paramètres économiques . Réseaux chaleur . Part variable:
-  valeur: combustibles . réseau de chaleur . Part variable
+  valeur: combustibles . réseau de chaleur . part variable
 
 Paramètres économiques . Réseaux froid . Coût:
-  valeur: combustibles . réseau de froid . Coût
+  valeur: combustibles . réseau de froid . coût
 
 Paramètres économiques . Réseaux froid . Part fixe:
-  valeur: combustibles . réseau de froid . Part fixe
+  valeur: combustibles . réseau de froid . part fixe
 
 Paramètres économiques . Réseaux froid . Part variable:
-  valeur: combustibles . réseau de froid . Part variable
+  valeur: combustibles . réseau de froid . part variable
 
 ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HC:
-  valeur: combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HC
+  valeur: combustibles . électricité . tarifs . option heures creuses . part de la consommation en HC
 
 ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse . Part de la consommation en HP:
-  valeur: combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HP
+  valeur: combustibles . électricité . tarifs . option heures creuses . part de la consommation en HP
 
 # parents des chaînes d'alias ci-dessus
 Paramètres économiques . Electricité x Taxe:
@@ -2523,7 +2523,7 @@ ratios économiques . Coût des combustibles x Electricité:
   valeur: combustibles . électricité . tarifs
 
 ratios économiques . Coût des combustibles x Electricité . Heure pleine x Heure creuse:
-  valeur: combustibles . électricité . tarifs . Heure pleine x Heure creuse
+  valeur: combustibles . électricité . tarifs . option heures creuses
 
 # --- ECS additionnelle : anciennes clés (table de migration UI) ---
 
@@ -2555,13 +2555,13 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
   valeur: ecs additionnelle . aides panneau solaire . CEE
 
 Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . Coup de pouce:
-  valeur: ecs additionnelle . aides panneau solaire . Coup de pouce
+  valeur: ecs additionnelle . aides panneau solaire . coup de pouce
 
 Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . Ma prime renov':
-  valeur: ecs additionnelle . aides panneau solaire . Ma prime renov'
+  valeur: ecs additionnelle . aides panneau solaire . ma prime rénov
 
 Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermique pour production ECS . Total:
-  valeur: ecs additionnelle . aides panneau solaire . Total
+  valeur: ecs additionnelle . aides panneau solaire . total
 
 # --- Aides / investissement : anciennes clés (table de migration UI) ---
 
@@ -2569,7 +2569,7 @@ ratios économiques x aides:
   valeur: aides
 
 ratios économiques x aides . Coup de pouce x PAC air-eau:
-  valeur: aides . Coup de pouce PAC air-eau
+  valeur: aides . coup de pouce PAC air-eau
 
 ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171:
   valeur: aides . CEE . BAR-TH-171 PAC air-eau
@@ -2581,7 +2581,7 @@ ratios économiques . Investissement x TVA:
   valeur: investissement . TVA
 
 ratios économiques . Amortissement x Taux actualisation:
-  valeur: amortissement . taux d'actualisation
+  valeur: amortissement . taux actualisation
 
 # --- Derniers ratios historiques par mode (table de migration UI) ---
 
@@ -2615,10 +2615,10 @@ Bilan x PAC air-eau coll hybride . total sans aides:
   valeur: PAC air-eau coll hybride . bilan . total sans aides
 
 Bilan x Solaire thermique:
-  valeur: Solaire thermique . bilan
+  valeur: solaire thermique . bilan
 
 Bilan x Solaire thermique . total sans installation:
-  valeur: Solaire thermique . bilan . total sans installation
+  valeur: solaire thermique . bilan . total sans installation
 
 Bilan x PAC capteurs solaires atmosphériques:
   valeur: PAC capteurs solaires atmosphériques . bilan
@@ -2633,13 +2633,23 @@ Bilan x PAC air-eau collective ECS . total sans installation:
   valeur: PAC air-eau collective ECS . bilan . total sans installation
 
 Bilan x Chauffe-eau thermodynamique:
-  valeur: Chauffe-eau thermodynamique . bilan
+  valeur: chauffe-eau thermodynamique . bilan
 
 Bilan x Chauffe-eau thermodynamique . total sans installation:
-  valeur: Chauffe-eau thermodynamique . bilan . total sans installation
+  valeur: chauffe-eau thermodynamique . bilan . total sans installation
 
 Bilan x Système solaire combiné:
-  valeur: Système solaire combiné . bilan
+  valeur: système solaire combiné . bilan
 
 Bilan x Système solaire combiné . total sans installation:
-  valeur: Système solaire combiné . bilan . total sans installation
+  valeur: système solaire combiné . bilan . total sans installation
+
+# Racines renommées (lowercase) — le front référence encore les anciens noms
+Solaire thermique:
+  valeur: solaire thermique
+Chauffe-eau thermodynamique:
+  valeur: chauffe-eau thermodynamique
+Système solaire combiné:
+  valeur: système solaire combiné
+puissance coefficient d'intermittence:
+  valeur: coefficient intermittence

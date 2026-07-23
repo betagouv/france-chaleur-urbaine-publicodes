@@ -68,8 +68,8 @@ aides:
         particulier: Paramètres économiques . Aides . Éligibilité x Je suis un particulier
         ressources du ménage: Paramètres économiques . Aides . Éligibilité x Ressources du ménage
         chaudière gaz ou fioul actuelle: Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
-        éligible Ma prime renov': Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-        éligible Coup de pouce: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
+        éligible ma prime rénov: Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
+        éligible coup de pouce: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
         éligible CEE: Paramètres économiques . Aides . Aides x Éligible CEE
 
     valeur CEE: Paramètres économiques . Aides . Valeur CEE
@@ -161,15 +161,15 @@ aides:
         - si: zone climatique = 'H3'
           alors: 0.7
 
-    Coup de pouce PAC air-eau:
-      applicable si: aides . éligibilité . éligible Coup de pouce
+    coup de pouce PAC air-eau:
+      applicable si: aides . éligibilité . éligible coup de pouce
       valeur: PAC air-eau indiv . aides . CEE * 5
       unité: €
 
     CEE . ratio chauffe-eau solaire collectif:
       valeur: 0.196
 
-    Tertiaire:
+    tertiaire:
       avec:
         CEE RFU montant:
           variations:

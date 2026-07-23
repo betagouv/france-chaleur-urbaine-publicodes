@@ -53,11 +53,11 @@ gaz coll avec cond:
     ratios:            # paramétrage du mode : LES VALEURS DE RÉFÉRENCE
       avec:            #   rendements, conso, durée de vie, coûts d'équipement,
         …              #   entretien P2/P3, CO2 installation…
-    facteur d'annuité: # annuité PMT pour 1 € investi sur ratios . durée de vie
+    annuité:           # annuité PMT pour 1 € investi sur ratios . durée de vie
     installation:      # dimensionnement (puissances) et consommations
     coûts:             # postes de coût : investissements, P1, P2, P3
-    aides:             # Ma prime renov', Coup de pouce, CEE, Total
-    environnement:     # émissions Scope 1/2/3
+    aides:             # ma prime rénov, coup de pouce, CEE, total
+    environnement:     # émissions scope 1/2/3
     bilan:             # sorties annuelles par logement : P1abo, P1conso,
                        #   P1prime, P1ECS, P1Consofroid, P2, P3, P4,
                        #   P4 moins aides, aides, totaux
@@ -65,7 +65,7 @@ gaz coll avec cond:
 
 Le **bilan** est la couche de sortie lue par le front (suffixes historiques
 P1abo, P1conso…) : P1/P2/P3 y sont des agrégations de `coûts` (+ surcoûts
-froid), P4 = investissements × facteur d'annuité.
+froid), P4 = investissements × annuité.
 
 ## Conventions
 
@@ -156,6 +156,6 @@ external-keys correspondants.
   l'entrée `ancienne: valeur: nouvelle` dans compat ; external-keys doit
   rester vert sans modification.
 - **Bugs connus figés** : liste en §1.6 de doc-refacto-modes.md (ex.
-  `gaz coll sans cond` référence `gaz coll avec cond . facteur d'annuité`,
+  `gaz coll sans cond` référence `gaz coll avec cond . annuité`,
   commenté dans le code). Les corriger = PR dédiée avec mise à jour golden
   expliquée.

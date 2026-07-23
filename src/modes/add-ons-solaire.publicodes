@@ -24,7 +24,7 @@ PAC air-eau coll hybride:
             - PAC air-eau coll . bilan . P2
             - PAC air-eau coll . bilan . P3
 
-Solaire thermique:
+solaire thermique:
   avec:
     bilan:
       avec:
@@ -49,7 +49,7 @@ PAC air-eau collective ECS:
             - combustibles . électricité . consommation collectif
             - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
 
-Chauffe-eau thermodynamique:
+chauffe-eau thermodynamique:
   avec:
     bilan:
       avec:
@@ -58,7 +58,7 @@ Chauffe-eau thermodynamique:
             - combustibles . électricité . consommation individuel
             - besoins eau chaude sanitaire par appartement / PAC air-eau coll . ratios . SCOP
 
-Système solaire combiné:
+système solaire combiné:
   avec:
     bilan:
       avec:

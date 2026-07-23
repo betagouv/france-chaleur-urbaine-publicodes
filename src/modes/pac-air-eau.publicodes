@@ -15,7 +15,7 @@ PAC air-eau indiv:
         SCOP:
           somme:
             - 3.8
-            - Température émetteurs delta
+            - température émetteurs delta
         SEER:
           valeur: 3.5
         durée de vie:
@@ -38,11 +38,11 @@ PAC air-eau indiv:
           valeur: 13270
           unité: €HT
           note: 'Source: SDES 2023'
-    facteur d'annuité: &facteur-annuite-pac-air-eau
+    annuité: &annuite-pac-air-eau
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
-        - si: amortissement . taux d'actualisation != 0
-          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie - 1)
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux actualisation) ** ratios . durée de vie - 1)
         - sinon: 1 / ratios . durée de vie
     installation:
       avec:
@@ -209,29 +209,29 @@ PAC air-eau indiv:
         gros entretien P3 par logement tertiaire: gros entretien P3
     aides:
       avec:
-        Ma prime renov':
+        ma prime rénov:
           variations:
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 5000 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 4000 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 3000 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
-        Coup de pouce:
+        coup de pouce:
           variations:
-            - si: aides . éligibilité . éligible Coup de pouce
-              alors: aides . Coup de pouce PAC air-eau
+            - si: aides . éligibilité . éligible coup de pouce
+              alors: aides . coup de pouce PAC air-eau
             - sinon: 0 €
           unité: €
         CEE:
@@ -240,10 +240,10 @@ PAC air-eau indiv:
               alors: aides . CEE . BAR-TH-171 PAC air-eau * aides . valeur CEE
             - sinon: 0 €
           unité: €
-        Total: &aides-total
+        total: &aides-total
           variations:
             - si: aides . éligibilité . prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
+              alors: ma prime rénov + coup de pouce + CEE
             - sinon: 0
           unité: €
     environnement:
@@ -251,28 +251,28 @@ PAC air-eau indiv:
         besoins de chauffage et ECS si même équipement: &env-besoins-de-chauffage-et-ecs-si-meme-equipement
           valeur: 0
           unité: kgCO2e
-        Scope 1: besoins de chauffage et ECS si même équipement
+        scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
           somme:
-            - (installation . consommation combustible chaleur + installation . consommation auxiliaire) * facteurs d'émission . électricité chauffage
-            - installation . consommation combustible froid * facteurs d'émission . électricité froid
+            - (installation . consommation combustible chaleur + installation . consommation auxiliaire) * facteurs CO2 . électricité chauffage
+            - installation . consommation combustible froid * facteurs CO2 . électricité froid
           unité: kgCO2e
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
-        Scope 2: &env-scope-2
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2: &env-scope-2
           somme:
             - auxiliaires et combustible électrique
             - ECS solaire thermique
             - ECS avec ballon électrique
-        Scope 3:
+        scope 3:
           formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie
-        Total: &env-total
+        total: &env-total
           somme:
-            - Scope 1
-            - Scope 2
-            - Scope 3
+            - scope 1
+            - scope 2
+            - scope 3
           unité: kgCO2e/an
     bilan:
       avec:
@@ -287,15 +287,15 @@ PAC air-eau indiv:
         P2: coûts . petit entretien P2 par logement tertiaire
         P3: coûts . gros entretien P3 par logement tertiaire
         P4 équipement:
-          formule: coûts . investissement par logement * facteur d'annuité
+          formule: coûts . investissement par logement * annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: &bilan-p4-chauffe-eau-solaire
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
             - sinon: 0
 
         P4: &bilan-p4
@@ -304,7 +304,7 @@ PAC air-eau indiv:
             - P4 ballon ECS
             - P4 chauffe-eau solaire
         aides spécifiques:
-          formule: aides . Total * facteur d'annuité
+          formule: aides . total * annuité
         aides: aides spécifiques
         P4 moins aides: &bilan-p4-moins-aides
           le maximum de:
@@ -342,7 +342,7 @@ PAC air-eau coll:
         SCOP:
           somme:
             - 3.98
-            - Température émetteurs delta
+            - température émetteurs delta
         SEER:
           valeur: 4.8
         durée de vie:
@@ -362,7 +362,7 @@ PAC air-eau coll:
         coût équipement au kW:
           valeur: 1005
           unité: €HT/kW
-    facteur d'annuité: *facteur-annuite-pac-air-eau
+    annuité: *annuite-pac-air-eau
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -455,34 +455,34 @@ PAC air-eau coll:
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
       avec:
-        Ma prime renov':
+        ma prime rénov:
           variations:
             - si: aides . éligibilité . prise en compte des aides
               alors: 35 / 100 * coûts . investissement par logement
             - sinon: 0
           unité: €
-        Coup de pouce:
+        coup de pouce:
           applicable si:
-            est défini: Coup de pouce
-          formule: Coup de pouce
+            est défini: coup de pouce
+          formule: coup de pouce
           unité: €
         CEE:
           formule: 0
           unité: €
-        Total: *aides-total
+        total: *aides-total
     environnement:
       avec:
         besoins de chauffage et ECS si même équipement: *env-besoins-de-chauffage-et-ecs-si-meme-equipement
-        Scope 1: besoins de chauffage et ECS si même équipement
+        scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
-        Scope 2: *env-scope-2
-        Scope 3:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2: *env-scope-2
+        scope 3:
           formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie / nombre de logements dans l'immeuble concerné
-        Total: *env-total
+        total: *env-total
     bilan:
       avec:
         P1abo: coûts . P1 abonnement
@@ -493,16 +493,16 @@ PAC air-eau coll:
         P2: coûts . petit entretien P2 par logement tertiaire
         P3: coûts . gros entretien P3 par logement tertiaire
         P4 équipement:
-          formule: coûts . investissement par logement * facteur d'annuité
+          formule: coûts . investissement par logement * annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire: *bilan-p4-chauffe-eau-solaire
 
         P4: *bilan-p4
         aides spécifiques:
-          formule: aides . Total * facteur d'annuité
+          formule: aides . total * annuité
         aides: aides spécifiques
         P4 moins aides: *bilan-p4-moins-aides
         total sans aides: *bilan-total-sans-aides

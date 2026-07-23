@@ -43,11 +43,11 @@ radiateur électrique:
           valeur: 550
           unité: €HT
           note: 'Source: Atlantic 2023'
-    facteur d'annuité:
+    annuité:
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
-        - si: amortissement . taux d'actualisation != 0
-          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie - 1)
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux actualisation) ** ratios . durée de vie - 1)
         - sinon: 1 / ratios . durée de vie
     installation:
       avec:
@@ -211,23 +211,23 @@ radiateur électrique:
         gros entretien P3 par logement tertiaire: gros entretien P3
     aides:
       avec:
-        Ma prime renov':
+        ma prime rénov:
           applicable si:
-            est défini: Ma prime renov'
-          formule: Ma prime renov'
+            est défini: ma prime rénov
+          formule: ma prime rénov
           unité: €
-        Coup de pouce:
+        coup de pouce:
           applicable si:
-            est défini: Coup de pouce
-          formule: Coup de pouce
+            est défini: coup de pouce
+          formule: coup de pouce
           unité: €
         CEE:
           formule: 0
           unité: €
-        Total:
+        total:
           variations:
             - si: aides . éligibilité . prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
+              alors: ma prime rénov + coup de pouce + CEE
             - sinon: 0
           unité: €
     environnement:
@@ -235,26 +235,26 @@ radiateur électrique:
         besoins de chauffage et ECS si même équipement:
           valeur: 0
           unité: kgCO2e
-        Scope 1: besoins de chauffage et ECS si même équipement
+        scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique:
-          formule: installation . consommation combustible chaleur * facteurs d'émission . électricité chauffage
+          formule: installation . consommation combustible chaleur * facteurs CO2 . électricité chauffage
           unité: kgCO2e
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
-        Scope 2:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2:
           somme:
             - auxiliaires et combustible électrique
             - ECS solaire thermique
             - ECS avec ballon électrique
-        Scope 3:
+        scope 3:
           formule: besoins chauffage par appartement * ratios . CO2 installation
-        Total:
+        total:
           somme:
-            - Scope 1
-            - Scope 2
-            - Scope 3
+            - scope 1
+            - scope 2
+            - scope 3
           unité: kgCO2e/an
     bilan:
       avec:
@@ -269,15 +269,15 @@ radiateur électrique:
         P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
         P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
         P4 équipement:
-          formule: coûts . investissement par logement * facteur d'annuité
+          formule: coûts . investissement par logement * annuité
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire:
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
             - sinon: 0
 
         P4:
@@ -288,7 +288,7 @@ radiateur électrique:
             - froid . P4 groupe froid
             - froid . P4 réseau de froid
         aides spécifiques:
-          formule: aides . Total * facteur d'annuité
+          formule: aides . total * annuité
 
         aides:
           somme:

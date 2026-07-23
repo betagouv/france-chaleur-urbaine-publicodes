@@ -97,35 +97,35 @@ ecs additionnelle:
 
     aides panneau solaire:
       avec:
-        Ma prime renov':
+        ma prime rénov:
           variations:
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 4000 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 3000 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 2000 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
-        Coup de pouce:
+        coup de pouce:
           variations:
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . éligible coup de pouce
                   - aides . éligibilité . ressources du ménage = 'Modeste'
               alors: 5000 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . éligible coup de pouce
                   - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 5000 €
           unité: €
@@ -141,36 +141,36 @@ ecs additionnelle:
                         - type de production ECS = 'Solaire thermique'
                     alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . CEE . ratio chauffe-eau solaire collectif * aides . valeur CEE * nombre de logements dans l'immeuble concerné
                   - si: type de bâtiment = 'tertiaire'
-                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . Tertiaire . ratio CEE chauffe-eau solaire
+                    alors: besoins eau chaude sanitaire par appartement * ecs additionnelle . part du solaire dans la production * aides . tertiaire . ratio CEE chauffe-eau solaire
             - sinon: 0
           unité: €
-        Total:
+        total:
           variations:
             - si: aides . éligibilité . prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
+              alors: ma prime rénov + coup de pouce + CEE
             - sinon: 0
           unité: €
 
     # --- Ratios de besoins ECS ---
 
-    quantité d'ECS produite par kWh:
+    quantité ECS produite par kWh:
       valeur: 19.1
       unité: L/kWh
 
-    # --- Facteurs d'annuité des chauffe-eau ---
+    # --- Annuités des chauffe-eau ---
 
-    facteur d'annuité chauffe-eau électrique:
+    annuité chauffe-eau électrique:
       description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau électrique (fonction Excel PMT)
-      variations: &facteur-chauffe-eau
-        - si: amortissement . taux d'actualisation != 0
-          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** durée) / ((1 + amortissement . taux d'actualisation) ** durée - 1)
+      variations: &annuite-chauffe-eau
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** durée) / ((1 + amortissement . taux actualisation) ** durée - 1)
         - sinon: 1 / durée
       avec:
         durée: ecs additionnelle . durée de vie chauffe-eau électrique
 
-    facteur d'annuité chauffe-eau solaire:
+    annuité chauffe-eau solaire:
       description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau solaire (fonction Excel PMT)
-      variations: *facteur-chauffe-eau
+      variations: *annuite-chauffe-eau
       avec:
         durée: ecs additionnelle . durée de vie chauffe-eau solaire
 
@@ -377,6 +377,6 @@ volume du ballon ECS:
   variations:
     - si: type de production ECS = 'Solaire thermique'
       alors: 50
-    - sinon: (besoins eau chaude sanitaire par appartement * ecs additionnelle . quantité d'ECS produite par kWh) / 365
+    - sinon: (besoins eau chaude sanitaire par appartement * ecs additionnelle . quantité ECS produite par kWh) / 365
   unité: L
 

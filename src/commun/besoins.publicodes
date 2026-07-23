@@ -8,7 +8,7 @@ dimensionnement:
     heures pleine puissance chauffage:
       produit:
         - dimensionnement . heures pleine puissance chauffage continu
-        - puissance coefficient d'intermittence
+        - coefficient intermittence
       unité: h
 
     puissance chauffage appelée:
@@ -23,7 +23,7 @@ dimensionnement:
       produit:
         - degré jours unifié spécifique froid
         - 24
-        - puissance coefficient d'intermittence
+        - coefficient intermittence
       unité: h
 
     puissance refroidissement appelée:

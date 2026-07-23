@@ -2,7 +2,7 @@
 # consommations auxiliaires, deltas de température des émetteurs (dérogation),
 # et PAC à absorption gaz.
 
-Température émetteurs delta:
+température émetteurs delta:
   variations:
     - si: Température émetteurs = "35"
       alors: 0

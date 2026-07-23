@@ -46,8 +46,8 @@
   - `kWh elec` avec le commentaire « corrigé pour faire fonctionner la
     division » — conversion douteuse à élucider ;
   - `€/an` vs `€TTC/an`, `kWhef` vs `kWh`, `kWh/m2/an` vs `kWhef/m2.an` ;
-  - incohérence **rendue visible par le golden** : `environnement . Scope 2`
-    en `kgCO2e` vs `Scope 3` en `kgCO2e/an` (sommés ensemble dans Total).
+  - incohérence **rendue visible par le golden** : `environnement . scope 2`
+    en `kgCO2e` vs `scope 3` en `kgCO2e/an` (sommés ensemble dans total).
   Prérequis de la normalisation : le golden-avec-unités (fait) ; chaque
   changement d'unité doit être justifié car il peut changer une conversion.
 
@@ -69,7 +69,7 @@
   homonyme par une résolution acrobatique (auto-référence apparente).
   Fonctionne, mais fragile aux renommages — à traiter explicitement.
 - ❓ **Section `environnement`** : patron verbeux hérité (`besoins de
-  chauffage et ECS si même équipement` = 0 dans 9 modes, `Scope 1` alias
+  chauffage et ECS si même équipement` = 0 dans 9 modes, `scope 1` alias
   pur) — bloqué par le contrat DebugDrawer, comme bilan/coûts.
 - 🔜 **Les 5 bugs figés** (doc-refacto-modes.md §1.6) + l'orphelin qu'ils
   créent (`Paramètres économiques . Gros entretien P3 . PAC air-eau coll`,

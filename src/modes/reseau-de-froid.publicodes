@@ -99,11 +99,11 @@ réseau de froid:
                     - 1 + investissement . TVA
               - sinon: 0
           unité: €TTC
-    facteur d'annuité:
+    annuité:
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
-        - si: amortissement . taux d'actualisation != 0
-          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux d'actualisation) ** ratios . durée de vie - 1)
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux actualisation) ** ratios . durée de vie - 1)
         - sinon: 1 / ratios . durée de vie
     installation:
       avec:
@@ -174,29 +174,29 @@ réseau de froid:
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
       avec:
-        Ma prime renov':
+        ma prime rénov:
           variations:
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 1200 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 800 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 400 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
-        Coup de pouce:
+        coup de pouce:
           applicable si:
-            est défini: Coup de pouce
-          formule: Coup de pouce
+            est défini: coup de pouce
+          formule: coup de pouce
           unité: €
         CEE:
           variations:
@@ -205,13 +205,13 @@ réseau de froid:
                 variations:
                   - si: type de bâtiment = 'résidentiel'
                     alors: 0
-                  - sinon: aides . Tertiaire . CEE RFU montant * aides . Tertiaire . CEE RFU facteur correctif * installation . puissance retenue * aides . valeur CEE
+                  - sinon: aides . tertiaire . CEE RFU montant * aides . tertiaire . CEE RFU facteur correctif * installation . puissance retenue * aides . valeur CEE
             - sinon: 0
           unité: €
-        Total:
+        total:
           variations:
             - si: aides . éligibilité . prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
+              alors: ma prime rénov + coup de pouce + CEE
             - sinon: 0
           unité: €
 

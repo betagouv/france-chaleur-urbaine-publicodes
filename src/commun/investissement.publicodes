@@ -16,7 +16,7 @@ investissement:
 
 amortissement:
   avec:
-    taux d'actualisation:
+    taux actualisation:
       valeur: 0
       unité: '%'
       note: 'source: AMORCE'

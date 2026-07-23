@@ -130,17 +130,17 @@ réseau de chaleur:
                   - sinon: réseau de chaleur . ratios . coût raccordement tertiaire
               - 1 + investissement . TVA
           unité: €TTC
-    facteur d'annuité raccordement:
+    annuité raccordement:
       description: Annuité pour 1 € investi sur la durée de renouvellement du raccordement (fonction Excel PMT)
       variations:
-        - si: amortissement . taux d'actualisation != 0
-          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée avant renouvellement) / ((1 + amortissement . taux d'actualisation) ** ratios . durée avant renouvellement - 1)
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée avant renouvellement) / ((1 + amortissement . taux actualisation) ** ratios . durée avant renouvellement - 1)
         - sinon: 1 / ratios . durée avant renouvellement
-    facteur d'annuité sous station:
+    annuité sous station:
       description: Annuité pour 1 € investi sur la durée de vie de la sous-station (fonction Excel PMT)
       variations:
-        - si: amortissement . taux d'actualisation != 0
-          alors: amortissement . taux d'actualisation * ((1 + amortissement . taux d'actualisation) ** ratios . durée sous station) / ((1 + amortissement . taux d'actualisation) ** ratios . durée sous station - 1)
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée sous station) / ((1 + amortissement . taux actualisation) ** ratios . durée sous station - 1)
         - sinon: 1 / ratios . durée sous station
     installation:
       avec:
@@ -336,35 +336,35 @@ réseau de chaleur:
         gros entretien P3 par logement tertiaire: gros entretien P3 / nombre de logements dans l'immeuble concerné
     aides:
       avec:
-        Ma prime renov':
+        ma prime rénov:
           variations:
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Très modeste"
               alors: 1200 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Modeste"
               alors: 800 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Ma prime renov'
+                  - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 400 €
           unité: €
           note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
-        Coup de pouce:
+        coup de pouce:
           variations:
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . éligible coup de pouce
                   - aides . éligibilité . ressources du ménage = 'Modeste'
               alors: 700 €
             - si:
                 toutes ces conditions:
-                  - aides . éligibilité . éligible Coup de pouce
+                  - aides . éligibilité . éligible coup de pouce
                   - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 450 €
           unité: €
@@ -387,15 +387,15 @@ réseau de chaleur:
             - aides . CEE . facteur correctif RCU
             - 1 / nombre de logements dans l'immeuble concerné
           unité: €
-        Total:
+        total:
           variations:
             - si: aides . éligibilité . prise en compte des aides
-              alors: Ma prime renov' + Coup de pouce + CEE
+              alors: ma prime rénov + coup de pouce + CEE
             - sinon: 0
           unité: €
     aides cumac:
       avec:
-        Coup de pouce:
+        coup de pouce:
           produit:
             - variations:
               - si: type de bâtiment = 'résidentiel'
@@ -533,19 +533,19 @@ réseau de chaleur:
                   alors: 0.6
             - surface logement type tertiaire
           note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAT-TH-127%20vA79-5%20%C3%A0%20compter%20du%2001-01-2026_0.pdf
-        Total:
+        total:
           variations:
             - si: aides . éligibilité . prise en compte des aides
               alors:
                 variations:
                   - si: caractéristique réseau de chaleur . taux EnRR > 50 %
-                    alors: Coup de pouce
+                    alors: coup de pouce
                   - sinon: CEE
             - sinon: 0
           unité: kWh cumac
-        Total montant:
+        total montant:
           produit:
-            - Total
+            - total
             - aides . valeur CEE
           unité: €
     environnement:
@@ -553,7 +553,7 @@ réseau de chaleur:
         besoins de chauffage et ECS si même équipement:
           valeur: 0
           unité: kgCO2e
-        Scope 1: besoins de chauffage et ECS si même équipement
+        scope 1: besoins de chauffage et ECS si même équipement
         auxiliaires et combustible électrique:
           formule:
             variations:
@@ -562,25 +562,25 @@ réseau de chaleur:
               - sinon: contenu CO2 réseau de chaleur * besoins chauffage par appartement
           unité: kgCO2e
         ECS solaire thermique:
-          formule: installation . appoint chauffe-eau solaire * facteurs d'émission . électricité ECS
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
         ECS avec ballon électrique:
-          formule: installation . consommation chauffe-eau électrique * facteurs d'émission . électricité chauffage
-        Scope 2:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2:
           somme:
             - auxiliaires et combustible électrique
             - ECS solaire thermique
             - ECS avec ballon électrique
-        Scope 3:
-          # QUESTION déjà posée: ça s'appelle vraiment Scope 3 ?
+        scope 3:
+          # QUESTION déjà posée: ça s'appelle vraiment scope 3 ?
           variations:
             - si: Production eau chaude sanitaire
               alors: ratios . CO2 installation * (besoins chauffage par appartement + besoins eau chaude sanitaire par appartement)
             - sinon: ratios . CO2 installation * besoins chauffage par appartement
-        Total:
+        total:
           somme:
-            - Scope 1
-            - Scope 2
-            - Scope 3
+            - scope 1
+            - scope 2
+            - scope 3
           unité: kgCO2e/an
     bilan:
       avec:
@@ -596,18 +596,18 @@ réseau de chaleur:
         P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
 
         P4 raccordement:
-          formule: coûts . investissement raccordement par logement * facteur d'annuité raccordement
+          formule: coûts . investissement raccordement par logement * annuité raccordement
 
         P4 réseau secondaire:
-          formule: coûts . investissement réseau secondaire par logement * facteur d'annuité sous station
+          formule: coûts . investissement réseau secondaire par logement * annuité sous station
 
         P4 ballon ECS:
-          formule: coûts . investissement ballon ECS * ecs additionnelle . facteur d'annuité chauffe-eau électrique
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
 
         P4 chauffe-eau solaire:
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . facteur d'annuité chauffe-eau solaire
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
             - sinon: 0
         P4:
           somme:
@@ -618,7 +618,7 @@ réseau de chaleur:
             - froid . P4 groupe froid
             - froid . P4 réseau de froid
         aides spécifiques:
-          formule: aides . Total * facteur d'annuité raccordement
+          formule: aides . total * annuité raccordement
 
         aides:
           somme:

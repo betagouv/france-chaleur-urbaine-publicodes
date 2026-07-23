@@ -1,7 +1,7 @@
 # Coefficient d'intermittence pour le calcul de puissance : table par
 # DPE (résidentiel) et méthode tertiaire.
 
-puissance coefficient d'intermittence:
+coefficient intermittence:
   variations:
     - si:
         toutes ces conditions:

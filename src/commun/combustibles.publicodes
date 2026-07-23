@@ -127,8 +127,8 @@ combustibles:
               alors: combustibles . électricité . consommation individuel option base
             - sinon:
                 somme:
-                  - combustibles . électricité . consommation individuel HP * combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HP
-                  - combustibles . électricité . consommation individuel HC * combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HC
+                  - combustibles . électricité . consommation individuel HP * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HP
+                  - combustibles . électricité . consommation individuel HC * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HC
 
         abonnement collectif:
           formule: combustibles . électricité . abonnement part fixe collectif
@@ -153,36 +153,36 @@ combustibles:
               alors: combustibles . électricité . consommation collectif option base
             - sinon:
                 somme:
-                  - combustibles . électricité . consommation collectif HP * combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HP
-                  - combustibles . électricité . consommation collectif HC * combustibles . électricité . tarifs . Heure pleine x Heure creuse . Part de la consommation en HC
+                  - combustibles . électricité . consommation collectif HP * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HP
+                  - combustibles . électricité . consommation collectif HC * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HC
 
         tarifs:
           avec:
-            Option Base:
+            option base:
               avec:
-                Prix de l'énergie:
+                prix du kWh:
                   valeur: 0.1708
                   unité: €HT/kWh
                   note: 'Source: AMORCE 2024'
-            Heure pleine x Heure creuse:
+            option heures creuses:
               avec:
-                Part de la consommation en HP:
+                part de la consommation en HP:
                   valeur: 20
                   unité: '%'
                   note: 'Source: AMORCE 2024'
-                Part de la consommation en HC:
-                  valeur: 100% - Part de la consommation en HP
+                part de la consommation en HC:
+                  valeur: 100% - part de la consommation en HP
                   unité: '%'
                   note: 'Source: AMORCE 2024'
-                Prix de l'énergie HP:
+                prix du kWh HP:
                   valeur: 0.2040
                   unité: €HT/kWh
                   note: 'Source: ELCIMAI + TRV 2024'
-                Prix de l'énergie HC:
+                prix du kWh HC:
                   valeur: 0.1513
                   unité: €HT/kWh
                   note: 'Source: ELCIMAI + TRV 2024'
-            Abonnement annuel individuel:
+            abonnement annuel individuel:
               variations:
                 - si: combustibles . électricité . puissance souscrite individuel <= 3
                   alors:
@@ -333,7 +333,7 @@ combustibles:
                         alors: 3931.22
               unité: €/an
               note: 'Source: ELCIMAI + TRV 2024'
-            Abonnement annuel collectif:
+            abonnement annuel collectif:
               # C'est ici en fait le surcout à l'abonnement annuel
               variations:
                 - si: combustibles . électricité . puissance souscrite collectif <= 6
@@ -417,26 +417,26 @@ combustibles:
         part variable option base:
           par défaut:
             somme:
-              - combustibles . électricité . tarifs . Option Base . Prix de l'énergie * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
+              - combustibles . électricité . tarifs . option base . prix du kWh * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
               - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
           unité: €/kWh
 
         part variable heure pleine:
           par défaut:
             somme:
-              - combustibles . électricité . tarifs . Heure pleine x Heure creuse . Prix de l'énergie HP * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
+              - combustibles . électricité . tarifs . option heures creuses . prix du kWh HP * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
               - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
           unité: €/kWh
 
         part variable heure creuse:
           par défaut:
             somme:
-              - combustibles . électricité . tarifs . Heure pleine x Heure creuse . Prix de l'énergie HC * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
+              - combustibles . électricité . tarifs . option heures creuses . prix du kWh HC * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
               - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
           unité: €/kWh
 
         abonnement part fixe individuel:
-          par défaut: combustibles . électricité . tarifs . Abonnement annuel individuel * ( 1 + combustibles . électricité . taxes . Part Fixe x TVA )
+          par défaut: combustibles . électricité . tarifs . abonnement annuel individuel * ( 1 + combustibles . électricité . taxes . Part Fixe x TVA )
           unité: €/an
 
         puissance souscrite individuel:
@@ -445,7 +445,7 @@ combustibles:
           note: 'Source: ELCIMAI 2024'
 
         abonnement part fixe collectif:
-          par défaut: combustibles . électricité . tarifs . Abonnement annuel collectif * ( 1 + combustibles . électricité . taxes . Part Fixe x TVA )
+          par défaut: combustibles . électricité . tarifs . abonnement annuel collectif * ( 1 + combustibles . électricité . taxes . Part Fixe x TVA )
           unité: €/an
 
         puissance souscrite collectif:
@@ -524,22 +524,22 @@ combustibles:
       avec:
         abonnement:
           variations:
-            - si: combustibles . réseau de chaleur . Tarification connue = 'oui'
+            - si: combustibles . réseau de chaleur . tarification connue = 'oui'
               alors:
                 produit:
                   - combustibles . réseau de chaleur . Tarification R2 x Part fixe
                   - réseau de chaleur . installation . puissance retenue
                   - 1 / ( réseau de chaleur . installation . consommation combustible chaleur * nombre de logements dans l'immeuble concerné )
-            - sinon: combustibles . réseau de chaleur . Coût * combustibles . réseau de chaleur . Part fixe
+            - sinon: combustibles . réseau de chaleur . coût * combustibles . réseau de chaleur . part fixe
           unité: €TTC/kWh
 
         consommation:
           variations:
-            - si: combustibles . réseau de chaleur . Tarification connue = 'oui'
+            - si: combustibles . réseau de chaleur . tarification connue = 'oui'
               alors: combustibles . réseau de chaleur . Tarification R1 x Part variable
-            - sinon: combustibles . réseau de chaleur . Coût * combustibles . réseau de chaleur . Part variable
+            - sinon: combustibles . réseau de chaleur . coût * combustibles . réseau de chaleur . part variable
           unité: €TTC/kWh
-        Tarification connue:
+        tarification connue:
           par défaut: non
           #une possibilité:
           #  - "'oui'"
@@ -548,52 +548,52 @@ combustibles:
           unité: €/kWh
         Tarification R1 x Part variable:
           unité: €/kWh
-        Coût:
+        coût:
           par défaut: caractéristique réseau de chaleur . prix moyen / 1000
           unité: €/kWh
-        Part fixe:
+        part fixe:
           par défaut: caractéristique réseau de chaleur . part fixe
           unité: '%'
-        Part variable:
-          formule: 100% - Part fixe
+        part variable:
+          formule: 100% - part fixe
           unité: '%'
 
     réseau de froid:
       avec:
         abonnement:
-          formule: combustibles . réseau de froid . Coût * combustibles . réseau de froid . Part fixe
+          formule: combustibles . réseau de froid . coût * combustibles . réseau de froid . part fixe
           # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
           unité: €TTC/kWh
 
         consommation:
-          valeur: combustibles . réseau de froid . Coût * combustibles . réseau de froid . Part variable
+          valeur: combustibles . réseau de froid . coût * combustibles . réseau de froid . part variable
           unité: €TTC/kWh
-        Coût:
+        coût:
           par défaut: caractéristique réseau de froid . prix moyen / 1000
           unité: €/kWh
-        Part fixe:
+        part fixe:
           par défaut: caractéristique réseau de froid . part fixe
           unité: '%'
-        Part variable:
-          formule: 100% - Part fixe
+        part variable:
+          formule: 100% - part fixe
           unité: '%'
 
     granulés:
       avec:
         consommation:
-          valeur: (combustibles . granulés . Prix pour les granulés / 1000)
+          valeur: (combustibles . granulés . prix pour les granulés / 1000)
           unité: €TTC/kg
-        Type de conditionnement:
+        type de conditionnement:
           par défaut: "'Conditionné en sac'"
           une possibilité:
             - "'Conditionné en sac'"
             - "'Conditionné en vrac'"
           note: 'Source: ELCIMAI 2024'
-        Prix pour les granulés:
+        prix pour les granulés:
           par défaut:
             produit:
               - variations:
-                  - si: Type de conditionnement = 'Conditionné en sac'
+                  - si: type de conditionnement = 'Conditionné en sac'
                     alors: 330
                   - sinon: 365
               - 1 + TVA
@@ -607,9 +607,9 @@ combustibles:
     fioul:
       avec:
         consommation:
-          valeur: combustibles . fioul . Prix livraison incluse
+          valeur: combustibles . fioul . prix livraison incluse
           unité: €TTC/L
-        Prix livraison incluse:
+        prix livraison incluse:
           par défaut:
             somme:
               - produit:

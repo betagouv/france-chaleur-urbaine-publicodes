@@ -99,19 +99,19 @@ froid:
     P4 groupe froid:
       variations:
         - si: type de bâtiment = 'résidentiel'
-          alors: froid . investissement groupe froid résidentiel * PAC air-air indiv . facteur d'annuité
-        - sinon: froid . investissement groupe eau glacée tertiaire * PAC air-eau coll . facteur d'annuité
+          alors: froid . investissement groupe froid résidentiel * PAC air-air indiv . annuité
+        - sinon: froid . investissement groupe eau glacée tertiaire * PAC air-eau coll . annuité
     P4 réseau de froid:
       variations:
         - si:
             toutes ces conditions:
               - Inclure la climatisation
               - type de production de froid = 'Réseau de froid'
-          alors: réseau de froid . coûts . investissement par logement * réseau de froid . facteur d'annuité
+          alors: réseau de froid . coûts . investissement par logement * réseau de froid . annuité
         - sinon: 0
 
     aides réseau de froid amorties:
-      formule: réseau de froid . aides . Total * réseau de froid . facteur d'annuité
+      formule: réseau de froid . aides . total * réseau de froid . annuité
 
     aides réseau de froid:
       variations:
