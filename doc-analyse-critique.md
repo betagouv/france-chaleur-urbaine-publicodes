@@ -38,6 +38,14 @@
   front (éligibilité aides, efficacité BAR-TH-171) — voulus jusqu'à la
   migration UI.
 - ✅ Blocs commentés morts supprimés (Chaudière biomasse, MPR Supérieur).
+- ✅ **Convention de nommage** : plus d'apostrophes ni de majuscules (hors
+  acronymes) dans les nouvelles clés (`annuité`, `facteurs CO2`,
+  `ma prime rénov`, `coup de pouce`, `total`, `scope 1/2/3`, racines
+  pseudo-modes en lowercase…). Exceptions restantes = clés écrites par le
+  front (parametres-techniques, clés ` x ` canoniques) et namespaces
+  historiques, à renommer lors de la migration du front.
+- ✅ `compat.publicodes` aplati : une ligne par alias
+  (`ancienne clé: nouvelle clé`), 2 655 → 1 494 lignes.
 - ✅ `Ma prime rénov'`/`renov'` harmonisé (l'unique variante accentuée était
   dans un bloc mort supprimé).
 - 💤 **Unités hétérogènes — décision : ne pas y toucher pour l'instant.**
