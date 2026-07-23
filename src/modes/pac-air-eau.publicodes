@@ -231,6 +231,7 @@ PAC air-eau indiv:
                   - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
               alors: 3000 €
           unité: €
+          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
         Coup de pouce:
           variations:
             - si: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage

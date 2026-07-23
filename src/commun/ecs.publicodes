@@ -297,6 +297,7 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
               - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
           alors: 2000 €
       unité: €
+      note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
     Coup de pouce:
       variations:
         - si:
@@ -310,6 +311,7 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
               - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
           alors: 5000 €
       unité: €
+      note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
     CEE:
       variations:
         - si: Paramètres économiques . Aides . Aides x Éligible CEE

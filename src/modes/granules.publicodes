@@ -221,6 +221,7 @@ poêle à granulés:
                   - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
               alors: 1000 €
           unité: €
+          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
         Coup de pouce: &aides-coup-de-pouce
           applicable si:
             est défini: Coup de pouce

@@ -2,6 +2,7 @@
 # x sous-zones climatiques.
 
 consommation spécifique climatisation:
+  note: 'Source : ADEME 2024'
   variations:
     - si:
         toutes ces conditions:

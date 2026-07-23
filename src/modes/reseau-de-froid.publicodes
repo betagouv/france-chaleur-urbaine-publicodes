@@ -122,6 +122,7 @@ réseau de froid:
                   - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
               alors: 400 €
           unité: €
+          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
         Coup de pouce:
           applicable si:
             est défini: Coup de pouce

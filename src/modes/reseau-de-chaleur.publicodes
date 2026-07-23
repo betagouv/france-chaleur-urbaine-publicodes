@@ -269,6 +269,7 @@ réseau de chaleur:
                   - Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Intermédiaire"
               alors: 400 €
           unité: €
+          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
         Coup de pouce:
           variations:
             - si:
@@ -282,6 +283,7 @@ réseau de chaleur:
                   - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Modeste'
               alors: 450 €
           unité: €
+          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
         CEE:
           produit:
             - variations:
