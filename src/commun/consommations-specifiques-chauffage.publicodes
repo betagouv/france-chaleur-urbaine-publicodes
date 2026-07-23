@@ -2,412 +2,252 @@
 # « consommation spécifique chauffage ») : DPE et périodes constructives
 # résidentiel, types tertiaires x normes thermiques.
 
-ratios . CHAF A:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'DPE'
-      - DPE = "A"
-  remplace: consommation spécifique chauffage
-  valeur: 45
-  unité: kWh/m2/an
+consommation spécifique chauffage:
+  variations:
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "A"
+      alors: 45 kWh/m2/an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "B"
+      alors: 70 kWh/m2/an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "C"
+      alors: 115 kWh/m2/an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "D"
+      alors: 165 kWh/m2/an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "E"
+      alors: 215 kWh/m2/an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "F"
+      alors: 275 kWh/m2/an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'DPE'
+          - DPE = "G"
+      alors: 300 kWh/m2/an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RE2020 - Après 2020"
+      alors: 0.18 W/m3.°C
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RT2012 - Entre 2012 et 2020"
+      alors: 0.22 W/m3.°C
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RT2005 - Entre 2005 et 2012"
+      alors: 0.65 W/m3.°C
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "RT2000 - Entre 2000 et 2005"
+      alors: 0.75 W/m3.°C
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "de 1990 à 2000"
+      alors: 1 W/m3.°C
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "de 1974 à 1990"
+      alors: 1.4 W/m3.°C
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'résidentiel'
+          - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
+          - normes thermiques et âge du bâtiment = "avant 1974"
+      alors: 2 W/m3.°C
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 50 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 65 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 95 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 55 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 81 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 55 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 74 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 100 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 100 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 106 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 45 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 55 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 83 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 50 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 65 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 81 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 30 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 45 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 97 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 35 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 55 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 100 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 55 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 75 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = 'tertiaire'
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 110 kWhef/m2.an
 
-ratios . CHAF B:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'DPE'
-      - DPE = "B"
-  remplace: consommation spécifique chauffage
-  valeur: 70
-  unité: kWh/m2/an
-
-ratios . CHAF C:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'DPE'
-      - DPE = "C"
-  remplace: consommation spécifique chauffage
-  valeur: 115
-  unité: kWh/m2/an
-
-ratios . CHAF D:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'DPE'
-      - DPE = "D"
-  remplace: consommation spécifique chauffage
-  valeur: 165
-  unité: kWh/m2/an
-
-ratios . CHAF E:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'DPE'
-      - DPE = "E"
-  remplace: consommation spécifique chauffage
-  valeur: 215
-  unité: kWh/m2/an
-
-ratios . CHAF F:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'DPE'
-      - DPE = "F"
-  remplace: consommation spécifique chauffage
-  valeur: 275
-  unité: kWh/m2/an
-
-ratios . CHAF G:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'DPE'
-      - DPE = "G"
-  remplace: consommation spécifique chauffage
-  valeur: 300
-  unité: kWh/m2/an
-
-ratios . CHAF RE2020 Après 2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
-      - normes thermiques et âge du bâtiment = "RE2020 - Après 2020"
-  remplace: consommation spécifique chauffage
-  valeur: 0.18
-  unité: W/m3.°C
-
-ratios . CHAF RT2012 Entre 2012 et 2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
-      - normes thermiques et âge du bâtiment = "RT2012 - Entre 2012 et 2020"
-  remplace: consommation spécifique chauffage
-  valeur: 0.22
-  unité: W/m3.°C
-
-ratios . CHAF RT2005 Entre 2005 et 2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
-      - normes thermiques et âge du bâtiment = "RT2005 - Entre 2005 et 2012"
-  remplace: consommation spécifique chauffage
-  valeur: 0.65
-  unité: W/m3.°C
-
-ratios . CHAF RT2000 Entre 2000 et 2005:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
-      - normes thermiques et âge du bâtiment = "RT2000 - Entre 2000 et 2005"
-  remplace: consommation spécifique chauffage
-  valeur: 0.75
-  unité: W/m3.°C
-
-ratios . CHAF de 1990 à 2000:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
-      - normes thermiques et âge du bâtiment = "de 1990 à 2000"
-  remplace: consommation spécifique chauffage
-  valeur: 1
-  unité: W/m3.°C
-
-ratios . CHAF de 1974 à 1990:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
-      - normes thermiques et âge du bâtiment = "de 1974 à 1990"
-  remplace: consommation spécifique chauffage
-  valeur: 1.4
-  unité: W/m3.°C
-
-ratios . CHAF avant 1974:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'résidentiel'
-      - méthode résidentiel = 'Normes thermiques et âge du bâtiment'
-      - normes thermiques et âge du bâtiment = "avant 1974"
-  remplace: consommation spécifique chauffage
-  valeur: 2
-  unité: W/m3.°C
-
-ratios . CHAF Bureaux RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Bureaux"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 50
-  unité: kWhef/m2.an
-
-ratios . CHAF Bureaux RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Bureaux"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 65
-  unité: kWhef/m2.an
-
-ratios . CHAF Bureaux Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Bureaux"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 95
-  unité: kWhef/m2.an
-
-ratios . CHAF Enseignement secondaire RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Enseignement secondaire"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 40
-  unité: kWhef/m2.an
-
-ratios . CHAF Enseignement secondaire RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Enseignement secondaire"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 55
-  unité: kWhef/m2.an
-
-ratios . CHAF Enseignement secondaire Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Enseignement secondaire"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 81
-  unité: kWhef/m2.an
-
-ratios . CHAF Commerces RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Commerces"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 40
-  unité: kWhef/m2.an
-
-ratios . CHAF Commerces RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Commerces"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 55
-  unité: kWhef/m2.an
-
-ratios . CHAF Commerces Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Commerces"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 74
-  unité: kWhef/m2.an
-
-ratios . CHAF Café, restaurant RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Café, restaurant"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 100
-  unité: kWhef/m2.an
-
-ratios . CHAF Café, restaurant RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Café, restaurant"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 100
-  unité: kWhef/m2.an
-
-ratios . CHAF Café, restaurant Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Café, restaurant"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 106
-  unité: kWhef/m2.an
-
-ratios . CHAF Hôtel RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Hôtel"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 45
-  unité: kWhef/m2.an
-
-ratios . CHAF Hôtel RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Hôtel"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 55
-  unité: kWhef/m2.an
-
-ratios . CHAF Hôtel Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Hôtel"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 83
-  unité: kWhef/m2.an
-
-ratios . CHAF Enseignement primaire RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Enseignement primaire"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 50
-  unité: kWhef/m2.an
-
-ratios . CHAF Enseignement primaire RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Enseignement primaire"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 65
-  unité: kWhef/m2.an
-
-ratios . CHAF Enseignement primaire Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Enseignement primaire"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 81
-  unité: kWhef/m2.an
-
-ratios . CHAF Sport RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Sport"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 30
-  unité: kWhef/m2.an
-
-ratios . CHAF Sport RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Sport"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 45
-  unité: kWhef/m2.an
-
-ratios . CHAF Sport Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Sport"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 97
-  unité: kWhef/m2.an
-
-ratios . CHAF Santé RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Santé"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 35
-  unité: kWhef/m2.an
-
-ratios . CHAF Santé RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Santé"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 55
-  unité: kWhef/m2.an
-
-ratios . CHAF Santé Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "Santé"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 100
-  unité: kWhef/m2.an
-
-ratios . CHAF EHPAD RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "EHPAD"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique chauffage
-  valeur: 55
-  unité: kWhef/m2.an
-
-ratios . CHAF EHPAD RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "EHPAD"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique chauffage
-  valeur: 75
-  unité: kWhef/m2.an
-
-ratios . CHAF EHPAD Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = 'tertiaire'
-      - méthode tertiaire = "EHPAD"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique chauffage
-  valeur: 110
-  unité: kWhef/m2.an

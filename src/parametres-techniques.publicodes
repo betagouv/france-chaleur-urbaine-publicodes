@@ -111,8 +111,6 @@ Température émetteurs:
     - "'65'"
     - "'Plancher'"
     - "'Radiateur'"
-Température émetteurs delta: Température émetteurs delta
-
 ###### Besoins calculés
 
 méthode de calcul pour les besoins en chauffage et refroidissement:
@@ -183,8 +181,6 @@ normes thermiques tertiaire:
     - "'RT2012'"
     - "'Moyenne française 2021'"
 
-consommation spécifique chauffage:
-  consommation spécifique chauffage # maj depuis les ratios techniques
 besoins chauffage par appartement:
   note: Besoin_cha
   par défaut:
@@ -195,9 +191,6 @@ besoins chauffage par appartement:
           - sinon: consommation spécifique chauffage * surface logement type tertiaire * degré jours unifié spécifique chaud * 24 * ratios . GNRL Hauteur / 1000
       - 1 + 0.09 * augmenter la température de chauffe
   unité: kWh
-consommation spécifique ECS:
-  note: Besoin_ECS
-  par défaut: consommation spécifique ECS # maj depuis les ratios techniques
 besoins eau chaude sanitaire par appartement:
   note: Besoin_raf
   par défaut:
@@ -210,8 +203,6 @@ besoins eau chaude sanitaire par appartement:
             - sinon: consommation spécifique ECS * surface logement type tertiaire
       - sinon: 0
   unité: kWh
-consommation spécifique climatisation:
-  consommation spécifique climatisation # maj depuis les ratios techniques
 besoins en climatisation par appartement:
   par défaut:
     variations:

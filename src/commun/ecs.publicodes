@@ -2,6 +2,174 @@
 # quand l'équipement de chauffage ne produit pas l'eau chaude sanitaire.
 # Valeurs communes à tous les modes de chauffage.
 
+consommation spécifique ECS:
+  note: Besoin_ECS
+  variations:
+    - si: type de bâtiment = "résidentiel"
+      alors: 360 kWh/habitant
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Bureaux"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Enseignement secondaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 0 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 0 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Commerces"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 0 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 15 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 15 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Café, restaurant"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 15 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Hôtel"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 12.5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 12.5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Enseignement primaire"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 12.5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 10 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 10 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Sport"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 10 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 20 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 20 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "Santé"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 20 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RE2020"
+      alors: 30 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "RT2012"
+      alors: 30 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - type de bâtiment = "tertiaire"
+          - méthode tertiaire = "EHPAD"
+          - normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 30 kWhef/m2.an
+
 ###### Production différenciée d'ECS par lgt / tertiaire
 
 # valeurs communes parmi tous les types d'installation
@@ -147,282 +315,6 @@ Calcul Eco . Montant des aides par logement tertiaire . Panneau solaire thermiqu
 ratios . ECS Quantité d'ECS produite par kWh:
   valeur: 19.1
   unité: L/kWh
-
-ratios . ECS Résidentiel:
-  applicable si: type de bâtiment = "résidentiel"
-  remplace: consommation spécifique ECS
-  valeur: 360
-  unité: kWh/habitant
-
-ratios . ECS Bureaux RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Bureaux"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 7
-  unité: kWhef/m2.an
-
-ratios . ECS Bureaux RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Bureaux"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 7
-  unité: kWhef/m2.an
-
-ratios . ECS Bureaux Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Bureaux"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 7
-  unité: kWhef/m2.an
-
-ratios . ECS Enseignement secondaire RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Enseignement secondaire"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 5
-  unité: kWhef/m2.an
-
-ratios . ECS Enseignement secondaire RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Enseignement secondaire"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 5
-  unité: kWhef/m2.an
-
-ratios . ECS Enseignement secondaire Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Enseignement secondaire"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 5
-  unité: kWhef/m2.an
-
-ratios . ECS Commerces RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Commerces"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 0
-  unité: kWhef/m2.an
-
-ratios . ECS Commerces RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Commerces"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 0
-  unité: kWhef/m2.an
-
-ratios . ECS Commerces Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Commerces"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 0
-  unité: kWhef/m2.an
-
-ratios . ECS Café, restaurant RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Café, restaurant"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 15
-  unité: kWhef/m2.an
-
-ratios . ECS Café, restaurant RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Café, restaurant"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 15
-  unité: kWhef/m2.an
-
-ratios . ECS Café, restaurant Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Café, restaurant"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 15
-  unité: kWhef/m2.an
-
-ratios . ECS Hôtel RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Hôtel"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 40
-  unité: kWhef/m2.an
-
-ratios . ECS Hôtel RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Hôtel"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 40
-  unité: kWhef/m2.an
-
-ratios . ECS Hôtel Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Hôtel"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 40
-  unité: kWhef/m2.an
-
-ratios . ECS Enseignement primaire RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Enseignement primaire"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 12.5
-  unité: kWhef/m2.an
-
-ratios . ECS Enseignement primaire RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Enseignement primaire"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 12.5
-  unité: kWhef/m2.an
-
-ratios . ECS Enseignement primaire Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Enseignement primaire"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 12.5
-  unité: kWhef/m2.an
-
-ratios . ECS Sport RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Sport"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 10
-  unité: kWhef/m2.an
-
-ratios . ECS Sport RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Sport"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 10
-  unité: kWhef/m2.an
-
-ratios . ECS Sport Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Sport"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 10
-  unité: kWhef/m2.an
-
-ratios . ECS Santé RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Santé"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 20
-  unité: kWhef/m2.an
-
-ratios . ECS Santé RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Santé"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 20
-  unité: kWhef/m2.an
-
-ratios . ECS Santé Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "Santé"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 20
-  unité: kWhef/m2.an
-
-ratios . ECS EHPAD RE2020:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "EHPAD"
-      - normes thermiques tertiaire = "RE2020"
-  remplace: consommation spécifique ECS
-  valeur: 30
-  unité: kWhef/m2.an
-
-ratios . ECS EHPAD RT2012:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "EHPAD"
-      - normes thermiques tertiaire = "RT2012"
-  remplace: consommation spécifique ECS
-  valeur: 30
-  unité: kWhef/m2.an
-
-ratios . ECS EHPAD Moyenne française 2021:
-  applicable si:
-    toutes ces conditions:
-      - type de bâtiment = "tertiaire"
-      - méthode tertiaire = "EHPAD"
-      - normes thermiques tertiaire = "Moyenne française 2021"
-  remplace: consommation spécifique ECS
-  valeur: 30
-  unité: kWhef/m2.an
 
 facteur d'annuité chauffe-eau électrique:
   description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau électrique (fonction Excel PMT)

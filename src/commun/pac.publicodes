@@ -2,6 +2,21 @@
 # consommations auxiliaires, deltas de température des émetteurs (dérogation),
 # et PAC à absorption gaz.
 
+Température émetteurs delta:
+  variations:
+    - si: Température émetteurs = "35"
+      alors: 0
+    - si: Température émetteurs = "45"
+      alors: -0.6
+    - si: Température émetteurs = "55"
+      alors: -1.2
+    - si: Température émetteurs = "65"
+      alors: -1.6
+    - si: Température émetteurs = "Plancher"
+      alors: 0
+    - si: Température émetteurs = "Radiateur"
+      alors: -1.2
+
 ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air:
   valeur: 99.8%
 
@@ -10,33 +25,3 @@ ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air:
 
 ratios . PAC GNRL SCOP mini:
   valeur: 1.8
-
-ratios . PAC DEROG3 35:
-  applicable si: Température émetteurs = "35"
-  remplace: Température émetteurs delta
-  valeur: 0
-
-ratios . PAC DEROG3 45:
-  applicable si: Température émetteurs = "45"
-  remplace: Température émetteurs delta
-  valeur: -0.6
-
-ratios . PAC DEROG3 55:
-  applicable si: Température émetteurs = "55"
-  remplace: Température émetteurs delta
-  valeur: -1.2
-
-ratios . PAC DEROG3 65:
-  applicable si: Température émetteurs = "65"
-  remplace: Température émetteurs delta
-  valeur: -1.6
-
-ratios . PAC DEROG3 Plancher:
-  applicable si: Température émetteurs = "Plancher"
-  remplace: Température émetteurs delta
-  valeur: 0
-
-ratios . PAC DEROG3 Radiateur:
-  applicable si: Température émetteurs = "Radiateur"
-  remplace: Température émetteurs delta
-  valeur: -1.2
