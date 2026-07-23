@@ -4,7 +4,7 @@
 # table de migration de l'UI. À supprimer (version majeure) une fois le front
 # migré. Attention : un alias ne propage pas les ÉCRITURES ; les clés que le
 # front écrit restent canoniques sous leur nom historique (voir
-# doc-architecture.md).
+# DOCUMENTATION.md).
 
 Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll: chaudière à granulés . aides
 Calcul Eco . Montant des aides par logement tertiaire . Chaudière à granulés coll . CEE: chaudière à granulés . aides . CEE

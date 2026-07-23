@@ -19,7 +19,7 @@ import type { RuleName } from "../publicodes-build";
  * (`pnpm test`). Ne mettre à jour les snapshots (`vitest run -u`) que pour un
  * changement de comportement volontaire et documenté.
  *
- * NOTE : les bugs connus listés dans doc-refacto-modes.md (§1.6) sont
+ * NOTE : les bugs connus listés dans DOCUMENTATION.md (« Bugs connus figés ») sont
  * volontairement figés ici tels quels — ils seront corrigés après la
  * réorganisation, avec mise à jour explicite des snapshots.
  */
