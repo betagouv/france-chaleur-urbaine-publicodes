@@ -49,6 +49,12 @@ fioul indiv:
         rendement chaudière:
           valeur: 73%
           unité: '%'
+    facteur d'annuité: &facteur-annuite-fioul
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -298,15 +304,15 @@ fioul indiv:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur FIOUL IND
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: &bilan-p4ecs-solaire-thermique
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+              alors: coûts . Investissement ballon ECS solaire panneau inclus * facteur d'annuité chauffe-eau solaire
             - sinon: 0
 
         P4: &bilan-p4
@@ -317,7 +323,7 @@ fioul indiv:
             - Calcul Bilan . P4 groupe froid
             - Calcul Bilan . P4 Réseau de froid
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur FIOUL IND
+          formule: aides . Total * facteur d'annuité
 
         aides: &bilan-aides
           somme:
@@ -409,6 +415,7 @@ fioul coll:
         rendement chaudière chauffage:
           valeur: 71%
           unité: '%'
+    facteur d'annuité: *facteur-annuite-fioul
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -538,16 +545,16 @@ fioul coll:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur FIOUL COLL
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
         P4: *bilan-p4
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur FIOUL COLL
+          formule: aides . Total * facteur d'annuité
 
         aides: *bilan-aides
         P4 moins aides: *bilan-p4-moins-aides

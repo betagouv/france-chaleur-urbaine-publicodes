@@ -45,7 +45,7 @@ sous zone climatique:
 
 ###### Réseaux de chaleur et de froid
 contenu CO2 réseau de chaleur:
-  par défaut: caractéristique réseau de chaleur . contenu CO2 ACV - ratios environnementaux . CO2 INS RCU
+  par défaut: caractéristique réseau de chaleur . contenu CO2 ACV - réseau de chaleur . ratios . CO2 installation
   note: Contenu_CO2_RCU
 ###### Choix du bâtiment
 type de bâtiment:

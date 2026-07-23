@@ -423,3 +423,18 @@ ratios . ECS EHPAD Moyenne française 2021:
   remplace: consommation spécifique ECS
   valeur: 30
   unité: kWhef/m2.an
+
+facteur d'annuité chauffe-eau électrique:
+  description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau électrique (fonction Excel PMT)
+  variations: &facteur-chauffe-eau
+    - si: ratios économiques . Amortissement x Taux actualisation != 0
+      alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** durée - 1)
+    - sinon: 1 / durée
+  avec:
+    durée: ratios . CHAUF EAU ELEC Durée de vie
+
+facteur d'annuité chauffe-eau solaire:
+  description: Annuité pour 1 € investi sur la durée de vie du chauffe-eau solaire (fonction Excel PMT)
+  variations: *facteur-chauffe-eau
+  avec:
+    durée: ratios . CHAUF EAU SOLAIRE Durée de vie

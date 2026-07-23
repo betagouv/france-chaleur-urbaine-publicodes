@@ -10,6 +10,9 @@ réseau de froid:
     ratios:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
+        durée de vie:
+          valeur: 30
+          unité: an
         conso auxiliaire:
           valeur: 99.8%
           unité: '%'
@@ -22,6 +25,12 @@ réseau de froid:
         rendement sous station:
           valeur: 93%
           unité: '%'
+    facteur d'annuité:
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -121,10 +130,6 @@ réseau de froid:
               alors: Ma prime renov' + Coup de pouce + CEE
             - sinon: 0
           unité: €
-
-ratios . RFU Durée de vie:
-  valeur: 30
-  unité: an
 
 ###### Ratios économiques (investissement)
 

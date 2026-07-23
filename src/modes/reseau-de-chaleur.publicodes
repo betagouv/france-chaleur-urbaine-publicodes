@@ -10,7 +10,16 @@ réseau de chaleur:
     ratios:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
-        CO2 installation: ratios environnementaux . CO2 INS RCU
+        CO2 installation:
+          formule: 0.004
+          unité: kgCO2e/kWh
+        durée avant renouvellement:
+          valeur: 30
+          unité: an
+          note : durée d'amortissement du raccordement de la sous-station au bâtiment
+        durée sous station:
+          valeur: 22
+          unité: an
         conso auxiliaire ECS:
           valeur: 99%
           unité: '%'
@@ -29,6 +38,18 @@ réseau de chaleur:
         rendement sous station chauffage:
           valeur: 86%
           unité: '%'
+    facteur d'annuité raccordement:
+      description: Annuité pour 1 € investi sur la durée de renouvellement du raccordement (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée avant renouvellement) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée avant renouvellement - 1)
+        - sinon: 1 / ratios . durée avant renouvellement
+    facteur d'annuité sous station:
+      description: Annuité pour 1 € investi sur la durée de vie de la sous-station (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée sous station) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée sous station - 1)
+        - sinon: 1 / ratios . durée sous station
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -467,18 +488,18 @@ réseau de chaleur:
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
 
         P4 raccordement:
-          formule: coûts . Investissement raccordement par logement type tertiaire * amortissement . facteur RCU renouvellement
+          formule: coûts . Investissement raccordement par logement type tertiaire * facteur d'annuité raccordement
 
         P4 reseau secondaire:
-          formule: coûts . Investissement reseau secondaire RCU par logement type tertiaire * amortissement . facteur RCU sous station
+          formule: coûts . Investissement reseau secondaire RCU par logement type tertiaire * facteur d'annuité sous station
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique:
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+              alors: coûts . Investissement ballon ECS solaire panneau inclus * facteur d'annuité chauffe-eau solaire
             - sinon: 0
         P4:
           somme:
@@ -489,7 +510,7 @@ réseau de chaleur:
             - Calcul Bilan . P4 groupe froid
             - Calcul Bilan . P4 Réseau de froid
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur RCU renouvellement
+          formule: aides . Total * facteur d'annuité raccordement
 
         aides:
           somme:
@@ -518,15 +539,6 @@ réseau de chaleur:
           somme:
             - total sans aides
             - (- P4)
-
-ratios . RCU Durée avant renouvellement:
-  valeur: 30
-  unité: an
-  note : durée d'amortissement du raccordement de la sous-station au bâtiment
-
-ratios . RCU Durée sous station:
-  valeur : 22
-  unité : an
 
 ###### Ratios économiques (investissement)
 
@@ -615,10 +627,6 @@ ratios économiques . Réseaux x Coût raccordement RCU SST x Tertiaire:
   note: 'source: FEDENE 2024'
 
 ###### Ratios environnementaux
-
-ratios environnementaux . CO2 INS RCU:
-  formule: 0.004
-  unité: kgCO2e/kWh
 
 ###### Investissement
 

@@ -2332,3 +2332,12 @@ ratios économiques . PAC x eau-eau non réversible x Individuel:
 
 ratios économiques . Radiateur électrique x Individuel x investissement total:
   valeur: radiateur électrique . ratios . investissement équipement
+
+ratios . RAD ELEC INDIV Durée de vie:
+  valeur: radiateur électrique . ratios . durée de vie
+
+ratios . RCU Durée avant renouvellement:
+  valeur: réseau de chaleur . ratios . durée avant renouvellement
+
+ratios . RFU Durée de vie:
+  valeur: réseau de froid . ratios . durée de vie

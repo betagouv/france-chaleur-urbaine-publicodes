@@ -35,6 +35,12 @@ PAC air-eau indiv:
           unité: €TTC/MWh
         puissance unitaire réversible:
           valeur: 2.5
+    facteur d'annuité: &facteur-annuite-pac-air-eau
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -265,15 +271,15 @@ PAC air-eau indiv:
         P2: entretien . petit entretien P2 par logement tertiaire
         P3: entretien . gros entretien P3 par logement tertiaire
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur PAC AIR EAU indiv
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: &bilan-p4ecs-solaire-thermique
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+              alors: coûts . Investissement ballon ECS solaire panneau inclus * facteur d'annuité chauffe-eau solaire
             - sinon: 0
 
         P4: &bilan-p4
@@ -282,7 +288,7 @@ PAC air-eau indiv:
             - P4ECS Ballon électrique
             - P4ECS Solaire Thermique
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur PAC AIR EAU indiv
+          formule: aides . Total * facteur d'annuité
         aides: aides spécifiques
         P4 moins aides: &bilan-p4-moins-aides
           le maximum de:
@@ -334,6 +340,7 @@ PAC air-eau coll:
           par défaut: 9.8 *  (1 + Paramètres économiques . Petit entretien P2 . TVA)
           unité: €TTC/MWh
         puissance unitaire réversible: ratios . PAC AIR EAU Puissance unitaire réversible coll
+    facteur d'annuité: *facteur-annuite-pac-air-eau
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -467,16 +474,16 @@ PAC air-eau coll:
         P2: entretien . petit entretien P2 par logement tertiaire
         P3: entretien . gros entretien P3 par logement tertiaire
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur PAC AIR EAU coll
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
         P4: *bilan-p4
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur PAC AIR EAU coll
+          formule: aides . Total * facteur d'annuité
         aides: aides spécifiques
         P4 moins aides: *bilan-p4-moins-aides
         total sans aides: *bilan-total-sans-aides

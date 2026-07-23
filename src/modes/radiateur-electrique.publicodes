@@ -14,6 +14,9 @@ radiateur électrique:
           formule: 0.015
           unité: kgCO2e/kWh
           note: 'Source: INIES 2022'
+        durée de vie:
+          valeur: 25
+          unité: an
         conso combustible:
           valeur: 100%
           unité: '%'
@@ -33,6 +36,12 @@ radiateur électrique:
         rendement:
           valeur: 96%
           unité: '%'
+    facteur d'annuité:
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
     installation:
       avec:
         production eau chaude sanitaire: non
@@ -257,15 +266,15 @@ radiateur électrique:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur RAD ELEC INDIV
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique:
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+              alors: coûts . Investissement ballon ECS solaire panneau inclus * facteur d'annuité chauffe-eau solaire
             - sinon: 0
 
         P4:
@@ -276,7 +285,7 @@ radiateur électrique:
             - Calcul Bilan . P4 groupe froid
             - Calcul Bilan . P4 Réseau de froid
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur RAD ELEC INDIV
+          formule: aides . Total * facteur d'annuité
 
         aides:
           somme:
@@ -300,10 +309,6 @@ radiateur électrique:
           somme:
             - total sans aides
             - (- aides)
-
-ratios . RAD ELEC INDIV Durée de vie:
-  valeur: 25
-  unité: an
 
 ###### Ratios économiques (investissement)
 

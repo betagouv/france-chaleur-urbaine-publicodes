@@ -34,6 +34,12 @@ PAC eau-eau indiv:
           unité: €TTC/MWh
         puissance unitaire:
           valeur: 8
+    facteur d'annuité: &facteur-annuite-pac-eau-eau
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -272,15 +278,15 @@ PAC eau-eau indiv:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur PAC EAU EAU
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: &bilan-p4ecs-solaire-thermique
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+              alors: coûts . Investissement ballon ECS solaire panneau inclus * facteur d'annuité chauffe-eau solaire
             - sinon: 0
 
         P4: &bilan-p4
@@ -291,7 +297,7 @@ PAC eau-eau indiv:
             - Calcul Bilan . P4 groupe froid
             - Calcul Bilan . P4 Réseau de froid
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur PAC EAU EAU
+          formule: aides . Total * facteur d'annuité
 
         aides:
           somme:
@@ -325,6 +331,9 @@ PAC eau-eau coll:
     ratios:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
+        durée de vie puits géothermiques:
+          valeur: 50
+          unité: an
         CO2 installation:
           formule: 615
           unité: kgCO2e/kW
@@ -342,6 +351,13 @@ PAC eau-eau coll:
           unité: €TTC/MWh
         puissance unitaire:
           valeur: 46.52
+    facteur d'annuité: *facteur-annuite-pac-eau-eau
+    facteur d'annuité puits:
+      description: Annuité pour 1 € investi sur la durée de vie des puits géothermiques (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie puits géothermiques) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie puits géothermiques - 1)
+        - sinon: 1 / ratios . durée de vie puits géothermiques
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -524,11 +540,11 @@ PAC eau-eau coll:
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4specForages:
           produit:
-            - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde * amortissement . facteur PAC EAU EAU puits
+            - ratios économiques . PAC x eau-eau non réversible . Coûts captage sous-sol champs sur sonde * facteur d'annuité puits
             - 1 / nombre de logements dans l'immeuble concerné
         P4specPAC:
           produit:
-            - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol * amortissement . facteur PAC EAU EAU
+            - ratios économiques . PAC x eau-eau non réversible . Coûts hors captage sous-sol * facteur d'annuité
             - 1 + ratios économiques . Investissement x Pose et mise en place de l'installation
             - 1 / nombre de logements dans l'immeuble concerné
         P4spec:
@@ -537,16 +553,16 @@ PAC eau-eau coll:
              - P4specPAC
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
         P4: *bilan-p4
         aides spécifiques PAC:
-          formule: aides . PAC * amortissement . facteur PAC EAU EAU
+          formule: aides . PAC * facteur d'annuité
 
         aides spécifiques forages:
-          formule: aides . forage * amortissement . facteur PAC EAU EAU puits
+          formule: aides . forage * facteur d'annuité puits
 
         aides:
           somme:
@@ -557,10 +573,6 @@ PAC eau-eau coll:
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
         total sans installation: *bilan-total-sans-installation
-
-PAC eau-eau indiv . ratios . durée de vie puits géothermiques:
-  valeur: 50
-  unité: an
 
 ###### Ratios économiques (investissement)
 

@@ -53,6 +53,12 @@ gaz indiv avec cond:
         rendement chaudière chauffage:
           valeur: 85%
           unité: '%'
+    facteur d'annuité: &facteur-annuite-gaz
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: ratios économiques . Amortissement x Taux actualisation != 0
+          alors: ratios économiques . Amortissement x Taux actualisation * ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie) / ((1 + ratios économiques . Amortissement x Taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -304,15 +310,15 @@ gaz indiv avec cond:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ IND COND
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: &bilan-p4ecs-solaire-thermique
           variations:
             - si: type de production ECS = 'Solaire thermique'
-              alors: coûts . Investissement ballon ECS solaire panneau inclus * amortissement . facteur CHAUF EAU SOLAIRE
+              alors: coûts . Investissement ballon ECS solaire panneau inclus * facteur d'annuité chauffe-eau solaire
             - sinon: 0
 
         P4: &bilan-p4
@@ -323,7 +329,7 @@ gaz indiv avec cond:
             - Calcul Bilan . P4 groupe froid
             - Calcul Bilan . P4 Réseau de froid
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur GAZ IND COND
+          formule: aides . Total * facteur d'annuité
 
         aides: &bilan-aides
           somme:
@@ -393,6 +399,7 @@ gaz indiv sans cond:
         rendement chaudière:
           valeur: 75%
           unité: '%'
+    facteur d'annuité: *facteur-annuite-gaz
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -480,16 +487,16 @@ gaz indiv sans cond:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ IND SCOND
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
         P4: *bilan-p4
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur GAZ IND SCOND
+          formule: aides . Total * facteur d'annuité
 
         aides: *bilan-aides
         P4 moins aides: *bilan-p4-moins-aides
@@ -564,6 +571,7 @@ gaz coll avec cond:
         rendement chaudière chauffage:
           valeur: 80%
           unité: '%'
+    facteur d'annuité: *facteur-annuite-gaz
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -711,16 +719,16 @@ gaz coll avec cond:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
+          formule: coûts . Investissement équipement par logement type tertiaire * facteur d'annuité
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
         P4: *bilan-p4
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur GAZ COLL COND
+          formule: aides . Total * facteur d'annuité
 
         aides: *bilan-aides
         P4 moins aides: *bilan-p4-moins-aides
@@ -792,6 +800,7 @@ gaz coll sans cond:
         rendement chaudière:
           valeur: 73%
           unité: '%'
+    facteur d'annuité: *facteur-annuite-gaz
     installation:
       avec:
         production eau chaude sanitaire: Production eau chaude sanitaire
@@ -907,16 +916,16 @@ gaz coll sans cond:
         P2: entretien . petit entretien P2 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P2
         P3: entretien . gros entretien P3 par logement tertiaire + Calcul Bilan . Surcout Réseau de froid P3
         P4spec:
-          formule: coûts . Investissement équipement par logement type tertiaire * amortissement . facteur GAZ COLL COND
+          formule: coûts . Investissement équipement par logement type tertiaire * gaz coll avec cond . facteur d'annuité  # bug figé : durée de vie de la variante avec condensation
 
         P4ECS Ballon électrique:
-          formule: coûts . Investissement ballon ECS à accumulation * amortissement . facteur CHAUF EAU ELEC
+          formule: coûts . Investissement ballon ECS à accumulation * facteur d'annuité chauffe-eau électrique
 
         P4ECS Solaire Thermique: *bilan-p4ecs-solaire-thermique
 
         P4: *bilan-p4
         aides spécifiques:
-          formule: aides . Total * amortissement . facteur GAZ COLL COND
+          formule: aides . Total * gaz coll avec cond . facteur d'annuité  # bug figé : durée de vie de la variante avec condensation
 
         aides: *bilan-aides
         P4 moins aides: *bilan-p4-moins-aides
