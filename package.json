@@ -33,6 +33,7 @@
     "bench": "pnpm compile && node --experimental-strip-types ./bench/index.ts",
     "export-csv": "node --experimental-strip-types ./scripts/export-csv.ts",
     "build": "pnpm compile",
+    "pack:local": "pnpm compile && pnpm pack --out publicodes-local.tgz",
     "doc:build": "pnpm compile && pnpm --filter ./doc build"
   },
   "peerDependencies": {
