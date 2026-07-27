@@ -320,6 +320,7 @@ const envSuffixes = [
   'auxiliaires et combustible électrique',
   'ECS solaire thermique',
   'ECS avec ballon électrique',
+  'Scope 1',
   'Scope 2',
   'Scope 3',
   'Total',

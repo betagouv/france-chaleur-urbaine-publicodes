@@ -153,6 +153,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Réseaux de chaleur . petit entretien 
 env . Installation x Chaudière à granulés coll x Collectif: chaudière à granulés . environnement
 env . Installation x Chaudière à granulés coll x Collectif . ECS avec ballon électrique: chaudière à granulés . environnement . ECS avec ballon électrique
 env . Installation x Chaudière à granulés coll x Collectif . ECS solaire thermique: chaudière à granulés . environnement . ECS solaire thermique
+env . Installation x Chaudière à granulés coll x Collectif . Scope 1: chaudière à granulés . environnement . scope 1
 env . Installation x Chaudière à granulés coll x Collectif . Scope 2: chaudière à granulés . environnement . scope 2
 env . Installation x Chaudière à granulés coll x Collectif . Scope 3: chaudière à granulés . environnement . scope 3
 env . Installation x Chaudière à granulés coll x Collectif . Total: chaudière à granulés . environnement . total
@@ -198,6 +199,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . PAC eau-eau coll . petit entretien P2 
 env . Installation x Poêle à granulés indiv x Individuel: poêle à granulés . environnement
 env . Installation x Poêle à granulés indiv x Individuel . ECS avec ballon électrique: poêle à granulés . environnement . ECS avec ballon électrique
 env . Installation x Poêle à granulés indiv x Individuel . ECS solaire thermique: poêle à granulés . environnement . ECS solaire thermique
+env . Installation x Poêle à granulés indiv x Individuel . Scope 1: poêle à granulés . environnement . scope 1
 env . Installation x Poêle à granulés indiv x Individuel . Scope 2: poêle à granulés . environnement . scope 2
 env . Installation x Poêle à granulés indiv x Individuel . Scope 3: poêle à granulés . environnement . scope 3
 env . Installation x Poêle à granulés indiv x Individuel . Total: poêle à granulés . environnement . total
@@ -207,6 +209,7 @@ env . Installation x Poêle à granulés indiv x Individuel . besoins de chauffa
 env . Installation x Radiateur électrique x Individuel: radiateur électrique . environnement
 env . Installation x Radiateur électrique x Individuel . ECS avec ballon électrique: radiateur électrique . environnement . ECS avec ballon électrique
 env . Installation x Radiateur électrique x Individuel . ECS solaire thermique: radiateur électrique . environnement . ECS solaire thermique
+env . Installation x Radiateur électrique x Individuel . Scope 1: radiateur électrique . environnement . scope 1
 env . Installation x Radiateur électrique x Individuel . Scope 2: radiateur électrique . environnement . scope 2
 env . Installation x Radiateur électrique x Individuel . Scope 3: radiateur électrique . environnement . scope 3
 env . Installation x Radiateur électrique x Individuel . Total: radiateur électrique . environnement . total
@@ -216,6 +219,7 @@ env . Installation x Radiateur électrique x Individuel . besoins de chauffage e
 env . Installation x Gaz indiv avec cond x Individuel: gaz indiv avec cond . environnement
 env . Installation x Gaz indiv avec cond x Individuel . ECS avec ballon électrique: gaz indiv avec cond . environnement . ECS avec ballon électrique
 env . Installation x Gaz indiv avec cond x Individuel . ECS solaire thermique: gaz indiv avec cond . environnement . ECS solaire thermique
+env . Installation x Gaz indiv avec cond x Individuel . Scope 1: gaz indiv avec cond . environnement . scope 1
 env . Installation x Gaz indiv avec cond x Individuel . Scope 2: gaz indiv avec cond . environnement . scope 2
 env . Installation x Gaz indiv avec cond x Individuel . Scope 3: gaz indiv avec cond . environnement . scope 3
 env . Installation x Gaz indiv avec cond x Individuel . Total: gaz indiv avec cond . environnement . total
@@ -225,6 +229,7 @@ env . Installation x Gaz indiv avec cond x Individuel . besoins de chauffage et 
 env . Installation x Gaz indiv sans cond x Individuel: gaz indiv sans cond . environnement
 env . Installation x Gaz indiv sans cond x Individuel . ECS avec ballon électrique: gaz indiv sans cond . environnement . ECS avec ballon électrique
 env . Installation x Gaz indiv sans cond x Individuel . ECS solaire thermique: gaz indiv sans cond . environnement . ECS solaire thermique
+env . Installation x Gaz indiv sans cond x Individuel . Scope 1: gaz indiv sans cond . environnement . scope 1
 env . Installation x Gaz indiv sans cond x Individuel . Scope 2: gaz indiv sans cond . environnement . scope 2
 env . Installation x Gaz indiv sans cond x Individuel . Scope 3: gaz indiv sans cond . environnement . scope 3
 env . Installation x Gaz indiv sans cond x Individuel . Total: gaz indiv sans cond . environnement . total
@@ -256,6 +261,7 @@ Installation x Chaudière à granulés coll x Collectif . volume du ballon ECS: 
 env . Installation x Gaz coll avec cond x Collectif: gaz coll avec cond . environnement
 env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique: gaz coll avec cond . environnement . ECS avec ballon électrique
 env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique: gaz coll avec cond . environnement . ECS solaire thermique
+env . Installation x Gaz coll avec cond x Collectif . Scope 1: gaz coll avec cond . environnement . scope 1
 env . Installation x Gaz coll avec cond x Collectif . Scope 2: gaz coll avec cond . environnement . scope 2
 env . Installation x Gaz coll avec cond x Collectif . Scope 3: gaz coll avec cond . environnement . scope 3
 env . Installation x Gaz coll avec cond x Collectif . Total: gaz coll avec cond . environnement . total
@@ -265,6 +271,7 @@ env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et EC
 env . Installation x Gaz coll sans cond x Collectif: gaz coll sans cond . environnement
 env . Installation x Gaz coll sans cond x Collectif . ECS avec ballon électrique: gaz coll sans cond . environnement . ECS avec ballon électrique
 env . Installation x Gaz coll sans cond x Collectif . ECS solaire thermique: gaz coll sans cond . environnement . ECS solaire thermique
+env . Installation x Gaz coll sans cond x Collectif . Scope 1: gaz coll sans cond . environnement . scope 1
 env . Installation x Gaz coll sans cond x Collectif . Scope 2: gaz coll sans cond . environnement . scope 2
 env . Installation x Gaz coll sans cond x Collectif . Scope 3: gaz coll sans cond . environnement . scope 3
 env . Installation x Gaz coll sans cond x Collectif . Total: gaz coll sans cond . environnement . total
@@ -280,6 +287,7 @@ Calcul Eco . P2 P3 Coût de l'entretien . Fioul coll . petit entretien P2 par lo
 env . Installation x Réseaux de chaleur x Collectif: réseau de chaleur . environnement
 env . Installation x Réseaux de chaleur x Collectif . ECS avec ballon électrique: réseau de chaleur . environnement . ECS avec ballon électrique
 env . Installation x Réseaux de chaleur x Collectif . ECS solaire thermique: réseau de chaleur . environnement . ECS solaire thermique
+env . Installation x Réseaux de chaleur x Collectif . Scope 1: réseau de chaleur . environnement . scope 1
 env . Installation x Réseaux de chaleur x Collectif . Scope 2: réseau de chaleur . environnement . scope 2
 env . Installation x Réseaux de chaleur x Collectif . Scope 3: réseau de chaleur . environnement . scope 3
 env . Installation x Réseaux de chaleur x Collectif . Total: réseau de chaleur . environnement . total
@@ -390,6 +398,7 @@ Installation x Gaz coll sans cond x Collectif . volume du ballon ECS: gaz coll s
 env . Installation x Fioul indiv x Individuel: fioul indiv . environnement
 env . Installation x Fioul indiv x Individuel . ECS avec ballon électrique: fioul indiv . environnement . ECS avec ballon électrique
 env . Installation x Fioul indiv x Individuel . ECS solaire thermique: fioul indiv . environnement . ECS solaire thermique
+env . Installation x Fioul indiv x Individuel . Scope 1: fioul indiv . environnement . scope 1
 env . Installation x Fioul indiv x Individuel . Scope 2: fioul indiv . environnement . scope 2
 env . Installation x Fioul indiv x Individuel . Scope 3: fioul indiv . environnement . scope 3
 env . Installation x Fioul indiv x Individuel . Total: fioul indiv . environnement . total
@@ -399,6 +408,7 @@ env . Installation x Fioul indiv x Individuel . besoins de chauffage et ECS si m
 env . Installation x PAC air-air x Individuel: PAC air-air indiv . environnement
 env . Installation x PAC air-air x Individuel . ECS avec ballon électrique: PAC air-air indiv . environnement . ECS avec ballon électrique
 env . Installation x PAC air-air x Individuel . ECS solaire thermique: PAC air-air indiv . environnement . ECS solaire thermique
+env . Installation x PAC air-air x Individuel . Scope 1: PAC air-air indiv . environnement . scope 1
 env . Installation x PAC air-air x Individuel . Scope 2: PAC air-air indiv . environnement . scope 2
 env . Installation x PAC air-air x Individuel . Scope 3: PAC air-air indiv . environnement . scope 3
 env . Installation x PAC air-air x Individuel . Total: PAC air-air indiv . environnement . total
@@ -408,6 +418,7 @@ env . Installation x PAC air-air x Individuel . besoins de chauffage et ECS si m
 env . Installation x PAC air-eau x Individuel: PAC air-eau indiv . environnement
 env . Installation x PAC air-eau x Individuel . ECS avec ballon électrique: PAC air-eau indiv . environnement . ECS avec ballon électrique
 env . Installation x PAC air-eau x Individuel . ECS solaire thermique: PAC air-eau indiv . environnement . ECS solaire thermique
+env . Installation x PAC air-eau x Individuel . Scope 1: PAC air-eau indiv . environnement . scope 1
 env . Installation x PAC air-eau x Individuel . Scope 2: PAC air-eau indiv . environnement . scope 2
 env . Installation x PAC air-eau x Individuel . Scope 3: PAC air-eau indiv . environnement . scope 3
 env . Installation x PAC air-eau x Individuel . Total: PAC air-eau indiv . environnement . total
@@ -417,6 +428,7 @@ env . Installation x PAC air-eau x Individuel . besoins de chauffage et ECS si m
 env . Installation x PAC eau-eau x Individuel: PAC eau-eau indiv . environnement
 env . Installation x PAC eau-eau x Individuel . ECS avec ballon électrique: PAC eau-eau indiv . environnement . ECS avec ballon électrique
 env . Installation x PAC eau-eau x Individuel . ECS solaire thermique: PAC eau-eau indiv . environnement . ECS solaire thermique
+env . Installation x PAC eau-eau x Individuel . Scope 1: PAC eau-eau indiv . environnement . scope 1
 env . Installation x PAC eau-eau x Individuel . Scope 2: PAC eau-eau indiv . environnement . scope 2
 env . Installation x PAC eau-eau x Individuel . Scope 3: PAC eau-eau indiv . environnement . scope 3
 env . Installation x PAC eau-eau x Individuel . Total: PAC eau-eau indiv . environnement . total
@@ -442,6 +454,7 @@ Installation x Réseaux de chaleur x Collectif . volume du ballon ECS: réseau d
 env . Installation x PAC air-air x Collectif: PAC air-air coll . environnement
 env . Installation x PAC air-air x Collectif . ECS avec ballon électrique: PAC air-air coll . environnement . ECS avec ballon électrique
 env . Installation x PAC air-air x Collectif . ECS solaire thermique: PAC air-air coll . environnement . ECS solaire thermique
+env . Installation x PAC air-air x Collectif . Scope 1: PAC air-air coll . environnement . scope 1
 env . Installation x PAC air-air x Collectif . Scope 2: PAC air-air coll . environnement . scope 2
 env . Installation x PAC air-air x Collectif . Scope 3: PAC air-air coll . environnement . scope 3
 env . Installation x PAC air-air x Collectif . Total: PAC air-air coll . environnement . total
@@ -451,6 +464,7 @@ env . Installation x PAC air-air x Collectif . besoins de chauffage et ECS si m�
 env . Installation x PAC air-eau x Collectif: PAC air-eau coll . environnement
 env . Installation x PAC air-eau x Collectif . ECS avec ballon électrique: PAC air-eau coll . environnement . ECS avec ballon électrique
 env . Installation x PAC air-eau x Collectif . ECS solaire thermique: PAC air-eau coll . environnement . ECS solaire thermique
+env . Installation x PAC air-eau x Collectif . Scope 1: PAC air-eau coll . environnement . scope 1
 env . Installation x PAC air-eau x Collectif . Scope 2: PAC air-eau coll . environnement . scope 2
 env . Installation x PAC air-eau x Collectif . Scope 3: PAC air-eau coll . environnement . scope 3
 env . Installation x PAC air-eau x Collectif . Total: PAC air-eau coll . environnement . total
@@ -460,6 +474,7 @@ env . Installation x PAC air-eau x Collectif . besoins de chauffage et ECS si m�
 env . Installation x PAC eau-eau x Collectif: PAC eau-eau coll . environnement
 env . Installation x PAC eau-eau x Collectif . ECS avec ballon électrique: PAC eau-eau coll . environnement . ECS avec ballon électrique
 env . Installation x PAC eau-eau x Collectif . ECS solaire thermique: PAC eau-eau coll . environnement . ECS solaire thermique
+env . Installation x PAC eau-eau x Collectif . Scope 1: PAC eau-eau coll . environnement . scope 1
 env . Installation x PAC eau-eau x Collectif . Scope 2: PAC eau-eau coll . environnement . scope 2
 env . Installation x PAC eau-eau x Collectif . Scope 3: PAC eau-eau coll . environnement . scope 3
 env . Installation x PAC eau-eau x Collectif . Total: PAC eau-eau coll . environnement . total
@@ -469,6 +484,7 @@ env . Installation x PAC eau-eau x Collectif . besoins de chauffage et ECS si m�
 env . Installation x Fioul coll x Collectif: fioul coll . environnement
 env . Installation x Fioul coll x Collectif . ECS avec ballon électrique: fioul coll . environnement . ECS avec ballon électrique
 env . Installation x Fioul coll x Collectif . ECS solaire thermique: fioul coll . environnement . ECS solaire thermique
+env . Installation x Fioul coll x Collectif . Scope 1: fioul coll . environnement . scope 1
 env . Installation x Fioul coll x Collectif . Scope 2: fioul coll . environnement . scope 2
 env . Installation x Fioul coll x Collectif . Scope 3: fioul coll . environnement . scope 3
 env . Installation x Fioul coll x Collectif . Total: fioul coll . environnement . total

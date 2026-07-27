@@ -149,8 +149,21 @@ un `avec:` et son premier enfant ; une seule ligne vide entre règles.
 Le front lit encore les clés historiques (`Bilan x Gaz coll avec cond . P4`,
 `ratios . GAZ IND COND Rendement chaudière chauffage`…). `compat.publicodes`
 les expose comme références vers les nouvelles clés, une entrée par ligne :
-`ancienne clé: nouvelle clé` (1 161 alias). **C'est aussi la table de
+`ancienne clé: nouvelle clé` (1 187 alias). **C'est aussi la table de
 migration de l'UI** : chaque entrée dit quoi renommer côté front.
+
+Périmètre assumé : **uniquement les clés lues par le front**, pas l'ensemble
+des anciens noms. 711 clés de la v1.10.0 n'existent plus sous leur nom
+historique ; aucune n'est lue par le front (vérifié par extraction, voir
+[§4](#robustesse-du-filet-de-sécurité)). Elles se répartissent en trois cas :
+règles mortes supprimées (`Bilan x … . P4spec`, `P4ECS Ballon électrique`,
+`P4ECS Solaire Thermique`…), renommages internes non aliasés
+(`ratios environnementaux . CO2 INS <mode>` → `<mode> . ratios . CO2
+installation`, `ratios . CHAF/ECS/RAF …` → `commun/`), et deux installations
+jamais lues par le front dont aucune clé n'est aliasée (`Groupe froid x
+Individuel`, `Réseaux de froid x Collectif` — leurs sorties `env . …`,
+`Calcul Eco . …` et `Installation x …`). Si le front venait à les consommer,
+il faudrait compléter compat **et** external-keys.
 
 Régime des clés que le front **écrit** (deux cas, à connaître absolument) :
 
@@ -467,9 +480,46 @@ de lignes : fichiers de `dev`.
 ### Robustesse du filet de sécurité
 
 - 💤 **`external-keys.spec.ts` est maintenu à la main** (déjà pris en défaut
-  deux fois pendant le chantier). Un script de synchronisation avec le repo
-  front reste souhaitable à terme ; décision : on laisse en l'état, le rôle
-  du test est de garantir l'existence des clés utilisées par le front.
+  **trois** fois pendant le chantier, dont une régression réelle : `Scope 1`,
+  absent de la liste `envSuffixes`, donc absent de compat, alors que
+  `Graph.tsx` le lit — 16 clés cassées, corrigé). Un script de
+  synchronisation avec le repo front reste souhaitable à terme ; décision :
+  on laisse en l'état, le rôle du test est de garantir l'existence des clés
+  utilisées par le front.
+- 🔜 **Le vrai filet exhaustif est le `tsc` du front**, pas une liste : le
+  front consomme ce paquet via un tarball local
+  (`file:../france-chaleur-urbaine-publicodes/betagouv-…-1.10.0.tgz`), tous
+  ses accès passent par `getField/getFieldAsNumber/getUnit/setField(key:
+  RuleName)`, et `mappings.ts` est `as const`. Les clés construites
+  dynamiquement sont donc **vérifiées par types littéraux de gabarit** :
+  `` getFieldAsNumber(`env . Installation x ${m.emissionsCO2PublicodesKey} . Scope 1`) ``
+  produit une union de 16 littéraux confrontée à `RuleName`. Vérifié : avec
+  le `RuleName` d'avant correctif, `tsc` sort
+  `TS2345 … '"env . Installation x PAC air-eau x Individuel . Scope 1"' is
+  not assignable to parameter of type 'RuleName'. Did you mean '… Scope 2'?`.
+  **Boucle à faire tourner avant toute publication** : `npm pack` ici →
+  installer le tarball dans le front → `tsc --noEmit`.
+  Angles morts réels, à traiter côté front avant de s'y fier : les **casts
+  `as RuleName`** qui désactivent le contrôle — `Configuration.tsx`
+  (6, clés issues de la situation sauvegardée), `heatingModeCosts.ts` (2,
+  dont un littéral fixe qui n'a aucune raison d'être casté),
+  `simulation-service.ts` (4, dont `` `${prefix} . ${billPart}` `` qui se
+  typerait tout seul sans le cast), `usePublicodesEngine.tsx:109`,
+  `mappings.ts:195`. Supprimer ces casts (ou les remplacer par des
+  `satisfies`) rend la couverture totale et **rend external-keys.spec.ts
+  redondant pour les clés lues**.
+- **Vérification déjà effectuée sur la branche** (méthode de secours, utile
+  tant que les casts subsistent) : extraction de tous les littéraux du repo
+  front, développement des gabarits avec les valeurs de `mappings.ts`, puis
+  comparaison d'appartenance au modèle compilé **v1.10.0 vs branche** —
+  1 136 clés candidates, 1 119 valides en v1.10.0, une seule famille
+  manquante (`Scope 1`, corrigée) et 9 clés déjà mortes avant le chantier
+  (labels obsolètes de `form/publicodes/labels.ts`). Deux gabarits seulement
+  résistent à l'extraction (`coutParAnPublicodeKey` du catalogue chaleur
+  renouvelable, `` `${prefix} . ${billPart}` `` du module PAC) : tous deux
+  vérifiés à la main, couverts. Le diff brut des noms de règles (711
+  disparus) ne suffit pas : il mélange règles mortes supprimées et
+  renommages internes volontaires.
 - ❓ **57 tests `describe.skip` dans index.spec.ts** : poids mort remplacé
   par le golden, à supprimer à l'occasion.
 
@@ -526,7 +576,7 @@ de lignes : fichiers de `dev`.
 - ❓ Committer dans `scripts/` les outils forgés pendant le chantier :
   reachabilité des règles mortes, hash canonique du modèle compilé
   (aujourd'hui dans un scratchpad éphémère).
-- ❓ compat.publicodes (1 161 alias) : ajouter un test « aucune règle
+- ❓ compat.publicodes (1 187 alias) : ajouter un test « aucune règle
   interne ne référence une clé de compat » pour empêcher de nouvelles
   dépendances aux vieux noms ; préparer le script de suppression pour la
   migration front.
