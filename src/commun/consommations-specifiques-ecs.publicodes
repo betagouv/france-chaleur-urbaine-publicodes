@@ -1,0 +1,170 @@
+# Consommation spécifique d'ECS : forfait par habitant en résidentiel,
+# table par type tertiaire x normes thermiques sinon.
+
+besoins . consommation spécifique ECS:
+  note: Besoin_ECS
+  variations:
+    - si: bâtiment . type = "résidentiel"
+      alors: 360 kWh/habitant
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 0 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 0 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 0 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 15 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 15 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 15 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 12.5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 12.5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 12.5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 10 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 10 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 10 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 20 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 20 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 20 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - bâtiment . normes thermiques tertiaire = "RE2020"
+      alors: 30 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - bâtiment . normes thermiques tertiaire = "RT2012"
+      alors: 30 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - bâtiment . normes thermiques tertiaire = "Moyenne française 2021"
+      alors: 30 kWhef/m2.an

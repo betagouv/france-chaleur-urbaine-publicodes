@@ -5,15 +5,6 @@
 réseau de froid:
   description: Raccordement à un réseau de froid urbain
   avec:
-    caractéristiques:
-      description: Données du réseau sélectionné, injectées par le front via l'adresse
-      avec:
-        contenu CO2: caractéristique réseau de froid . contenu CO2
-        contenu CO2 ACV: caractéristique réseau de froid . contenu CO2 ACV
-        livraisons totales: caractéristique réseau de froid . livraisons totales
-        production totale: caractéristique réseau de froid . production totale
-        prix moyen: caractéristique réseau de froid . prix moyen
-        part fixe: caractéristique réseau de froid . part fixe
     ratios:
       description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
       avec:
@@ -164,7 +155,7 @@ réseau de froid:
                 alors:
                   produit:
                     - ratios . petit entretien P2
-                    - (1 + Paramètres économiques . Petit entretien P2 . TVA)
+                    - (1 + investissement . TVA petit entretien P2)
                     - réseau de froid . ratios . coût sous-station
                   unité: €TTC/an
               - sinon: 0
@@ -175,7 +166,7 @@ réseau de froid:
                 alors:
                   produit:
                     - ratios . gros entretien P3
-                    - (1 + Paramètres économiques . Gros entretien P3 . TVA)
+                    - (1 + investissement . TVA gros entretien P3)
                     - réseau de froid . ratios . coût sous-station
               - sinon: 0
             unité: €TTC/an

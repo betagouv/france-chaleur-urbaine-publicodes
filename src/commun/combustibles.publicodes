@@ -501,7 +501,7 @@ combustibles:
                 produit:
                   - dimensionnement . puissance chauffage appelée
                   - bâtiment . nombre de logements
-                  - ratios . PUIS Coefficient de foisonnement chauffage collectif / ratios . PAC GNRL SCOP mini
+                  - dimensionnement . ratios . coefficient de foisonnement chauffage collectif / pac . ratios . SCOP mini
 
         option tarifaire:
           une possibilité:
@@ -628,6 +628,4 @@ combustibles:
           par défaut: 0.1562
           unité: €/L
           note: 'Source: site gouvernemental (impots.gouv) 2024'
-
-Calcul Eco . Coût d'achat du combustible:  # racine conservée pour les alias de compat
 

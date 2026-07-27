@@ -1,78 +1,47 @@
-# Clés historiques CANONIQUES : écrites par le front actuel (toggle aides du
-# comparateur). Les nouveaux noms « aides . éligibilité . » les référencent —
-# l'inversion se fera à la migration du front.
-Paramètres économiques . Aides:
-  avec:
-    Éligibilité x Prise en compte des aides:
-      # alias Calculs économiques B90
-      par défaut: oui
-      #une possibilité:
-      #  - "'oui'"
-      #  - "'non'"
-    Éligibilité x Je suis un particulier:
-      par défaut: oui
-      #une possibilité:
-      #  - "'oui'"
-      #  - "'non'"
-    Éligibilité x Ressources du ménage:
-      par défaut:
-        variations:
-          - si:
-              toutes ces conditions:
-                - est défini: climat . code département
-                - est défini: ménage . revenu
-                - est défini: bâtiment . habitants par logement
-            alors: ménage . revenu . classe
-          - sinon: "'Modeste'"
-      une possibilité:
-        - "'Très modeste'"
-        - "'Modeste'"
-        - "'Intermédiaire'"
-        - "'Supérieur'"
-    Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul:
-      par défaut: oui
-      #une possibilité:
-      #  - "'oui'"
-      #  - "'non'"
-    Aides x Éligible Ma prime renov':
-      # alias Calculs économiques B91
-      par défaut:
-        toutes ces conditions:
-          - Paramètres économiques . Aides . Éligibilité x Je suis un particulier
-          - Paramètres économiques . Aides . Éligibilité x Ressources du ménage != 'Supérieur'
-      #une possibilité:
-      #  - "'oui'"
-      #  - "'non'"
-    Aides x Éligible Coup de pouce chauffage:
-      # alias Calculs économiques B92
-      par défaut:
-        toutes ces conditions:
-          - Paramètres économiques . Aides . Éligibilité x Je suis un particulier
-          - Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
-          - bâtiment . type = 'résidentiel'
-      #une possibilité:
-      #  - "'oui'"
-      #  - "'non'"
-    Aides x Éligible CEE:
-      # alias Calculs économiques B93
-      par défaut: oui
-      #une possibilité:
-      #  - "'oui'"
-      #  - "'non'"
-
 aides:
   avec:
+    # Éligibilité : écrite par le front (toggle aides du comparateur).
     éligibilité:
       avec:
-        prise en compte des aides: Paramètres économiques . Aides . Éligibilité x Prise en compte des aides
-        particulier: Paramètres économiques . Aides . Éligibilité x Je suis un particulier
-        ressources du ménage: Paramètres économiques . Aides . Éligibilité x Ressources du ménage
-        chaudière gaz ou fioul actuelle: Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul
-        éligible ma prime rénov: Paramètres économiques . Aides . Aides x Éligible Ma prime renov'
-        éligible coup de pouce: Paramètres économiques . Aides . Aides x Éligible Coup de pouce chauffage
-        éligible CEE: Paramètres économiques . Aides . Aides x Éligible CEE
+        prise en compte des aides:
+          # alias Calculs économiques B90
+          par défaut: oui
+        particulier:
+          par défaut: oui
+        ressources du ménage:
+          par défaut:
+            variations:
+              - si:
+                  toutes ces conditions:
+                    - est défini: climat . code département
+                    - est défini: ménage . revenu
+                    - est défini: bâtiment . habitants par logement
+                alors: ménage . revenu . classe
+              - sinon: "'Modeste'"
+          une possibilité:
+            - "'Très modeste'"
+            - "'Modeste'"
+            - "'Intermédiaire'"
+            - "'Supérieur'"
+        chaudière gaz ou fioul actuelle:
+          par défaut: oui
+        éligible ma prime rénov:
+          # alias Calculs économiques B91
+          par défaut:
+            toutes ces conditions:
+              - aides . éligibilité . particulier
+              - aides . éligibilité . ressources du ménage != 'Supérieur'
+        éligible coup de pouce:
+          # alias Calculs économiques B92
+          par défaut:
+            toutes ces conditions:
+              - aides . éligibilité . particulier
+              - aides . éligibilité . chaudière gaz ou fioul actuelle
+              - bâtiment . type = 'résidentiel'
+        éligible CEE:
+          # alias Calculs économiques B93
+          par défaut: oui
 
-    valeur CEE: Paramètres économiques . Aides . Valeur CEE
     # Résidentiel
 
     CEE:
@@ -134,7 +103,9 @@ aides:
                 alors: 90900
               - sinon: 109200
       unité: kWh cumac
-    CEE . BAR-TH-171 PAC air-eau . efficacité énergétique saisonnière: ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière
+    CEE . BAR-TH-171 PAC air-eau . efficacité énergétique saisonnière:
+      par défaut: PAC air-eau indiv . ratios . SCOP / 2.5
+      unité: '%'
     CEE . BAR-TH-171 PAC air-eau . facteur correctif selon la surface chauffée:
       variations:
         - si: bâtiment . appartement ou maison = 'Appartement'
@@ -207,18 +178,13 @@ aides:
           # QUESTION déjà posée: quelle différence entre ratios éco - aides > C261 et C447 ?
           valeur: 0.196
 
-Paramètres économiques . Aides . Valeur CEE:
+aides . valeur CEE:
   # alias Calculs économiques B94
   par défaut:
     variations:
-      - si: Paramètres économiques . Aides . Éligibilité x Ressources du ménage = "Très modeste"
+      - si: aides . éligibilité . ressources du ménage = "Très modeste"
         alors: aides . CEE . prix moyen ménage précaire
       - sinon: aides . CEE . prix moyen autre ménage
   unité: €/kWh cumac
   note: "source : Registre National des Certificats d'Economie d'Energie"
-
-# clé historique canonique (écrite par le front : simulateur PAC)
-ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière:
-  par défaut: PAC air-eau indiv . ratios . SCOP / 2.5
-  unité: '%'
 

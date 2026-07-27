@@ -2,26 +2,32 @@
 # consommations auxiliaires, deltas de température des émetteurs (dérogation),
 # et PAC à absorption gaz.
 
-température émetteurs delta:
-  variations:
-    - si: bâtiment . température émetteurs = "35"
-      alors: 0
-    - si: bâtiment . température émetteurs = "45"
-      alors: -0.6
-    - si: bâtiment . température émetteurs = "55"
-      alors: -1.2
-    - si: bâtiment . température émetteurs = "65"
-      alors: -1.6
-    - si: bâtiment . température émetteurs = "Plancher"
-      alors: 0
-    - si: bâtiment . température émetteurs = "Radiateur"
-      alors: -1.2
+pac:
+  description: Socle commun à toutes les pompes à chaleur
+  avec:
+    température émetteurs delta:
+      variations:
+        - si: bâtiment . température émetteurs = "35"
+          alors: 0
+        - si: bâtiment . température émetteurs = "45"
+          alors: -0.6
+        - si: bâtiment . température émetteurs = "55"
+          alors: -1.2
+        - si: bâtiment . température émetteurs = "65"
+          alors: -1.6
+        - si: bâtiment . température émetteurs = "Plancher"
+          alors: 0
+        - si: bâtiment . température émetteurs = "Radiateur"
+          alors: -1.2
 
-ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air:
+pac . ratios:
+  description: Valeurs de référence communes aux pompes à chaleur
+
+pac . ratios . conso auxiliaire chauffage climatisation:
   valeur: 99.8%
 
-ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air:
+pac . ratios . conso auxiliaire ECS:
   valeur: 99%
 
-ratios . PAC GNRL SCOP mini:
+pac . ratios . SCOP mini:
   valeur: 1.8

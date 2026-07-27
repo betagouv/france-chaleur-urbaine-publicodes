@@ -7,9 +7,9 @@ Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenari
 ## Documentation
 
 La documentation interne du modèle est dans [DOCUMENTATION.md](DOCUMENTATION.md) :
-architecture (arborescence, structure d'un mode, conventions, couche de
-compatibilité, tests, recettes de modification), récap de la refonte par modes
-de chauffage (juillet 2026), bugs connus figés et chantiers futurs.
+architecture (arborescence, structure d'un mode, conventions, tests, recettes
+de modification), récap de la refonte par modes de chauffage (juillet 2026),
+bugs connus figés et chantiers futurs.
 
 ## Usage
 

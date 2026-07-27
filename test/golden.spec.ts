@@ -30,145 +30,144 @@ const options = {
 
 // 20 Avenue de Ségur 75007 Paris (mêmes données que index.spec.ts)
 const commonSituation = {
-	"caractéristique réseau de chaleur . contenu CO2": 0.157,
-	"caractéristique réseau de chaleur . contenu CO2 ACV": 0.182,
-	"caractéristique réseau de chaleur . livraisons totales": 3739841,
-	"caractéristique réseau de chaleur . part fixe": 23.6851545755077,
-	"caractéristique réseau de chaleur . part variable": 76.3148454244923,
-	"caractéristique réseau de chaleur . prix moyen": 109.502957238406,
-	"caractéristique réseau de chaleur . production totale": 5907294.94,
-	"caractéristique réseau de chaleur . taux EnRR": 48.8,
-	"caractéristique réseau de froid . contenu CO2": 0.008,
-	"caractéristique réseau de froid . contenu CO2 ACV": 0.016,
-	"caractéristique réseau de froid . livraisons totales": 425178,
-	"caractéristique réseau de froid . production totale": 515292,
-	"code département": "'75'",
-	"température de référence chaud commune": -5,
+	"réseau de chaleur . caractéristiques . contenu CO2": 0.157,
+	"réseau de chaleur . caractéristiques . contenu CO2 ACV": 0.182,
+	"réseau de chaleur . caractéristiques . livraisons totales": 3739841,
+	"réseau de chaleur . caractéristiques . part fixe": 23.6851545755077,
+	"réseau de chaleur . caractéristiques . part variable": 76.3148454244923,
+	"réseau de chaleur . caractéristiques . prix moyen": 109.502957238406,
+	"réseau de chaleur . caractéristiques . production totale": 5907294.94,
+	"réseau de chaleur . caractéristiques . taux EnRR": 48.8,
+	"réseau de froid . caractéristiques . contenu CO2": 0.008,
+	"réseau de froid . caractéristiques . contenu CO2 ACV": 0.016,
+	"réseau de froid . caractéristiques . livraisons totales": 425178,
+	"réseau de froid . caractéristiques . production totale": 515292,
+	"climat . code département": "'75'",
+	"climat . température de référence chaud commune": -5,
 } satisfies Situation<RuleName>;
 
 const situations: Record<string, Situation<RuleName>> = {
 	"résidentiel - ECS avec équipement chauffage - sans clim": {
 		...commonSituation,
-		"Inclure la climatisation": "non",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
+		"climatisation . incluse": "non",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
 	},
 	"résidentiel - ECS avec équipement chauffage - avec clim": {
 		...commonSituation,
-		"Inclure la climatisation": "oui",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
+		"climatisation . incluse": "oui",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
 	},
 	"résidentiel - chauffe-eau électrique": {
 		...commonSituation,
-		"Inclure la climatisation": "non",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Chauffe-eau électrique'",
+		"climatisation . incluse": "non",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Chauffe-eau électrique'",
 	},
 	"résidentiel - ECS solaire thermique": {
 		...commonSituation,
-		"Inclure la climatisation": "non",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Solaire thermique'",
+		"climatisation . incluse": "non",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Solaire thermique'",
 	},
 	"résidentiel - avec aides très modeste": {
 		...commonSituation,
-		"Inclure la climatisation": "non",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
-		"Paramètres économiques . Aides . Éligibilité x Prise en compte des aides":
+		"climatisation . incluse": "non",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
+		"aides . éligibilité . prise en compte des aides":
 			"oui",
-		"Paramètres économiques . Aides . Éligibilité x Je suis un particulier":
+		"aides . éligibilité . particulier":
 			"oui",
-		"Paramètres économiques . Aides . Éligibilité x Ressources du ménage":
+		"aides . éligibilité . ressources du ménage":
 			"'Très modeste'",
-		"Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul":
+		"aides . éligibilité . chaudière gaz ou fioul actuelle":
 			"oui",
 	},
 	"tertiaire - ECS avec équipement chauffage - avec clim": {
 		...commonSituation,
-		"type de bâtiment": "'tertiaire'",
-		"Inclure la climatisation": "oui",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
+		"bâtiment . type": "'tertiaire'",
+		"climatisation . incluse": "oui",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
 	},
 	// --- situations représentatives des embranchements majeurs ---
 	"maison DPE F hors IdF - HP/HC - avec aides modeste": {
 		...commonSituation,
-		"code département": "'69'",
-		"ratios . GNRL Appartement ou maison": "'Maison'",
-		DPE: "'F'",
+		"climat . code département": "'69'",
+		"bâtiment . appartement ou maison": "'Maison'",
+		"bâtiment . DPE": "'F'",
 		"combustibles . électricité . option tarifaire": "'Heure pleine/Heure creuse'",
-		"surface logement type tertiaire": 80,
-		"Inclure la climatisation": "non",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
-		"Paramètres économiques . Aides . Éligibilité x Prise en compte des aides":
+		"bâtiment . surface tertiaire": 80,
+		"climatisation . incluse": "non",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
+		"aides . éligibilité . prise en compte des aides":
 			"oui",
-		"Paramètres économiques . Aides . Éligibilité x Je suis un particulier":
+		"aides . éligibilité . particulier":
 			"oui",
-		"Paramètres économiques . Aides . Éligibilité x Ressources du ménage":
+		"aides . éligibilité . ressources du ménage":
 			"'Modeste'",
-		"Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul":
+		"aides . éligibilité . chaudière gaz ou fioul actuelle":
 			"oui",
 	},
 	"immeuble avant 1974 - Marseille - 60 logements - réseau de froid": {
 		...commonSituation,
-		"code département": "'13'",
-		"méthode résidentiel": "'Normes thermiques et âge du bâtiment'",
-		"normes thermiques et âge du bâtiment": "'avant 1974'",
-		"nombre de logements dans l'immeuble concerné": 60,
-		"Inclure la climatisation": "oui",
-		"type de production de froid": "'Réseau de froid'",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
+		"climat . code département": "'13'",
+		"bâtiment . méthode résidentiel": "'Normes thermiques et âge du bâtiment'",
+		"bâtiment . normes thermiques et âge": "'avant 1974'",
+		"bâtiment . nombre de logements": 60,
+		"climatisation . incluse": "oui",
+		"climatisation . type de production": "'Réseau de froid'",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
 	},
 	"petit collectif RE2020 - sans ECS ni clim": {
 		...commonSituation,
-		"méthode résidentiel": "'Normes thermiques et âge du bâtiment'",
-		"normes thermiques et âge du bâtiment": "'RE2020 - Après 2020'",
-		"nombre de logements dans l'immeuble concerné": 10,
-		"Inclure la climatisation": "non",
-		"Production eau chaude sanitaire": "non",
+		"bâtiment . méthode résidentiel": "'Normes thermiques et âge du bâtiment'",
+		"bâtiment . normes thermiques et âge": "'RE2020 - Après 2020'",
+		"bâtiment . nombre de logements": 10,
+		"climatisation . incluse": "non",
+		"ecs . production": "non",
 	},
 	"tertiaire commerces RT2012 - 2000 m2 - groupe froid": {
 		...commonSituation,
-		"type de bâtiment": "'tertiaire'",
-		"méthode tertiaire": "'Commerces'",
-		"normes thermiques tertiaire": "'RT2012'",
-		"ratios . GNRL Surface de référence tertiaire": 2000,
-		"Inclure la climatisation": "oui",
-		"type de production de froid": "'Groupe froid'",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
+		"bâtiment . type": "'tertiaire'",
+		"bâtiment . méthode tertiaire": "'Commerces'",
+		"bâtiment . normes thermiques tertiaire": "'RT2012'",
+		"bâtiment . ratios . surface de référence tertiaire": 2000,
+		"climatisation . incluse": "oui",
+		"climatisation . type de production": "'Groupe froid'",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
 	},
 	"parc social moyen - besoins de chauffage imposés": {
 		...commonSituation,
-		"besoins chauffage par appartement": 7320,
-		"Inclure la climatisation": "non",
-		"Production eau chaude sanitaire": "oui",
-		"type de production ECS": "'Avec équipement chauffage'",
+		"besoins . chauffage par logement": 7320,
+		"climatisation . incluse": "non",
+		"ecs . production": "oui",
+		"ecs . type de production": "'Avec équipement chauffage'",
 	},
 };
 
-// [nom Bilan / Calcul Eco, nom env . Installation x …]
 const modes = [
-	["Réseaux de chaleur", "Réseaux de chaleur x Collectif"],
-	["Chaudière à granulés coll", "Chaudière à granulés coll x Collectif"],
-	["Gaz coll avec cond", "Gaz coll avec cond x Collectif"],
-	["Gaz coll sans cond", "Gaz coll sans cond x Collectif"],
-	["Fioul coll", "Fioul coll x Collectif"],
-	["PAC air-air coll", "PAC air-air x Collectif"],
-	["PAC air-eau coll", "PAC air-eau x Collectif"],
-	["PAC eau-eau coll", "PAC eau-eau x Collectif"],
-	["Poêle à granulés indiv", "Poêle à granulés indiv x Individuel"],
-	["Gaz indiv avec cond", "Gaz indiv avec cond x Individuel"],
-	["Gaz indiv sans cond", "Gaz indiv sans cond x Individuel"],
-	["Fioul indiv", "Fioul indiv x Individuel"],
-	["PAC air-air indiv", "PAC air-air x Individuel"],
-	["PAC air-eau indiv", "PAC air-eau x Individuel"],
-	["PAC eau-eau indiv", "PAC eau-eau x Individuel"],
-	["Radiateur électrique", "Radiateur électrique x Individuel"],
+	"réseau de chaleur",
+	"chaudière à granulés",
+	"gaz coll avec cond",
+	"gaz coll sans cond",
+	"fioul coll",
+	"PAC air-air coll",
+	"PAC air-eau coll",
+	"PAC eau-eau coll",
+	"poêle à granulés",
+	"gaz indiv avec cond",
+	"gaz indiv sans cond",
+	"fioul indiv",
+	"PAC air-air indiv",
+	"PAC air-eau indiv",
+	"PAC eau-eau indiv",
+	"radiateur électrique",
 ] as const;
 
 const bilanSuffixes = [
@@ -188,17 +187,17 @@ const bilanSuffixes = [
 	"total sans installation",
 ] as const;
 
-const envSuffixes = ["Scope 2", "Scope 3", "Total"] as const;
+const envSuffixes = ["scope 2", "scope 3", "total"] as const;
 
 // Pseudo-modes partiels lus par le module chaleur-renouvelable du front
 const addOnKeys = [
-	"Bilan x PAC air-eau coll hybride . total sans aides",
-	"Bilan x PAC air-eau coll hybride . total sans installation",
-	"Bilan x Solaire thermique . total sans installation",
-	"Bilan x PAC capteurs solaires atmosphériques . total sans installation",
-	"Bilan x PAC air-eau collective ECS . total sans installation",
-	"Bilan x Chauffe-eau thermodynamique . total sans installation",
-	"Bilan x Système solaire combiné . total sans installation",
+	"PAC air-eau coll hybride . bilan . total sans aides",
+	"PAC air-eau coll hybride . bilan . total sans installation",
+	"solaire thermique . bilan . total sans installation",
+	"PAC capteurs solaires atmosphériques . bilan . total sans installation",
+	"PAC air-eau collective ECS . bilan . total sans installation",
+	"chauffe-eau thermodynamique . bilan . total sans installation",
+	"système solaire combiné . bilan . total sans installation",
 ] satisfies RuleName[];
 
 // Arrondi à 2 décimales pour neutraliser le bruit flottant sans masquer les écarts réels.
@@ -226,11 +225,11 @@ describe("Golden master — valeurs finales par mode de chauffage", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation(situation);
 
-			modes.forEach(([bilanMode, envMode]) => {
-				it(bilanMode, () => {
+			modes.forEach((mode) => {
+				it(mode, () => {
 					const keys = [
-						...bilanSuffixes.map((s) => `Bilan x ${bilanMode} . ${s}`),
-						...envSuffixes.map((s) => `env . Installation x ${envMode} . ${s}`),
+						...bilanSuffixes.map((suffix) => `${mode} . bilan . ${suffix}`),
+						...envSuffixes.map((suffix) => `${mode} . environnement . ${suffix}`),
 					];
 					expect(evaluateKeys(engine, keys)).toMatchSnapshot();
 				});

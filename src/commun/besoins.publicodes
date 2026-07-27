@@ -2,75 +2,87 @@ dimensionnement:
   description: Puissances appelées et heures de fonctionnement
   avec:
     heures pleine puissance chauffage continu:
-      formule: climat . degré jours chaud * 24 / (ratios . PUIS Température de non chauffage - climat . température de référence chaud)
+      formule: climat . degré jours chaud * 24 / (dimensionnement . ratios . température de non chauffage - climat . température de référence chaud)
       unité: h
 
     heures pleine puissance chauffage:
       produit:
         - dimensionnement . heures pleine puissance chauffage continu
-        - coefficient intermittence
+        - dimensionnement . coefficient intermittence
       unité: h
 
     puissance chauffage appelée:
-      formule: (besoins . chauffage par logement / dimensionnement . heures pleine puissance chauffage) * (1 + ratios . PUIS Facteur de surpuissance)
+      formule: (besoins . chauffage par logement / dimensionnement . heures pleine puissance chauffage) * (1 + dimensionnement . ratios . facteur de surpuissance)
       unité: kW
 
     puissance ECS appelée:
-      formule: (besoins . ECS par logement / ratios . PUIS Nombre heure de fonctionnement non climatique ECS) * (1 + ratios . PUIS Facteur de surpuissance)
+      formule: (besoins . ECS par logement / dimensionnement . ratios . heures de fonctionnement non climatique ECS) * (1 + dimensionnement . ratios . facteur de surpuissance)
       unité: kW
 
     heures pleine puissance climatisation:
       produit:
         - climat . degré jours froid
         - 24
-        - coefficient intermittence
+        - dimensionnement . coefficient intermittence
       unité: h
 
     puissance refroidissement appelée:
       applicable si: dimensionnement . heures pleine puissance climatisation > 0
-      formule: besoins . climatisation par logement / dimensionnement . heures pleine puissance climatisation * (1 + ratios . PUIS Facteur de surpuissance)
+      formule: besoins . climatisation par logement / dimensionnement . heures pleine puissance climatisation * (1 + dimensionnement . ratios . facteur de surpuissance)
       unité: kW
 
-# --- Ratios généraux et de dimensionnement (clés historiques de la page paramètres) ---
+# --- Ratios généraux et de dimensionnement (écrits par la page paramètres) ---
 
-ratios . GNRL Surface de référence appartement:
+bâtiment . ratios:
+  description: Valeurs de référence du bâtiment (surfaces, occupation, climatisation)
+
+climat . ratios:
+  description: Valeurs de référence climatiques
+
+dimensionnement . ratios:
+  description: Valeurs de référence du dimensionnement des puissances
+
+ecs . ratios:
+  description: Valeurs de référence de la production d'ECS
+
+bâtiment . ratios . surface de référence appartement:
   valeur: 70
   unité: m2
 
-ratios . GNRL Surface de référence tertiaire:
+bâtiment . ratios . surface de référence tertiaire:
   valeur: 2500
   unité: m2
 
-ratios . GNRL Hauteur:
+bâtiment . ratios . hauteur sous plafond:
   valeur: 2.2
   unité: m
 
-ratios . GNRL DJU REF chaud:
+climat . ratios . DJU de référence chaud:
   valeur: 2200
   unité: DJU chaud
 
-ratios . GNRL Nombre habitant par logement:
+bâtiment . ratios . habitants par logement:
   valeur: 2.17
   unité: personne
 
-ratios . GNRL Production ECS:
+ecs . ratios . production par défaut:
   par défaut: oui
   #une possibilité:
   #  - "'oui'"
   #  - "'non'"
 
-ratios . GNRL Appartement ou maison:
+bâtiment . appartement ou maison:
   valeur: "'Appartement'"
 
-ratios . GNRL Nombre de logement dans l'immeuble concerné:
+bâtiment . ratios . nombre de logements:
   valeur: 25
   unité: logement
 
-ratios . GNRL Part surface à climatiser résidentiel:
+bâtiment . ratios . part surface à climatiser résidentiel:
   valeur: 70%
   unité: '%'
 
-ratios . GNRL Part surface à climatiser tertiaire:
+bâtiment . ratios . part surface à climatiser tertiaire:
   valeur: 100%
   unité: '%'
 
@@ -93,23 +105,23 @@ ratios . GNRL Part surface à climatiser tertiaire:
 # RAF EHPAD Moyenne française 2021:
 #   valeur:
 #   unité: kWhef/m2.an
-ratios . PUIS Température de non chauffage:
+dimensionnement . ratios . température de non chauffage:
   valeur: 18
   unité: °C
 
-ratios . PUIS Facteur de surpuissance:
+dimensionnement . ratios . facteur de surpuissance:
   valeur: 20%
   unité: '%'
 
-ratios . PUIS Nombre heure de fonctionnement non climatique ECS:
+dimensionnement . ratios . heures de fonctionnement non climatique ECS:
   valeur: 3000
   unité: h
 
-ratios . PUIS Coefficient de foisonnement ECS:
+dimensionnement . ratios . coefficient de foisonnement ECS:
   valeur: 50%
   unité: '%'
 
-ratios . PUIS Coefficient de foisonnement chauffage collectif:
+dimensionnement . ratios . coefficient de foisonnement chauffage collectif:
   valeur: 80%
   unité: '%'
 

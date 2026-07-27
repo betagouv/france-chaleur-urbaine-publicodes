@@ -10,20 +10,20 @@ const options = {
 
 const commonSituation = {
 	// 20 Avenue de Ségur 75007 Paris
-	"caractéristique réseau de chaleur . contenu CO2": 0.157,
-	"caractéristique réseau de chaleur . contenu CO2 ACV": 0.182,
-	"caractéristique réseau de chaleur . livraisons totales": 3739841,
-	"caractéristique réseau de chaleur . part fixe": 23.6851545755077,
-	"caractéristique réseau de chaleur . part variable": 76.3148454244923,
-	"caractéristique réseau de chaleur . prix moyen": 109.502957238406,
-	"caractéristique réseau de chaleur . production totale": 5907294.94,
-	"caractéristique réseau de chaleur . taux EnRR": 48.8,
-	"caractéristique réseau de froid . contenu CO2": 0.008,
-	"caractéristique réseau de froid . contenu CO2 ACV": 0.016,
-	"caractéristique réseau de froid . livraisons totales": 425178,
-	"caractéristique réseau de froid . production totale": 515292,
-	"code département": "'75'",
-	"température de référence chaud commune": -5,
+	"réseau de chaleur . caractéristiques . contenu CO2": 0.157,
+	"réseau de chaleur . caractéristiques . contenu CO2 ACV": 0.182,
+	"réseau de chaleur . caractéristiques . livraisons totales": 3739841,
+	"réseau de chaleur . caractéristiques . part fixe": 23.6851545755077,
+	"réseau de chaleur . caractéristiques . part variable": 76.3148454244923,
+	"réseau de chaleur . caractéristiques . prix moyen": 109.502957238406,
+	"réseau de chaleur . caractéristiques . production totale": 5907294.94,
+	"réseau de chaleur . caractéristiques . taux EnRR": 48.8,
+	"réseau de froid . caractéristiques . contenu CO2": 0.008,
+	"réseau de froid . caractéristiques . contenu CO2 ACV": 0.016,
+	"réseau de froid . caractéristiques . livraisons totales": 425178,
+	"réseau de froid . caractéristiques . production totale": 515292,
+	"climat . code département": "'75'",
+	"climat . température de référence chaud commune": -5,
 } satisfies Situation<keyof typeof rules>;
 
 describe("Moteur Publicodes France Chaleur Urbaine", () => {
@@ -43,9 +43,9 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("calcule la classe depuis le barème Île-de-France via le code département", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"code département": "'75'",
+				"climat . code département": "'75'",
 				"ménage . revenu": 35000,
-				"Nombre d'habitants moyen par appartement": 2,
+				"bâtiment . habitants par logement": 2,
 			});
 
 			expect(engine.evaluate("ménage . revenu . classe").nodeValue).toBe(
@@ -53,7 +53,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			);
 			expect(
 				engine.evaluate(
-					"Paramètres économiques . Aides . Éligibilité x Ressources du ménage",
+					"aides . éligibilité . ressources du ménage",
 				).nodeValue,
 			).toBe("Très modeste");
 		});
@@ -61,8 +61,8 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("expose les plafonds Île-de-France via des règles Publicodes", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"code département": "'75'",
-				"Nombre d'habitants moyen par appartement": 2,
+				"climat . code département": "'75'",
+				"bâtiment . habitants par logement": 2,
 			});
 
 			expect(
@@ -79,9 +79,9 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("calcule la classe depuis le barème hors Île-de-France via le code département", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"code département": "'59'",
+				"climat . code département": "'59'",
 				"ménage . revenu": 35000,
-				"Nombre d'habitants moyen par appartement": 2,
+				"bâtiment . habitants par logement": 2,
 			});
 
 			expect(engine.evaluate("ménage . revenu . classe").nodeValue).toBe(
@@ -89,7 +89,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			);
 			expect(
 				engine.evaluate(
-					"Paramètres économiques . Aides . Éligibilité x Ressources du ménage",
+					"aides . éligibilité . ressources du ménage",
 				).nodeValue,
 			).toBe("Intermédiaire");
 		});
@@ -97,8 +97,8 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("expose les plafonds hors Île-de-France via des règles Publicodes", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"code département": "'59'",
-				"Nombre d'habitants moyen par appartement": 2,
+				"climat . code département": "'59'",
+				"bâtiment . habitants par logement": 2,
 			});
 
 			expect(
@@ -115,25 +115,24 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("conserve la saisie explicite historique des ressources du ménage", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"code département": "'75'",
+				"climat . code département": "'75'",
 				"ménage . revenu": 35000,
-				"Nombre d'habitants moyen par appartement": 2,
-				"Paramètres économiques . Aides . Éligibilité x Ressources du ménage":
+				"bâtiment . habitants par logement": 2,
+				"aides . éligibilité . ressources du ménage":
 					"'Supérieur'",
 			});
 
 			expect(
 				engine.evaluate(
-					"Paramètres économiques . Aides . Éligibilité x Ressources du ménage",
+					"aides . éligibilité . ressources du ménage",
 				).nodeValue,
 			).toBe("Supérieur");
 		});
 	});
 
 	describe("paramétrage des modes (sections ratios)", () => {
-		// Les valeurs de référence vivent dans `<mode> . ratios . <nom>` ;
-		// les clés plates historiques ne sont plus que des références de
-		// lecture dans compat.publicodes (table de migration UI).
+		// Les valeurs de référence vivent dans `<mode> . ratios . <nom>` : seule
+		// forme depuis la suppression de compat.publicodes.
 		it("les écritures sur les nouvelles clés se propagent aux calculs", () => {
 			const base = new Engine(rules, options);
 			base.setSituation(commonSituation);
@@ -150,54 +149,34 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			).not.toBe(p4);
 		});
 
-		it("les clés historiques restent lisibles (compat) et reflètent la valeur de référence", () => {
+		it("une écriture de ratio est relue telle quelle", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
 				...commonSituation,
 				"gaz indiv avec cond . ratios . durée de vie": 10,
 			});
 			expect(
-				engine.evaluate("ratios . GAZ IND COND Durée de vie").nodeValue,
+				engine.evaluate("gaz indiv avec cond . ratios . durée de vie").nodeValue,
 			).toBe(10);
-		});
-
-		it("les écritures sur les clés historiques sont inertes (migration UI requise)", () => {
-			// Comportement assumé de la couche de compat « référence seule » :
-			// tant que la page paramètres du front n'a pas migré vers les
-			// nouvelles clés, ses écritures ne modifient plus les calculs.
-			const base = new Engine(rules, options);
-			base.setSituation(commonSituation);
-			const p4 = base.evaluate("gaz indiv avec cond . bilan . P4").nodeValue;
-
-			const modifie = new Engine(rules, options);
-			modifie.setSituation({
-				...commonSituation,
-				"ratios . GAZ IND COND Durée de vie": 10,
-				"ratios économiques . Gaz x indiv avec cond": 9999,
-			});
-			expect(
-				modifie.evaluate("gaz indiv avec cond . bilan . P4").nodeValue,
-			).toBe(p4);
 		});
 	});
 
-	describe("entrées utilisateur (namespaces de lecture)", () => {
-		// Direction inverse des ratios de modes : le front ÉCRIT les clés
-		// historiques (canoniques), les namespaces bâtiment/climat/besoins/
-		// ecs/climatisation/réseau . caractéristiques n'en sont que la vue de
-		// lecture organisée — cible de renommage à la migration du front.
-		it("les écritures sur les clés historiques sont visibles via les nouveaux noms", () => {
+	describe("entrées utilisateur (namespaces canoniques)", () => {
+		// Les entrées du simulateur sont désormais définies et écrites
+		// directement sous bâtiment/climat/besoins/ecs/climatisation et
+		// réseau … . caractéristiques : plus aucun alias historique à la racine.
+		it("les écritures sur les namespaces d'entrée se propagent", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
 				...commonSituation,
-				DPE: "'F'",
-				"type de bâtiment": "'tertiaire'",
-				"ratios . GNRL Appartement ou maison": "'Maison'",
-				"nombre de logements dans l'immeuble concerné": 42,
-				"besoins chauffage par appartement": 7320,
-				"type de production ECS": "'Chauffe-eau électrique'",
-				"Inclure la climatisation": "oui",
-				"caractéristique réseau de chaleur . prix moyen": 99.5,
+				"bâtiment . DPE": "'F'",
+				"bâtiment . type": "'tertiaire'",
+				"bâtiment . appartement ou maison": "'Maison'",
+				"bâtiment . nombre de logements": 42,
+				"besoins . chauffage par logement": 7320,
+				"ecs . type de production": "'Chauffe-eau électrique'",
+				"climatisation . incluse": "oui",
+				"réseau de chaleur . caractéristiques . prix moyen": 99.5,
 			});
 			expect(engine.evaluate("bâtiment . DPE").nodeValue).toBe("F");
 			expect(engine.evaluate("bâtiment . type").nodeValue).toBe("tertiaire");
@@ -225,28 +204,28 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("calcule le montant CEE pour une maison individuelle H1 avec Etas entre 111% et 140%", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière":
+				"aides . CEE . BAR-TH-171 PAC air-eau . efficacité énergétique saisonnière":
 					"120%",
-				"Paramètres économiques . Aides . Aides x Éligible CEE": "oui",
-				"Paramètres économiques . Aides . Valeur CEE": 0.00804,
-				"ratios . GNRL Appartement ou maison": "'Maison'",
-				"surface logement type tertiaire": 95,
-				"zone climatique": "'H1'",
+				"aides . éligibilité . éligible CEE": "oui",
+				"aides . valeur CEE": 0.00804,
+				"bâtiment . appartement ou maison": "'Maison'",
+				"bâtiment . surface tertiaire": 95,
+				"climat . zone": "'H1'",
 			});
 
 			expect(
 				engine.evaluate(
-					"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171",
+					"aides . CEE . BAR-TH-171 PAC air-eau",
 				).nodeValue,
 			).toBe(109080);
 			expect(
 				engine.evaluate(
-					"Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . CEE",
+					"PAC air-eau indiv . aides . CEE",
 				).nodeValue,
 			).toBeCloseTo(877.0032);
 			expect(
 				engine.evaluate(
-					"Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce",
+					"PAC air-eau indiv . aides . coup de pouce",
 				).nodeValue,
 			).toBeCloseTo(4385.016);
 		});
@@ -254,16 +233,16 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("n'accorde pas de kWh cumac sous 111% d'Etas", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière":
+				"aides . CEE . BAR-TH-171 PAC air-eau . efficacité énergétique saisonnière":
 					"110%",
-				"ratios . GNRL Appartement ou maison": "'Appartement'",
-				"surface logement type tertiaire": 70,
-				"zone climatique": "'H2'",
+				"bâtiment . appartement ou maison": "'Appartement'",
+				"bâtiment . surface tertiaire": 70,
+				"climat . zone": "'H2'",
 			});
 
 			expect(
 				engine.evaluate(
-					"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171",
+					"aides . CEE . BAR-TH-171 PAC air-eau",
 				).nodeValue,
 			).toBe(0);
 		});
@@ -271,20 +250,20 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		it("n'accorde pas le Coup de pouce sans remplacement de chaudière", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
-				"ratios économiques x aides . CEE x PAC air-eau indiv x BAR-TH-171 . efficacité énergétique saisonnière":
+				"aides . CEE . BAR-TH-171 PAC air-eau . efficacité énergétique saisonnière":
 					"120%",
-				"Paramètres économiques . Aides . Éligibilité x Je dispose actuellement d'une chaudière gaz ou fioul":
+				"aides . éligibilité . chaudière gaz ou fioul actuelle":
 					"non",
-				"Paramètres économiques . Aides . Valeur CEE": 0.00804,
-				"ratios . GNRL Appartement ou maison": "'Maison'",
-				"surface logement type tertiaire": 95,
-				"type de bâtiment": "'résidentiel'",
-				"zone climatique": "'H1'",
+				"aides . valeur CEE": 0.00804,
+				"bâtiment . appartement ou maison": "'Maison'",
+				"bâtiment . surface tertiaire": 95,
+				"bâtiment . type": "'résidentiel'",
+				"climat . zone": "'H1'",
 			});
 
 			expect(
 				engine.evaluate(
-					"Calcul Eco . Montant des aides par logement tertiaire . PAC air-eau indiv . Coup de pouce",
+					"PAC air-eau indiv . aides . coup de pouce",
 				).nodeValue,
 			).toBe(0);
 		});
@@ -292,90 +271,90 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 
 	const testCases = [
 		{
-			description: "Bilan x Gaz coll avec cond",
+			description: "gaz coll avec cond . bilan",
 			situation: {
-				"Inclure la climatisation": "non",
-				"Production eau chaude sanitaire": "oui",
-				"type de production ECS": "'Avec équipement chauffage'",
+				"climatisation . incluse": "non",
+				"ecs . production": "oui",
+				"ecs . type de production": "'Avec équipement chauffage'",
 			},
 			expected: {
-				"Bilan x Gaz coll avec cond . P1abo": 73,
-				"Bilan x Gaz coll avec cond . P1conso": 1056,
-				"Bilan x Gaz coll avec cond . P1prime": 7,
-				"Bilan x Gaz coll avec cond . P1ECS": 0,
-				"Bilan x Gaz coll avec cond . P1Consofroid": 0,
-				"Bilan x Gaz coll avec cond . P2": 70,
-				"Bilan x Gaz coll avec cond . P3": 27,
-				"Bilan x Gaz coll avec cond . P4": 71,
-				"Bilan x Gaz coll avec cond . P4 moins aides": 71,
-				"Bilan x Gaz coll avec cond . aides": 0,
-				"Bilan x Gaz coll avec cond . total sans aides": 1304,
-				"Bilan x Gaz coll avec cond . total avec aides": 1304,
-				"env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement": 2495,
-				"env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique": 2,
-				"env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique": 0,
-				"env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique": 0,
-				"env . Installation x Gaz coll avec cond x Collectif . Scope 2": 2,
-				"env . Installation x Gaz coll avec cond x Collectif . Scope 3": 9,
-				"env . Installation x Gaz coll avec cond x Collectif . Total": 2506,
+				"gaz coll avec cond . bilan . P1abo": 73,
+				"gaz coll avec cond . bilan . P1conso": 1056,
+				"gaz coll avec cond . bilan . P1prime": 7,
+				"gaz coll avec cond . bilan . P1ECS": 0,
+				"gaz coll avec cond . bilan . P1Consofroid": 0,
+				"gaz coll avec cond . bilan . P2": 70,
+				"gaz coll avec cond . bilan . P3": 27,
+				"gaz coll avec cond . bilan . P4": 71,
+				"gaz coll avec cond . bilan . P4 moins aides": 71,
+				"gaz coll avec cond . bilan . aides": 0,
+				"gaz coll avec cond . bilan . total sans aides": 1304,
+				"gaz coll avec cond . bilan . total avec aides": 1304,
+				"gaz coll avec cond . environnement . besoins de chauffage et ECS si même équipement": 2495,
+				"gaz coll avec cond . environnement . auxiliaires et combustible électrique": 2,
+				"gaz coll avec cond . environnement . ECS solaire thermique": 0,
+				"gaz coll avec cond . environnement . ECS avec ballon électrique": 0,
+				"gaz coll avec cond . environnement . scope 2": 2,
+				"gaz coll avec cond . environnement . scope 3": 9,
+				"gaz coll avec cond . environnement . total": 2506,
 			},
 		},
 		{
 			description: "Bilan x Gaz coll avec cond avec climatisation",
 			situation: {
-				"Inclure la climatisation": "oui",
-				"Production eau chaude sanitaire": "oui",
-				"type de production ECS": "'Avec équipement chauffage'",
+				"climatisation . incluse": "oui",
+				"ecs . production": "oui",
+				"ecs . type de production": "'Avec équipement chauffage'",
 			},
 			expected: {
-				"Bilan x Gaz coll avec cond . P1abo": 73,
-				"Bilan x Gaz coll avec cond . P1conso": 1056,
-				"Bilan x Gaz coll avec cond . P1prime": 7,
-				"Bilan x Gaz coll avec cond . P1ECS": 0,
-				"Bilan x Gaz coll avec cond . P1Consofroid": 14,
-				"Bilan x Gaz coll avec cond . P2": 78,
-				"Bilan x Gaz coll avec cond . P3": 30,
-				"Bilan x Gaz coll avec cond . P4": 239,
-				"Bilan x Gaz coll avec cond . P4 moins aides": 239,
-				"Bilan x Gaz coll avec cond . aides": 0,
-				"Bilan x Gaz coll avec cond . total sans aides": 1497,
-				"Bilan x Gaz coll avec cond . total avec aides": 1497,
-				"env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement": 2495,
-				"env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique": 2,
-				"env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique": 0,
-				"env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique": 0,
-				"env . Installation x Gaz coll avec cond x Collectif . Scope 2": 2,
-				"env . Installation x Gaz coll avec cond x Collectif . Scope 3": 9,
-				"env . Installation x Gaz coll avec cond x Collectif . Total": 2506,
+				"gaz coll avec cond . bilan . P1abo": 73,
+				"gaz coll avec cond . bilan . P1conso": 1056,
+				"gaz coll avec cond . bilan . P1prime": 7,
+				"gaz coll avec cond . bilan . P1ECS": 0,
+				"gaz coll avec cond . bilan . P1Consofroid": 14,
+				"gaz coll avec cond . bilan . P2": 78,
+				"gaz coll avec cond . bilan . P3": 30,
+				"gaz coll avec cond . bilan . P4": 239,
+				"gaz coll avec cond . bilan . P4 moins aides": 239,
+				"gaz coll avec cond . bilan . aides": 0,
+				"gaz coll avec cond . bilan . total sans aides": 1497,
+				"gaz coll avec cond . bilan . total avec aides": 1497,
+				"gaz coll avec cond . environnement . besoins de chauffage et ECS si même équipement": 2495,
+				"gaz coll avec cond . environnement . auxiliaires et combustible électrique": 2,
+				"gaz coll avec cond . environnement . ECS solaire thermique": 0,
+				"gaz coll avec cond . environnement . ECS avec ballon électrique": 0,
+				"gaz coll avec cond . environnement . scope 2": 2,
+				"gaz coll avec cond . environnement . scope 3": 9,
+				"gaz coll avec cond . environnement . total": 2506,
 			},
 		},
 		{
 			description: "Bilan x Gaz coll avec cond avec ECS",
 			situation: {
-				"Inclure la climatisation": "non",
-				"Production eau chaude sanitaire": "oui",
-				"type de production ECS": "'Chauffe-eau électrique'",
+				"climatisation . incluse": "non",
+				"ecs . production": "oui",
+				"ecs . type de production": "'Chauffe-eau électrique'",
 			},
 			expected: {
-				"Bilan x Gaz coll avec cond . P1abo": 55,
-				"Bilan x Gaz coll avec cond . P1conso": 808,
-				"Bilan x Gaz coll avec cond . P1prime": 3,
-				"Bilan x Gaz coll avec cond . P1ECS": 491,
-				"Bilan x Gaz coll avec cond . P1Consofroid": 0,
-				"Bilan x Gaz coll avec cond . P2": 70,
-				"Bilan x Gaz coll avec cond . P3": 16,
-				"Bilan x Gaz coll avec cond . P4": 105,
-				"Bilan x Gaz coll avec cond . P4 moins aides": 105,
-				"Bilan x Gaz coll avec cond . aides": 0,
-				"Bilan x Gaz coll avec cond . total sans aides": 1548,
-				"Bilan x Gaz coll avec cond . total avec aides": 1548,
-				"env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement": 1909,
-				"env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique": 1,
-				"env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique": 0,
-				"env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique": 165,
-				"env . Installation x Gaz coll avec cond x Collectif . Scope 2": 166,
-				"env . Installation x Gaz coll avec cond x Collectif . Scope 3": 5,
-				"env . Installation x Gaz coll avec cond x Collectif . Total": 2081,
+				"gaz coll avec cond . bilan . P1abo": 55,
+				"gaz coll avec cond . bilan . P1conso": 808,
+				"gaz coll avec cond . bilan . P1prime": 3,
+				"gaz coll avec cond . bilan . P1ECS": 491,
+				"gaz coll avec cond . bilan . P1Consofroid": 0,
+				"gaz coll avec cond . bilan . P2": 70,
+				"gaz coll avec cond . bilan . P3": 16,
+				"gaz coll avec cond . bilan . P4": 105,
+				"gaz coll avec cond . bilan . P4 moins aides": 105,
+				"gaz coll avec cond . bilan . aides": 0,
+				"gaz coll avec cond . bilan . total sans aides": 1548,
+				"gaz coll avec cond . bilan . total avec aides": 1548,
+				"gaz coll avec cond . environnement . besoins de chauffage et ECS si même équipement": 1909,
+				"gaz coll avec cond . environnement . auxiliaires et combustible électrique": 1,
+				"gaz coll avec cond . environnement . ECS solaire thermique": 0,
+				"gaz coll avec cond . environnement . ECS avec ballon électrique": 165,
+				"gaz coll avec cond . environnement . scope 2": 166,
+				"gaz coll avec cond . environnement . scope 3": 5,
+				"gaz coll avec cond . environnement . total": 2081,
 			},
 		},
 	] satisfies TestCases[];
@@ -402,25 +381,25 @@ type TestCases = {
 	expected: Pick<
 		Situation<keyof typeof rules>,
 		// coûts
-		| "Bilan x Gaz coll avec cond . P1abo"
-		| "Bilan x Gaz coll avec cond . P1conso"
-		| "Bilan x Gaz coll avec cond . P1prime"
-		| "Bilan x Gaz coll avec cond . P1ECS"
-		| "Bilan x Gaz coll avec cond . P1Consofroid"
-		| "Bilan x Gaz coll avec cond . P2"
-		| "Bilan x Gaz coll avec cond . P3"
-		| "Bilan x Gaz coll avec cond . P4"
-		| "Bilan x Gaz coll avec cond . P4 moins aides"
-		| "Bilan x Gaz coll avec cond . aides"
-		| "Bilan x Gaz coll avec cond . total sans aides"
-		| "Bilan x Gaz coll avec cond . total avec aides"
+		| "gaz coll avec cond . bilan . P1abo"
+		| "gaz coll avec cond . bilan . P1conso"
+		| "gaz coll avec cond . bilan . P1prime"
+		| "gaz coll avec cond . bilan . P1ECS"
+		| "gaz coll avec cond . bilan . P1Consofroid"
+		| "gaz coll avec cond . bilan . P2"
+		| "gaz coll avec cond . bilan . P3"
+		| "gaz coll avec cond . bilan . P4"
+		| "gaz coll avec cond . bilan . P4 moins aides"
+		| "gaz coll avec cond . bilan . aides"
+		| "gaz coll avec cond . bilan . total sans aides"
+		| "gaz coll avec cond . bilan . total avec aides"
 		// émissions de CO2
-		| "env . Installation x Gaz coll avec cond x Collectif . besoins de chauffage et ECS si même équipement"
-		| "env . Installation x Gaz coll avec cond x Collectif . auxiliaires et combustible électrique"
-		| "env . Installation x Gaz coll avec cond x Collectif . ECS solaire thermique"
-		| "env . Installation x Gaz coll avec cond x Collectif . ECS avec ballon électrique"
-		| "env . Installation x Gaz coll avec cond x Collectif . Scope 2"
-		| "env . Installation x Gaz coll avec cond x Collectif . Scope 3"
-		| "env . Installation x Gaz coll avec cond x Collectif . Total"
+		| "gaz coll avec cond . environnement . besoins de chauffage et ECS si même équipement"
+		| "gaz coll avec cond . environnement . auxiliaires et combustible électrique"
+		| "gaz coll avec cond . environnement . ECS solaire thermique"
+		| "gaz coll avec cond . environnement . ECS avec ballon électrique"
+		| "gaz coll avec cond . environnement . scope 2"
+		| "gaz coll avec cond . environnement . scope 3"
+		| "gaz coll avec cond . environnement . total"
 	>;
 };

@@ -15,21 +15,21 @@ PAC air-eau indiv:
         SCOP:
           somme:
             - 3.8
-            - température émetteurs delta
+            - pac . température émetteurs delta
         SEER:
           valeur: 3.5
         durée de vie:
           valeur: 17
           unité: an
         gros entretien P3:
-          par défaut: 134 * (1 + Paramètres économiques . Gros entretien P3 . TVA)
+          par défaut: 134 * (1 + investissement . TVA gros entretien P3)
           unité: €TTC/MWh
         investissement équipement:
           produit:
             - PAC air-eau indiv . ratios . coût équipement
             - 1 + investissement . TVA réduite
         petit entretien P2:
-          par défaut: 199 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          par défaut: 199 * (1 + investissement . TVA petit entretien P2)
           unité: €TTC/MWh
         puissance unitaire réversible:
           valeur: 2.5
@@ -56,7 +56,7 @@ PAC air-eau indiv:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - ecs . type de production = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . SCOP)
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . SCOP)
             - sinon: 0
           unité: kW
         puissance refroidissement:
@@ -86,7 +86,7 @@ PAC air-eau indiv:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - ecs . type de production != "Solaire thermique"
-              alors: volume du ballon ECS
+              alors: ecs additionnelle . volume du ballon
             - sinon: 50
           unité: L
         consommation chauffe-eau électrique: &inst-consommation-chauffe-eau-electrique
@@ -115,13 +115,13 @@ PAC air-eau indiv:
           unité: kWh elec
         consommation auxiliaire: &inst-consommation-auxiliaire
           somme:
-            - (1 - ratios . PAC GNRL Conso auxiliaire chauffage climatisation hors PAC air-air) * (besoins . chauffage par logement + besoins . climatisation par logement)
+            - (1 - pac . ratios . conso auxiliaire chauffage climatisation) * (besoins . chauffage par logement + besoins . climatisation par logement)
             - variations:
                 - si:
                     toutes ces conditions:
                       - ecs . type de production = 'Avec équipement chauffage'
                       - ecs . production
-                  alors: (1 - ratios . PAC GNRL Conso auxiliaire ECS hors PAC air-air) * besoins . ECS par logement
+                  alors: (1 - pac . ratios . conso auxiliaire ECS) * besoins . ECS par logement
                 - sinon: 0
           unité: kWh elec
         consommation hors électricité: &inst-consommation-hors-electricite
@@ -342,7 +342,7 @@ PAC air-eau coll:
         SCOP:
           somme:
             - 3.98
-            - température émetteurs delta
+            - pac . température émetteurs delta
         SEER:
           valeur: 4.8
         durée de vie:
@@ -357,7 +357,7 @@ PAC air-eau coll:
             - PAC air-eau coll . installation . puissance retenue
             - 1 + investissement . TVA
         petit entretien P2:
-          par défaut: 9.8 *  (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          par défaut: 9.8 *  (1 + investissement . TVA petit entretien P2)
           unité: €TTC/MWh
         puissance unitaire réversible:
           valeur: 20
@@ -370,7 +370,7 @@ PAC air-eau coll:
       avec:
         production eau chaude sanitaire: ecs . production
         puissance chauffage:
-          formule: dimensionnement . puissance chauffage appelée * bâtiment . nombre de logements * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: dimensionnement . puissance chauffage appelée * bâtiment . nombre de logements * dimensionnement . ratios . coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
@@ -378,11 +378,11 @@ PAC air-eau coll:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - ecs . type de production = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . SCOP) * bâtiment . nombre de logements
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . SCOP) * bâtiment . nombre de logements
             - sinon: 0
           unité: kW
         puissance refroidissement:
-          formule: dimensionnement . puissance refroidissement appelée / ratios . SEER * bâtiment . nombre de logements * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: dimensionnement . puissance refroidissement appelée / ratios . SEER * bâtiment . nombre de logements * dimensionnement . ratios . coefficient de foisonnement chauffage collectif
           unité: kW
         puissance équipement: *inst-puissance-equipement
         puissance retenue: *inst-puissance-retenue

@@ -2,7 +2,8 @@
 # Elles seront mises à jour directement en dehors du simulateur.
 # Par défaut, les valeurs sont les moyennes chaud et froid.
 
-caractéristique réseau de chaleur:
+réseau de chaleur . caractéristiques:
+  description: Données du réseau sélectionné, injectées par le front via l'adresse
   note: 'MOYENNE RESEAUX CHAUD'
   avec:
     contenu CO2:
@@ -30,11 +31,12 @@ caractéristique réseau de chaleur:
       unité: '%'
       note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
     part variable:
-      formule: 100% - caractéristique réseau de chaleur . part fixe
+      formule: 100% - réseau de chaleur . caractéristiques . part fixe
       unité: '%'
       note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
 
-caractéristique réseau de froid:
+réseau de froid . caractéristiques:
+  description: Données du réseau sélectionné, injectées par le front via l'adresse
   note: 'MOYENNE RESEAUX FROID'
   avec:
     contenu CO2:

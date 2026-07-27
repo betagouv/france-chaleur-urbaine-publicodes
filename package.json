@@ -37,7 +37,7 @@
     "doc:build": "pnpm compile && pnpm --filter ./doc build"
   },
   "peerDependencies": {
-    "publicodes": "^1.9.0"
+    "publicodes": "^1.10.1"
   },
   "devDependencies": {
     "@publicodes/tools": "^1.7.2",

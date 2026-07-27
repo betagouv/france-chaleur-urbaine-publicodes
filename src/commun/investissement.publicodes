@@ -13,6 +13,13 @@ investissement:
     TVA réduite:
       valeur: 5.5
       unité: '%'
+    # TVA appliquée aux contrats d'entretien (écrite par la page paramètres)
+    TVA petit entretien P2:
+      par défaut: 20%
+      unité: '%'
+    TVA gros entretien P3:
+      par défaut: 20%
+      unité: '%'
 
 amortissement:
   avec:

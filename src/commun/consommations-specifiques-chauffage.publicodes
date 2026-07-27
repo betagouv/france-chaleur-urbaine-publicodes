@@ -1,7 +1,7 @@
 # Consommation spécifique de chauffage : table par bâtiment . DPE et périodes
 # constructives (résidentiel), et par type tertiaire x normes thermiques.
 
-consommation spécifique chauffage:
+besoins . consommation spécifique chauffage:
   variations:
     - si:
         toutes ces conditions:

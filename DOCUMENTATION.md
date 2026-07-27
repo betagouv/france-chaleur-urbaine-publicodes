@@ -8,7 +8,7 @@
 Sommaire :
 
 1. [Architecture du modèle](#1-architecture-du-modèle) — arborescence,
-   structure d'un mode, conventions, couche de compatibilité, tests, recettes.
+   structure d'un mode, conventions, tests, recettes.
 2. [La refonte par modes de chauffage](#2-la-refonte-par-modes-de-chauffage) —
    état des lieux initial, choix de découpage, avant/après, mécanismes.
 3. [Bugs connus figés](#3-bugs-connus-figés) — à corriger dans une PR dédiée.
@@ -34,26 +34,43 @@ src/
 │   ├── reseau-de-froid.publicodes
 │   └── add-ons-solaire.publicodes    # pseudo-modes partiels (solaire, hybride…)
 ├── commun/                 # calculs et valeurs transverses
-│   ├── besoins.publicodes                # besoins du bâtiment + dimensionnement
-│   ├── combustibles.publicodes           # prix/paramètres/taxes par énergie
-│   ├── tarif-gaz-tertiaire.publicodes    # estimation de l'abonnement gaz tertiaire
-│   ├── ecs.publicodes                    # « ecs additionnelle » (ballon, chauffe-eau)
-│   ├── froid.publicodes                  # groupe froid + surcoûts réseau de froid
-│   ├── pac.publicodes                    # socle PAC (SCOP mini, conso auxiliaires…)
-│   ├── aides.publicodes                  # barèmes CEE + éligibilité + valeur CEE
-│   ├── investissement.publicodes         # TVA, pose ; taux actualisation
-│   ├── facteurs-emission.publicodes      # facteurs CO2 par combustible
+│   ├── besoins.publicodes                       # besoins du bâtiment + dimensionnement
+│   ├── combustibles.publicodes                  # prix/paramètres/taxes par énergie
+│   ├── tarif-gaz-tertiaire.publicodes           # estimation de l'abonnement gaz tertiaire
+│   ├── ecs-additionnelle.publicodes             # ballon électrique / chauffe-eau solaire
+│   ├── climatisation-additionnelle.publicodes   # groupe froid + surcoûts réseau de froid
+│   ├── pac.publicodes                           # socle PAC (SCOP mini, conso auxiliaires…)
+│   ├── aides.publicodes                         # barèmes CEE + éligibilité + valeur CEE
+│   ├── investissement.publicodes                # TVA, pose ; taux actualisation
+│   ├── facteurs-emission.publicodes             # facteurs CO2 par combustible
 │   ├── consommations-specifiques-chauffage.publicodes      # table CHAF
+│   ├── consommations-specifiques-ecs.publicodes            # table ECS
 │   ├── consommations-specifiques-climatisation.publicodes  # table RAF
 │   └── coefficients-intermittence.publicodes               # table CI
-├── parametres-techniques.publicodes   # entrées utilisateur + vue organisée (bâtiment, climat, besoins, ecs, climatisation)
-├── parametres-economiques.publicodes  # reliquat : TVA d'entretien (clés historiques)
+├── parametres-techniques.publicodes   # entrées utilisateur : bâtiment, climat, besoins, ecs, climatisation
 ├── bareme-revenu-mpr.publicodes       # ménage . revenu (plafonds MaPrimeRénov')
 ├── departements.publicodes            # données par département (généré, remplace)
-├── liste-rfu-rcu.publicodes           # caractéristiques réseau de chaleur/froid
-├── namespaces.publicodes              # racines vides des namespaces historiques
-└── compat.publicodes                  # couche de compatibilité (voir plus bas)
+└── liste-rfu-rcu.publicodes           # réseau de chaleur/froid . caractéristiques
 ```
+
+### Racines du modèle
+
+41 racines pour ~2 200 règles, et **aucune règle feuille à la racine** hormis
+une sentinelle technique (`non défini` — qui sert au
+front à lire les valeurs par défaut). Quatre familles :
+
+| Famille | Racines |
+|---|---|
+| Entrées utilisateur (écrites par le front) | `bâtiment`, `climat`, `besoins`, `ecs`, `climatisation` |
+| Modes de chauffage et pseudo-modes | `gaz coll avec cond`, `réseau de chaleur`, … (22) |
+| Socle transverse | `combustibles`, `aides`, `investissement`, `amortissement`, `pac`, `dimensionnement`, `ecs additionnelle`, `climatisation additionnelle`, `facteurs CO2` |
+| Données | `départements`, `ménage` |
+
+Chaque racine porte donc un sous-arbre cohérent. Les valeurs de référence
+transverses vivent sous `<domaine> . ratios . <nom>` (`bâtiment . ratios .
+surface de référence appartement`, `dimensionnement . ratios . facteur de
+surpuissance`, `pac . ratios . SCOP mini`…), en miroir du `<mode> . ratios`
+de chaque mode.
 
 ### Structure d'un mode de chauffage
 
@@ -87,24 +104,27 @@ froid), P4 = investissements × annuité.
 Les nouvelles clés sont en **lowercase, sans apostrophe** — les acronymes
 gardent leur casse (CEE, SCOP, TVA, PAC, P1…P4, CO2, DPE…) : `annuité`,
 `facteurs CO2`, `ma prime rénov`, `coup de pouce`, `total`, `scope 1/2/3`,
-`option heures creuses`, `prix du kWh`… Exceptions assumées, à renommer lors
-de la migration du front : les clés que le front **écrit**
-(parametres-techniques, clés ` x ` canoniques, cf. couche de compatibilité)
-et les suffixes historiques du bilan (P1abo…).
+`option heures creuses`, `prix du kWh`… Exceptions assumées : les clés que le
+front **écrit** (parametres-techniques, clés ` x ` canoniques) et les suffixes
+historiques du bilan (P1abo…).
 
-#### Entrées utilisateur : namespaces de lecture
+#### Entrées utilisateur : namespaces canoniques
 
-Les clés que le front **écrit** (entrées du simulateur) restent canoniques
-sous leur nom historique, mais chacune a un nouveau nom organisé qui la
-référence : `bâtiment .` (type, DPE, méthode, normes, logements…),
-`climat .` (département, zone, DJU…), `besoins .` (par logement,
-consommations spécifiques), `ecs .` / `climatisation .` (choix de
+Les clés que le front **écrit** (entrées du simulateur) sont définies — et
+écrites — directement sous leur namespace : `bâtiment .` (type, DPE, méthode,
+normes, logements…), `climat .` (département, zone, DJU…), `besoins .` (par
+logement, consommations spécifiques), `ecs .` / `climatisation .` (choix de
 production), `réseau de chaleur/froid . caractéristiques .` (données du
-réseau injectées via l'adresse). **La direction est inverse de celle des
-ratios de modes** : ici l'historique est canonique (les écritures du front
-continuent de fonctionner) et le nouveau nom n'est qu'une vue de lecture —
-le modèle interne référence les nouveaux noms, et la migration du front
-inversera la direction. Sémantique testée dans index.spec.ts.
+réseau injectées via l'adresse). Il n'y a **plus d'alias historique à la
+racine** : une seule forme par entrée, dans les deux sens (lecture et
+écriture). Sémantique testée dans index.spec.ts.
+
+Les valeurs par défaut de ces entrées viennent de `<domaine> . ratios . …`
+(surfaces de référence, occupation, DJU de référence, foisonnements…), et les
+données départementales sont injectées par `remplace` sur
+`climat . nom département`, `climat . zone`, `climat . sous zone` et
+`climat . département . degré jours chaud/froid` — cette dernière servant de
+défaut à `climat . degré jours chaud/froid`, que le front peut surcharger.
 
 #### Références relatives
 
@@ -127,7 +147,8 @@ références relatives : un seul texte de formule, des valeurs par variante.
 #### Valeurs partagées
 
 Une caractéristique d'équipement vit dans le mode qui possède l'équipement ;
-les consommateurs transverses la référencent (ex. `froid` référence
+les consommateurs transverses la référencent (ex. `climatisation
+additionnelle` référence
 `PAC air-eau coll . ratios . puissance unitaire réversible`). Ce qui n'est la
 caractéristique d'aucun mode vit dans `commun/`.
 
@@ -144,43 +165,19 @@ Le mécanisme `remplace` n'est plus utilisé que par `departements.publicodes`
 En-têtes de section en commentaire `# --- Titre ---` ; pas de ligne vide entre
 un `avec:` et son premier enfant ; une seule ligne vide entre règles.
 
-### Couche de compatibilité (`compat.publicodes`)
+### Couche de compatibilité (supprimée)
 
-Le front lit encore les clés historiques (`Bilan x Gaz coll avec cond . P4`,
-`ratios . GAZ IND COND Rendement chaudière chauffage`…). `compat.publicodes`
-les expose comme références vers les nouvelles clés, une entrée par ligne :
-`ancienne clé: nouvelle clé` (1 187 alias). **C'est aussi la table de
-migration de l'UI** : chaque entrée dit quoi renommer côté front.
+`compat.publicodes` exposait les clés historiques (`Bilan x Gaz coll avec cond . P4`, `ratios . GAZ IND COND Rendement chaudière chauffage`…) comme références vers les nouvelles, une entrée par ligne. **Le fichier a été supprimé** une fois le front migré : `<mode> . <section> . <champ>` est désormais la seule forme, et la disparition de compat est ce qui prouve qu'aucune référence historique ne subsiste (le typage `RuleName` casse la compilation du front sinon).
 
-Périmètre assumé : **uniquement les clés lues par le front**, pas l'ensemble
-des anciens noms. 711 clés de la v1.10.0 n'existent plus sous leur nom
-historique ; aucune n'est lue par le front (vérifié par extraction, voir
-[§4](#robustesse-du-filet-de-sécurité)). Elles se répartissent en trois cas :
-règles mortes supprimées (`Bilan x … . P4spec`, `P4ECS Ballon électrique`,
-`P4ECS Solaire Thermique`…), renommages internes non aliasés
-(`ratios environnementaux . CO2 INS <mode>` → `<mode> . ratios . CO2
-installation`, `ratios . CHAF/ECS/RAF …` → `commun/`), et deux installations
-jamais lues par le front dont aucune clé n'est aliasée (`Groupe froid x
-Individuel`, `Réseaux de froid x Collectif` — leurs sorties `env . …`,
-`Calcul Eco . …` et `Installation x …`). Si le front venait à les consommer,
-il faudrait compléter compat **et** external-keys.
-
-Régime des clés que le front **écrit** (deux cas, à connaître absolument) :
-
-1. **Ratios de la page paramètres** (rendements, SCOP, durées, P2/P3…) : la
-   valeur de référence vit dans le mode ; écrire l'ancienne clé est **inerte**
-   (choix assumé, testé dans index.spec.ts). La page paramètres devra écrire
-   les nouvelles clés lors de l'intégration.
-2. **Clés de l'UX principale** (entrées du simulateur → namespaces
-   `bâtiment`/`climat`/`besoins`/`ecs`/`climatisation`/`… caractéristiques`,
-   éligibilité aides → `aides . éligibilité`, valeur CEE, efficacité
-   BAR-TH-171, TVA d'entretien) : la clé **historique reste canonique**
-   (writable), les nouveaux noms la référencent. À inverser seulement à la
-   migration du front.
-
-À la migration du front (version majeure) : basculer les écritures, supprimer
-compat.publicodes, les racines de `namespaces.publicodes` et les tests
-external-keys correspondants.
+Les dernières racines historiques ont suivi : `namespaces.publicodes` et
+`parametres-economiques.publicodes` ont été supprimés, et leurs règles
+relogées — `ratios . GNRL …` → `bâtiment . ratios . …` / `climat . ratios . …`,
+`ratios . PUIS …` → `dimensionnement . ratios . …`, `ratios . PAC GNRL …` →
+`pac . ratios . …`, `Calcul Eco . P2 P3 Coût de l'entretien . Groupe …` →
+`climatisation additionnelle . entretien groupe …`, `Paramètres économiques . Aides . …` →
+`aides . éligibilité . …` / `aides . valeur CEE`, les deux TVA d'entretien →
+`investissement . TVA petit entretien P2` / `… gros entretien P3`. Plus aucune
+clé de l'ancienne nomenclature ne subsiste dans le modèle.
 
 ### Tests et garanties
 
@@ -209,9 +206,9 @@ external-keys correspondants.
   remplacer les corps partagés par des `*alias`, écrire en clair uniquement
   les différences, ajouter une situation golden si elle emprunte de nouveaux
   embranchements.
-- **Renommer une règle lue par le front** : renommer partout + ajouter
-  l'entrée `ancienne: nouvelle` dans compat ; external-keys doit rester vert
-  sans modification.
+- **Renommer une règle lue par le front** : renommer partout + mettre à jour
+  `external-keys.spec.ts` (il devient rouge, c'est le but) puis le front dans
+  la même PR — il n'y a plus de couche d'alias pour amortir le changement.
 - **Bugs connus figés** : liste en [§3](#3-bugs-connus-figés). Les corriger
   = PR dédiée avec mise à jour golden expliquée (sauf s'ils sont sans
   incidence numérique : golden inchangé = preuve, cf. les deux déjà
@@ -259,7 +256,8 @@ Trois options comparées :
   au débogage, et **3,7× plus lent à l'évaluation** (testé, écarté).
 
 Retenu : **B + extraction des communs** — les blocs les plus dupliqués (ECS
-additionnelle, froid, amortissement, combustibles) sont en réalité
+additionnelle, climatisation additionnelle, amortissement, combustibles) sont
+en réalité
 indépendants du mode et calculés une seule fois dans `commun/`.
 
 ### Ce qui a été fait
@@ -341,7 +339,7 @@ gaz indiv avec cond:
   description: Chaudière gaz individuelle à condensation
   avec:
     ratios:
-      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
+      description: Paramétrage du mode — valeurs de référence, écrites par la page paramètres du front
       avec:
         durée de vie:
           valeur: 17
@@ -373,7 +371,7 @@ gaz indiv avec cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
         P4 équipement:
           formule: coûts . investissement par logement * annuité
         P4: &bilan-p4
@@ -497,8 +495,10 @@ de lignes : fichiers de `dev`.
   le `RuleName` d'avant correctif, `tsc` sort
   `TS2345 … '"env . Installation x PAC air-eau x Individuel . Scope 1"' is
   not assignable to parameter of type 'RuleName'. Did you mean '… Scope 2'?`.
-  **Boucle à faire tourner avant toute publication** : `npm pack` ici →
-  installer le tarball dans le front → `tsc --noEmit`.
+  **Boucle à faire tourner avant toute publication** : `pnpm pack:local` ici →
+  `pnpm publicodes:local` dans le front → `tsc --noEmit`. Elle a servi à
+  valider la réorganisation des racines (84 → 41) : `tsc` a listé les ~90
+  sites à migrer, un par un, jusqu'à zéro erreur.
   Angles morts réels, à traiter côté front avant de s'y fier : les **casts
   `as RuleName`** qui désactivent le contrôle — `Configuration.tsx`
   (6, clés issues de la situation sauvegardée), `heatingModeCosts.ts` (2,
@@ -550,9 +550,6 @@ de lignes : fichiers de `dev`.
 - ❓ **Pseudo-modes solaires/hybride** : modèle grossier à faire valider
   (hybride = PAC air-eau coll × 120 %, couverture solaire 50 % en dur).
   À minima extraire ces constantes en ratios nommés et sourcés.
-- ❓ **`volume du ballon ECS`** : l'enfant de chaque mode référence le global
-  homonyme par une résolution acrobatique (auto-référence apparente).
-  Fonctionne, mais fragile aux renommages — à traiter explicitement.
 - ❓ **Section `environnement`** : patron verbeux hérité (`besoins de
   chauffage et ECS si même équipement` = 0 dans 9 modes, `scope 1` alias
   pur) — bloqué par le contrat DebugDrawer, comme bilan/coûts.
@@ -571,26 +568,20 @@ de lignes : fichiers de `dev`.
   structuré `références:` pour les sources (ADEME, INIES, Base Empreinte…)
   au lieu de `note:` libres (292).
 
-### Outillage et fin de vie de compat
+### Outillage
 
 - ❓ Committer dans `scripts/` les outils forgés pendant le chantier :
   reachabilité des règles mortes, hash canonique du modèle compilé
   (aujourd'hui dans un scratchpad éphémère).
-- ❓ compat.publicodes (1 187 alias) : ajouter un test « aucune règle
-  interne ne référence une clé de compat » pour empêcher de nouvelles
-  dépendances aux vieux noms ; préparer le script de suppression pour la
-  migration front.
+- ❗ **Le point d'entrée `publicodes-build/index.js` n'est pas chargeable par Node.** `publicodes compile` y écrit `assert { type: 'json' }`, syntaxe retirée de Node 22+ (le projet est en Node 24). Les bundlers l'acceptent encore — le comparateur, côté client, importe donc la racine du paquet sans problème — mais tout code chargé nativement en ESM (scripts, tests unitaires en environnement node) doit **importer le JSON en profondeur** : `@betagouv/france-chaleur-urbaine-publicodes/publicodes-build/france-chaleur-urbaine-publicodes.model.json`. C'est ce que fait `simulation-service.ts` côté front.
+- ❗ `@publicodes/tools` est bloqué en **1.7.2** : toutes les versions publiées au-dessus (1.8.0 → 1.10.2) embarquent `"publicodes": "workspace:^"` et `"@publicodes/react-ui": "workspace:^"` dans leurs `dependencies` — le protocole `workspace:` a fuité à la publication, l'installation échoue hors de leur monorepo. Elles émettent par ailleurs toujours `assert { type: 'json' }`. Revérifier à la prochaine publication : si les deux points sont corrigés, la montée supprime aussi le besoin d'import profond.
 - ❓ Vérifier que la CI exécute compile + tests sur les PR (le workflow
   visible ne couvre que la publication npm).
-- ❓ Publicodes est en `^1.9` : surveiller la v2 (la migration éventuelle
-  s'appuiera sur le golden).
+- ❓ Surveiller la v2 de publicodes (la migration éventuelle s'appuiera sur le
+  golden, qui est resté strictement inchangé lors du passage 1.9.0 → 1.10.1).
 
-### Côté front (hors de ce repo, version majeure)
+### Côté front (hors de ce repo)
 
-1. Ménage du DebugDrawer (ne garder que les valeurs utiles).
-2. Migration vers les nouvelles clés (compat.publicodes = la table de
-   correspondance), bascule des clés écrites (page paramètres → nouvelles
-   clés `<mode> . ratios . …` ; inversion des clés canoniques historiques
-   d'éligibilité/BAR-TH-171/TVA).
-3. Suppression de compat.publicodes, des racines de namespaces.publicodes et
-   des clés external-keys correspondantes.
+1. ✅ Migration vers les nouvelles clés et suppression de compat, avec
+   renommage des situations enregistrées en base (migration Kysely).
+2. ❓ Ménage du DebugDrawer (ne garder que les valeurs utiles).

@@ -1,7 +1,7 @@
 # Consommation spécifique de climatisation : table par type tertiaire
 # x sous-zones climatiques.
 
-consommation spécifique climatisation:
+besoins . consommation spécifique climatisation:
   note: 'Source : ADEME 2024'
   variations:
     - si:

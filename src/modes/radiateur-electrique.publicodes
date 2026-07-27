@@ -79,7 +79,7 @@ radiateur électrique:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - ecs . type de production != "Solaire thermique"
-              alors: volume du ballon ECS
+              alors: ecs additionnelle . volume du ballon
             - sinon: 50
           unité: L
         consommation chauffe-eau électrique:
@@ -118,7 +118,7 @@ radiateur électrique:
               alors: consommation combustible chaleur + consommation chauffe-eau électrique
             - sinon: consommation combustible chaleur
           unité: kWh/an
-        consommation groupe froid: froid . consommation groupe froid
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
 
         nombre de radiateurs:
           par défaut: radiateur électrique . installation . puissance retenue // 2
@@ -260,14 +260,14 @@ radiateur électrique:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
         P1ECS:
           le maximum de:
             - coûts . P1 ballon ECS
             - coûts . P1 chauffe-eau solaire
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
-        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * annuité
 
@@ -285,15 +285,15 @@ radiateur électrique:
             - P4 équipement
             - P4 ballon ECS
             - P4 chauffe-eau solaire
-            - froid . P4 groupe froid
-            - froid . P4 réseau de froid
+            - climatisation additionnelle . P4 groupe froid
+            - climatisation additionnelle . P4 réseau de froid
         aides spécifiques:
           formule: aides . total * annuité
 
         aides:
           somme:
             - aides spécifiques
-            - froid . aides réseau de froid
+            - climatisation additionnelle . aides réseau de froid
         P4 moins aides:
           le maximum de:
             - P4 - aides

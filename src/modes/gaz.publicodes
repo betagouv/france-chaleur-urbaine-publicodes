@@ -69,7 +69,7 @@ gaz indiv avec cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - ecs . type de production = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS)
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS)
             - sinon: 0
           unité: kW
         puissance équipement: &inst-puissance-equipement
@@ -99,7 +99,7 @@ gaz indiv avec cond:
                 toutes ces conditions:
                   - ECS additionnelle nécessaire
                   - ecs . type de production != "Solaire thermique"
-              alors: volume du ballon ECS
+              alors: ecs additionnelle . volume du ballon
             - sinon: 50
           unité: L
         consommation chauffe-eau électrique: &inst-consommation-chauffe-eau-electrique
@@ -152,7 +152,7 @@ gaz indiv avec cond:
               alors: consommation auxiliaire + consommation chauffe-eau électrique
             - sinon: consommation auxiliaire
           unité: kWh/an
-        consommation groupe froid: froid . consommation groupe froid
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
     coûts:
       avec:
         investissement équipement: &couts-investissement-equipement
@@ -232,12 +232,12 @@ gaz indiv avec cond:
         petit entretien P2: &couts-petit-entretien-p2-indiv
           produit:
             - ratios . petit entretien P2
-            - (1 + Paramètres économiques . Petit entretien P2 . TVA )
+            - (1 + investissement . TVA petit entretien P2 )
           unité: €TTC/an
         gros entretien P3: &couts-gros-entretien-p3-indiv
           produit:
             - ratios . gros entretien P3
-            - (1 + Paramètres économiques . Gros entretien P3 . TVA )
+            - (1 + investissement . TVA gros entretien P3 )
           unité: €TTC/an
         petit entretien P2 par logement tertiaire: petit entretien P2
         gros entretien P3 par logement tertiaire: gros entretien P3
@@ -292,14 +292,14 @@ gaz indiv avec cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
         P1ECS: &bilan-p1ecs
           le maximum de:
             - coûts . P1 ballon ECS
             - coûts . P1 chauffe-eau solaire
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
-        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * annuité
 
@@ -317,15 +317,15 @@ gaz indiv avec cond:
             - P4 équipement
             - P4 ballon ECS
             - P4 chauffe-eau solaire
-            - froid . P4 groupe froid
-            - froid . P4 réseau de froid
+            - climatisation additionnelle . P4 groupe froid
+            - climatisation additionnelle . P4 réseau de froid
         aides spécifiques:
           formule: aides . total * annuité
 
         aides: &bilan-aides
           somme:
             - aides spécifiques
-            - froid . aides réseau de froid
+            - climatisation additionnelle . aides réseau de froid
         P4 moins aides: &bilan-p4-moins-aides
           le maximum de:
             - P4 - aides
@@ -403,7 +403,7 @@ gaz indiv sans cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - ecs . type de production = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière)
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière)
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
@@ -428,7 +428,7 @@ gaz indiv sans cond:
         consommation hors électricité:
           formule: consommation combustible chaleur
         consommation électricité: *inst-consommation-electricite
-        consommation groupe froid: froid . consommation groupe froid
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
     coûts:
       avec:
         investissement équipement: *couts-investissement-equipement
@@ -470,11 +470,11 @@ gaz indiv sans cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
         P1ECS: *bilan-p1ecs
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
-        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * annuité
 
@@ -552,7 +552,7 @@ gaz coll avec cond:
           unité: €TTC
           note: 'Source: ELCIMAI 2024 et Atlantic 2024'
         petit entretien P2:
-          par défaut: 7.00 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          par défaut: 7.00 * (1 + investissement . TVA petit entretien P2)
           unité: €TTC/MWh
         rendement chaudière ECS:
           valeur: 86%
@@ -565,7 +565,7 @@ gaz coll avec cond:
       avec:
         production eau chaude sanitaire: ecs . production
         puissance chauffage:
-          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière chauffage) * bâtiment . nombre de logements * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière chauffage) * bâtiment . nombre de logements * dimensionnement . ratios . coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
@@ -573,7 +573,7 @@ gaz coll avec cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - ecs . type de production = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS) * bâtiment . nombre de logements
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS) * bâtiment . nombre de logements
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
@@ -629,7 +629,7 @@ gaz coll avec cond:
         consommation hors électricité:
           formule: consommation combustible chaleur
         consommation électricité: *inst-consommation-electricite
-        consommation groupe froid: froid . consommation groupe froid
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
     coûts:
       avec:
         investissement équipement: *couts-investissement-equipement
@@ -698,11 +698,11 @@ gaz coll avec cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
         P1ECS: *bilan-p1ecs
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
-        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * annuité
 
@@ -780,7 +780,7 @@ gaz coll sans cond:
           unité: €TTC
           note: 'Source: ELCIMAI 2024'
         petit entretien P2:
-          par défaut: 7.00 * (1 + Paramètres économiques . Petit entretien P2 . TVA)
+          par défaut: 7.00 * (1 + investissement . TVA petit entretien P2)
           unité: €TTC/MWh
         rendement chaudière:
           valeur: 73%
@@ -790,7 +790,7 @@ gaz coll sans cond:
       avec:
         production eau chaude sanitaire: ecs . production
         puissance chauffage:
-          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière) * bâtiment . nombre de logements * ratios . PUIS Coefficient de foisonnement chauffage collectif
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière) * bâtiment . nombre de logements * dimensionnement . ratios . coefficient de foisonnement chauffage collectif
           unité: kW
         puissance ECS:
           variations:
@@ -798,7 +798,7 @@ gaz coll sans cond:
                 toutes ces conditions:
                   - production eau chaude sanitaire
                   - ecs . type de production = 'Avec équipement chauffage'
-              alors: ratios . PUIS Coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière) * bâtiment . nombre de logements
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière) * bâtiment . nombre de logements
             - sinon: 0
           unité: kW
         puissance équipement: *inst-puissance-equipement
@@ -844,7 +844,7 @@ gaz coll sans cond:
         consommation hors électricité:
           formule: consommation combustible chaleur
         consommation électricité: *inst-consommation-electricite
-        consommation groupe froid: froid . consommation groupe froid
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
     coûts:
       avec:
         investissement équipement: *couts-investissement-equipement
@@ -892,11 +892,11 @@ gaz coll sans cond:
       avec:
         P1abo: coûts . P1 abonnement
         P1conso: coûts . P1 consommation
-        P1prime: coûts . P1 auxiliaires + froid . surcoût P1 auxiliaires
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
         P1ECS: *bilan-p1ecs
         P1Consofroid: coûts . P1 froid
-        P2: coûts . petit entretien P2 par logement tertiaire + froid . surcoût P2
-        P3: coûts . gros entretien P3 par logement tertiaire + froid . surcoût P3
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
         P4 équipement:
           formule: coûts . investissement par logement * annuité
 
