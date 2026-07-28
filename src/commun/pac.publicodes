@@ -1,6 +1,5 @@
-# Socle commun à toutes les pompes à chaleur : SCOP par classe énergétique,
-# consommations auxiliaires, deltas de température des émetteurs (dérogation),
-# et PAC à absorption gaz.
+# Socle commun à toutes les pompes à chaleur : SCOP plancher, consommations
+# auxiliaires et delta de température des émetteurs.
 
 pac:
   description: Socle commun à toutes les pompes à chaleur
@@ -20,14 +19,11 @@ pac:
         - si: bâtiment . température émetteurs = "Radiateur"
           alors: -1.2
 
-pac . ratios:
-  description: Valeurs de référence communes aux pompes à chaleur
+    conso auxiliaire chauffage climatisation:
+      valeur: 99.8%
 
-pac . ratios . conso auxiliaire chauffage climatisation:
-  valeur: 99.8%
+    conso auxiliaire ECS:
+      valeur: 99%
 
-pac . ratios . conso auxiliaire ECS:
-  valeur: 99%
-
-pac . ratios . SCOP mini:
-  valeur: 1.8
+    SCOP mini:
+      valeur: 1.8

@@ -1,1923 +1,1928 @@
+# Données par département (généré). Un bloc par département, activé par
+# `climat . code département` ; chaque valeur se substitue à la clé climat
+# correspondante via `remplace`.
+
 départements:
   applicable si:
     est défini: climat . code département
-départements . dep 01:
-  applicable si: climat . code département = "01"
   avec:
-    nom:
-      valeur: "'AIN'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2042
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 37
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 02:
-  applicable si: climat . code département = "02"
-  avec:
-    nom:
-      valeur: "'AISNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2156
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 9
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 03:
-  applicable si: climat . code département = "03"
-  avec:
-    nom:
-      valeur: "'ALLIER'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2018
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 25
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 04:
-  applicable si: climat . code département = "04"
-  avec:
-    nom:
-      valeur: "'ALPES-DE-HAUTE-PROVENCE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1726
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 54
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2d'"
-      remplace: climat . sous zone
-départements . dep 05:
-  applicable si: climat . code département = "05"
-  avec:
-    nom:
-      valeur: "'HAUTES-ALPES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2236
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 19
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 06:
-  applicable si: climat . code département = "06"
-  avec:
-    nom:
-      valeur: "'ALPES-MARITIMES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 939
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 60
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 07:
-  applicable si: climat . code département = "07"
-  avec:
-    nom:
-      valeur: "'ARDECHE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1639
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 60
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 08:
-  applicable si: climat . code département = "08"
-  avec:
-    nom:
-      valeur: "'ARDENNES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2344
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 4
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 09:
-  applicable si: climat . code département = "09"
-  avec:
-    nom:
-      valeur: "'ARIEGE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1750
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 14
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 10:
-  applicable si: climat . code département = "10"
-  avec:
-    nom:
-      valeur: "'AUBE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2090
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 16
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 11:
-  applicable si: climat . code département = "11"
-  avec:
-    nom:
-      valeur: "'AUDE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1410
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 61
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 12:
-  applicable si: climat . code département = "12"
-  avec:
-    nom:
-      valeur: "'AVEYRON'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2146
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 21
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 13:
-  applicable si: climat . code département = "13"
-  avec:
-    nom:
-      valeur: "'BOUCHES-DU-RHONE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1188
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 105
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 14:
-  applicable si: climat . code département = "14"
-  avec:
-    nom:
-      valeur: "'CALVADOS'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1928
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 4
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 15:
-  applicable si: climat . code département = "15"
-  avec:
-    nom:
-      valeur: "'CANTAL'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2269
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 9
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 16:
-  applicable si: climat . code département = "16"
-  avec:
-    nom:
-      valeur: "'CHARENTE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1525
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 39
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 17:
-  applicable si: climat . code département = "17"
-  avec:
-    nom:
-      valeur: "'CHARENTE-MARITIME'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1465
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 21
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 18:
-  applicable si: climat . code département = "18"
-  avec:
-    nom:
-      valeur: "'CHER'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1897
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 28
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 19:
-  applicable si: climat . code département = "19"
-  avec:
-    nom:
-      valeur: "'CORREZE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1676
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 36
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 2A:
-  applicable si: climat . code département = "2A"
-  avec:
-    nom:
-      valeur: "'CORSE-DU-SUD'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 979
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 60
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 2B:
-  applicable si: climat . code département = "2B"
-  avec:
-    nom:
-      valeur: "'HAUTE-CORSE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 972
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 60
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 21:
-  applicable si: climat . code département = "21"
-  avec:
-    nom:
-      valeur: "'COTE-D'OR'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2148
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 28
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 22:
-  applicable si: climat . code département = "22"
-  avec:
-    nom:
-      valeur: "'COTES-D'ARMOR'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1819
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 2
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2a'"
-      remplace: climat . sous zone
-départements . dep 23:
-  applicable si: climat . code département = "23"
-  avec:
-    nom:
-      valeur: "'CREUSE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2170
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 8
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 24:
-  applicable si: climat . code département = "24"
-  avec:
-    nom:
-      valeur: "'DORDOGNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1650
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 24
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 25:
-  applicable si: climat . code département = "25"
-  avec:
-    nom:
-      valeur: "'DOUBS'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2112
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 24
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 26:
-  applicable si: climat . code département = "26"
-  avec:
-    nom:
-      valeur: "'DROME'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1542
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 91
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2d'"
-      remplace: climat . sous zone
-départements . dep 27:
-  applicable si: climat . code département = "27"
-  avec:
-    nom:
-      valeur: "'EURE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2057
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 10
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 28:
-  applicable si: climat . code département = "28"
-  avec:
-    nom:
-      valeur: "'EURE-ET-LOIR'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2013
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 13
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 29:
-  applicable si: climat . code département = "29"
-  avec:
-    nom:
-      valeur: "'FINISTERE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1729
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 1
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2a'"
-      remplace: climat . sous zone
-départements . dep 30:
-  applicable si: climat . code département = "30"
-  avec:
-    nom:
-      valeur: "'GARD'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1236
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 163
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 31:
-  applicable si: climat . code département = "31"
-  avec:
-    nom:
-      valeur: "'HAUTE-GARONNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1459
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 73
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 32:
-  applicable si: climat . code département = "32"
-  avec:
-    nom:
-      valeur: "'GERS'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1578
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 40
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 33:
-  applicable si: climat . code département = "33"
-  avec:
-    nom:
-      valeur: "'GIRONDE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1388
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 50
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 34:
-  applicable si: climat . code département = "34"
-  avec:
-    nom:
-      valeur: "'HERAULT'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1206
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 92
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 35:
-  applicable si: climat . code département = "35"
-  avec:
-    nom:
-      valeur: "'ILLE-ET-VILAINE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1753
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 8
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2a'"
-      remplace: climat . sous zone
-départements . dep 36:
-  applicable si: climat . code département = "36"
-  avec:
-    nom:
-      valeur: "'INDRE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1932
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 19
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 37:
-  applicable si: climat . code département = "37"
-  avec:
-    nom:
-      valeur: "'INDRE-ET-LOIRE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1812
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 23
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 38:
-  applicable si: climat . code département = "38"
-  avec:
-    nom:
-      valeur: "'ISERE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2189
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 16
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 39:
-  applicable si: climat . code département = "39"
-  avec:
-    nom:
-      valeur: "'JURA'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2021
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 42
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 40:
-  applicable si: climat . code département = "40"
-  avec:
-    nom:
-      valeur: "'LANDES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1480
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 37
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 41:
-  applicable si: climat . code département = "41"
-  avec:
-    nom:
-      valeur: "'LOIR-ET-CHER'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1985
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 18
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 42:
-  applicable si: climat . code département = "42"
-  avec:
-    nom:
-      valeur: "'LOIRE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2062
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 30
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 43:
-  applicable si: climat . code département = "43"
-  avec:
-    nom:
-      valeur: "'HAUTE-LOIRE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2600
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 3
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 44:
-  applicable si: climat . code département = "44"
-  avec:
-    nom:
-      valeur: "'LOIRE-ATLANTIQUE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1650
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 20
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 45:
-  applicable si: climat . code département = "45"
-  avec:
-    nom:
-      valeur: "'LOIRET'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1990
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 15
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 46:
-  applicable si: climat . code département = "46"
-  avec:
-    nom:
-      valeur: "'LOT'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1713
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 41
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 47:
-  applicable si: climat . code département = "47"
-  avec:
-    nom:
-      valeur: "'LOT-ET-GARONNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1536
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 45
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 48:
-  applicable si: climat . code département = "48"
-  avec:
-    nom:
-      valeur: "'LOZERE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2496
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 6
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2d'"
-      remplace: climat . sous zone
-départements . dep 49:
-  applicable si: climat . code département = "49"
-  avec:
-    nom:
-      valeur: "'MAINE-ET-LOIRE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1711
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 18
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 50:
-  applicable si: climat . code département = "50"
-  avec:
-    nom:
-      valeur: "'MANCHE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1824
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 0
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2a'"
-      remplace: climat . sous zone
-départements . dep 51:
-  applicable si: climat . code département = "51"
-  avec:
-    nom:
-      valeur: "'MARNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2144
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 8
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 52:
-  applicable si: climat . code département = "52"
-  avec:
-    nom:
-      valeur: "'HAUTE-MARNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2387
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 24
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 53:
-  applicable si: climat . code département = "53"
-  avec:
-    nom:
-      valeur: "'MAYENNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1900
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 12
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 54:
-  applicable si: climat . code département = "54"
-  avec:
-    nom:
-      valeur: "'MEURTHE-ET-MOSELLE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2214
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 18
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 55:
-  applicable si: climat . code département = "55"
-  avec:
-    nom:
-      valeur: "'MEUSE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2272
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 21
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 56:
-  applicable si: climat . code département = "56"
-  avec:
-    nom:
-      valeur: "'MORBIHAN'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1690
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 9
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2a'"
-      remplace: climat . sous zone
-départements . dep 57:
-  applicable si: climat . code département = "57"
-  avec:
-    nom:
-      valeur: "'MOSELLE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2219
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 16
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 58:
-  applicable si: climat . code département = "58"
-  avec:
-    nom:
-      valeur: "'NIEVRE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2050
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 15
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 59:
-  applicable si: climat . code département = "59"
-  avec:
-    nom:
-      valeur: "'NORD'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2042
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 13
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 60:
-  applicable si: climat . code département = "60"
-  avec:
-    nom:
-      valeur: "'OISE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2146
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 6
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 61:
-  applicable si: climat . code département = "61"
-  avec:
-    nom:
-      valeur: "'ORNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2015
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 8
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 62:
-  applicable si: climat . code département = "62"
-  avec:
-    nom:
-      valeur: "'PAS-DE-CALAIS'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1965
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 6
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 63:
-  applicable si: climat . code département = "63"
-  avec:
-    nom:
-      valeur: "'PUY-DE-DOME'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1897
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 35
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 64:
-  applicable si: climat . code département = "64"
-  avec:
-    nom:
-      valeur: "'PYRENEES-ATLANTIQUES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1458
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 22
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 65:
-  applicable si: climat . code département = "65"
-  avec:
-    nom:
-      valeur: "'HAUTES-PYRENEES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1693
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 18
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 66:
-  applicable si: climat . code département = "66"
-  avec:
-    nom:
-      valeur: "'PYRENEES-ORIENTALES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1047
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 133
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 67:
-  applicable si: climat . code département = "67"
-  avec:
-    nom:
-      valeur: "'BAS-RHIN'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2117
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 25
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 68:
-  applicable si: climat . code département = "68"
-  avec:
-    nom:
-      valeur: "'HAUT-RHIN'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2203
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 20
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 69:
-  applicable si: climat . code département = "69"
-  avec:
-    nom:
-      valeur: "'RHONE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1796
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 72
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 70:
-  applicable si: climat . code département = "70"
-  avec:
-    nom:
-      valeur: "'HAUTE-SAONE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2277
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 14
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 71:
-  applicable si: climat . code département = "71"
-  avec:
-    nom:
-      valeur: "'SAONE-ET-LOIRE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1935
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 40
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 72:
-  applicable si: climat . code département = "72"
-  avec:
-    nom:
-      valeur: "'SARTHE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1772
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 26
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 73:
-  applicable si: climat . code département = "73"
-  avec:
-    nom:
-      valeur: "'SAVOIE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2357
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 26
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 74:
-  applicable si: climat . code département = "74"
-  avec:
-    nom:
-      valeur: "'HAUTE-SAVOIE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2245
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 7
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 75:
-  applicable si: climat . code département = "75"
-  avec:
-    nom:
-      valeur: "'PARIS'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1718
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 35
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 76:
-  applicable si: climat . code département = "76"
-  avec:
-    nom:
-      valeur: "'SEINE-MARITIME'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2079
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 5
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 77:
-  applicable si: climat . code département = "77"
-  avec:
-    nom:
-      valeur: "'SEINE-ET-MARNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1982
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 15
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 78:
-  applicable si: climat . code département = "78"
-  avec:
-    nom:
-      valeur: "'YVELINES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2017
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 22
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 79:
-  applicable si: climat . code département = "79"
-  avec:
-    nom:
-      valeur: "'DEUX-SEVRES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1688
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 29
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 80:
-  applicable si: climat . code département = "80"
-  avec:
-    nom:
-      valeur: "'SOMME'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2019
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 8
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 81:
-  applicable si: climat . code département = "81"
-  avec:
-    nom:
-      valeur: "'TARN'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1622
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 69
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 82:
-  applicable si: climat . code département = "82"
-  avec:
-    nom:
-      valeur: "'TARN-ET-GARONNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1559
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 58
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2c'"
-      remplace: climat . sous zone
-départements . dep 83:
-  applicable si: climat . code département = "83"
-  avec:
-    nom:
-      valeur: "'VAR'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1224
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 58
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H3'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H3'"
-      remplace: climat . sous zone
-départements . dep 84:
-  applicable si: climat . code département = "84"
-  avec:
-    nom:
-      valeur: "'VAUCLUSE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1464
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 115
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2d'"
-      remplace: climat . sous zone
-départements . dep 85:
-  applicable si: climat . code département = "85"
-  avec:
-    nom:
-      valeur: "'VENDEE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1730
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 9
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 86:
-  applicable si: climat . code département = "86"
-  avec:
-    nom:
-      valeur: "'VIENNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1823
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 21
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H2'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H2b'"
-      remplace: climat . sous zone
-départements . dep 87:
-  applicable si: climat . code département = "87"
-  avec:
-    nom:
-      valeur: "'HAUTE-VIENNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1943
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 25
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1c'"
-      remplace: climat . sous zone
-départements . dep 88:
-  applicable si: climat . code département = "88"
-  avec:
-    nom:
-      valeur: "'VOSGES'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2346
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 11
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 89:
-  applicable si: climat . code département = "89"
-  avec:
-    nom:
-      valeur: "'YONNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2085
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 20
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 90:
-  applicable si: climat . code département = "90"
-  avec:
-    nom:
-      valeur: "'TERRITOIRE DE BELFORT'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 2255
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 24
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1b'"
-      remplace: climat . sous zone
-départements . dep 91:
-  applicable si: climat . code département = "91"
-  avec:
-    nom:
-      valeur: "'ESSONNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1893
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 24
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 92:
-  applicable si: climat . code département = "92"
-  avec:
-    nom:
-      valeur: "'HAUTS-DE-SEINE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1764
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 35
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 93:
-  applicable si: climat . code département = "93"
-  avec:
-    nom:
-      valeur: "'SEINE-SAINT-DENIS'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1873
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 35
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 94:
-  applicable si: climat . code département = "94"
-  avec:
-    nom:
-      valeur: "'VAL-DE-MARNE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1764
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 35
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
-départements . dep 95:
-  applicable si: climat . code département = "95"
-  avec:
-    nom:
-      valeur: "'VAL-D'OISE'"
-      remplace: climat . nom département
-    dju chaud moyen:
-      valeur: 1899
-      remplace: climat . département . degré jours chaud
-      note: 'Source : Costic'
-    dju froid moyen:
-      valeur: 24
-      remplace: climat . département . degré jours froid
-      note: 'Source : Cégibat'
-    zone climatique:
-      valeur: "'H1'"
-      remplace: climat . zone
-    sous zone climatique:
-      valeur: "'H1a'"
-      remplace: climat . sous zone
+    dep 01:
+      applicable si: climat . code département = "01"
+      avec:
+        nom:
+          valeur: "'AIN'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2042
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 37
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 02:
+      applicable si: climat . code département = "02"
+      avec:
+        nom:
+          valeur: "'AISNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2156
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 9
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 03:
+      applicable si: climat . code département = "03"
+      avec:
+        nom:
+          valeur: "'ALLIER'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2018
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 25
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 04:
+      applicable si: climat . code département = "04"
+      avec:
+        nom:
+          valeur: "'ALPES-DE-HAUTE-PROVENCE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1726
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 54
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2d'"
+          remplace: climat . sous zone
+    dep 05:
+      applicable si: climat . code département = "05"
+      avec:
+        nom:
+          valeur: "'HAUTES-ALPES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2236
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 19
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 06:
+      applicable si: climat . code département = "06"
+      avec:
+        nom:
+          valeur: "'ALPES-MARITIMES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 939
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 60
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 07:
+      applicable si: climat . code département = "07"
+      avec:
+        nom:
+          valeur: "'ARDECHE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1639
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 60
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 08:
+      applicable si: climat . code département = "08"
+      avec:
+        nom:
+          valeur: "'ARDENNES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2344
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 4
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 09:
+      applicable si: climat . code département = "09"
+      avec:
+        nom:
+          valeur: "'ARIEGE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1750
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 14
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 10:
+      applicable si: climat . code département = "10"
+      avec:
+        nom:
+          valeur: "'AUBE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2090
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 16
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 11:
+      applicable si: climat . code département = "11"
+      avec:
+        nom:
+          valeur: "'AUDE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1410
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 61
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 12:
+      applicable si: climat . code département = "12"
+      avec:
+        nom:
+          valeur: "'AVEYRON'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2146
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 21
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 13:
+      applicable si: climat . code département = "13"
+      avec:
+        nom:
+          valeur: "'BOUCHES-DU-RHONE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1188
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 105
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 14:
+      applicable si: climat . code département = "14"
+      avec:
+        nom:
+          valeur: "'CALVADOS'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1928
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 4
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 15:
+      applicable si: climat . code département = "15"
+      avec:
+        nom:
+          valeur: "'CANTAL'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2269
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 9
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 16:
+      applicable si: climat . code département = "16"
+      avec:
+        nom:
+          valeur: "'CHARENTE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1525
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 39
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 17:
+      applicable si: climat . code département = "17"
+      avec:
+        nom:
+          valeur: "'CHARENTE-MARITIME'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1465
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 21
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 18:
+      applicable si: climat . code département = "18"
+      avec:
+        nom:
+          valeur: "'CHER'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1897
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 28
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 19:
+      applicable si: climat . code département = "19"
+      avec:
+        nom:
+          valeur: "'CORREZE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1676
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 36
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 2A:
+      applicable si: climat . code département = "2A"
+      avec:
+        nom:
+          valeur: "'CORSE-DU-SUD'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 979
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 60
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 2B:
+      applicable si: climat . code département = "2B"
+      avec:
+        nom:
+          valeur: "'HAUTE-CORSE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 972
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 60
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 21:
+      applicable si: climat . code département = "21"
+      avec:
+        nom:
+          valeur: "'COTE-D'OR'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2148
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 28
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 22:
+      applicable si: climat . code département = "22"
+      avec:
+        nom:
+          valeur: "'COTES-D'ARMOR'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1819
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 2
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2a'"
+          remplace: climat . sous zone
+    dep 23:
+      applicable si: climat . code département = "23"
+      avec:
+        nom:
+          valeur: "'CREUSE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2170
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 8
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 24:
+      applicable si: climat . code département = "24"
+      avec:
+        nom:
+          valeur: "'DORDOGNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1650
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 24
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 25:
+      applicable si: climat . code département = "25"
+      avec:
+        nom:
+          valeur: "'DOUBS'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2112
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 24
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 26:
+      applicable si: climat . code département = "26"
+      avec:
+        nom:
+          valeur: "'DROME'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1542
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 91
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2d'"
+          remplace: climat . sous zone
+    dep 27:
+      applicable si: climat . code département = "27"
+      avec:
+        nom:
+          valeur: "'EURE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2057
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 10
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 28:
+      applicable si: climat . code département = "28"
+      avec:
+        nom:
+          valeur: "'EURE-ET-LOIR'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2013
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 13
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 29:
+      applicable si: climat . code département = "29"
+      avec:
+        nom:
+          valeur: "'FINISTERE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1729
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 1
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2a'"
+          remplace: climat . sous zone
+    dep 30:
+      applicable si: climat . code département = "30"
+      avec:
+        nom:
+          valeur: "'GARD'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1236
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 163
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 31:
+      applicable si: climat . code département = "31"
+      avec:
+        nom:
+          valeur: "'HAUTE-GARONNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1459
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 73
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 32:
+      applicable si: climat . code département = "32"
+      avec:
+        nom:
+          valeur: "'GERS'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1578
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 40
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 33:
+      applicable si: climat . code département = "33"
+      avec:
+        nom:
+          valeur: "'GIRONDE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1388
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 50
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 34:
+      applicable si: climat . code département = "34"
+      avec:
+        nom:
+          valeur: "'HERAULT'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1206
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 92
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 35:
+      applicable si: climat . code département = "35"
+      avec:
+        nom:
+          valeur: "'ILLE-ET-VILAINE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1753
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 8
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2a'"
+          remplace: climat . sous zone
+    dep 36:
+      applicable si: climat . code département = "36"
+      avec:
+        nom:
+          valeur: "'INDRE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1932
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 19
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 37:
+      applicable si: climat . code département = "37"
+      avec:
+        nom:
+          valeur: "'INDRE-ET-LOIRE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1812
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 23
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 38:
+      applicable si: climat . code département = "38"
+      avec:
+        nom:
+          valeur: "'ISERE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2189
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 16
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 39:
+      applicable si: climat . code département = "39"
+      avec:
+        nom:
+          valeur: "'JURA'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2021
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 42
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 40:
+      applicable si: climat . code département = "40"
+      avec:
+        nom:
+          valeur: "'LANDES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1480
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 37
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 41:
+      applicable si: climat . code département = "41"
+      avec:
+        nom:
+          valeur: "'LOIR-ET-CHER'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1985
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 18
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 42:
+      applicable si: climat . code département = "42"
+      avec:
+        nom:
+          valeur: "'LOIRE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2062
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 30
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 43:
+      applicable si: climat . code département = "43"
+      avec:
+        nom:
+          valeur: "'HAUTE-LOIRE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2600
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 3
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 44:
+      applicable si: climat . code département = "44"
+      avec:
+        nom:
+          valeur: "'LOIRE-ATLANTIQUE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1650
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 20
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 45:
+      applicable si: climat . code département = "45"
+      avec:
+        nom:
+          valeur: "'LOIRET'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1990
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 15
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 46:
+      applicable si: climat . code département = "46"
+      avec:
+        nom:
+          valeur: "'LOT'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1713
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 41
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 47:
+      applicable si: climat . code département = "47"
+      avec:
+        nom:
+          valeur: "'LOT-ET-GARONNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1536
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 45
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 48:
+      applicable si: climat . code département = "48"
+      avec:
+        nom:
+          valeur: "'LOZERE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2496
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 6
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2d'"
+          remplace: climat . sous zone
+    dep 49:
+      applicable si: climat . code département = "49"
+      avec:
+        nom:
+          valeur: "'MAINE-ET-LOIRE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1711
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 18
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 50:
+      applicable si: climat . code département = "50"
+      avec:
+        nom:
+          valeur: "'MANCHE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1824
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 0
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2a'"
+          remplace: climat . sous zone
+    dep 51:
+      applicable si: climat . code département = "51"
+      avec:
+        nom:
+          valeur: "'MARNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2144
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 8
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 52:
+      applicable si: climat . code département = "52"
+      avec:
+        nom:
+          valeur: "'HAUTE-MARNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2387
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 24
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 53:
+      applicable si: climat . code département = "53"
+      avec:
+        nom:
+          valeur: "'MAYENNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1900
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 12
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 54:
+      applicable si: climat . code département = "54"
+      avec:
+        nom:
+          valeur: "'MEURTHE-ET-MOSELLE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2214
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 18
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 55:
+      applicable si: climat . code département = "55"
+      avec:
+        nom:
+          valeur: "'MEUSE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2272
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 21
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 56:
+      applicable si: climat . code département = "56"
+      avec:
+        nom:
+          valeur: "'MORBIHAN'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1690
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 9
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2a'"
+          remplace: climat . sous zone
+    dep 57:
+      applicable si: climat . code département = "57"
+      avec:
+        nom:
+          valeur: "'MOSELLE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2219
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 16
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 58:
+      applicable si: climat . code département = "58"
+      avec:
+        nom:
+          valeur: "'NIEVRE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2050
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 15
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 59:
+      applicable si: climat . code département = "59"
+      avec:
+        nom:
+          valeur: "'NORD'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2042
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 13
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 60:
+      applicable si: climat . code département = "60"
+      avec:
+        nom:
+          valeur: "'OISE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2146
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 6
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 61:
+      applicable si: climat . code département = "61"
+      avec:
+        nom:
+          valeur: "'ORNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2015
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 8
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 62:
+      applicable si: climat . code département = "62"
+      avec:
+        nom:
+          valeur: "'PAS-DE-CALAIS'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1965
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 6
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 63:
+      applicable si: climat . code département = "63"
+      avec:
+        nom:
+          valeur: "'PUY-DE-DOME'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1897
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 35
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 64:
+      applicable si: climat . code département = "64"
+      avec:
+        nom:
+          valeur: "'PYRENEES-ATLANTIQUES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1458
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 22
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 65:
+      applicable si: climat . code département = "65"
+      avec:
+        nom:
+          valeur: "'HAUTES-PYRENEES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1693
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 18
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 66:
+      applicable si: climat . code département = "66"
+      avec:
+        nom:
+          valeur: "'PYRENEES-ORIENTALES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1047
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 133
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 67:
+      applicable si: climat . code département = "67"
+      avec:
+        nom:
+          valeur: "'BAS-RHIN'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2117
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 25
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 68:
+      applicable si: climat . code département = "68"
+      avec:
+        nom:
+          valeur: "'HAUT-RHIN'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2203
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 20
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 69:
+      applicable si: climat . code département = "69"
+      avec:
+        nom:
+          valeur: "'RHONE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1796
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 72
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 70:
+      applicable si: climat . code département = "70"
+      avec:
+        nom:
+          valeur: "'HAUTE-SAONE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2277
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 14
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 71:
+      applicable si: climat . code département = "71"
+      avec:
+        nom:
+          valeur: "'SAONE-ET-LOIRE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1935
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 40
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 72:
+      applicable si: climat . code département = "72"
+      avec:
+        nom:
+          valeur: "'SARTHE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1772
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 26
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 73:
+      applicable si: climat . code département = "73"
+      avec:
+        nom:
+          valeur: "'SAVOIE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2357
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 26
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 74:
+      applicable si: climat . code département = "74"
+      avec:
+        nom:
+          valeur: "'HAUTE-SAVOIE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2245
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 7
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 75:
+      applicable si: climat . code département = "75"
+      avec:
+        nom:
+          valeur: "'PARIS'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1718
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 35
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 76:
+      applicable si: climat . code département = "76"
+      avec:
+        nom:
+          valeur: "'SEINE-MARITIME'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2079
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 5
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 77:
+      applicable si: climat . code département = "77"
+      avec:
+        nom:
+          valeur: "'SEINE-ET-MARNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1982
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 15
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 78:
+      applicable si: climat . code département = "78"
+      avec:
+        nom:
+          valeur: "'YVELINES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2017
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 22
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 79:
+      applicable si: climat . code département = "79"
+      avec:
+        nom:
+          valeur: "'DEUX-SEVRES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1688
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 29
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 80:
+      applicable si: climat . code département = "80"
+      avec:
+        nom:
+          valeur: "'SOMME'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2019
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 8
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 81:
+      applicable si: climat . code département = "81"
+      avec:
+        nom:
+          valeur: "'TARN'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1622
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 69
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 82:
+      applicable si: climat . code département = "82"
+      avec:
+        nom:
+          valeur: "'TARN-ET-GARONNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1559
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 58
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2c'"
+          remplace: climat . sous zone
+    dep 83:
+      applicable si: climat . code département = "83"
+      avec:
+        nom:
+          valeur: "'VAR'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1224
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 58
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H3'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H3'"
+          remplace: climat . sous zone
+    dep 84:
+      applicable si: climat . code département = "84"
+      avec:
+        nom:
+          valeur: "'VAUCLUSE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1464
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 115
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2d'"
+          remplace: climat . sous zone
+    dep 85:
+      applicable si: climat . code département = "85"
+      avec:
+        nom:
+          valeur: "'VENDEE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1730
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 9
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 86:
+      applicable si: climat . code département = "86"
+      avec:
+        nom:
+          valeur: "'VIENNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1823
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 21
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H2'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H2b'"
+          remplace: climat . sous zone
+    dep 87:
+      applicable si: climat . code département = "87"
+      avec:
+        nom:
+          valeur: "'HAUTE-VIENNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1943
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 25
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1c'"
+          remplace: climat . sous zone
+    dep 88:
+      applicable si: climat . code département = "88"
+      avec:
+        nom:
+          valeur: "'VOSGES'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2346
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 11
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 89:
+      applicable si: climat . code département = "89"
+      avec:
+        nom:
+          valeur: "'YONNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2085
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 20
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 90:
+      applicable si: climat . code département = "90"
+      avec:
+        nom:
+          valeur: "'TERRITOIRE DE BELFORT'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 2255
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 24
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1b'"
+          remplace: climat . sous zone
+    dep 91:
+      applicable si: climat . code département = "91"
+      avec:
+        nom:
+          valeur: "'ESSONNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1893
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 24
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 92:
+      applicable si: climat . code département = "92"
+      avec:
+        nom:
+          valeur: "'HAUTS-DE-SEINE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1764
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 35
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 93:
+      applicable si: climat . code département = "93"
+      avec:
+        nom:
+          valeur: "'SEINE-SAINT-DENIS'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1873
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 35
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 94:
+      applicable si: climat . code département = "94"
+      avec:
+        nom:
+          valeur: "'VAL-DE-MARNE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1764
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 35
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone
+    dep 95:
+      applicable si: climat . code département = "95"
+      avec:
+        nom:
+          valeur: "'VAL-D'OISE'"
+          remplace: climat . nom département
+        dju chaud moyen:
+          valeur: 1899
+          remplace: climat . département . degré jours chaud
+          note: 'Source : Costic'
+        dju froid moyen:
+          valeur: 24
+          remplace: climat . département . degré jours froid
+          note: 'Source : Cégibat'
+        zone climatique:
+          valeur: "'H1'"
+          remplace: climat . zone
+        sous zone climatique:
+          valeur: "'H1a'"
+          remplace: climat . sous zone

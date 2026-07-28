@@ -115,13 +115,13 @@ PAC air-eau indiv:
           unité: kWh elec
         consommation auxiliaire: &inst-consommation-auxiliaire
           somme:
-            - (1 - pac . ratios . conso auxiliaire chauffage climatisation) * (besoins . chauffage par logement + besoins . climatisation par logement)
+            - (1 - pac . conso auxiliaire chauffage climatisation) * (besoins . chauffage par logement + besoins . climatisation par logement)
             - variations:
                 - si:
                     toutes ces conditions:
                       - ecs . type de production = 'Avec équipement chauffage'
                       - ecs . production
-                  alors: (1 - pac . ratios . conso auxiliaire ECS) * besoins . ECS par logement
+                  alors: (1 - pac . conso auxiliaire ECS) * besoins . ECS par logement
                 - sinon: 0
           unité: kWh elec
         consommation hors électricité: &inst-consommation-hors-electricite

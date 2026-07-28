@@ -501,7 +501,7 @@ combustibles:
                 produit:
                   - dimensionnement . puissance chauffage appelée
                   - bâtiment . nombre de logements
-                  - dimensionnement . ratios . coefficient de foisonnement chauffage collectif / pac . ratios . SCOP mini
+                  - dimensionnement . ratios . coefficient de foisonnement chauffage collectif / pac . SCOP mini
 
         option tarifaire:
           une possibilité:

@@ -34,7 +34,7 @@ src/
 │   ├── reseau-de-froid.publicodes
 │   └── add-ons-solaire.publicodes    # pseudo-modes partiels (solaire, hybride…)
 ├── commun/                 # calculs et valeurs transverses
-│   ├── besoins.publicodes                       # besoins du bâtiment + dimensionnement
+│   ├── besoins.publicodes                       # dimensionnement : puissances appelées
 │   ├── combustibles.publicodes                  # prix/paramètres/taxes par énergie
 │   ├── tarif-gaz-tertiaire.publicodes           # estimation de l'abonnement gaz tertiaire
 │   ├── ecs-additionnelle.publicodes             # ballon électrique / chauffe-eau solaire
@@ -55,7 +55,7 @@ src/
 
 ### Racines du modèle
 
-41 racines pour ~2 200 règles, et **aucune règle feuille à la racine** hormis
+40 racines pour ~2 200 règles, et **aucune règle feuille à la racine** hormis
 une sentinelle technique (`non défini` — qui sert au
 front à lire les valeurs par défaut). Quatre familles :
 
@@ -159,6 +159,23 @@ coefficients d'intermittence, barèmes d'aides par tranche de revenu) sont des
 `variations:` **dans la règle cible**, avec les unités portées par branche.
 Le mécanisme `remplace` n'est plus utilisé que par `departements.publicodes`
 (données générées).
+
+#### Imbrication plutôt que clés pointées
+
+Une règle se définit **imbriquée sous son parent** (`avec:`), jamais sous sa
+forme aplatie `parent . enfant:`. Une définition contenant un ` . ` est un
+signal d'alerte : elle recrée à plat une hiérarchie que le fichier pourrait
+exprimer, et le niveau intermédiaire finit par se perdre.
+
+Seule exception, structurelle : **publicodes ne permet pas d'imbriquer sous un
+parent défini dans un autre fichier**. Un gros bloc autonome logé dans son
+propre fichier doit donc s'y déclarer sous forme pointée. C'est le cas des 7
+définitions pointées restantes, toutes racines de leur fichier :
+`besoins . consommation spécifique chauffage/ECS/climatisation` (les 3 tables),
+`dimensionnement . coefficient intermittence` (table CI),
+`combustibles . gaz . estimation abonnement tertiaire`, et
+`réseau de chaleur/froid . caractéristiques` (données injectées par le front).
+Toute autre clé pointée est à imbriquer.
 
 #### Mise en forme
 

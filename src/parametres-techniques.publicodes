@@ -54,6 +54,13 @@ climat:
       par défaut: climat . température de référence chaud commune
       unité: °C
 
+    ratios:
+      description: Valeurs de référence climatiques
+      avec:
+        DJU de référence chaud:
+          valeur: 2200
+          unité: DJU chaud
+
 # --- Caractéristiques du bâtiment ---
 
 bâtiment:
@@ -64,6 +71,9 @@ bâtiment:
       une possibilité:
         - "'résidentiel'"
         - "'tertiaire'"
+
+    appartement ou maison:
+      valeur: "'Appartement'"
 
     nombre de logements:
       par défaut:
@@ -173,6 +183,37 @@ bâtiment:
         - "'RT2012'"
         - "'Moyenne française 2021'"
 
+    ratios:
+      description: Valeurs de référence du bâtiment (surfaces, occupation, climatisation)
+      avec:
+        surface de référence appartement:
+          valeur: 70
+          unité: m2
+
+        surface de référence tertiaire:
+          valeur: 2500
+          unité: m2
+
+        hauteur sous plafond:
+          valeur: 2.2
+          unité: m
+
+        habitants par logement:
+          valeur: 2.17
+          unité: personne
+
+        nombre de logements:
+          valeur: 25
+          unité: logement
+
+        part surface à climatiser résidentiel:
+          valeur: 70%
+          unité: '%'
+
+        part surface à climatiser tertiaire:
+          valeur: 100%
+          unité: '%'
+
 # --- Eau chaude sanitaire et climatisation (choix utilisateur) ---
 
 ecs:
@@ -186,6 +227,12 @@ ecs:
         - "'Avec équipement chauffage'"
         - "'Chauffe-eau électrique'"
         - "'Solaire thermique'"
+
+    ratios:
+      description: Valeurs de référence de la production d'ECS
+      avec:
+        production par défaut:
+          par défaut: oui
 
 climatisation:
   description: Climatisation (choix utilisateur)

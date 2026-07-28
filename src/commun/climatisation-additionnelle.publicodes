@@ -147,70 +147,69 @@ climatisation additionnelle:
       valeur: 2.5
       unité: kW
 
-# --- Entretien P2 / P3 (clés historiques de la page paramètres) ---
+    # --- Entretien P2 / P3 ---
 
-climatisation additionnelle . entretien groupe froid résidentiel:
-  avec:
-    petit entretien P2:
-      variations:
-        - si:
-            toutes ces conditions:
-              - climatisation . incluse
-              - climatisation . type de production = 'Groupe froid'
-              - bâtiment . type = 'résidentiel'
-          alors:
-            produit:
-              - PAC air-eau coll . ratios . petit entretien P2
-              - besoins . climatisation par logement
-              - bâtiment . nombre de logements
-              - 1 / 1000
-        - sinon: 0
+    entretien groupe froid résidentiel:
+      avec:
+        petit entretien P2:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Groupe froid'
+                  - bâtiment . type = 'résidentiel'
+              alors:
+                produit:
+                  - PAC air-eau coll . ratios . petit entretien P2
+                  - besoins . climatisation par logement
+                  - bâtiment . nombre de logements
+                  - 1 / 1000
+            - sinon: 0
 
-    gros entretien P3:
-      variations:
-        - si:
-            toutes ces conditions:
-              - climatisation . incluse
-              - climatisation . type de production = 'Groupe froid'
-              - bâtiment . type = 'résidentiel'
-          alors:
-            produit:
-              - PAC air-eau coll . ratios . gros entretien P3
-              - besoins . climatisation par logement
-              - bâtiment . nombre de logements
-              - 1 / 1000
-        - sinon: 0
-    petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
-    gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
+        gros entretien P3:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Groupe froid'
+                  - bâtiment . type = 'résidentiel'
+              alors:
+                produit:
+                  - PAC air-eau coll . ratios . gros entretien P3
+                  - besoins . climatisation par logement
+                  - bâtiment . nombre de logements
+                  - 1 / 1000
+            - sinon: 0
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
 
-climatisation additionnelle . entretien groupe eau glacée tertiaire:
-  avec:
-    petit entretien P2:
-      variations:
-        - si:
-            toutes ces conditions:
-              - climatisation . incluse
-              - climatisation . type de production = 'Groupe froid'
-              - bâtiment . type = 'tertiaire'
-          alors:
-            produit:
-              - PAC air-eau coll . ratios . petit entretien P2
-              - besoins . climatisation par logement
-              - 1 / 1000
-        - sinon: 0
-    gros entretien P3:
-      variations:
-        - si:
-            toutes ces conditions:
-              - climatisation . incluse
-              - climatisation . type de production = 'Groupe froid'
-              - bâtiment . type = 'tertiaire'
-          alors:
-            produit:
-              - PAC air-eau coll . ratios . gros entretien P3
-              - besoins . climatisation par logement
-              - 1 / 1000
-        - sinon: 0
-    petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
-    gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
-
+    entretien groupe eau glacée tertiaire:
+      avec:
+        petit entretien P2:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Groupe froid'
+                  - bâtiment . type = 'tertiaire'
+              alors:
+                produit:
+                  - PAC air-eau coll . ratios . petit entretien P2
+                  - besoins . climatisation par logement
+                  - 1 / 1000
+            - sinon: 0
+        gros entretien P3:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Groupe froid'
+                  - bâtiment . type = 'tertiaire'
+              alors:
+                produit:
+                  - PAC air-eau coll . ratios . gros entretien P3
+                  - besoins . climatisation par logement
+                  - 1 / 1000
+            - sinon: 0
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements

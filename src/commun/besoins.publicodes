@@ -1,6 +1,33 @@
+# Dimensionnement : puissances appelées et heures de fonctionnement, déduites
+# des besoins du bâtiment. Les besoins eux-mêmes et leurs valeurs de référence
+# vivent sous `besoins . ` et `bâtiment . ratios . ` (parametres-techniques).
+
 dimensionnement:
   description: Puissances appelées et heures de fonctionnement
   avec:
+    ratios:
+      description: Valeurs de référence du dimensionnement des puissances
+      avec:
+        température de non chauffage:
+          valeur: 18
+          unité: °C
+
+        facteur de surpuissance:
+          valeur: 20%
+          unité: '%'
+
+        heures de fonctionnement non climatique ECS:
+          valeur: 3000
+          unité: h
+
+        coefficient de foisonnement ECS:
+          valeur: 50%
+          unité: '%'
+
+        coefficient de foisonnement chauffage collectif:
+          valeur: 80%
+          unité: '%'
+
     heures pleine puissance chauffage continu:
       formule: climat . degré jours chaud * 24 / (dimensionnement . ratios . température de non chauffage - climat . température de référence chaud)
       unité: h
@@ -30,98 +57,3 @@ dimensionnement:
       applicable si: dimensionnement . heures pleine puissance climatisation > 0
       formule: besoins . climatisation par logement / dimensionnement . heures pleine puissance climatisation * (1 + dimensionnement . ratios . facteur de surpuissance)
       unité: kW
-
-# --- Ratios généraux et de dimensionnement (écrits par la page paramètres) ---
-
-bâtiment . ratios:
-  description: Valeurs de référence du bâtiment (surfaces, occupation, climatisation)
-
-climat . ratios:
-  description: Valeurs de référence climatiques
-
-dimensionnement . ratios:
-  description: Valeurs de référence du dimensionnement des puissances
-
-ecs . ratios:
-  description: Valeurs de référence de la production d'ECS
-
-bâtiment . ratios . surface de référence appartement:
-  valeur: 70
-  unité: m2
-
-bâtiment . ratios . surface de référence tertiaire:
-  valeur: 2500
-  unité: m2
-
-bâtiment . ratios . hauteur sous plafond:
-  valeur: 2.2
-  unité: m
-
-climat . ratios . DJU de référence chaud:
-  valeur: 2200
-  unité: DJU chaud
-
-bâtiment . ratios . habitants par logement:
-  valeur: 2.17
-  unité: personne
-
-ecs . ratios . production par défaut:
-  par défaut: oui
-  #une possibilité:
-  #  - "'oui'"
-  #  - "'non'"
-
-bâtiment . appartement ou maison:
-  valeur: "'Appartement'"
-
-bâtiment . ratios . nombre de logements:
-  valeur: 25
-  unité: logement
-
-bâtiment . ratios . part surface à climatiser résidentiel:
-  valeur: 70%
-  unité: '%'
-
-bâtiment . ratios . part surface à climatiser tertiaire:
-  valeur: 100%
-  unité: '%'
-
-# aucune valeur définie
-# RAF Santé RE2020:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF Santé RT2012:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF Santé Moyenne française 2021:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF EHPAD RE2020:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF EHPAD RT2012:
-#   valeur:
-#   unité: kWhef/m2.an
-# RAF EHPAD Moyenne française 2021:
-#   valeur:
-#   unité: kWhef/m2.an
-dimensionnement . ratios . température de non chauffage:
-  valeur: 18
-  unité: °C
-
-dimensionnement . ratios . facteur de surpuissance:
-  valeur: 20%
-  unité: '%'
-
-dimensionnement . ratios . heures de fonctionnement non climatique ECS:
-  valeur: 3000
-  unité: h
-
-dimensionnement . ratios . coefficient de foisonnement ECS:
-  valeur: 50%
-  unité: '%'
-
-dimensionnement . ratios . coefficient de foisonnement chauffage collectif:
-  valeur: 80%
-  unité: '%'
-
