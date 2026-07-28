@@ -76,14 +76,10 @@ const situations: Record<string, Situation<RuleName>> = {
 		"climatisation . incluse": "non",
 		"ecs . production": "oui",
 		"ecs . type de production": "'Avec équipement chauffage'",
-		"aides . éligibilité . prise en compte des aides":
-			"oui",
-		"aides . éligibilité . particulier":
-			"oui",
-		"aides . éligibilité . ressources du ménage":
-			"'Très modeste'",
-		"aides . éligibilité . chaudière gaz ou fioul actuelle":
-			"oui",
+		"aides . éligibilité . prise en compte des aides": "oui",
+		"aides . éligibilité . particulier": "oui",
+		"aides . éligibilité . ressources du ménage": "'Très modeste'",
+		"aides . éligibilité . chaudière gaz ou fioul actuelle": "oui",
 	},
 	"tertiaire - ECS avec équipement chauffage - avec clim": {
 		...commonSituation,
@@ -98,19 +94,16 @@ const situations: Record<string, Situation<RuleName>> = {
 		"climat . code département": "'69'",
 		"bâtiment . appartement ou maison": "'Maison'",
 		"bâtiment . DPE": "'F'",
-		"combustibles . électricité . option tarifaire": "'Heure pleine/Heure creuse'",
+		"combustibles . électricité . option tarifaire":
+			"'Heure pleine/Heure creuse'",
 		"bâtiment . surface tertiaire": 80,
 		"climatisation . incluse": "non",
 		"ecs . production": "oui",
 		"ecs . type de production": "'Avec équipement chauffage'",
-		"aides . éligibilité . prise en compte des aides":
-			"oui",
-		"aides . éligibilité . particulier":
-			"oui",
-		"aides . éligibilité . ressources du ménage":
-			"'Modeste'",
-		"aides . éligibilité . chaudière gaz ou fioul actuelle":
-			"oui",
+		"aides . éligibilité . prise en compte des aides": "oui",
+		"aides . éligibilité . particulier": "oui",
+		"aides . éligibilité . ressources du ménage": "'Modeste'",
+		"aides . éligibilité . chaudière gaz ou fioul actuelle": "oui",
 	},
 	"immeuble avant 1974 - Marseille - 60 logements - réseau de froid": {
 		...commonSituation,
@@ -203,7 +196,10 @@ const addOnKeys = [
 // Arrondi à 2 décimales pour neutraliser le bruit flottant sans masquer les écarts réels.
 // L'unité est snapshotée avec la valeur : un changement d'unité est une régression
 // au même titre qu'un changement de valeur.
-const format = (node: { nodeValue: unknown; unit?: Parameters<typeof serializeUnit>[0] }) => {
+const format = (node: {
+	nodeValue: unknown;
+	unit?: Parameters<typeof serializeUnit>[0];
+}) => {
 	const value =
 		typeof node.nodeValue === "number"
 			? Math.round(node.nodeValue * 100) / 100
@@ -229,7 +225,9 @@ describe("Golden master — valeurs finales par mode de chauffage", () => {
 				it(mode, () => {
 					const keys = [
 						...bilanSuffixes.map((suffix) => `${mode} . bilan . ${suffix}`),
-						...envSuffixes.map((suffix) => `${mode} . environnement . ${suffix}`),
+						...envSuffixes.map(
+							(suffix) => `${mode} . environnement . ${suffix}`,
+						),
 					];
 					expect(evaluateKeys(engine, keys)).toMatchSnapshot();
 				});

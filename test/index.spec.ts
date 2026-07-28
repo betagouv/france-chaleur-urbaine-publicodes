@@ -52,9 +52,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 				"Très modeste",
 			);
 			expect(
-				engine.evaluate(
-					"aides . éligibilité . ressources du ménage",
-				).nodeValue,
+				engine.evaluate("aides . éligibilité . ressources du ménage").nodeValue,
 			).toBe("Très modeste");
 		});
 
@@ -68,9 +66,9 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			expect(
 				engine.evaluate("ménage . revenu . plafond très modeste").nodeValue,
 			).toBe(35270);
-			expect(engine.evaluate("ménage . revenu . plafond modeste").nodeValue).toBe(
-				42933,
-			);
+			expect(
+				engine.evaluate("ménage . revenu . plafond modeste").nodeValue,
+			).toBe(42933);
 			expect(
 				engine.evaluate("ménage . revenu . plafond intermédiaire").nodeValue,
 			).toBe(60051);
@@ -88,9 +86,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 				"Intermédiaire",
 			);
 			expect(
-				engine.evaluate(
-					"aides . éligibilité . ressources du ménage",
-				).nodeValue,
+				engine.evaluate("aides . éligibilité . ressources du ménage").nodeValue,
 			).toBe("Intermédiaire");
 		});
 
@@ -104,9 +100,9 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			expect(
 				engine.evaluate("ménage . revenu . plafond très modeste").nodeValue,
 			).toBe(25393);
-			expect(engine.evaluate("ménage . revenu . plafond modeste").nodeValue).toBe(
-				32553,
-			);
+			expect(
+				engine.evaluate("ménage . revenu . plafond modeste").nodeValue,
+			).toBe(32553);
 			expect(
 				engine.evaluate("ménage . revenu . plafond intermédiaire").nodeValue,
 			).toBe(45842);
@@ -118,14 +114,11 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 				"climat . code département": "'75'",
 				"ménage . revenu": 35000,
 				"bâtiment . habitants par logement": 2,
-				"aides . éligibilité . ressources du ménage":
-					"'Supérieur'",
+				"aides . éligibilité . ressources du ménage": "'Supérieur'",
 			});
 
 			expect(
-				engine.evaluate(
-					"aides . éligibilité . ressources du ménage",
-				).nodeValue,
+				engine.evaluate("aides . éligibilité . ressources du ménage").nodeValue,
 			).toBe("Supérieur");
 		});
 	});
@@ -156,7 +149,8 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 				"gaz indiv avec cond . ratios . durée de vie": 10,
 			});
 			expect(
-				engine.evaluate("gaz indiv avec cond . ratios . durée de vie").nodeValue,
+				engine.evaluate("gaz indiv avec cond . ratios . durée de vie")
+					.nodeValue,
 			).toBe(10);
 		});
 	});
@@ -180,9 +174,9 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			});
 			expect(engine.evaluate("bâtiment . DPE").nodeValue).toBe("F");
 			expect(engine.evaluate("bâtiment . type").nodeValue).toBe("tertiaire");
-			expect(engine.evaluate("bâtiment . appartement ou maison").nodeValue).toBe(
-				"Maison",
-			);
+			expect(
+				engine.evaluate("bâtiment . appartement ou maison").nodeValue,
+			).toBe("Maison");
 			expect(engine.evaluate("bâtiment . nombre de logements").nodeValue).toBe(
 				42,
 			);
@@ -214,19 +208,13 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			});
 
 			expect(
-				engine.evaluate(
-					"aides . CEE . BAR-TH-171 PAC air-eau",
-				).nodeValue,
+				engine.evaluate("aides . CEE . BAR-TH-171 PAC air-eau").nodeValue,
 			).toBe(109080);
 			expect(
-				engine.evaluate(
-					"PAC air-eau indiv . aides . CEE",
-				).nodeValue,
+				engine.evaluate("PAC air-eau indiv . aides . CEE").nodeValue,
 			).toBeCloseTo(877.0032);
 			expect(
-				engine.evaluate(
-					"PAC air-eau indiv . aides . coup de pouce",
-				).nodeValue,
+				engine.evaluate("PAC air-eau indiv . aides . coup de pouce").nodeValue,
 			).toBeCloseTo(4385.016);
 		});
 
@@ -241,9 +229,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			});
 
 			expect(
-				engine.evaluate(
-					"aides . CEE . BAR-TH-171 PAC air-eau",
-				).nodeValue,
+				engine.evaluate("aides . CEE . BAR-TH-171 PAC air-eau").nodeValue,
 			).toBe(0);
 		});
 
@@ -252,8 +238,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			engine.setSituation({
 				"aides . CEE . BAR-TH-171 PAC air-eau . efficacité énergétique saisonnière":
 					"120%",
-				"aides . éligibilité . chaudière gaz ou fioul actuelle":
-					"non",
+				"aides . éligibilité . chaudière gaz ou fioul actuelle": "non",
 				"aides . valeur CEE": 0.00804,
 				"bâtiment . appartement ou maison": "'Maison'",
 				"bâtiment . surface tertiaire": 95,
@@ -262,9 +247,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			});
 
 			expect(
-				engine.evaluate(
-					"PAC air-eau indiv . aides . coup de pouce",
-				).nodeValue,
+				engine.evaluate("PAC air-eau indiv . aides . coup de pouce").nodeValue,
 			).toBe(0);
 		});
 	});
