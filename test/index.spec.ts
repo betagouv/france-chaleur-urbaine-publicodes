@@ -112,7 +112,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			).toBe(45842);
 		});
 
-		it("conserve la saisie explicite historique des ressources du ménage", () => {
+		it("laisse la saisie explicite des ressources du ménage primer sur le barème", () => {
 			const engine = new Engine(rules, options);
 			engine.setSituation({
 				"climat . code département": "'75'",
@@ -133,7 +133,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 	describe("paramétrage des modes (sections ratios)", () => {
 		// Les valeurs de référence vivent dans `<mode> . ratios . <nom>` : seule
 		// forme depuis la suppression de compat.publicodes.
-		it("les écritures sur les nouvelles clés se propagent aux calculs", () => {
+		it("une écriture de ratio de mode se propage aux calculs", () => {
 			const base = new Engine(rules, options);
 			base.setSituation(commonSituation);
 			const p4 = base.evaluate("gaz indiv avec cond . bilan . P4").nodeValue;
@@ -271,7 +271,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 
 	const testCases = [
 		{
-			description: "gaz coll avec cond . bilan",
+			description: "gaz coll avec cond : ECS par l'équipement de chauffage",
 			situation: {
 				"climatisation . incluse": "non",
 				"ecs . production": "oui",
@@ -300,7 +300,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			},
 		},
 		{
-			description: "Bilan x Gaz coll avec cond avec climatisation",
+			description: "gaz coll avec cond : avec climatisation",
 			situation: {
 				"climatisation . incluse": "oui",
 				"ecs . production": "oui",
@@ -329,7 +329,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			},
 		},
 		{
-			description: "Bilan x Gaz coll avec cond avec ECS",
+			description: "gaz coll avec cond : ECS par chauffe-eau électrique",
 			situation: {
 				"climatisation . incluse": "non",
 				"ecs . production": "oui",
