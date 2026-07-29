@@ -1,0 +1,631 @@
+# Coût d'achat des combustibles et de l'électricité (parts abonnement /
+# consommation par énergie), commun à tous les modes de chauffage.
+
+combustibles:
+  description: Prix, paramètres et taxes de chaque énergie
+  avec:
+    gaz:
+      avec:
+        taxes:
+          avec:
+            TICGN:
+              par défaut: 0.01637
+              unité: €/kWh
+
+            CTA:
+              par défaut: 43.51
+              unité: €/an
+
+            TVA part variable:
+              par défaut: 20
+              unité: '%'
+
+            TVA part fixe:
+              par défaut: 5.5
+              unité: '%'
+
+        abonnement individuel:
+          valeur: combustibles . gaz . abonnement part fixe individuel
+          unité: €TTC/an
+
+        consommation individuel:
+          valeur: combustibles . gaz . consommation part variable TTC
+          unité: €TTC/kWh
+
+        abonnement collectif:
+          valeur: combustibles . gaz . abonnement part fixe collectif ou tertiaire
+          unité: €TTC/an
+
+        consommation collectif:
+          valeur: combustibles . gaz . consommation part variable TTC
+          unité: €TTC/kWh
+
+        puissance souscrite collectif ou tertiaire:
+          par défaut: gaz coll avec cond . installation . puissance retenue
+          unité: kW
+
+        abonnement part fixe individuel:
+          par défaut:
+            produit:
+              - somme:
+                  - combustibles . gaz . abonnement part fixe individuel . coût distribution HT
+                  - combustibles . gaz . abonnement part fixe individuel . coûts commerciaux hors CEE HT
+                  - combustibles . gaz . taxes . CTA
+              - 1 + combustibles . gaz . taxes . TVA part fixe
+          unité: €/an
+          avec:
+            coûts commerciaux hors CEE HT:
+              par défaut: 79
+              unité: €/an
+
+            coût distribution HT:
+              par défaut: 139
+              unité: €/an
+
+        abonnement part fixe collectif ou tertiaire:
+          par défaut:
+            produit:
+              - somme:
+                  - combustibles . gaz . estimation abonnement tertiaire
+                  - combustibles . gaz . taxes . CTA
+              - 1 + combustibles . gaz . taxes . TVA part fixe
+          unité: €/an
+
+        consommation part variable TTC:
+          par défaut:
+            produit:
+              - somme:
+                  - combustibles . gaz . coût de la molécule HT
+                  - combustibles . gaz . coût de transport HT
+                  - combustibles . gaz . coût distribution HT
+                  - combustibles . gaz . coût des CEE HT
+                  - combustibles . gaz . taxes . TICGN
+              - 1 + combustibles . gaz . taxes . TVA part variable
+          unité: €/kWh
+
+        coût de la molécule HT:
+          par défaut: 0.043
+          unité: €/kWh
+
+        coût de transport HT:
+          par défaut: 0.00977
+          unité: €/kWh
+
+        coût distribution HT:
+          par défaut: 0.00893
+          unité: €/kWh
+
+        coût des CEE HT:
+          par défaut: 0.00585
+          unité: €/kWh
+
+    électricité:
+      avec:
+        abonnement individuel:
+          formule: combustibles . électricité . abonnement part fixe individuel
+          unité: €TTC/an
+
+        consommation individuel option base:
+          applicable si: combustibles . électricité . option tarifaire = 'Option base'
+          formule: combustibles . électricité . part variable option base
+          unité: €TTC/kWh
+
+        consommation individuel HP:
+          applicable si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+          formule: combustibles . électricité . part variable heure pleine
+          unité: €TTC/kWh
+
+        consommation individuel HC:
+          applicable si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+          formule: combustibles . électricité . part variable heure creuse
+          unité: €TTC/kWh
+
+        consommation individuel:
+          # Ceci n'existe pas dans le fichier de base mais permet de ne pas répéter la variation trop de fois
+          variations:
+            - si: combustibles . électricité . option tarifaire = 'Option base'
+              alors: combustibles . électricité . consommation individuel option base
+            - sinon:
+                somme:
+                  - combustibles . électricité . consommation individuel HP * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HP
+                  - combustibles . électricité . consommation individuel HC * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HC
+
+        abonnement collectif:
+          formule: combustibles . électricité . abonnement part fixe collectif
+          unité: €TTC/an
+
+        consommation collectif option base:
+          formule: combustibles . électricité . part variable option base
+          unité: €TTC/kWh
+
+        consommation collectif HP:
+          formule: combustibles . électricité . part variable heure pleine
+          unité: €TTC/kWh
+
+        consommation collectif HC:
+          formule: combustibles . électricité . part variable heure creuse
+          unité: €TTC/kWh
+
+        consommation collectif:
+          # Ceci n'existe pas dans le fichier de base mais permet de ne pas répéter la variation trop de fois
+          variations:
+            - si: combustibles . électricité . option tarifaire = 'Option base'
+              alors: combustibles . électricité . consommation collectif option base
+            - sinon:
+                somme:
+                  - combustibles . électricité . consommation collectif HP * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HP
+                  - combustibles . électricité . consommation collectif HC * combustibles . électricité . tarifs . option heures creuses . part de la consommation en HC
+
+        tarifs:
+          avec:
+            option base:
+              avec:
+                prix du kWh:
+                  valeur: 0.1708
+                  unité: €HT/kWh
+                  note: 'Source: AMORCE 2024'
+            option heures creuses:
+              avec:
+                part de la consommation en HP:
+                  valeur: 20
+                  unité: '%'
+                  note: 'Source: AMORCE 2024'
+                part de la consommation en HC:
+                  valeur: 100% - part de la consommation en HP
+                  unité: '%'
+                  note: 'Source: AMORCE 2024'
+                prix du kWh HP:
+                  valeur: 0.2040
+                  unité: €HT/kWh
+                  note: 'Source: ELCIMAI + TRV 2024'
+                prix du kWh HC:
+                  valeur: 0.1513
+                  unité: €HT/kWh
+                  note: 'Source: ELCIMAI + TRV 2024'
+            abonnement annuel individuel:
+              variations:
+                - si: combustibles . électricité . puissance souscrite individuel <= 3
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 99.88
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 99.88
+                - si: combustibles . électricité . puissance souscrite individuel <= 6
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 31.84
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 69.52
+                - si: combustibles . électricité . puissance souscrite individuel <= 9
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 62.20
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 69.52
+                - si: combustibles . électricité . puissance souscrite individuel <= 12
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 93.28
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 101.56
+                - si: combustibles . électricité . puissance souscrite individuel <= 15
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 121.84
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 131.80
+                - si: combustibles . électricité . puissance souscrite individuel <= 18
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 161.78
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 161.78
+                - si: combustibles . électricité . puissance souscrite individuel <= 24
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 225.16
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 225.16
+                - si: combustibles . électricité . puissance souscrite individuel <= 30
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 281.68
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 281.68
+                - si: combustibles . électricité . puissance souscrite individuel <= 36
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 434.68
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 434.68
+                - si: combustibles . électricité . puissance souscrite individuel <= 40
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 1082.64
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 1082.64
+                - si: combustibles . électricité . puissance souscrite individuel <= 50
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 1218.28
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 1218.28
+                - si: combustibles . électricité . puissance souscrite individuel <= 60
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 1353.93
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 1353.93
+                - si: combustibles . électricité . puissance souscrite individuel <= 70
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 1489.58
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 1489.58
+                - si: combustibles . électricité . puissance souscrite individuel <= 80
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 1625.22
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 1625.22
+                - si: combustibles . électricité . puissance souscrite individuel <= 90
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 1760.87
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 1760.87
+                - si: combustibles . électricité . puissance souscrite individuel <= 100
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 1896.52
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 1896.52
+                - si: combustibles . électricité . puissance souscrite individuel <= 125
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 2235.64
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 2235.64
+                - si: combustibles . électricité . puissance souscrite individuel <= 150
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 2574.75
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 2574.75
+                - si: combustibles . électricité . puissance souscrite individuel <= 175
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 2913.87
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 2913.87
+                - si: combustibles . électricité . puissance souscrite individuel <= 200
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 3252.99
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 3252.99
+                - si: combustibles . électricité . puissance souscrite individuel <= 250
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 3931.22
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 3931.22
+              unité: €/an
+              note: 'Source: ELCIMAI + TRV 2024'
+            abonnement annuel collectif:
+              # C'est ici en fait le surcout à l'abonnement annuel
+              variations:
+                - si: combustibles . électricité . puissance souscrite collectif <= 6
+                  alors: 0
+                - si: combustibles . électricité . puissance souscrite collectif <= 9
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 154.08
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 161.40
+                - si: combustibles . électricité . puissance souscrite collectif <= 12
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 185.16
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 193.44
+                - si: combustibles . électricité . puissance souscrite collectif <= 15
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 213.72
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 223.68
+                - si: combustibles . électricité . puissance souscrite collectif <= 18
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 253.56
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 253.56
+                - si: combustibles . électricité . puissance souscrite collectif <= 24
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 317.04
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 317.04
+                - si: combustibles . électricité . puissance souscrite collectif <= 30
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 373.56
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 373.56
+                - si: combustibles . électricité . puissance souscrite collectif <= 36
+                  alors:
+                    variations:
+                      - si: combustibles . électricité . option tarifaire = 'Option base'
+                        alors: 430.68
+                      - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
+                        alors: 430.68
+                - si: combustibles . électricité . puissance souscrite collectif <= 40
+                  alors: 1078.64
+                - si: combustibles . électricité . puissance souscrite collectif <= 50
+                  alors: 1214.28
+                - si: combustibles . électricité . puissance souscrite collectif <= 60
+                  alors: 1349.93
+                - si: combustibles . électricité . puissance souscrite collectif <= 70
+                  alors: 1485.58
+                - si: combustibles . électricité . puissance souscrite collectif <= 80
+                  alors: 1621.22
+                - si: combustibles . électricité . puissance souscrite collectif <= 90
+                  alors: 1756.87
+                - si: combustibles . électricité . puissance souscrite collectif <= 100
+                  alors: 1892.52
+                - si: combustibles . électricité . puissance souscrite collectif <= 125
+                  alors: 2231.64
+                - si: combustibles . électricité . puissance souscrite collectif <= 150
+                  alors: 2570.75
+                - si: combustibles . électricité . puissance souscrite collectif <= 175
+                  alors: 2909.87
+                - si: combustibles . électricité . puissance souscrite collectif <= 200
+                  alors: 3248.99
+                - si: combustibles . électricité . puissance souscrite collectif <= 250
+                  alors: 3927.22
+              unité: €/an
+              note: 'Source: ELCIMAI + TRV 2024'
+
+        part variable option base:
+          par défaut:
+            somme:
+              - combustibles . électricité . tarifs . option base . prix du kWh * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
+              - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+          unité: €/kWh
+
+        part variable heure pleine:
+          par défaut:
+            somme:
+              - combustibles . électricité . tarifs . option heures creuses . prix du kWh HP * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
+              - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+          unité: €/kWh
+
+        part variable heure creuse:
+          par défaut:
+            somme:
+              - combustibles . électricité . tarifs . option heures creuses . prix du kWh HC * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
+              - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+          unité: €/kWh
+
+        abonnement part fixe individuel:
+          par défaut: combustibles . électricité . tarifs . abonnement annuel individuel * ( 1 + combustibles . électricité . taxes . Part Fixe x TVA )
+          unité: €/an
+
+        puissance souscrite individuel:
+          par défaut: 9
+          unité: kVA
+          note: 'Source: ELCIMAI 2024'
+
+        abonnement part fixe collectif:
+          par défaut: combustibles . électricité . tarifs . abonnement annuel collectif * ( 1 + combustibles . électricité . taxes . Part Fixe x TVA )
+          unité: €/an
+
+        puissance souscrite collectif:
+          unité: kVA
+          par défaut:
+            variations:
+              - si: puissance totale <= 3
+                alors: 3
+              - si: puissance totale <= 6
+                alors: 6
+              - si: puissance totale <= 9
+                alors: 9
+              - si: puissance totale <= 12
+                alors: 12
+              - si: puissance totale <= 15
+                alors: 15
+              - si: puissance totale <= 18
+                alors: 18
+              - si: puissance totale <= 24
+                alors: 24
+              - si: puissance totale <= 30
+                alors: 30
+              - si: puissance totale <= 36
+                alors: 36
+              - si: puissance totale <= 40
+                alors: 40
+              - si: puissance totale <= 50
+                alors: 50
+              - si: puissance totale <= 60
+                alors: 60
+              - si: puissance totale <= 70
+                alors: 70
+              - si: puissance totale <= 80
+                alors: 80
+              - si: puissance totale <= 90
+                alors: 90
+              - si: puissance totale <= 100
+                alors: 100
+              - si: puissance totale <= 125
+                alors: 125
+              - si: puissance totale <= 150
+                alors: 150
+              - si: puissance totale <= 175
+                alors: 175
+              - si: puissance totale <= 200
+                alors: 200
+              - si: puissance totale <= 250
+                alors: 250
+              - sinon: 36
+          avec:
+            puissance totale:
+              par défaut:
+                produit:
+                  - dimensionnement . puissance chauffage appelée
+                  - bâtiment . nombre de logements
+                  - dimensionnement . ratios . coefficient de foisonnement chauffage collectif / pac . SCOP mini
+
+        option tarifaire:
+          une possibilité:
+            - "'Option base'"
+            - "'Heure pleine/Heure creuse'"
+          par défaut: "'Option base'"
+
+        taxes:
+          avec:
+            Part Fixe x TVA:
+              par défaut: 5.5%
+              unité: '%'
+            Part Variable x Accise sur l'électricité ex TIPCSE CSPE:
+              par défaut: 0.021€/kWh
+            Part Variable x TVA:
+              par défaut: 20%
+              unité: '%'
+
+    réseau de chaleur:
+      avec:
+        abonnement:
+          variations:
+            - si: combustibles . réseau de chaleur . tarification connue = 'oui'
+              alors:
+                produit:
+                  - combustibles . réseau de chaleur . Tarification R2 x Part fixe
+                  - réseau de chaleur . installation . puissance retenue
+                  - 1 / ( réseau de chaleur . installation . consommation combustible chaleur * bâtiment . nombre de logements )
+            - sinon: combustibles . réseau de chaleur . coût * combustibles . réseau de chaleur . part fixe
+          unité: €TTC/kWh
+
+        consommation:
+          variations:
+            - si: combustibles . réseau de chaleur . tarification connue = 'oui'
+              alors: combustibles . réseau de chaleur . Tarification R1 x Part variable
+            - sinon: combustibles . réseau de chaleur . coût * combustibles . réseau de chaleur . part variable
+          unité: €TTC/kWh
+        tarification connue:
+          par défaut: non
+          #une possibilité:
+          #  - "'oui'"
+          #  - "'non'"
+        Tarification R2 x Part fixe:
+          unité: €/kWh
+        Tarification R1 x Part variable:
+          unité: €/kWh
+        coût:
+          par défaut: réseau de chaleur . caractéristiques . prix moyen / 1000
+          unité: €/kWh
+        part fixe:
+          par défaut: réseau de chaleur . caractéristiques . part fixe
+          unité: '%'
+        part variable:
+          formule: 100% - part fixe
+          unité: '%'
+
+    réseau de froid:
+      avec:
+        abonnement:
+          formule: combustibles . réseau de froid . coût * combustibles . réseau de froid . part fixe
+          # QUESTION déjà posée: il y a un 25 en C10, mais ça ne parait pas cohérent. J'ai donc modifié ici
+          unité: €TTC/kWh
+
+        consommation:
+          valeur: combustibles . réseau de froid . coût * combustibles . réseau de froid . part variable
+          unité: €TTC/kWh
+        coût:
+          par défaut: réseau de froid . caractéristiques . prix moyen / 1000
+          unité: €/kWh
+        part fixe:
+          par défaut: réseau de froid . caractéristiques . part fixe
+          unité: '%'
+        part variable:
+          formule: 100% - part fixe
+          unité: '%'
+
+    granulés:
+      avec:
+        consommation:
+          valeur: (combustibles . granulés . prix pour les granulés / 1000)
+          unité: €TTC/kg
+        type de conditionnement:
+          par défaut: "'Conditionné en sac'"
+          une possibilité:
+            - "'Conditionné en sac'"
+            - "'Conditionné en vrac'"
+          note: 'Source: ELCIMAI 2024'
+        prix pour les granulés:
+          par défaut:
+            produit:
+              - variations:
+                  - si: type de conditionnement = 'Conditionné en sac'
+                    alors: 330
+                  - sinon: 365
+              - 1 + TVA
+          note: 'Source: CEEB 2024'
+          unité: €TTC/tonne
+        TVA:
+          par défaut: 10
+          unité: '%'
+          note: 'Source: site gouvernemental (impots.gouv) 2024'
+
+    fioul:
+      avec:
+        consommation:
+          valeur: combustibles . fioul . prix livraison incluse
+          unité: €TTC/L
+        prix livraison incluse:
+          par défaut:
+            somme:
+              - produit:
+                  - variations:
+                      - si: bâtiment . type = 'résidentiel'
+                        alors: 0.84
+                      - sinon: 0.80
+                  - 1 + TVA
+              - TICPE
+          unité: €TTC/L
+        TVA:
+          par défaut: 20
+          unité: '%'
+          note: 'Source: site gouvernemental (impots.gouv) 2024'
+        TICPE:
+          par défaut: 0.1562
+          unité: €/L
+          note: 'Source: site gouvernemental (impots.gouv) 2024'
+

@@ -1,0 +1,192 @@
+aides:
+  avec:
+    # Éligibilité : écrite par le front (toggle aides du comparateur).
+    éligibilité:
+      avec:
+        prise en compte des aides:
+          # alias Calculs économiques B90
+          par défaut: oui
+        particulier:
+          par défaut: oui
+        ressources du ménage:
+          par défaut:
+            variations:
+              - si:
+                  toutes ces conditions:
+                    - est défini: climat . code département
+                    - est défini: ménage . revenu
+                    - est défini: bâtiment . habitants par logement
+                alors: ménage . revenu . classe
+              - sinon: "'Modeste'"
+          une possibilité:
+            - "'Très modeste'"
+            - "'Modeste'"
+            - "'Intermédiaire'"
+            - "'Supérieur'"
+        chaudière gaz ou fioul actuelle:
+          par défaut: oui
+        éligible ma prime rénov:
+          # alias Calculs économiques B91
+          par défaut:
+            toutes ces conditions:
+              - aides . éligibilité . particulier
+              - aides . éligibilité . ressources du ménage != 'Supérieur'
+        éligible coup de pouce:
+          # alias Calculs économiques B92
+          par défaut:
+            toutes ces conditions:
+              - aides . éligibilité . particulier
+              - aides . éligibilité . chaudière gaz ou fioul actuelle
+              - bâtiment . type = 'résidentiel'
+        éligible CEE:
+          # alias Calculs économiques B93
+          par défaut: oui
+
+    valeur CEE:
+      par défaut:
+        variations:
+          - si: aides . éligibilité . ressources du ménage = "Très modeste"
+            alors: aides . CEE . prix moyen ménage précaire
+          - sinon: aides . CEE . prix moyen autre ménage
+      unité: €/kWh cumac
+      note: "source : Registre National des Certificats d'Economie d'Energie"
+
+    # Certificats d'économie d'énergie
+    CEE:
+      avec:
+        prix moyen ménage précaire:
+          valeur: 0.00816
+          unité: €/kWh cumac
+        prix moyen autre ménage:
+          valeur: 0.00804
+          unité: €/kWh cumac
+
+        # Résidentiel
+        barème FCU résidentiel inf 125:
+          valeur: 12000000
+          unité: kWh cumac
+          note: 'Source : Gouvernement 2024'
+        barème FCU résidentiel sup 125 variable:
+          valeur: 77000
+          # QUESTION : est-ce appartement = logement ? pour harmoniser les unités vers logement
+          unité: kWh cumac/logement
+          note: 'Source : Gouvernement 2024'
+        barème FCU résidentiel sup 125 fixe:
+          valeur: 2300000
+          unité: kWh cumac
+          note: 'Source : Gouvernement 2024'
+        facteur correctif RCU:
+          valeur: 75
+          unité: '%'
+          note: 'Source : FCU'
+
+        # Tertiaire
+        barème FCU tertiaire inf 7500:
+          valeur: 11000000
+          unité: kWh cumac/m2
+        barème FCU tertiaire sup 7500 variable:
+          valeur: 1070
+          unité: kWh cumac/m2
+        barème FCU tertiaire sup 7500 fixe:
+          valeur: 2300000
+          unité: kWh cumac
+
+        BAR-TH-171 PAC air-eau:
+          produit:
+            - montant
+            - facteur correctif selon la surface chauffée
+            - facteur correctif selon la zone géographique
+          unité: kWh cumac
+          note: BAR-TH-171 - Pompe à chaleur de type air/eau
+          avec:
+            montant:
+              variations:
+                - si: efficacité énergétique saisonnière < 111%
+                  alors: 0
+                - si: bâtiment . appartement ou maison = 'Appartement'
+                  alors:
+                    variations:
+                      - si: efficacité énergétique saisonnière < 140%
+                        alors: 48700
+                      - sinon: 58900
+                - sinon:
+                    variations:
+                      - si: efficacité énergétique saisonnière < 140%
+                        alors: 90900
+                      - sinon: 109200
+              unité: kWh cumac
+            efficacité énergétique saisonnière:
+              par défaut: PAC air-eau indiv . ratios . SCOP / 2.5
+              unité: '%'
+            facteur correctif selon la surface chauffée:
+              variations:
+                - si: bâtiment . appartement ou maison = 'Appartement'
+                  alors:
+                    variations:
+                      - si: bâtiment . surface tertiaire < 35
+                        alors: 0.5
+                      - si: bâtiment . surface tertiaire < 60
+                        alors: 0.7
+                      - sinon: 1
+                - sinon:
+                    variations:
+                      - si: bâtiment . surface tertiaire < 70
+                        alors: 0.5
+                      - si: bâtiment . surface tertiaire < 90
+                        alors: 0.7
+                      - sinon: 1
+            facteur correctif selon la zone géographique:
+              variations:
+                - si: climat . zone = 'H1'
+                  alors: 1.2
+                - si: climat . zone = 'H2'
+                  alors: 1
+                - si: climat . zone = 'H3'
+                  alors: 0.7
+
+        ratio chauffe-eau solaire collectif:
+          valeur: 0.196
+
+    coup de pouce PAC air-eau:
+      applicable si: aides . éligibilité . éligible coup de pouce
+      valeur: PAC air-eau indiv . aides . CEE * 5
+      unité: €
+
+
+    tertiaire:
+      avec:
+        CEE RFU montant:
+          variations:
+            - si: climat . zone = 'H1'
+              alors: 1
+            - si: climat . zone = 'H2'
+              alors: 1.3
+            - si: climat . zone = 'H3'
+              alors: 1.8
+          unité: kWh cumac/m2
+          note: 'Source : ADEME 2024'
+        CEE RFU facteur correctif:
+          variations:
+            - si: bâtiment . méthode tertiaire = 'Bureaux'
+              alors: 7800
+            - si: bâtiment . méthode tertiaire = 'Enseignement primaire'
+              alors: 4900
+            - si: bâtiment . méthode tertiaire = 'Enseignement secondaire'
+              alors: 4900
+            - si: bâtiment . méthode tertiaire = 'EHPAD'
+              alors: 26000
+            - si: bâtiment . méthode tertiaire = 'Santé'
+              alors: 26000
+            - si: bâtiment . méthode tertiaire = 'Commerces'
+              alors: 11300
+            - si: bâtiment . méthode tertiaire = 'Café, restaurant'
+              alors: 10400
+            - si: bâtiment . méthode tertiaire = 'Hôtel'
+              alors: 10400
+            - si: bâtiment . méthode tertiaire = 'Sport'
+              alors: 19800
+          unité: kWh cumac/kW
+          note: 'Source : ADEME 2024'
+        ratio CEE chauffe-eau solaire:
+          # QUESTION déjà posée: quelle différence entre ratios éco - aides > C261 et C447 ?
+          valeur: 0.196

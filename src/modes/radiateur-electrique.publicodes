@@ -1,0 +1,315 @@
+# Radiateurs électriques (individuel)
+# Regroupe ratios, dimensionnement, calculs économiques,
+# aides, émissions et bilan pour ce mode de chauffage.
+
+radiateur électrique:
+  description: Radiateurs électriques (individuel)
+  avec:
+    ratios:
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
+      avec:
+        CO2 installation:
+          formule: 0.015
+          unité: kgCO2e/kWh
+          note: 'Source: INIES 2022'
+        durée de vie:
+          valeur: 25
+          unité: an
+        conso combustible:
+          valeur: 100%
+          unité: '%'
+        gros entretien P3:
+          par défaut: 0.00 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          par défaut:
+            produit:
+              - radiateur électrique . installation . nombre de radiateurs
+              - radiateur électrique . ratios . coût du radiateur
+              - 1 + investissement . TVA
+          unité: €TTC
+        petit entretien P2:
+          par défaut: 0.00 / 100
+          unité: €HT/€d'investissment
+        rendement:
+          valeur: 96%
+          unité: '%'
+
+        puissance du radiateur:
+          valeur: 2
+          unité: kW
+
+        coût du radiateur:
+          valeur: 550
+          unité: €HT
+          note: 'Source: Atlantic 2023'
+    annuité:
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
+    installation:
+      avec:
+        production eau chaude sanitaire: non
+        puissance chauffage:
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement)
+          unité: kW
+        puissance ECS:
+          formule: 0
+          unité: kW
+        puissance équipement:
+          somme:
+            - puissance chauffage
+          unité: kW
+        puissance retenue:
+          produit:
+            - somme:
+                - valeur: puissance équipement // radiateur électrique . ratios . puissance du radiateur
+                - 1
+            - radiateur électrique . ratios . puissance du radiateur
+          unité: kW
+        ECS additionnelle nécessaire:
+          toutes ces conditions:
+            - ecs . production
+            - puissance ECS <= 0
+        volume du ballon ECS:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - ECS additionnelle nécessaire
+                  - ecs . type de production != "Solaire thermique"
+              alors: ecs additionnelle . volume du ballon
+            - sinon: 50
+          unité: L
+        consommation chauffe-eau électrique:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - ECS additionnelle nécessaire
+                  - ecs . type de production != 'Solaire thermique'
+              alors: ecs additionnelle . consommation chauffe-eau électrique
+            - sinon: 0
+          unité: kWh/an
+        appoint chauffe-eau solaire:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - ECS additionnelle nécessaire
+                  - ecs . type de production = 'Solaire thermique'
+              alors: ecs additionnelle . appoint chauffe-eau solaire
+            - sinon: 0
+          unité: kWh/an
+        consommation combustible chaleur:
+          formule: ratios . conso combustible * besoins . chauffage par logement
+          unité: kWh elec
+        consommation combustible froid:
+          formule: 0
+          unité: kWh elec
+        consommation auxiliaire:
+          formule: 0
+          unité: kWh elec
+        consommation hors électricité:
+          valeur: 0
+          unité: kWh elec
+        consommation électricité:
+          variations:
+            - si: ECS additionnelle nécessaire
+              alors: consommation combustible chaleur + consommation chauffe-eau électrique
+            - sinon: consommation combustible chaleur
+          unité: kWh/an
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
+
+        nombre de radiateurs:
+          par défaut: radiateur électrique . installation . puissance retenue // 2
+    coûts:
+      avec:
+        investissement équipement:
+          produit:
+            - ratios . investissement équipement
+            - ( 1 + investissement . pose et mise en place )
+          unité: €TTC
+        investissement par logement:
+          valeur: investissement équipement
+          unité: €TTC
+        investissement ballon ECS:
+          variations:
+            - si: installation . ECS additionnelle nécessaire
+              alors: ecs additionnelle . investissement ballon ECS
+            - sinon: 0
+          unité: €TTC
+        investissement chauffe-eau solaire:
+          applicable si:
+            toutes ces conditions:
+              - installation . ECS additionnelle nécessaire
+              - ecs . type de production = "Solaire thermique"
+          formule: ecs additionnelle . investissement chauffe-eau solaire
+          unité: €TTC
+        investissement total avec ballon ECS:
+          valeur: investissement par logement + investissement ballon ECS
+          unité: €TTC
+        investissement total avec chauffe-eau solaire:
+          valeur: investissement par logement + investissement chauffe-eau solaire
+          unité: €TTC
+
+        P1 abonnement:
+          somme:
+            - variations:
+                - si:
+                    toutes ces conditions:
+                      - climatisation . incluse
+                      - climatisation . type de production = 'Réseau de froid'
+                  alors: réseau de froid . coûts . P1 abonnement
+                - sinon: 0
+            - combustibles . électricité . abonnement individuel
+          unité: €TTC/an
+        P1 consommation:
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . consommation combustible chaleur
+          unité: €TTC/an
+        P1 auxiliaires:
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . consommation auxiliaire
+          unité: €TTC/an
+        P1 ballon ECS:
+          applicable si: installation . consommation chauffe-eau électrique >= 0
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . consommation chauffe-eau électrique
+          unité: €TTC/an
+        P1 chauffe-eau solaire:
+          applicable si: installation . appoint chauffe-eau solaire >= 0
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . appoint chauffe-eau solaire
+          unité: €TTC/an
+        P1 froid:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Réseau de froid'
+              alors: réseau de froid . coûts . P1 froid
+            - sinon:
+                produit:
+                  - combustibles . électricité . consommation collectif
+                  - installation . consommation groupe froid
+          unité: €TTC/an
+        petit entretien P2:
+            produit:
+              - ratios . petit entretien P2
+              - coûts . investissement équipement
+            unité: €TTC/an
+        gros entretien P3:
+            produit:
+              - ratios . gros entretien P3
+              - coûts . investissement équipement
+            unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    aides:
+      avec:
+        ma prime rénov:
+          applicable si:
+            est défini: ma prime rénov
+          formule: ma prime rénov
+          unité: €
+        coup de pouce:
+          applicable si:
+            est défini: coup de pouce
+          formule: coup de pouce
+          unité: €
+        CEE:
+          formule: 0
+          unité: €
+        total:
+          variations:
+            - si: aides . éligibilité . prise en compte des aides
+              alors: ma prime rénov + coup de pouce + CEE
+            - sinon: 0
+          unité: €
+    environnement:
+      avec:
+        besoins de chauffage et ECS si même équipement:
+          valeur: 0
+          unité: kgCO2e
+        scope 1: besoins de chauffage et ECS si même équipement
+        auxiliaires et combustible électrique:
+          formule: installation . consommation combustible chaleur * facteurs CO2 . électricité chauffage
+          unité: kgCO2e
+        ECS solaire thermique:
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
+        ECS avec ballon électrique:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2:
+          somme:
+            - auxiliaires et combustible électrique
+            - ECS solaire thermique
+            - ECS avec ballon électrique
+        scope 3:
+          formule: besoins . chauffage par logement * ratios . CO2 installation
+        total:
+          somme:
+            - scope 1
+            - scope 2
+            - scope 3
+          unité: kgCO2e/an
+    bilan:
+      avec:
+        P1abo: coûts . P1 abonnement
+        P1conso: coûts . P1 consommation
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
+        P1ECS:
+          le maximum de:
+            - coûts . P1 ballon ECS
+            - coûts . P1 chauffe-eau solaire
+        P1Consofroid: coûts . P1 froid
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
+        P4 équipement:
+          formule: coûts . investissement par logement * annuité
+
+        P4 ballon ECS:
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
+
+        P4 chauffe-eau solaire:
+          variations:
+            - si: ecs . type de production = 'Solaire thermique'
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
+            - sinon: 0
+
+        P4:
+          somme:
+            - P4 équipement
+            - P4 ballon ECS
+            - P4 chauffe-eau solaire
+            - climatisation additionnelle . P4 groupe froid
+            - climatisation additionnelle . P4 réseau de froid
+        aides spécifiques:
+          formule: aides . total * annuité
+
+        aides:
+          somme:
+            - aides spécifiques
+            - climatisation additionnelle . aides réseau de froid
+        P4 moins aides:
+          le maximum de:
+            - P4 - aides
+            - 0
+        total sans aides:
+          somme:
+            - P1abo
+            - P1conso
+            - P1prime
+            - P1ECS
+            - P1Consofroid
+            - P2
+            - P3
+            - P4
+        total avec aides:
+          somme:
+            - total sans aides
+            - (- aides)
+

@@ -1,0 +1,29 @@
+# Socle commun à toutes les pompes à chaleur : SCOP plancher, consommations
+# auxiliaires et delta de température des émetteurs.
+
+pac:
+  description: Socle commun à toutes les pompes à chaleur
+  avec:
+    température émetteurs delta:
+      variations:
+        - si: bâtiment . température émetteurs = "35"
+          alors: 0
+        - si: bâtiment . température émetteurs = "45"
+          alors: -0.6
+        - si: bâtiment . température émetteurs = "55"
+          alors: -1.2
+        - si: bâtiment . température émetteurs = "65"
+          alors: -1.6
+        - si: bâtiment . température émetteurs = "Plancher"
+          alors: 0
+        - si: bâtiment . température émetteurs = "Radiateur"
+          alors: -1.2
+
+    conso auxiliaire chauffage climatisation:
+      valeur: 99.8%
+
+    conso auxiliaire ECS:
+      valeur: 99%
+
+    SCOP mini:
+      valeur: 1.8

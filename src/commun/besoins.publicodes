@@ -1,0 +1,59 @@
+# Dimensionnement : puissances appelées et heures de fonctionnement, déduites
+# des besoins du bâtiment. Les besoins eux-mêmes et leurs valeurs de référence
+# vivent sous `besoins . ` et `bâtiment . ratios . ` (parametres-techniques).
+
+dimensionnement:
+  description: Puissances appelées et heures de fonctionnement
+  avec:
+    ratios:
+      description: Valeurs de référence du dimensionnement des puissances
+      avec:
+        température de non chauffage:
+          valeur: 18
+          unité: °C
+
+        facteur de surpuissance:
+          valeur: 20%
+          unité: '%'
+
+        heures de fonctionnement non climatique ECS:
+          valeur: 3000
+          unité: h
+
+        coefficient de foisonnement ECS:
+          valeur: 50%
+          unité: '%'
+
+        coefficient de foisonnement chauffage collectif:
+          valeur: 80%
+          unité: '%'
+
+    heures pleine puissance chauffage continu:
+      formule: climat . degré jours chaud * 24 / (dimensionnement . ratios . température de non chauffage - climat . température de référence chaud)
+      unité: h
+
+    heures pleine puissance chauffage:
+      produit:
+        - dimensionnement . heures pleine puissance chauffage continu
+        - dimensionnement . coefficient intermittence
+      unité: h
+
+    puissance chauffage appelée:
+      formule: (besoins . chauffage par logement / dimensionnement . heures pleine puissance chauffage) * (1 + dimensionnement . ratios . facteur de surpuissance)
+      unité: kW
+
+    puissance ECS appelée:
+      formule: (besoins . ECS par logement / dimensionnement . ratios . heures de fonctionnement non climatique ECS) * (1 + dimensionnement . ratios . facteur de surpuissance)
+      unité: kW
+
+    heures pleine puissance climatisation:
+      produit:
+        - climat . degré jours froid
+        - 24
+        - dimensionnement . coefficient intermittence
+      unité: h
+
+    puissance refroidissement appelée:
+      applicable si: dimensionnement . heures pleine puissance climatisation > 0
+      formule: besoins . climatisation par logement / dimensionnement . heures pleine puissance climatisation * (1 + dimensionnement . ratios . facteur de surpuissance)
+      unité: kW

@@ -1,0 +1,70 @@
+# Pseudo-modes partiels lus par le module « chaleur renouvelable » du front :
+
+PAC air-eau coll hybride:
+  avec:
+    # coûts d'exploitation isolés (total sans installation) combinés côté front à
+    # un mode principal. Pas d'installation propre ni de bilan complet.
+    bilan:
+      avec:
+        total sans aides:
+          produit:
+            - PAC air-eau coll . bilan . total avec aides
+            - 120 %
+        total sans installation:
+          somme:
+            - PAC air-eau coll . bilan . P1abo
+            - PAC air-eau coll . bilan . P1prime
+            - PAC air-eau coll . bilan . P1Consofroid
+            - produit:
+                - 120%
+                - PAC air-eau coll . bilan . P1ECS
+            - produit:
+                - 120%
+                - PAC air-eau coll . bilan . P1conso
+            - PAC air-eau coll . bilan . P2
+            - PAC air-eau coll . bilan . P3
+
+solaire thermique:
+  avec:
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - besoins . ECS par logement
+            - combustibles . gaz . consommation individuel # prix du gaz €/kWh
+            - 50 % # taux de couverture solaire
+
+PAC capteurs solaires atmosphériques:
+  avec:
+    bilan:
+      avec:
+        total sans installation: PAC air-eau coll . bilan . P1ECS
+
+PAC air-eau collective ECS:
+  avec:
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - combustibles . électricité . consommation collectif
+            - besoins . ECS par logement / PAC air-eau coll . ratios . SCOP
+
+chauffe-eau thermodynamique:
+  avec:
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - combustibles . électricité . consommation individuel
+            - besoins . ECS par logement / PAC air-eau coll . ratios . SCOP
+
+système solaire combiné:
+  avec:
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - (besoins . chauffage par logement + besoins . ECS par logement)
+            - combustibles . gaz . consommation individuel # prix du gaz €/kWh
+            - 50 % # taux de couverture solaire
+

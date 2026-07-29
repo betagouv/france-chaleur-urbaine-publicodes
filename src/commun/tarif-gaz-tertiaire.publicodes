@@ -1,0 +1,95 @@
+combustibles . gaz . estimation abonnement tertiaire:
+  # QUESTION déjà posée: on fait bien <= plutôt que = ? Car les seuils du excel n'ont pas les mêmes points (par exemple 120 kW vs 150 kW)
+  variations:
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 4
+      alors: 187.05
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 10
+      alors: 242.89
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 20
+      alors: 285.13
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 30
+      alors: 309.84
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 40
+      alors: 327.37
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 50
+      alors: 425
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 75
+      alors: 637.5
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 100
+      alors: 850
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 150
+      alors: 1275
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 200
+      alors: 1700
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 250
+      alors: 2125
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 300
+      alors: 2550
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 350
+      alors: 2975
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 400
+      alors: 3400
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 450
+      alors: 2925
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 500
+      alors: 3250
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 550
+      alors: 3575
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 600
+      alors: 3900
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 650
+      alors: 4225
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 700
+      alors: 4550
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 750
+      alors: 4875
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 800
+      alors: 5200
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 850
+      alors: 5525
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 900
+      alors: 5850
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 950
+      alors: 6175
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1000
+      alors: 6500
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1050
+      alors: 5250
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1100
+      alors: 5500
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1150
+      alors: 5750
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1200
+      alors: 6000
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1250
+      alors: 6250
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1300
+      alors: 6500
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1350
+      alors: 6750
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1400
+      alors: 7000
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1450
+      alors: 7250
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1500
+      alors: 7500
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1550
+      alors: 7750
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1600
+      alors: 8000
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1650
+      alors: 8250
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1700
+      alors: 8500
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1750
+      alors: 8750
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1800
+      alors: 9000
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1850
+      alors: 9250
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1900
+      alors: 9500
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 1950
+      alors: 9750
+    - si: combustibles . gaz . puissance souscrite collectif ou tertiaire <= 2000
+      alors: 10000

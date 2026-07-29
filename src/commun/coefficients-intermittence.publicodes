@@ -1,0 +1,140 @@
+# Coefficient d'intermittence pour le calcul de puissance : table par
+# bâtiment . DPE (résidentiel) et bâtiment . méthode tertiaire.
+
+dimensionnement . coefficient intermittence:
+  variations:
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "DPE"
+          - bâtiment . DPE = "A"
+      alors: 70%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "DPE"
+          - bâtiment . DPE = "B"
+      alors: 70%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "DPE"
+          - bâtiment . DPE = "C"
+      alors: 90%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "DPE"
+          - bâtiment . DPE = "D"
+      alors: 90%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "DPE"
+          - bâtiment . DPE = "E"
+      alors: 100%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "DPE"
+          - bâtiment . DPE = "F"
+      alors: 100%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "DPE"
+          - bâtiment . DPE = "G"
+      alors: 100%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "Normes thermiques et âge du bâtiment"
+          - bâtiment . normes thermiques et âge = "RE2020 - Après 2020"
+      alors: 70%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "Normes thermiques et âge du bâtiment"
+          - bâtiment . normes thermiques et âge = "RT2012 - Entre 2012 et 2020"
+      alors: 70%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "Normes thermiques et âge du bâtiment"
+          - bâtiment . normes thermiques et âge = "RT2005 - Entre 2005 et 2012"
+      alors: 90%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "Normes thermiques et âge du bâtiment"
+          - bâtiment . normes thermiques et âge = "RT2000 - Entre 2000 et 2005"
+      alors: 90%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "Normes thermiques et âge du bâtiment"
+          - bâtiment . normes thermiques et âge = "de 1990 à 2000"
+      alors: 100%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "Normes thermiques et âge du bâtiment"
+          - bâtiment . normes thermiques et âge = "de 1974 à 1990"
+      alors: 100%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - bâtiment . méthode résidentiel = "Normes thermiques et âge du bâtiment"
+          - bâtiment . normes thermiques et âge = "avant 1974"
+      alors: 100%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+      alors: 80%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+      alors: 80%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+      alors: 90%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+      alors: 80%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+      alors: 80%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+      alors: 80%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+      alors: 80%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+      alors: 60%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Centre aqualudique"
+      alors: 90%
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+      alors: 90%
+

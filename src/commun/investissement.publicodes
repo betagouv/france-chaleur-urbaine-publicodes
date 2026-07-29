@@ -1,0 +1,30 @@
+# Constantes transverses d'investissement et d'amortissement.
+
+investissement:
+  avec:
+    pose et mise en place:
+      formule: 30
+      unité: '%'
+      note: 'Source: ELCIMAI 2024'
+    TVA:
+      valeur: 20
+      unité: '%'
+      note: 'source: ELCIMAI 2024'
+    TVA réduite:
+      valeur: 5.5
+      unité: '%'
+    # TVA appliquée aux contrats d'entretien (écrite par la page paramètres)
+    TVA petit entretien P2:
+      par défaut: 20%
+      unité: '%'
+    TVA gros entretien P3:
+      par défaut: 20%
+      unité: '%'
+
+amortissement:
+  avec:
+    taux actualisation:
+      valeur: 0
+      unité: '%'
+      note: 'source: AMORCE'
+

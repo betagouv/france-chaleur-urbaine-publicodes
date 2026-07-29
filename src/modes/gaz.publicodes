@@ -1,0 +1,916 @@
+# Chaudières gaz (indiv/coll, avec/sans condensation)
+# Regroupe ratios, dimensionnement, calculs économiques,
+# aides, émissions et bilan pour ce mode de chauffage.
+
+gaz indiv avec cond:
+  description: Chaudière gaz individuelle à condensation
+  avec:
+    ratios:
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
+      avec:
+        CO2 installation:
+          formule: 33
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
+        conso auxiliaire ECS:
+          valeur: 99.9%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.9%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 17
+          unité: an
+        gros entretien P3:
+          par défaut: 70
+          unité: €HT
+        investissement équipement:
+          produit:
+            - variations:
+                - si: gaz indiv avec cond . installation . puissance retenue <= 12
+                  alors: 2660
+                - si: gaz indiv avec cond . installation . puissance retenue <= 20
+                  alors: 2810
+                - si: gaz indiv avec cond . installation . puissance retenue <= 25
+                  alors: 2920
+                - si: gaz indiv avec cond . installation . puissance retenue <= 30
+                  alors: 3220
+                - sinon: 3620
+            - 1 + investissement . TVA
+          unité: €TTC
+          note: 'Source: Atlantic 2023'
+        petit entretien P2:
+          par défaut: 143
+          unité: €HT/an
+        rendement chaudière ECS:
+          valeur: 85%
+          unité: '%'
+        rendement chaudière chauffage:
+          valeur: 85%
+          unité: '%'
+    annuité: &annuite-gaz
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
+    installation:
+      avec:
+        production eau chaude sanitaire: ecs . production
+        puissance chauffage:
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière chauffage)
+          unité: kW
+        puissance ECS:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - production eau chaude sanitaire
+                  - ecs . type de production = 'Avec équipement chauffage'
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS)
+            - sinon: 0
+          unité: kW
+        puissance équipement: &inst-puissance-equipement
+          somme:
+            - puissance chauffage
+            - puissance ECS
+          unité: kW
+        puissance retenue: &inst-puissance-retenue
+          variations:
+            - si: puissance équipement <= 12
+              alors: 12
+            - si: puissance équipement <= 20
+              alors: 20
+            - si: puissance équipement <= 25
+              alors: 25
+            - si: puissance équipement <= 30
+              alors: 30
+            - sinon: 35
+          unité: kW
+        ECS additionnelle nécessaire: &inst-ecs-additionnelle-necessaire
+          toutes ces conditions:
+            - ecs . production
+            - puissance ECS <= 0
+        volume du ballon ECS: &inst-volume-du-ballon-ecs
+          variations:
+            - si:
+                toutes ces conditions:
+                  - ECS additionnelle nécessaire
+                  - ecs . type de production != "Solaire thermique"
+              alors: ecs additionnelle . volume du ballon
+            - sinon: 50
+          unité: L
+        consommation chauffe-eau électrique: &inst-consommation-chauffe-eau-electrique
+          variations:
+            - si:
+                toutes ces conditions:
+                  - ECS additionnelle nécessaire
+                  - ecs . type de production != 'Solaire thermique'
+              alors: ecs additionnelle . consommation chauffe-eau électrique
+            - sinon: 0
+          unité: kWh/an
+        appoint chauffe-eau solaire: &inst-appoint-chauffe-eau-solaire
+          variations:
+            - si:
+                toutes ces conditions:
+                  - ECS additionnelle nécessaire
+                  - ecs . type de production = 'Solaire thermique'
+              alors: ecs additionnelle . appoint chauffe-eau solaire
+            - sinon: 0
+          unité: kWh/an
+        consommation combustible chaleur:
+          produit:
+            - ratios . conso combustible
+            - somme:
+                - besoins . chauffage par logement /  ratios . rendement chaudière chauffage
+                - variations:
+                    - si: ecs . type de production = 'Avec équipement chauffage'
+                      alors: besoins . ECS par logement / ratios . rendement chaudière ECS
+                    - sinon: 0
+          unité: Nm3 gaz/an
+        consommation combustible froid: &inst-consommation-combustible-froid
+          formule: 0
+          unité: Nm3 gaz/an
+        consommation auxiliaire: &inst-consommation-auxiliaire
+          somme:
+            - (1 - ratios . conso auxiliaire chauffage) * besoins . chauffage par logement
+            - variations:
+                - si:
+                    toutes ces conditions:
+                      - ecs . type de production = 'Avec équipement chauffage'
+                      - ecs . production
+                  alors: (1 - ratios . conso auxiliaire ECS) * besoins . ECS par logement
+                - sinon: 0
+          unité: kWh elec
+        consommation hors électricité:
+          formule: consommation combustible chaleur
+        consommation électricité: &inst-consommation-electricite
+          variations:
+            - si: ECS additionnelle nécessaire
+              alors: consommation auxiliaire + consommation chauffe-eau électrique
+            - sinon: consommation auxiliaire
+          unité: kWh/an
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
+    coûts:
+      avec:
+        investissement équipement: &couts-investissement-equipement
+          produit:
+            - ratios . investissement équipement
+            - ( 1 + investissement . pose et mise en place )
+          unité: €TTC
+        investissement par logement: &couts-investissement-par-logement-indiv
+          valeur: investissement équipement
+          unité: €TTC
+        investissement ballon ECS: &couts-investissement-ballon-ecs
+          variations:
+            - si: installation . ECS additionnelle nécessaire
+              alors: ecs additionnelle . investissement ballon ECS
+            - sinon: 0
+          unité: €TTC
+        investissement chauffe-eau solaire: &couts-investissement-chauffe-eau-solaire
+          applicable si:
+            toutes ces conditions:
+              - installation . ECS additionnelle nécessaire
+              - ecs . type de production = "Solaire thermique"
+          formule: ecs additionnelle . investissement chauffe-eau solaire
+          unité: €TTC
+        investissement total avec ballon ECS: &couts-investissement-total-avec-ballon-ecs
+          valeur: investissement par logement + investissement ballon ECS
+          unité: €TTC
+        investissement total avec chauffe-eau solaire: &couts-investissement-total-avec-chauffe-eau-solaire
+          valeur: investissement par logement + investissement chauffe-eau solaire
+          unité: €TTC
+
+        P1 abonnement: &couts-p1-abonnement-indiv
+          somme:
+            - variations:
+                - si:
+                    toutes ces conditions:
+                      - climatisation . incluse
+                      - climatisation . type de production = 'Réseau de froid'
+                  alors: réseau de froid . coûts . P1 abonnement
+                - sinon: 0
+            - combustibles . gaz . abonnement individuel
+          unité: €TTC/an
+        P1 consommation: &couts-p1-consommation
+          produit:
+            - combustibles . gaz . consommation individuel
+            - installation . consommation combustible chaleur
+            - 1 / ratios . conso combustible
+          unité: €TTC/an
+        P1 auxiliaires: &couts-p1-auxiliaires
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . consommation auxiliaire
+          unité: €TTC/an
+        P1 ballon ECS: &couts-p1-ballon-ecs
+          applicable si: installation . consommation chauffe-eau électrique >= 0
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . consommation chauffe-eau électrique
+          unité: €TTC/an
+        P1 chauffe-eau solaire: &couts-p1-chauffe-eau-solaire
+          applicable si: installation . appoint chauffe-eau solaire >= 0
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . appoint chauffe-eau solaire
+          unité: €TTC/an
+        P1 froid: &couts-p1-froid
+          variations:
+            - si:
+                toutes ces conditions:
+                  - climatisation . incluse
+                  - climatisation . type de production = 'Réseau de froid'
+              alors: réseau de froid . coûts . P1 froid
+            - sinon:
+                produit:
+                  - combustibles . électricité . consommation collectif
+                  - installation . consommation groupe froid
+          unité: €TTC/an
+        petit entretien P2: &couts-petit-entretien-p2-indiv
+          produit:
+            - ratios . petit entretien P2
+            - (1 + investissement . TVA petit entretien P2 )
+          unité: €TTC/an
+        gros entretien P3: &couts-gros-entretien-p3-indiv
+          produit:
+            - ratios . gros entretien P3
+            - (1 + investissement . TVA gros entretien P3 )
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    aides:
+      avec:
+        ma prime rénov: &aides-ma-prime-renov
+          applicable si:
+            est défini: ma prime rénov
+          formule: ma prime rénov
+          unité: €
+        coup de pouce: &aides-coup-de-pouce
+          applicable si:
+            est défini: coup de pouce
+          formule: coup de pouce
+          unité: €
+        CEE: &aides-cee
+          formule: 0
+          unité: €
+        total: &aides-total
+          variations:
+            - si: aides . éligibilité . prise en compte des aides
+              alors: ma prime rénov + coup de pouce + CEE
+            - sinon: 0
+          unité: €
+    environnement:
+      avec:
+        besoins de chauffage et ECS si même équipement: &env-besoins-de-chauffage-et-ecs-si-meme-equipement
+          formule: installation . consommation combustible chaleur / ratios . conso combustible * facteurs CO2 . gaz chaudière
+          unité: kgCO2e
+        scope 1: besoins de chauffage et ECS si même équipement
+        auxiliaires et combustible électrique: &env-auxiliaires-et-combustible-electrique
+          formule: installation . consommation auxiliaire * facteurs CO2 . électricité chauffage
+          unité: kgCO2e
+        ECS solaire thermique:
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
+        ECS avec ballon électrique:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2: &env-scope-2
+          somme:
+            - auxiliaires et combustible électrique
+            - ECS solaire thermique
+            - ECS avec ballon électrique
+        scope 3: &env-scope-3-indiv
+          formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie
+        total: &env-total
+          somme:
+            - scope 1
+            - scope 2
+            - scope 3
+          unité: kgCO2e/an
+    bilan:
+      avec:
+        P1abo: coûts . P1 abonnement
+        P1conso: coûts . P1 consommation
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
+        P1ECS: &bilan-p1ecs
+          le maximum de:
+            - coûts . P1 ballon ECS
+            - coûts . P1 chauffe-eau solaire
+        P1Consofroid: coûts . P1 froid
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
+        P4 équipement:
+          formule: coûts . investissement par logement * annuité
+
+        P4 ballon ECS:
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
+
+        P4 chauffe-eau solaire: &bilan-p4-chauffe-eau-solaire
+          variations:
+            - si: ecs . type de production = 'Solaire thermique'
+              alors: coûts . investissement chauffe-eau solaire * ecs additionnelle . annuité chauffe-eau solaire
+            - sinon: 0
+
+        P4: &bilan-p4
+          somme:
+            - P4 équipement
+            - P4 ballon ECS
+            - P4 chauffe-eau solaire
+            - climatisation additionnelle . P4 groupe froid
+            - climatisation additionnelle . P4 réseau de froid
+        aides spécifiques:
+          formule: aides . total * annuité
+
+        aides: &bilan-aides
+          somme:
+            - aides spécifiques
+            - climatisation additionnelle . aides réseau de froid
+        P4 moins aides: &bilan-p4-moins-aides
+          le maximum de:
+            - P4 - aides
+            - 0
+        total sans aides: &bilan-total-sans-aides
+          somme:
+            - P1abo
+            - P1conso
+            - P1prime
+            - P1ECS
+            - P1Consofroid
+            - P2
+            - P3
+            - P4
+        total avec aides: &bilan-total-avec-aides
+          somme:
+            - total sans aides
+            - (- aides)
+gaz indiv sans cond:
+  description: Chaudière gaz individuelle sans condensation
+  avec:
+    ratios:
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
+      avec:
+        CO2 installation:
+          formule: 53.6
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
+        conso auxiliaire ECS:
+          valeur: 99.9%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.9%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 17
+          unité: an
+        gros entretien P3:
+          par défaut: 70
+          unité: €HT
+        investissement équipement:
+          produit:
+            - variations:
+                - si: gaz indiv sans cond . installation . puissance retenue <= 12
+                  alors: 2660
+                - si: gaz indiv sans cond . installation . puissance retenue <= 20
+                  alors: 2810
+                - si: gaz indiv sans cond . installation . puissance retenue <= 25
+                  alors: 2920
+                - si: gaz indiv sans cond . installation . puissance retenue <= 30
+                  alors: 3220
+                - sinon: 3620
+            - 1 + investissement . TVA
+          unité: €TTC
+          note: 'Source: ELCIMAI 2024'
+        petit entretien P2:
+          par défaut: 143
+          unité: €HT/an
+        rendement chaudière:
+          valeur: 75%
+          unité: '%'
+    annuité: *annuite-gaz
+    installation:
+      avec:
+        production eau chaude sanitaire: ecs . production
+        puissance chauffage:
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière)
+          unité: kW
+        puissance ECS:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - production eau chaude sanitaire
+                  - ecs . type de production = 'Avec équipement chauffage'
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière)
+            - sinon: 0
+          unité: kW
+        puissance équipement: *inst-puissance-equipement
+        puissance retenue: *inst-puissance-retenue
+        ECS additionnelle nécessaire: *inst-ecs-additionnelle-necessaire
+        volume du ballon ECS: *inst-volume-du-ballon-ecs
+        consommation chauffe-eau électrique: *inst-consommation-chauffe-eau-electrique
+        appoint chauffe-eau solaire: *inst-appoint-chauffe-eau-solaire
+        consommation combustible chaleur: &inst-consommation-combustible-chaleur
+          produit:
+            - ratios . conso combustible
+            - somme:
+                - besoins . chauffage par logement
+                - variations:
+                    - si: ecs . type de production = 'Avec équipement chauffage'
+                      alors: besoins . ECS par logement
+                    - sinon: 0
+            - 1 / ratios . rendement chaudière
+          unité: Nm3 gaz/an
+        consommation combustible froid: *inst-consommation-combustible-froid
+        consommation auxiliaire: *inst-consommation-auxiliaire
+        consommation hors électricité:
+          formule: consommation combustible chaleur
+        consommation électricité: *inst-consommation-electricite
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
+    coûts:
+      avec:
+        investissement équipement: *couts-investissement-equipement
+        investissement par logement: *couts-investissement-par-logement-indiv
+        investissement ballon ECS: *couts-investissement-ballon-ecs
+        investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
+        investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
+        investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
+
+        P1 abonnement: *couts-p1-abonnement-indiv
+        P1 consommation: *couts-p1-consommation
+        P1 auxiliaires: *couts-p1-auxiliaires
+        P1 ballon ECS: *couts-p1-ballon-ecs
+        P1 chauffe-eau solaire: *couts-p1-chauffe-eau-solaire
+        P1 froid: *couts-p1-froid
+        petit entretien P2: *couts-petit-entretien-p2-indiv
+        gros entretien P3: *couts-gros-entretien-p3-indiv
+        petit entretien P2 par logement tertiaire: petit entretien P2
+        gros entretien P3 par logement tertiaire: gros entretien P3
+    aides:
+      avec:
+        ma prime rénov: *aides-ma-prime-renov
+        coup de pouce: *aides-coup-de-pouce
+        CEE: *aides-cee
+        total: *aides-total
+    environnement:
+      avec:
+        besoins de chauffage et ECS si même équipement: *env-besoins-de-chauffage-et-ecs-si-meme-equipement
+        scope 1: besoins de chauffage et ECS si même équipement
+        auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
+        ECS solaire thermique:
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
+        ECS avec ballon électrique:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2: *env-scope-2
+        scope 3: *env-scope-3-indiv
+        total: *env-total
+    bilan:
+      avec:
+        P1abo: coûts . P1 abonnement
+        P1conso: coûts . P1 consommation
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
+        P1ECS: *bilan-p1ecs
+        P1Consofroid: coûts . P1 froid
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
+        P4 équipement:
+          formule: coûts . investissement par logement * annuité
+
+        P4 ballon ECS:
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
+
+        P4 chauffe-eau solaire: *bilan-p4-chauffe-eau-solaire
+
+        P4: *bilan-p4
+        aides spécifiques:
+          formule: aides . total * annuité
+
+        aides: *bilan-aides
+        P4 moins aides: *bilan-p4-moins-aides
+        total sans aides: *bilan-total-sans-aides
+        total avec aides: *bilan-total-avec-aides
+gaz coll avec cond:
+  description: Chaudière gaz collective à condensation
+  avec:
+    ratios:
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
+      avec:
+        CO2 installation:
+          formule: 25
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
+        conso auxiliaire ECS:
+          valeur: 99%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.8%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 22
+          unité: an
+        gros entretien P3:
+          par défaut: 1.72 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          produit:
+            - variations:
+                - si: gaz coll avec cond . installation . puissance retenue <= 35
+                  alors: 4800
+                - si: gaz coll avec cond . installation . puissance retenue <= 120
+                  alors: 15000
+                - si: gaz coll avec cond . installation . puissance retenue <= 200
+                  alors: 25000
+                - si: gaz coll avec cond . installation . puissance retenue <= 300
+                  alors: 37500
+                - si: gaz coll avec cond . installation . puissance retenue <= 400
+                  alors: 40000
+                - si: gaz coll avec cond . installation . puissance retenue <= 500
+                  alors: 45000
+                - si: gaz coll avec cond . installation . puissance retenue <= 600
+                  alors: 52335
+                - si: gaz coll avec cond . installation . puissance retenue <= 700
+                  alors: 61058
+                - si: gaz coll avec cond . installation . puissance retenue <= 800
+                  alors: 69780
+                - si: gaz coll avec cond . installation . puissance retenue <= 900
+                  alors: 78503
+                - si: gaz coll avec cond . installation . puissance retenue <= 1000
+                  alors: 87225
+                - si: gaz coll avec cond . installation . puissance retenue <= 1250
+                  alors: 109031
+                - si: gaz coll avec cond . installation . puissance retenue <= 1500
+                  alors: 130838
+                - si: gaz coll avec cond . installation . puissance retenue <= 1750
+                  alors: 152644
+                - sinon: 174450
+            - 1 + investissement . TVA
+          unité: €TTC
+          note: 'Source: ELCIMAI 2024 et Atlantic 2024'
+        petit entretien P2:
+          par défaut: 7.00 * (1 + investissement . TVA petit entretien P2)
+          unité: €TTC/MWh
+        rendement chaudière ECS:
+          valeur: 86%
+          unité: '%'
+        rendement chaudière chauffage:
+          valeur: 80%
+          unité: '%'
+    annuité: *annuite-gaz
+    installation:
+      avec:
+        production eau chaude sanitaire: ecs . production
+        puissance chauffage:
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière chauffage) * bâtiment . nombre de logements * dimensionnement . ratios . coefficient de foisonnement chauffage collectif
+          unité: kW
+        puissance ECS:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - production eau chaude sanitaire
+                  - ecs . type de production = 'Avec équipement chauffage'
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière ECS) * bâtiment . nombre de logements
+            - sinon: 0
+          unité: kW
+        puissance équipement: *inst-puissance-equipement
+        puissance retenue:
+          variations:
+            - si: puissance équipement <= 35
+              alors: 35
+            - si: puissance équipement < 120
+              alors: 120
+            - si: puissance équipement < 200
+              alors: 200
+            - si: puissance équipement < 300
+              alors: 300
+            - si: puissance équipement < 400
+              alors: 400
+            - si: puissance équipement < 500
+              alors: 500
+            - si: puissance équipement < 600
+              alors: 600
+            - si: puissance équipement < 700
+              alors: 700
+            - si: puissance équipement < 800
+              alors: 800
+            - si: puissance équipement < 900
+              alors: 900
+            - si: puissance équipement < 1000
+              alors: 1000
+            - si: puissance équipement < 1250
+              alors: 1250
+            - si: puissance équipement < 1500
+              alors: 1500
+            - si: puissance équipement < 1750
+              alors: 1750
+            - sinon: 2000
+          unité: kW
+          note: La puissance habituelle pour ce genre d'équipement va jusqu'à 2000 kW.
+        ECS additionnelle nécessaire: *inst-ecs-additionnelle-necessaire
+        volume du ballon ECS: *inst-volume-du-ballon-ecs
+        consommation chauffe-eau électrique: *inst-consommation-chauffe-eau-electrique
+        appoint chauffe-eau solaire: *inst-appoint-chauffe-eau-solaire
+        consommation combustible chaleur:
+          produit:
+            - ratios . conso combustible
+            - somme:
+                - besoins . chauffage par logement / ratios . rendement chaudière chauffage
+                - variations:
+                    - si: ecs . type de production = 'Avec équipement chauffage'
+                      alors: besoins . ECS par logement / ratios . rendement chaudière ECS
+                    - sinon: 0
+          unité: Nm3 gaz/an
+        consommation combustible froid: *inst-consommation-combustible-froid
+        consommation auxiliaire: *inst-consommation-auxiliaire
+        consommation hors électricité:
+          formule: consommation combustible chaleur
+        consommation électricité: *inst-consommation-electricite
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
+    coûts:
+      avec:
+        investissement équipement: *couts-investissement-equipement
+        investissement par logement: &couts-investissement-par-logement-coll
+          valeur: investissement équipement / bâtiment . nombre de logements
+          unité: €TTC
+        investissement ballon ECS: *couts-investissement-ballon-ecs
+        investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
+        investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
+        investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
+
+        P1 abonnement: &couts-p1-abonnement-coll
+          somme:
+            - variations:
+                - si:
+                    toutes ces conditions:
+                      - climatisation . incluse
+                      - climatisation . type de production = 'Réseau de froid'
+                  alors: réseau de froid . coûts . P1 abonnement
+                - sinon: 0
+            - combustibles . gaz . abonnement collectif / bâtiment . nombre de logements
+          unité: €TTC/an
+        P1 consommation:
+          produit:
+            - combustibles . gaz . consommation collectif
+            - installation . consommation combustible chaleur
+            - 1 / ratios . conso combustible
+          unité: €TTC/an
+        P1 auxiliaires: *couts-p1-auxiliaires
+        P1 ballon ECS: *couts-p1-ballon-ecs
+        P1 chauffe-eau solaire: *couts-p1-chauffe-eau-solaire
+        P1 froid: *couts-p1-froid
+        petit entretien P2: &couts-petit-entretien-p2-coll
+          produit:
+            - ratios . petit entretien P2
+            - (besoins . chauffage par logement + besoins . ECS par logement)
+            - bâtiment . nombre de logements / 1000
+          unité: €TTC/an
+        gros entretien P3: &couts-gros-entretien-p3-coll
+          produit:
+            - ratios . gros entretien P3
+            - coûts . investissement équipement
+          unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
+    aides:
+      avec:
+        ma prime rénov: *aides-ma-prime-renov
+        coup de pouce: *aides-coup-de-pouce
+        CEE: *aides-cee
+        total: *aides-total
+    environnement:
+      avec:
+        besoins de chauffage et ECS si même équipement: *env-besoins-de-chauffage-et-ecs-si-meme-equipement
+        scope 1: besoins de chauffage et ECS si même équipement
+        auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
+        ECS solaire thermique:
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
+        ECS avec ballon électrique:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2: *env-scope-2
+        scope 3: &env-scope-3-coll
+          formule: ratios . CO2 installation * installation . puissance retenue / ratios . durée de vie / bâtiment . nombre de logements
+        total: *env-total
+    bilan:
+      avec:
+        P1abo: coûts . P1 abonnement
+        P1conso: coûts . P1 consommation
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
+        P1ECS: *bilan-p1ecs
+        P1Consofroid: coûts . P1 froid
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
+        P4 équipement:
+          formule: coûts . investissement par logement * annuité
+
+        P4 ballon ECS:
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
+
+        P4 chauffe-eau solaire: *bilan-p4-chauffe-eau-solaire
+
+        P4: *bilan-p4
+        aides spécifiques:
+          formule: aides . total * annuité
+
+        aides: *bilan-aides
+        P4 moins aides: *bilan-p4-moins-aides
+        total sans aides: *bilan-total-sans-aides
+        total avec aides: *bilan-total-avec-aides
+gaz coll sans cond:
+  description: Chaudière gaz collective sans condensation
+  avec:
+    ratios:
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
+      avec:
+        CO2 installation:
+          formule: 25
+          unité: kgCO2e/kW
+          note: 'Source: INIES 2022'
+        conso auxiliaire ECS:
+          valeur: 99%
+          unité: '%'
+        conso auxiliaire chauffage:
+          valeur: 99.8%
+          unité: '%'
+        conso combustible:
+          valeur: 0.0970
+          unité: Nm3/kWh PCI
+        durée de vie:
+          valeur: 22
+          unité: an
+        gros entretien P3:
+          par défaut: 1.72 / 100
+          unité: €HT/€d'investissment # %
+        investissement équipement:
+          produit:
+            - variations:
+                - si: gaz coll sans cond . installation . puissance retenue <= 35
+                  alors: 4800
+                - si: gaz coll sans cond . installation . puissance retenue <= 120
+                  alors: 15000
+                - si: gaz coll sans cond . installation . puissance retenue <= 200
+                  alors: 25000
+                - si: gaz coll sans cond . installation . puissance retenue <= 300
+                  alors: 37500
+                - si: gaz coll sans cond . installation . puissance retenue <= 400
+                  alors: 40000
+                - si: gaz coll sans cond . installation . puissance retenue <= 500
+                  alors: 45000
+                - si: gaz coll sans cond . installation . puissance retenue <= 600
+                  alors: 52335
+                - si: gaz coll sans cond . installation . puissance retenue <= 700
+                  alors: 61058
+                - si: gaz coll sans cond . installation . puissance retenue <= 800
+                  alors: 69780
+                - si: gaz coll sans cond . installation . puissance retenue <= 900
+                  alors: 78503
+                - si: gaz coll sans cond . installation . puissance retenue <= 1000
+                  alors: 87225
+                - si: gaz coll sans cond . installation . puissance retenue <= 1250
+                  alors: 109031
+                - si: gaz coll sans cond . installation . puissance retenue <= 1500
+                  alors: 130838
+                - si: gaz coll sans cond . installation . puissance retenue <= 1750
+                  alors: 152644
+                - sinon: 174450
+            - 1 + investissement . TVA
+          unité: €TTC
+          note: 'Source: ELCIMAI 2024'
+        petit entretien P2:
+          par défaut: 7.00 * (1 + investissement . TVA petit entretien P2)
+          unité: €TTC/MWh
+        rendement chaudière:
+          valeur: 73%
+          unité: '%'
+    annuité: *annuite-gaz
+    installation:
+      avec:
+        production eau chaude sanitaire: ecs . production
+        puissance chauffage:
+          formule: (dimensionnement . puissance chauffage appelée / ratios . rendement chaudière) * bâtiment . nombre de logements * dimensionnement . ratios . coefficient de foisonnement chauffage collectif
+          unité: kW
+        puissance ECS:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - production eau chaude sanitaire
+                  - ecs . type de production = 'Avec équipement chauffage'
+              alors: dimensionnement . ratios . coefficient de foisonnement ECS * (dimensionnement . puissance ECS appelée / ratios . rendement chaudière) * bâtiment . nombre de logements
+            - sinon: 0
+          unité: kW
+        puissance équipement: *inst-puissance-equipement
+        puissance retenue:
+          variations:
+            - si: puissance équipement <= 35
+              alors: 35
+            - si: puissance équipement <= 120
+              alors: 120
+            - si: puissance équipement <= 200
+              alors: 200
+            - si: puissance équipement <= 300
+              alors: 300
+            - si: puissance équipement <= 400
+              alors: 400
+            - si: puissance équipement <= 500
+              alors: 500
+            - si: puissance équipement <= 600
+              alors: 600
+            - si: puissance équipement <= 700
+              alors: 700
+            - si: puissance équipement <= 800
+              alors: 800
+            - si: puissance équipement <= 900
+              alors: 900
+            - si: puissance équipement <= 1000
+              alors: 1000
+            - si: puissance équipement <= 1250
+              alors: 1250
+            - si: puissance équipement <= 1500
+              alors: 1500
+            - si: puissance équipement <= 1750
+              alors: 1750
+            - sinon: 2000
+          unité: kW
+        ECS additionnelle nécessaire: *inst-ecs-additionnelle-necessaire
+        volume du ballon ECS: *inst-volume-du-ballon-ecs
+        consommation chauffe-eau électrique: *inst-consommation-chauffe-eau-electrique
+        appoint chauffe-eau solaire: *inst-appoint-chauffe-eau-solaire
+        consommation combustible chaleur: *inst-consommation-combustible-chaleur
+        consommation combustible froid: *inst-consommation-combustible-froid
+        consommation auxiliaire: *inst-consommation-auxiliaire
+        consommation hors électricité:
+          formule: consommation combustible chaleur
+        consommation électricité: *inst-consommation-electricite
+        consommation groupe froid: climatisation additionnelle . consommation groupe froid
+    coûts:
+      avec:
+        investissement équipement: *couts-investissement-equipement
+        investissement par logement: *couts-investissement-par-logement-coll
+        investissement ballon ECS: *couts-investissement-ballon-ecs
+        investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
+        investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
+        investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
+
+        P1 abonnement: *couts-p1-abonnement-coll
+        P1 consommation:
+          P1 consommation:
+          produit:
+            - combustibles . gaz . consommation collectif
+            - installation . consommation combustible chaleur
+            - 1 / ratios . conso combustible
+          unité: €TTC/an
+        P1 auxiliaires: *couts-p1-auxiliaires
+        P1 ballon ECS: *couts-p1-ballon-ecs
+        P1 chauffe-eau solaire: *couts-p1-chauffe-eau-solaire
+        P1 froid: *couts-p1-froid
+        petit entretien P2: *couts-petit-entretien-p2-coll
+        gros entretien P3: *couts-gros-entretien-p3-coll
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
+    aides:
+      avec:
+        ma prime rénov: *aides-ma-prime-renov
+        coup de pouce: *aides-coup-de-pouce
+        CEE: *aides-cee
+        total: *aides-total
+    environnement:
+      avec:
+        besoins de chauffage et ECS si même équipement: *env-besoins-de-chauffage-et-ecs-si-meme-equipement
+        scope 1: besoins de chauffage et ECS si même équipement
+        auxiliaires et combustible électrique: *env-auxiliaires-et-combustible-electrique
+        ECS solaire thermique:
+          formule: installation . appoint chauffe-eau solaire * facteurs CO2 . électricité ECS
+        ECS avec ballon électrique:
+          formule: installation . consommation chauffe-eau électrique * facteurs CO2 . électricité chauffage
+        scope 2: *env-scope-2
+        scope 3: *env-scope-3-coll
+        total: *env-total
+    bilan:
+      avec:
+        P1abo: coûts . P1 abonnement
+        P1conso: coûts . P1 consommation
+        P1prime: coûts . P1 auxiliaires + climatisation additionnelle . surcoût P1 auxiliaires
+        P1ECS: *bilan-p1ecs
+        P1Consofroid: coûts . P1 froid
+        P2: coûts . petit entretien P2 par logement tertiaire + climatisation additionnelle . surcoût P2
+        P3: coûts . gros entretien P3 par logement tertiaire + climatisation additionnelle . surcoût P3
+        P4 équipement:
+          formule: coûts . investissement par logement * annuité
+
+        P4 ballon ECS:
+          formule: coûts . investissement ballon ECS * ecs additionnelle . annuité chauffe-eau électrique
+
+        P4 chauffe-eau solaire: *bilan-p4-chauffe-eau-solaire
+
+        P4: *bilan-p4
+        aides spécifiques:
+          formule: aides . total * annuité
+
+        aides: *bilan-aides
+        P4 moins aides: *bilan-p4-moins-aides
+        total sans aides: *bilan-total-sans-aides
+        total avec aides: *bilan-total-avec-aides
+

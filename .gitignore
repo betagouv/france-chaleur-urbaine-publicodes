@@ -1,9 +1,11 @@
 node_modules
 publicodes-build
 debug-tables.csv
+/publicodes-local.tgz
 
 # direnv
 .envrc
+.mise.toml
 
 .cursor/
 CLAUDE.md

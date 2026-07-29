@@ -1,0 +1,217 @@
+# Réseau de froid urbain (RFU)
+# Regroupe ratios, dimensionnement, calculs économiques,
+# aides, émissions et bilan pour ce mode de chauffage.
+
+réseau de froid:
+  description: Raccordement à un réseau de froid urbain
+  avec:
+    ratios:
+      description: Paramétrage du mode — valeurs de référence (les clés historiques de compat.publicodes pointent ici)
+      avec:
+        durée de vie:
+          valeur: 30
+          unité: an
+        conso auxiliaire:
+          valeur: 99.8%
+          unité: '%'
+        gros entretien P3:
+          par défaut: 0.75 / 100
+          unité: €HT/€d'investissment # %
+        petit entretien P2:
+          par défaut: 1.5 / 100
+          unité: €HT/€d'investissment # %
+        rendement sous station:
+          valeur: 93%
+          unité: '%'
+
+        coût raccordement résidentiel:
+          variations:
+            - si: bâtiment . nombre de logements <= 25
+              alors: 4822 * 25 / bâtiment . nombre de logements
+            - si: bâtiment . nombre de logements <= 42
+              alors: 4822
+            - si: bâtiment . nombre de logements <= 58
+              alors: 3074
+            - si: bâtiment . nombre de logements <= 83
+              alors: 2402
+            - si: bâtiment . nombre de logements <= 125
+              alors: 1811
+            - si: bâtiment . nombre de logements <= 167
+              alors: 1335
+            - si: bâtiment . nombre de logements <= 250
+              alors: 1114
+            - si: bâtiment . nombre de logements <= 333
+              alors: 911
+            - sinon: 790
+          unité: €HT/logement
+          note: 'source: ELCIMAI'
+
+        coût raccordement tertiaire:
+          variations:
+            - si: bâtiment . surface tertiaire < 2500
+              alors: 120543
+            - si: bâtiment . surface tertiaire < 3500
+              alors: 129097
+            - si: bâtiment . surface tertiaire < 5000
+              alors: 139290
+            - si: bâtiment . surface tertiaire < 7500
+              alors: 150307
+            - si: bâtiment . surface tertiaire < 10000
+              alors: 166917
+            - si: bâtiment . surface tertiaire < 15000
+              alors: 185994
+            - sinon: 227764
+          unité: €HT
+          note: 'Source: ELCIMAI'
+
+        coût sous-station:
+          variations:
+            - si: réseau de froid . installation . puissance retenue < 100
+              alors: 28000
+            - si: réseau de froid . installation . puissance retenue < 150
+              alors: 29500
+            - si: réseau de froid . installation . puissance retenue < 200
+              alors: 30500
+            - si: réseau de froid . installation . puissance retenue < 250
+              alors: 32000
+            - si: réseau de froid . installation . puissance retenue < 300
+              alors: 33000
+            - si: réseau de froid . installation . puissance retenue < 350
+              alors: 34000
+            - si: réseau de froid . installation . puissance retenue < 400
+              alors: 35000
+            - si: réseau de froid . installation . puissance retenue < 500
+              alors: 36500
+            - sinon: 39000
+          unité: €HT
+          note: 'ELCIMAI'
+
+        frais de raccordement:
+          par défaut:
+            variations:
+              - si: climatisation . incluse
+                alors:
+                  produit:
+                    - variations:
+                        - si: bâtiment . type = 'résidentiel'
+                          alors: réseau de froid . ratios . coût raccordement résidentiel * bâtiment . nombre de logements
+                        - sinon: réseau de froid . ratios . coût raccordement tertiaire
+                    - 1 + investissement . TVA
+              - sinon: 0
+          unité: €TTC
+    annuité:
+      description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
+      variations:
+        - si: amortissement . taux actualisation != 0
+          alors: amortissement . taux actualisation * ((1 + amortissement . taux actualisation) ** ratios . durée de vie) / ((1 + amortissement . taux actualisation) ** ratios . durée de vie - 1)
+        - sinon: 1 / ratios . durée de vie
+    installation:
+      avec:
+        production eau chaude sanitaire: non
+        puissance refroidissement:
+          formule: dimensionnement . puissance refroidissement appelée / ratios . rendement sous station * bâtiment . nombre de logements
+          # unité: kW # corrigé pour faire fonctionner la division
+          # QUESTION : Quelle est l'unité ? Peut-on changer l'unité pour kW ?
+          unité: kW
+        puissance équipement:
+          somme:
+            - puissance refroidissement
+          unité: kW
+        puissance retenue:
+          formule: puissance équipement
+          unité: kW
+        consommation combustible froid:
+          formule: besoins . climatisation par logement / ratios . rendement sous station
+          unité: kWh
+        consommation auxiliaire:
+          formule: (1 - ratios . conso auxiliaire) * besoins . climatisation par logement
+          unité: kWh elec
+    coûts:
+      avec:
+        investissement équipement:
+          formule: réseau de froid . ratios . frais de raccordement
+          unité: €TTC
+        investissement par logement:
+          valeur: investissement équipement / bâtiment . nombre de logements
+          unité: €TTC
+        P1 abonnement:
+          produit:
+            - combustibles . réseau de froid . abonnement
+            - installation . consommation combustible froid
+          unité: €TTC/an
+        P1 auxiliaires:
+          produit:
+            - combustibles . électricité . consommation individuel
+            - installation . consommation auxiliaire
+          unité: €TTC/an
+        P1 froid:
+          produit:
+            - combustibles . réseau de froid . consommation
+            - installation . consommation combustible froid
+          unité: €TTC/an
+        petit entretien P2:
+            variations:
+              - si: climatisation . incluse
+                alors:
+                  produit:
+                    - ratios . petit entretien P2
+                    - (1 + investissement . TVA petit entretien P2)
+                    - réseau de froid . ratios . coût sous-station
+                  unité: €TTC/an
+              - sinon: 0
+            unité: €TTC/an
+        gros entretien P3:
+            variations:
+              - si: climatisation . incluse
+                alors:
+                  produit:
+                    - ratios . gros entretien P3
+                    - (1 + investissement . TVA gros entretien P3)
+                    - réseau de froid . ratios . coût sous-station
+              - sinon: 0
+            unité: €TTC/an
+        petit entretien P2 par logement tertiaire: petit entretien P2 / bâtiment . nombre de logements
+        gros entretien P3 par logement tertiaire: gros entretien P3 / bâtiment . nombre de logements
+    aides:
+      avec:
+        ma prime rénov:
+          variations:
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible ma prime rénov
+                  - aides . éligibilité . ressources du ménage = "Très modeste"
+              alors: 1200 €
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible ma prime rénov
+                  - aides . éligibilité . ressources du ménage = "Modeste"
+              alors: 800 €
+            - si:
+                toutes ces conditions:
+                  - aides . éligibilité . éligible ma prime rénov
+                  - aides . éligibilité . ressources du ménage = "Intermédiaire"
+              alors: 400 €
+          unité: €
+          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
+        coup de pouce:
+          applicable si:
+            est défini: coup de pouce
+          formule: coup de pouce
+          unité: €
+        CEE:
+          variations:
+            - si: aides . éligibilité . éligible CEE
+              alors:
+                variations:
+                  - si: bâtiment . type = 'résidentiel'
+                    alors: 0
+                  - sinon: aides . tertiaire . CEE RFU montant * aides . tertiaire . CEE RFU facteur correctif * installation . puissance retenue * aides . valeur CEE
+            - sinon: 0
+          unité: €
+        total:
+          variations:
+            - si: aides . éligibilité . prise en compte des aides
+              alors: ma prime rénov + coup de pouce + CEE
+            - sinon: 0
+          unité: €
+

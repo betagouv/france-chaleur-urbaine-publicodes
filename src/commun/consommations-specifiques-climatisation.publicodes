@@ -1,0 +1,479 @@
+# Consommation spécifique de climatisation : table par type tertiaire
+# x sous-zones climatiques.
+
+besoins . consommation spécifique climatisation:
+  note: 'Source : ADEME 2024'
+  variations:
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H1a"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H1b"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H1c"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H2a"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H2b"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H2c"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H2d"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Bureaux"
+          - climat . sous zone = "H3"
+      alors: 68 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H1a"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H1b"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H1c"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H2a"
+      alors: 8 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H2b"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H2c"
+      alors: 44 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H2d"
+      alors: 44 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Commerces"
+          - climat . sous zone = "H3"
+      alors: 74 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H1a"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H1b"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H1c"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H2a"
+      alors: 24 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H2b"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H2c"
+      alors: 100 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H2d"
+      alors: 100 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Santé"
+          - climat . sous zone = "H3"
+      alors: 152 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H1a"
+      alors: 35 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H1b"
+      alors: 35 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H1c"
+      alors: 35 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H2a"
+      alors: 9 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H2b"
+      alors: 35 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H2c"
+      alors: 48 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H2d"
+      alors: 48 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Hôtel"
+          - climat . sous zone = "H3"
+      alors: 82 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H1a"
+      alors: 18 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H1b"
+      alors: 18 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H1c"
+      alors: 18 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H2a"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H2b"
+      alors: 18 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H2c"
+      alors: 25 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H2d"
+      alors: 25 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Sport"
+          - climat . sous zone = "H3"
+      alors: 42 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H1a"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H1b"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H1c"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H2a"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H2b"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H2c"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H2d"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement secondaire"
+          - climat . sous zone = "H3"
+      alors: 68 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H1a"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H1b"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H1c"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H2a"
+      alors: 7 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H2b"
+      alors: 29 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H2c"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H2d"
+      alors: 40 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Enseignement primaire"
+          - climat . sous zone = "H3"
+      alors: 68 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = 'H1a'
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = "H1b"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = "H1c"
+      alors: 17 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = "H2a"
+      alors: 2 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = "H2b"
+      alors: 5 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = "H2c"
+      alors: 17 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = "H2d"
+      alors: 43 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "résidentiel"
+          - climat . sous zone = "H3"
+      alors: 56 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H1a"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H1b"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H1c"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H2a"
+      alors: 24 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H2b"
+      alors: 77 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H2c"
+      alors: 100 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H2d"
+      alors: 100 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "EHPAD"
+          - climat . sous zone = "H3"
+      alors: 152 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H1a"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H1b"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H1c"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H2a"
+      alors: 8 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H2b"
+      alors: 32 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H2c"
+      alors: 44 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H2d"
+      alors: 44 kWhef/m2.an
+    - si:
+        toutes ces conditions:
+          - bâtiment . type = "tertiaire"
+          - bâtiment . méthode tertiaire = "Café, restaurant"
+          - climat . sous zone = "H3"
+      alors: 74 kWhef/m2.an
+

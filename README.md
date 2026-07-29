@@ -4,6 +4,13 @@
 
 Modèle [Publicodes](https://publi.codes/) du comparateur réalisé en partenariat avec l'association [AMORCE](https://amorce.asso.fr/) dans le cadre de l'[action C3 du programme européen Heat & Cool](https://www.cerema.fr/fr/actualites/quels-leviers-collectivites-locales-developper-reseaux)
 
+## Documentation
+
+La documentation interne du modèle est dans [DOCUMENTATION.md](DOCUMENTATION.md) :
+architecture (arborescence, structure d'un mode, conventions, tests, recettes
+de modification), récap de la refonte par modes de chauffage (juillet 2026),
+bugs connus figés et chantiers futurs.
+
 ## Usage
 
 ```sh
