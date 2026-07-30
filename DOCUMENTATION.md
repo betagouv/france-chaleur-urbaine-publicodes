@@ -13,6 +13,8 @@ Sommaire :
    état des lieux initial, choix de découpage, avant/après, mécanismes.
 3. [Bugs connus figés](#3-bugs-connus-figés) — à corriger dans une PR dédiée.
 4. [Analyse critique et chantiers futurs](#4-analyse-critique-et-chantiers-futurs).
+5. [Sources et millésimes des données](#5-sources-et-millésimes-des-données) —
+   convention de sourçage, inventaire, procédure de mise à jour.
 
 ---
 
@@ -581,9 +583,11 @@ de lignes : fichiers de `dev`.
 
 - ❓ **Documentation publiée** (site publi.codes, partenariat AMORCE) :
   ~51 `description:` pour ~2 400 règles. Gros levier : descriptions sur les
-  règles de tête (racines de modes, sections, sorties bilan) et champ
-  structuré `références:` pour les sources (ADEME, INIES, Base Empreinte…)
-  au lieu de `note:` libres (292).
+  règles de tête (racines de modes, sections, sorties bilan).
+- ✅ **Sourçage normalisé** (fait en juillet 2026, branche `maj-sources-2026`) :
+  notes au format `Source : … (millésime) — URL — màj : périodicité` — voir
+  [§5](#5-sources-et-millésimes-des-données). Le champ publicodes
+  `références:` a été écarté : non exploité par le front.
 
 ### Outillage
 
@@ -602,3 +606,64 @@ de lignes : fichiers de `dev`.
 1. ✅ Migration vers les nouvelles clés et suppression de compat, avec
    renommage des situations enregistrées en base (migration Kysely).
 2. ❓ Ménage du DebugDrawer (ne garder que les valeurs utiles).
+
+---
+
+## 5. Sources et millésimes des données
+
+> Issu de l'audit du 30/07/2026 — détail complet, tableaux avant/après et
+> chantiers dans [doc-maj-sources-2026.md](doc-maj-sources-2026.md)
+> (branches `maj-sources-2026` puis `maj-valeurs-2026`).
+
+### Convention de sourçage
+
+Tout tient dans le champ `note:` (le champ publicodes `références:` n'est pas
+exploité par le front, il n'est donc pas utilisé), au format :
+
+```
+note: "Source : <document> (<millésime>) — <URL> — màj : <périodicité>"
+```
+
+L'URL et la périodicité sont facultatives (les sources privées — ELCIMAI,
+catalogues constructeurs — n'en ont pas). La périodicité indique quand
+revérifier la valeur (« màj : révisions TRV en février et août », « màj :
+indice trimestriel »…).
+
+Les valeurs dont la provenance n'a pas pu être établie sont marquées d'un
+commentaire `# … source à documenter` (décomposition du prix du gaz, grille
+d'abonnement gaz tertiaire, barème CEE FCU tertiaire) : ne pas inventer de
+source, compléter le commentaire quand elle est retrouvée.
+
+### Inventaire (état : juillet 2026)
+
+| Source | Champs | Millésime | Rythme de mise à jour |
+|---|---|---|---|
+| TRV électricité (CRE) | `combustibles . électricité . tarifs` (prix base/HP/HC) | fév. 2026 | février et août (⚠ hausse ~2,5 % au 01/08/2026 à répercuter) |
+| Accises élec/gaz | `taxes` | fév. 2026 | 1er février (loi de finances) |
+| TVA abonnement | `taxes` | 20 % depuis août 2025 | sur évolution législative |
+| Prix repère gaz (CRE) | `gaz . coût de la molécule HT`, `coût distribution HT` (abonnement) | août 2026 (calage TTC) | mensuel (appro) / 3 fois par an (hors appro) |
+| Fioul (relevés marché) | `fioul . prix livraison incluse` | juil. 2026 | volatil — à revoir à chaque campagne |
+| Granulés (indice CEEB) | `granulés . prix pour les granulés` | mars-avr. 2026 | trimestriel |
+| MaPrimeRénov' | `aides . ma prime rénov` des modes, `bareme-revenu-mpr` | barème 2026 | janvier (montants) / avril (plafonds) |
+| Coup de pouce chauffage | `aides . coup de pouce` | ⚠ planchers 2024 conservés, dispositif réformé au 01/01/2026 | refonte à prévoir (bonification CEE ×2 à ×5, cf. `coup de pouce PAC air-eau` déjà en `CEE × 5`) |
+| Registre CEE (EMMY) | `aides . valeur CEE` | cotations 2024 | mensuel (politique de mise à jour à définir) |
+| Enquête FEDENE | contenus CO2, taux EnRR, coûts raccordement | 2025 (données 2024) | automne |
+| Enquête AMORCE | prix moyen chaleur/froid, parts fixes | données 2024 | annuel |
+| Base Empreinte | `facteurs CO2` | 2023 (2020 pour l'élec par usage) | à revalider contre la base courante (choix méthodo élec à arbitrer) |
+| INIES / SDES / ADEME Coûts EnR / constructeurs / ELCIMAI | CO2 installation, coûts d'équipement, pose | 2020-2024 | à l'occasion (éd. Coûts EnR janv. 2025 disponible) |
+| Costic / Cégibat | DJU par département | — | stable (normales climatiques) |
+
+### Procédure de mise à jour d'un millésime
+
+1. Modifier la valeur **et** la note (millésime, valeur publique de
+   référence) dans la section `ratios`/`combustibles` concernée — recette
+   « Changer une valeur de ratio » du [§1](#modifier-le-modèle--recettes).
+2. Vérifier que les grandeurs TTC reconstruites retombent sur la référence
+   publique (TRV, prix repère, prix marché) — les prix élec/gaz stockés sont
+   des **HT hors accise**, la TVA s'applique aussi à l'accise.
+3. `pnpm test` : mettre à jour le golden (`pnpm vitest run -u`) **seulement**
+   si le changement est volontaire, et le documenter dans le commit
+   (valeurs recalculées, unités inchangées).
+4. Pièges connus : la grille `abonnement annuel individuel/collectif` élec
+   n'est **pas** la grille TRV brute (construction ELCIMAI, surcoûts — à
+   élucider avant de la toucher) ; `departements.publicodes` est généré.
