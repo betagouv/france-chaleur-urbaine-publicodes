@@ -205,19 +205,19 @@ poêle à granulés:
                 toutes ces conditions:
                   - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Très modeste"
-              alors: 1800 €
+              alors: 1250 €
             - si:
                 toutes ces conditions:
                   - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Modeste"
-              alors: 1500 €
+              alors: 1000 €
             - si:
                 toutes ces conditions:
                   - aides . éligibilité . éligible ma prime rénov
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
-              alors: 1000 €
+              alors: 750 €
           unité: €
-          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
+          note: "Source : MaPrimeRénov' 2026 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce: &aides-coup-de-pouce
           applicable si:
             est défini: coup de pouce
