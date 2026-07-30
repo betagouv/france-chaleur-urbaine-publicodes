@@ -3,6 +3,7 @@ ménage:
     revenu:
       question: Revenu fiscal de référence du ménage
       unité: €
+      note: "Source : plafonds de ressources MaPrimeRénov' 2026 (ANAH) — https://www.anah.gouv.fr/sites/default/files/2026-03/202603-MPR-modeEmploi_WEB.pdf — màj : annuelle (circulaire en début d'année)"
       avec:
         plafond très modeste:
           unité: €
@@ -30,6 +31,7 @@ ménage:
 
         plafond très modeste IdF:
           unité: €
+          note: "Source : plafonds de ressources MaPrimeRénov' 2026 (ANAH) — màj : annuelle (circulaire en début d'année)"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -46,6 +48,7 @@ ménage:
 
         plafond modeste IdF:
           unité: €
+          note: "Source : plafonds de ressources MaPrimeRénov' 2026 (ANAH) — màj : annuelle (circulaire en début d'année)"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -62,6 +65,7 @@ ménage:
 
         plafond intermédiaire IdF:
           unité: €
+          note: "Source : plafonds de ressources MaPrimeRénov' 2026 (ANAH) — màj : annuelle (circulaire en début d'année)"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -78,6 +82,7 @@ ménage:
 
         plafond très modeste hors IdF:
           unité: €
+          note: "Source : plafonds de ressources MaPrimeRénov' 2026 (ANAH) — màj : annuelle (circulaire en début d'année)"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -94,6 +99,7 @@ ménage:
 
         plafond modeste hors IdF:
           unité: €
+          note: "Source : plafonds de ressources MaPrimeRénov' 2026 (ANAH) — màj : annuelle (circulaire en début d'année)"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -110,6 +116,7 @@ ménage:
 
         plafond intermédiaire hors IdF:
           unité: €
+          note: "Source : plafonds de ressources MaPrimeRénov' 2026 (ANAH) — màj : annuelle (circulaire en début d'année)"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1

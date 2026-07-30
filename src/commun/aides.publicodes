@@ -49,7 +49,7 @@ aides:
             alors: aides . CEE . prix moyen ménage précaire
           - sinon: aides . CEE . prix moyen autre ménage
       unité: €/kWh cumac
-      note: "source : Registre National des Certificats d'Economie d'Energie"
+      note: "Source : Registre National des Certificats d'Economie d'Energie — https://www.emmy.fr/ — màj : cotation mensuelle du registre EMMY"
 
     # Certificats d'économie d'énergie
     CEE:
@@ -57,30 +57,34 @@ aides:
         prix moyen ménage précaire:
           valeur: 0.00816
           unité: €/kWh cumac
+          note: "Source : Registre national des CEE (EMMY) — màj : cotation mensuelle du registre EMMY"
         prix moyen autre ménage:
           valeur: 0.00804
           unité: €/kWh cumac
+          note: "Source : Registre national des CEE (EMMY) — màj : cotation mensuelle du registre EMMY"
 
         # Résidentiel
         barème FCU résidentiel inf 125:
           valeur: 12000000
           unité: kWh cumac
-          note: 'Source : Gouvernement 2024'
+          note: "Source : Gouvernement 2024 — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires — màj : sur arrêté"
         barème FCU résidentiel sup 125 variable:
           valeur: 77000
           # QUESTION : est-ce appartement = logement ? pour harmoniser les unités vers logement
           unité: kWh cumac/logement
-          note: 'Source : Gouvernement 2024'
+          note: "Source : Gouvernement 2024 — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires — màj : sur arrêté"
         barème FCU résidentiel sup 125 fixe:
           valeur: 2300000
           unité: kWh cumac
-          note: 'Source : Gouvernement 2024'
+          note: "Source : Gouvernement 2024 — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires — màj : sur arrêté"
         facteur correctif RCU:
           valeur: 75
           unité: '%'
           note: 'Source : FCU'
 
         # Tertiaire
+        # Source à documenter (vraisemblablement le même barème gouvernemental 2024
+        # que le résidentiel).
         barème FCU tertiaire inf 7500:
           valeur: 11000000
           unité: kWh cumac/m2
@@ -97,7 +101,7 @@ aides:
             - facteur correctif selon la surface chauffée
             - facteur correctif selon la zone géographique
           unité: kWh cumac
-          note: BAR-TH-171 - Pompe à chaleur de type air/eau
+          note: "BAR-TH-171 - Pompe à chaleur de type air/eau — màj : sur révision de la fiche"
           avec:
             montant:
               variations:

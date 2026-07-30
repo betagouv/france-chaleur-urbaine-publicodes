@@ -3,28 +3,28 @@ facteurs CO2:
     granulés poêle:
       formule: 0.032
       unité: kgCO2e/kWh PCI
-      note: 'Source: Base Empreinte 2023'
+      note: "Source : Base Empreinte 2023 — https://base-empreinte.ademe.fr/ — màj : base ADEME actualisée en continu"
     granulés chaudière:
       formule: 0.027
       unité: kgCO2e/kWh PCI
-      note: 'Source: Base Empreinte 2023'
+      note: "Source : Base Empreinte 2023 — https://base-empreinte.ademe.fr/ — màj : base ADEME actualisée en continu"
     gaz chaudière:
       formule: 0.243
       unité: kgCO2e/kWh
-      note: 'Source: Base Empreinte 2023'
+      note: "Source : Base Empreinte 2023 — https://base-empreinte.ademe.fr/ — màj : base ADEME actualisée en continu"
     fioul chaudière:
       formule: 0.314
       unité: kgCO2e/kWh
-      note: 'Source: Base Empreinte 2023'
+      note: "Source : Base Empreinte 2023 — https://base-empreinte.ademe.fr/ — màj : base ADEME actualisée en continu"
     électricité chauffage:
       formule: 0.0693
       unité: kgCO2e/kWh
-      note: 'Source: Base Empreinte 2020'
+      note: "Source : Base Empreinte 2020 — https://base-empreinte.ademe.fr/ — màj : base ADEME actualisée en continu"
     électricité ECS:
       formule: 0.0585
       unité: kgCO2e/kWh
-      note: 'Source: Base Empreinte 2020'
+      note: "Source : Base Empreinte 2020 — https://base-empreinte.ademe.fr/ — màj : base ADEME actualisée en continu"
     électricité froid:
       formule: 0.0583
       unité: kgCO2e/kWh
-      note: 'Source: Base Empreinte 2020'
+      note: "Source : Base Empreinte 2020 — https://base-empreinte.ademe.fr/ — màj : base ADEME actualisée en continu"

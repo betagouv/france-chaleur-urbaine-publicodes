@@ -11,7 +11,7 @@ poêle à granulés:
         CO2 installation:
           formule: 122
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso combustible:
           valeur: 0.217391304
           unité: kg granulés/an/kWh
@@ -37,7 +37,7 @@ poêle à granulés:
         coût équipement 12 kW:
           valeur: 5600
           unité: €HT
-          note: 'Source: Invicta 2024'
+          note: 'Source : Invicta 2024'
     annuité: &annuite-granules
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -217,7 +217,7 @@ poêle à granulés:
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 1000 €
           unité: €
-          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
+          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce: &aides-coup-de-pouce
           applicable si:
             est défini: coup de pouce
@@ -328,7 +328,7 @@ chaudière à granulés:
         CO2 installation:
           formule: 88.5
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso auxiliaire:
           valeur: 99.8%
           unité: '%'
@@ -367,7 +367,7 @@ chaudière à granulés:
             - si: chaudière à granulés . installation . puissance retenue <= 50
               alors: 37500
             - sinon: 750 * chaudière à granulés . installation . puissance retenue
-          note: 'Source: Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
+          note: 'Source : Hargassner - coûts pour P != 50kW, ELCIMAI pour 50kW'
     annuité: *annuite-granules
     installation:
       avec:

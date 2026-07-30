@@ -11,7 +11,7 @@ gaz indiv avec cond:
         CO2 installation:
           formule: 33
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso auxiliaire ECS:
           valeur: 99.9%
           unité: '%'
@@ -41,7 +41,7 @@ gaz indiv avec cond:
                 - sinon: 3620
             - 1 + investissement . TVA
           unité: €TTC
-          note: 'Source: Atlantic 2023'
+          note: 'Source : Atlantic 2023'
         petit entretien P2:
           par défaut: 143
           unité: €HT/an
@@ -353,7 +353,7 @@ gaz indiv sans cond:
         CO2 installation:
           formule: 53.6
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso auxiliaire ECS:
           valeur: 99.9%
           unité: '%'
@@ -383,7 +383,7 @@ gaz indiv sans cond:
                 - sinon: 3620
             - 1 + investissement . TVA
           unité: €TTC
-          note: 'Source: ELCIMAI 2024'
+          note: 'Source : ELCIMAI 2024'
         petit entretien P2:
           par défaut: 143
           unité: €HT/an
@@ -500,7 +500,7 @@ gaz coll avec cond:
         CO2 installation:
           formule: 25
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso auxiliaire ECS:
           valeur: 99%
           unité: '%'
@@ -550,7 +550,7 @@ gaz coll avec cond:
                 - sinon: 174450
             - 1 + investissement . TVA
           unité: €TTC
-          note: 'Source: ELCIMAI 2024 et Atlantic 2024'
+          note: 'Source : ELCIMAI 2024 et Atlantic 2024'
         petit entretien P2:
           par défaut: 7.00 * (1 + investissement . TVA petit entretien P2)
           unité: €TTC/MWh
@@ -728,7 +728,7 @@ gaz coll sans cond:
         CO2 installation:
           formule: 25
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso auxiliaire ECS:
           valeur: 99%
           unité: '%'
@@ -778,7 +778,7 @@ gaz coll sans cond:
                 - sinon: 174450
             - 1 + investissement . TVA
           unité: €TTC
-          note: 'Source: ELCIMAI 2024'
+          note: 'Source : ELCIMAI 2024'
         petit entretien P2:
           par défaut: 7.00 * (1 + investissement . TVA petit entretien P2)
           unité: €TTC/MWh
