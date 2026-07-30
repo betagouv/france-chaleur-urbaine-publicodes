@@ -11,7 +11,7 @@ PAC air-eau indiv:
         CO2 installation:
           formule: 910
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         SCOP:
           somme:
             - 3.8
@@ -37,7 +37,7 @@ PAC air-eau indiv:
         coût équipement:
           valeur: 13270
           unité: €HT
-          note: 'Source: SDES 2023'
+          note: 'Source : SDES 2023'
     annuité: &annuite-pac-air-eau
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -227,7 +227,7 @@ PAC air-eau indiv:
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 3000 €
           unité: €
-          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
+          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce:
           variations:
             - si: aides . éligibilité . éligible coup de pouce
@@ -338,7 +338,7 @@ PAC air-eau coll:
         CO2 installation:
           formule: 302
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         SCOP:
           somme:
             - 3.98

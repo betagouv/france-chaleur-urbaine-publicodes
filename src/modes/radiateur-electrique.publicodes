@@ -11,7 +11,7 @@ radiateur électrique:
         CO2 installation:
           formule: 0.015
           unité: kgCO2e/kWh
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         durée de vie:
           valeur: 25
           unité: an
@@ -42,7 +42,7 @@ radiateur électrique:
         coût du radiateur:
           valeur: 550
           unité: €HT
-          note: 'Source: Atlantic 2023'
+          note: 'Source : Atlantic 2023'
     annuité:
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:

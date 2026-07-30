@@ -11,7 +11,7 @@ fioul indiv:
         CO2 installation:
           formule: 112
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso auxiliaire ECS:
           valeur: 99.9%
           unité: '%'
@@ -347,7 +347,7 @@ fioul coll:
         CO2 installation:
           formule: 43
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         conso auxiliaire ECS:
           valeur: 99%
           unité: '%'

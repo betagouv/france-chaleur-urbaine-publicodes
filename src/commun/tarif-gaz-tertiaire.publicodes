@@ -1,3 +1,5 @@
+# Grille d'estimation de l'abonnement gaz collectif/tertiaire — source à
+# documenter (vraisemblablement ELCIMAI 2024).
 combustibles . gaz . estimation abonnement tertiaire:
   # QUESTION déjà posée: on fait bien <= plutôt que = ? Car les seuils du excel n'ont pas les mêmes points (par exemple 120 kW vs 150 kW)
   variations:

@@ -11,7 +11,7 @@ PAC eau-eau indiv:
         CO2 installation:
           formule: 453.3
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         SCOP capteurs horizontaux:
           somme:
             - 4
@@ -36,7 +36,7 @@ PAC eau-eau indiv:
         coût équipement au kW:
             valeur: 1818
             unité: €HT/kW
-            note: 'ADEME Coûts EnR 2022 2020'
+            note: "Source : ADEME, Évolution des coûts des EnR&R en France — édition 2022 (données 2020) — https://librairie.ademe.fr/ — màj : édition ADEME tous les 2-3 ans (dernière : janv. 2025, données 2022)"
     annuité: &annuite-pac-eau-eau
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -232,7 +232,7 @@ PAC eau-eau indiv:
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 6000 €
           unité: €
-          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
+          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce:
           variations:
             - si:
@@ -246,7 +246,7 @@ PAC eau-eau indiv:
                   - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 5000 €
           unité: €
-          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
+          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage — màj : sur arrêté (dispositif réformé au 01/01/2026)'
         CEE:
           formule: 0
           unité: €
@@ -357,7 +357,7 @@ PAC eau-eau coll:
         CO2 installation:
           formule: 615
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/ — màj : base actualisée en continu"
         SCOP champ de sondes:
           somme:
             - 5
@@ -375,12 +375,12 @@ PAC eau-eau coll:
         coût au kW hors captage:
             valeur: 1323
             unité: €HT/kW
-            note: 'ADEME Coûts EnR 2022 2020'
+            note: "Source : ADEME, Évolution des coûts des EnR&R en France — édition 2022 (données 2020) — https://librairie.ademe.fr/ — màj : édition ADEME tous les 2-3 ans (dernière : janv. 2025, données 2022)"
 
         coût au kW captage champ de sondes:
             valeur: 1377
             unité: €HT/kW
-            note: 'ADEME Coûts EnR 2022 2020'
+            note: "Source : ADEME, Évolution des coûts des EnR&R en France — édition 2022 (données 2020) — https://librairie.ademe.fr/ — màj : édition ADEME tous les 2-3 ans (dernière : janv. 2025, données 2022)"
 
         investissement hors captage:
             produit:
@@ -409,12 +409,12 @@ PAC eau-eau coll:
         coût au kW hors captage gamme 250:
           valeur: 504
           unité: €HT/kW
-          note: 'ADEME Coûts EnR 2022 2020'
+          note: "Source : ADEME, Évolution des coûts des EnR&R en France — édition 2022 (données 2020) — https://librairie.ademe.fr/ — màj : édition ADEME tous les 2-3 ans (dernière : janv. 2025, données 2022)"
 
         coût au kW captage champ de sondes gamme 250:
           valeur: 1121
           unité: €HT/kW
-          note: 'ADEME Coûts EnR 2022 2020'
+          note: "Source : ADEME, Évolution des coûts des EnR&R en France — édition 2022 (données 2020) — https://librairie.ademe.fr/ — màj : édition ADEME tous les 2-3 ans (dernière : janv. 2025, données 2022)"
     annuité: *annuite-pac-eau-eau
     annuité puits:
       description: Annuité pour 1 € investi sur la durée de vie des puits géothermiques (fonction Excel PMT)

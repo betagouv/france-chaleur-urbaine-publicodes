@@ -9,15 +9,15 @@ réseau de chaleur . caractéristiques:
     contenu CO2:
       par défaut: 0.087
       unité: kgCO2e/kWh
-      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024"
+      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024 — https://www.fedene.fr/ — màj : enquête annuelle (automne)"
     contenu CO2 ACV:
       par défaut: 0.109
       unité: kgCO2e/kWh
-      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024"
+      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024 — https://www.fedene.fr/ — màj : enquête annuelle (automne)"
     taux EnRR:
       par défaut: 67
       unité: '%'
-      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024"
+      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024 — https://www.fedene.fr/ — màj : enquête annuelle (automne)"
     livraisons totales:
       unité: MWh
     production totale:
@@ -25,15 +25,15 @@ réseau de chaleur . caractéristiques:
     prix moyen:
       par défaut: 110.9
       unité: €TTC/MWh
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce — https://amorce.asso.fr/ — màj : enquête annuelle AMORCE"
     part fixe:
       par défaut: 42.8
       unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce — https://amorce.asso.fr/ — màj : enquête annuelle AMORCE"
     part variable:
       formule: 100% - réseau de chaleur . caractéristiques . part fixe
       unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce — https://amorce.asso.fr/ — màj : enquête annuelle AMORCE"
 
 réseau de froid . caractéristiques:
   description: Données du réseau sélectionné, injectées par le front via l'adresse
@@ -42,11 +42,11 @@ réseau de froid . caractéristiques:
     contenu CO2:
       par défaut: 0.011
       unité: kgCO2e/kWh
-      source: 2021
+      note: "Source : données 2021 — à préciser (non couvert par l'enquête FEDENE 2025) — màj : enquête annuelle (automne)"
     contenu CO2 ACV:
       par défaut: 0.021
       unité: kgCO2e/kWh
-      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024"
+      note: "Source : Enquête FEDENE 2025 portant sur l'année 2024 — https://www.fedene.fr/ — màj : enquête annuelle (automne)"
     livraisons totales:
       unité: MWh
     production totale:
@@ -54,8 +54,8 @@ réseau de froid . caractéristiques:
     prix moyen:
       par défaut: 205
       unité: €TTC/MWh
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce — https://amorce.asso.fr/ — màj : enquête annuelle AMORCE"
     part fixe:
       par défaut: 51
       unité: '%'
-      note: 'Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce'
+      note: "Source : Enquête sur le prix de vente de la chaleur et du froid en 2024, Amorce — https://amorce.asso.fr/ — màj : enquête annuelle AMORCE"

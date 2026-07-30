@@ -76,7 +76,7 @@ ecs additionnelle:
             - sinon: 918.3
         - 1 + investissement . TVA
       unité: €TTC
-      note: 'Source: Thermor 2024'
+      note: 'Source : Thermor 2024'
 
     coût du chauffe-eau solaire:
       valeur: ecs additionnelle . coût du chauffe-eau électrique
@@ -85,7 +85,7 @@ ecs additionnelle:
     prix des panneaux:
       valeur: 1300
       unité: €HT/m2
-      note: 'Source: ADEME 2023'
+      note: 'Source : ADEME 2023'
 
     # pas un ratio
     coût des panneaux solaires:
@@ -115,7 +115,7 @@ ecs additionnelle:
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 2000 €
           unité: €
-          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
+          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce:
           variations:
             - si:
@@ -129,7 +129,7 @@ ecs additionnelle:
                   - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 5000 €
           unité: €
-          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
+          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage — màj : sur arrêté (dispositif réformé au 01/01/2026)'
         CEE:
           variations:
             - si: aides . éligibilité . éligible CEE

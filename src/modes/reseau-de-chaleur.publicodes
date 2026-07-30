@@ -57,7 +57,7 @@ réseau de chaleur:
               alors: 701
             - sinon: 608
           unité: €HT/logement
-          note: 'source: FEDENE 2024'
+          note: "Source : FEDENE 2024 — https://www.fedene.fr/ — màj : enquête annuelle (automne)"
 
         coût raccordement tertiaire:
           variations:
@@ -75,7 +75,7 @@ réseau de chaleur:
               alors: 143072
             - sinon: 175203
           unité: €HT
-          note: 'source: FEDENE 2024'
+          note: "Source : FEDENE 2024 — https://www.fedene.fr/ — màj : enquête annuelle (automne)"
 
         coût sous-station:
           variations:
@@ -354,7 +354,7 @@ réseau de chaleur:
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 400 €
           unité: €
-          note: "source : MaPrimeRénov' 2024 | Service-Public.fr"
+          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce:
           variations:
             - si:
@@ -368,7 +368,7 @@ réseau de chaleur:
                   - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 450 €
           unité: €
-          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr'
+          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage — màj : sur arrêté (dispositif réformé au 01/01/2026)'
         CEE:
           produit:
             - variations:
@@ -412,7 +412,7 @@ réseau de chaleur:
                     - sinon: 800 * bâtiment . surface tertiaire + 5000000
               - sinon: 0
           unité: kWh cumac
-          note: https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires
+          note: "Coup de pouce chauffage des bâtiments résidentiels collectifs et tertiaires — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires — màj : sur arrêté (dispositif réformé au 01/01/2026)"
         CEE:
           produit:
             - variations:
@@ -431,7 +431,7 @@ réseau de chaleur:
                 - si: climat . zone = 'H3'
                   alors: 30800
             - bâtiment . nombre de logements
-          note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAR-TH-137%20vA79-4%20%C3%A0%20compter%20du%2001-01-2026.pdf
+          note: "Fiche CEE BAR-TH-137 (v. A79-4, applicable à compter du 01/01/2026) — https://www.ecologie.gouv.fr/sites/default/files/documents/BAR-TH-137%20vA79-4%20%C3%A0%20compter%20du%2001-01-2026.pdf — màj : sur révision de la fiche"
         BAT-TH-127:
           produit:
             - variations:
@@ -532,7 +532,7 @@ réseau de chaleur:
                 - si: climat . zone = 'H3'
                   alors: 0.6
             - bâtiment . surface tertiaire
-          note: https://www.ecologie.gouv.fr/sites/default/files/documents/BAT-TH-127%20vA79-5%20%C3%A0%20compter%20du%2001-01-2026_0.pdf
+          note: "Fiche CEE BAT-TH-127 (v. A79-5, applicable à compter du 01/01/2026) — https://www.ecologie.gouv.fr/sites/default/files/documents/BAT-TH-127%20vA79-5%20%C3%A0%20compter%20du%2001-01-2026_0.pdf — màj : sur révision de la fiche"
         total:
           variations:
             - si: aides . éligibilité . prise en compte des aides
