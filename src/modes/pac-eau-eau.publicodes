@@ -232,7 +232,7 @@ PAC eau-eau indiv:
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 6000 €
           unité: €
-          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
+          note: "Source : MaPrimeRénov' 2026 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce:
           variations:
             - si:
@@ -246,7 +246,7 @@ PAC eau-eau indiv:
                   - aides . éligibilité . ressources du ménage != 'Modeste'
               alors: 5000 €
           unité: €
-          note: 'Montant minimal de la prime - Source : Prime "Coup de pouce chauffage" | Service-Public.fr — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage — màj : sur arrêté (dispositif réformé au 01/01/2026)'
+          note: "Ancien montant plancher (2024-2025) conservé — dispositif réformé au 01/01/2026 : plus de minimum garanti, bonification CEE (forfait cumac ×2 à ×5) ; refonte à prévoir — https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage — màj : sur arrêté (dispositif réformé au 01/01/2026)"
         CEE:
           formule: 0
           unité: €

@@ -192,7 +192,7 @@ réseau de froid:
                   - aides . éligibilité . ressources du ménage = "Intermédiaire"
               alors: 400 €
           unité: €
-          note: "Source : MaPrimeRénov' 2024 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
+          note: "Source : MaPrimeRénov' 2026 | Service-Public.fr — https://www.service-public.fr/particuliers/vosdroits/F35083 — màj : barème annuel (généralement en janvier)"
         coup de pouce:
           applicable si:
             est défini: coup de pouce
