@@ -55,12 +55,11 @@ aides:
     CEE:
       avec:
         prix moyen ménage précaire:
-          valeur: 0.00816
+          valeur: 0.001159
           unité: €/kWh cumac
         prix moyen autre ménage:
-          valeur: 0.00804
+          valeur: 0.00688
           unité: €/kWh cumac
-
         # Résidentiel
         barème FCU résidentiel inf 125:
           valeur: 12000000
