@@ -272,6 +272,52 @@ réseau de chaleur:
         investissement total avec chauffe-eau solaire:
           valeur: investissement raccordement par logement + investissement chauffe-eau solaire
           unité: €TTC
+        installation:
+          avec:
+            minimum:
+              variations:
+                - si: bâtiment . nombre de logements <= 10
+                  alors: 74179.6 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 25
+                  alors: 74179.6 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 42
+                  alors: 315.744 + 66286 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 58
+                  alors: 376.464 + 63756 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 83
+                  alors: 271.216 + 69895.47 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 125
+                  alors: 245.3088 + 72054.4 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 167
+                  alors: 281.7408 + 67500.4 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 250
+                  alors: 308.4576 + 63047.6 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 333
+                  alors: 261.096 + 74888 / bâtiment . nombre de logements
+                - sinon: 0
+              unité: €
+            maximum:
+              variations:
+                - si: bâtiment . nombre de logements <= 10
+                  alors: 111269.4 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 25
+                  alors: 111269.4 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 42
+                  alors: 473.616 + 99429 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 58
+                  alors: 564.696 + 95634 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 83
+                  alors: 406.824 + 104843.2 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 125
+                  alors: 367.9632 + 108081.6 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 167
+                  alors: 422.6112 + 101250.6 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 250
+                  alors: 462.6864 + 94571.4 / bâtiment . nombre de logements
+                - si: bâtiment . nombre de logements <= 333
+                  alors: 391.644 + 112332 / bâtiment . nombre de logements
+                - sinon: 0
+              unité: €
 
         P1 abonnement:
           somme:
