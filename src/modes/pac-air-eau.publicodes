@@ -1,7 +1,6 @@
 # PAC air-eau (indiv/coll)
 # Regroupe ratios, dimensionnement, calculs économiques,
 # aides, émissions et bilan pour ce mode de chauffage.
-
 PAC air-eau indiv:
   description: Pompe à chaleur air-eau individuelle (réversible)
   avec:
@@ -160,6 +159,20 @@ PAC air-eau indiv:
         investissement total avec chauffe-eau solaire: &couts-investissement-total-avec-chauffe-eau-solaire
           valeur: investissement par logement + investissement chauffe-eau solaire
           unité: €TTC
+        installation:
+          avec:
+            minimum:
+              variations:
+                - si: bâtiment . appartement ou maison = 'Maison'
+                  alors: 12000
+                - sinon: 7000
+              unité: €
+            maximum:
+              variations:
+                - si: bâtiment . appartement ou maison = 'Maison'
+                  alors: 15000
+                - sinon: 10000
+              unité: €
 
         P1 abonnement:
           somme:
@@ -418,6 +431,14 @@ PAC air-eau coll:
         investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
         investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
         investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
+        installation:
+          avec:
+            minimum:
+              valeur: 4000
+              unité: €
+            maximum:
+              valeur: 6000
+              unité: €
 
         P1 abonnement:
           somme:
@@ -511,4 +532,79 @@ PAC air-eau coll:
         total sans aides: *bilan-total-sans-aides
         total avec aides: *bilan-total-avec-aides
         total sans installation: *bilan-total-sans-installation
+
+PAC air-eau coll hybride:
+  avec:
+    # coûts d'exploitation isolés (total sans installation) combinés côté front à
+    # un mode principal. Pas d'installation propre ni de bilan complet.
+    coûts:
+      avec:
+        installation:
+          avec:
+            minimum:
+              valeur: 3000
+              unité: €
+            maximum:
+              valeur: 5000
+              unité: €
+
+    bilan:
+      avec:
+        total sans aides:
+          produit:
+            - PAC air-eau coll . bilan . total avec aides
+            - 120 %
+        total sans installation:
+          somme:
+            - PAC air-eau coll . bilan . P1abo
+            - PAC air-eau coll . bilan . P1prime
+            - PAC air-eau coll . bilan . P1Consofroid
+            - produit:
+                - 120%
+                - PAC air-eau coll . bilan . P1ECS
+            - produit:
+                - 120%
+                - PAC air-eau coll . bilan . P1conso
+            - PAC air-eau coll . bilan . P2
+            - PAC air-eau coll . bilan . P3
+
+PAC air-eau collective ECS:
+  avec:
+    coûts:
+      avec:
+        installation:
+          avec:
+            minimum:
+              valeur: 2000
+              unité: €
+            maximum:
+              valeur: 3000
+              unité: €
+
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - combustibles . électricité . consommation collectif
+            - besoins . ECS par logement / PAC air-eau coll . ratios . SCOP
+
+chauffe-eau thermodynamique:
+  avec:
+    coûts:
+      avec:
+        installation:
+          avec:
+            minimum:
+              valeur: 2000
+              unité: €
+            maximum:
+              valeur: 3000
+              unité: €
+
+    bilan:
+      avec:
+        total sans installation:
+          produit:
+            - combustibles . électricité . consommation individuel
+            - besoins . ECS par logement / PAC air-eau coll . ratios . SCOP
 

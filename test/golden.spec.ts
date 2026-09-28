@@ -1,9 +1,9 @@
-import Engine, { serializeUnit, type Situation } from "publicodes";
+import Engine, { type Situation, serializeUnit } from "publicodes";
 import { describe, expect, it } from "vitest";
+import type { RuleName } from "../publicodes-build";
 import rules from "../publicodes-build/france-chaleur-urbaine-publicodes.model.json" with {
 	type: "json",
 };
-import type { RuleName } from "../publicodes-build";
 
 /**
  * Golden master de la refactorisation des modes de chauffage.
@@ -233,7 +233,7 @@ describe("Golden master — valeurs finales par mode de chauffage", () => {
 				});
 			});
 
-			it("add-ons (solaire, hybride, thermodynamique)", () => {
+			it("(solaire, hybride, thermodynamique)", () => {
 				expect(evaluateKeys(engine, addOnKeys)).toMatchSnapshot();
 			});
 		});

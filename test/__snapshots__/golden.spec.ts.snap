@@ -1,5 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Golden master — valeurs finales par mode de chauffage > immeuble avant 1974 - Marseille - 60 logements - réseau de froid > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "2407.06 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "1846.84 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
+  "solaire thermique . bilan . total sans installation": "4130.15 €/an",
+  "système solaire combiné . bilan . total sans installation": "1028.56 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > immeuble avant 1974 - Marseille - 60 logements - réseau de froid > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "155.01 €TTC/an",
@@ -122,18 +134,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > immeuble avan
   "PAC eau-eau indiv . environnement . scope 2": "253.71 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "329.67 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "583.38 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > immeuble avant 1974 - Marseille - 60 logements - réseau de froid > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "2407.06 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "1846.84 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "511.72 €TTC",
 }
 `;
 
@@ -340,6 +340,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > immeuble avan
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > maison DPE F hors IdF - HP/HC - avec aides modeste > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "3056.95 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "2402.23 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "106.92 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "106.92 €TTC",
+  "solaire thermique . bilan . total sans installation": "140.9 €/an",
+  "système solaire combiné . bilan . total sans installation": "1906.95 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > maison DPE F hors IdF - HP/HC - avec aides modeste > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "0 €TTC/an",
@@ -462,18 +474,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > maison DPE F 
   "PAC eau-eau indiv . environnement . scope 2": "482.14 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "329.67 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "811.81 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > maison DPE F hors IdF - HP/HC - avec aides modeste > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "3056.95 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "2402.23 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "106.92 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "106.92 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "973.87 €TTC",
 }
 `;
 
@@ -680,6 +680,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > maison DPE F 
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > parc social moyen - besoins de chauffage imposés > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "1476.56 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "1149.57 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
+  "solaire thermique . bilan . total sans installation": "1780.48 €/an",
+  "système solaire combiné . bilan . total sans installation": "918.45 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > parc social moyen - besoins de chauffage imposés > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "0 €TTC/an",
@@ -802,18 +814,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > parc social m
   "PAC eau-eau indiv . environnement . scope 2": "217.33 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "164.84 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "382.16 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > parc social moyen - besoins de chauffage imposés > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "1476.56 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "1149.57 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "438.12 €TTC",
 }
 `;
 
@@ -1020,6 +1020,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > parc social m
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > petit collectif RE2020 - sans ECS ni clim > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "304.12 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "179.37 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": 0,
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": 0,
+  "solaire thermique . bilan . total sans installation": "0 €/an",
+  "système solaire combiné . bilan . total sans installation": "125.3 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > petit collectif RE2020 - sans ECS ni clim > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "0 €TTC/an",
@@ -1142,18 +1154,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > petit collect
   "PAC eau-eau indiv . environnement . scope 2": "28.45 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "164.84 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "193.28 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > petit collectif RE2020 - sans ECS ni clim > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "304.12 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "179.37 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": 0,
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": 0,
-  "solaire thermique . bilan . total sans installation": 0,
-  "système solaire combiné . bilan . total sans installation": "57.55 €TTC",
 }
 `;
 
@@ -1360,6 +1360,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > petit collect
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "1300.79 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "1023.35 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
+  "solaire thermique . bilan . total sans installation": "1780.48 €/an",
+  "système solaire combiné . bilan . total sans installation": "814.02 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "13.84 €TTC/an",
@@ -1482,18 +1494,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
   "PAC eau-eau indiv . environnement . scope 2": "191.6 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "164.84 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "356.44 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - avec clim > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "1300.79 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "1023.35 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "386.07 €TTC",
 }
 `;
 
@@ -1700,6 +1700,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "1283.36 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "1008.83 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
+  "solaire thermique . bilan . total sans installation": "1780.48 €/an",
+  "système solaire combiné . bilan . total sans installation": "814.02 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "0 €TTC/an",
@@ -1822,18 +1834,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
   "PAC eau-eau indiv . environnement . scope 2": "191.6 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "164.84 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "356.44 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS avec équipement chauffage - sans clim > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "1283.36 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "1008.83 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "386.07 €TTC",
 }
 `;
 
@@ -2040,6 +2040,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "1735.63 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "1043.18 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "143.49 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
+  "solaire thermique . bilan . total sans installation": "1780.48 €/an",
+  "système solaire combiné . bilan . total sans installation": "814.02 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "0 €TTC/an",
@@ -2162,18 +2174,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
   "PAC eau-eau indiv . environnement . scope 2": "227.79 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "164.84 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "392.63 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - ECS solaire thermique > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "1735.63 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "1043.18 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "143.49 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "386.07 €TTC",
 }
 `;
 
@@ -2380,6 +2380,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "1283.36 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "1008.83 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
+  "solaire thermique . bilan . total sans installation": "1780.48 €/an",
+  "système solaire combiné . bilan . total sans installation": "814.02 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "0 €TTC/an",
@@ -2502,18 +2514,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
   "PAC eau-eau indiv . environnement . scope 2": "191.6 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "164.84 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "356.44 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - avec aides très modeste > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "1283.36 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "1008.83 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "386.07 €TTC",
 }
 `;
 
@@ -2720,6 +2720,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "1641.44 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "1301.47 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "358.73 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
+  "solaire thermique . bilan . total sans installation": "1780.48 €/an",
+  "système solaire combiné . bilan . total sans installation": "814.02 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "0 €TTC/an",
@@ -2842,18 +2854,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
   "PAC eau-eau indiv . environnement . scope 2": "300.66 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "164.84 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "465.5 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > résidentiel - chauffe-eau électrique > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "1641.44 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "1301.47 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "112.26 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "358.73 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "112.26 €TTC",
-  "solaire thermique . bilan . total sans installation": "69.55 €TTC",
-  "système solaire combiné . bilan . total sans installation": "386.07 €TTC",
 }
 `;
 
@@ -3060,6 +3060,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > résidentiel 
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "26511.8 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "20258.76 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": "1422.41 €TTC",
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": "1422.41 €TTC",
+  "solaire thermique . bilan . total sans installation": "900.86 €/an",
+  "système solaire combiné . bilan . total sans installation": "12197.43 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "4095.53 €TTC/an",
@@ -3182,18 +3194,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - E
   "PAC eau-eau indiv . environnement . scope 2": "2874.72 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "1813.2 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "4687.92 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - ECS avec équipement chauffage - avec clim > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "26511.8 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "20258.76 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": "1422.41 €TTC",
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": "1422.41 €TTC",
-  "solaire thermique . bilan . total sans installation": "881.16 €TTC",
-  "système solaire combiné . bilan . total sans installation": "5796.2 €TTC",
 }
 `;
 
@@ -3400,6 +3400,18 @@ exports[`Golden master — valeurs finales par mode de chauffage > tertiaire - E
 }
 `;
 
+exports[`Golden master — valeurs finales par mode de chauffage > tertiaire commerces RT2012 - 2000 m2 - groupe froid > (solaire, hybride, thermodynamique) 1`] = `
+{
+  "PAC air-eau coll hybride . bilan . total sans aides": "20069.56 €TTC/an",
+  "PAC air-eau coll hybride . bilan . total sans installation": "15294.11 €TTC/an",
+  "PAC air-eau collective ECS . bilan . total sans installation": 0,
+  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
+  "chauffe-eau thermodynamique . bilan . total sans installation": 0,
+  "solaire thermique . bilan . total sans installation": "0 €/an",
+  "système solaire combiné . bilan . total sans installation": "9094.99 €/an",
+}
+`;
+
 exports[`Golden master — valeurs finales par mode de chauffage > tertiaire commerces RT2012 - 2000 m2 - groupe froid > PAC air-air coll 1`] = `
 {
   "PAC air-air coll . bilan . P1Consofroid": "3615.36 €TTC/an",
@@ -3522,18 +3534,6 @@ exports[`Golden master — valeurs finales par mode de chauffage > tertiaire com
   "PAC eau-eau indiv . environnement . scope 2": "2137.93 kgCO2e",
   "PAC eau-eau indiv . environnement . scope 3": "1483.53 kgCO2e/an",
   "PAC eau-eau indiv . environnement . total": "3621.46 kgCO2e/an",
-}
-`;
-
-exports[`Golden master — valeurs finales par mode de chauffage > tertiaire commerces RT2012 - 2000 m2 - groupe froid > add-ons (solaire, hybride, thermodynamique) 1`] = `
-{
-  "PAC air-eau coll hybride . bilan . total sans aides": "20069.56 €TTC/an",
-  "PAC air-eau coll hybride . bilan . total sans installation": "15294.11 €TTC/an",
-  "PAC air-eau collective ECS . bilan . total sans installation": 0,
-  "PAC capteurs solaires atmosphériques . bilan . total sans installation": "0 €TTC/an",
-  "chauffe-eau thermodynamique . bilan . total sans installation": 0,
-  "solaire thermique . bilan . total sans installation": 0,
-  "système solaire combiné . bilan . total sans installation": "4325.24 €TTC",
 }
 `;
 

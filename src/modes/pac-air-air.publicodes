@@ -141,6 +141,20 @@ PAC air-air indiv:
         investissement total avec chauffe-eau solaire: &couts-investissement-total-avec-chauffe-eau-solaire
           valeur: investissement par logement + investissement chauffe-eau solaire
           unité: €TTC
+        installation:
+          avec:
+            minimum:
+              variations:
+                - si: bâtiment . appartement ou maison = 'Maison'
+                  alors: 6000
+                - sinon: 3000
+              unité: €
+            maximum:
+              variations:
+                - si: bâtiment . appartement ou maison = 'Maison'
+                  alors: 8000
+                - sinon: 5000
+              unité: €
 
         P1 abonnement:
           somme:

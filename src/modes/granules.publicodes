@@ -141,6 +141,14 @@ poêle à granulés:
         investissement total avec chauffe-eau solaire: &couts-investissement-total-avec-chauffe-eau-solaire
           valeur: investissement par logement + investissement chauffe-eau solaire
           unité: €TTC
+        installation:
+          avec:
+            minimum:
+              valeur: 4000
+              unité: €
+            maximum:
+              valeur: 6000
+              unité: €
 
         P1 abonnement: &couts-p1-abonnement
           variations:
@@ -518,6 +526,20 @@ chaudière à granulés:
         investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
         investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
         investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
+        installation:
+          avec:
+            minimum:
+              variations:
+                - si: bâtiment . appartement ou maison = 'Maison'
+                  alors: 10000
+                - sinon: 6000
+              unité: €
+            maximum:
+              variations:
+                - si: bâtiment . appartement ou maison = 'Maison'
+                  alors: 17000
+                - sinon: 8000
+              unité: €
 
         P1 abonnement: *couts-p1-abonnement
         P1 consommation: *couts-p1-consommation

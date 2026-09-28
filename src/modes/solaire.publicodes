@@ -1,0 +1,291 @@
+# Pseudo-modes partiels lus par le module « chaleur renouvelable » du front :
+
+solaire thermique:
+  avec:
+    ratios:
+      avec:
+        taux de couverture:
+          valeur: 60%
+          unité: '%'
+
+        zone d'ensoleillement:
+          variations:
+            - si: &departements-mediterranee
+                une de ces conditions:
+                  - climat . code département = "2A"
+                  - climat . code département = "2B"
+                  - climat . code département = "06"
+                  - climat . code département = "11"
+                  - climat . code département = "13"
+                  - climat . code département = "30"
+                  - climat . code département = "34"
+                  - climat . code département = "66"
+                  - climat . code département = "83"
+              alors: "'Méditerranée'"
+            - si: &departements-nord
+                une de ces conditions:
+                  - climat . code département = "02"
+                  - climat . code département = "08"
+                  - climat . code département = "10"
+                  - climat . code département = "14"
+                  - climat . code département = "18"
+                  - climat . code département = "21"
+                  - climat . code département = "22"
+                  - climat . code département = "25"
+                  - climat . code département = "27"
+                  - climat . code département = "28"
+                  - climat . code département = "29"
+                  - climat . code département = "35"
+                  - climat . code département = "36"
+                  - climat . code département = "37"
+                  - climat . code département = "39"
+                  - climat . code département = "41"
+                  - climat . code département = "44"
+                  - climat . code département = "45"
+                  - climat . code département = "49"
+                  - climat . code département = "50"
+                  - climat . code département = "51"
+                  - climat . code département = "52"
+                  - climat . code département = "53"
+                  - climat . code département = "54"
+                  - climat . code département = "55"
+                  - climat . code département = "56"
+                  - climat . code département = "57"
+                  - climat . code département = "58"
+                  - climat . code département = "59"
+                  - climat . code département = "60"
+                  - climat . code département = "61"
+                  - climat . code département = "62"
+                  - climat . code département = "67"
+                  - climat . code département = "68"
+                  - climat . code département = "70"
+                  - climat . code département = "71"
+                  - climat . code département = "72"
+                  - climat . code département = "75"
+                  - climat . code département = "76"
+                  - climat . code département = "77"
+                  - climat . code département = "78"
+                  - climat . code département = "80"
+                  - climat . code département = "85"
+                  - climat . code département = "88"
+                  - climat . code département = "89"
+                  - climat . code département = "90"
+                  - climat . code département = "91"
+                  - climat . code département = "92"
+                  - climat . code département = "93"
+                  - climat . code département = "94"
+                  - climat . code département = "95"
+              alors: "'Nord'"
+            - sinon: "'Sud'"
+          une possibilité:
+            - "'Nord'"
+            - "'Sud'"
+            - "'Méditerranée'"
+
+        productivité CESI individuel:
+          variations:
+            - si: zone d'ensoleillement = 'Nord'
+              alors: 320
+            - si: zone d'ensoleillement = 'Sud'
+              alors: 400
+            - si: zone d'ensoleillement = 'Méditerranée'
+              alors: 450
+          unité: kWh/m2
+
+        productivité collectif:
+          variations:
+            - si: zone d'ensoleillement = 'Nord'
+              alors: 510
+            - si: zone d'ensoleillement = 'Sud'
+              alors: 630
+            - si: zone d'ensoleillement = 'Méditerranée'
+              alors: 720
+          unité: kWh/m2
+
+        productivité:
+          variations:
+            - si: bâtiment . appartement ou maison = 'Maison'
+              alors: productivité CESI individuel
+            - sinon: productivité collectif
+          unité: kWh/m2
+
+        coût installation individuel:
+          valeur: 1500
+          unité: €/m2
+
+        coût installation collectif:
+          valeur: 1300
+          unité: €/m2
+
+        coût installation:
+          variations:
+            - si: bâtiment . appartement ou maison = 'Maison'
+              alors: coût installation individuel
+            - sinon: coût installation collectif
+          unité: €/m2
+
+        entretien P2 P3:
+          valeur: 11
+          unité: €/m2/an
+
+    installation:
+      avec:
+        besoin ECS:
+          variations:
+            - si: bâtiment . appartement ou maison = 'Maison'
+              alors: besoins . ECS par logement
+            - sinon: besoins . ECS par logement * bâtiment . nombre de logements * dimensionnement . ratios . coefficient de foisonnement ECS
+          unité: kWh
+
+        besoin solaire:
+          produit:
+            - besoin ECS
+            - solaire thermique . ratios . taux de couverture
+          unité: kWh
+
+        besoin d'appoint:
+          formule: besoin ECS * (1 - solaire thermique . ratios . taux de couverture)
+          unité: kWh
+
+        surface de capteurs brute:
+          formule: besoin solaire / solaire thermique . ratios . productivité
+          unité: m2
+
+        surface de capteurs:
+          valeur: surface de capteurs brute
+          arrondi: oui
+          unité: m2
+
+        volume de stockage:
+          formule: surface de capteurs * 50
+          unité: L
+
+    coûts:
+      avec:
+        installation:
+          produit:
+            - installation . surface de capteurs
+            - ratios . coût installation
+          unité: €
+
+        P1:
+          produit:
+            - installation . besoin d'appoint
+            - variations:
+                - si: bâtiment . appartement ou maison = 'Maison'
+                  alors: combustibles . électricité . consommation individuel
+                - sinon: combustibles . électricité . consommation collectif
+          unité: €/an
+
+        P2 et P3:
+          produit:
+            - installation . surface de capteurs
+            - ratios . entretien P2 P3
+          unité: €/an
+
+    bilan:
+      avec:
+        total sans installation:
+          somme:
+            - solaire thermique . coûts . P1
+            - solaire thermique . coûts . P2 et P3
+
+PAC capteurs solaires atmosphériques:
+  avec:
+    coûts:
+      avec:
+        installation:
+          avec:
+            minimum:
+              valeur: 3000
+              unité: €
+            maximum:
+              valeur: 4000
+              unité: €
+
+    bilan:
+      avec:
+        total sans installation: PAC air-eau coll . bilan . P1ECS
+
+système solaire combiné:
+  avec:
+    ratios:
+      avec:
+        taux de couverture:
+          valeur: 60%
+          unité: '%'
+
+        productivité:
+          variations:
+            - si: solaire thermique . ratios . zone d'ensoleillement = 'Nord'
+              alors: 425
+            - si: solaire thermique . ratios . zone d'ensoleillement = 'Sud'
+              alors: 525
+            - si: solaire thermique . ratios . zone d'ensoleillement = 'Méditerranée'
+              alors: 600
+          unité: kWh/m2
+
+        coût installation:
+          valeur: 1500
+          unité: €/m2
+
+        entretien P2 P3:
+          valeur: 11
+          unité: €/m2/an
+
+    installation:
+      avec:
+        besoin annuel:
+          formule: besoins . chauffage par logement + besoins . ECS par logement
+          unité: kWh
+
+        besoin solaire:
+          produit:
+            - besoin annuel
+            - système solaire combiné . ratios . taux de couverture
+          unité: kWh
+
+        besoin d'appoint:
+          formule: besoin annuel * (1 - système solaire combiné . ratios . taux de couverture)
+          unité: kWh
+
+        surface de capteurs brute:
+          formule: besoin solaire / système solaire combiné . ratios . productivité
+          unité: m2
+
+        surface de capteurs:
+          valeur: surface de capteurs brute
+          arrondi: oui
+          unité: m2
+
+        volume de stockage:
+          formule: surface de capteurs * 50
+          unité: L
+
+    coûts:
+      avec:
+        installation:
+          produit:
+            - installation . surface de capteurs
+            - ratios . coût installation
+          unité: €
+
+        P1:
+          produit:
+            - installation . besoin d'appoint
+            - combustibles . électricité . consommation individuel
+          unité: €/an
+
+        P2 et P3:
+          produit:
+            - installation . surface de capteurs
+            - ratios . entretien P2 P3
+          unité: €/an
+
+    bilan:
+      avec:
+        total sans installation:
+          somme:
+            - système solaire combiné . coûts . P1
+            - système solaire combiné . coûts . P2 et P3
+

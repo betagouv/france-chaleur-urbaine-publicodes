@@ -1,8 +1,8 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
+import type { RuleName } from "../publicodes-build";
 import rules from "../publicodes-build/france-chaleur-urbaine-publicodes.model.json" with {
 	type: "json",
 };
-import type { RuleName } from "../publicodes-build";
 
 /**
  * Clés utilisées en externe par le comparateur france-chaleur-urbaine notamment.
@@ -162,7 +162,6 @@ const clesAides = [
 	...installations.flatMap((inst) =>
 		aidesSuffixes.map((suffix) => `${inst} . aides . ${suffix}` as const),
 	),
-	// Le panneau solaire thermique pour ECS est un add-on, pas un mode : ses aides vivent sous ecs additionnelle.
 	...aidesSuffixes.map(
 		(suffix) =>
 			`ecs additionnelle . aides panneau solaire . ${suffix}` as const,
@@ -545,9 +544,36 @@ const coutParAnModes = [
 	"système solaire combiné",
 ] as const;
 
-const clesChaleurRenouvelable = coutParAnModes.map(
-	(mode) => `${mode} . bilan . total sans installation` as const,
-) satisfies RuleName[];
+const coutInstallationModes = [
+	"réseau de chaleur",
+	"chaudière à granulés",
+	"PAC air-eau coll",
+	"PAC eau-eau coll",
+	"poêle à granulés",
+	"PAC air-air indiv",
+	"PAC air-eau indiv",
+	"PAC eau-eau indiv",
+	"PAC air-eau coll hybride",
+	"PAC capteurs solaires atmosphériques",
+	"PAC air-eau collective ECS",
+	"chauffe-eau thermodynamique",
+] as const;
+
+const clesChaleurRenouvelable = [
+	...coutParAnModes.map(
+		(mode) => `${mode} . bilan . total sans installation` as const,
+	),
+	...coutInstallationModes.flatMap((mode) => [
+		`${mode} . coûts . installation . minimum` as const,
+		`${mode} . coûts . installation . maximum` as const,
+	]),
+	"solaire thermique . coûts . installation",
+	"solaire thermique . installation . surface de capteurs",
+	"solaire thermique . installation . volume de stockage",
+	"système solaire combiné . coûts . installation",
+	"système solaire combiné . installation . surface de capteurs",
+	"système solaire combiné . installation . volume de stockage",
+] satisfies RuleName[];
 
 // --- Modules simulator / pac (SimulatorFormFields.tsx, constants.ts, simulation-service.ts) ---
 

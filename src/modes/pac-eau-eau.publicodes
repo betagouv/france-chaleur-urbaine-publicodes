@@ -158,6 +158,14 @@ PAC eau-eau indiv:
         investissement total avec chauffe-eau solaire: &couts-investissement-total-avec-chauffe-eau-solaire
           valeur: investissement par logement + investissement chauffe-eau solaire
           unité: €TTC
+        installation:
+          avec:
+            minimum:
+              valeur: 20000
+              unité: €
+            maximum:
+              valeur: 25000
+              unité: €
 
         P1 abonnement:
           somme:
@@ -481,6 +489,14 @@ PAC eau-eau coll:
         investissement chauffe-eau solaire: *couts-investissement-chauffe-eau-solaire
         investissement total avec ballon ECS: *couts-investissement-total-avec-ballon-ecs
         investissement total avec chauffe-eau solaire: *couts-investissement-total-avec-chauffe-eau-solaire
+        installation:
+          avec:
+            minimum:
+              valeur: 8000
+              unité: €
+            maximum:
+              valeur: 11000
+              unité: €
 
         P1 abonnement:
           somme:

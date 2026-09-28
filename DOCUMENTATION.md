@@ -32,7 +32,7 @@ src/
 │   ├── radiateur-electrique.publicodes
 │   ├── reseau-de-chaleur.publicodes
 │   ├── reseau-de-froid.publicodes
-│   └── add-ons-solaire.publicodes    # pseudo-modes partiels (solaire, hybride…)
+│   └── solaire.publicodes
 ├── commun/                 # calculs et valeurs transverses
 │   ├── besoins.publicodes                       # dimensionnement : puissances appelées
 │   ├── combustibles.publicodes                  # prix/paramètres/taxes par énergie
@@ -199,7 +199,7 @@ clé de l'ancienne nomenclature ne subsiste dans le modèle.
 ### Tests et garanties
 
 - **`test/golden.spec.ts`** — golden master : valeurs finales **et unités**
-  des 16 modes + add-ons sur 11 situations couvrant les embranchements
+  des 16 modes sur 11 situations couvrant les embranchements
   majeurs (DPE/âge, IdF/hors IdF, maison/appartement, HP-HC, réseau de
   froid/groupe froid, tertiaire par secteur et norme, aides par tranche) —
   187 snapshots. Toute modification doit le laisser strictement inchangé ; ne
@@ -564,9 +564,12 @@ de lignes : fichiers de `dev`.
   `remplace`, pas de générateur committé. Options : variations générées,
   ou injection des données par le front (comme les caractéristiques réseau).
   Dans tous les cas : committer le générateur + la source.
-- ❓ **Pseudo-modes solaires/hybride** : modèle grossier à faire valider
-  (hybride = PAC air-eau coll × 120 %, couverture solaire 50 % en dur).
-  À minima extraire ces constantes en ratios nommés et sourcés.
+- ✅ **Modes solaires CESI/SSC** : dimensionnement métier ajouté avec
+  zones d'ensoleillement Nord/Sud/Méditerranée, productivités par usage,
+  couverture solaire 60 %, surface de capteurs arrondie, stockage à
+  50 L/m², investissement et P1/P2/P3 dédiés.
+- ❓ **Mode hybride** : modèle grossier à faire valider
+  (PAC air-eau coll × 120 %).
 - ❓ **Section `environnement`** : patron verbeux hérité (`besoins de
   chauffage et ECS si même équipement` = 0 dans 9 modes, `scope 1` alias
   pur) — bloqué par le contrat DebugDrawer, comme bilan/coûts.

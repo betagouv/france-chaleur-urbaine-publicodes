@@ -194,6 +194,201 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 		});
 	});
 
+	describe("solaire thermique", () => {
+		it.each([
+			["Paris en zone Nord", "75", "Nord", 510, 425],
+			["Lyon en zone Sud", "69", "Sud", 630, 525],
+			["Marseille en zone Méditerranée", "13", "Méditerranée", 720, 600],
+		])("%s", (_, departmentCode, expectedZone, expectedCollectiveProductivity, expectedCombinedProductivity) => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"climat . code département": `'${departmentCode}'`,
+			});
+
+			expect(
+				engine.evaluate("solaire thermique . ratios . zone d'ensoleillement")
+					.nodeValue,
+			).toBe(expectedZone);
+			expect(
+				engine.evaluate("solaire thermique . ratios . productivité collectif")
+					.nodeValue,
+			).toBe(expectedCollectiveProductivity);
+			expect(
+				engine.evaluate("système solaire combiné . ratios . productivité")
+					.nodeValue,
+			).toBe(expectedCombinedProductivity);
+		});
+
+		it("calcule le CESI d'une maison individuelle", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"bâtiment . appartement ou maison": "'Maison'",
+				"bâtiment . habitants par logement": 2,
+				"bâtiment . surface tertiaire": 100,
+				"climat . code département": "'69'",
+				"climat . température de référence chaud commune": -5,
+				"ecs . production": "oui",
+			});
+
+			expect(
+				engine.evaluate("solaire thermique . installation . besoin ECS")
+					.nodeValue,
+			).toBe(1320);
+			expect(
+				engine.evaluate(
+					"solaire thermique . installation . surface de capteurs",
+				).nodeValue,
+			).toBe(2);
+			expect(
+				engine.evaluate("solaire thermique . installation . volume de stockage")
+					.nodeValue,
+			).toBe(100);
+			expect(
+				engine.evaluate("solaire thermique . coûts . installation").nodeValue,
+			).toBe(3000);
+			expect(
+				engine.evaluate("solaire thermique . bilan . total sans installation")
+					.nodeValue,
+			).toBeCloseTo(141.31, 2);
+		});
+
+		it("calcule le CESI collectif au périmètre immeuble", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"bâtiment . habitants par logement": 2,
+				"bâtiment . nombre de logements": 60,
+				"bâtiment . surface tertiaire": 70,
+				"climat . code département": "'13'",
+				"climat . température de référence chaud commune": -5,
+				"ecs . production": "oui",
+			});
+
+			expect(
+				engine.evaluate("solaire thermique . installation . besoin ECS")
+					.nodeValue,
+			).toBe(39600);
+			expect(
+				engine.evaluate(
+					"solaire thermique . installation . surface de capteurs",
+				).nodeValue,
+			).toBe(33);
+			expect(
+				engine.evaluate("solaire thermique . installation . volume de stockage")
+					.nodeValue,
+			).toBe(1650);
+			expect(
+				engine.evaluate("solaire thermique . coûts . installation").nodeValue,
+			).toBe(42900);
+			expect(
+				engine.evaluate("solaire thermique . bilan . total sans installation")
+					.nodeValue,
+			).toBeCloseTo(3942.21, 2);
+		});
+
+		it("calcule le système solaire combiné d'une maison individuelle", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"bâtiment . appartement ou maison": "'Maison'",
+				"bâtiment . habitants par logement": 2,
+				"bâtiment . surface tertiaire": 100,
+				"climat . code département": "'69'",
+				"climat . température de référence chaud commune": -5,
+				"ecs . production": "oui",
+			});
+
+			expect(
+				engine.evaluate(
+					"système solaire combiné . installation . surface de capteurs",
+				).nodeValue,
+			).toBe(12);
+			expect(
+				engine.evaluate(
+					"système solaire combiné . installation . volume de stockage",
+				).nodeValue,
+			).toBe(600);
+			expect(
+				engine.evaluate("système solaire combiné . coûts . installation")
+					.nodeValue,
+			).toBe(18000);
+			expect(
+				engine.evaluate(
+					"système solaire combiné . bilan . total sans installation",
+				).nodeValue,
+			).toBeCloseTo(1099.85, 2);
+		});
+	});
+
+	describe("coûts d'installation chaleur renouvelable", () => {
+		it("expose les fourchettes statiques utilisées par le catalogue", () => {
+			const engine = new Engine(rules, options);
+
+			expect(
+				engine.evaluate("PAC eau-eau coll . coûts . installation . minimum")
+					.nodeValue,
+			).toBe(8000);
+			expect(
+				engine.evaluate("PAC eau-eau coll . coûts . installation . maximum")
+					.nodeValue,
+			).toBe(11000);
+			expect(
+				engine.evaluate(
+					"chauffe-eau thermodynamique . coûts . installation . minimum",
+				).nodeValue,
+			).toBe(2000);
+			expect(
+				engine.evaluate(
+					"chauffe-eau thermodynamique . coûts . installation . maximum",
+				).nodeValue,
+			).toBe(3000);
+		});
+
+		it("varie les fourchettes individuelles entre appartement et maison", () => {
+			const engine = new Engine(rules, options);
+
+			engine.setSituation({
+				"bâtiment . appartement ou maison": "'Appartement'",
+			});
+
+			expect(
+				engine.evaluate("PAC air-eau indiv . coûts . installation . minimum")
+					.nodeValue,
+			).toBe(7000);
+			expect(
+				engine.evaluate("PAC air-air indiv . coûts . installation . maximum")
+					.nodeValue,
+			).toBe(5000);
+
+			engine.setSituation({
+				"bâtiment . appartement ou maison": "'Maison'",
+			});
+
+			expect(
+				engine.evaluate("PAC air-eau indiv . coûts . installation . minimum")
+					.nodeValue,
+			).toBe(12000);
+			expect(
+				engine.evaluate("PAC air-air indiv . coûts . installation . maximum")
+					.nodeValue,
+			).toBe(8000);
+		});
+
+		it("expose les bornes du raccordement réseau de chaleur par logement", () => {
+			const engine = new Engine(rules, options);
+			engine.setSituation({
+				"bâtiment . nombre de logements": 25,
+			});
+
+			expect(
+				engine.evaluate("réseau de chaleur . coûts . installation . minimum")
+					.nodeValue,
+			).toBeCloseTo(2967.18, 2);
+			expect(
+				engine.evaluate("réseau de chaleur . coûts . installation . maximum")
+					.nodeValue,
+			).toBeCloseTo(4450.78, 2);
+		});
+	});
+
 	describe("CEE BAR-TH-171 PAC air-eau individuelle", () => {
 		it("calcule le montant CEE pour une maison individuelle H1 avec Etas entre 111% et 140%", () => {
 			const engine = new Engine(rules, options);
