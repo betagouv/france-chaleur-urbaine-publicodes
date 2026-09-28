@@ -247,6 +247,14 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 				engine.evaluate("solaire thermique . coûts . installation").nodeValue,
 			).toBe(3000);
 			expect(
+				engine.evaluate("solaire thermique . coûts . installation . minimum")
+					.nodeValue,
+			).toBe(2400);
+			expect(
+				engine.evaluate("solaire thermique . coûts . installation . maximum")
+					.nodeValue,
+			).toBe(3600);
+			expect(
 				engine.evaluate("solaire thermique . bilan . total sans installation")
 					.nodeValue,
 			).toBeCloseTo(141.31, 2);
@@ -310,6 +318,14 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 				engine.evaluate("système solaire combiné . coûts . installation")
 					.nodeValue,
 			).toBe(18000);
+			expect(
+				engine.evaluate("système solaire combiné . coûts . installation . minimum")
+					.nodeValue,
+			).toBe(14400);
+			expect(
+				engine.evaluate("système solaire combiné . coûts . installation . maximum")
+					.nodeValue,
+			).toBe(21600);
 			expect(
 				engine.evaluate(
 					"système solaire combiné . bilan . total sans installation",

@@ -167,6 +167,13 @@ solaire thermique:
             - installation . surface de capteurs
             - ratios . coût installation
           unité: €
+          avec:
+            minimum:
+              formule: solaire thermique . coûts . installation * 80%
+              unité: €
+            maximum:
+              formule: solaire thermique . coûts . installation * 120%
+              unité: €
 
         P1:
           produit:
@@ -269,6 +276,13 @@ système solaire combiné:
             - installation . surface de capteurs
             - ratios . coût installation
           unité: €
+          avec:
+            minimum:
+              formule: système solaire combiné . coûts . installation * 80%
+              unité: €
+            maximum:
+              formule: système solaire combiné . coûts . installation * 120%
+              unité: €
 
         P1:
           produit:

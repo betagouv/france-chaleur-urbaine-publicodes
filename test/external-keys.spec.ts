@@ -568,9 +568,13 @@ const clesChaleurRenouvelable = [
 		`${mode} . coûts . installation . maximum` as const,
 	]),
 	"solaire thermique . coûts . installation",
+	"solaire thermique . coûts . installation . minimum",
+	"solaire thermique . coûts . installation . maximum",
 	"solaire thermique . installation . surface de capteurs",
 	"solaire thermique . installation . volume de stockage",
 	"système solaire combiné . coûts . installation",
+	"système solaire combiné . coûts . installation . minimum",
+	"système solaire combiné . coûts . installation . maximum",
 	"système solaire combiné . installation . surface de capteurs",
 	"système solaire combiné . installation . volume de stockage",
 ] satisfies RuleName[];
