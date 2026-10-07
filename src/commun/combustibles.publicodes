@@ -9,10 +9,9 @@ combustibles:
         taxes:
           avec:
             TICGN:
-              par défaut: 0.01637
+              par défaut: 0.01639
               unité: €/kWh
-              note: "Source : accise sur les gaz naturels (ex-TICGN), tarif normal 2024 — 16,37 €/MWh — https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie"
-
+              note: "Source : accise sur le gaz naturel (ex-TICGN), tarif février 2026 — 16,39 €/MWh — https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie"
             CTA:
               par défaut: 43.51
               unité: €/an
@@ -24,10 +23,9 @@ combustibles:
               note: "Taux normal de TVA (20 %)"
 
             TVA part fixe:
-              par défaut: 5.5
+              par défaut: 20
               unité: '%'
-              note: "Taux réduit de TVA sur l'abonnement, en vigueur en 2024 (5,5 %)"
-
+              note: "Taux normal de TVA sur l'abonnement depuis le 1er août 2025 (5,5 % auparavant)"
         abonnement individuel:
           valeur: combustibles . gaz . abonnement part fixe individuel
           unité: €TTC/an
@@ -65,9 +63,9 @@ combustibles:
               unité: €/an
 
             coût distribution HT:
-              par défaut: 139
+              par défaut: 178
               unité: €/an
-
+              note: "Source : calé pour reproduire l'abonnement du prix repère CRE (360,79 €TTC/an, août 2026) ; CTA et coûts commerciaux conservés de 2024"
         abonnement part fixe collectif ou tertiaire:
           par défaut:
             produit:
@@ -93,9 +91,9 @@ combustibles:
           note: "Source : Prix repère de vente de gaz (CRE) — https://www.cre.fr/consommateurs/prix-reperes-et-references/prix-repere-de-vente-de-gaz-naturel-a-destination-des-clients-residentiels.html"
 
         coût de la molécule HT:
-          par défaut: 0.043
+          par défaut: 0.0637
           unité: €/kWh
-
+          note: "Source : calé sur le prix repère CRE, profil chauffage (0,1256 €TTC/kWh, août 2026) ; transport/distribution/CEE conservés de 2024"
         coût de transport HT:
           par défaut: 0.00977
           unité: €/kWh
@@ -170,9 +168,9 @@ combustibles:
             option base:
               avec:
                 prix du kWh:
-                  valeur: 0.1708
+                  valeur: 0.1297
                   unité: €HT/kWh
-                  note: 'Source : AMORCE 2024'
+                  note: "Source : TRV février 2026 — 0,1927 €TTC/kWh (≥ 9 kVA ; 0,1940 ≤ 6 kVA), hors accise et TVA — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
             option heures creuses:
               avec:
                 part de la consommation en HP:
@@ -184,13 +182,13 @@ combustibles:
                   unité: '%'
                   note: 'Source : AMORCE 2024'
                 prix du kWh HP:
-                  valeur: 0.2040
+                  valeur: 0.1412
                   unité: €HT/kWh
-                  note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
+                  note: "Source : TRV février 2026 — 0,2065 €TTC/kWh, hors accise et TVA — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
                 prix du kWh HC:
-                  valeur: 0.1513
+                  valeur: 0.1007
                   unité: €HT/kWh
-                  note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
+                  note: "Source : TRV février 2026 — 0,1579 €TTC/kWh, hors accise et TVA — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
             abonnement annuel individuel:
               variations:
                 - si: combustibles . électricité . puissance souscrite individuel <= 3
@@ -424,24 +422,33 @@ combustibles:
               note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
 
         part variable option base:
+          # La TVA s'applique aussi à l'accise.
           par défaut:
-            somme:
-              - combustibles . électricité . tarifs . option base . prix du kWh * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
-              - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+            produit:
+              - somme:
+                  - combustibles . électricité . tarifs . option base . prix du kWh
+                  - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+              - 1 + combustibles . électricité . taxes . Part Variable x TVA
           unité: €/kWh
 
         part variable heure pleine:
+          # La TVA s'applique aussi à l'accise.
           par défaut:
-            somme:
-              - combustibles . électricité . tarifs . option heures creuses . prix du kWh HP * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
-              - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+            produit:
+              - somme:
+                  - combustibles . électricité . tarifs . option heures creuses . prix du kWh HP
+                  - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+              - 1 + combustibles . électricité . taxes . Part Variable x TVA
           unité: €/kWh
 
         part variable heure creuse:
+          # La TVA s'applique aussi à l'accise.
           par défaut:
-            somme:
-              - combustibles . électricité . tarifs . option heures creuses . prix du kWh HC * ( 1 + combustibles . électricité . taxes . Part Variable x TVA )
-              - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+            produit:
+              - somme:
+                  - combustibles . électricité . tarifs . option heures creuses . prix du kWh HC
+                  - combustibles . électricité . taxes . Part Variable x Accise sur l'électricité ex TIPCSE CSPE
+              - 1 + combustibles . électricité . taxes . Part Variable x TVA
           unité: €/kWh
 
         abonnement part fixe individuel:
@@ -521,12 +528,12 @@ combustibles:
         taxes:
           avec:
             Part Fixe x TVA:
-              par défaut: 5.5%
+              par défaut: 20%
               unité: '%'
-              note: "Taux réduit de TVA sur l'abonnement, en vigueur en 2024 (5,5 %)"
+              note: "Taux normal de TVA sur l'abonnement depuis le 1er août 2025 (5,5 % auparavant)"
             Part Variable x Accise sur l'électricité ex TIPCSE CSPE:
-              par défaut: 0.021€/kWh
-              note: "Source : accise sur l'électricité (ex-TICFE/CSPE), tarif ménages au 01/02/2024 — 21 €/MWh — https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie"
+              par défaut: 0.03085€/kWh
+              note: "Source : accise sur l'électricité (ex-TICFE/CSPE), tarif ménages février 2026 — 30,85 €/MWh — https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie"
             Part Variable x TVA:
               par défaut: 20%
               unité: '%'
@@ -606,10 +613,10 @@ combustibles:
             produit:
               - variations:
                   - si: type de conditionnement = 'Conditionné en sac'
-                    alors: 330
-                  - sinon: 365
+                    alors: 380
+                  - sinon: 387
               - 1 + TVA
-          note: "Source : CEEB 2024 (Centre d'études de l'économie du bois, enquête trimestrielle sur les prix des combustibles bois) — http://www.ceebois.fr/ — relais officiel annuel : SDES, Bilan énergétique de la France, « Le prix du bois » https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/bilan-energetique/fr/"
+          note: "Source : indice CEEB, relevés mars-avril 2026 (relayés par Propellet) — ~418 €TTC/t en sac, ~426 €TTC/t en vrac — http://www.ceebois.fr/ — relais officiel annuel : SDES, Bilan énergétique de la France, « Le prix du bois » https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/bilan-energetique/fr/"
           unité: €TTC/tonne
         TVA:
           par défaut: 10
@@ -627,11 +634,12 @@ combustibles:
               - produit:
                   - variations:
                       - si: bâtiment . type = 'résidentiel'
-                        alors: 0.84
-                      - sinon: 0.80
+                        alors: 1.12
+                      - sinon: 1.08
                   - 1 + TVA
               - TICPE
           unité: €TTC/L
+          note: "Source : relevés quotidiens juillet 2026 (~1,50 €TTC/L en moyenne, marché volatil)"
         TVA:
           par défaut: 20
           unité: '%'

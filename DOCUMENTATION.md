@@ -13,6 +13,8 @@ Sommaire :
    état des lieux initial, choix de découpage, avant/après, mécanismes.
 3. [Bugs connus figés](#3-bugs-connus-figés) — à corriger dans une PR dédiée.
 4. [Analyse critique et chantiers futurs](#4-analyse-critique-et-chantiers-futurs).
+5. [Sources et millésimes des données](#5-sources-et-millésimes-des-données) —
+   convention de sourçage, inventaire, procédure de mise à jour.
 
 ---
 
@@ -584,9 +586,11 @@ de lignes : fichiers de `dev`.
 
 - ❓ **Documentation publiée** (site publi.codes, partenariat AMORCE) :
   ~51 `description:` pour ~2 400 règles. Gros levier : descriptions sur les
-  règles de tête (racines de modes, sections, sorties bilan) et champ
-  structuré `références:` pour les sources (ADEME, INIES, Base Empreinte…)
-  au lieu de `note:` libres (292).
+  règles de tête (racines de modes, sections, sorties bilan).
+- ✅ **Sourçage normalisé** (fait en juillet 2026, branche `maj-sources-2026`) :
+  notes au format `Source : … (millésime) — URL — màj : périodicité` — voir
+  [§5](#5-sources-et-millésimes-des-données). Le champ publicodes
+  `références:` a été écarté : non exploité par le front.
 
 ### Outillage
 
@@ -637,17 +641,17 @@ Dernière vérification des URL : 7 octobre 2026 (toutes en HTTP 200).
 
 | Source | Document, millésime cité | Règles concernées | URL | Rythme de mise à jour |
 |---|---|---|---|---|
-| CRE — TRV électricité | Délibération n°2024-05 du 18/01/2024, annexe B (barème au 01/02/2024) | `combustibles . électricité . tarifs` (prix base/HP/HC, abonnements, via grille ELCIMAI) | https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html | février et août |
-| CRE — prix repère gaz | Prix repère de vente de gaz naturel, 2024 | `combustibles . gaz . consommation part variable TTC` et décomposition part fixe | https://www.cre.fr/consommateurs/prix-reperes-et-references/prix-repere-de-vente-de-gaz-naturel-a-destination-des-clients-residentiels.html | mensuel (coûts d'approvisionnement), 3 fois par an pour le reste |
-| DGFiP — accises gaz et électricité | Tarifs 2024 (ex-TICGN 16,37 €/MWh, ex-TICFE ménages 21 €/MWh) | `combustibles . gaz . taxes`, `combustibles . électricité . taxes` | https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie | annuel, loi de finances (gaz au 1er janvier, électricité au 1er février) |
+| CRE — TRV électricité | Barème au 01/02/2026 (⚠ hausse ~2,5 % au 01/08/2026 à répercuter) ; grille d'abonnement ELCIMAI 2024 conservée | `combustibles . électricité . tarifs` (prix base/HP/HC, abonnements, via grille ELCIMAI) | https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html | février et août |
+| CRE — prix repère gaz | Prix repère d'août 2026 (calage des grandeurs TTC : abonnement 360,79 €TTC/an, 0,1256 €TTC/kWh profil chauffage) | `combustibles . gaz . consommation part variable TTC` et décomposition part fixe | https://www.cre.fr/consommateurs/prix-reperes-et-references/prix-repere-de-vente-de-gaz-naturel-a-destination-des-clients-residentiels.html | mensuel (coûts d'approvisionnement), 3 fois par an pour le reste |
+| DGFiP — accises gaz et électricité | Tarifs février 2026 (ex-TICGN 16,39 €/MWh, ex-TICFE ménages 30,85 €/MWh) | `combustibles . gaz . taxes`, `combustibles . électricité . taxes` | https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie | annuel, loi de finances (gaz au 1er janvier, électricité au 1er février) |
 | DGDDI — accise produits énergétiques | Fioul domestique, tarif 2024 (ex-TICPE) | `combustibles . fioul . TICPE` | https://www.douane.gouv.fr/professionnels/energie/fiscalite-des-produits-energetiques | annuel, loi de finances |
-| CGI — taux de TVA | Art. 278 (20 %), 278 bis (10 % bois de chauffage), 279 (5,5 % abonnements, en vigueur en 2024) | `TVA`, `TVA part fixe`, `TVA part variable`, `investissement . TVA…` | https://entreprendre.service-public.gouv.fr/vosdroits/F23567 | sur loi de finances |
-| CEEB — prix des combustibles bois | Enquête trimestrielle, 2024 (granulés vrac / sac). Le site du CEEB n'expose pas l'indice ; le relais officiel est le SDES (Bilan énergétique de la France, « Le prix du bois », prix annuel vrac et sac en €/MWh), les relais trimestriels sont associatifs (Propellet, CIBE) | `combustibles . granulés . prix pour les granulés` | http://www.ceebois.fr/ — https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/bilan-energetique/fr/ | trimestriel (CEEB), annuel (SDES, mars) |
+| CGI — taux de TVA | Art. 278 (20 %), 278 bis (10 % bois de chauffage) ; abonnements gaz/élec à 20 % depuis le 1er août 2025 (5,5 % auparavant) | `TVA`, `TVA part fixe`, `TVA part variable`, `investissement . TVA…` | https://entreprendre.service-public.gouv.fr/vosdroits/F23567 | sur loi de finances |
+| CEEB — prix des combustibles bois | Relevés mars-avril 2026 (~418 €TTC/t en sac, ~426 €TTC/t en vrac). Le site du CEEB n'expose pas l'indice ; le relais officiel est le SDES (Bilan énergétique de la France, « Le prix du bois », prix annuel vrac et sac en €/MWh), les relais trimestriels sont associatifs (Propellet, CIBE) | `combustibles . granulés . prix pour les granulés` | http://www.ceebois.fr/ — https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/bilan-energetique/fr/ | trimestriel (CEEB), annuel (SDES, mars) |
 | Anah — plafonds de ressources | Circulaire du 1er décembre 2025 (NOR VLOL2534404C), plafonds 2026 | `bareme-revenu-mpr` | https://france-renov.gouv.fr/bareme | annuel au 1er janvier (circulaire de décembre, indexée sur l'IPC hors tabac) |
-| MaPrimeRénov' — montants | Barème 2024 | `<mode> . aides . ma prime rénov` | https://www.service-public.gouv.fr/particuliers/vosdroits/F35083 | annuel (janvier) |
+| MaPrimeRénov' — montants | Barème 2026 | `<mode> . aides . ma prime rénov` | https://www.service-public.gouv.fr/particuliers/vosdroits/F35083 | annuel (janvier) |
 | Coup de pouce chauffage | Montants planchers 2024 (dispositif réformé au 01/01/2026 : bonification CEE, plus de planchers) | `<mode> . aides . coup de pouce`, `aides . CEE . barème FCU …` | https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage et https://www.ecologie.gouv.fr/politiques-publiques/coup-pouce-chauffage-batiments-residentiels-collectifs-tertiaires | sur arrêté |
 | Fiches CEE BAR-TH-137, BAT-TH-127, BAR-TH-171 | Versions applicables au 01/01/2026 (A79-4, A79-5, A78-4 ; BAR-TH-171 révisée en A82-5 au 01/09/2026) | `réseau de chaleur . aides . CEE`, `aides . CEE . BAR-TH-171` | https://www.ecologie.gouv.fr/politiques-publiques/operations-standardisees-deconomies-denergie | sur arrêté (plusieurs fois par an) |
-| EMMY — registre national des CEE | Prix moyen pondéré mensuel, cotations 2024 | `aides . valeur CEE`, `aides . CEE . prix moyen …` | https://www.emmy.fr/public/donnees-mensuelles | mensuel |
+| EMMY — registre national des CEE | Prix moyen pondéré mensuel, cotations 2024 (politique de mise à jour à définir) | `aides . valeur CEE`, `aides . CEE . prix moyen …` | https://www.emmy.fr/public/donnees-mensuelles | mensuel |
 | Enquête annuelle des réseaux de chaleur et de froid (FEDENE/AMORCE, maîtrise d'ouvrage SDES) | Édition 2025 (données 2024) ; édition 2024 (données 2023) pour les coûts de raccordement | `réseau de chaleur/froid . caractéristiques` (contenus CO2, taux EnR&R), `réseau de chaleur . ratios . coût raccordement` | https://fedene.fr/enquete-annuelle-des-reseaux-de-chaleur-et-de-froid-2025/ — fiche SDES : https://www.statistiques.developpement-durable.gouv.fr/enquete-annuelle-sur-les-reseaux-de-chaleur-et-de-froid | annuel (octobre-novembre) |
 | AMORCE — prix de vente de la chaleur et du froid | RCE43, données 2024 | `réseau de chaleur/froid . caractéristiques` (prix moyen, part fixe) | https://amorce.asso.fr/publications/enquete-sur-le-prix-de-vente-de-la-chaleur-et-du-froid-en-2024-rce43 | annuel |
 | ADEME — Base Empreinte | Facteurs de combustion 2023 ; électricité par usage 2020 | `facteurs CO2` | https://base-empreinte.ademe.fr/ | base actualisée en continu |
@@ -665,6 +669,8 @@ Dernière vérification des URL : 7 octobre 2026 (toutes en HTTP 200).
   référence publique.
 - **Atlantic 2023/2024, Thermor 2024, Invicta 2024, Hargassner** :
   catalogues constructeurs (coûts d'équipement).
+- **Fioul (juillet 2026)** : relevés quotidiens de prix de marché (~1,50 €TTC/L
+  en moyenne, marché volatil), pas de référence publique stable.
 - **AMORCE 2024** (parts HP/HC de la consommation électrique), **ADEME 2023**
   (chauffe-eau solaire), **ADEME 2024** (facteurs CEE par zone et par type
   tertiaire, consommation spécifique de climatisation), **SDES 2023** (coût
@@ -673,3 +679,22 @@ Dernière vérification des URL : 7 octobre 2026 (toutes en HTTP 200).
 - Sans source du tout (commentaire `source à documenter`) : décomposition du
   prix du gaz (parts fixe et variable), grille d'abonnement gaz tertiaire,
   barème CEE FCU tertiaire, contenu CO2 des réseaux de froid (données 2021).
+
+### Procédure de mise à jour d'un millésime
+
+1. Modifier la valeur **et** la note (millésime, valeur publique de
+   référence) dans la section `ratios`/`combustibles` concernée — recette
+   « Changer une valeur de ratio » du [§1](#modifier-le-modèle--recettes) —
+   puis la ligne correspondante du registre ci-dessus (millésime, date de
+   vérification).
+2. Vérifier que les grandeurs TTC reconstruites retombent sur la référence
+   publique (TRV, prix repère, prix marché) — les prix élec/gaz stockés sont
+   des **HT hors accise**, la TVA s'applique aussi à l'accise.
+3. `pnpm test` : mettre à jour le golden (`pnpm vitest run -u`) **seulement**
+   si le changement est volontaire, et le documenter dans le commit
+   (valeurs recalculées, unités inchangées). Les attendus numériques de
+   `test/index.spec.ts` (bilans solaire thermique) dépendent aussi des prix
+   de l'énergie : les recalibrer dans le même commit.
+4. Pièges connus : la grille `abonnement annuel individuel/collectif` élec
+   n'est **pas** la grille TRV brute (construction ELCIMAI, surcoûts — à
+   élucider avant de la toucher) ; `departements.publicodes` est généré.
