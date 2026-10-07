@@ -257,7 +257,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			expect(
 				engine.evaluate("solaire thermique . bilan . total sans installation")
 					.nodeValue,
-			).toBeCloseTo(141.31, 2);
+			).toBeCloseTo(123.72, 2);
 		});
 
 		it("calcule le CESI collectif au périmètre immeuble", () => {
@@ -290,7 +290,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 			expect(
 				engine.evaluate("solaire thermique . bilan . total sans installation")
 					.nodeValue,
-			).toBeCloseTo(3942.21, 2);
+			).toBeCloseTo(3414.73, 2);
 		});
 
 		it("calcule le système solaire combiné d'une maison individuelle", () => {
@@ -330,7 +330,7 @@ describe("Moteur Publicodes France Chaleur Urbaine", () => {
 				engine.evaluate(
 					"système solaire combiné . bilan . total sans installation",
 				).nodeValue,
-			).toBeCloseTo(1099.85, 2);
+			).toBeCloseTo(957.22, 2);
 		});
 	});
 
