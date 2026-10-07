@@ -3,6 +3,7 @@ ménage:
     revenu:
       question: Revenu fiscal de référence du ménage
       unité: €
+      note: "Source : plafonds de ressources Anah / MaPrimeRénov' 2026 (circulaire Anah du 1er décembre 2025, NOR VLOL2534404C) — https://france-renov.gouv.fr/bareme"
       avec:
         plafond très modeste:
           unité: €
@@ -30,6 +31,7 @@ ménage:
 
         plafond très modeste IdF:
           unité: €
+          note: "Source : plafonds de ressources Anah / MaPrimeRénov' 2026 (circulaire Anah du 1er décembre 2025, NOR VLOL2534404C) — https://france-renov.gouv.fr/bareme"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -46,6 +48,7 @@ ménage:
 
         plafond modeste IdF:
           unité: €
+          note: "Source : plafonds de ressources Anah / MaPrimeRénov' 2026 (circulaire Anah du 1er décembre 2025, NOR VLOL2534404C) — https://france-renov.gouv.fr/bareme"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -62,6 +65,7 @@ ménage:
 
         plafond intermédiaire IdF:
           unité: €
+          note: "Source : plafonds de ressources Anah / MaPrimeRénov' 2026 (circulaire Anah du 1er décembre 2025, NOR VLOL2534404C) — https://france-renov.gouv.fr/bareme"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -78,6 +82,7 @@ ménage:
 
         plafond très modeste hors IdF:
           unité: €
+          note: "Source : plafonds de ressources Anah / MaPrimeRénov' 2026 (circulaire Anah du 1er décembre 2025, NOR VLOL2534404C) — https://france-renov.gouv.fr/bareme"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -94,6 +99,7 @@ ménage:
 
         plafond modeste hors IdF:
           unité: €
+          note: "Source : plafonds de ressources Anah / MaPrimeRénov' 2026 (circulaire Anah du 1er décembre 2025, NOR VLOL2534404C) — https://france-renov.gouv.fr/bareme"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1
@@ -110,6 +116,7 @@ ménage:
 
         plafond intermédiaire hors IdF:
           unité: €
+          note: "Source : plafonds de ressources Anah / MaPrimeRénov' 2026 (circulaire Anah du 1er décembre 2025, NOR VLOL2534404C) — https://france-renov.gouv.fr/bareme"
           formule:
             variations:
               - si: bâtiment . habitants par logement = 1

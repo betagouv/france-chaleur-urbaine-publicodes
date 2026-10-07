@@ -11,18 +11,22 @@ combustibles:
             TICGN:
               par défaut: 0.01637
               unité: €/kWh
+              note: "Source : accise sur les gaz naturels (ex-TICGN), tarif normal 2024 — 16,37 €/MWh — https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie"
 
             CTA:
               par défaut: 43.51
               unité: €/an
+              note: "Contribution tarifaire d'acheminement (CTA) — millésime 2024 à confirmer"
 
             TVA part variable:
               par défaut: 20
               unité: '%'
+              note: "Taux normal de TVA (20 %)"
 
             TVA part fixe:
               par défaut: 5.5
               unité: '%'
+              note: "Taux réduit de TVA sur l'abonnement, en vigueur en 2024 (5,5 %)"
 
         abonnement individuel:
           valeur: combustibles . gaz . abonnement part fixe individuel
@@ -44,6 +48,8 @@ combustibles:
           par défaut: gaz coll avec cond . installation . puissance retenue
           unité: kW
 
+        # Part fixe : décomposition type prix repère de vente de gaz de la CRE
+        # (distribution + coûts commerciaux + CTA) — millésime à documenter (2024 probable).
         abonnement part fixe individuel:
           par défaut:
             produit:
@@ -71,6 +77,8 @@ combustibles:
               - 1 + combustibles . gaz . taxes . TVA part fixe
           unité: €/an
 
+        # Part variable : décomposition et niveaux calqués sur le prix repère de
+        # vente de gaz publié par la CRE — millésime à documenter (2024 probable).
         consommation part variable TTC:
           par défaut:
             produit:
@@ -82,6 +90,7 @@ combustibles:
                   - combustibles . gaz . taxes . TICGN
               - 1 + combustibles . gaz . taxes . TVA part variable
           unité: €/kWh
+          note: "Source : Prix repère de vente de gaz (CRE) — https://www.cre.fr/consommateurs/prix-reperes-et-references/prix-repere-de-vente-de-gaz-naturel-a-destination-des-clients-residentiels.html"
 
         coût de la molécule HT:
           par défaut: 0.043
@@ -163,25 +172,25 @@ combustibles:
                 prix du kWh:
                   valeur: 0.1708
                   unité: €HT/kWh
-                  note: 'Source: AMORCE 2024'
+                  note: 'Source : AMORCE 2024'
             option heures creuses:
               avec:
                 part de la consommation en HP:
                   valeur: 20
                   unité: '%'
-                  note: 'Source: AMORCE 2024'
+                  note: 'Source : AMORCE 2024'
                 part de la consommation en HC:
                   valeur: 100% - part de la consommation en HP
                   unité: '%'
-                  note: 'Source: AMORCE 2024'
+                  note: 'Source : AMORCE 2024'
                 prix du kWh HP:
                   valeur: 0.2040
                   unité: €HT/kWh
-                  note: 'Source: ELCIMAI + TRV 2024'
+                  note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
                 prix du kWh HC:
                   valeur: 0.1513
                   unité: €HT/kWh
-                  note: 'Source: ELCIMAI + TRV 2024'
+                  note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
             abonnement annuel individuel:
               variations:
                 - si: combustibles . électricité . puissance souscrite individuel <= 3
@@ -332,7 +341,7 @@ combustibles:
                       - si: combustibles . électricité . option tarifaire = 'Heure pleine/Heure creuse'
                         alors: 3931.22
               unité: €/an
-              note: 'Source: ELCIMAI + TRV 2024'
+              note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
             abonnement annuel collectif:
               # C'est ici en fait le surcout à l'abonnement annuel
               variations:
@@ -412,7 +421,7 @@ combustibles:
                 - si: combustibles . électricité . puissance souscrite collectif <= 250
                   alors: 3927.22
               unité: €/an
-              note: 'Source: ELCIMAI + TRV 2024'
+              note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
 
         part variable option base:
           par défaut:
@@ -442,7 +451,7 @@ combustibles:
         puissance souscrite individuel:
           par défaut: 9
           unité: kVA
-          note: 'Source: ELCIMAI 2024'
+          note: 'Source : ELCIMAI 2024'
 
         abonnement part fixe collectif:
           par défaut: combustibles . électricité . tarifs . abonnement annuel collectif * ( 1 + combustibles . électricité . taxes . Part Fixe x TVA )
@@ -514,11 +523,14 @@ combustibles:
             Part Fixe x TVA:
               par défaut: 5.5%
               unité: '%'
+              note: "Taux réduit de TVA sur l'abonnement, en vigueur en 2024 (5,5 %)"
             Part Variable x Accise sur l'électricité ex TIPCSE CSPE:
               par défaut: 0.021€/kWh
+              note: "Source : accise sur l'électricité (ex-TICFE/CSPE), tarif ménages au 01/02/2024 — 21 €/MWh — https://www.impots.gouv.fr/accises-sur-les-energies-consommateurs-denergie"
             Part Variable x TVA:
               par défaut: 20%
               unité: '%'
+              note: "Taux normal de TVA (20 %)"
 
     réseau de chaleur:
       avec:
@@ -588,7 +600,7 @@ combustibles:
           une possibilité:
             - "'Conditionné en sac'"
             - "'Conditionné en vrac'"
-          note: 'Source: ELCIMAI 2024'
+          note: 'Source : ELCIMAI 2024'
         prix pour les granulés:
           par défaut:
             produit:
@@ -597,12 +609,12 @@ combustibles:
                     alors: 330
                   - sinon: 365
               - 1 + TVA
-          note: 'Source: CEEB 2024'
+          note: "Source : CEEB 2024 (Centre d'études de l'économie du bois, enquête trimestrielle sur les prix des combustibles bois) — http://www.ceebois.fr/ — relais officiel annuel : SDES, Bilan énergétique de la France, « Le prix du bois » https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/bilan-energetique/fr/"
           unité: €TTC/tonne
         TVA:
           par défaut: 10
           unité: '%'
-          note: 'Source: site gouvernemental (impots.gouv) 2024'
+          note: "Source : taux réduit de TVA à 10 % sur le bois de chauffage (CGI, art. 278 bis) — https://entreprendre.service-public.gouv.fr/vosdroits/F23567"
 
     fioul:
       avec:
@@ -623,9 +635,9 @@ combustibles:
         TVA:
           par défaut: 20
           unité: '%'
-          note: 'Source: site gouvernemental (impots.gouv) 2024'
+          note: "Source : taux normal de TVA à 20 % (CGI, art. 278) — https://entreprendre.service-public.gouv.fr/vosdroits/F23567"
         TICPE:
           par défaut: 0.1562
           unité: €/L
-          note: 'Source: site gouvernemental (impots.gouv) 2024'
+          note: "Source : accise sur les produits énergétiques (ex-TICPE), fioul domestique, tarif 2024 — https://www.douane.gouv.fr/professionnels/energie/fiscalite-des-produits-energetiques"
 
