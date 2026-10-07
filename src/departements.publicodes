@@ -15,11 +15,11 @@ départements:
         dju chaud moyen:
           valeur: 2042
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 37
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -35,11 +35,11 @@ départements:
         dju chaud moyen:
           valeur: 2156
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 9
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -55,11 +55,11 @@ départements:
         dju chaud moyen:
           valeur: 2018
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 25
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -75,11 +75,11 @@ départements:
         dju chaud moyen:
           valeur: 1726
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 54
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -95,11 +95,11 @@ départements:
         dju chaud moyen:
           valeur: 2236
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 19
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -115,11 +115,11 @@ départements:
         dju chaud moyen:
           valeur: 939
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 60
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -135,11 +135,11 @@ départements:
         dju chaud moyen:
           valeur: 1639
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 60
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -155,11 +155,11 @@ départements:
         dju chaud moyen:
           valeur: 2344
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 4
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -175,11 +175,11 @@ départements:
         dju chaud moyen:
           valeur: 1750
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 14
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -195,11 +195,11 @@ départements:
         dju chaud moyen:
           valeur: 2090
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 16
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -215,11 +215,11 @@ départements:
         dju chaud moyen:
           valeur: 1410
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 61
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -235,11 +235,11 @@ départements:
         dju chaud moyen:
           valeur: 2146
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 21
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -255,11 +255,11 @@ départements:
         dju chaud moyen:
           valeur: 1188
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 105
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -275,11 +275,11 @@ départements:
         dju chaud moyen:
           valeur: 1928
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 4
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -295,11 +295,11 @@ départements:
         dju chaud moyen:
           valeur: 2269
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 9
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -315,11 +315,11 @@ départements:
         dju chaud moyen:
           valeur: 1525
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 39
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -335,11 +335,11 @@ départements:
         dju chaud moyen:
           valeur: 1465
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 21
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -355,11 +355,11 @@ départements:
         dju chaud moyen:
           valeur: 1897
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 28
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -375,11 +375,11 @@ départements:
         dju chaud moyen:
           valeur: 1676
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 36
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -395,11 +395,11 @@ départements:
         dju chaud moyen:
           valeur: 979
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 60
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -415,11 +415,11 @@ départements:
         dju chaud moyen:
           valeur: 972
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 60
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -435,11 +435,11 @@ départements:
         dju chaud moyen:
           valeur: 2148
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 28
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -455,11 +455,11 @@ départements:
         dju chaud moyen:
           valeur: 1819
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 2
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -475,11 +475,11 @@ départements:
         dju chaud moyen:
           valeur: 2170
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 8
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -495,11 +495,11 @@ départements:
         dju chaud moyen:
           valeur: 1650
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 24
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -515,11 +515,11 @@ départements:
         dju chaud moyen:
           valeur: 2112
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 24
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -535,11 +535,11 @@ départements:
         dju chaud moyen:
           valeur: 1542
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 91
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -555,11 +555,11 @@ départements:
         dju chaud moyen:
           valeur: 2057
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 10
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -575,11 +575,11 @@ départements:
         dju chaud moyen:
           valeur: 2013
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 13
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -595,11 +595,11 @@ départements:
         dju chaud moyen:
           valeur: 1729
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 1
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -615,11 +615,11 @@ départements:
         dju chaud moyen:
           valeur: 1236
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 163
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -635,11 +635,11 @@ départements:
         dju chaud moyen:
           valeur: 1459
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 73
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -655,11 +655,11 @@ départements:
         dju chaud moyen:
           valeur: 1578
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 40
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -675,11 +675,11 @@ départements:
         dju chaud moyen:
           valeur: 1388
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 50
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -695,11 +695,11 @@ départements:
         dju chaud moyen:
           valeur: 1206
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 92
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -715,11 +715,11 @@ départements:
         dju chaud moyen:
           valeur: 1753
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 8
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -735,11 +735,11 @@ départements:
         dju chaud moyen:
           valeur: 1932
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 19
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -755,11 +755,11 @@ départements:
         dju chaud moyen:
           valeur: 1812
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 23
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -775,11 +775,11 @@ départements:
         dju chaud moyen:
           valeur: 2189
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 16
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -795,11 +795,11 @@ départements:
         dju chaud moyen:
           valeur: 2021
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 42
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -815,11 +815,11 @@ départements:
         dju chaud moyen:
           valeur: 1480
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 37
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -835,11 +835,11 @@ départements:
         dju chaud moyen:
           valeur: 1985
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 18
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -855,11 +855,11 @@ départements:
         dju chaud moyen:
           valeur: 2062
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 30
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -875,11 +875,11 @@ départements:
         dju chaud moyen:
           valeur: 2600
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 3
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -895,11 +895,11 @@ départements:
         dju chaud moyen:
           valeur: 1650
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 20
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -915,11 +915,11 @@ départements:
         dju chaud moyen:
           valeur: 1990
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 15
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -935,11 +935,11 @@ départements:
         dju chaud moyen:
           valeur: 1713
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 41
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -955,11 +955,11 @@ départements:
         dju chaud moyen:
           valeur: 1536
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 45
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -975,11 +975,11 @@ départements:
         dju chaud moyen:
           valeur: 2496
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 6
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -995,11 +995,11 @@ départements:
         dju chaud moyen:
           valeur: 1711
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 18
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1015,11 +1015,11 @@ départements:
         dju chaud moyen:
           valeur: 1824
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 0
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1035,11 +1035,11 @@ départements:
         dju chaud moyen:
           valeur: 2144
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 8
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1055,11 +1055,11 @@ départements:
         dju chaud moyen:
           valeur: 2387
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 24
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1075,11 +1075,11 @@ départements:
         dju chaud moyen:
           valeur: 1900
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 12
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1095,11 +1095,11 @@ départements:
         dju chaud moyen:
           valeur: 2214
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 18
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1115,11 +1115,11 @@ départements:
         dju chaud moyen:
           valeur: 2272
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 21
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1135,11 +1135,11 @@ départements:
         dju chaud moyen:
           valeur: 1690
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 9
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1155,11 +1155,11 @@ départements:
         dju chaud moyen:
           valeur: 2219
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 16
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1175,11 +1175,11 @@ départements:
         dju chaud moyen:
           valeur: 2050
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 15
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1195,11 +1195,11 @@ départements:
         dju chaud moyen:
           valeur: 2042
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 13
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1215,11 +1215,11 @@ départements:
         dju chaud moyen:
           valeur: 2146
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 6
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1235,11 +1235,11 @@ départements:
         dju chaud moyen:
           valeur: 2015
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 8
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1255,11 +1255,11 @@ départements:
         dju chaud moyen:
           valeur: 1965
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 6
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1275,11 +1275,11 @@ départements:
         dju chaud moyen:
           valeur: 1897
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 35
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1295,11 +1295,11 @@ départements:
         dju chaud moyen:
           valeur: 1458
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 22
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1315,11 +1315,11 @@ départements:
         dju chaud moyen:
           valeur: 1693
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 18
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1335,11 +1335,11 @@ départements:
         dju chaud moyen:
           valeur: 1047
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 133
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -1355,11 +1355,11 @@ départements:
         dju chaud moyen:
           valeur: 2117
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 25
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1375,11 +1375,11 @@ départements:
         dju chaud moyen:
           valeur: 2203
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 20
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1395,11 +1395,11 @@ départements:
         dju chaud moyen:
           valeur: 1796
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 72
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1415,11 +1415,11 @@ départements:
         dju chaud moyen:
           valeur: 2277
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 14
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1435,11 +1435,11 @@ départements:
         dju chaud moyen:
           valeur: 1935
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 40
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1455,11 +1455,11 @@ départements:
         dju chaud moyen:
           valeur: 1772
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 26
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1475,11 +1475,11 @@ départements:
         dju chaud moyen:
           valeur: 2357
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 26
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1495,11 +1495,11 @@ départements:
         dju chaud moyen:
           valeur: 2245
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 7
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1515,11 +1515,11 @@ départements:
         dju chaud moyen:
           valeur: 1718
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 35
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1535,11 +1535,11 @@ départements:
         dju chaud moyen:
           valeur: 2079
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 5
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1555,11 +1555,11 @@ départements:
         dju chaud moyen:
           valeur: 1982
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 15
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1575,11 +1575,11 @@ départements:
         dju chaud moyen:
           valeur: 2017
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 22
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1595,11 +1595,11 @@ départements:
         dju chaud moyen:
           valeur: 1688
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 29
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1615,11 +1615,11 @@ départements:
         dju chaud moyen:
           valeur: 2019
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 8
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1635,11 +1635,11 @@ départements:
         dju chaud moyen:
           valeur: 1622
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 69
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1655,11 +1655,11 @@ départements:
         dju chaud moyen:
           valeur: 1559
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 58
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -1675,11 +1675,11 @@ départements:
         dju chaud moyen:
           valeur: 1224
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 58
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H3'"
           remplace: climat . zone
@@ -1695,11 +1695,11 @@ départements:
         dju chaud moyen:
           valeur: 1464
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 115
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1715,11 +1715,11 @@ départements:
         dju chaud moyen:
           valeur: 1730
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 9
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1735,11 +1735,11 @@ départements:
         dju chaud moyen:
           valeur: 1823
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 21
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H2'"
           remplace: climat . zone
@@ -1755,11 +1755,11 @@ départements:
         dju chaud moyen:
           valeur: 1943
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 25
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1775,11 +1775,11 @@ départements:
         dju chaud moyen:
           valeur: 2346
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 11
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1795,11 +1795,11 @@ départements:
         dju chaud moyen:
           valeur: 2085
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 20
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1815,11 +1815,11 @@ départements:
         dju chaud moyen:
           valeur: 2255
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 24
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1835,11 +1835,11 @@ départements:
         dju chaud moyen:
           valeur: 1893
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 24
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1855,11 +1855,11 @@ départements:
         dju chaud moyen:
           valeur: 1764
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 35
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1875,11 +1875,11 @@ départements:
         dju chaud moyen:
           valeur: 1873
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 35
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1895,11 +1895,11 @@ départements:
         dju chaud moyen:
           valeur: 1764
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 35
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
@@ -1915,11 +1915,11 @@ départements:
         dju chaud moyen:
           valeur: 1899
           remplace: climat . département . degré jours chaud
-          note: 'Source : Costic'
+          note: "Source : COSTIC, DJU chauffage base 18 °C par département — https://www.costic.com/sites/default/files/upload/DJU/plaquette_dju.pdf"
         dju froid moyen:
           valeur: 24
           remplace: climat . département . degré jours froid
-          note: 'Source : Cégibat'
+          note: "Source : Cegibat (GRDF), DJU par département — https://cegibat.grdf.fr/simulateur/calcul-dju"
         zone climatique:
           valeur: "'H1'"
           remplace: climat . zone
