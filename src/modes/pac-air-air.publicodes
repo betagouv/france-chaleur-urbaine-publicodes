@@ -11,7 +11,7 @@ PAC air-air indiv:
         CO2 installation:
           formule: 1000
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/"
         SCOP:
           valeur: 2.7
         SEER:
@@ -34,7 +34,7 @@ PAC air-air indiv:
         coût équipement au kW:
           valeur: 734
           unité: €HT/kW
-          note: 'Source: ADEME Coûts EnR 2022 2020'
+          note: "Source : ADEME, Coûts des énergies renouvelables et de récupération en France, édition 2022 (données 2020) — https://librairie.ademe.fr/energies/7941-evolution-des-couts-des-energies-renouvelables-et-de-recuperation-entre-2012-et-2022-synthese-9791029724978.html (page de la dernière édition, janv. 2025)"
     annuité: &annuite-pac-air-air
       description: Annuité pour 1 € investi sur la durée de vie de l'équipement (fonction Excel PMT)
       variations:
@@ -315,7 +315,7 @@ PAC air-air coll:
         CO2 installation:
           formule: 409.375
           unité: kgCO2e/kW
-          note: 'Source: INIES 2022'
+          note: "Source : INIES 2022 — https://www.inies.fr/"
         SCOP:
           valeur: 3.3
         SEER:
@@ -341,7 +341,7 @@ PAC air-air coll:
         coût équipement au kW:
           valeur: 661
           unité: €HT/kW
-          note: 'Source: ELCIMAI 2024'
+          note: 'Source : ELCIMAI 2024'
     annuité: *annuite-pac-air-air
     installation:
       avec:
