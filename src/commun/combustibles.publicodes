@@ -172,7 +172,7 @@ combustibles:
                 prix du kWh:
                   valeur: 0.1708
                   unité: €HT/kWh
-                  note: 'Source : AMORCE 2024'
+                  note: "Source : ELCIMAI + TRV électricité au 01/02/2024 (CRE, délibération n°2024-05 du 18/01/2024, annexe B) — https://www.cre.fr/consommateurs/comprendre-les-tarifs-reglementes-de-vente-delectricite-trve.html"
             option heures creuses:
               avec:
                 part de la consommation en HP:
