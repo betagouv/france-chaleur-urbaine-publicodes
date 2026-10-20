@@ -51,13 +51,14 @@ jobs:
             -u ":$SCALINGO_API_TOKEN" \
             -X POST https://auth.scalingo.com/v1/tokens/exchange | jq -r '.token')
           
-          # Trigger deployment the branch dev-publicodes of the repository france-chaleur-urbaine
+          # Deploy the dev branch of france-chaleur-urbaine on the publicodes dev app:
+          # the app has PUBLICODES_BRANCH=dev, so it builds this repository's dev branch from source
           curl -f -H "Accept: application/json" -H "Content-Type: application/json" \
             -H "Authorization: Bearer $BEARER_TOKEN" \
             -X POST https://api.osc-fr1.scalingo.com/v1/apps/france-chaleur-urbaine-dev-publicodes/deployments \
             -d '{
               "deployment": {
-                "git_ref": "dev-publicodes",
-                "source_url": "https://github.com/betagouv/france-chaleur-urbaine/archive/refs/heads/dev-publicodes.tar.gz"
+                "git_ref": "dev",
+                "source_url": "https://github.com/betagouv/france-chaleur-urbaine/archive/refs/heads/dev.tar.gz"
               }
             }'
